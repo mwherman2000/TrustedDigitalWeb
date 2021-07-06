@@ -1,0 +1,69 @@
+[06/10/2021 03:53:35 PM][ INFO    ] Loading Graph Engine Extensions.
+[06/10/2021 03:53:36 PM][ INFO    ] Scanning for TSL storage extension.
+[06/10/2021 03:53:36 PM][ INFO    ] TSL storage extension loaded.
+[06/10/2021 03:53:36 PM][ INFO    ] Scanning for MemoryCloud extensions.
+[06/10/2021 03:53:36 PM][ INFO    ] No MemoryCloud extension found.
+[06/10/2021 03:53:36 PM][ INFO    ] Scanning for startup tasks.
+[06/10/2021 03:53:36 PM][ INFO    ] EventLoop: Starting.
+[06/10/2021 03:53:36 PM][ INFO    ] Listening endpoint :5304
+[06/10/2021 03:53:36 PM][ INFO    ] Waiting for client connection ...
+[06/10/2021 03:53:36 PM][ INFO    ] My IPEndPoint: 192.168.1.245:5304
+[06/10/2021 03:53:36 PM][ INFO    ] HTTP server listening on port 8081
+[06/10/2021 03:53:36 PM][ INFO    ] *****************************************************
+[06/10/2021 03:53:36 PM][ INFO    ] ServerCount: 0
+[06/10/2021 03:53:36 PM][ INFO    ] ProxyCount: 0
+[06/10/2021 03:53:36 PM][ INFO    ] *****************************************************
+[06/10/2021 03:53:36 PM][ WARNING ] No distributed instances configured. Turning on local test mode.
+[06/10/2021 03:53:37 PM][ INFO    ] LocalMemoryStorage is initialized in read-write mode
+[06/10/2021 03:53:37 PM][ INFO    ] Initializing logging facility
+[06/10/2021 03:53:37 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_14.dat
+[06/10/2021 03:53:37 PM][ INFO    ] Scanning for auto-registered communication modules.
+[06/10/2021 03:53:37 PM][ INFO    ] Checking Server-Server protocol signatures...
+[06/10/2021 03:53:37 PM][ INFO    ] Working Directory: C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\
+[06/10/2021 03:53:37 PM][ INFO    ] StorageRoot : C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\
+[06/10/2021 03:53:37 PM][ INFO    ] LogDirectory: C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\trinity-log
+[06/10/2021 03:53:37 PM][ INFO    ] LoggingLevel: Info
+[06/10/2021 03:53:37 PM][ INFO    ] HttpPort:     8081
+[06/10/2021 03:53:37 PM][ INFO    ] Server 0 is successfully started.
+[06/10/2021 03:53:37 PM][ INFO    ] Loading storage from [SLOT B]
+[06/10/2021 03:53:41 PM][ INFO    ] Load storage complete, image version = 13
+[06/10/2021 03:53:41 PM][ INFO    ] Initializing logging facility
+[06/10/2021 03:53:41 PM][ INFO    ] Dropping write-ahead-log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_14.dat
+[06/10/2021 03:53:41 PM][ INFO    ] Reading log file.
+[06/10/2021 03:53:41 PM][ INFO    ] Write-ahead-log successfully loaded. Recovered 0 records.
+[06/10/2021 03:53:41 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_13.dat
+[06/10/2021 03:53:41 PM][ INFO    ] Loading cell type signatures.
+[06/10/2021 03:54:26 PM][ INFO    ] Saving storage to [SLOT A]
+[06/10/2021 03:54:28 PM][ INFO    ] Save storage complete, image version = 14.
+[06/10/2021 03:54:28 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_14.dat
+[06/10/2021 03:54:28 PM][ INFO    ] Dropping write-ahead-log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_13.dat
+[06/10/2021 03:54:29 PM][ INFO    ] Saving cell type signatures.
+[06/10/2021 03:55:56 PM][ ERROR   ] Trinity.Storage.CellNotFoundException: The cell with id = 5965410934158164000 not found.
+   at TDW.KMSServer.Throw.cell_not_found(Int64 cellId) in C:\GE\TDW.TCSServer\TDW.KMSServer\obj\Debug\netcoreapp3.1\GeneratedCode\Lib\Throw.cs:line 88
+   at TDW.KMSServer.StorageExtension_KMSKeyPair.UseKMSKeyPair(LocalMemoryStorage storage, Int64 cellId) in C:\GE\TDW.TCSServer\TDW.KMSServer\obj\Debug\netcoreapp3.1\GeneratedCode\Cells\KMSKeyPair.cs:line 1867
+   at TDW.KMSServer.TDWKMSServer.ComputeKeyPairSignatureHandler(KMSPayloadMessage request, KMSKeyPairSignatureMessage& response) in C:\GE\TDW.TCSServer\TDW.KMSServer\TDWKMSService.cs:line 67
+   at TDW.KMSServer.TDWKMSServiceBase.DispatchHttpRequest(HttpListenerContext context, String endpoint_name, String url) in C:\GE\TDW.TCSServer\TDW.KMSServer\obj\Debug\netcoreapp3.1\GeneratedCode\Lib\HTTP.cs:line 146
+   at Trinity.Network.CommunicationInstance._HttpHandler(HttpListenerContext context)
+   at Trinity.Network.Http.TrinityHttpServer.ProcessHttpRequest(HttpListenerContext ctx)
+[06/10/2021 03:56:01 PM][ INFO    ] Saving storage to [SLOT B]
+[06/10/2021 03:56:04 PM][ INFO    ] Save storage complete, image version = 15.
+[06/10/2021 03:56:04 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_15.dat
+[06/10/2021 03:56:04 PM][ INFO    ] Dropping write-ahead-log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_14.dat
+[06/10/2021 03:56:04 PM][ INFO    ] Saving cell type signatures.
+[06/10/2021 03:57:00 PM][ INFO    ] Saving storage to [SLOT A]
+[06/10/2021 03:57:02 PM][ INFO    ] Save storage complete, image version = 16.
+[06/10/2021 03:57:02 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_16.dat
+[06/10/2021 03:57:02 PM][ INFO    ] Dropping write-ahead-log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_15.dat
+[06/10/2021 03:57:02 PM][ INFO    ] Saving cell type signatures.
+[06/10/2021 03:57:55 PM][ INFO    ] Saving storage to [SLOT B]
+[06/10/2021 03:57:58 PM][ INFO    ] Save storage complete, image version = 17.
+[06/10/2021 03:57:58 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_17.dat
+[06/10/2021 03:57:58 PM][ INFO    ] Dropping write-ahead-log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_16.dat
+[06/10/2021 03:57:58 PM][ INFO    ] Saving cell type signatures.
+[06/10/2021 04:02:43 PM][ ERROR   ] Trinity.Storage.CellNotFoundException: The cell with id = 2580731951520376300 not found.
+   at TDW.KMSServer.Throw.cell_not_found(Int64 cellId) in C:\GE\TDW.TCSServer\TDW.KMSServer\obj\Debug\netcoreapp3.1\GeneratedCode\Lib\Throw.cs:line 88
+   at TDW.KMSServer.StorageExtension_KMSKeyPair.UseKMSKeyPair(LocalMemoryStorage storage, Int64 cellId) in C:\GE\TDW.TCSServer\TDW.KMSServer\obj\Debug\netcoreapp3.1\GeneratedCode\Cells\KMSKeyPair.cs:line 1867
+   at TDW.KMSServer.TDWKMSServer.ComputeKeyPairSignatureHandler(KMSPayloadMessage request, KMSKeyPairSignatureMessage& response) in C:\GE\TDW.TCSServer\TDW.KMSServer\TDWKMSService.cs:line 67
+   at TDW.KMSServer.TDWKMSServiceBase.DispatchHttpRequest(HttpListenerContext context, String endpoint_name, String url) in C:\GE\TDW.TCSServer\TDW.KMSServer\obj\Debug\netcoreapp3.1\GeneratedCode\Lib\HTTP.cs:line 146
+   at Trinity.Network.CommunicationInstance._HttpHandler(HttpListenerContext context)
+   at Trinity.Network.Http.TrinityHttpServer.ProcessHttpRequest(HttpListenerContext ctx)

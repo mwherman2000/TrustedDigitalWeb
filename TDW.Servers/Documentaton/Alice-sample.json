@@ -1,0 +1,95 @@
+{
+    {
+        "CellId": 97937472751134764,
+        "Credential": {
+            "context": [
+                "https://www.sovrona.com/ns/udid/v1"
+            ],
+            "claims": [
+                {
+                    "key": "testkey1",
+                    "value": "testvalue1"
+                },
+                {
+                    "key": "authentication",
+                    "attribute": [
+                        {
+                            "key": "publicKey",
+                            "value": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                        },
+                        {
+                            "key": "id",
+                            "value": "#pubkey1"
+                        },
+                        {
+                            "key": "type",
+                            "value": "AUTHN-KEY"
+                        }
+                    ]
+                },
+                {
+                    "key": "service",
+                    "attribute": [
+                        {
+                            "key": "serviceEndPoint",
+                            "value": "http://localhost:5304/"
+                        },
+                        {
+                            "key": "id",
+                            "value": "#sep1"
+                        },
+                        {
+                            "key": "type",
+                            "value": "SEP-TCS"
+                        }
+                    ]
+                },
+                {
+                    "key": "testkey2",
+                    "attributes": [
+                        [
+                            {
+                                "key": "publicKey",
+                                "value": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            },
+                            {
+                                "key": "id",
+                                "value": "#pubkey1"
+                            },
+                            {
+                                "key": "type",
+                                "value": "AUTHN-KEY"
+                            }
+                        ],
+                        [
+                            {
+                                "key": "publicKey",
+                                "value": "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                            },
+                            {
+                                "key": "id",
+                                "value": "#pubkey2"
+                            },
+                            {
+                                "key": "type",
+                                "value": "AUTHN-KEY"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        },
+        "Envelope": {
+            "kind": "UDIDDocument",
+            "encryptionFlag": "NotEncrypted",
+            "thumbprint": "<thumbprint>",
+            "signature": "<signature>",
+            "notarystamp": "<notarystamp>",
+            "comments": [
+                "Alice's UDID Document",
+                "It works!",
+                "Created by TDW.TCSServer at 2021-06-14 08:19:29Z"
+            ]
+        }
+    }
+}

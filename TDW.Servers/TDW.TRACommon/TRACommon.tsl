@@ -1,0 +1,61 @@
+﻿// Trusted Digial Web Project
+// Hyperonomy Digital Identity Lab
+// Parallelspace Corporation
+// (c) Copyright 2021 Parallelspace Corporation. All Rights Reserved
+
+//////////////////////////////////////////////////////////////////////////////
+/// TRA Common Types
+
+enum TRATrustLevel
+{
+	Undefined,	
+	UnResolvable,
+	Unsigned,
+	HashedThumbprint,
+	SignedHashSignature,
+	Verifiable,
+	CorruptSignatures
+}
+
+enum TRAEncryptionFlag
+{
+	NotEncrypted,
+	Encrypted
+}
+
+enum TRACredentialType
+{
+	GenericCredential,
+	UDIDDocument,
+	VerifiableCredential,
+	VerifiableCapabilityAuthorization,
+	MasterVerifiableCapabilityAuthorization,
+	ServerCertificate,
+	RevocationCertificate
+}
+
+
+enum TRAServiceType
+{
+	Unknown,
+	ResourceService,
+	StorageService,
+	KeyManagementService,
+	MasterKeyManagementService,
+	AuthenticationService,
+	VerifiableDataRegistryService,
+	// ServiceEndpointRegistryService,
+	// RevocationRegistryService,
+	// IdentityRegistryService
+}
+
+struct TRAEnvelope 
+{
+	TRACredentialType credtype;	
+	//TRATrustLevel trustLevel;			// Calculated - not stored
+	TRAEncryptionFlag encryptionFlag;
+	optional string hashedThumbprint64;	// digital hash
+	optional string signedHashSignature64;    // private key digital signature
+	optional string notaryStamp;		// verifiable data registry key
+	optional List<string> comments;
+}

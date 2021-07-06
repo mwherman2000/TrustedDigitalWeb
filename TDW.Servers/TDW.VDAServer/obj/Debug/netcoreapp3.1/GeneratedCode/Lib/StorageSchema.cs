@@ -1,0 +1,595 @@
+#pragma warning disable 162,168,649,660,661,1522
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Trinity.Storage;
+using Trinity.TSL;
+namespace TDW.VDAServer
+{
+    /// <summary>
+    /// Exposes the data modeling schema defined in the TSL.
+    /// </summary>
+    public class StorageSchema : IStorageSchema
+    {
+        #region CellType lookup table
+        internal static Dictionary<string, CellType> cellTypeLookupTable = new Dictionary<string, CellType>()
+        {
+            
+            {"TDWVDAAccount", global::TDW.VDAServer.CellType.TDWVDAAccount}
+            ,
+            {"TDWVDASmartContract", global::TDW.VDAServer.CellType.TDWVDASmartContract}
+            
+        };
+        #endregion
+        
+        internal static readonly Type   s_cellType_TDWVDAAccount       = typeof(global::TDW.VDAServer.TDWVDAAccount);
+        internal static readonly string s_cellTypeName_TDWVDAAccount   = "TDWVDAAccount";
+        internal class TDWVDAAccount_descriptor : ICellDescriptor
+        {
+            private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+            {
+                
+            };
+            internal static bool check_attribute(IAttributeCollection attributes, string attributeKey, string attributeValue)
+            {
+                if (attributeKey == null)
+                    return true;
+                if (attributeValue == null)
+                    return attributes.Attributes.ContainsKey(attributeKey);
+                else
+                    return attributes.Attributes.ContainsKey(attributeKey) && attributes.Attributes[attributeKey] == attributeValue;
+            }
+            
+            internal class AccountCore_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "TDWVDAAccountEntryCore";
+                private static Type   s_type     = typeof(TDWVDAAccountEntryCore);
+                public string Name
+                {
+                    get { return "AccountCore"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return false;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static AccountCore_descriptor AccountCore = new AccountCore_descriptor();
+            
+            internal class Envelope_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "TRAEnvelope";
+                private static Type   s_type     = typeof(TRAEnvelope);
+                public string Name
+                {
+                    get { return "Envelope"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return false;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static Envelope_descriptor Envelope = new Envelope_descriptor();
+            
+            internal class EncryptedAccountCore_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "string";
+                private static Type   s_type     = typeof(string);
+                public string Name
+                {
+                    get { return "EncryptedAccountCore"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return true;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static EncryptedAccountCore_descriptor EncryptedAccountCore = new EncryptedAccountCore_descriptor();
+            
+            #region ICellDescriptor
+            public IEnumerable<string> GetFieldNames()
+            {
+                
+                yield return "AccountCore";
+                
+                yield return "Envelope";
+                
+                yield return "EncryptedAccountCore";
+                
+            }
+            public IAttributeCollection GetFieldAttributes(string fieldName)
+            {
+                int field_id = global::TDW.VDAServer.TDWVDAAccount.FieldLookupTable.Lookup(fieldName);
+                if (field_id == -1)
+                    Throw.undefined_field();
+                switch (field_id)
+                {
+                    
+                    case 0:
+                        return AccountCore;
+                    
+                    case 1:
+                        return Envelope;
+                    
+                    case 2:
+                        return EncryptedAccountCore;
+                    
+                }
+                /* Should not reach here */
+                throw new Exception("Internal error T6001");
+            }
+            public IEnumerable<IFieldDescriptor> GetFieldDescriptors()
+            {
+                
+                yield return AccountCore;
+                
+                yield return Envelope;
+                
+                yield return EncryptedAccountCore;
+                
+            }
+            ushort ICellDescriptor.CellType
+            {
+                get { return (ushort)CellType.TDWVDAAccount; }
+            }
+            #endregion
+            #region ITypeDescriptor
+            public string TypeName
+            {
+                get { return s_cellTypeName_TDWVDAAccount; }
+            }
+            public Type Type
+            {
+                get { return s_cellType_TDWVDAAccount; }
+            }
+            public bool IsOfType<T>()
+            {
+                return typeof(T) == s_cellType_TDWVDAAccount;
+            }
+            public bool IsList()
+            {
+                return false;
+            }
+            #endregion
+            #region IAttributeCollection
+            public IReadOnlyDictionary<string, string> Attributes
+            {
+                get { return s_attributes; }
+            }
+            public string GetAttributeValue(string attributeKey)
+            {
+                string ret = null;
+                s_attributes.TryGetValue(attributeKey, out ret);
+                return ret;
+            }
+            #endregion
+        }
+        internal static readonly TDWVDAAccount_descriptor s_cellDescriptor_TDWVDAAccount = new TDWVDAAccount_descriptor();
+        /// <summary>
+        /// Get the cell descriptor for TDWVDAAccount.
+        /// </summary>
+        public static ICellDescriptor TDWVDAAccount { get { return s_cellDescriptor_TDWVDAAccount; } }
+        
+        internal static readonly Type   s_cellType_TDWVDASmartContract       = typeof(global::TDW.VDAServer.TDWVDASmartContract);
+        internal static readonly string s_cellTypeName_TDWVDASmartContract   = "TDWVDASmartContract";
+        internal class TDWVDASmartContract_descriptor : ICellDescriptor
+        {
+            private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+            {
+                
+            };
+            internal static bool check_attribute(IAttributeCollection attributes, string attributeKey, string attributeValue)
+            {
+                if (attributeKey == null)
+                    return true;
+                if (attributeValue == null)
+                    return attributes.Attributes.ContainsKey(attributeKey);
+                else
+                    return attributes.Attributes.ContainsKey(attributeKey) && attributes.Attributes[attributeKey] == attributeValue;
+            }
+            
+            internal class SmartContractCore_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "TDWVDASmartContractEntryCore";
+                private static Type   s_type     = typeof(TDWVDASmartContractEntryCore);
+                public string Name
+                {
+                    get { return "SmartContractCore"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return false;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static SmartContractCore_descriptor SmartContractCore = new SmartContractCore_descriptor();
+            
+            internal class Envelope_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "TRAEnvelope";
+                private static Type   s_type     = typeof(TRAEnvelope);
+                public string Name
+                {
+                    get { return "Envelope"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return false;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static Envelope_descriptor Envelope = new Envelope_descriptor();
+            
+            internal class EncryptedSmartContractCore_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "string";
+                private static Type   s_type     = typeof(string);
+                public string Name
+                {
+                    get { return "EncryptedSmartContractCore"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return true;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static EncryptedSmartContractCore_descriptor EncryptedSmartContractCore = new EncryptedSmartContractCore_descriptor();
+            
+            #region ICellDescriptor
+            public IEnumerable<string> GetFieldNames()
+            {
+                
+                yield return "SmartContractCore";
+                
+                yield return "Envelope";
+                
+                yield return "EncryptedSmartContractCore";
+                
+            }
+            public IAttributeCollection GetFieldAttributes(string fieldName)
+            {
+                int field_id = global::TDW.VDAServer.TDWVDASmartContract.FieldLookupTable.Lookup(fieldName);
+                if (field_id == -1)
+                    Throw.undefined_field();
+                switch (field_id)
+                {
+                    
+                    case 0:
+                        return SmartContractCore;
+                    
+                    case 1:
+                        return Envelope;
+                    
+                    case 2:
+                        return EncryptedSmartContractCore;
+                    
+                }
+                /* Should not reach here */
+                throw new Exception("Internal error T6001");
+            }
+            public IEnumerable<IFieldDescriptor> GetFieldDescriptors()
+            {
+                
+                yield return SmartContractCore;
+                
+                yield return Envelope;
+                
+                yield return EncryptedSmartContractCore;
+                
+            }
+            ushort ICellDescriptor.CellType
+            {
+                get { return (ushort)CellType.TDWVDASmartContract; }
+            }
+            #endregion
+            #region ITypeDescriptor
+            public string TypeName
+            {
+                get { return s_cellTypeName_TDWVDASmartContract; }
+            }
+            public Type Type
+            {
+                get { return s_cellType_TDWVDASmartContract; }
+            }
+            public bool IsOfType<T>()
+            {
+                return typeof(T) == s_cellType_TDWVDASmartContract;
+            }
+            public bool IsList()
+            {
+                return false;
+            }
+            #endregion
+            #region IAttributeCollection
+            public IReadOnlyDictionary<string, string> Attributes
+            {
+                get { return s_attributes; }
+            }
+            public string GetAttributeValue(string attributeKey)
+            {
+                string ret = null;
+                s_attributes.TryGetValue(attributeKey, out ret);
+                return ret;
+            }
+            #endregion
+        }
+        internal static readonly TDWVDASmartContract_descriptor s_cellDescriptor_TDWVDASmartContract = new TDWVDASmartContract_descriptor();
+        /// <summary>
+        /// Get the cell descriptor for TDWVDASmartContract.
+        /// </summary>
+        public static ICellDescriptor TDWVDASmartContract { get { return s_cellDescriptor_TDWVDASmartContract; } }
+        
+        /// <summary>
+        /// Enumerates descriptors for all cells defined in the TSL.
+        /// </summary>
+        public static IEnumerable<ICellDescriptor> CellDescriptors
+        {
+            get
+            {
+                
+                yield return TDWVDAAccount;
+                
+                yield return TDWVDASmartContract;
+                
+                yield break;
+            }
+        }
+        /// <summary>
+        /// Converts a type string to <see cref="TDW.VDAServer.CellType"/>.
+        /// </summary>
+        /// <param name="cellTypeString">The type string to be converted.</param>
+        /// <returns>The converted cell type.</returns>
+        public static CellType GetCellType(string cellTypeString)
+        {
+            CellType ret;
+            if (!cellTypeLookupTable.TryGetValue(cellTypeString, out ret))
+                throw new Exception("Unrecognized cell type string.");
+            return ret;
+        }
+        #region IStorageSchema implementation
+        IEnumerable<ICellDescriptor> IStorageSchema.CellDescriptors
+        {
+            get { return StorageSchema.CellDescriptors; }
+        }
+        ushort IStorageSchema.GetCellType(string cellTypeString)
+        {
+            return (ushort)StorageSchema.GetCellType(cellTypeString);
+        }
+        IEnumerable<string> IStorageSchema.CellTypeSignatures
+        {
+            get
+            {
+                
+                yield return "{{long|string|string|string|string|string}|{TRACredentialType|TRAEncryptionFlag|optional string|optional string|optional string|optional List<string>}|optional string}";
+                
+                yield return "{{string|string}|{TRACredentialType|TRAEncryptionFlag|optional string|optional string|optional string|optional List<string>}|optional string}";
+                
+                yield break;
+            }
+        }
+        #endregion
+    }
+}
+
+#pragma warning restore 162,168,649,660,661,1522

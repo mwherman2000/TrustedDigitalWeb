@@ -1,0 +1,27 @@
+[06/08/2021 12:39:15 PM][ INFO    ] Loading Graph Engine Extensions.
+[06/08/2021 12:39:16 PM][ INFO    ] Scanning for TSL storage extension.
+[06/08/2021 12:39:16 PM][ INFO    ] TSL storage extension loaded.
+[06/08/2021 12:39:16 PM][ INFO    ] Scanning for MemoryCloud extensions.
+[06/08/2021 12:39:16 PM][ INFO    ] No MemoryCloud extension found.
+[06/08/2021 12:39:16 PM][ INFO    ] Scanning for startup tasks.
+[06/08/2021 12:39:16 PM][ INFO    ] EventLoop: Starting.
+[06/08/2021 12:39:17 PM][ INFO    ] LocalMemoryStorage is initialized in read-write mode
+[06/08/2021 12:39:17 PM][ INFO    ] Initializing logging facility
+[06/08/2021 12:39:17 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_2.dat
+[06/08/2021 12:39:17 PM][ INFO    ] Resetting storage.
+[06/08/2021 12:39:17 PM][ INFO    ] Reset storage complete, image version = 3
+[06/08/2021 12:39:18 PM][ INFO    ] Dropping write-ahead-log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_2.dat
+[06/08/2021 12:39:18 PM][ INFO    ] Initializing logging facility
+[06/08/2021 12:39:18 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_3.dat
+[06/08/2021 12:39:18 PM][ INFO    ] Loading storage from [SLOT A]
+[06/08/2021 12:39:22 PM][ INFO    ] Load storage complete, image version = 1
+[06/08/2021 12:39:22 PM][ INFO    ] Initializing logging facility
+[06/08/2021 12:39:22 PM][ INFO    ] Dropping write-ahead-log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_3.dat
+[06/08/2021 12:39:22 PM][ INFO    ] Reading log file.
+[06/08/2021 12:39:22 PM][ INFO    ] Write-ahead-log successfully loaded. Recovered 0 records.
+[06/08/2021 12:39:22 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_1.dat
+[06/08/2021 12:39:22 PM][ INFO    ] Loading cell type signatures.
+[06/08/2021 12:39:22 PM][ WARNING ] The disk image contains more cell types than defined in the loaded TSL storage extension!
+[06/08/2021 12:39:22 PM][ ERROR   ] Inconsistent cell type signature for type #0.
+[06/08/2021 12:39:22 PM][ ERROR   ] Expecting: {{string|{List<string>|List<{string|optional string|optional List<{string|string}>}>}|optional List<string>}|{TCSTrustLevel|optional string|optional string|optional string}}.
+[06/08/2021 12:39:22 PM][ ERROR   ] Got: {string|byte|bool|long|long}.

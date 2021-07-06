@@ -1,0 +1,146 @@
+// Trusted Digial Web Project
+// Hyperonomy Digital Identity Lab
+// Parallelspace Corporation
+// (c) Copyright 2021 Parallelspace Corporation. All Rights Reserved
+
+//////////////////////////////////////////////////////////////////////////////
+
+enum KMAKeyPairType
+{
+	Hybrid,	
+	Authentication,
+	Encryption,
+}
+
+struct KMAInitializeMasterKeyVaultRequest
+{
+	string reserved;
+}
+
+struct KMACreateKeyPairRequest
+{
+	string keypairsalt;
+	string keyringudid;
+	KMAKeyPairType keypairtype;
+}
+
+struct KMAGetBestKeyPairRequest
+{
+	string keyringudid;
+	KMAKeyPairType keypairtype;
+}
+
+struct KMAKeyPairResponse
+{
+	long id;
+	string udid;
+	long rc;
+	List<string> messages;
+}
+
+struct KMAComputePayloadHashRequest
+{
+	string payload64; // Base64 string of byte[]
+}
+
+struct KMAPayloadHashResponse
+{
+	long rc;
+	List<string> messages;
+    string hash64; // Base64 string of byte[]
+}
+
+struct KMAComputeHashKeyPairSignatureRequest
+{
+	long keypairid;
+	string keypairsalt;
+	string hash64; // Base64 string of byte[]
+}
+
+struct KMAHashKeyPairSignatureResponse
+{
+	long rc;
+	List<string> messages;
+    string signature64; //Base64 string of byte[]
+}
+
+struct KMAValidateHashKeyPairSignatureRequest
+{
+	long keypairid;
+	string keypairsalt;
+	string hash64; // Base64 string of byte[]
+	string signature64; // Base64 string of byte[]
+}
+
+struct KMAValidateHashKeyPairSignatureResponse
+{
+	long rc;
+	List<string> messages;
+    bool valid;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+cell struct KMAKeyPair
+{
+	string udid;
+	string keyringudid;
+	KMAKeyPairType keypairtype;
+	string algorithm;
+	long keysize;
+	string encryptedkeypair64;
+	string publickey;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+protocol InitializeMasterKeyVault
+{
+	Type: Syn;
+	Request: KMAInitializeMasterKeyVaultRequest;
+}
+
+protocol CreateKeyPair
+{
+	Type: HTTP;
+	Request: KMACreateKeyPairRequest;
+	Response: KMAKeyPairResponse;
+}
+
+protocol GetBestKeyPair
+{
+	Type: HTTP;
+	Request: KMAGetBestKeyPairRequest;
+	Response: KMAKeyPairResponse;
+}
+
+protocol ComputePayloadHash
+{
+	Type: HTTP;
+	Request: KMAComputePayloadHashRequest;
+	Response: KMAPayloadHashResponse;
+}
+
+protocol ComputeHashKeyPairSignature
+{
+	Type: HTTP;
+	Request: KMAComputeHashKeyPairSignatureRequest;
+	Response: KMAHashKeyPairSignatureResponse;
+}
+
+protocol ValidateHashKeyPairSignature
+{
+	Type: HTTP;
+	Request:  KMAValidateHashKeyPairSignatureRequest;
+	Response: KMAValidateHashKeyPairSignatureResponse;
+}
+
+server TDWKMAService
+{
+	protocol InitializeMasterKeyVault;	
+	protocol CreateKeyPair;
+	protocol GetBestKeyPair;
+	protocol ComputePayloadHash;
+	protocol ComputeHashKeyPairSignature;
+	protocol ValidateHashKeyPairSignature;
+}

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "pwimWipvJ0/66u4qIl535Xm8j3wGsdbHKzsAE/x7obcKhq4EWXR3QSGU2Npla0zLcWIHO8LPlSjoAy2X3nussw==",
+  "success": true,
+  "projectFilePath": "C:\\GE\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mwher\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\mwher\\.nuget\\packages\\stratis.smartcontracts\\2.0.0\\stratis.smartcontracts.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

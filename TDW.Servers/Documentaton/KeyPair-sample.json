@@ -1,0 +1,20 @@
+{
+    {
+        "CellId": 5265810752268922643,
+        "id": 5265810752268922643,
+        "udid": "did:svrn:keypair:13EF/6BCF/FAEA/1349",
+        "keyringudid": "did:svrnkeyring:E903/0000/0000/0000",
+        "kind": "Hybrid",
+        "encryptedkeypair64": "OTu8Nubi0UqWVx6LjBMpAC9acBG3EkrwLeAmqFRDjsx5UltzexQKCzMaP6VtgRiiyhfW+e5a5RlZ7z7XPcvzGn2+WAJsRrKmaVWGZg6xr90EdLz4AYlfpQaksvhpeR/P4ml5132L1EMrid76ueT4ZXog4bmwDkCJ8uvTMLpPhZhUocfOmNZwoMLR1TxwUtwf3/Lmbm/q2LcRNvO+rLsWkVsGJfWD9veGJYPrVh+a1/QBywEXg9PCqcKgveM7rVdiCecWyIExCEWRGMGTlGBuvFwnptCZnpwq1Nt25sqoQhFS0gI6kWzMJAWYcUyIbyjOvVONgQ5e2Chm8iXSmvnq2M3PewOnJVBa2ohx3dw5A2Q34sYT5dIxqiLD3N9ykEUJVaE1FhFhgQ1+OKiPwbCfKju8QXxuhUuYCg4R38hzmZQwAPmGMfvR0GVciHfDA8PDb6TGWcsVN5/ITZnSJpMbhO+kvNxn6GsEPOS3Ymeb0GRVqWe/k+5TGad4sT7GJcRpPorg8168zi2qat2fccndTXwDuX4e6+cCYl6DOQzcp5C1ev9mW+zx7WGx1wN+yrhHjsIAESnSd1KCwHkr+u67IHwa8bB2GicHx1U5DKY5JPlOXl1wKwiKB7a3URNlBB9ooIpo5BEYhZwr21Z74eA0C+U6EBwxR21A5zDYomAqGgc/8mLtH4Js23myf1dtOTtBTcUgsXC90sp10D8TI/UCrLxO5Mu09bBoGn1rxfI3s3uXqlx7rv7pv+Bx12Muwdtbf1TxfQBMkf/ZDF1hox1MkgdSopsKqpFgXu6nzujgUrCRF0sDCrIwsYURg63OJkNmBcorVK7S+9jgQThd3fAEYyU/WqUihPgaduXhCIK6oAJPcxSF3nRafeixbDmracFy7N6tOgHkHDsxJ5bF7GOo7FzJZSNp40dUep6jpd3DuTwQWbZN8858f/o7QG8ZX24fssoa/vBKvhAc4RYlwZu8PVrv1ki+k3v8nMeNjQX85//p6DRuxLTJGbU0l0N2JqpUSRmrKpWiVYMgU+vjqJVZznELNYAlDOdHzfNUAFdCGpoD0klHsuv5ZfUCGTA4gruIjUULfZWVlKUCsPKgRzRjEgjwVJ6am2EnWUlvHfozDBorNMxFRJZIQTvlB8qVB0afpsJRcKCeJPYHkjblWVv+9CNl+HUekHKUrfYIKfZdnCMvsW5fN9hJ5k6RLaLY9MYqnZY5EfpyRH67fPOOmHvauN3i4kl23+1btIQKPm5yH0E8z+dFK/xzSXGlDiSWtZ/DKIDJbmcgt6HvdvvFqW1kbQePChSjvaDJ+yYh91/3n9lME/5ec0FSU4KJA0jUNNGJEQ==",
+        "revocationInfo": {
+            "isrevoked": false,
+            "created": "2021-06-14T06:30:10.5470344-06:00",
+            "activated": "2021-06-14T06:30:10.5471019-06:00",
+            "expires": "9999-12-31T23:59:59.9999999",
+            "revoked": "9999-12-31T23:59:59.9999999",
+            "messages": [
+                "new keypair"
+            ]
+        }
+    }
+}

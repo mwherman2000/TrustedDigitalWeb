@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>System.Windows.Forms.Samples</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Address.bmp" />
+    <None Remove="Mail\Brian.htm" />
+    <None Remove="Mail\Chris.htm" />
+    <None Remove="Mail\Erick.htm" />
+    <None Remove="Mail\Harsh.htm" />
+    <None Remove="Mail\Hender.htm" />
+    <None Remove="Mail\Iain.htm" />
+    <None Remove="Mail\Inbox.xml" />
+    <None Remove="Mail\Jamie.htm" />
+    <None Remove="Mail\Jeff.htm" />
+    <None Remove="Mail\Laurie.htm" />
+    <None Remove="Mail\Mark.htm" />
+    <None Remove="Mail\Other.htm" />
+    <None Remove="Mail\Rideout.htm" />
+    <None Remove="Mail\Shawn.htm" />
+    <None Remove="Mail\Simon.htm" />
+    <None Remove="Mail\Steve.htm" />
+    <None Remove="Mail\VoiceMail.htm" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\Address.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Mail\Brian.htm" />
+    <EmbeddedResource Include="Mail\Chris.htm" />
+    <EmbeddedResource Include="Mail\Erick.htm" />
+    <EmbeddedResource Include="Mail\Harsh.htm" />
+    <EmbeddedResource Include="Mail\Hender.htm" />
+    <EmbeddedResource Include="Mail\Iain.htm" />
+    <EmbeddedResource Include="Mail\Inbox.xml" />
+    <EmbeddedResource Include="Mail\Jamie.htm" />
+    <EmbeddedResource Include="Mail\Jeff.htm" />
+    <EmbeddedResource Include="Mail\Laurie.htm" />
+    <EmbeddedResource Include="Mail\Mark.htm" />
+    <EmbeddedResource Include="Mail\Other.htm" />
+    <EmbeddedResource Include="Mail\Rideout.htm" />
+    <EmbeddedResource Include="Mail\Shawn.htm" />
+    <EmbeddedResource Include="Mail\Simon.htm" />
+    <EmbeddedResource Include="Mail\Steve.htm" />
+    <EmbeddedResource Include="Mail\VoiceMail.htm" />
+  </ItemGroup>
+
+</Project>

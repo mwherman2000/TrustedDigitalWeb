@@ -1,0 +1,35 @@
+[06/15/2021 12:54:38 PM][ INFO    ] Loading Graph Engine Extensions.
+[06/15/2021 12:54:40 PM][ INFO    ] Scanning for TSL storage extension.
+[06/15/2021 12:54:40 PM][ INFO    ] TSL storage extension loaded.
+[06/15/2021 12:54:40 PM][ INFO    ] Scanning for MemoryCloud extensions.
+[06/15/2021 12:54:40 PM][ INFO    ] No MemoryCloud extension found.
+[06/15/2021 12:54:40 PM][ INFO    ] Scanning for startup tasks.
+[06/15/2021 12:54:40 PM][ INFO    ] EventLoop: Starting.
+[06/15/2021 12:54:40 PM][ INFO    ] Listening endpoint :5305
+[06/15/2021 12:54:40 PM][ INFO    ] Waiting for client connection ...
+[06/15/2021 12:54:40 PM][ INFO    ] My IPEndPoint: 192.168.1.245:5305
+[06/15/2021 12:54:40 PM][ INFO    ] HTTP server listening on port 8081
+[06/15/2021 12:54:40 PM][ INFO    ] *****************************************************
+[06/15/2021 12:54:40 PM][ INFO    ] ServerCount: 0
+[06/15/2021 12:54:40 PM][ INFO    ] ProxyCount: 0
+[06/15/2021 12:54:40 PM][ INFO    ] *****************************************************
+[06/15/2021 12:54:40 PM][ WARNING ] No distributed instances configured. Turning on local test mode.
+[06/15/2021 12:54:41 PM][ INFO    ] LocalMemoryStorage is initialized in read-write mode
+[06/15/2021 12:54:41 PM][ INFO    ] Initializing logging facility
+[06/15/2021 12:54:41 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_120.dat
+[06/15/2021 12:54:41 PM][ INFO    ] Scanning for auto-registered communication modules.
+[06/15/2021 12:54:41 PM][ INFO    ] Checking Server-Server protocol signatures...
+[06/15/2021 12:54:41 PM][ INFO    ] Working Directory: C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\
+[06/15/2021 12:54:41 PM][ INFO    ] StorageRoot : C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\
+[06/15/2021 12:54:41 PM][ INFO    ] LogDirectory: C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\trinity-log
+[06/15/2021 12:54:41 PM][ INFO    ] LoggingLevel: Info
+[06/15/2021 12:54:41 PM][ INFO    ] HttpPort:     8081
+[06/15/2021 12:54:41 PM][ INFO    ] Server 0 is successfully started.
+[06/15/2021 12:54:41 PM][ INFO    ] Loading storage from [SLOT B]
+[06/15/2021 12:54:43 PM][ INFO    ] Load storage complete, image version = 119
+[06/15/2021 12:54:43 PM][ INFO    ] Initializing logging facility
+[06/15/2021 12:54:43 PM][ INFO    ] Dropping write-ahead-log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_120.dat
+[06/15/2021 12:54:43 PM][ INFO    ] Reading log file.
+[06/15/2021 12:54:43 PM][ INFO    ] Write-ahead-log successfully loaded. Recovered 0 records.
+[06/15/2021 12:54:43 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.KMSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_119.dat
+[06/15/2021 12:54:43 PM][ INFO    ] Loading cell type signatures.

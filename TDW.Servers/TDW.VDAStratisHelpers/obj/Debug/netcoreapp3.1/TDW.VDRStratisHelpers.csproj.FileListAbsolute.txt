@@ -1,0 +1,9 @@
+C:\GE\TDW.Servers\TDW.VDRStratisHelpers\bin\Debug\netcoreapp3.1\TDW.VDRStratisHelpers.deps.json
+C:\GE\TDW.Servers\TDW.VDRStratisHelpers\bin\Debug\netcoreapp3.1\TDW.VDRStratisHelpers.dll
+C:\GE\TDW.Servers\TDW.VDRStratisHelpers\bin\Debug\netcoreapp3.1\TDW.VDRStratisHelpers.pdb
+C:\GE\TDW.Servers\TDW.VDRStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDRStratisHelpers.csproj.AssemblyReference.cache
+C:\GE\TDW.Servers\TDW.VDRStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDRStratisHelpers.AssemblyInfoInputs.cache
+C:\GE\TDW.Servers\TDW.VDRStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDRStratisHelpers.AssemblyInfo.cs
+C:\GE\TDW.Servers\TDW.VDRStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDRStratisHelpers.csproj.CoreCompileInputs.cache
+C:\GE\TDW.Servers\TDW.VDRStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDRStratisHelpers.dll
+C:\GE\TDW.Servers\TDW.VDRStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDRStratisHelpers.pdb

@@ -1,0 +1,35 @@
+[06/14/2021 10:27:26 PM][ INFO    ] Loading Graph Engine Extensions.
+[06/14/2021 10:27:27 PM][ INFO    ] Scanning for TSL storage extension.
+[06/14/2021 10:27:28 PM][ INFO    ] TSL storage extension loaded.
+[06/14/2021 10:27:28 PM][ INFO    ] Scanning for MemoryCloud extensions.
+[06/14/2021 10:27:28 PM][ INFO    ] No MemoryCloud extension found.
+[06/14/2021 10:27:28 PM][ INFO    ] Scanning for startup tasks.
+[06/14/2021 10:27:28 PM][ INFO    ] EventLoop: Starting.
+[06/14/2021 10:27:28 PM][ INFO    ] LocalMemoryStorage is initialized in read-write mode
+[06/14/2021 10:27:28 PM][ INFO    ] Initializing logging facility
+[06/14/2021 10:27:28 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_59.dat
+[06/14/2021 10:27:28 PM][ INFO    ] Loading storage from [SLOT B]
+[06/14/2021 10:27:32 PM][ INFO    ] Load storage complete, image version = 58
+[06/14/2021 10:27:32 PM][ INFO    ] Initializing logging facility
+[06/14/2021 10:27:32 PM][ INFO    ] Dropping write-ahead-log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_59.dat
+[06/14/2021 10:27:32 PM][ INFO    ] Reading log file.
+[06/14/2021 10:27:32 PM][ INFO    ] Write-ahead-log successfully loaded. Recovered 0 records.
+[06/14/2021 10:27:32 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_58.dat
+[06/14/2021 10:27:32 PM][ INFO    ] Loading cell type signatures.
+[06/14/2021 10:27:32 PM][ INFO    ] Listening endpoint :5304
+[06/14/2021 10:27:32 PM][ INFO    ] Waiting for client connection ...
+[06/14/2021 10:27:32 PM][ INFO    ] My IPEndPoint: 192.168.1.245:5304
+[06/14/2021 10:27:32 PM][ INFO    ] HTTP server listening on port 8080
+[06/14/2021 10:27:32 PM][ INFO    ] *****************************************************
+[06/14/2021 10:27:32 PM][ INFO    ] ServerCount: 0
+[06/14/2021 10:27:32 PM][ INFO    ] ProxyCount: 0
+[06/14/2021 10:27:32 PM][ INFO    ] *****************************************************
+[06/14/2021 10:27:32 PM][ WARNING ] No distributed instances configured. Turning on local test mode.
+[06/14/2021 10:27:32 PM][ INFO    ] Scanning for auto-registered communication modules.
+[06/14/2021 10:27:32 PM][ INFO    ] Checking Server-Server protocol signatures...
+[06/14/2021 10:27:32 PM][ INFO    ] Working Directory: C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\
+[06/14/2021 10:27:32 PM][ INFO    ] StorageRoot : C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\
+[06/14/2021 10:27:32 PM][ INFO    ] LogDirectory: C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\trinity-log
+[06/14/2021 10:27:32 PM][ INFO    ] LoggingLevel: Info
+[06/14/2021 10:27:32 PM][ INFO    ] HttpPort:     8080
+[06/14/2021 10:27:32 PM][ INFO    ] Server 0 is successfully started.

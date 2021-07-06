@@ -1,0 +1,212 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="Current">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2CFFCA13-B00A-4605-B6A4-D49A616CFCB4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Windows.Forms.Samples</RootNamespace>
+    <AssemblyName>TDW.TDADesktop</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Custom Controls\BaseStackStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\MessageArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\MessageArea.Designer.cs">
+      <DependentUpon>MessageArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\MessageList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\LeftSpine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\LeftSpine.Designer.cs">
+      <DependentUpon>LeftSpine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom Controls\RightSpine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\StackStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailServer\MailMessage.cs" />
+    <Compile Include="MailServer\MessageStore.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\FolderView.resx">
+      <DependentUpon>FolderView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Custom Controls\HeaderStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom Controls\FolderView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Address.bmp" />
+    <Content Include="Images\Archive.bmp" />
+    <Content Include="Images\Calendar24.bmp" />
+    <Content Include="Images\Contacts24.bmp" />
+    <Content Include="Images\Copy.bmp" />
+    <Content Include="Images\Cut.bmp" />
+    <Content Include="Images\Delete.bmp" />
+    <Content Include="Images\Drafts.bmp" />
+    <Content Include="Images\Error.bmp" />
+    <Content Include="Images\Find.bmp" />
+    <Content Include="Images\Flag.bmp" />
+    <Content Include="Images\Folder.bmp" />
+    <None Include="Images\Folder24.bmp" />
+    <Content Include="Images\Forward.bmp" />
+    <Content Include="Images\Help.bmp" />
+    <Content Include="Images\Inbox.bmp" />
+    <Content Include="Images\InternetFax.bmp" />
+    <Content Include="Images\JournalEntry.bmp" />
+    <Content Include="Images\Junk.bmp" />
+    <Content Include="Images\Mail24.bmp" />
+    <Content Include="Images\Move.bmp" />
+    <Content Include="Images\New.bmp" />
+    <Content Include="Images\New.png" />
+    <Content Include="Images\NewAppointment.bmp" />
+    <Content Include="Images\NewContact.bmp" />
+    <Content Include="Images\NewDistributionList.bmp" />
+    <Content Include="Images\NewFolder.bmp" />
+    <Content Include="Images\NewMeetingRequest.bmp" />
+    <Content Include="Images\NewSearchFolder.bmp" />
+    <Content Include="Images\NewTask.bmp" />
+    <Content Include="Images\Notes.bmp" />
+    <None Include="Images\Notes32.bmp" />
+    <Content Include="Images\Outbox.bmp" />
+    <Content Include="Images\Outlook.bmp" />
+    <Content Include="Images\OutlookToday.bmp" />
+    <Content Include="Images\Paste.bmp" />
+    <Content Include="Images\Post.bmp" />
+    <Content Include="Images\Post.png" />
+    <Content Include="Images\Print.bmp" />
+    <Content Include="Images\PrintPreview.bmp" />
+    <Content Include="Images\Read.bmp" />
+    <Content Include="Images\Read.gif" />
+    <Content Include="Images\Recycle.bmp" />
+    <Content Include="Images\Reply.bmp" />
+    <Content Include="Images\ReplyAll.bmp" />
+    <Content Include="Images\Rule.bmp" />
+    <Content Include="Images\Search.bmp" />
+    <Content Include="Images\Send.bmp" />
+    <Content Include="Images\Sent.bmp" />
+    <Content Include="Images\Shortcut.bmp" />
+    <None Include="Images\Shortcut24.bmp" />
+    <Content Include="Images\SyncError.bmp" />
+    <Content Include="Images\Task.bmp" />
+    <Content Include="Images\TaskRequest.bmp" />
+    <Content Include="Images\Tasks24.bmp" />
+    <Content Include="Images\TitleBarGrip.bmp" />
+    <Content Include="Images\Unread.gif" />
+    <EmbeddedResource Include="Custom Controls\LeftSpine.resx">
+      <DependentUpon>LeftSpine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\MessageArea.resx">
+      <DependentUpon>MessageArea.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\MessageList.resx">
+      <DependentUpon>MessageList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom Controls\RightSpine.resx">
+      <DependentUpon>RightSpine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mail\Brian.htm" />
+    <EmbeddedResource Include="Mail\Chris.htm" />
+    <EmbeddedResource Include="Mail\Erick.htm" />
+    <EmbeddedResource Include="Mail\Harsh.htm" />
+    <EmbeddedResource Include="Mail\Hender.htm" />
+    <EmbeddedResource Include="Mail\Iain.htm" />
+    <EmbeddedResource Include="Mail\Inbox.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mail\Jamie.htm" />
+    <EmbeddedResource Include="Mail\Jeff.htm" />
+    <EmbeddedResource Include="Mail\Laurie.htm" />
+    <EmbeddedResource Include="Mail\Mark.htm" />
+    <EmbeddedResource Include="Mail\Other.htm" />
+    <EmbeddedResource Include="Mail\Rideout.htm" />
+    <EmbeddedResource Include="Mail\Shawn.htm" />
+    <EmbeddedResource Include="Mail\Simon.htm" />
+    <EmbeddedResource Include="Mail\Steve.htm" />
+    <EmbeddedResource Include="Mail\VoiceMail.htm" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+</Project>

@@ -1,0 +1,38 @@
+[06/14/2021 10:19:34 PM][ INFO    ] Loading Graph Engine Extensions.
+[06/14/2021 10:19:40 PM][ INFO    ] Scanning for TSL storage extension.
+[06/14/2021 10:19:41 PM][ INFO    ] TSL storage extension loaded.
+[06/14/2021 10:19:41 PM][ INFO    ] Scanning for MemoryCloud extensions.
+[06/14/2021 10:19:41 PM][ INFO    ] No MemoryCloud extension found.
+[06/14/2021 10:19:41 PM][ INFO    ] Scanning for startup tasks.
+[06/14/2021 10:19:41 PM][ INFO    ] EventLoop: Starting.
+[06/14/2021 10:19:41 PM][ INFO    ] Listening endpoint :5304
+[06/14/2021 10:19:41 PM][ INFO    ] Waiting for client connection ...
+[06/14/2021 10:19:41 PM][ INFO    ] My IPEndPoint: 192.168.1.245:5304
+[06/14/2021 10:19:41 PM][ ERROR   ] Failed to start HTTP server. HTTP endpoints are disabled.
+[06/14/2021 10:19:41 PM][ INFO    ] *****************************************************
+[06/14/2021 10:19:41 PM][ INFO    ] ServerCount: 0
+[06/14/2021 10:19:41 PM][ INFO    ] ProxyCount: 0
+[06/14/2021 10:19:41 PM][ INFO    ] *****************************************************
+[06/14/2021 10:19:41 PM][ WARNING ] No distributed instances configured. Turning on local test mode.
+[06/14/2021 10:19:42 PM][ INFO    ] LocalMemoryStorage is initialized in read-write mode
+[06/14/2021 10:19:43 PM][ INFO    ] Initializing logging facility
+[06/14/2021 10:19:47 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_59.dat
+[06/14/2021 10:19:47 PM][ INFO    ] Scanning for auto-registered communication modules.
+[06/14/2021 10:19:47 PM][ INFO    ] Checking Server-Server protocol signatures...
+[06/14/2021 10:19:47 PM][ INFO    ] Working Directory: C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\
+[06/14/2021 10:19:47 PM][ INFO    ] StorageRoot : C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\
+[06/14/2021 10:19:47 PM][ INFO    ] LogDirectory: C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\trinity-log
+[06/14/2021 10:19:47 PM][ INFO    ] LoggingLevel: Info
+[06/14/2021 10:19:47 PM][ INFO    ] HttpPort:     8081
+[06/14/2021 10:19:47 PM][ INFO    ] Server 0 is successfully started.
+[06/14/2021 10:19:47 PM][ ERROR   ] CommunicationInstance: System.InvalidOperationException: Cannot start multiple communication instances.
+   at Trinity.Global.set_CommunicationInstance(CommunicationInstance value)
+   at Trinity.Network.CommunicationInstance.Start()
+[06/14/2021 10:19:48 PM][ INFO    ] Loading storage from [SLOT B]
+[06/14/2021 10:19:53 PM][ INFO    ] Load storage complete, image version = 58
+[06/14/2021 10:19:53 PM][ INFO    ] Initializing logging facility
+[06/14/2021 10:19:53 PM][ INFO    ] Dropping write-ahead-log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_59.dat
+[06/14/2021 10:19:53 PM][ INFO    ] Reading log file.
+[06/14/2021 10:19:53 PM][ INFO    ] Write-ahead-log successfully loaded. Recovered 0 records.
+[06/14/2021 10:19:53 PM][ INFO    ] Creating write-ahead log file C:\GE\TDW.TCSServer\TDW.TCSServer\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_58.dat
+[06/14/2021 10:19:53 PM][ INFO    ] Loading cell type signatures.

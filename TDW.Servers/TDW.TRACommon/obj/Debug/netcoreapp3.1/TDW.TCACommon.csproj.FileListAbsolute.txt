@@ -1,0 +1,17 @@
+C:\GE\TDW.Servers\TDW.TCSCommon\bin\Debug\netcoreapp3.1\TDW.TCACommon.deps.json
+C:\GE\TDW.Servers\TDW.TCSCommon\bin\Debug\netcoreapp3.1\TDW.TCACommon.dll
+C:\GE\TDW.Servers\TDW.TCSCommon\bin\Debug\netcoreapp3.1\TDW.TCACommon.pdb
+C:\GE\TDW.Servers\TDW.TCSCommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.AssemblyInfoInputs.cache
+C:\GE\TDW.Servers\TDW.TCSCommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.AssemblyInfo.cs
+C:\GE\TDW.Servers\TDW.TCSCommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.csproj.CoreCompileInputs.cache
+C:\GE\TDW.Servers\TDW.TCSCommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.dll
+C:\GE\TDW.Servers\TDW.TCSCommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.pdb
+C:\GE\TDW.Servers\TDW.TCSCommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.csproj.AssemblyReference.cache
+C:\GE\TDW.Servers\TDW.TCACommon\bin\Debug\netcoreapp3.1\TDW.TCACommon.deps.json
+C:\GE\TDW.Servers\TDW.TCACommon\bin\Debug\netcoreapp3.1\TDW.TCACommon.dll
+C:\GE\TDW.Servers\TDW.TCACommon\bin\Debug\netcoreapp3.1\TDW.TCACommon.pdb
+C:\GE\TDW.Servers\TDW.TCACommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.AssemblyInfoInputs.cache
+C:\GE\TDW.Servers\TDW.TCACommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.AssemblyInfo.cs
+C:\GE\TDW.Servers\TDW.TCACommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.csproj.CoreCompileInputs.cache
+C:\GE\TDW.Servers\TDW.TCACommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.dll
+C:\GE\TDW.Servers\TDW.TCACommon\obj\Debug\netcoreapp3.1\TDW.TCACommon.pdb

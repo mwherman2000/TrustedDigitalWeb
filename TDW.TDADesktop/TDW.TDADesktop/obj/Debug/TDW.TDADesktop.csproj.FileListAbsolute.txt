@@ -1,0 +1,15 @@
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\bin\Debug\Mail\Inbox.xml
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\bin\Debug\TDW.TDADesktop.exe
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\bin\Debug\TDW.TDADesktop.pdb
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\System.Windows.Forms.Samples.MainForm.resources
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\System.Windows.Forms.Samples.Properties.Resources.resources
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\System.Windows.Forms.Samples.FolderView.resources
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\System.Windows.Forms.Samples.LeftSpine.resources
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\System.Windows.Forms.Samples.MessageArea.resources
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\System.Windows.Forms.Samples.MessageList.resources
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\System.Windows.Forms.Samples.RightSpine.resources
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\TDW.TDADesktop.csproj.GenerateResource.cache
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\TDW.TDADesktop.csproj.CoreCompileInputs.cache
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\TDW.TDADesktop.exe
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\TDW.TDADesktop.pdb
+C:\GE\TDW.TDADesktop\TDW.TDADesktop\obj\Debug\TDW.TDADesktop.csproj.AssemblyReference.cache

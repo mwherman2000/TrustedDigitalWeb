@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <TslCodegen Include="**/*.tsl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphEngine.Core" Version="2.0.0" />
+    <PackageReference Include="Stratis.SmartContracts" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TDW.KMAServer\TDW.KMAServer.csproj" />
+    <ProjectReference Include="..\TDW.TRACommon\TDW.TRACommon.csproj" />
+  </ItemGroup>
+
+</Project>
+

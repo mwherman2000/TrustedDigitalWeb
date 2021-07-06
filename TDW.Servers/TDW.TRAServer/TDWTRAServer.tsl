@@ -1,0 +1,108 @@
+// Trusted Digial Web Project
+// Hyperonomy Digital Identity Lab
+// Parallelspace Corporation
+// (c) Copyright 2021 Parallelspace Corporation. All Rights Reserved
+
+include "../TDW.TRACommon/TRACommon.tsl";
+
+//////////////////////////////////////////////////////////////////////////////
+
+struct TRAKeyValuePair
+{
+	string key;
+	string value;
+}
+
+struct TRAClaim
+{
+	string key;
+	optional string value;				    
+	optional List<TRAKeyValuePair> attribute;
+	optional List<List<TRAKeyValuePair>> attributes;
+}
+
+struct TRACredentialCore
+{
+	string udid;	
+	List<string> context;
+	List<TRAClaim> claims;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+cell struct TDWCredential
+{	
+	TRACredentialCore CredentialCore;
+	TRAEnvelope Envelope;
+	optional string EncryptedCredentialCore;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+struct TDWCreateTDWCredentialRequest
+{
+	TRACredentialType credtype;		
+	List<string> context;
+	List<TRAClaim> claims;
+	
+	TRATrustLevel trustlevel;
+	TRAEncryptionFlag encryptionFlag;
+	optional List<string> comments;
+	
+	string keypairsalt;
+	
+	string mvcaudid;
+}
+
+struct TDWProcessCredentialRequest
+{
+	long id;
+	
+	string mvcaudid;
+}
+
+struct TDWCredentialResponse
+{
+	long id;
+	string udid;
+	long rc;
+	List<string> messages;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+protocol SignHashThumbprintTDWCredential
+{
+	Type: Syn;
+	Request: TDWProcessCredentialRequest;
+	Response: TDWCredentialResponse;
+}
+
+protocol SignSignatureTDWCredential
+{
+	Type: Syn;
+	Request: TDWProcessCredentialRequest;
+	Response: TDWCredentialResponse;
+}
+
+protocol NotarizeTDWCredential
+{
+	Type: Syn;
+	Request: TDWProcessCredentialRequest;
+	Response: TDWCredentialResponse;
+}
+
+protocol CreateTDWCredential
+{
+	Type: HTTP;
+	Request: TDWCreateTDWCredentialRequest;
+	Response: TDWCredentialResponse;
+}
+
+server TRAResourceAgent
+{
+	protocol SignHashThumbprintTDWCredential;	// Add digital hash to resource
+	protocol SignSignatureTDWCredential;		// Add digital signature to resource
+	protocol NotarizeTDWCredential;				// Register resource on verifiable data registry (VDA)
+	protocol CreateTDWCredential;				// Create a new credetial
+}

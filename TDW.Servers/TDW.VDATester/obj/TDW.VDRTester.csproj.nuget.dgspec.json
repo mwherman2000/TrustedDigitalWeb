@@ -1,0 +1,383 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\GE\\TDW.Servers\\TDW.VDRTester\\TDW.VDRTester.csproj": {}
+  },
+  "projects": {
+    "C:\\GE\\TDW.Servers\\TDW.KMSServer\\TDW.KMAServer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.KMSServer\\TDW.KMAServer.csproj",
+        "projectName": "TDW.KMAServer",
+        "projectPath": "C:\\GE\\TDW.Servers\\TDW.KMSServer\\TDW.KMAServer.csproj",
+        "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
+        "outputPath": "C:\\GE\\TDW.Servers\\TDW.KMSServer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mwher\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\GE\\GraphEngine\\build": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\GE\\TDW.Servers\\TDW.TCSCommon\\TDW.TCACommon.csproj": {
+                "projectPath": "C:\\GE\\TDW.Servers\\TDW.TCSCommon\\TDW.TCACommon.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "GraphEngine.Core": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\GE\\TDW.Servers\\TDW.TCSCommon\\TDW.TCACommon.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.TCSCommon\\TDW.TCACommon.csproj",
+        "projectName": "TDW.TCACommon",
+        "projectPath": "C:\\GE\\TDW.Servers\\TDW.TCSCommon\\TDW.TCACommon.csproj",
+        "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
+        "outputPath": "C:\\GE\\TDW.Servers\\TDW.TCSCommon\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mwher\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\GE\\GraphEngine\\build": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.DataProtection": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\GE\\TDW.Servers\\TDW.VDRServer\\TDW.VDAServer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.VDRServer\\TDW.VDAServer.csproj",
+        "projectName": "TDW.VDAServer",
+        "projectPath": "C:\\GE\\TDW.Servers\\TDW.VDRServer\\TDW.VDAServer.csproj",
+        "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
+        "outputPath": "C:\\GE\\TDW.Servers\\TDW.VDRServer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mwher\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\GE\\GraphEngine\\build": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\GE\\TDW.Servers\\TDW.KMSServer\\TDW.KMAServer.csproj": {
+                "projectPath": "C:\\GE\\TDW.Servers\\TDW.KMSServer\\TDW.KMAServer.csproj"
+              },
+              "C:\\GE\\TDW.Servers\\TDW.TCSCommon\\TDW.TCACommon.csproj": {
+                "projectPath": "C:\\GE\\TDW.Servers\\TDW.TCSCommon\\TDW.TCACommon.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "GraphEngine.Core": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "Stratis.SmartContracts": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\GE\\TDW.Servers\\TDW.VDRStratisHelpers\\TDW.VDRStratisHelpers.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.VDRStratisHelpers\\TDW.VDRStratisHelpers.csproj",
+        "projectName": "TDW.VDRStratisHelpers",
+        "projectPath": "C:\\GE\\TDW.Servers\\TDW.VDRStratisHelpers\\TDW.VDRStratisHelpers.csproj",
+        "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
+        "outputPath": "C:\\GE\\TDW.Servers\\TDW.VDRStratisHelpers\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mwher\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\GE\\GraphEngine\\build": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Stratis.SmartContracts": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\GE\\TDW.Servers\\TDW.VDRTester\\TDW.VDRTester.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.VDRTester\\TDW.VDRTester.csproj",
+        "projectName": "TDW.VDRTester",
+        "projectPath": "C:\\GE\\TDW.Servers\\TDW.VDRTester\\TDW.VDRTester.csproj",
+        "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
+        "outputPath": "C:\\GE\\TDW.Servers\\TDW.VDRTester\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mwher\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\GE\\GraphEngine\\build": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\GE\\TDW.Servers\\TDW.TCSCommon\\TDW.TCACommon.csproj": {
+                "projectPath": "C:\\GE\\TDW.Servers\\TDW.TCSCommon\\TDW.TCACommon.csproj"
+              },
+              "C:\\GE\\TDW.Servers\\TDW.VDRServer\\TDW.VDAServer.csproj": {
+                "projectPath": "C:\\GE\\TDW.Servers\\TDW.VDRServer\\TDW.VDAServer.csproj"
+              },
+              "C:\\GE\\TDW.Servers\\TDW.VDRStratisHelpers\\TDW.VDRStratisHelpers.csproj": {
+                "projectPath": "C:\\GE\\TDW.Servers\\TDW.VDRStratisHelpers\\TDW.VDRStratisHelpers.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Base58Check": {
+              "target": "Package",
+              "version": "[0.2.0, )"
+            },
+            "Multiformats.Base": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "System.Runtime.Numerics": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

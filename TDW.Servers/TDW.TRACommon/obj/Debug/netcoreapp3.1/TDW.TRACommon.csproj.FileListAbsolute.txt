@@ -1,0 +1,8 @@
+C:\GE\TDW.Servers\TDW.TRACommon\bin\Debug\netcoreapp3.1\TDW.TRACommon.deps.json
+C:\GE\TDW.Servers\TDW.TRACommon\bin\Debug\netcoreapp3.1\TDW.TRACommon.dll
+C:\GE\TDW.Servers\TDW.TRACommon\bin\Debug\netcoreapp3.1\TDW.TRACommon.pdb
+C:\GE\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.AssemblyInfoInputs.cache
+C:\GE\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.AssemblyInfo.cs
+C:\GE\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.csproj.CoreCompileInputs.cache
+C:\GE\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.dll
+C:\GE\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.pdb

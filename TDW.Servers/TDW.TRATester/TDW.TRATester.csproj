@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TDW.KMAServer\TDW.KMAServer.csproj" />
+    <ProjectReference Include="..\TDW.TRACommon\TDW.TRACommon.csproj" />
+    <ProjectReference Include="..\TDW.TRAServer\TDW.TRAServer.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,9 @@
+C:\GE\TDW.TCSServer\TDWVDRSmartContract\bin\Debug\netcoreapp2.1\TDWVDRSmartContract.deps.json
+C:\GE\TDW.TCSServer\TDWVDRSmartContract\bin\Debug\netcoreapp2.1\TDWVDRSmartContract.dll
+C:\GE\TDW.TCSServer\TDWVDRSmartContract\bin\Debug\netcoreapp2.1\TDWVDRSmartContract.pdb
+C:\GE\TDW.TCSServer\TDWVDRSmartContract\obj\Debug\netcoreapp2.1\TDWVDRSmartContract.csproj.AssemblyReference.cache
+C:\GE\TDW.TCSServer\TDWVDRSmartContract\obj\Debug\netcoreapp2.1\TDWVDRSmartContract.AssemblyInfoInputs.cache
+C:\GE\TDW.TCSServer\TDWVDRSmartContract\obj\Debug\netcoreapp2.1\TDWVDRSmartContract.AssemblyInfo.cs
+C:\GE\TDW.TCSServer\TDWVDRSmartContract\obj\Debug\netcoreapp2.1\TDWVDRSmartContract.csproj.CoreCompileInputs.cache
+C:\GE\TDW.TCSServer\TDWVDRSmartContract\obj\Debug\netcoreapp2.1\TDWVDRSmartContract.dll
+C:\GE\TDW.TCSServer\TDWVDRSmartContract\obj\Debug\netcoreapp2.1\TDWVDRSmartContract.pdb

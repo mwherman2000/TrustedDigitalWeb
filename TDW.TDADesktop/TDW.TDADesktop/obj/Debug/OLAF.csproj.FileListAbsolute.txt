@@ -1,0 +1,29 @@
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\bin\Debug\Mail\Inbox.xml
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\bin\Debug\OLAF.exe
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\bin\Debug\OLAF.pdb
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\System.Windows.Forms.Samples.MainForm.resources
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\System.Windows.Forms.Samples.Properties.Resources.resources
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\System.Windows.Forms.Samples.FolderView.resources
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\System.Windows.Forms.Samples.LeftSpine.resources
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\System.Windows.Forms.Samples.MessageArea.resources
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\System.Windows.Forms.Samples.MessageList.resources
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\System.Windows.Forms.Samples.RightSpine.resources
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\OLAF.csproj.GenerateResource.cache
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\OLAF.csproj.CoreCompileInputs.cache
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\OLAF.exe
+C:\DNS\OutookClone\Outook Clone (OLAF)\OLAF\obj\Debug\OLAF.pdb
+C:\DNS\TDADesktop\OLAF\bin\Debug\Mail\Inbox.xml
+C:\DNS\TDADesktop\OLAF\bin\Debug\OLAF.exe
+C:\DNS\TDADesktop\OLAF\bin\Debug\OLAF.pdb
+C:\DNS\TDADesktop\OLAF\obj\Debug\OLAF.csproj.AssemblyReference.cache
+C:\DNS\TDADesktop\OLAF\obj\Debug\System.Windows.Forms.Samples.MainForm.resources
+C:\DNS\TDADesktop\OLAF\obj\Debug\System.Windows.Forms.Samples.Properties.Resources.resources
+C:\DNS\TDADesktop\OLAF\obj\Debug\System.Windows.Forms.Samples.FolderView.resources
+C:\DNS\TDADesktop\OLAF\obj\Debug\System.Windows.Forms.Samples.LeftSpine.resources
+C:\DNS\TDADesktop\OLAF\obj\Debug\System.Windows.Forms.Samples.MessageArea.resources
+C:\DNS\TDADesktop\OLAF\obj\Debug\System.Windows.Forms.Samples.MessageList.resources
+C:\DNS\TDADesktop\OLAF\obj\Debug\System.Windows.Forms.Samples.RightSpine.resources
+C:\DNS\TDADesktop\OLAF\obj\Debug\OLAF.csproj.GenerateResource.cache
+C:\DNS\TDADesktop\OLAF\obj\Debug\OLAF.csproj.CoreCompileInputs.cache
+C:\DNS\TDADesktop\OLAF\obj\Debug\OLAF.exe
+C:\DNS\TDADesktop\OLAF\obj\Debug\OLAF.pdb

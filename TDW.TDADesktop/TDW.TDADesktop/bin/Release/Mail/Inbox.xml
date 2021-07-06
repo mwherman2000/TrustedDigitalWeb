@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<Inbox>
+  <xs:schema id="Inbox" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="Inbox" msdata:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Message">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="From" type="xs:string" minOccurs="0" />
+                <xs:element name="To" type="xs:string" minOccurs="0" />
+                <xs:element name="SentDate" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Read" type="xs:boolean" minOccurs="0" />
+                <xs:element name="Subject" type="xs:string" minOccurs="0" />
+                <xs:element name="Path" type="xs:string" minOccurs="0" />
+                <xs:element name="CC" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Message>
+    <From>Michael Harsh</From>
+    <To>Joe Stegman</To>
+    <SentDate>2004-03-15T00:30:00.0000000-16:45</SentDate>
+    <Read>false</Read>
+    <Subject>Butter for your PDC talk</Subject>
+    <Path>Harsh.htm</Path>
+    <CC></CC>
+  </Message>
+  <Message>
+    <From>Mark Boulter</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-17T00:30:00.0000000-12:10</SentDate>
+    <Read>false</Read>
+    <Subject>Some _more_ information on your PDC talk...</Subject>
+    <Path>Mark.htm</Path>
+    <CC>Shawn Burke; Jamie Cool</CC>
+  </Message>
+  <Message>
+    <From>Mike Henderlight</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-16T00:30:00.0000000-07:55</SentDate>
+    <Read>false</Read>
+    <Subject>Perf numbers looking great</Subject>
+    <Path>Hender.htm</Path>
+    <CC>Simon Muzio</CC>
+  </Message>
+  <Message>
+    <From>External Caller (RED-UMS-05)</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-15T00:30:00.0000000-09:41</SentDate>
+    <Read>true</Read>
+    <Subject>Voice Mail Message (2062267972) (2 minutes 11 seconds)</Subject>
+    <Path>VoiceMail.htm</Path>
+    <CC></CC>
+  </Message>
+  <Message>
+    <From>Mike Harsh</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-22:13</SentDate>
+    <Read>false</Read>
+    <Subject>PDC Demonstration</Subject>
+    <Path>Harsh.htm</Path>
+    <CC>Fred Balsiger</CC>
+  </Message>
+  <Message>
+    <From>Mark Rideout</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-21:22</SentDate>
+    <Read>true</Read>
+    <Subject>RE: PDC Preview</Subject>
+    <Path>Rideout.htm</Path>
+    <CC>Mark Boulter; Jamie Cool; Shawn Burke</CC>
+  </Message>
+  <Message>
+    <From>Mark Rideout</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-21:10</SentDate>
+    <Read>true</Read>
+    <Subject>RE: Data Talk</Subject>
+    <Path>Rideout.htm</Path>
+    <CC>Mark Boulter; Iain Heath; Scott Berry</CC>
+  </Message>
+  <Message>
+    <From>Mark Boulter</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-21:08</SentDate>
+    <Read>true</Read>
+    <Subject>RE: Data Talk</Subject>
+    <Path>Mark.htm</Path>
+    <CC></CC>
+  </Message>
+  <Message>
+    <From>Iain Heath</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-21:01</SentDate>
+    <Read>true</Read>
+    <Subject>RE: Data Talk</Subject>
+    <Path>Iain.htm</Path>
+    <CC>Mark Rideout; Mark Boulter; Scott Berry</CC>
+  </Message>
+  <Message>
+    <From>Steve Lasker</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-20:31</SentDate>
+    <Read>true</Read>
+    <Subject>RE: Sync out PDC Talks</Subject>
+    <Path>Steve.htm</Path>
+    <CC>Paul Yuknewicz</CC>
+  </Message>
+  <Message>
+    <From>Simon Muzio</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-20:14</SentDate>
+    <Read>true</Read>
+    <Subject>Are you leaving Sunday?</Subject>
+    <Path>Simon.htm</Path>
+    <CC></CC>
+  </Message>
+  <Message>
+    <From>Erick Ellis</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-19:16</SentDate>
+    <Read>true</Read>
+    <Subject>RE: Office Look and Feel in ToolStrip</Subject>
+    <Path>Erick.htm</Path>
+    <CC>Jessica Fosler</CC>
+  </Message>
+  <Message>
+    <From>Brian Pepin</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-14:58</SentDate>
+    <Read>true</Read>
+    <Subject>RE: Component Model Changes</Subject>
+    <Path>Brian.htm</Path>
+    <CC>Shawn Burke</CC>
+  </Message>
+  <Message>
+    <From>Shawn Burke</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-14:58</SentDate>
+    <Read>true</Read>
+    <Subject>Latest bits for my talk?</Subject>
+    <Path>Shawn.htm</Path>
+    <CC>Mark Boulter; Jamie Cool; Simon Muzio</CC>
+  </Message>
+  <Message>
+    <From>Laurie Stegman</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-13:54</SentDate>
+    <Read>true</Read>
+    <Subject>Your package arrived</Subject>
+    <Path>Laurie.htm</Path>
+    <CC>Holden Stegman; Noah Stegman; Ellie Stegman</CC>
+  </Message>
+  <Message>
+    <From>Chris Hildebrant</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-13:51</SentDate>
+    <Read>true</Read>
+    <Subject>Won't be in tomorrow</Subject>
+    <Path>Chris.htm</Path>
+    <CC></CC>
+  </Message>
+  <Message>
+    <From>Mark Boulter</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-08:51</SentDate>
+    <Read>true</Read>
+    <Subject>RE: DataBinding changes</Subject>
+    <Path>Mark.htm</Path>
+    <CC>Iain Heath</CC>
+  </Message>
+  <Message>
+    <From>Jamie Cool</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-08:49</SentDate>
+    <Read>true</Read>
+    <Subject>RE: Cool ClickOnce Demonstration</Subject>
+    <Path>Jamie.htm</Path>
+    <CC>Mark Boulter; Shawn Burke</CC>
+  </Message>
+  <Message>
+    <From>Jeff Chrisope</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-07:41</SentDate>
+    <Read>true</Read>
+    <Subject>Pictures of my incredible trip down to MOAB...</Subject>
+    <Path>Jeff.htm</Path>
+    <CC>Michael Harsh; Erick Ellis</CC>
+  </Message>
+  <Message>
+    <From>Noah Stegman</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-07:33</SentDate>
+    <Read>true</Read>
+    <Subject>Baseball tourney this weekend</Subject>
+    <Path>Other.htm</Path>
+    <CC></CC>
+  </Message>
+  <Message>
+    <From>James Brown</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-07:08</SentDate>
+    <Read>true</Read>
+    <Subject>New music for you...</Subject>
+    <Path>Other.htm</Path>
+    <CC></CC>
+  </Message>
+  <Message>
+    <From>Holden Stegman</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-07:02</SentDate>
+    <Read>true</Read>
+    <Subject>Up early this morning</Subject>
+    <Path>Other.htm</Path>
+    <CC></CC>
+  </Message>
+  <Message>
+    <From>Ellie Stegman</From>
+    <To>Joe Stegman</To>
+    <SentDate>2003-10-14T00:30:00.0000000-06:55</SentDate>
+    <Read>true</Read>
+    <Subject>Reminder - swimming this afternoon</Subject>
+    <Path>Other.htm</Path>
+    <CC></CC>
+  </Message>
+
+</Inbox>
