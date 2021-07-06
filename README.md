@@ -6,7 +6,7 @@ Trusted Digital Web (TDW) Project, Hyperonomy Digital Identity Lab, Parallelspac
 - Trusted Resource Agent (TRA)
 - Key Management Agent (KMA)
 - Verifiable Data Agent (VDA)
-# Contact
+## Contact
 Michael Herman
 Self-Sovereign Blockchain Architect
 Trusted Digital Web
