@@ -7,8 +7,8 @@ Trusted Digital Web (TDW) Project, Hyperonomy Digital Identity Lab, Parallelspac
 - Key Management Agent (KMA)
 - Verifiable Data Agent (VDA)
 ## Code
-- TDW.Servers :TRA, KMA, and VDA repositories 
-- TDW.TDADesktop.Core :TDA repository
+- TDW.Servers : TRA, KMA, and VDA repositories 
+- TDW.TDADesktop.Core : TDA repository
 - TDW.TDADesktop : Old TDA repository
 ## Contact
 Michael Herman
