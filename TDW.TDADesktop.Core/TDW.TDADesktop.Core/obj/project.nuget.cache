@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pHWvm1bd7AWX/oCTLc06iHzTJbguluu6/55k/sk+0lELaqKT8UilXd5oK0CWEhcn/naJKY+XJfoeJoTKpRuQjA==",
+  "dgSpecHash": "sTsaZh3T7eqQCnmHecNVRdk+E9LapWb3atxDKD1tJqpJdZVK6qMy+Tlg8S/uNzDgGC4MvyOk3GeulCZoi4Zovg==",
   "success": true,
-  "projectFilePath": "C:\\GE\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core.csproj",
+  "projectFilePath": "C:\\TDW\\TrustedDigitalWeb\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

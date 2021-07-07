@@ -10,12 +10,12 @@ using System.Reflection;
 
 using System.Drawing.Drawing2D;
 
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
 	/// <summary>
 	/// Summary description for MessageView.
 	/// </summary>
-	public class RightSpine : System.Windows.Forms.UserControl
+	public class RightSpinePanel : System.Windows.Forms.UserControl
 	{
 		private System.Windows.Forms.Panel rightSpinePanel;
 
@@ -47,7 +47,7 @@ namespace System.Windows.Forms.Samples
 		private MessageStore _store = null;
 		private MailMessage _message = null;
 
-		public RightSpine()
+		public RightSpinePanel()
 		{
 			// This call is required by the Windows.Forms Form Designer.
 			InitializeComponent();
@@ -263,11 +263,11 @@ namespace System.Windows.Forms.Samples
             this.subjectLabel.TabIndex = 0;
             this.subjectLabel.Text = "Outlook grid";
             // 
-            // RightSpine
+            // RightSpinePanel
             // 
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.rightSpinePanel);
-            this.Name = "RightSpine";
+            this.Name = "RightSpinePanel";
             this.Size = new System.Drawing.Size(456, 341);
             this.Load += new System.EventHandler(this.MessageView_Load);
             this.rightSpinePanel.ResumeLayout(false);
@@ -282,7 +282,7 @@ namespace System.Windows.Forms.Samples
 
 		#region Properties
 		[DefaultValue(null)]
-		private MailMessage Message
+		public MailMessage Message
 		{
 			get
 			{
@@ -323,10 +323,12 @@ namespace System.Windows.Forms.Samples
 				}
 			}
 		}
-		#endregion
+        #endregion
 
-		#region Event Handlers
-		protected override void OnPaint(PaintEventArgs e)
+        public WebBrowser RightSpineBrowser { get => rightSpineBrowser; }
+
+        #region Event Handlers
+        protected override void OnPaint(PaintEventArgs e)
 		{
 			// Paint gradient
 			LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle, Color.FromArgb(106, 112, 128), Color.FromArgb(138, 146, 166), LinearGradientMode.ForwardDiagonal);
@@ -341,7 +343,7 @@ namespace System.Windows.Forms.Samples
 		{
 			if (String.IsNullOrEmpty(e.PropertyName) || (e.PropertyName == "SelectedMessage"))
 			{
-				this.Message = _store.SelectedMessage;
+				this.Message = _store.SelectedMessage; // mwh
 			}
 		}
 

@@ -14,7 +14,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Diagnostics;
 
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
 	[ToolboxItem(false)]
 	public class BaseStackStrip : ToolStrip

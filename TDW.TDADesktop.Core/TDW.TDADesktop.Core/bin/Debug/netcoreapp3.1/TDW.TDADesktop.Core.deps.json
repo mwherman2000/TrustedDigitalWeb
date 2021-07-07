@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "TDW.TDADesktop.Core/1.0.0": {
+        "dependencies": {
+          "TDW.TDACommon": "1.0.0"
+        },
         "runtime": {
           "TDW.TDADesktop.Core.dll": {}
+        }
+      },
+      "TDW.TDACommon/1.0.0": {
+        "runtime": {
+          "TDW.TDACommon.dll": {}
         }
       }
     }
   },
   "libraries": {
     "TDW.TDADesktop.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TDW.TDACommon/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

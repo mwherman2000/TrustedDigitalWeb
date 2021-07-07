@@ -1,4 +1,4 @@
-﻿namespace System.Windows.Forms.Samples
+﻿namespace TDW.TDADesktop
 {
 	partial class MainForm
 	{
@@ -37,10 +37,10 @@
             this.connectedImageLabel = new System.Windows.Forms.ToolStripSplitButton();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.leftSpine1 = new System.Windows.Forms.Samples.LeftSpine();
+            this.leftSpine1 = new TDW.TDADesktop.LeftSpinePanel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.messageArea1 = new System.Windows.Forms.Samples.MessageArea();
-            this.rightSpine1 = new System.Windows.Forms.Samples.RightSpine();
+            this.messageArea1 = new TDW.TDADesktop.MessageAreaPanel();
+            this.rightSpine1 = new TDW.TDADesktop.RightSpinePanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.newTDAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -315,7 +315,7 @@
             // 
             // connectedImageLabel
             // 
-            this.connectedImageLabel.Image = global::System.Windows.Forms.Samples.Properties.Resources.Outlook;
+            this.connectedImageLabel.Image = global::TDW.TDADesktop.Properties.Resources.NewDistributionList;
             this.connectedImageLabel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.connectedImageLabel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.connectedImageLabel.Margin = new System.Windows.Forms.Padding(0);
@@ -465,7 +465,7 @@
             this.choseFormToolStripMenuItem,
             this.outlookDataFileToolStripMenuItem1,
             this.toolStripSeparator23});
-            this.toolStripSplitButton1.Image = global::System.Windows.Forms.Samples.Properties.Resources.New;
+            this.toolStripSplitButton1.Image = global::TDW.TDADesktop.Properties.Resources.New;
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
             this.toolStripSplitButton1.Size = new System.Drawing.Size(78, 25);
@@ -473,7 +473,7 @@
             // 
             // newTDAToolStripMenuItem1
             // 
-            this.newTDAToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.New;
+            this.newTDAToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.New;
             this.newTDAToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.newTDAToolStripMenuItem1.Name = "newTDAToolStripMenuItem1";
             this.newTDAToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
@@ -483,7 +483,7 @@
             // 
             // postinThisFolderToolStripMenuItem1
             // 
-            this.postinThisFolderToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.Post;
+            this.postinThisFolderToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.Post;
             this.postinThisFolderToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.postinThisFolderToolStripMenuItem1.Name = "postinThisFolderToolStripMenuItem1";
             this.postinThisFolderToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
@@ -499,7 +499,7 @@
             // folderToolStripMenuItem3
             // 
             this.folderToolStripMenuItem3.Enabled = false;
-            this.folderToolStripMenuItem3.Image = global::System.Windows.Forms.Samples.Properties.Resources.Folder;
+            this.folderToolStripMenuItem3.Image = global::TDW.TDADesktop.Properties.Resources.Folder;
             this.folderToolStripMenuItem3.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.folderToolStripMenuItem3.Name = "folderToolStripMenuItem3";
             this.folderToolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
@@ -518,7 +518,7 @@
             // 
             // searchFolderToolStripMenuItem1
             // 
-            this.searchFolderToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.Search;
+            this.searchFolderToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.Search;
             this.searchFolderToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.searchFolderToolStripMenuItem1.Name = "searchFolderToolStripMenuItem1";
             this.searchFolderToolStripMenuItem1.Size = new System.Drawing.Size(358, 26);
@@ -531,7 +531,7 @@
             // 
             // appointmentToolStripMenuItem1
             // 
-            this.appointmentToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewAppointment;
+            this.appointmentToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.NewAppointment;
             this.appointmentToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.Black;
             this.appointmentToolStripMenuItem1.Name = "appointmentToolStripMenuItem1";
             this.appointmentToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
@@ -541,7 +541,7 @@
             // 
             // meetingRequestToolStripMenuItem1
             // 
-            this.meetingRequestToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewMeetingRequest;
+            this.meetingRequestToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.NewMeetingRequest;
             this.meetingRequestToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.meetingRequestToolStripMenuItem1.Name = "meetingRequestToolStripMenuItem1";
             this.meetingRequestToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
@@ -551,7 +551,7 @@
             // 
             // contactToolStripMenuItem1
             // 
-            this.contactToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewContact;
+            this.contactToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.NewContact;
             this.contactToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.contactToolStripMenuItem1.Name = "contactToolStripMenuItem1";
             this.contactToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
@@ -561,7 +561,7 @@
             // 
             // distributionListToolStripMenuItem1
             // 
-            this.distributionListToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewDistributionList;
+            this.distributionListToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.NewDistributionList;
             this.distributionListToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.distributionListToolStripMenuItem1.Name = "distributionListToolStripMenuItem1";
             this.distributionListToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
@@ -571,7 +571,7 @@
             // 
             // taskToolStripMenuItem1
             // 
-            this.taskToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewTask;
+            this.taskToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.NewTask;
             this.taskToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.taskToolStripMenuItem1.Name = "taskToolStripMenuItem1";
             this.taskToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
@@ -591,7 +591,7 @@
             // 
             // jornalEntryToolStripMenuItem
             // 
-            this.jornalEntryToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.JournalEntry;
+            this.jornalEntryToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.JournalEntry;
             this.jornalEntryToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.jornalEntryToolStripMenuItem.Name = "jornalEntryToolStripMenuItem";
             this.jornalEntryToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+J";
@@ -600,7 +600,7 @@
             // 
             // noteToolStripMenuItem1
             // 
-            this.noteToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.Notes;
+            this.noteToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.Notes;
             this.noteToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.noteToolStripMenuItem1.Name = "noteToolStripMenuItem1";
             this.noteToolStripMenuItem1.ShortcutKeyDisplayString = "Ctrl+Shift+N";
@@ -609,7 +609,7 @@
             // 
             // internetFaxToolStripMenuItem1
             // 
-            this.internetFaxToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.InternetFax;
+            this.internetFaxToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.InternetFax;
             this.internetFaxToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.internetFaxToolStripMenuItem1.Name = "internetFaxToolStripMenuItem1";
             this.internetFaxToolStripMenuItem1.ShortcutKeyDisplayString = "Ctrl+Shift+X";
@@ -646,7 +646,7 @@
             // toolStripButtonKeyRings
             // 
             this.toolStripButtonKeyRings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonKeyRings.Image = global::System.Windows.Forms.Samples.Properties.Resources.Print;
+            this.toolStripButtonKeyRings.Image = global::TDW.TDADesktop.Properties.Resources.Print;
             this.toolStripButtonKeyRings.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripButtonKeyRings.Name = "toolStripButtonKeyRings";
             this.toolStripButtonKeyRings.Size = new System.Drawing.Size(29, 25);
@@ -655,7 +655,7 @@
             // toolStripButtonVDRAccounts
             // 
             this.toolStripButtonVDRAccounts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonVDRAccounts.Image = global::System.Windows.Forms.Samples.Properties.Resources.Move;
+            this.toolStripButtonVDRAccounts.Image = global::TDW.TDADesktop.Properties.Resources.Move;
             this.toolStripButtonVDRAccounts.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripButtonVDRAccounts.Name = "toolStripButtonVDRAccounts";
             this.toolStripButtonVDRAccounts.Size = new System.Drawing.Size(29, 25);
@@ -664,7 +664,7 @@
             // toolStripButtonMasterSecrets
             // 
             this.toolStripButtonMasterSecrets.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonMasterSecrets.Image = global::System.Windows.Forms.Samples.Properties.Resources.Delete;
+            this.toolStripButtonMasterSecrets.Image = global::TDW.TDADesktop.Properties.Resources.Delete;
             this.toolStripButtonMasterSecrets.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripButtonMasterSecrets.Name = "toolStripButtonMasterSecrets";
             this.toolStripButtonMasterSecrets.Size = new System.Drawing.Size(29, 25);
@@ -677,7 +677,7 @@
             // 
             // toolStripButtonVDRUIR
             // 
-            this.toolStripButtonVDRUIR.Image = global::System.Windows.Forms.Samples.Properties.Resources.Reply;
+            this.toolStripButtonVDRUIR.Image = global::TDW.TDADesktop.Properties.Resources.Reply;
             this.toolStripButtonVDRUIR.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripButtonVDRUIR.Name = "toolStripButtonVDRUIR";
             this.toolStripButtonVDRUIR.Size = new System.Drawing.Size(70, 25);
@@ -685,7 +685,7 @@
             // 
             // toolStripButtonVDRSEPR
             // 
-            this.toolStripButtonVDRSEPR.Image = global::System.Windows.Forms.Samples.Properties.Resources.ReplyAll;
+            this.toolStripButtonVDRSEPR.Image = global::TDW.TDADesktop.Properties.Resources.ReplyAll;
             this.toolStripButtonVDRSEPR.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripButtonVDRSEPR.Name = "toolStripButtonVDRSEPR";
             this.toolStripButtonVDRSEPR.Size = new System.Drawing.Size(110, 25);
@@ -693,7 +693,7 @@
             // 
             // toolStripButtonWallets
             // 
-            this.toolStripButtonWallets.Image = global::System.Windows.Forms.Samples.Properties.Resources.Forward;
+            this.toolStripButtonWallets.Image = global::TDW.TDADesktop.Properties.Resources.Forward;
             this.toolStripButtonWallets.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripButtonWallets.Name = "toolStripButtonWallets";
             this.toolStripButtonWallets.Size = new System.Drawing.Size(87, 25);
@@ -708,7 +708,7 @@
             // 
             this.toolStripSplitButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator27});
-            this.toolStripSplitButton3.Image = global::System.Windows.Forms.Samples.Properties.Resources.Send;
+            this.toolStripSplitButton3.Image = global::TDW.TDADesktop.Properties.Resources.Send;
             this.toolStripSplitButton3.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripSplitButton3.Name = "toolStripSplitButton3";
             this.toolStripSplitButton3.Size = new System.Drawing.Size(138, 25);
@@ -726,7 +726,7 @@
             // 
             // toolStripButtonVDRRL
             // 
-            this.toolStripButtonVDRRL.Image = global::System.Windows.Forms.Samples.Properties.Resources.Find;
+            this.toolStripButtonVDRRL.Image = global::TDW.TDADesktop.Properties.Resources.Find;
             this.toolStripButtonVDRRL.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripButtonVDRRL.Name = "toolStripButtonVDRRL";
             this.toolStripButtonVDRRL.Size = new System.Drawing.Size(61, 25);
@@ -735,7 +735,7 @@
             // toolStripButtonVDRLedgers
             // 
             this.toolStripButtonVDRLedgers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonVDRLedgers.Image = global::System.Windows.Forms.Samples.Properties.Resources.Rule;
+            this.toolStripButtonVDRLedgers.Image = global::TDW.TDADesktop.Properties.Resources.Rule;
             this.toolStripButtonVDRLedgers.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripButtonVDRLedgers.Name = "toolStripButtonVDRLedgers";
             this.toolStripButtonVDRLedgers.Size = new System.Drawing.Size(29, 25);
@@ -749,7 +749,7 @@
             // toolStripButtonVDRSmartContracts
             // 
             this.toolStripButtonVDRSmartContracts.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonVDRSmartContracts.Image = global::System.Windows.Forms.Samples.Properties.Resources.Address;
+            this.toolStripButtonVDRSmartContracts.Image = global::TDW.TDADesktop.Properties.Resources.Address;
             this.toolStripButtonVDRSmartContracts.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripButtonVDRSmartContracts.Name = "toolStripButtonVDRSmartContracts";
             this.toolStripButtonVDRSmartContracts.Size = new System.Drawing.Size(29, 25);
@@ -770,7 +770,7 @@
             // toolStripButtonAuthentications
             // 
             this.toolStripButtonAuthentications.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonAuthentications.Image = global::System.Windows.Forms.Samples.Properties.Resources.Help;
+            this.toolStripButtonAuthentications.Image = global::TDW.TDADesktop.Properties.Resources.Help;
             this.toolStripButtonAuthentications.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.toolStripButtonAuthentications.Name = "toolStripButtonAuthentications";
             this.toolStripButtonAuthentications.Size = new System.Drawing.Size(29, 25);
@@ -862,7 +862,7 @@
             // 
             // newTDAToolStripMenuItem
             // 
-            this.newTDAToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.New;
+            this.newTDAToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.New;
             this.newTDAToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.newTDAToolStripMenuItem.Name = "newTDAToolStripMenuItem";
             this.newTDAToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+N";
@@ -872,7 +872,7 @@
             // 
             // postinThisFolderToolStripMenuItem
             // 
-            this.postinThisFolderToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Post;
+            this.postinThisFolderToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Post;
             this.postinThisFolderToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.postinThisFolderToolStripMenuItem.Name = "postinThisFolderToolStripMenuItem";
             this.postinThisFolderToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+S";
@@ -886,7 +886,7 @@
             // 
             // folderToolStripMenuItem1
             // 
-            this.folderToolStripMenuItem1.Image = global::System.Windows.Forms.Samples.Properties.Resources.Folder;
+            this.folderToolStripMenuItem1.Image = global::TDW.TDADesktop.Properties.Resources.Folder;
             this.folderToolStripMenuItem1.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.folderToolStripMenuItem1.Name = "folderToolStripMenuItem1";
             this.folderToolStripMenuItem1.ShortcutKeyDisplayString = "Ctrl+Shift+E";
@@ -895,7 +895,7 @@
             // 
             // searchFolderToolStripMenuItem
             // 
-            this.searchFolderToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Search;
+            this.searchFolderToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Search;
             this.searchFolderToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.searchFolderToolStripMenuItem.Name = "searchFolderToolStripMenuItem";
             this.searchFolderToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+P";
@@ -916,7 +916,7 @@
             // 
             // appointmentToolStripMenuItem
             // 
-            this.appointmentToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewAppointment;
+            this.appointmentToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.NewAppointment;
             this.appointmentToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.appointmentToolStripMenuItem.Name = "appointmentToolStripMenuItem";
             this.appointmentToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+A";
@@ -925,7 +925,7 @@
             // 
             // meetingRequestToolStripMenuItem
             // 
-            this.meetingRequestToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewMeetingRequest;
+            this.meetingRequestToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.NewMeetingRequest;
             this.meetingRequestToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.meetingRequestToolStripMenuItem.Name = "meetingRequestToolStripMenuItem";
             this.meetingRequestToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+Q";
@@ -934,7 +934,7 @@
             // 
             // contactToolStripMenuItem
             // 
-            this.contactToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewContact;
+            this.contactToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.NewContact;
             this.contactToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
             this.contactToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+C";
@@ -943,7 +943,7 @@
             // 
             // distributionListToolStripMenuItem
             // 
-            this.distributionListToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewDistributionList;
+            this.distributionListToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.NewDistributionList;
             this.distributionListToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.distributionListToolStripMenuItem.Name = "distributionListToolStripMenuItem";
             this.distributionListToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+L";
@@ -952,7 +952,7 @@
             // 
             // taskToolStripMenuItem
             // 
-            this.taskToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewTask;
+            this.taskToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.NewTask;
             this.taskToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.taskToolStripMenuItem.Name = "taskToolStripMenuItem";
             this.taskToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+K";
@@ -969,7 +969,7 @@
             // 
             // journalEntryToolStripMenuItem
             // 
-            this.journalEntryToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.JournalEntry;
+            this.journalEntryToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.JournalEntry;
             this.journalEntryToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.journalEntryToolStripMenuItem.Name = "journalEntryToolStripMenuItem";
             this.journalEntryToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+J";
@@ -978,7 +978,7 @@
             // 
             // noteToolStripMenuItem
             // 
-            this.noteToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Notes;
+            this.noteToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Notes;
             this.noteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.noteToolStripMenuItem.Name = "noteToolStripMenuItem";
             this.noteToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+U";
@@ -987,7 +987,7 @@
             // 
             // internetFaxToolStripMenuItem
             // 
-            this.internetFaxToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.InternetFax;
+            this.internetFaxToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.InternetFax;
             this.internetFaxToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.internetFaxToolStripMenuItem.Name = "internetFaxToolStripMenuItem";
             this.internetFaxToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+X";
@@ -1118,7 +1118,7 @@
             // 
             // printPreviewToolStripMenuItem
             // 
-            this.printPreviewToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.PrintPreview;
+            this.printPreviewToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.PrintPreview;
             this.printPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.printPreviewToolStripMenuItem.Name = "printPreviewToolStripMenuItem";
             this.printPreviewToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
@@ -1126,7 +1126,7 @@
             // 
             // printToolStripMenuItem
             // 
-            this.printToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Print;
+            this.printToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Print;
             this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
             this.printToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
@@ -1212,7 +1212,7 @@
             // 
             // cutToolStripMenuItem
             // 
-            this.cutToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Cut;
+            this.cutToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Cut;
             this.cutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+X";
@@ -1221,7 +1221,7 @@
             // 
             // copyToolStripMenuItem
             // 
-            this.copyToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Copy;
+            this.copyToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Copy;
             this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+C";
@@ -1230,7 +1230,7 @@
             // 
             // pasteToolStripMenuItem
             // 
-            this.pasteToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Paste;
+            this.pasteToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Paste;
             this.pasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+V";
@@ -1256,7 +1256,7 @@
             // 
             // deleteToolStripMenuItem
             // 
-            this.deleteToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Delete;
+            this.deleteToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Delete;
             this.deleteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+D";
@@ -1265,7 +1265,7 @@
             // 
             // movetoFolderToolStripMenuItem
             // 
-            this.movetoFolderToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Move;
+            this.movetoFolderToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Move;
             this.movetoFolderToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.movetoFolderToolStripMenuItem.Name = "movetoFolderToolStripMenuItem";
             this.movetoFolderToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+V";
@@ -1285,7 +1285,7 @@
             // 
             // markasReadToolStripMenuItem
             // 
-            this.markasReadToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Read;
+            this.markasReadToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Read;
             this.markasReadToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.markasReadToolStripMenuItem.Name = "markasReadToolStripMenuItem";
             this.markasReadToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Q";
@@ -1294,7 +1294,7 @@
             // 
             // markasUnreadToolStripMenuItem
             // 
-            this.markasUnreadToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Unread;
+            this.markasUnreadToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Unread;
             this.markasUnreadToolStripMenuItem.Name = "markasUnreadToolStripMenuItem";
             this.markasUnreadToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+U";
             this.markasUnreadToolStripMenuItem.Size = new System.Drawing.Size(284, 26);
@@ -1373,7 +1373,7 @@
             // 
             // autoPreviewToolStripMenuItem
             // 
-            this.autoPreviewToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Search;
+            this.autoPreviewToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Search;
             this.autoPreviewToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.autoPreviewToolStripMenuItem.Name = "autoPreviewToolStripMenuItem";
             this.autoPreviewToolStripMenuItem.Size = new System.Drawing.Size(255, 26);
@@ -1463,7 +1463,7 @@
             // 
             // mailToolStripMenuItem
             // 
-            this.mailToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Read;
+            this.mailToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Read;
             this.mailToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.mailToolStripMenuItem.Name = "mailToolStripMenuItem";
             this.mailToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+1";
@@ -1472,7 +1472,7 @@
             // 
             // calendarToolStripMenuItem
             // 
-            this.calendarToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewAppointment;
+            this.calendarToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.NewAppointment;
             this.calendarToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
             this.calendarToolStripMenuItem.Name = "calendarToolStripMenuItem";
             this.calendarToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+2";
@@ -1481,7 +1481,7 @@
             // 
             // contactsToolStripMenuItem
             // 
-            this.contactsToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewContact;
+            this.contactsToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.NewContact;
             this.contactsToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.contactsToolStripMenuItem.Name = "contactsToolStripMenuItem";
             this.contactsToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+3";
@@ -1490,7 +1490,7 @@
             // 
             // tasksToolStripMenuItem
             // 
-            this.tasksToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.NewTask;
+            this.tasksToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.NewTask;
             this.tasksToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.tasksToolStripMenuItem.Name = "tasksToolStripMenuItem";
             this.tasksToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+4";
@@ -1499,7 +1499,7 @@
             // 
             // notesToolStripMenuItem
             // 
-            this.notesToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Notes;
+            this.notesToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Notes;
             this.notesToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.notesToolStripMenuItem.Name = "notesToolStripMenuItem";
             this.notesToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+5";
@@ -1513,7 +1513,7 @@
             // 
             // folderListToolStripMenuItem
             // 
-            this.folderListToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Folder;
+            this.folderListToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Folder;
             this.folderListToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.folderListToolStripMenuItem.Name = "folderListToolStripMenuItem";
             this.folderListToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+6";
@@ -1522,7 +1522,7 @@
             // 
             // shortcutsToolStripMenuItem
             // 
-            this.shortcutsToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Shortcut;
+            this.shortcutsToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Shortcut;
             this.shortcutsToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.shortcutsToolStripMenuItem.Name = "shortcutsToolStripMenuItem";
             this.shortcutsToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+7";
@@ -1531,7 +1531,7 @@
             // 
             // jornalToolStripMenuItem
             // 
-            this.jornalToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.JournalEntry;
+            this.jornalToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.JournalEntry;
             this.jornalToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.jornalToolStripMenuItem.Name = "jornalToolStripMenuItem";
             this.jornalToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+8";
@@ -1616,7 +1616,7 @@
             // 
             // addressBookToolStripMenuItem
             // 
-            this.addressBookToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Address;
+            this.addressBookToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Address;
             this.addressBookToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.addressBookToolStripMenuItem.Name = "addressBookToolStripMenuItem";
             this.addressBookToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
@@ -1655,7 +1655,7 @@
             // 
             // emptyDeletedItemsFolderToolStripMenuItem
             // 
-            this.emptyDeletedItemsFolderToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Recycle;
+            this.emptyDeletedItemsFolderToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Recycle;
             this.emptyDeletedItemsFolderToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.emptyDeletedItemsFolderToolStripMenuItem.Name = "emptyDeletedItemsFolderToolStripMenuItem";
             this.emptyDeletedItemsFolderToolStripMenuItem.Size = new System.Drawing.Size(289, 26);
@@ -1743,7 +1743,7 @@
             // 
             // newMailMessageToolStripMenuItem
             // 
-            this.newMailMessageToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.New;
+            this.newMailMessageToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.New;
             this.newMailMessageToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.newMailMessageToolStripMenuItem.Name = "newMailMessageToolStripMenuItem";
             this.newMailMessageToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
@@ -1809,7 +1809,7 @@
             // 
             // replyToolStripMenuItem
             // 
-            this.replyToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Reply;
+            this.replyToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Reply;
             this.replyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.replyToolStripMenuItem.Name = "replyToolStripMenuItem";
             this.replyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
@@ -1818,7 +1818,7 @@
             // 
             // replytoAllToolStripMenuItem
             // 
-            this.replytoAllToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.ReplyAll;
+            this.replytoAllToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.ReplyAll;
             this.replytoAllToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.replytoAllToolStripMenuItem.Name = "replytoAllToolStripMenuItem";
             this.replytoAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
@@ -1828,7 +1828,7 @@
             // 
             // forwardToolStripMenuItem
             // 
-            this.forwardToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Folder;
+            this.forwardToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Folder;
             this.forwardToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.forwardToolStripMenuItem.Name = "forwardToolStripMenuItem";
             this.forwardToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
@@ -1856,7 +1856,7 @@
             // 
             // microsoftOfficeoutlookHelpToolStripMenuItem
             // 
-            this.microsoftOfficeoutlookHelpToolStripMenuItem.Image = global::System.Windows.Forms.Samples.Properties.Resources.Help;
+            this.microsoftOfficeoutlookHelpToolStripMenuItem.Image = global::TDW.TDADesktop.Properties.Resources.Help;
             this.microsoftOfficeoutlookHelpToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.microsoftOfficeoutlookHelpToolStripMenuItem.Name = "microsoftOfficeoutlookHelpToolStripMenuItem";
             this.microsoftOfficeoutlookHelpToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
@@ -2173,9 +2173,13 @@
 		private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Samples.LeftSpine leftSpine1;
-		private RightSpine rightSpine1;
-        private MessageArea messageArea1;
-	}
+        private LeftSpinePanel leftSpine1;
+		private RightSpinePanel rightSpine1;
+        private MessageAreaPanel messageArea1;
+
+        public LeftSpinePanel LeftSpine { get => leftSpine1; }
+        public RightSpinePanel RightSpine { get => rightSpine1; }
+        public MessageAreaPanel MessageArea { get => messageArea1; }
+    }
 }
 

@@ -6,11 +6,11 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
-	public partial class MessageArea : UserControl
+	public partial class MessageAreaPanel : UserControl
 	{
-		public MessageArea()
+		public MessageAreaPanel()
 		{
 			InitializeComponent();
 		}

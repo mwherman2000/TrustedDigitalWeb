@@ -1,0 +1,9 @@
+C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDACommon\bin\Debug\netcoreapp3.1\TDW.TDACommon.deps.json
+C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDACommon\bin\Debug\netcoreapp3.1\TDW.TDACommon.dll
+C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDACommon\bin\Debug\netcoreapp3.1\TDW.TDACommon.pdb
+C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDACommon\obj\Debug\netcoreapp3.1\TDW.TDACommon.csproj.AssemblyReference.cache
+C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDACommon\obj\Debug\netcoreapp3.1\TDW.TDACommon.AssemblyInfoInputs.cache
+C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDACommon\obj\Debug\netcoreapp3.1\TDW.TDACommon.AssemblyInfo.cs
+C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDACommon\obj\Debug\netcoreapp3.1\TDW.TDACommon.csproj.CoreCompileInputs.cache
+C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDACommon\obj\Debug\netcoreapp3.1\TDW.TDACommon.dll
+C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDACommon\obj\Debug\netcoreapp3.1\TDW.TDACommon.pdb

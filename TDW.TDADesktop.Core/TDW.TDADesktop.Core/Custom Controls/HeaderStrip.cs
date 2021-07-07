@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 using System.Drawing.Drawing2D;
 
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
 	public class HeaderStrip : ToolStrip
 	{

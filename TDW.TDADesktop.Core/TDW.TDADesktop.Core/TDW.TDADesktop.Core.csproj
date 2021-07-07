@@ -4,7 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <RootNamespace>System.Windows.Forms.Samples</RootNamespace>
+    <RootNamespace>TDW.TDADesktop</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -50,6 +50,10 @@
     <EmbeddedResource Include="Mail\Simon.htm" />
     <EmbeddedResource Include="Mail\Steve.htm" />
     <EmbeddedResource Include="Mail\VoiceMail.htm" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TDW.TDACommon\TDW.TDACommon.csproj" />
   </ItemGroup>
 
 </Project>

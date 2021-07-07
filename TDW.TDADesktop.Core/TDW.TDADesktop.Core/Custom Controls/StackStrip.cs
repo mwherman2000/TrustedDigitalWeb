@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Diagnostics;
 
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
 	public class StackStrip : BaseStackStrip
 	{

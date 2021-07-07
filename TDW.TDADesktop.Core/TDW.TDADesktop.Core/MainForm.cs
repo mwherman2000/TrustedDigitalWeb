@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
 using System.Net.NetworkInformation;
 
-namespace System.Windows.Forms.Samples
+using TDW.TDACommon;
+
+namespace TDW.TDADesktop
 {
 	public partial class MainForm : Form
 	{
@@ -36,7 +37,7 @@ namespace System.Windows.Forms.Samples
 			this.itemCountLabel.Text = String.Format(this.itemCountLabel.Text, _store.Messages.Count);
 
 			// Setup Online/Offline
-			_onlineImage = Properties.Resources.Outlook;
+			_onlineImage = Properties.Resources.NewDistributionList; // App icon
 			_offlineImage = Properties.Resources.Error;
 
 			// Check for Network Changes
@@ -46,7 +47,7 @@ namespace System.Windows.Forms.Samples
 			UpdateStatusBar();
 
 			// Set icon
-			this.Icon = Icon.FromHandle(Properties.Resources.Outlook.GetHicon());
+			this.Icon = Icon.FromHandle(Properties.Resources.NewDistributionList.GetHicon()); // App icon
 
 			// Track Preference Changes
 			Microsoft.Win32.SystemEvents.UserPreferenceChanged += new Microsoft.Win32.UserPreferenceChangedEventHandler(Form1_UserPreferenceChanged);
@@ -93,8 +94,17 @@ namespace System.Windows.Forms.Samples
 
         private void newTDAToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-			MessageBox.Show("Hello", "newTDAToolStripMenuItem1_Click");
-
+			TDAHelpers.NewDTA();
+			this.RightSpine.RightSpineBrowser.DocumentText = "Hello world!";
+			MailMessage messageheader = new MailMessage();
+			messageheader.Cc = "Cc";
+			messageheader.From = "newTDAToolStripMenuItem1_Click";
+			messageheader.To = "To";
+			messageheader.SentDate = DateTime.Now;
+			messageheader.Subject = "Subject";
+			messageheader.Path = "Path";
+			messageheader.Read = false;
+			this.RightSpine.Message = messageheader;
 		}
     }
 }

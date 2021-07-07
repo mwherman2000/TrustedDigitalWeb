@@ -14,7 +14,7 @@ using Microsoft.Win32;
 
 #endregion
 
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
 	public class MessageList : System.Windows.Forms.UserControl
 	{
@@ -27,8 +27,8 @@ namespace System.Windows.Forms.Samples
 		private DataGridViewImageColumn dataGridViewImageColumn2;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
 		private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-		private BindingSource messageBS;
-		private DataGridView dataGridView1;
+		private BindingSource messageListBindingSource;
+		private DataGridView messageListDataGridView;
 
 		public MessageList()
 		{
@@ -51,11 +51,11 @@ namespace System.Windows.Forms.Samples
 			_store = MessageStore.GetMessageStore();
 
 			// Reset DataSource
-			this.messageBS.DataSource = _store.Messages;
+			this.messageListBindingSource.DataSource = _store.Messages;
 
 			// Sort
-			this.dataGridView1.DataSource = this.messageBS;
-			this.dataGridView1.Sort(this.dataGridView1.Columns[2], ListSortDirection.Descending);
+			this.messageListDataGridView.DataSource = this.messageListBindingSource;
+			this.messageListDataGridView.Sort(this.messageListDataGridView.Columns[2], ListSortDirection.Descending);
 
 			// Set font
 			SetFont();
@@ -70,17 +70,17 @@ namespace System.Windows.Forms.Samples
 			SetFont();
 		}
 
-		private void dataGridView1_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
+		private void messageListDataGridView_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)
 		{
 			// Set the Sent Column
 			if (e.ColumnIndex == 0)
 			{
 				// Get Image
-				e.Value = ((this.messageBS[e.RowIndex] as MailMessage).Read ? _readImage : _unreadImage);
+				e.Value = ((this.messageListBindingSource[e.RowIndex] as MailMessage).Read ? _readImage : _unreadImage);
 			}
 		}
 
-		private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+		private void messageListDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
 		{
 			// Format the Date Column
 			if (e.ColumnIndex == 2)
@@ -95,7 +95,7 @@ namespace System.Windows.Forms.Samples
 			}
 		}
 
-		private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+		private void messageListDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
 		{
 			if ((e.ColumnIndex == 1) && (e.RowIndex >= 0))
 			{
@@ -106,14 +106,14 @@ namespace System.Windows.Forms.Samples
 				Color bcolor = (selected ? e.CellStyle.SelectionBackColor : e.CellStyle.BackColor);
 				Font font = e.CellStyle.Font;
 
-				if (!(this.messageBS[e.RowIndex] as MailMessage).Read)
+				if (!(this.messageListBindingSource[e.RowIndex] as MailMessage).Read)
 				{
 					font = new Font(font, FontStyle.Bold);
 				}
 
 				// Get size information
-				string from = (this.messageBS[e.RowIndex] as MailMessage).From;
-				string subject = (this.messageBS[e.RowIndex] as MailMessage).Subject;
+				string from = (this.messageListBindingSource[e.RowIndex] as MailMessage).From;
+				string subject = (this.messageListBindingSource[e.RowIndex] as MailMessage).Subject;
 				Size size = TextRenderer.MeasureText(e.Graphics, from, font);
 
 				// Note that this always aligns top, right
@@ -151,9 +151,9 @@ namespace System.Windows.Forms.Samples
 			}
 		}
 
-		private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+		private void messageListDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
 		{
-			if (e.RowIndex == this.messageBS.Position)
+			if (e.RowIndex == this.messageListBindingSource.Position)
 			{
 				e.DrawFocus(e.RowBounds, true);
 			}
@@ -168,10 +168,10 @@ namespace System.Windows.Forms.Samples
 			}
 		}
 
-		private void messageBS_PositionChanged(object sender, EventArgs e)
+		private void messageListBindingSource_PositionChanged(object sender, EventArgs e)
 		{
 			// Let the message store know
-			_store.SelectedMessage = this.messageBS.Current as MailMessage;
+			_store.SelectedMessage = this.messageListBindingSource.Current as MailMessage;
 		}
 		#endregion
 
@@ -180,7 +180,7 @@ namespace System.Windows.Forms.Samples
 		{
 			set
 			{
-				this.dataGridView1.Rows[value].Selected = true;
+				this.messageListDataGridView.Rows[value].Selected = true;
 			}
 		}
 		#endregion
@@ -197,8 +197,8 @@ namespace System.Windows.Forms.Samples
 				this.Font = _font;
 
 				// Set default row height
-				this.dataGridView1.RowTemplate.Height = (TextRenderer.MeasureText("I", _font).Height + 5) * 2;
-				Debug.WriteLine(this.dataGridView1.RowTemplate.Height.ToString());
+				this.messageListDataGridView.RowTemplate.Height = (TextRenderer.MeasureText("I", _font).Height + 5) * 2;
+				Debug.WriteLine(this.messageListDataGridView.RowTemplate.Height.ToString());
 			}
 		}
 		#endregion
@@ -212,36 +212,36 @@ namespace System.Windows.Forms.Samples
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.messageListDataGridView = new System.Windows.Forms.DataGridView();
 			this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
 			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.messageBS = new System.Windows.Forms.BindingSource(this.components);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.messageBS)).BeginInit();
+			this.messageListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			((System.ComponentModel.ISupportInitialize)(this.messageListDataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.messageListBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dataGridView1
+			// messageListDataGridView
 			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.AllowUserToResizeRows = false;
-			this.dataGridView1.AutoGenerateColumns = false;
-			this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-			this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.messageListDataGridView.AllowUserToAddRows = false;
+			this.messageListDataGridView.AllowUserToDeleteRows = false;
+			this.messageListDataGridView.AllowUserToResizeRows = false;
+			this.messageListDataGridView.AutoGenerateColumns = false;
+			this.messageListDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
+			this.messageListDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.messageListDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.dataGridView1.Columns.Add(this.dataGridViewImageColumn2);
-			this.dataGridView1.Columns.Add(this.dataGridViewTextBoxColumn3);
-			this.dataGridView1.Columns.Add(this.dataGridViewTextBoxColumn4);
-			this.dataGridView1.DataSource = this.messageBS;
+			this.messageListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this.messageListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.messageListDataGridView.Columns.Add(this.dataGridViewImageColumn2);
+			this.messageListDataGridView.Columns.Add(this.dataGridViewTextBoxColumn3);
+			this.messageListDataGridView.Columns.Add(this.dataGridViewTextBoxColumn4);
+			this.messageListDataGridView.DataSource = this.messageListBindingSource;
 			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -250,22 +250,22 @@ namespace System.Windows.Forms.Samples
 			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.EnableHeadersVisualStyles = false;
-			this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-			this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.RowHeadersVisible = false;
-			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(385, 274);
-			this.dataGridView1.TabIndex = 0;
-			this.dataGridView1.VirtualMode = true;
-			this.dataGridView1.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dataGridView1_CellValueNeeded);
-			this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
-			this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-			this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
+			this.messageListDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+			this.messageListDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.messageListDataGridView.EnableHeadersVisualStyles = false;
+			this.messageListDataGridView.Location = new System.Drawing.Point(0, 0);
+			this.messageListDataGridView.Margin = new System.Windows.Forms.Padding(0);
+			this.messageListDataGridView.Name = "messageListDataGridView";
+			this.messageListDataGridView.ReadOnly = true;
+			this.messageListDataGridView.RowHeadersVisible = false;
+			this.messageListDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.messageListDataGridView.Size = new System.Drawing.Size(385, 274);
+			this.messageListDataGridView.TabIndex = 0;
+			this.messageListDataGridView.VirtualMode = true;
+			this.messageListDataGridView.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.messageListDataGridView_CellValueNeeded);
+			this.messageListDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.messageListDataGridView_CellPainting);
+			this.messageListDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.messageListDataGridView_CellFormatting);
+			this.messageListDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.messageListDataGridView_RowPostPaint);
 			// 
 			// dataGridViewImageColumn2
 			// 
@@ -305,20 +305,20 @@ namespace System.Windows.Forms.Samples
 			this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.dataGridViewTextBoxColumn4.Width = 105;
 			// 
-			// messageBS
+			// messageListBindingSource
 			// 
-            this.messageBS.DataSource = typeof(System.Windows.Forms.Samples.MailMessage);
-			this.messageBS.PositionChanged += new System.EventHandler(this.messageBS_PositionChanged);
+            this.messageListBindingSource.DataSource = typeof(TDW.TDADesktop.MailMessage);
+			this.messageListBindingSource.PositionChanged += new System.EventHandler(this.messageListBindingSource_PositionChanged);
 			// 
 			// MessageList
 			// 
 			this.BackColor = System.Drawing.SystemColors.Window;
-			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.messageListDataGridView);
 			this.Name = "MessageList";
 			this.Size = new System.Drawing.Size(385, 274);
 			this.Load += new System.EventHandler(this.MessageList_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.messageBS)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.messageListDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.messageListBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}

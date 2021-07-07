@@ -1,6 +1,6 @@
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
-	partial class LeftSpine
+	partial class LeftSpinePanel
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -29,12 +29,12 @@ namespace System.Windows.Forms.Samples
 		private void InitializeComponent()
 		{
             this.stackStripSplitter = new System.Windows.Forms.SplitContainer();
-            this.folderView1 = new System.Windows.Forms.Samples.FolderView();
-            this.headerStrip1 = new System.Windows.Forms.Samples.HeaderStrip();
+            this.subledgersView = new TDW.TDADesktop.FolderView();
+            this.headerStrip1 = new TDW.TDADesktop.HeaderStrip();
             this.ledgerStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.headerStrip2 = new System.Windows.Forms.Samples.HeaderStrip();
+            this.headerStrip2 = new TDW.TDADesktop.HeaderStrip();
             this.ledgerStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.stackStrip = new System.Windows.Forms.Samples.StackStrip();
+            this.stackStrip = new TDW.TDADesktop.StackStrip();
             this.ledgerStripButtonTroubleshooting = new System.Windows.Forms.ToolStripButton();
             this.ledgerStripButtonMasterSecrets = new System.Windows.Forms.ToolStripButton();
             this.ledgerStripButtonKeyRings = new System.Windows.Forms.ToolStripButton();
@@ -46,7 +46,7 @@ namespace System.Windows.Forms.Samples
             this.ledgerStripButtonVDRLedgers = new System.Windows.Forms.ToolStripButton();
             this.ledgerStripButtonVDRAccounts = new System.Windows.Forms.ToolStripButton();
             this.ledgerStripButtonVDRSmartContracts = new System.Windows.Forms.ToolStripButton();
-            this.overflowStrip = new System.Windows.Forms.Samples.BaseStackStrip();
+            this.overflowStrip = new TDW.TDADesktop.BaseStackStrip();
             this.ledgerStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.addorRemoveButtonsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.stackStripSplitter)).BeginInit();
@@ -71,7 +71,7 @@ namespace System.Windows.Forms.Samples
             // 
             // stackStripSplitter.Panel1
             // 
-            this.stackStripSplitter.Panel1.Controls.Add(this.folderView1);
+            this.stackStripSplitter.Panel1.Controls.Add(this.subledgersView);
             this.stackStripSplitter.Panel1.Controls.Add(this.headerStrip1);
             this.stackStripSplitter.Panel1.Controls.Add(this.headerStrip2);
             // 
@@ -88,17 +88,17 @@ namespace System.Windows.Forms.Samples
             this.stackStripSplitter.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.stackStripSplitter_SplitterMoved);
             this.stackStripSplitter.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Paint);
             // 
-            // folderView1
+            // subledgersView
             // 
-            this.folderView1.BackColor = System.Drawing.SystemColors.Window;
-            this.folderView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.folderView1.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
-            this.folderView1.Location = new System.Drawing.Point(0, 54);
-            this.folderView1.Margin = new System.Windows.Forms.Padding(4);
-            this.folderView1.Name = "folderView1";
-            this.folderView1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.folderView1.Size = new System.Drawing.Size(416, 280);
-            this.folderView1.TabIndex = 2;
+            this.subledgersView.BackColor = System.Drawing.SystemColors.Window;
+            this.subledgersView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subledgersView.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold);
+            this.subledgersView.Location = new System.Drawing.Point(0, 54);
+            this.subledgersView.Margin = new System.Windows.Forms.Padding(4);
+            this.subledgersView.Name = "subledgersView";
+            this.subledgersView.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.subledgersView.Size = new System.Drawing.Size(416, 280);
+            this.subledgersView.TabIndex = 2;
             // 
             // headerStrip1
             // 
@@ -106,7 +106,7 @@ namespace System.Windows.Forms.Samples
             this.headerStrip1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.headerStrip1.ForeColor = System.Drawing.Color.Black;
             this.headerStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.headerStrip1.HeaderStyle = System.Windows.Forms.Samples.AreaHeaderStyle.Small;
+            this.headerStrip1.HeaderStyle = TDW.TDADesktop.AreaHeaderStyle.Small;
             this.headerStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.headerStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ledgerStripLabel2});
@@ -175,7 +175,7 @@ namespace System.Windows.Forms.Samples
             // ledgerStripButtonTroubleshooting
             // 
             this.ledgerStripButtonTroubleshooting.CheckOnClick = true;
-            this.ledgerStripButtonTroubleshooting.Image = global::System.Windows.Forms.Samples.Properties.Resources.Shortcut24;
+            this.ledgerStripButtonTroubleshooting.Image = global::TDW.TDADesktop.Properties.Resources.Shortcut24;
             this.ledgerStripButtonTroubleshooting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonTroubleshooting.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonTroubleshooting.Margin = new System.Windows.Forms.Padding(0);
@@ -190,7 +190,7 @@ namespace System.Windows.Forms.Samples
             // ledgerStripButtonMasterSecrets
             // 
             this.ledgerStripButtonMasterSecrets.CheckOnClick = true;
-            this.ledgerStripButtonMasterSecrets.Image = global::System.Windows.Forms.Samples.Properties.Resources.Folder24;
+            this.ledgerStripButtonMasterSecrets.Image = global::TDW.TDADesktop.Properties.Resources.Folder24;
             this.ledgerStripButtonMasterSecrets.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonMasterSecrets.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonMasterSecrets.Margin = new System.Windows.Forms.Padding(0);
@@ -204,10 +204,10 @@ namespace System.Windows.Forms.Samples
             // 
             // ledgerStripButtonKeyRings
             // 
-            this.ledgerStripButtonKeyRings.Checked = true;
+            this.ledgerStripButtonKeyRings.Checked = false;
             this.ledgerStripButtonKeyRings.CheckOnClick = true;
-            this.ledgerStripButtonKeyRings.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ledgerStripButtonKeyRings.Image = global::System.Windows.Forms.Samples.Properties.Resources.Folder24;
+            this.ledgerStripButtonKeyRings.CheckState = System.Windows.Forms.CheckState.Unchecked;
+            this.ledgerStripButtonKeyRings.Image = global::TDW.TDADesktop.Properties.Resources.Folder24;
             this.ledgerStripButtonKeyRings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonKeyRings.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonKeyRings.Margin = new System.Windows.Forms.Padding(0);
@@ -222,7 +222,7 @@ namespace System.Windows.Forms.Samples
             // ledgerStripButtonWallets
             // 
             this.ledgerStripButtonWallets.CheckOnClick = true;
-            this.ledgerStripButtonWallets.Image = global::System.Windows.Forms.Samples.Properties.Resources.Contacts24;
+            this.ledgerStripButtonWallets.Image = global::TDW.TDADesktop.Properties.Resources.Contacts24;
             this.ledgerStripButtonWallets.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonWallets.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonWallets.Margin = new System.Windows.Forms.Padding(0);
@@ -237,7 +237,7 @@ namespace System.Windows.Forms.Samples
             // ledgerStripButtonAuthorizations
             // 
             this.ledgerStripButtonAuthorizations.CheckOnClick = true;
-            this.ledgerStripButtonAuthorizations.Image = global::System.Windows.Forms.Samples.Properties.Resources.Calendar24;
+            this.ledgerStripButtonAuthorizations.Image = global::TDW.TDADesktop.Properties.Resources.Calendar24;
             this.ledgerStripButtonAuthorizations.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonAuthorizations.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonAuthorizations.Margin = new System.Windows.Forms.Padding(0);
@@ -252,7 +252,7 @@ namespace System.Windows.Forms.Samples
             // ledgerStripButtonVDRUIR
             // 
             this.ledgerStripButtonVDRUIR.CheckOnClick = true;
-            this.ledgerStripButtonVDRUIR.Image = global::System.Windows.Forms.Samples.Properties.Resources.Contacts24;
+            this.ledgerStripButtonVDRUIR.Image = global::TDW.TDADesktop.Properties.Resources.Contacts24;
             this.ledgerStripButtonVDRUIR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonVDRUIR.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonVDRUIR.Margin = new System.Windows.Forms.Padding(0);
@@ -267,7 +267,7 @@ namespace System.Windows.Forms.Samples
             // ledgerStripButtonVDRSEPR
             // 
             this.ledgerStripButtonVDRSEPR.CheckOnClick = true;
-            this.ledgerStripButtonVDRSEPR.Image = global::System.Windows.Forms.Samples.Properties.Resources.Folder24;
+            this.ledgerStripButtonVDRSEPR.Image = global::TDW.TDADesktop.Properties.Resources.Folder24;
             this.ledgerStripButtonVDRSEPR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonVDRSEPR.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonVDRSEPR.Margin = new System.Windows.Forms.Padding(0);
@@ -282,7 +282,7 @@ namespace System.Windows.Forms.Samples
             // ledgerStripButtonVDRRL
             // 
             this.ledgerStripButtonVDRRL.CheckOnClick = true;
-            this.ledgerStripButtonVDRRL.Image = global::System.Windows.Forms.Samples.Properties.Resources.Folder24;
+            this.ledgerStripButtonVDRRL.Image = global::TDW.TDADesktop.Properties.Resources.Folder24;
             this.ledgerStripButtonVDRRL.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonVDRRL.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonVDRRL.Margin = new System.Windows.Forms.Padding(0);
@@ -297,7 +297,7 @@ namespace System.Windows.Forms.Samples
             // ledgerStripButtonVDRLedgers
             // 
             this.ledgerStripButtonVDRLedgers.CheckOnClick = true;
-            this.ledgerStripButtonVDRLedgers.Image = global::System.Windows.Forms.Samples.Properties.Resources.Folder24;
+            this.ledgerStripButtonVDRLedgers.Image = global::TDW.TDADesktop.Properties.Resources.Folder24;
             this.ledgerStripButtonVDRLedgers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonVDRLedgers.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonVDRLedgers.Margin = new System.Windows.Forms.Padding(0);
@@ -312,7 +312,7 @@ namespace System.Windows.Forms.Samples
             // ledgerStripButtonVDRAccounts
             // 
             this.ledgerStripButtonVDRAccounts.CheckOnClick = true;
-            this.ledgerStripButtonVDRAccounts.Image = global::System.Windows.Forms.Samples.Properties.Resources.Contacts24;
+            this.ledgerStripButtonVDRAccounts.Image = global::TDW.TDADesktop.Properties.Resources.Contacts24;
             this.ledgerStripButtonVDRAccounts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonVDRAccounts.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonVDRAccounts.Margin = new System.Windows.Forms.Padding(0);
@@ -327,7 +327,7 @@ namespace System.Windows.Forms.Samples
             // ledgerStripButtonVDRSmartContracts
             // 
             this.ledgerStripButtonVDRSmartContracts.CheckOnClick = true;
-            this.ledgerStripButtonVDRSmartContracts.Image = global::System.Windows.Forms.Samples.Properties.Resources.Tasks24;
+            this.ledgerStripButtonVDRSmartContracts.Image = global::TDW.TDADesktop.Properties.Resources.Tasks24;
             this.ledgerStripButtonVDRSmartContracts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ledgerStripButtonVDRSmartContracts.ImageTransparentColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ledgerStripButtonVDRSmartContracts.Margin = new System.Windows.Forms.Padding(0);
@@ -373,7 +373,7 @@ namespace System.Windows.Forms.Samples
             this.addorRemoveButtonsToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
             this.addorRemoveButtonsToolStripMenuItem.Text = "&Add or Remove Buttons";
             // 
-            // LeftSpine
+            // LeftSpinePanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -381,7 +381,7 @@ namespace System.Windows.Forms.Samples
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.stackStripSplitter);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "LeftSpine";
+            this.Name = "LeftSpinePanel";
             this.Size = new System.Drawing.Size(416, 774);
             this.Load += new System.EventHandler(this.StackBar_Load);
             this.stackStripSplitter.Panel1.ResumeLayout(false);
@@ -403,7 +403,7 @@ namespace System.Windows.Forms.Samples
 		#endregion
 
 		private System.Windows.Forms.SplitContainer stackStripSplitter;
-		private FolderView folderView1;
+		private FolderView subledgersView;
 		private HeaderStrip headerStrip1;
 		private System.Windows.Forms.ToolStripLabel ledgerStripLabel2;
 		private HeaderStrip headerStrip2;

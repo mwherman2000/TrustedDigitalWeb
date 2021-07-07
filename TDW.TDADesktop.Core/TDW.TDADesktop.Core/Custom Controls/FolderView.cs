@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
 	public class FolderView : System.Windows.Forms.UserControl
 	{
 		private ImageList	folderImages;
-		private TreeView	folderTreeView;
+		private TreeView	subledgersTreeView;
 		private IContainer	components;
 
 		private	Font		_font;
@@ -36,7 +36,7 @@ namespace System.Windows.Forms.Samples
 			InitializeComponent();
 
 			// Set Node Fonts
-			SetNodeFonts(this.folderTreeView.Nodes);
+			SetNodeFonts(this.subledgersTreeView.Nodes);
 
 			// Set dock to top
 			this.Dock = DockStyle.Fill;
@@ -92,7 +92,7 @@ namespace System.Windows.Forms.Samples
 			System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Archive Folders", new System.Windows.Forms.TreeNode[] {
             treeNode17});
 			this.folderImages = new System.Windows.Forms.ImageList(this.components);
-			this.folderTreeView = new System.Windows.Forms.TreeView();
+			this.subledgersTreeView = new System.Windows.Forms.TreeView();
 			this.SuspendLayout();
 			// 
 			// folderImages
@@ -124,15 +124,15 @@ namespace System.Windows.Forms.Samples
 			this.folderImages.Images.SetKeyName(23, "Recycle.bmp");
 			this.folderImages.Images.SetKeyName(24, "Search.bmp");
 			// 
-			// folderTreeView
+			// subledgersTreeView
 			// 
-			this.folderTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.folderTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.folderTreeView.HideSelection = false;
-			this.folderTreeView.ImageIndex = 0;
-			this.folderTreeView.ImageList = this.folderImages;
-			this.folderTreeView.Location = new System.Drawing.Point(0, 4);
-			this.folderTreeView.Name = "folderTreeView";
+			this.subledgersTreeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.subledgersTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.subledgersTreeView.HideSelection = false;
+			this.subledgersTreeView.ImageIndex = 0;
+			this.subledgersTreeView.ImageList = this.folderImages;
+			this.subledgersTreeView.Location = new System.Drawing.Point(0, 4);
+			this.subledgersTreeView.Name = "subledgersTreeView";
 			treeNode1.ImageKey = "Recycle.bmp";
 			treeNode1.Name = "Node1";
 			treeNode1.SelectedImageKey = "Recycle.bmp";
@@ -207,19 +207,19 @@ namespace System.Windows.Forms.Samples
 			treeNode18.Name = "Node16";
 			treeNode18.SelectedImageKey = "Archive.bmp";
 			treeNode18.Text = "Archive Folders";
-			this.folderTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+			this.subledgersTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode16,
             treeNode18});
-			this.folderTreeView.SelectedImageIndex = 0;
-			this.folderTreeView.Size = new System.Drawing.Size(281, 274);
-			this.folderTreeView.TabIndex = 0;
-			this.folderTreeView.TabStop = false;
-			this.folderTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.folderTreeView_DrawNode);
+			this.subledgersTreeView.SelectedImageIndex = 0;
+			this.subledgersTreeView.Size = new System.Drawing.Size(281, 274);
+			this.subledgersTreeView.TabIndex = 0;
+			this.subledgersTreeView.TabStop = false;
+			this.subledgersTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.subledgersTreeView_DrawNode);
 			// 
 			// FolderView
 			// 
 			this.BackColor = System.Drawing.SystemColors.Window;
-			this.Controls.Add(this.folderTreeView);
+			this.Controls.Add(this.subledgersTreeView);
 			this.Name = "FolderView";
 			this.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
 			this.Size = new System.Drawing.Size(281, 278);
@@ -238,7 +238,7 @@ namespace System.Windows.Forms.Samples
 				if (value != _unreadCount)
 				{
 					_unreadCount = value;
-					this.folderTreeView.Invalidate();
+					this.subledgersTreeView.Invalidate();
 				}
 			}
 		}
@@ -251,7 +251,7 @@ namespace System.Windows.Forms.Samples
 				if (value != _draftsCount)
 				{
 					_draftsCount = value;
-					this.folderTreeView.Invalidate();
+					this.subledgersTreeView.Invalidate();
 				}
 			}
 		}
@@ -264,14 +264,16 @@ namespace System.Windows.Forms.Samples
 				if (value != _deletedCount)
 				{
 					_deletedCount = value;
-					this.folderTreeView.Invalidate();
+					this.subledgersTreeView.Invalidate();
 				}
 			}
 		}
-		#endregion
 
-		#region TreeView Drawing
-		private void DrawAnnotatedText(DrawTreeNodeEventArgs e, int count, Color exColor, string left, string right)
+        public TreeView SubledgersTreeView { get => subledgersTreeView; }
+        #endregion
+
+        #region TreeView Drawing
+        private void DrawAnnotatedText(DrawTreeNodeEventArgs e, int count, Color exColor, string left, string right)
 		{
 			// Setup
 			Font	font = ((0 == count) ? this._font : this._boldFont);
@@ -290,7 +292,7 @@ namespace System.Windows.Forms.Samples
 			}
 		}
 
-		private void folderTreeView_DrawNode(object sender, System.Windows.Forms.DrawTreeNodeEventArgs e)
+		private void subledgersTreeView_DrawNode(object sender, System.Windows.Forms.DrawTreeNodeEventArgs e)
 		{
 			// Draw default by default
 			e.DrawDefault = true;
@@ -330,7 +332,7 @@ namespace System.Windows.Forms.Samples
 
 		private void SetNodeFonts(TreeNodeCollection nodes)
 		{
-			this.folderTreeView.Font = _boldFont;
+			this.subledgersTreeView.Font = _boldFont;
 
 			foreach (TreeNode node in nodes)
 			{
@@ -355,15 +357,15 @@ namespace System.Windows.Forms.Samples
 			// Set Owner Draw Mode to Text
 			if ((null == this.Site) || (!this.Site.DesignMode))
 			{
-				this.folderTreeView.DrawMode = TreeViewDrawMode.OwnerDrawText;
+				this.subledgersTreeView.DrawMode = TreeViewDrawMode.OwnerDrawText;
 			}
 
 			// Set Selected Item
-			foreach (TreeNode node in this.folderTreeView.Nodes[0].Nodes)
+			foreach (TreeNode node in this.subledgersTreeView.Nodes[0].Nodes)
 			{
 				if (node.Text.Contains("Inbox"))
 				{
-					this.folderTreeView.SelectedNode = node;
+					this.subledgersTreeView.SelectedNode = node;
 					node.Expand();
 					break;
 				}

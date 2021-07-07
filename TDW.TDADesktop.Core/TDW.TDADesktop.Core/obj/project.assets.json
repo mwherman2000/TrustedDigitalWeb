@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "TDW.TDACommon/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/TDW.TDACommon.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TDW.TDACommon.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "TDW.TDACommon/1.0.0": {
+      "type": "project",
+      "path": "../TDW.TDACommon/TDW.TDACommon.csproj",
+      "msbuildProject": "../TDW.TDACommon/TDW.TDACommon.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "TDW.TDACommon >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\mwher\\.nuget\\packages\\": {},
@@ -15,11 +34,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GE\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core.csproj",
+      "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core.csproj",
       "projectName": "TDW.TDADesktop.Core",
-      "projectPath": "C:\\GE\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core.csproj",
+      "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core.csproj",
       "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-      "outputPath": "C:\\GE\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core\\obj\\",
+      "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.TDADesktop.Core\\TDW.TDADesktop.Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -41,7 +60,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\TDW\\TrustedDigitalWeb\\TDW.TDADesktop.Core\\TDW.TDACommon\\TDW.TDACommon.csproj": {
+              "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.TDADesktop.Core\\TDW.TDACommon\\TDW.TDACommon.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

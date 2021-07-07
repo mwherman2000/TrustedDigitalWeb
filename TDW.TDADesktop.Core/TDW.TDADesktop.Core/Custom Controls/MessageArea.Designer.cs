@@ -1,6 +1,6 @@
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
-	partial class MessageArea
+	partial class MessageAreaPanel
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -28,8 +28,8 @@ namespace System.Windows.Forms.Samples
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.headerStrip1 = new System.Windows.Forms.Samples.HeaderStrip();
-			this.messageList1 = new System.Windows.Forms.Samples.MessageList();
+			this.headerStrip1 = new TDW.TDADesktop.HeaderStrip();
+			this.messageList1 = new TDW.TDADesktop.MessageList();
 			this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
 			this.headerStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -64,14 +64,14 @@ namespace System.Windows.Forms.Samples
 			this.toolStripLabel1.Name = "toolStripLabel1";
 			this.toolStripLabel1.Text = "Inbox";
 			// 
-			// MessageArea
+			// MessageAreaPanel
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.Controls.Add(this.messageList1);
 			this.Controls.Add(this.headerStrip1);
-			this.Name = "MessageArea";
+			this.Name = "MessageAreaPanel";
 			this.Size = new System.Drawing.Size(417, 485);
 			this.Load += new System.EventHandler(this.MessageArea_Load);
 			this.headerStrip1.ResumeLayout(false);
@@ -84,7 +84,5 @@ namespace System.Windows.Forms.Samples
 		private HeaderStrip headerStrip1;
 		private System.Windows.Forms.ToolStripLabel toolStripLabel1;
 		private MessageList messageList1;
-
-
 	}
 }

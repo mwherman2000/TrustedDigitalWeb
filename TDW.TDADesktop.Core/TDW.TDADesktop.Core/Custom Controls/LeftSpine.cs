@@ -10,17 +10,17 @@ using System.Drawing.Drawing2D;
 using System.Diagnostics;
 using System.Windows.Forms.Design;
 
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
 	[Designer(typeof(ParentControlDesigner))]
-	public partial class LeftSpine : UserControl
+	public partial class LeftSpinePanel : UserControl
 	{
 		private int _visibleCount = -1;
 		private int _lastCount = -1;
 		private int	_maxHeight;
 
 		#region Setup
-		public LeftSpine()
+		public LeftSpinePanel()
 		{
 			// Set Defaults
 			this.Dock = DockStyle.Fill;
@@ -209,68 +209,68 @@ namespace System.Windows.Forms.Samples
         private void ledgerStripButtonTroubleshooting_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonTroubleshooting.Text;
-			this.ledgerStripLabel2.Text = String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text = String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 
 		}
 
         private void ledgerStripButtonMasterSecrets_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonMasterSecrets.Text;
-			this.ledgerStripLabel2.Text = String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text = String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 		}
 
         private void ledgerStripButtonWallets_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonWallets.Text;
-			this.ledgerStripLabel2.Text = String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text = String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 		}
 
         private void ledgerStripButtonKeyRings_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonKeyRings.Text;
-			this.ledgerStripLabel2.Text =String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text =String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 		}
 
         private void ledgerStripButtonAuthorizations_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonAuthorizations.Text;
-			this.ledgerStripLabel2.Text = String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text = String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 		}
 
         private void ledgerStripButtonVDRUIR_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonVDRUIR.Text;
-			this.ledgerStripLabel2.Text = String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text = String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 		}
 
         private void ledgerStripButtonVDRSEPR_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonVDRSEPR.Text;
-			this.ledgerStripLabel2.Text = String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text = String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 		}
 
         private void ledgerStripButtonVDRRL_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonVDRRL.Text;
-			this.ledgerStripLabel2.Text = String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text = String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 		}
 
         private void ledgerStripButtonVDRLedgers_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonVDRLedgers.Text;
-			this.ledgerStripLabel2.Text = String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text = String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 		}
 
         private void ledgerStripButtonVDRAccounts_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonVDRAccounts.Text;
-			this.ledgerStripLabel2.Text = String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text = String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 		}
 
         private void ledgerStripButtonVDRSmartContracts_Click(object sender, EventArgs e)
         {
 			this.ledgerStripLabel1.Text = this.ledgerStripButtonVDRSmartContracts.Text;
-			this.ledgerStripLabel2.Text = String.Format($"TODO {this.ledgerStripLabel1.Text} Subledgers");
+			this.ledgerStripLabel2.Text = String.Format($"{this.ledgerStripLabel1.Text} Subledgers");
 		}
     }
 }

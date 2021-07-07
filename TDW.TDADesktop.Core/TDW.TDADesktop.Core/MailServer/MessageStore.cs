@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 #endregion
 
-namespace System.Windows.Forms.Samples
+namespace TDW.TDADesktop
 {
 	public class MessageStore : INotifyPropertyChanged
 	{
