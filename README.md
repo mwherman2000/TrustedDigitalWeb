@@ -1,7 +1,7 @@
 # Trusted Digital Web
 Trusted Digital Web (TDW) Project, Hyperonomy Digital Identity Lab, Parallelspace Corporation
 
-![image](https://user-images.githubusercontent.com/6101736/124786198-c43b0e80-df04-11eb-83b9-f184227b3d8c.png)
+![TDW-TCSServer 0 22](https://user-images.githubusercontent.com/6101736/124794321-1d5a7080-df0c-11eb-9c54-929d1a9a8413.png)
 
 ## Clients
 - Trusted Digital Assistant (TDA)
