@@ -1,4 +1,4 @@
-# TrustedDigitalWeb
+# Trusted Digital Web
 Trusted Digital Web (TDW) Project, Hyperonomy Digital Identity Lab, Parallelspace Corporation
 ## Clients
 - Trusted Digital Assistant (TDA)
