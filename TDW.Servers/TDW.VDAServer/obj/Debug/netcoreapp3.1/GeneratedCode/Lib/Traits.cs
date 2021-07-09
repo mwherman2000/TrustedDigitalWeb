@@ -24,27 +24,45 @@ namespace TDW.VDAServer
             ,
             { typeof(List<string>), 3 }
             ,
-            { typeof(TDWVDAAccountEntryCore), 4 }
+            { typeof(List<TRAClaim>), 4 }
             ,
-            { typeof(TDWVDAIdentityRegistryEntry), 5 }
+            { typeof(List<TRAKeyValuePair>), 5 }
             ,
-            { typeof(TDWVDAPostInvocationParameters), 6 }
+            { typeof(TDWVDAAccountEntryContent), 6 }
             ,
-            { typeof(TDWVDARevocationListEntry), 7 }
+            { typeof(TDWVDAAccountEntryCore), 7 }
             ,
-            { typeof(TDWVDAServiceEndpointEntry), 8 }
+            { typeof(TDWVDAIdentityRegistryEntry), 8 }
             ,
-            { typeof(TDWVDASmartContractEntryCore), 9 }
+            { typeof(TDWVDAPostInvocationParameters), 9 }
             ,
-            { typeof(TRAEnvelope), 10 }
+            { typeof(TDWVDARevocationListEntry), 10 }
             ,
-            { typeof(TRACredentialType), 11 }
+            { typeof(TDWVDAServiceEndpointEntry), 11 }
             ,
-            { typeof(TRAEncryptionFlag), 12 }
+            { typeof(TDWVDASmartContractEntryCore), 12 }
             ,
-            { typeof(TRAServiceType), 13 }
+            { typeof(TRAClaim), 13 }
             ,
-            { typeof(TRATrustLevel), 14 }
+            { typeof(TRACredentialContent), 14 }
+            ,
+            { typeof(TRACredentialCore), 15 }
+            ,
+            { typeof(TRACredentialEnvelope), 16 }
+            ,
+            { typeof(TRACredentialWrapper), 17 }
+            ,
+            { typeof(TRAKeyValuePair), 18 }
+            ,
+            { typeof(TRACredentialType), 19 }
+            ,
+            { typeof(TRAEncryptionFlag), 20 }
+            ,
+            { typeof(TRAServiceType), 21 }
+            ,
+            { typeof(TRATrustLevel), 22 }
+            ,
+            { typeof(List<List<TRAKeyValuePair>>), 24 }
             ,
         };
         #endregion
@@ -52,9 +70,11 @@ namespace TDW.VDAServer
         private static Dictionary<Type, uint> CellTypeIDLookupTable = new Dictionary<Type, uint>()
         {
             
-            { typeof(TDWVDAAccount), 0 }
+            { typeof(TDWCredential), 0 }
             ,
-            { typeof(TDWVDASmartContract), 1 }
+            { typeof(TDWVDAAccount), 1 }
+            ,
+            { typeof(TDWVDASmartContract), 2 }
             
         };
         #endregion
@@ -108,6 +128,21 @@ namespace TDW.VDAServer
         TypeConversionAction GetConversionActionTo_List_string();
         IEnumerable<List<string>> Enumerate_List_string(T value);
         
+        T ConvertFrom_List_TRAClaim(List<TRAClaim> value);
+        List<TRAClaim> ConvertTo_List_TRAClaim(T value);
+        TypeConversionAction GetConversionActionTo_List_TRAClaim();
+        IEnumerable<List<TRAClaim>> Enumerate_List_TRAClaim(T value);
+        
+        T ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value);
+        List<TRAKeyValuePair> ConvertTo_List_TRAKeyValuePair(T value);
+        TypeConversionAction GetConversionActionTo_List_TRAKeyValuePair();
+        IEnumerable<List<TRAKeyValuePair>> Enumerate_List_TRAKeyValuePair(T value);
+        
+        T ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value);
+        TDWVDAAccountEntryContent ConvertTo_TDWVDAAccountEntryContent(T value);
+        TypeConversionAction GetConversionActionTo_TDWVDAAccountEntryContent();
+        IEnumerable<TDWVDAAccountEntryContent> Enumerate_TDWVDAAccountEntryContent(T value);
+        
         T ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value);
         TDWVDAAccountEntryCore ConvertTo_TDWVDAAccountEntryCore(T value);
         TypeConversionAction GetConversionActionTo_TDWVDAAccountEntryCore();
@@ -138,10 +173,35 @@ namespace TDW.VDAServer
         TypeConversionAction GetConversionActionTo_TDWVDASmartContractEntryCore();
         IEnumerable<TDWVDASmartContractEntryCore> Enumerate_TDWVDASmartContractEntryCore(T value);
         
-        T ConvertFrom_TRAEnvelope(TRAEnvelope value);
-        TRAEnvelope ConvertTo_TRAEnvelope(T value);
-        TypeConversionAction GetConversionActionTo_TRAEnvelope();
-        IEnumerable<TRAEnvelope> Enumerate_TRAEnvelope(T value);
+        T ConvertFrom_TRAClaim(TRAClaim value);
+        TRAClaim ConvertTo_TRAClaim(T value);
+        TypeConversionAction GetConversionActionTo_TRAClaim();
+        IEnumerable<TRAClaim> Enumerate_TRAClaim(T value);
+        
+        T ConvertFrom_TRACredentialContent(TRACredentialContent value);
+        TRACredentialContent ConvertTo_TRACredentialContent(T value);
+        TypeConversionAction GetConversionActionTo_TRACredentialContent();
+        IEnumerable<TRACredentialContent> Enumerate_TRACredentialContent(T value);
+        
+        T ConvertFrom_TRACredentialCore(TRACredentialCore value);
+        TRACredentialCore ConvertTo_TRACredentialCore(T value);
+        TypeConversionAction GetConversionActionTo_TRACredentialCore();
+        IEnumerable<TRACredentialCore> Enumerate_TRACredentialCore(T value);
+        
+        T ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value);
+        TRACredentialEnvelope ConvertTo_TRACredentialEnvelope(T value);
+        TypeConversionAction GetConversionActionTo_TRACredentialEnvelope();
+        IEnumerable<TRACredentialEnvelope> Enumerate_TRACredentialEnvelope(T value);
+        
+        T ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value);
+        TRACredentialWrapper ConvertTo_TRACredentialWrapper(T value);
+        TypeConversionAction GetConversionActionTo_TRACredentialWrapper();
+        IEnumerable<TRACredentialWrapper> Enumerate_TRACredentialWrapper(T value);
+        
+        T ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value);
+        TRAKeyValuePair ConvertTo_TRAKeyValuePair(T value);
+        TypeConversionAction GetConversionActionTo_TRAKeyValuePair();
+        IEnumerable<TRAKeyValuePair> Enumerate_TRAKeyValuePair(T value);
         
         T ConvertFrom_TRACredentialType(TRACredentialType value);
         TRACredentialType ConvertTo_TRACredentialType(T value);
@@ -163,6 +223,11 @@ namespace TDW.VDAServer
         TypeConversionAction GetConversionActionTo_TRATrustLevel();
         IEnumerable<TRATrustLevel> Enumerate_TRATrustLevel(T value);
         
+        T ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value);
+        List<List<TRAKeyValuePair>> ConvertTo_List_List_TRAKeyValuePair(T value);
+        TypeConversionAction GetConversionActionTo_List_List_TRAKeyValuePair();
+        IEnumerable<List<List<TRAKeyValuePair>>> Enumerate_List_List_TRAKeyValuePair(T value);
+        
     }
     internal class TypeConverter<T> : ITypeConverter<T>
     {
@@ -176,6 +241,12 @@ namespace TDW.VDAServer
         
             , ITypeConverter<List<string>>
         
+            , ITypeConverter<List<TRAClaim>>
+        
+            , ITypeConverter<List<TRAKeyValuePair>>
+        
+            , ITypeConverter<TDWVDAAccountEntryContent>
+        
             , ITypeConverter<TDWVDAAccountEntryCore>
         
             , ITypeConverter<TDWVDAIdentityRegistryEntry>
@@ -188,7 +259,17 @@ namespace TDW.VDAServer
         
             , ITypeConverter<TDWVDASmartContractEntryCore>
         
-            , ITypeConverter<TRAEnvelope>
+            , ITypeConverter<TRAClaim>
+        
+            , ITypeConverter<TRACredentialContent>
+        
+            , ITypeConverter<TRACredentialCore>
+        
+            , ITypeConverter<TRACredentialEnvelope>
+        
+            , ITypeConverter<TRACredentialWrapper>
+        
+            , ITypeConverter<TRAKeyValuePair>
         
             , ITypeConverter<TRACredentialType>
         
@@ -197,6 +278,8 @@ namespace TDW.VDAServer
             , ITypeConverter<TRAServiceType>
         
             , ITypeConverter<TRATrustLevel>
+        
+            , ITypeConverter<List<List<TRAKeyValuePair>>>
         
         {
             bool ITypeConverter<bool>.ConvertFrom_bool(bool value)
@@ -308,6 +391,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<bool>.Enumerate_List_string(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'bool'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<bool>.ConvertTo_List_TRAClaim(bool value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<bool>.Enumerate_List_TRAClaim(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'bool'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<bool>.ConvertTo_List_TRAKeyValuePair(bool value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<bool>.Enumerate_List_TRAKeyValuePair(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'bool'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<bool>.ConvertTo_TDWVDAAccountEntryContent(bool value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<bool>.Enumerate_TDWVDAAccountEntryContent(bool value)
             {
                 
                 yield break;
@@ -456,17 +611,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            bool ITypeConverter<bool>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            bool ITypeConverter<bool>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'bool'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'bool'.");
                 
             }
-            TRAEnvelope ITypeConverter<bool>.ConvertTo_TRAEnvelope(bool value)
+            TRAClaim ITypeConverter<bool>.ConvertTo_TRAClaim(bool value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_bool(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_bool(value);
             }
-            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -475,7 +630,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<bool>.Enumerate_TRAEnvelope(bool value)
+            IEnumerable<TRAClaim> ITypeConverter<bool>.Enumerate_TRAClaim(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'bool'.");
+                
+            }
+            TRACredentialContent ITypeConverter<bool>.ConvertTo_TRACredentialContent(bool value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<bool>.Enumerate_TRACredentialContent(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'bool'.");
+                
+            }
+            TRACredentialCore ITypeConverter<bool>.ConvertTo_TRACredentialCore(bool value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<bool>.Enumerate_TRACredentialCore(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'bool'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<bool>.ConvertTo_TRACredentialEnvelope(bool value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<bool>.Enumerate_TRACredentialEnvelope(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'bool'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<bool>.ConvertTo_TRACredentialWrapper(bool value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<bool>.Enumerate_TRACredentialWrapper(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'bool'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<bool>.ConvertTo_TRAKeyValuePair(bool value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<bool>.Enumerate_TRAKeyValuePair(bool value)
             {
                 
                 yield break;
@@ -572,6 +847,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TRATrustLevel> ITypeConverter<bool>.Enumerate_TRATrustLevel(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'bool'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<bool>.ConvertTo_List_List_TRAKeyValuePair(bool value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<bool>.Enumerate_List_List_TRAKeyValuePair(bool value)
             {
                 
                 yield break;
@@ -685,6 +984,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<long>.Enumerate_List_string(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'long'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<long>.ConvertTo_List_TRAClaim(long value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<long>.Enumerate_List_TRAClaim(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'long'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<long>.ConvertTo_List_TRAKeyValuePair(long value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<long>.Enumerate_List_TRAKeyValuePair(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'long'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<long>.ConvertTo_TDWVDAAccountEntryContent(long value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<long>.Enumerate_TDWVDAAccountEntryContent(long value)
             {
                 
                 yield break;
@@ -833,17 +1204,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            long ITypeConverter<long>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            long ITypeConverter<long>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'long'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'long'.");
                 
             }
-            TRAEnvelope ITypeConverter<long>.ConvertTo_TRAEnvelope(long value)
+            TRAClaim ITypeConverter<long>.ConvertTo_TRAClaim(long value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_long(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_long(value);
             }
-            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -852,7 +1223,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<long>.Enumerate_TRAEnvelope(long value)
+            IEnumerable<TRAClaim> ITypeConverter<long>.Enumerate_TRAClaim(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'long'.");
+                
+            }
+            TRACredentialContent ITypeConverter<long>.ConvertTo_TRACredentialContent(long value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<long>.Enumerate_TRACredentialContent(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'long'.");
+                
+            }
+            TRACredentialCore ITypeConverter<long>.ConvertTo_TRACredentialCore(long value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<long>.Enumerate_TRACredentialCore(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'long'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<long>.ConvertTo_TRACredentialEnvelope(long value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<long>.Enumerate_TRACredentialEnvelope(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'long'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<long>.ConvertTo_TRACredentialWrapper(long value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<long>.Enumerate_TRACredentialWrapper(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'long'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<long>.ConvertTo_TRAKeyValuePair(long value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<long>.Enumerate_TRAKeyValuePair(long value)
             {
                 
                 yield break;
@@ -953,6 +1444,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            long ITypeConverter<long>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'long'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<long>.ConvertTo_List_List_TRAKeyValuePair(long value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<long>.Enumerate_List_List_TRAKeyValuePair(long value)
+            {
+                
+                yield break;
+            }
             string ITypeConverter<string>.ConvertFrom_bool(bool value)
             {
                 
@@ -1045,6 +1560,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<string>.Enumerate_List_string(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            List<TRAClaim> ITypeConverter<string>.ConvertTo_List_TRAClaim(string value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<string>.Enumerate_List_TRAClaim(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<string>.ConvertTo_List_TRAKeyValuePair(string value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<string>.Enumerate_List_TRAKeyValuePair(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<string>.ConvertTo_TDWVDAAccountEntryContent(string value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<string>.Enumerate_TDWVDAAccountEntryContent(string value)
             {
                 
                 yield break;
@@ -1193,17 +1780,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            string ITypeConverter<string>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            string ITypeConverter<string>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
                 return Serializer.ToString(value);
                 
             }
-            TRAEnvelope ITypeConverter<string>.ConvertTo_TRAEnvelope(string value)
+            TRAClaim ITypeConverter<string>.ConvertTo_TRAClaim(string value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_string(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_string(value);
             }
-            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_PARSESTRING;
@@ -1212,7 +1799,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<string>.Enumerate_TRAEnvelope(string value)
+            IEnumerable<TRAClaim> ITypeConverter<string>.Enumerate_TRAClaim(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            TRACredentialContent ITypeConverter<string>.ConvertTo_TRACredentialContent(string value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<string>.Enumerate_TRACredentialContent(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            TRACredentialCore ITypeConverter<string>.ConvertTo_TRACredentialCore(string value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<string>.Enumerate_TRACredentialCore(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            TRACredentialEnvelope ITypeConverter<string>.ConvertTo_TRACredentialEnvelope(string value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<string>.Enumerate_TRACredentialEnvelope(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            TRACredentialWrapper ITypeConverter<string>.ConvertTo_TRACredentialWrapper(string value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<string>.Enumerate_TRACredentialWrapper(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            TRAKeyValuePair ITypeConverter<string>.ConvertTo_TRAKeyValuePair(string value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<string>.Enumerate_TRAKeyValuePair(string value)
             {
                 
                 yield break;
@@ -1309,6 +2016,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TRATrustLevel> ITypeConverter<string>.Enumerate_TRATrustLevel(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<string>.ConvertTo_List_List_TRAKeyValuePair(string value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<string>.Enumerate_List_List_TRAKeyValuePair(string value)
             {
                 
                 yield break;
@@ -1452,6 +2183,105 @@ namespace TDW.VDAServer
                 
                 foreach (var element in value)
                     yield return TypeConverter<List<string>>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    foreach (var element in value)
+                    {
+                        intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRAClaim(element));
+                    }
+                    return intermediate_result;
+                }
+                
+            }
+            List<TRAClaim> ITypeConverter<List<string>>.ConvertTo_List_TRAClaim(List<string> value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_CONVERTLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<List<string>>.Enumerate_List_TRAClaim(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<TRAClaim>>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    foreach (var element in value)
+                    {
+                        intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRAKeyValuePair(element));
+                    }
+                    return intermediate_result;
+                }
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<string>>.ConvertTo_List_TRAKeyValuePair(List<string> value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_CONVERTLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<List<string>>.Enumerate_List_TRAKeyValuePair(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TDWVDAAccountEntryContent(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<List<string>>.ConvertTo_TDWVDAAccountEntryContent(List<string> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<List<string>>.Enumerate_TDWVDAAccountEntryContent(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_string(element);
                 
                 yield break;
             }
@@ -1641,21 +2471,21 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            List<string> ITypeConverter<List<string>>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
                 {
                     List<string> intermediate_result = new List<string>();
-                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRAEnvelope(value));
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRAClaim(value));
                     return intermediate_result;
                 }
                 
             }
-            TRAEnvelope ITypeConverter<List<string>>.ConvertTo_TRAEnvelope(List<string> value)
+            TRAClaim ITypeConverter<List<string>>.ConvertTo_TRAClaim(List<string> value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_List_string(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_List_string(value);
             }
-            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -1664,11 +2494,166 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<List<string>>.Enumerate_TRAEnvelope(List<string> value)
+            IEnumerable<TRAClaim> ITypeConverter<List<string>>.Enumerate_TRAClaim(List<string> value)
             {
                 
                 foreach (var element in value)
-                    yield return TypeConverter<TRAEnvelope>.ConvertFrom_string(element);
+                    yield return TypeConverter<TRAClaim>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRACredentialContent(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TRACredentialContent ITypeConverter<List<string>>.ConvertTo_TRACredentialContent(List<string> value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<List<string>>.Enumerate_TRACredentialContent(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TRACredentialContent>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRACredentialCore(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TRACredentialCore ITypeConverter<List<string>>.ConvertTo_TRACredentialCore(List<string> value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<List<string>>.Enumerate_TRACredentialCore(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TRACredentialCore>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRACredentialEnvelope(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TRACredentialEnvelope ITypeConverter<List<string>>.ConvertTo_TRACredentialEnvelope(List<string> value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<List<string>>.Enumerate_TRACredentialEnvelope(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TRACredentialEnvelope>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRACredentialWrapper(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TRACredentialWrapper ITypeConverter<List<string>>.ConvertTo_TRACredentialWrapper(List<string> value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<List<string>>.Enumerate_TRACredentialWrapper(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TRACredentialWrapper>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRAKeyValuePair(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TRAKeyValuePair ITypeConverter<List<string>>.ConvertTo_TRAKeyValuePair(List<string> value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<List<string>>.Enumerate_TRAKeyValuePair(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TRAKeyValuePair>.ConvertFrom_string(element);
                 
                 yield break;
             }
@@ -1796,6 +2781,1886 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    foreach (var element in value)
+                    {
+                        intermediate_result.Add(TypeConverter<string>.ConvertFrom_List_TRAKeyValuePair(element));
+                    }
+                    return intermediate_result;
+                }
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<string>>.ConvertTo_List_List_TRAKeyValuePair(List<string> value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_CONVERTLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<List<string>>.Enumerate_List_List_TRAKeyValuePair(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'List<TRAClaim>'.");
+                
+            }
+            bool ITypeConverter<List<TRAClaim>>.ConvertTo_bool(List<TRAClaim> value)
+            {
+                return TypeConverter<bool>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<List<TRAClaim>>.Enumerate_bool(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'List<TRAClaim>'.");
+                
+            }
+            long ITypeConverter<List<TRAClaim>>.ConvertTo_long(List<TRAClaim> value)
+            {
+                return TypeConverter<long>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<List<TRAClaim>>.Enumerate_long(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    List<TRAClaim> intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = ExternalParser.TryParse_List_TRAClaim(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        try
+                        {
+                            TRAClaim element = TypeConverter<TRAClaim>.ConvertFrom_string(value);
+                            intermediate_result = new List<TRAClaim>();
+                            intermediate_result.Add(element);
+                        }
+                        catch
+                        {
+                            throw new ArgumentException("Cannot parse \"" + value + "\" into either 'List<TRAClaim>' or 'TRAClaim'.");
+                        }
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<List<TRAClaim>>.ConvertTo_string(List<TRAClaim> value)
+            {
+                return TypeConverter<string>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<List<TRAClaim>>.Enumerate_string(List<TRAClaim> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<string>.ConvertFrom_TRAClaim(element);
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                {
+                    List<TRAClaim> intermediate_result = new List<TRAClaim>();
+                    foreach (var element in value)
+                    {
+                        intermediate_result.Add(TypeConverter<TRAClaim>.ConvertFrom_string(element));
+                    }
+                    return intermediate_result;
+                }
+                
+            }
+            List<string> ITypeConverter<List<TRAClaim>>.ConvertTo_List_string(List<TRAClaim> value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_CONVERTLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<List<TRAClaim>>.Enumerate_List_string(List<TRAClaim> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<string>>.ConvertFrom_TRAClaim(element);
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                return (List<TRAClaim>)value;
+                
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertTo_List_TRAClaim(List<TRAClaim> value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<List<TRAClaim>>.Enumerate_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAClaim(element);
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'List<TRAClaim>'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAClaim>>.ConvertTo_List_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<List<TRAClaim>>.Enumerate_List_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryContent(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryContent(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAAccountEntryCore ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryCore(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryCore(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAIdentityRegistryEntry(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAIdentityRegistryEntry(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAPostInvocationParameters(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAPostInvocationParameters(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDARevocationListEntry ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDARevocationListEntry(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDARevocationListEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDARevocationListEntry(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAServiceEndpointEntry(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAServiceEndpointEntry(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDASmartContractEntryCore(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDASmartContractEntryCore(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                {
+                    List<TRAClaim> intermediate_result = new List<TRAClaim>();
+                    intermediate_result.Add(TypeConverter<TRAClaim>.ConvertFrom_TRAClaim(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TRAClaim ITypeConverter<List<TRAClaim>>.ConvertTo_TRAClaim(List<TRAClaim> value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<List<TRAClaim>>.Enumerate_TRAClaim(List<TRAClaim> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TRAClaim>.ConvertFrom_TRAClaim(element);
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'List<TRAClaim>'.");
+                
+            }
+            TRACredentialContent ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredentialContent(List<TRAClaim> value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredentialContent(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'List<TRAClaim>'.");
+                
+            }
+            TRACredentialCore ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredentialCore(List<TRAClaim> value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredentialCore(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'List<TRAClaim>'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredentialEnvelope(List<TRAClaim> value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredentialEnvelope(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'List<TRAClaim>'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredentialWrapper(List<TRAClaim> value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredentialWrapper(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'List<TRAClaim>'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<List<TRAClaim>>.ConvertTo_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<List<TRAClaim>>.Enumerate_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'List<TRAClaim>'.");
+                
+            }
+            TRACredentialType ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredentialType(List<TRAClaim> value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredentialType(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'List<TRAClaim>'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<List<TRAClaim>>.ConvertTo_TRAEncryptionFlag(List<TRAClaim> value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<List<TRAClaim>>.Enumerate_TRAEncryptionFlag(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'List<TRAClaim>'.");
+                
+            }
+            TRAServiceType ITypeConverter<List<TRAClaim>>.ConvertTo_TRAServiceType(List<TRAClaim> value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<List<TRAClaim>>.Enumerate_TRAServiceType(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'List<TRAClaim>'.");
+                
+            }
+            TRATrustLevel ITypeConverter<List<TRAClaim>>.ConvertTo_TRATrustLevel(List<TRAClaim> value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<List<TRAClaim>>.Enumerate_TRATrustLevel(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'List<TRAClaim>'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<TRAClaim>>.ConvertTo_List_List_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<List<TRAClaim>>.Enumerate_List_List_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            bool ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_bool(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<bool>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_bool(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            long ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_long(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<long>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_long(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    List<TRAKeyValuePair> intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = ExternalParser.TryParse_List_TRAKeyValuePair(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        try
+                        {
+                            TRAKeyValuePair element = TypeConverter<TRAKeyValuePair>.ConvertFrom_string(value);
+                            intermediate_result = new List<TRAKeyValuePair>();
+                            intermediate_result.Add(element);
+                        }
+                        catch
+                        {
+                            throw new ArgumentException("Cannot parse \"" + value + "\" into either 'List<TRAKeyValuePair>' or 'TRAKeyValuePair'.");
+                        }
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_string(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<string>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_string(List<TRAKeyValuePair> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<string>.ConvertFrom_TRAKeyValuePair(element);
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                {
+                    List<TRAKeyValuePair> intermediate_result = new List<TRAKeyValuePair>();
+                    foreach (var element in value)
+                    {
+                        intermediate_result.Add(TypeConverter<TRAKeyValuePair>.ConvertFrom_string(element));
+                    }
+                    return intermediate_result;
+                }
+                
+            }
+            List<string> ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_List_string(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_CONVERTLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_List_string(List<TRAKeyValuePair> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<string>>.ConvertFrom_TRAKeyValuePair(element);
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_List_TRAClaim(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_List_TRAClaim(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                return (List<TRAKeyValuePair>)value;
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAKeyValuePair(element);
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TDWVDAAccountEntryContent(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TDWVDAAccountEntryContent(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TDWVDAAccountEntryCore ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TDWVDAAccountEntryCore(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TDWVDAAccountEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TDWVDAAccountEntryCore(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TDWVDAIdentityRegistryEntry(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TDWVDAIdentityRegistryEntry(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TDWVDAPostInvocationParameters(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TDWVDAPostInvocationParameters(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TDWVDARevocationListEntry ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TDWVDARevocationListEntry(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TDWVDARevocationListEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TDWVDARevocationListEntry(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TDWVDAServiceEndpointEntry(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TDWVDAServiceEndpointEntry(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TDWVDASmartContractEntryCore(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TDWVDASmartContractEntryCore(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TRAClaim ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRAClaim(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRAClaim(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TRACredentialContent ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRACredentialContent(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRACredentialContent(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TRACredentialCore ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRACredentialCore(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRACredentialCore(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRACredentialEnvelope(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRACredentialEnvelope(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRACredentialWrapper(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRACredentialWrapper(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                {
+                    List<TRAKeyValuePair> intermediate_result = new List<TRAKeyValuePair>();
+                    intermediate_result.Add(TypeConverter<TRAKeyValuePair>.ConvertFrom_TRAKeyValuePair(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TRAKeyValuePair ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRAKeyValuePair(element);
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TRACredentialType ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRACredentialType(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRACredentialType(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRAEncryptionFlag(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRAEncryptionFlag(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TRAServiceType ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRAServiceType(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRAServiceType(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TRATrustLevel ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRATrustLevel(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRATrustLevel(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_List_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_CONVERTLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_List_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAKeyValuePair(element);
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            bool ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_bool(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<bool>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_bool(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            long ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_long(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<long>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_long(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    TDWVDAAccountEntryContent intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = TDWVDAAccountEntryContent.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "TDWVDAAccountEntryContent");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_string(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<string>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_string(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            List<string> ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_List_string(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_List_string(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_List_TRAClaim(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_List_TRAKeyValuePair(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_List_TRAKeyValuePair(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                return (TDWVDAAccountEntryContent)value;
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TDWVDAAccountEntryCore(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TDWVDAAccountEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TDWVDAAccountEntryCore(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TDWVDAIdentityRegistryEntry(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TDWVDAIdentityRegistryEntry(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TDWVDAPostInvocationParameters(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TDWVDAPostInvocationParameters(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TDWVDARevocationListEntry ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TDWVDARevocationListEntry(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TDWVDARevocationListEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TDWVDARevocationListEntry(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TDWVDAServiceEndpointEntry(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TDWVDAServiceEndpointEntry(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TDWVDASmartContractEntryCore(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TDWVDASmartContractEntryCore(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRAClaim ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRAClaim(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRAClaim(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRACredentialContent(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRACredentialContent(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRACredentialCore(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRACredentialCore(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRACredentialEnvelope(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRACredentialEnvelope(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRACredentialWrapper(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRACredentialWrapper(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRAKeyValuePair(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRAKeyValuePair(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRACredentialType ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRACredentialType(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRACredentialType(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRAEncryptionFlag(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRAEncryptionFlag(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRAServiceType ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRAServiceType(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRAServiceType(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRATrustLevel ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRATrustLevel(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRATrustLevel(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_List_List_TRAKeyValuePair(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_List_List_TRAKeyValuePair(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
             TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_bool(bool value)
             {
                 
@@ -1905,6 +4770,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_List_string(TDWVDAAccountEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryCore'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryCore value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_List_TRAClaim(TDWVDAAccountEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TDWVDAAccountEntryCore'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_List_TRAKeyValuePair(TDWVDAAccountEntryCore value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAAccountEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_List_TRAKeyValuePair(TDWVDAAccountEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TDWVDAAccountEntryCore'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_TDWVDAAccountEntryContent(TDWVDAAccountEntryCore value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAAccountEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_TDWVDAAccountEntryContent(TDWVDAAccountEntryCore value)
             {
                 
                 yield break;
@@ -2053,17 +4990,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'TDWVDAAccountEntryCore'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TDWVDAAccountEntryCore'.");
                 
             }
-            TRAEnvelope ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_TRAEnvelope(TDWVDAAccountEntryCore value)
+            TRAClaim ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_TRAClaim(TDWVDAAccountEntryCore value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TDWVDAAccountEntryCore(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TDWVDAAccountEntryCore(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -2072,7 +5009,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_TRAEnvelope(TDWVDAAccountEntryCore value)
+            IEnumerable<TRAClaim> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_TRAClaim(TDWVDAAccountEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TDWVDAAccountEntryCore'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_TRACredentialContent(TDWVDAAccountEntryCore value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TDWVDAAccountEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_TRACredentialContent(TDWVDAAccountEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TDWVDAAccountEntryCore'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_TRACredentialCore(TDWVDAAccountEntryCore value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TDWVDAAccountEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_TRACredentialCore(TDWVDAAccountEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TDWVDAAccountEntryCore'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_TRACredentialEnvelope(TDWVDAAccountEntryCore value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDAAccountEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_TRACredentialEnvelope(TDWVDAAccountEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TDWVDAAccountEntryCore'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_TRACredentialWrapper(TDWVDAAccountEntryCore value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDAAccountEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_TRACredentialWrapper(TDWVDAAccountEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TDWVDAAccountEntryCore'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_TRAKeyValuePair(TDWVDAAccountEntryCore value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAAccountEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_TRAKeyValuePair(TDWVDAAccountEntryCore value)
             {
                 
                 yield break;
@@ -2169,6 +5226,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TRATrustLevel> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_TRATrustLevel(TDWVDAAccountEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TDWVDAAccountEntryCore'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TDWVDAAccountEntryCore>.ConvertTo_List_List_TRAKeyValuePair(TDWVDAAccountEntryCore value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAAccountEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryCore>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TDWVDAAccountEntryCore>.Enumerate_List_List_TRAKeyValuePair(TDWVDAAccountEntryCore value)
             {
                 
                 yield break;
@@ -2282,6 +5363,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_List_string(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAIdentityRegistryEntry'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_List_TRAClaim(TDWVDAIdentityRegistryEntry value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_List_TRAClaim(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TDWVDAIdentityRegistryEntry'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_List_TRAKeyValuePair(TDWVDAIdentityRegistryEntry value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_List_TRAKeyValuePair(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TDWVDAIdentityRegistryEntry'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_TDWVDAAccountEntryContent(TDWVDAIdentityRegistryEntry value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_TDWVDAAccountEntryContent(TDWVDAIdentityRegistryEntry value)
             {
                 
                 yield break;
@@ -2430,17 +5583,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'TDWVDAIdentityRegistryEntry'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TDWVDAIdentityRegistryEntry'.");
                 
             }
-            TRAEnvelope ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_TRAEnvelope(TDWVDAIdentityRegistryEntry value)
+            TRAClaim ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_TRAClaim(TDWVDAIdentityRegistryEntry value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -2449,7 +5602,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_TRAEnvelope(TDWVDAIdentityRegistryEntry value)
+            IEnumerable<TRAClaim> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_TRAClaim(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TDWVDAIdentityRegistryEntry'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_TRACredentialContent(TDWVDAIdentityRegistryEntry value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_TRACredentialContent(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TDWVDAIdentityRegistryEntry'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_TRACredentialCore(TDWVDAIdentityRegistryEntry value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_TRACredentialCore(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TDWVDAIdentityRegistryEntry'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_TRACredentialEnvelope(TDWVDAIdentityRegistryEntry value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_TRACredentialEnvelope(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TDWVDAIdentityRegistryEntry'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_TRACredentialWrapper(TDWVDAIdentityRegistryEntry value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_TRACredentialWrapper(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TDWVDAIdentityRegistryEntry'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_TRAKeyValuePair(TDWVDAIdentityRegistryEntry value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_TRAKeyValuePair(TDWVDAIdentityRegistryEntry value)
             {
                 
                 yield break;
@@ -2546,6 +5819,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TRATrustLevel> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_TRATrustLevel(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TDWVDAIdentityRegistryEntry'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TDWVDAIdentityRegistryEntry>.ConvertTo_List_List_TRAKeyValuePair(TDWVDAIdentityRegistryEntry value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAIdentityRegistryEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntry>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TDWVDAIdentityRegistryEntry>.Enumerate_List_List_TRAKeyValuePair(TDWVDAIdentityRegistryEntry value)
             {
                 
                 yield break;
@@ -2659,6 +5956,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_List_string(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_List_TRAClaim(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_List_TRAClaim(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_List_TRAKeyValuePair(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_List_TRAKeyValuePair(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TDWVDAAccountEntryContent(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TDWVDAAccountEntryContent(TDWVDAPostInvocationParameters value)
             {
                 
                 yield break;
@@ -2807,17 +6176,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'TDWVDAPostInvocationParameters'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TDWVDAPostInvocationParameters'.");
                 
             }
-            TRAEnvelope ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TRAEnvelope(TDWVDAPostInvocationParameters value)
+            TRAClaim ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TRAClaim(TDWVDAPostInvocationParameters value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TDWVDAPostInvocationParameters(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -2826,7 +6195,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRAEnvelope(TDWVDAPostInvocationParameters value)
+            IEnumerable<TRAClaim> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRAClaim(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TRACredentialContent(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRACredentialContent(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TRACredentialCore(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRACredentialCore(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TRACredentialEnvelope(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRACredentialEnvelope(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TRACredentialWrapper(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRACredentialWrapper(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TRAKeyValuePair(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRAKeyValuePair(TDWVDAPostInvocationParameters value)
             {
                 
                 yield break;
@@ -2923,6 +6412,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TRATrustLevel> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRATrustLevel(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_List_List_TRAKeyValuePair(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_List_List_TRAKeyValuePair(TDWVDAPostInvocationParameters value)
             {
                 
                 yield break;
@@ -3036,6 +6549,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_List_string(TDWVDARevocationListEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDARevocationListEntry'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_List_TRAClaim(TDWVDARevocationListEntry value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDARevocationListEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_List_TRAClaim(TDWVDARevocationListEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TDWVDARevocationListEntry'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_List_TRAKeyValuePair(TDWVDARevocationListEntry value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDARevocationListEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_List_TRAKeyValuePair(TDWVDARevocationListEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TDWVDARevocationListEntry'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_TDWVDAAccountEntryContent(TDWVDARevocationListEntry value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDARevocationListEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_TDWVDAAccountEntryContent(TDWVDARevocationListEntry value)
             {
                 
                 yield break;
@@ -3184,17 +6769,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'TDWVDARevocationListEntry'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TDWVDARevocationListEntry'.");
                 
             }
-            TRAEnvelope ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_TRAEnvelope(TDWVDARevocationListEntry value)
+            TRAClaim ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_TRAClaim(TDWVDARevocationListEntry value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TDWVDARevocationListEntry(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TDWVDARevocationListEntry(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -3203,7 +6788,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_TRAEnvelope(TDWVDARevocationListEntry value)
+            IEnumerable<TRAClaim> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_TRAClaim(TDWVDARevocationListEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TDWVDARevocationListEntry'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_TRACredentialContent(TDWVDARevocationListEntry value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TDWVDARevocationListEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_TRACredentialContent(TDWVDARevocationListEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TDWVDARevocationListEntry'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_TRACredentialCore(TDWVDARevocationListEntry value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TDWVDARevocationListEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_TRACredentialCore(TDWVDARevocationListEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TDWVDARevocationListEntry'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_TRACredentialEnvelope(TDWVDARevocationListEntry value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDARevocationListEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_TRACredentialEnvelope(TDWVDARevocationListEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TDWVDARevocationListEntry'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_TRACredentialWrapper(TDWVDARevocationListEntry value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDARevocationListEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_TRACredentialWrapper(TDWVDARevocationListEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TDWVDARevocationListEntry'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_TRAKeyValuePair(TDWVDARevocationListEntry value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDARevocationListEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_TRAKeyValuePair(TDWVDARevocationListEntry value)
             {
                 
                 yield break;
@@ -3300,6 +7005,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TRATrustLevel> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_TRATrustLevel(TDWVDARevocationListEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntry ITypeConverter<TDWVDARevocationListEntry>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TDWVDARevocationListEntry'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TDWVDARevocationListEntry>.ConvertTo_List_List_TRAKeyValuePair(TDWVDARevocationListEntry value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDARevocationListEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntry>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TDWVDARevocationListEntry>.Enumerate_List_List_TRAKeyValuePair(TDWVDARevocationListEntry value)
             {
                 
                 yield break;
@@ -3413,6 +7142,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_List_string(TDWVDAServiceEndpointEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAServiceEndpointEntry'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_List_TRAClaim(TDWVDAServiceEndpointEntry value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_List_TRAClaim(TDWVDAServiceEndpointEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TDWVDAServiceEndpointEntry'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_List_TRAKeyValuePair(TDWVDAServiceEndpointEntry value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_List_TRAKeyValuePair(TDWVDAServiceEndpointEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TDWVDAServiceEndpointEntry'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_TDWVDAAccountEntryContent(TDWVDAServiceEndpointEntry value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_TDWVDAAccountEntryContent(TDWVDAServiceEndpointEntry value)
             {
                 
                 yield break;
@@ -3561,17 +7362,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'TDWVDAServiceEndpointEntry'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TDWVDAServiceEndpointEntry'.");
                 
             }
-            TRAEnvelope ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_TRAEnvelope(TDWVDAServiceEndpointEntry value)
+            TRAClaim ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_TRAClaim(TDWVDAServiceEndpointEntry value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -3580,7 +7381,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_TRAEnvelope(TDWVDAServiceEndpointEntry value)
+            IEnumerable<TRAClaim> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_TRAClaim(TDWVDAServiceEndpointEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TDWVDAServiceEndpointEntry'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_TRACredentialContent(TDWVDAServiceEndpointEntry value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_TRACredentialContent(TDWVDAServiceEndpointEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TDWVDAServiceEndpointEntry'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_TRACredentialCore(TDWVDAServiceEndpointEntry value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_TRACredentialCore(TDWVDAServiceEndpointEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TDWVDAServiceEndpointEntry'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_TRACredentialEnvelope(TDWVDAServiceEndpointEntry value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_TRACredentialEnvelope(TDWVDAServiceEndpointEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TDWVDAServiceEndpointEntry'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_TRACredentialWrapper(TDWVDAServiceEndpointEntry value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_TRACredentialWrapper(TDWVDAServiceEndpointEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TDWVDAServiceEndpointEntry'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_TRAKeyValuePair(TDWVDAServiceEndpointEntry value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_TRAKeyValuePair(TDWVDAServiceEndpointEntry value)
             {
                 
                 yield break;
@@ -3677,6 +7598,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TRATrustLevel> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_TRATrustLevel(TDWVDAServiceEndpointEntry value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TDWVDAServiceEndpointEntry'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TDWVDAServiceEndpointEntry>.ConvertTo_List_List_TRAKeyValuePair(TDWVDAServiceEndpointEntry value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAServiceEndpointEntry(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntry>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TDWVDAServiceEndpointEntry>.Enumerate_List_List_TRAKeyValuePair(TDWVDAServiceEndpointEntry value)
             {
                 
                 yield break;
@@ -3790,6 +7735,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_List_string(TDWVDASmartContractEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDASmartContractEntryCore'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_List_TRAClaim(TDWVDASmartContractEntryCore value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_List_TRAClaim(TDWVDASmartContractEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TDWVDASmartContractEntryCore'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_List_TRAKeyValuePair(TDWVDASmartContractEntryCore value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDASmartContractEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_List_TRAKeyValuePair(TDWVDASmartContractEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TDWVDASmartContractEntryCore'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_TDWVDAAccountEntryContent(TDWVDASmartContractEntryCore value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDASmartContractEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_TDWVDAAccountEntryContent(TDWVDASmartContractEntryCore value)
             {
                 
                 yield break;
@@ -3938,17 +7955,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'TDWVDASmartContractEntryCore'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TDWVDASmartContractEntryCore'.");
                 
             }
-            TRAEnvelope ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_TRAEnvelope(TDWVDASmartContractEntryCore value)
+            TRAClaim ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_TRAClaim(TDWVDASmartContractEntryCore value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TDWVDASmartContractEntryCore(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TDWVDASmartContractEntryCore(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -3957,7 +7974,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_TRAEnvelope(TDWVDASmartContractEntryCore value)
+            IEnumerable<TRAClaim> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_TRAClaim(TDWVDASmartContractEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TDWVDASmartContractEntryCore'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_TRACredentialContent(TDWVDASmartContractEntryCore value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TDWVDASmartContractEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_TRACredentialContent(TDWVDASmartContractEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TDWVDASmartContractEntryCore'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_TRACredentialCore(TDWVDASmartContractEntryCore value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TDWVDASmartContractEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_TRACredentialCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TDWVDASmartContractEntryCore'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_TRACredentialEnvelope(TDWVDASmartContractEntryCore value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDASmartContractEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_TRACredentialEnvelope(TDWVDASmartContractEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TDWVDASmartContractEntryCore'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_TRACredentialWrapper(TDWVDASmartContractEntryCore value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDASmartContractEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_TRACredentialWrapper(TDWVDASmartContractEntryCore value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TDWVDASmartContractEntryCore'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_TRAKeyValuePair(TDWVDASmartContractEntryCore value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDASmartContractEntryCore(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_TRAKeyValuePair(TDWVDASmartContractEntryCore value)
             {
                 
                 yield break;
@@ -4058,41 +8195,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_bool(bool value)
+            TDWVDASmartContractEntryCore ITypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'bool' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TDWVDASmartContractEntryCore'.");
                 
             }
-            bool ITypeConverter<TRAEnvelope>.ConvertTo_bool(TRAEnvelope value)
+            List<List<TRAKeyValuePair>> ITypeConverter<TDWVDASmartContractEntryCore>.ConvertTo_List_List_TRAKeyValuePair(TDWVDASmartContractEntryCore value)
             {
-                return TypeConverter<bool>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDASmartContractEntryCore(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_bool()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<bool> ITypeConverter<TRAEnvelope>.Enumerate_bool(TRAEnvelope value)
-            {
-                
-                yield break;
-            }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_long(long value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'long' to 'TRAEnvelope'.");
-                
-            }
-            long ITypeConverter<TRAEnvelope>.ConvertTo_long(TRAEnvelope value)
-            {
-                return TypeConverter<long>.ConvertFrom_TRAEnvelope(value);
-            }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_long()
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryCore>.GetConversionActionTo_List_List_TRAKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4101,27 +8214,75 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<long> ITypeConverter<TRAEnvelope>.Enumerate_long(TRAEnvelope value)
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TDWVDASmartContractEntryCore>.Enumerate_List_List_TRAKeyValuePair(TDWVDASmartContractEntryCore value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_string(string value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TRAClaim'.");
+                
+            }
+            bool ITypeConverter<TRAClaim>.ConvertTo_bool(TRAClaim value)
+            {
+                return TypeConverter<bool>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<TRAClaim>.Enumerate_bool(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TRAClaim'.");
+                
+            }
+            long ITypeConverter<TRAClaim>.ConvertTo_long(TRAClaim value)
+            {
+                return TypeConverter<long>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TRAClaim>.Enumerate_long(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_string(string value)
             {
                 
                 {
                     #region String parse
-                    TRAEnvelope intermediate_result;
+                    TRAClaim intermediate_result;
                     bool conversion_success;
                     
                     {
-                        conversion_success = TRAEnvelope.TryParse(value, out intermediate_result);
+                        conversion_success = TRAClaim.TryParse(value, out intermediate_result);
                     }
                     
                     if (!conversion_success)
                     {
                         
-                        Throw.cannot_parse(value, "TRAEnvelope");
+                        Throw.cannot_parse(value, "TRAClaim");
                         
                     }
                     return intermediate_result;
@@ -4129,11 +8290,11 @@ namespace TDW.VDAServer
                 }
                 
             }
-            string ITypeConverter<TRAEnvelope>.ConvertTo_string(TRAEnvelope value)
+            string ITypeConverter<TRAClaim>.ConvertTo_string(TRAClaim value)
             {
-                return TypeConverter<string>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<string>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_string()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_string()
             {
                 
                 return TypeConversionAction.TC_TOSTRING;
@@ -4142,22 +8303,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<string> ITypeConverter<TRAEnvelope>.Enumerate_string(TRAEnvelope value)
+            IEnumerable<string> ITypeConverter<TRAClaim>.Enumerate_string(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_List_string(List<string> value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_List_string(List<string> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TRAClaim'.");
                 
             }
-            List<string> ITypeConverter<TRAEnvelope>.ConvertTo_List_string(TRAEnvelope value)
+            List<string> ITypeConverter<TRAClaim>.ConvertTo_List_string(TRAClaim value)
             {
-                return TypeConverter<List<string>>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<List<string>>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_List_string()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_List_string()
             {
                 
                 return TypeConversionAction.TC_WRAPINLIST;
@@ -4166,22 +8327,46 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<string>> ITypeConverter<TRAEnvelope>.Enumerate_List_string(TRAEnvelope value)
+            IEnumerable<List<string>> ITypeConverter<TRAClaim>.Enumerate_List_string(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAClaim'.");
                 
             }
-            TDWVDAAccountEntryCore ITypeConverter<TRAEnvelope>.ConvertTo_TDWVDAAccountEntryCore(TRAEnvelope value)
+            List<TRAClaim> ITypeConverter<TRAClaim>.ConvertTo_List_TRAClaim(TRAClaim value)
             {
-                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TDWVDAAccountEntryCore()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRAClaim>.Enumerate_List_TRAClaim(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRAClaim'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRAClaim>.ConvertTo_List_TRAKeyValuePair(TRAClaim value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_List_TRAKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4190,22 +8375,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<TRAEnvelope>.Enumerate_TDWVDAAccountEntryCore(TRAEnvelope value)
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRAClaim>.Enumerate_List_TRAKeyValuePair(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRAClaim'.");
                 
             }
-            TDWVDAIdentityRegistryEntry ITypeConverter<TRAEnvelope>.ConvertTo_TDWVDAIdentityRegistryEntry(TRAEnvelope value)
+            TDWVDAAccountEntryContent ITypeConverter<TRAClaim>.ConvertTo_TDWVDAAccountEntryContent(TRAClaim value)
             {
-                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TDWVDAAccountEntryContent()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4214,22 +8399,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<TRAEnvelope>.Enumerate_TDWVDAIdentityRegistryEntry(TRAEnvelope value)
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRAClaim>.Enumerate_TDWVDAAccountEntryContent(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'TRAClaim'.");
                 
             }
-            TDWVDAPostInvocationParameters ITypeConverter<TRAEnvelope>.ConvertTo_TDWVDAPostInvocationParameters(TRAEnvelope value)
+            TDWVDAAccountEntryCore ITypeConverter<TRAClaim>.ConvertTo_TDWVDAAccountEntryCore(TRAClaim value)
             {
-                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TDWVDAAccountEntryCore()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4238,22 +8423,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TRAEnvelope>.Enumerate_TDWVDAPostInvocationParameters(TRAEnvelope value)
+            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<TRAClaim>.Enumerate_TDWVDAAccountEntryCore(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'TRAClaim'.");
                 
             }
-            TDWVDARevocationListEntry ITypeConverter<TRAEnvelope>.ConvertTo_TDWVDARevocationListEntry(TRAEnvelope value)
+            TDWVDAIdentityRegistryEntry ITypeConverter<TRAClaim>.ConvertTo_TDWVDAIdentityRegistryEntry(TRAClaim value)
             {
-                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TDWVDARevocationListEntry()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4262,22 +8447,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<TRAEnvelope>.Enumerate_TDWVDARevocationListEntry(TRAEnvelope value)
+            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<TRAClaim>.Enumerate_TDWVDAIdentityRegistryEntry(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TRAClaim'.");
                 
             }
-            TDWVDAServiceEndpointEntry ITypeConverter<TRAEnvelope>.ConvertTo_TDWVDAServiceEndpointEntry(TRAEnvelope value)
+            TDWVDAPostInvocationParameters ITypeConverter<TRAClaim>.ConvertTo_TDWVDAPostInvocationParameters(TRAClaim value)
             {
-                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TDWVDAPostInvocationParameters()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4286,22 +8471,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<TRAEnvelope>.Enumerate_TDWVDAServiceEndpointEntry(TRAEnvelope value)
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TRAClaim>.Enumerate_TDWVDAPostInvocationParameters(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'TRAClaim'.");
                 
             }
-            TDWVDASmartContractEntryCore ITypeConverter<TRAEnvelope>.ConvertTo_TDWVDASmartContractEntryCore(TRAEnvelope value)
+            TDWVDARevocationListEntry ITypeConverter<TRAClaim>.ConvertTo_TDWVDARevocationListEntry(TRAClaim value)
             {
-                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TDWVDARevocationListEntry()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4310,22 +8495,70 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<TRAEnvelope>.Enumerate_TDWVDASmartContractEntryCore(TRAEnvelope value)
+            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<TRAClaim>.Enumerate_TDWVDARevocationListEntry(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
             {
                 
-                return (TRAEnvelope)value;
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'TRAClaim'.");
                 
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertTo_TRAEnvelope(TRAEnvelope value)
+            TDWVDAServiceEndpointEntry ITypeConverter<TRAClaim>.ConvertTo_TDWVDAServiceEndpointEntry(TRAClaim value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<TRAClaim>.Enumerate_TDWVDAServiceEndpointEntry(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'TRAClaim'.");
+                
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TRAClaim>.ConvertTo_TDWVDASmartContractEntryCore(TRAClaim value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<TRAClaim>.Enumerate_TDWVDASmartContractEntryCore(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                return (TRAClaim)value;
+                
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertTo_TRAClaim(TRAClaim value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_ASSIGN;
@@ -4334,22 +8567,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TRAEnvelope>.Enumerate_TRAEnvelope(TRAEnvelope value)
+            IEnumerable<TRAClaim> ITypeConverter<TRAClaim>.Enumerate_TRAClaim(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TRAClaim'.");
                 
             }
-            TRACredentialType ITypeConverter<TRAEnvelope>.ConvertTo_TRACredentialType(TRAEnvelope value)
+            TRACredentialContent ITypeConverter<TRAClaim>.ConvertTo_TRACredentialContent(TRAClaim value)
             {
-                return TypeConverter<TRACredentialType>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TRACredentialType()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRACredentialContent()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4358,22 +8591,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredentialType> ITypeConverter<TRAEnvelope>.Enumerate_TRACredentialType(TRAEnvelope value)
+            IEnumerable<TRACredentialContent> ITypeConverter<TRAClaim>.Enumerate_TRACredentialContent(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TRAClaim'.");
                 
             }
-            TRAEncryptionFlag ITypeConverter<TRAEnvelope>.ConvertTo_TRAEncryptionFlag(TRAEnvelope value)
+            TRACredentialCore ITypeConverter<TRAClaim>.ConvertTo_TRACredentialCore(TRAClaim value)
             {
-                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TRAEncryptionFlag()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRACredentialCore()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4382,22 +8615,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEncryptionFlag> ITypeConverter<TRAEnvelope>.Enumerate_TRAEncryptionFlag(TRAEnvelope value)
+            IEnumerable<TRACredentialCore> ITypeConverter<TRAClaim>.Enumerate_TRACredentialCore(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TRAClaim'.");
                 
             }
-            TRAServiceType ITypeConverter<TRAEnvelope>.ConvertTo_TRAServiceType(TRAEnvelope value)
+            TRACredentialEnvelope ITypeConverter<TRAClaim>.ConvertTo_TRACredentialEnvelope(TRAClaim value)
             {
-                return TypeConverter<TRAServiceType>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TRAServiceType()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRACredentialEnvelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4406,22 +8639,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAServiceType> ITypeConverter<TRAEnvelope>.Enumerate_TRAServiceType(TRAEnvelope value)
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TRAClaim>.Enumerate_TRACredentialEnvelope(TRAClaim value)
             {
                 
                 yield break;
             }
-            TRAEnvelope ITypeConverter<TRAEnvelope>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TRAEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TRAClaim'.");
                 
             }
-            TRATrustLevel ITypeConverter<TRAEnvelope>.ConvertTo_TRATrustLevel(TRAEnvelope value)
+            TRACredentialWrapper ITypeConverter<TRAClaim>.ConvertTo_TRACredentialWrapper(TRAClaim value)
             {
-                return TypeConverter<TRATrustLevel>.ConvertFrom_TRAEnvelope(value);
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAEnvelope>.GetConversionActionTo_TRATrustLevel()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRACredentialWrapper()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4430,7 +8663,3116 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRATrustLevel> ITypeConverter<TRAEnvelope>.Enumerate_TRATrustLevel(TRAEnvelope value)
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TRAClaim>.Enumerate_TRACredentialWrapper(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRAClaim'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRAClaim>.ConvertTo_TRAKeyValuePair(TRAClaim value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRAClaim>.Enumerate_TRAKeyValuePair(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TRAClaim'.");
+                
+            }
+            TRACredentialType ITypeConverter<TRAClaim>.ConvertTo_TRACredentialType(TRAClaim value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<TRAClaim>.Enumerate_TRACredentialType(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TRAClaim'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<TRAClaim>.ConvertTo_TRAEncryptionFlag(TRAClaim value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TRAClaim>.Enumerate_TRAEncryptionFlag(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TRAClaim'.");
+                
+            }
+            TRAServiceType ITypeConverter<TRAClaim>.ConvertTo_TRAServiceType(TRAClaim value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<TRAClaim>.Enumerate_TRAServiceType(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TRAClaim'.");
+                
+            }
+            TRATrustLevel ITypeConverter<TRAClaim>.ConvertTo_TRATrustLevel(TRAClaim value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<TRAClaim>.Enumerate_TRATrustLevel(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRAClaim'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRAClaim>.ConvertTo_List_List_TRAKeyValuePair(TRAClaim value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRAClaim>.Enumerate_List_List_TRAKeyValuePair(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TRACredentialContent'.");
+                
+            }
+            bool ITypeConverter<TRACredentialContent>.ConvertTo_bool(TRACredentialContent value)
+            {
+                return TypeConverter<bool>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<TRACredentialContent>.Enumerate_bool(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TRACredentialContent'.");
+                
+            }
+            long ITypeConverter<TRACredentialContent>.ConvertTo_long(TRACredentialContent value)
+            {
+                return TypeConverter<long>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TRACredentialContent>.Enumerate_long(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    TRACredentialContent intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = TRACredentialContent.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "TRACredentialContent");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<TRACredentialContent>.ConvertTo_string(TRACredentialContent value)
+            {
+                return TypeConverter<string>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<TRACredentialContent>.Enumerate_string(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TRACredentialContent'.");
+                
+            }
+            List<string> ITypeConverter<TRACredentialContent>.ConvertTo_List_string(TRACredentialContent value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<TRACredentialContent>.Enumerate_List_string(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredentialContent'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRACredentialContent>.ConvertTo_List_TRAClaim(TRACredentialContent value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredentialContent>.Enumerate_List_TRAClaim(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRACredentialContent'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRACredentialContent>.ConvertTo_List_TRAKeyValuePair(TRACredentialContent value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRACredentialContent>.Enumerate_List_TRAKeyValuePair(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRACredentialContent'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TRACredentialContent>.ConvertTo_TDWVDAAccountEntryContent(TRACredentialContent value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRACredentialContent>.Enumerate_TDWVDAAccountEntryContent(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'TRACredentialContent'.");
+                
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TRACredentialContent>.ConvertTo_TDWVDAAccountEntryCore(TRACredentialContent value)
+            {
+                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TDWVDAAccountEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<TRACredentialContent>.Enumerate_TDWVDAAccountEntryCore(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'TRACredentialContent'.");
+                
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TRACredentialContent>.ConvertTo_TDWVDAIdentityRegistryEntry(TRACredentialContent value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<TRACredentialContent>.Enumerate_TDWVDAIdentityRegistryEntry(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TRACredentialContent'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TRACredentialContent>.ConvertTo_TDWVDAPostInvocationParameters(TRACredentialContent value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TRACredentialContent>.Enumerate_TDWVDAPostInvocationParameters(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'TRACredentialContent'.");
+                
+            }
+            TDWVDARevocationListEntry ITypeConverter<TRACredentialContent>.ConvertTo_TDWVDARevocationListEntry(TRACredentialContent value)
+            {
+                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TDWVDARevocationListEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<TRACredentialContent>.Enumerate_TDWVDARevocationListEntry(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'TRACredentialContent'.");
+                
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TRACredentialContent>.ConvertTo_TDWVDAServiceEndpointEntry(TRACredentialContent value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<TRACredentialContent>.Enumerate_TDWVDAServiceEndpointEntry(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'TRACredentialContent'.");
+                
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TRACredentialContent>.ConvertTo_TDWVDASmartContractEntryCore(TRACredentialContent value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<TRACredentialContent>.Enumerate_TDWVDASmartContractEntryCore(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRACredentialContent'.");
+                
+            }
+            TRAClaim ITypeConverter<TRACredentialContent>.ConvertTo_TRAClaim(TRACredentialContent value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<TRACredentialContent>.Enumerate_TRAClaim(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                return (TRACredentialContent)value;
+                
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertTo_TRACredentialContent(TRACredentialContent value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TRACredentialContent>.Enumerate_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TRACredentialContent'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TRACredentialContent>.ConvertTo_TRACredentialCore(TRACredentialContent value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TRACredentialContent>.Enumerate_TRACredentialCore(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TRACredentialContent'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialContent>.ConvertTo_TRACredentialEnvelope(TRACredentialContent value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TRACredentialContent>.Enumerate_TRACredentialEnvelope(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TRACredentialContent'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialContent>.ConvertTo_TRACredentialWrapper(TRACredentialContent value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TRACredentialContent>.Enumerate_TRACredentialWrapper(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRACredentialContent'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRACredentialContent>.ConvertTo_TRAKeyValuePair(TRACredentialContent value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRACredentialContent>.Enumerate_TRAKeyValuePair(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TRACredentialContent'.");
+                
+            }
+            TRACredentialType ITypeConverter<TRACredentialContent>.ConvertTo_TRACredentialType(TRACredentialContent value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<TRACredentialContent>.Enumerate_TRACredentialType(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TRACredentialContent'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<TRACredentialContent>.ConvertTo_TRAEncryptionFlag(TRACredentialContent value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TRACredentialContent>.Enumerate_TRAEncryptionFlag(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TRACredentialContent'.");
+                
+            }
+            TRAServiceType ITypeConverter<TRACredentialContent>.ConvertTo_TRAServiceType(TRACredentialContent value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<TRACredentialContent>.Enumerate_TRAServiceType(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TRACredentialContent'.");
+                
+            }
+            TRATrustLevel ITypeConverter<TRACredentialContent>.ConvertTo_TRATrustLevel(TRACredentialContent value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<TRACredentialContent>.Enumerate_TRATrustLevel(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialContent ITypeConverter<TRACredentialContent>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRACredentialContent'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRACredentialContent>.ConvertTo_List_List_TRAKeyValuePair(TRACredentialContent value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredentialContent(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialContent>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRACredentialContent>.Enumerate_List_List_TRAKeyValuePair(TRACredentialContent value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TRACredentialCore'.");
+                
+            }
+            bool ITypeConverter<TRACredentialCore>.ConvertTo_bool(TRACredentialCore value)
+            {
+                return TypeConverter<bool>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<TRACredentialCore>.Enumerate_bool(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TRACredentialCore'.");
+                
+            }
+            long ITypeConverter<TRACredentialCore>.ConvertTo_long(TRACredentialCore value)
+            {
+                return TypeConverter<long>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TRACredentialCore>.Enumerate_long(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    TRACredentialCore intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = TRACredentialCore.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "TRACredentialCore");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<TRACredentialCore>.ConvertTo_string(TRACredentialCore value)
+            {
+                return TypeConverter<string>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<TRACredentialCore>.Enumerate_string(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TRACredentialCore'.");
+                
+            }
+            List<string> ITypeConverter<TRACredentialCore>.ConvertTo_List_string(TRACredentialCore value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<TRACredentialCore>.Enumerate_List_string(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredentialCore'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRACredentialCore>.ConvertTo_List_TRAClaim(TRACredentialCore value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredentialCore>.Enumerate_List_TRAClaim(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRACredentialCore'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRACredentialCore>.ConvertTo_List_TRAKeyValuePair(TRACredentialCore value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRACredentialCore>.Enumerate_List_TRAKeyValuePair(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRACredentialCore'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TRACredentialCore>.ConvertTo_TDWVDAAccountEntryContent(TRACredentialCore value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRACredentialCore>.Enumerate_TDWVDAAccountEntryContent(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'TRACredentialCore'.");
+                
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TRACredentialCore>.ConvertTo_TDWVDAAccountEntryCore(TRACredentialCore value)
+            {
+                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TDWVDAAccountEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<TRACredentialCore>.Enumerate_TDWVDAAccountEntryCore(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'TRACredentialCore'.");
+                
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TRACredentialCore>.ConvertTo_TDWVDAIdentityRegistryEntry(TRACredentialCore value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<TRACredentialCore>.Enumerate_TDWVDAIdentityRegistryEntry(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TRACredentialCore'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TRACredentialCore>.ConvertTo_TDWVDAPostInvocationParameters(TRACredentialCore value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TRACredentialCore>.Enumerate_TDWVDAPostInvocationParameters(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'TRACredentialCore'.");
+                
+            }
+            TDWVDARevocationListEntry ITypeConverter<TRACredentialCore>.ConvertTo_TDWVDARevocationListEntry(TRACredentialCore value)
+            {
+                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TDWVDARevocationListEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<TRACredentialCore>.Enumerate_TDWVDARevocationListEntry(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'TRACredentialCore'.");
+                
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TRACredentialCore>.ConvertTo_TDWVDAServiceEndpointEntry(TRACredentialCore value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<TRACredentialCore>.Enumerate_TDWVDAServiceEndpointEntry(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'TRACredentialCore'.");
+                
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TRACredentialCore>.ConvertTo_TDWVDASmartContractEntryCore(TRACredentialCore value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<TRACredentialCore>.Enumerate_TDWVDASmartContractEntryCore(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRACredentialCore'.");
+                
+            }
+            TRAClaim ITypeConverter<TRACredentialCore>.ConvertTo_TRAClaim(TRACredentialCore value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<TRACredentialCore>.Enumerate_TRAClaim(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TRACredentialCore'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TRACredentialCore>.ConvertTo_TRACredentialContent(TRACredentialCore value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TRACredentialCore>.Enumerate_TRACredentialContent(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                return (TRACredentialCore)value;
+                
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertTo_TRACredentialCore(TRACredentialCore value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TRACredentialCore>.Enumerate_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TRACredentialCore'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialCore>.ConvertTo_TRACredentialEnvelope(TRACredentialCore value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TRACredentialCore>.Enumerate_TRACredentialEnvelope(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TRACredentialCore'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialCore>.ConvertTo_TRACredentialWrapper(TRACredentialCore value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TRACredentialCore>.Enumerate_TRACredentialWrapper(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRACredentialCore'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRACredentialCore>.ConvertTo_TRAKeyValuePair(TRACredentialCore value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRACredentialCore>.Enumerate_TRAKeyValuePair(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TRACredentialCore'.");
+                
+            }
+            TRACredentialType ITypeConverter<TRACredentialCore>.ConvertTo_TRACredentialType(TRACredentialCore value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<TRACredentialCore>.Enumerate_TRACredentialType(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TRACredentialCore'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<TRACredentialCore>.ConvertTo_TRAEncryptionFlag(TRACredentialCore value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TRACredentialCore>.Enumerate_TRAEncryptionFlag(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TRACredentialCore'.");
+                
+            }
+            TRAServiceType ITypeConverter<TRACredentialCore>.ConvertTo_TRAServiceType(TRACredentialCore value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<TRACredentialCore>.Enumerate_TRAServiceType(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TRACredentialCore'.");
+                
+            }
+            TRATrustLevel ITypeConverter<TRACredentialCore>.ConvertTo_TRATrustLevel(TRACredentialCore value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<TRACredentialCore>.Enumerate_TRATrustLevel(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialCore ITypeConverter<TRACredentialCore>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRACredentialCore'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRACredentialCore>.ConvertTo_List_List_TRAKeyValuePair(TRACredentialCore value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredentialCore(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialCore>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRACredentialCore>.Enumerate_List_List_TRAKeyValuePair(TRACredentialCore value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TRACredentialEnvelope'.");
+                
+            }
+            bool ITypeConverter<TRACredentialEnvelope>.ConvertTo_bool(TRACredentialEnvelope value)
+            {
+                return TypeConverter<bool>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<TRACredentialEnvelope>.Enumerate_bool(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TRACredentialEnvelope'.");
+                
+            }
+            long ITypeConverter<TRACredentialEnvelope>.ConvertTo_long(TRACredentialEnvelope value)
+            {
+                return TypeConverter<long>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TRACredentialEnvelope>.Enumerate_long(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    TRACredentialEnvelope intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = TRACredentialEnvelope.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "TRACredentialEnvelope");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<TRACredentialEnvelope>.ConvertTo_string(TRACredentialEnvelope value)
+            {
+                return TypeConverter<string>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<TRACredentialEnvelope>.Enumerate_string(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TRACredentialEnvelope'.");
+                
+            }
+            List<string> ITypeConverter<TRACredentialEnvelope>.ConvertTo_List_string(TRACredentialEnvelope value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<TRACredentialEnvelope>.Enumerate_List_string(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredentialEnvelope'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRACredentialEnvelope>.ConvertTo_List_TRAClaim(TRACredentialEnvelope value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredentialEnvelope>.Enumerate_List_TRAClaim(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRACredentialEnvelope'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRACredentialEnvelope>.ConvertTo_List_TRAKeyValuePair(TRACredentialEnvelope value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRACredentialEnvelope>.Enumerate_List_TRAKeyValuePair(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRACredentialEnvelope'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TRACredentialEnvelope>.ConvertTo_TDWVDAAccountEntryContent(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRACredentialEnvelope>.Enumerate_TDWVDAAccountEntryContent(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'TRACredentialEnvelope'.");
+                
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TRACredentialEnvelope>.ConvertTo_TDWVDAAccountEntryCore(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TDWVDAAccountEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<TRACredentialEnvelope>.Enumerate_TDWVDAAccountEntryCore(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'TRACredentialEnvelope'.");
+                
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TRACredentialEnvelope>.ConvertTo_TDWVDAIdentityRegistryEntry(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<TRACredentialEnvelope>.Enumerate_TDWVDAIdentityRegistryEntry(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TRACredentialEnvelope'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TRACredentialEnvelope>.ConvertTo_TDWVDAPostInvocationParameters(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TRACredentialEnvelope>.Enumerate_TDWVDAPostInvocationParameters(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'TRACredentialEnvelope'.");
+                
+            }
+            TDWVDARevocationListEntry ITypeConverter<TRACredentialEnvelope>.ConvertTo_TDWVDARevocationListEntry(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TDWVDARevocationListEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<TRACredentialEnvelope>.Enumerate_TDWVDARevocationListEntry(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'TRACredentialEnvelope'.");
+                
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TRACredentialEnvelope>.ConvertTo_TDWVDAServiceEndpointEntry(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<TRACredentialEnvelope>.Enumerate_TDWVDAServiceEndpointEntry(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'TRACredentialEnvelope'.");
+                
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TRACredentialEnvelope>.ConvertTo_TDWVDASmartContractEntryCore(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<TRACredentialEnvelope>.Enumerate_TDWVDASmartContractEntryCore(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRACredentialEnvelope'.");
+                
+            }
+            TRAClaim ITypeConverter<TRACredentialEnvelope>.ConvertTo_TRAClaim(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<TRACredentialEnvelope>.Enumerate_TRAClaim(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TRACredentialEnvelope'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TRACredentialEnvelope>.ConvertTo_TRACredentialContent(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TRACredentialEnvelope>.Enumerate_TRACredentialContent(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TRACredentialEnvelope'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TRACredentialEnvelope>.ConvertTo_TRACredentialCore(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TRACredentialEnvelope>.Enumerate_TRACredentialCore(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                return (TRACredentialEnvelope)value;
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertTo_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TRACredentialEnvelope>.Enumerate_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TRACredentialEnvelope'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialEnvelope>.ConvertTo_TRACredentialWrapper(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TRACredentialEnvelope>.Enumerate_TRACredentialWrapper(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRACredentialEnvelope'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRACredentialEnvelope>.ConvertTo_TRAKeyValuePair(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRACredentialEnvelope>.Enumerate_TRAKeyValuePair(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TRACredentialEnvelope'.");
+                
+            }
+            TRACredentialType ITypeConverter<TRACredentialEnvelope>.ConvertTo_TRACredentialType(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<TRACredentialEnvelope>.Enumerate_TRACredentialType(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TRACredentialEnvelope'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<TRACredentialEnvelope>.ConvertTo_TRAEncryptionFlag(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TRACredentialEnvelope>.Enumerate_TRAEncryptionFlag(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TRACredentialEnvelope'.");
+                
+            }
+            TRAServiceType ITypeConverter<TRACredentialEnvelope>.ConvertTo_TRAServiceType(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<TRACredentialEnvelope>.Enumerate_TRAServiceType(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TRACredentialEnvelope'.");
+                
+            }
+            TRATrustLevel ITypeConverter<TRACredentialEnvelope>.ConvertTo_TRATrustLevel(TRACredentialEnvelope value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<TRACredentialEnvelope>.Enumerate_TRATrustLevel(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialEnvelope>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRACredentialEnvelope'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRACredentialEnvelope>.ConvertTo_List_List_TRAKeyValuePair(TRACredentialEnvelope value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredentialEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialEnvelope>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRACredentialEnvelope>.Enumerate_List_List_TRAKeyValuePair(TRACredentialEnvelope value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TRACredentialWrapper'.");
+                
+            }
+            bool ITypeConverter<TRACredentialWrapper>.ConvertTo_bool(TRACredentialWrapper value)
+            {
+                return TypeConverter<bool>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<TRACredentialWrapper>.Enumerate_bool(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TRACredentialWrapper'.");
+                
+            }
+            long ITypeConverter<TRACredentialWrapper>.ConvertTo_long(TRACredentialWrapper value)
+            {
+                return TypeConverter<long>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TRACredentialWrapper>.Enumerate_long(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    TRACredentialWrapper intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = TRACredentialWrapper.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "TRACredentialWrapper");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<TRACredentialWrapper>.ConvertTo_string(TRACredentialWrapper value)
+            {
+                return TypeConverter<string>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<TRACredentialWrapper>.Enumerate_string(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TRACredentialWrapper'.");
+                
+            }
+            List<string> ITypeConverter<TRACredentialWrapper>.ConvertTo_List_string(TRACredentialWrapper value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<TRACredentialWrapper>.Enumerate_List_string(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredentialWrapper'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRACredentialWrapper>.ConvertTo_List_TRAClaim(TRACredentialWrapper value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredentialWrapper>.Enumerate_List_TRAClaim(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRACredentialWrapper'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRACredentialWrapper>.ConvertTo_List_TRAKeyValuePair(TRACredentialWrapper value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRACredentialWrapper>.Enumerate_List_TRAKeyValuePair(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRACredentialWrapper'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TRACredentialWrapper>.ConvertTo_TDWVDAAccountEntryContent(TRACredentialWrapper value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRACredentialWrapper>.Enumerate_TDWVDAAccountEntryContent(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'TRACredentialWrapper'.");
+                
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TRACredentialWrapper>.ConvertTo_TDWVDAAccountEntryCore(TRACredentialWrapper value)
+            {
+                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TDWVDAAccountEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<TRACredentialWrapper>.Enumerate_TDWVDAAccountEntryCore(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'TRACredentialWrapper'.");
+                
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TRACredentialWrapper>.ConvertTo_TDWVDAIdentityRegistryEntry(TRACredentialWrapper value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<TRACredentialWrapper>.Enumerate_TDWVDAIdentityRegistryEntry(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TRACredentialWrapper'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TRACredentialWrapper>.ConvertTo_TDWVDAPostInvocationParameters(TRACredentialWrapper value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TRACredentialWrapper>.Enumerate_TDWVDAPostInvocationParameters(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'TRACredentialWrapper'.");
+                
+            }
+            TDWVDARevocationListEntry ITypeConverter<TRACredentialWrapper>.ConvertTo_TDWVDARevocationListEntry(TRACredentialWrapper value)
+            {
+                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TDWVDARevocationListEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<TRACredentialWrapper>.Enumerate_TDWVDARevocationListEntry(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'TRACredentialWrapper'.");
+                
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TRACredentialWrapper>.ConvertTo_TDWVDAServiceEndpointEntry(TRACredentialWrapper value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<TRACredentialWrapper>.Enumerate_TDWVDAServiceEndpointEntry(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'TRACredentialWrapper'.");
+                
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TRACredentialWrapper>.ConvertTo_TDWVDASmartContractEntryCore(TRACredentialWrapper value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<TRACredentialWrapper>.Enumerate_TDWVDASmartContractEntryCore(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRACredentialWrapper'.");
+                
+            }
+            TRAClaim ITypeConverter<TRACredentialWrapper>.ConvertTo_TRAClaim(TRACredentialWrapper value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<TRACredentialWrapper>.Enumerate_TRAClaim(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TRACredentialWrapper'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TRACredentialWrapper>.ConvertTo_TRACredentialContent(TRACredentialWrapper value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TRACredentialWrapper>.Enumerate_TRACredentialContent(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TRACredentialWrapper'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TRACredentialWrapper>.ConvertTo_TRACredentialCore(TRACredentialWrapper value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TRACredentialWrapper>.Enumerate_TRACredentialCore(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TRACredentialWrapper'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialWrapper>.ConvertTo_TRACredentialEnvelope(TRACredentialWrapper value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TRACredentialWrapper>.Enumerate_TRACredentialEnvelope(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                return (TRACredentialWrapper)value;
+                
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertTo_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TRACredentialWrapper>.Enumerate_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRACredentialWrapper'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRACredentialWrapper>.ConvertTo_TRAKeyValuePair(TRACredentialWrapper value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRACredentialWrapper>.Enumerate_TRAKeyValuePair(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TRACredentialWrapper'.");
+                
+            }
+            TRACredentialType ITypeConverter<TRACredentialWrapper>.ConvertTo_TRACredentialType(TRACredentialWrapper value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<TRACredentialWrapper>.Enumerate_TRACredentialType(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TRACredentialWrapper'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<TRACredentialWrapper>.ConvertTo_TRAEncryptionFlag(TRACredentialWrapper value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TRACredentialWrapper>.Enumerate_TRAEncryptionFlag(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TRACredentialWrapper'.");
+                
+            }
+            TRAServiceType ITypeConverter<TRACredentialWrapper>.ConvertTo_TRAServiceType(TRACredentialWrapper value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<TRACredentialWrapper>.Enumerate_TRAServiceType(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TRACredentialWrapper'.");
+                
+            }
+            TRATrustLevel ITypeConverter<TRACredentialWrapper>.ConvertTo_TRATrustLevel(TRACredentialWrapper value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<TRACredentialWrapper>.Enumerate_TRATrustLevel(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialWrapper>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRACredentialWrapper'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRACredentialWrapper>.ConvertTo_List_List_TRAKeyValuePair(TRACredentialWrapper value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredentialWrapper(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialWrapper>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRACredentialWrapper>.Enumerate_List_List_TRAKeyValuePair(TRACredentialWrapper value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TRAKeyValuePair'.");
+                
+            }
+            bool ITypeConverter<TRAKeyValuePair>.ConvertTo_bool(TRAKeyValuePair value)
+            {
+                return TypeConverter<bool>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<TRAKeyValuePair>.Enumerate_bool(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TRAKeyValuePair'.");
+                
+            }
+            long ITypeConverter<TRAKeyValuePair>.ConvertTo_long(TRAKeyValuePair value)
+            {
+                return TypeConverter<long>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TRAKeyValuePair>.Enumerate_long(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    TRAKeyValuePair intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = TRAKeyValuePair.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "TRAKeyValuePair");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<TRAKeyValuePair>.ConvertTo_string(TRAKeyValuePair value)
+            {
+                return TypeConverter<string>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<TRAKeyValuePair>.Enumerate_string(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TRAKeyValuePair'.");
+                
+            }
+            List<string> ITypeConverter<TRAKeyValuePair>.ConvertTo_List_string(TRAKeyValuePair value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<TRAKeyValuePair>.Enumerate_List_string(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAKeyValuePair'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRAKeyValuePair>.ConvertTo_List_TRAClaim(TRAKeyValuePair value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRAKeyValuePair>.Enumerate_List_TRAClaim(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRAKeyValuePair'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRAKeyValuePair>.ConvertTo_List_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRAKeyValuePair>.Enumerate_List_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRAKeyValuePair'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TRAKeyValuePair>.ConvertTo_TDWVDAAccountEntryContent(TRAKeyValuePair value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRAKeyValuePair>.Enumerate_TDWVDAAccountEntryContent(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'TRAKeyValuePair'.");
+                
+            }
+            TDWVDAAccountEntryCore ITypeConverter<TRAKeyValuePair>.ConvertTo_TDWVDAAccountEntryCore(TRAKeyValuePair value)
+            {
+                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TDWVDAAccountEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<TRAKeyValuePair>.Enumerate_TDWVDAAccountEntryCore(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'TRAKeyValuePair'.");
+                
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<TRAKeyValuePair>.ConvertTo_TDWVDAIdentityRegistryEntry(TRAKeyValuePair value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<TRAKeyValuePair>.Enumerate_TDWVDAIdentityRegistryEntry(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TRAKeyValuePair'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TRAKeyValuePair>.ConvertTo_TDWVDAPostInvocationParameters(TRAKeyValuePair value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TRAKeyValuePair>.Enumerate_TDWVDAPostInvocationParameters(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'TRAKeyValuePair'.");
+                
+            }
+            TDWVDARevocationListEntry ITypeConverter<TRAKeyValuePair>.ConvertTo_TDWVDARevocationListEntry(TRAKeyValuePair value)
+            {
+                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TDWVDARevocationListEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<TRAKeyValuePair>.Enumerate_TDWVDARevocationListEntry(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'TRAKeyValuePair'.");
+                
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<TRAKeyValuePair>.ConvertTo_TDWVDAServiceEndpointEntry(TRAKeyValuePair value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<TRAKeyValuePair>.Enumerate_TDWVDAServiceEndpointEntry(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'TRAKeyValuePair'.");
+                
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<TRAKeyValuePair>.ConvertTo_TDWVDASmartContractEntryCore(TRAKeyValuePair value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<TRAKeyValuePair>.Enumerate_TDWVDASmartContractEntryCore(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRAKeyValuePair'.");
+                
+            }
+            TRAClaim ITypeConverter<TRAKeyValuePair>.ConvertTo_TRAClaim(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<TRAKeyValuePair>.Enumerate_TRAClaim(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TRAKeyValuePair'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TRAKeyValuePair>.ConvertTo_TRACredentialContent(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TRAKeyValuePair>.Enumerate_TRACredentialContent(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TRAKeyValuePair'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TRAKeyValuePair>.ConvertTo_TRACredentialCore(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TRAKeyValuePair>.Enumerate_TRACredentialCore(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TRAKeyValuePair'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TRAKeyValuePair>.ConvertTo_TRACredentialEnvelope(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TRAKeyValuePair>.Enumerate_TRACredentialEnvelope(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TRAKeyValuePair'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TRAKeyValuePair>.ConvertTo_TRACredentialWrapper(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TRAKeyValuePair>.Enumerate_TRACredentialWrapper(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                return (TRAKeyValuePair)value;
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertTo_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRAKeyValuePair>.Enumerate_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TRAKeyValuePair'.");
+                
+            }
+            TRACredentialType ITypeConverter<TRAKeyValuePair>.ConvertTo_TRACredentialType(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<TRAKeyValuePair>.Enumerate_TRACredentialType(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TRAKeyValuePair'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<TRAKeyValuePair>.ConvertTo_TRAEncryptionFlag(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TRAKeyValuePair>.Enumerate_TRAEncryptionFlag(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TRAKeyValuePair'.");
+                
+            }
+            TRAServiceType ITypeConverter<TRAKeyValuePair>.ConvertTo_TRAServiceType(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<TRAKeyValuePair>.Enumerate_TRAServiceType(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TRAKeyValuePair'.");
+                
+            }
+            TRATrustLevel ITypeConverter<TRAKeyValuePair>.ConvertTo_TRATrustLevel(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<TRAKeyValuePair>.Enumerate_TRATrustLevel(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRAKeyValuePair'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRAKeyValuePair>.ConvertTo_List_List_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRAKeyValuePair>.Enumerate_List_List_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
                 yield break;
@@ -4544,6 +11886,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRACredentialType>.Enumerate_List_string(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredentialType'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRACredentialType>.ConvertTo_List_TRAClaim(TRACredentialType value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredentialType>.Enumerate_List_TRAClaim(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRACredentialType'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRACredentialType>.ConvertTo_List_TRAKeyValuePair(TRACredentialType value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRACredentialType>.Enumerate_List_TRAKeyValuePair(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRACredentialType'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TRACredentialType>.ConvertTo_TDWVDAAccountEntryContent(TRACredentialType value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRACredentialType>.Enumerate_TDWVDAAccountEntryContent(TRACredentialType value)
             {
                 
                 yield break;
@@ -4692,17 +12106,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'TRACredentialType'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRACredentialType'.");
                 
             }
-            TRAEnvelope ITypeConverter<TRACredentialType>.ConvertTo_TRAEnvelope(TRACredentialType value)
+            TRAClaim ITypeConverter<TRACredentialType>.ConvertTo_TRAClaim(TRACredentialType value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TRACredentialType(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TRACredentialType(value);
             }
-            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -4711,7 +12125,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TRACredentialType>.Enumerate_TRAEnvelope(TRACredentialType value)
+            IEnumerable<TRAClaim> ITypeConverter<TRACredentialType>.Enumerate_TRAClaim(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TRACredentialType'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TRACredentialType>.ConvertTo_TRACredentialContent(TRACredentialType value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TRACredentialType>.Enumerate_TRACredentialContent(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TRACredentialType'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TRACredentialType>.ConvertTo_TRACredentialCore(TRACredentialType value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TRACredentialType>.Enumerate_TRACredentialCore(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TRACredentialType'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TRACredentialType>.ConvertTo_TRACredentialEnvelope(TRACredentialType value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TRACredentialType>.Enumerate_TRACredentialEnvelope(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TRACredentialType'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TRACredentialType>.ConvertTo_TRACredentialWrapper(TRACredentialType value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TRACredentialType>.Enumerate_TRACredentialWrapper(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRACredentialType'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRACredentialType>.ConvertTo_TRAKeyValuePair(TRACredentialType value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRACredentialType>.Enumerate_TRAKeyValuePair(TRACredentialType value)
             {
                 
                 yield break;
@@ -4808,6 +12342,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TRATrustLevel> ITypeConverter<TRACredentialType>.Enumerate_TRATrustLevel(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRACredentialType'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRACredentialType>.ConvertTo_List_List_TRAKeyValuePair(TRACredentialType value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRACredentialType>.Enumerate_List_List_TRAKeyValuePair(TRACredentialType value)
             {
                 
                 yield break;
@@ -4921,6 +12479,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRAEncryptionFlag>.Enumerate_List_string(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAEncryptionFlag'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRAEncryptionFlag>.ConvertTo_List_TRAClaim(TRAEncryptionFlag value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRAEncryptionFlag>.Enumerate_List_TRAClaim(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRAEncryptionFlag'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRAEncryptionFlag>.ConvertTo_List_TRAKeyValuePair(TRAEncryptionFlag value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRAEncryptionFlag>.Enumerate_List_TRAKeyValuePair(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRAEncryptionFlag'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TRAEncryptionFlag>.ConvertTo_TDWVDAAccountEntryContent(TRAEncryptionFlag value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRAEncryptionFlag>.Enumerate_TDWVDAAccountEntryContent(TRAEncryptionFlag value)
             {
                 
                 yield break;
@@ -5069,17 +12699,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'TRAEncryptionFlag'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRAEncryptionFlag'.");
                 
             }
-            TRAEnvelope ITypeConverter<TRAEncryptionFlag>.ConvertTo_TRAEnvelope(TRAEncryptionFlag value)
+            TRAClaim ITypeConverter<TRAEncryptionFlag>.ConvertTo_TRAClaim(TRAEncryptionFlag value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TRAEncryptionFlag(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TRAEncryptionFlag(value);
             }
-            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -5088,7 +12718,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRAEnvelope(TRAEncryptionFlag value)
+            IEnumerable<TRAClaim> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRAClaim(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TRAEncryptionFlag'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TRAEncryptionFlag>.ConvertTo_TRACredentialContent(TRAEncryptionFlag value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRACredentialContent(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TRAEncryptionFlag'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TRAEncryptionFlag>.ConvertTo_TRACredentialCore(TRAEncryptionFlag value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRACredentialCore(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TRAEncryptionFlag'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TRAEncryptionFlag>.ConvertTo_TRACredentialEnvelope(TRAEncryptionFlag value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRACredentialEnvelope(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TRAEncryptionFlag'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TRAEncryptionFlag>.ConvertTo_TRACredentialWrapper(TRAEncryptionFlag value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRACredentialWrapper(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRAEncryptionFlag'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRAEncryptionFlag>.ConvertTo_TRAKeyValuePair(TRAEncryptionFlag value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRAKeyValuePair(TRAEncryptionFlag value)
             {
                 
                 yield break;
@@ -5185,6 +12935,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TRATrustLevel> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRATrustLevel(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRAEncryptionFlag'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRAEncryptionFlag>.ConvertTo_List_List_TRAKeyValuePair(TRAEncryptionFlag value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRAEncryptionFlag>.Enumerate_List_List_TRAKeyValuePair(TRAEncryptionFlag value)
             {
                 
                 yield break;
@@ -5298,6 +13072,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRAServiceType>.Enumerate_List_string(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAServiceType'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRAServiceType>.ConvertTo_List_TRAClaim(TRAServiceType value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRAServiceType>.Enumerate_List_TRAClaim(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRAServiceType'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRAServiceType>.ConvertTo_List_TRAKeyValuePair(TRAServiceType value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRAServiceType>.Enumerate_List_TRAKeyValuePair(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRAServiceType'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TRAServiceType>.ConvertTo_TDWVDAAccountEntryContent(TRAServiceType value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRAServiceType>.Enumerate_TDWVDAAccountEntryContent(TRAServiceType value)
             {
                 
                 yield break;
@@ -5446,17 +13292,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'TRAServiceType'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRAServiceType'.");
                 
             }
-            TRAEnvelope ITypeConverter<TRAServiceType>.ConvertTo_TRAEnvelope(TRAServiceType value)
+            TRAClaim ITypeConverter<TRAServiceType>.ConvertTo_TRAClaim(TRAServiceType value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TRAServiceType(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TRAServiceType(value);
             }
-            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -5465,7 +13311,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TRAServiceType>.Enumerate_TRAEnvelope(TRAServiceType value)
+            IEnumerable<TRAClaim> ITypeConverter<TRAServiceType>.Enumerate_TRAClaim(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TRAServiceType'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TRAServiceType>.ConvertTo_TRACredentialContent(TRAServiceType value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TRAServiceType>.Enumerate_TRACredentialContent(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TRAServiceType'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TRAServiceType>.ConvertTo_TRACredentialCore(TRAServiceType value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TRAServiceType>.Enumerate_TRACredentialCore(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TRAServiceType'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TRAServiceType>.ConvertTo_TRACredentialEnvelope(TRAServiceType value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TRAServiceType>.Enumerate_TRACredentialEnvelope(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TRAServiceType'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TRAServiceType>.ConvertTo_TRACredentialWrapper(TRAServiceType value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TRAServiceType>.Enumerate_TRACredentialWrapper(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRAServiceType'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRAServiceType>.ConvertTo_TRAKeyValuePair(TRAServiceType value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRAServiceType>.Enumerate_TRAKeyValuePair(TRAServiceType value)
             {
                 
                 yield break;
@@ -5562,6 +13528,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TRATrustLevel> ITypeConverter<TRAServiceType>.Enumerate_TRATrustLevel(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRAServiceType'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRAServiceType>.ConvertTo_List_List_TRAKeyValuePair(TRAServiceType value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRAServiceType>.Enumerate_List_List_TRAKeyValuePair(TRAServiceType value)
             {
                 
                 yield break;
@@ -5675,6 +13665,78 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRATrustLevel>.Enumerate_List_string(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRATrustLevel'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRATrustLevel>.ConvertTo_List_TRAClaim(TRATrustLevel value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRATrustLevel>.Enumerate_List_TRAClaim(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRATrustLevel'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRATrustLevel>.ConvertTo_List_TRAKeyValuePair(TRATrustLevel value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRATrustLevel>.Enumerate_List_TRAKeyValuePair(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRATrustLevel'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TRATrustLevel>.ConvertTo_TDWVDAAccountEntryContent(TRATrustLevel value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRATrustLevel>.Enumerate_TDWVDAAccountEntryContent(TRATrustLevel value)
             {
                 
                 yield break;
@@ -5823,17 +13885,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEnvelope' to 'TRATrustLevel'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRATrustLevel'.");
                 
             }
-            TRAEnvelope ITypeConverter<TRATrustLevel>.ConvertTo_TRAEnvelope(TRATrustLevel value)
+            TRAClaim ITypeConverter<TRATrustLevel>.ConvertTo_TRAClaim(TRATrustLevel value)
             {
-                return TypeConverter<TRAEnvelope>.ConvertFrom_TRATrustLevel(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TRATrustLevel(value);
             }
-            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -5842,7 +13904,127 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEnvelope> ITypeConverter<TRATrustLevel>.Enumerate_TRAEnvelope(TRATrustLevel value)
+            IEnumerable<TRAClaim> ITypeConverter<TRATrustLevel>.Enumerate_TRAClaim(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'TRATrustLevel'.");
+                
+            }
+            TRACredentialContent ITypeConverter<TRATrustLevel>.ConvertTo_TRACredentialContent(TRATrustLevel value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<TRATrustLevel>.Enumerate_TRACredentialContent(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'TRATrustLevel'.");
+                
+            }
+            TRACredentialCore ITypeConverter<TRATrustLevel>.ConvertTo_TRACredentialCore(TRATrustLevel value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<TRATrustLevel>.Enumerate_TRACredentialCore(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'TRATrustLevel'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<TRATrustLevel>.ConvertTo_TRACredentialEnvelope(TRATrustLevel value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<TRATrustLevel>.Enumerate_TRACredentialEnvelope(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'TRATrustLevel'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<TRATrustLevel>.ConvertTo_TRACredentialWrapper(TRATrustLevel value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<TRATrustLevel>.Enumerate_TRACredentialWrapper(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRATrustLevel'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRATrustLevel>.ConvertTo_TRAKeyValuePair(TRATrustLevel value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRATrustLevel>.Enumerate_TRAKeyValuePair(TRATrustLevel value)
             {
                 
                 yield break;
@@ -5943,6 +14125,662 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRATrustLevel'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRATrustLevel>.ConvertTo_List_List_TRAKeyValuePair(TRATrustLevel value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRATrustLevel>.Enumerate_List_List_TRAKeyValuePair(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            bool ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_bool(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<bool>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_bool(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            long ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_long(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<long>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_long(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    List<List<TRAKeyValuePair>> intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = ExternalParser.TryParse_List_List_TRAKeyValuePair(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        try
+                        {
+                            List<TRAKeyValuePair> element = TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_string(value);
+                            intermediate_result = new List<List<TRAKeyValuePair>>();
+                            intermediate_result.Add(element);
+                        }
+                        catch
+                        {
+                            throw new ArgumentException("Cannot parse \"" + value + "\" into either 'List<List<TRAKeyValuePair>>' or 'List<TRAKeyValuePair>'.");
+                        }
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_string(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<string>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_string(List<List<TRAKeyValuePair>> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<string>.ConvertFrom_List_TRAKeyValuePair(element);
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                {
+                    List<List<TRAKeyValuePair>> intermediate_result = new List<List<TRAKeyValuePair>>();
+                    foreach (var element in value)
+                    {
+                        intermediate_result.Add(TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_string(element));
+                    }
+                    return intermediate_result;
+                }
+                
+            }
+            List<string> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_List_string(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_CONVERTLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_List_string(List<List<TRAKeyValuePair>> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<string>>.ConvertFrom_List_TRAKeyValuePair(element);
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_List_TRAClaim(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_List_TRAClaim(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                {
+                    List<List<TRAKeyValuePair>> intermediate_result = new List<List<TRAKeyValuePair>>();
+                    foreach (var element in value)
+                    {
+                        intermediate_result.Add(TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAKeyValuePair(element));
+                    }
+                    return intermediate_result;
+                }
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_TRAKeyValuePair(element);
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TDWVDAAccountEntryContent(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TDWVDAAccountEntryContent(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryCore' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TDWVDAAccountEntryCore ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TDWVDAAccountEntryCore(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryCore>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TDWVDAAccountEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryCore> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TDWVDAAccountEntryCore(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntry' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TDWVDAIdentityRegistryEntry ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TDWVDAIdentityRegistryEntry(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntry>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TDWVDAIdentityRegistryEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntry> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TDWVDAIdentityRegistryEntry(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TDWVDAPostInvocationParameters(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TDWVDAPostInvocationParameters(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDARevocationListEntry(TDWVDARevocationListEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntry' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TDWVDARevocationListEntry ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TDWVDARevocationListEntry(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TDWVDARevocationListEntry>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TDWVDARevocationListEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntry> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TDWVDARevocationListEntry(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntry' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TDWVDAServiceEndpointEntry ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TDWVDAServiceEndpointEntry(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntry>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TDWVDAServiceEndpointEntry()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntry> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TDWVDAServiceEndpointEntry(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryCore' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TDWVDASmartContractEntryCore ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TDWVDASmartContractEntryCore(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryCore>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TDWVDASmartContractEntryCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryCore> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TDWVDASmartContractEntryCore(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TRAClaim ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRAClaim(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRAClaim(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialContent' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TRACredentialContent ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRACredentialContent(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRACredentialContent>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRACredentialContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialContent> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRACredentialContent(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialCore' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TRACredentialCore ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRACredentialCore(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRACredentialCore>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRACredentialCore()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialCore> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRACredentialCore(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialEnvelope' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TRACredentialEnvelope ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRACredentialEnvelope(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRACredentialEnvelope>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRACredentialEnvelope(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialWrapper' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TRACredentialWrapper ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRACredentialWrapper(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRACredentialWrapper>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialWrapper> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRACredentialWrapper(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                {
+                    List<List<TRAKeyValuePair>> intermediate_result = new List<List<TRAKeyValuePair>>();
+                    intermediate_result.Add(TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAKeyValuePair(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TRAKeyValuePair ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TRACredentialType ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRACredentialType(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRACredentialType(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRAEncryptionFlag(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRAEncryptionFlag(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TRAServiceType ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRAServiceType(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRAServiceType(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TRATrustLevel ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRATrustLevel(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRATrustLevel(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                return (List<List<TRAKeyValuePair>>)value;
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_TRAKeyValuePair(element);
+                
+                yield break;
+            }
             
             object ITypeConverter<object>.ConvertFrom_bool(bool value)
             {
@@ -6008,6 +14846,57 @@ namespace TDW.VDAServer
                 throw new NotImplementedException();
             }
             IEnumerable<List<string>> ITypeConverter<object>.Enumerate_List_string(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                return value;
+            }
+            List<TRAClaim> ITypeConverter<object>.ConvertTo_List_TRAClaim(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_List_TRAClaim()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<List<TRAClaim>> ITypeConverter<object>.Enumerate_List_TRAClaim(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                return value;
+            }
+            List<TRAKeyValuePair> ITypeConverter<object>.ConvertTo_List_TRAKeyValuePair(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<object>.Enumerate_List_TRAKeyValuePair(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                return value;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<object>.ConvertTo_TDWVDAAccountEntryContent(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<object>.Enumerate_TDWVDAAccountEntryContent(object value)
             {
                 throw new NotImplementedException();
             }
@@ -6114,19 +15003,104 @@ namespace TDW.VDAServer
                 throw new NotImplementedException();
             }
             
-            object ITypeConverter<object>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+            object ITypeConverter<object>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 return value;
             }
-            TRAEnvelope ITypeConverter<object>.ConvertTo_TRAEnvelope(object value)
+            TRAClaim ITypeConverter<object>.ConvertTo_TRAClaim(object value)
             {
                 throw new NotImplementedException();
             }
-            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TRAEnvelope()
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TRAClaim()
             {
                 throw new NotImplementedException();
             }
-            IEnumerable<TRAEnvelope> ITypeConverter<object>.Enumerate_TRAEnvelope(object value)
+            IEnumerable<TRAClaim> ITypeConverter<object>.Enumerate_TRAClaim(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+            {
+                return value;
+            }
+            TRACredentialContent ITypeConverter<object>.ConvertTo_TRACredentialContent(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TRACredentialContent()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<TRACredentialContent> ITypeConverter<object>.Enumerate_TRACredentialContent(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+            {
+                return value;
+            }
+            TRACredentialCore ITypeConverter<object>.ConvertTo_TRACredentialCore(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TRACredentialCore()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<TRACredentialCore> ITypeConverter<object>.Enumerate_TRACredentialCore(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+            {
+                return value;
+            }
+            TRACredentialEnvelope ITypeConverter<object>.ConvertTo_TRACredentialEnvelope(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TRACredentialEnvelope()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<TRACredentialEnvelope> ITypeConverter<object>.Enumerate_TRACredentialEnvelope(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+            {
+                return value;
+            }
+            TRACredentialWrapper ITypeConverter<object>.ConvertTo_TRACredentialWrapper(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TRACredentialWrapper()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<TRACredentialWrapper> ITypeConverter<object>.Enumerate_TRACredentialWrapper(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                return value;
+            }
+            TRAKeyValuePair ITypeConverter<object>.ConvertTo_TRAKeyValuePair(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<TRAKeyValuePair> ITypeConverter<object>.Enumerate_TRAKeyValuePair(object value)
             {
                 throw new NotImplementedException();
             }
@@ -6199,6 +15173,23 @@ namespace TDW.VDAServer
                 throw new NotImplementedException();
             }
             
+            object ITypeConverter<object>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                return value;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<object>.ConvertTo_List_List_TRAKeyValuePair(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<object>.Enumerate_List_List_TRAKeyValuePair(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
         }
         internal static readonly ITypeConverter<T> s_type_converter = new _TypeConverterImpl() as ITypeConverter<T> ?? new TypeConverter<T>();
         #region Default implementation
@@ -6267,6 +15258,57 @@ namespace TDW.VDAServer
             throw new NotImplementedException("Internal error T5013.");
         }
         IEnumerable<List<string>> ITypeConverter<T>.Enumerate_List_string(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        List<TRAClaim> ITypeConverter<T>.ConvertTo_List_TRAClaim(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_List_TRAClaim()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<List<TRAClaim>> ITypeConverter<T>.Enumerate_List_TRAClaim(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        List<TRAKeyValuePair> ITypeConverter<T>.ConvertTo_List_TRAKeyValuePair(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_List_TRAKeyValuePair()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<List<TRAKeyValuePair>> ITypeConverter<T>.Enumerate_List_TRAKeyValuePair(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TDWVDAAccountEntryContent ITypeConverter<T>.ConvertTo_TDWVDAAccountEntryContent(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TDWVDAAccountEntryContent()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<T>.Enumerate_TDWVDAAccountEntryContent(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
@@ -6373,19 +15415,104 @@ namespace TDW.VDAServer
             throw new NotImplementedException("Internal error T5013.");
         }
         
-        T ITypeConverter<T>.ConvertFrom_TRAEnvelope(TRAEnvelope value)
+        T ITypeConverter<T>.ConvertFrom_TRAClaim(TRAClaim value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        TRAEnvelope ITypeConverter<T>.ConvertTo_TRAEnvelope(T value)
+        TRAClaim ITypeConverter<T>.ConvertTo_TRAClaim(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TRAEnvelope()
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TRAClaim()
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        IEnumerable<TRAEnvelope> ITypeConverter<T>.Enumerate_TRAEnvelope(T value)
+        IEnumerable<TRAClaim> ITypeConverter<T>.Enumerate_TRAClaim(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_TRACredentialContent(TRACredentialContent value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TRACredentialContent ITypeConverter<T>.ConvertTo_TRACredentialContent(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TRACredentialContent()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<TRACredentialContent> ITypeConverter<T>.Enumerate_TRACredentialContent(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_TRACredentialCore(TRACredentialCore value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TRACredentialCore ITypeConverter<T>.ConvertTo_TRACredentialCore(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TRACredentialCore()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<TRACredentialCore> ITypeConverter<T>.Enumerate_TRACredentialCore(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TRACredentialEnvelope ITypeConverter<T>.ConvertTo_TRACredentialEnvelope(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TRACredentialEnvelope()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<TRACredentialEnvelope> ITypeConverter<T>.Enumerate_TRACredentialEnvelope(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TRACredentialWrapper ITypeConverter<T>.ConvertTo_TRACredentialWrapper(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TRACredentialWrapper()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<TRACredentialWrapper> ITypeConverter<T>.Enumerate_TRACredentialWrapper(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TRAKeyValuePair ITypeConverter<T>.ConvertTo_TRAKeyValuePair(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TRAKeyValuePair()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<TRAKeyValuePair> ITypeConverter<T>.Enumerate_TRAKeyValuePair(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
@@ -6454,6 +15581,23 @@ namespace TDW.VDAServer
             throw new NotImplementedException("Internal error T5013.");
         }
         IEnumerable<TRATrustLevel> ITypeConverter<T>.Enumerate_TRATrustLevel(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        List<List<TRAKeyValuePair>> ITypeConverter<T>.ConvertTo_List_List_TRAKeyValuePair(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_List_List_TRAKeyValuePair()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<T>.Enumerate_List_List_TRAKeyValuePair(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
@@ -6527,6 +15671,57 @@ namespace TDW.VDAServer
         internal static IEnumerable<List<string>> Enumerate_List_string(T value)
         {
             return s_type_converter.Enumerate_List_string(value);
+        }
+        
+        internal static T ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+        {
+            return s_type_converter.ConvertFrom_List_TRAClaim(value);
+        }
+        internal static List<TRAClaim> ConvertTo_List_TRAClaim(T value)
+        {
+            return s_type_converter.ConvertTo_List_TRAClaim(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_List_TRAClaim()
+        {
+            return s_type_converter.GetConversionActionTo_List_TRAClaim();
+        }
+        internal static IEnumerable<List<TRAClaim>> Enumerate_List_TRAClaim(T value)
+        {
+            return s_type_converter.Enumerate_List_TRAClaim(value);
+        }
+        
+        internal static T ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+        {
+            return s_type_converter.ConvertFrom_List_TRAKeyValuePair(value);
+        }
+        internal static List<TRAKeyValuePair> ConvertTo_List_TRAKeyValuePair(T value)
+        {
+            return s_type_converter.ConvertTo_List_TRAKeyValuePair(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_List_TRAKeyValuePair()
+        {
+            return s_type_converter.GetConversionActionTo_List_TRAKeyValuePair();
+        }
+        internal static IEnumerable<List<TRAKeyValuePair>> Enumerate_List_TRAKeyValuePair(T value)
+        {
+            return s_type_converter.Enumerate_List_TRAKeyValuePair(value);
+        }
+        
+        internal static T ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+        {
+            return s_type_converter.ConvertFrom_TDWVDAAccountEntryContent(value);
+        }
+        internal static TDWVDAAccountEntryContent ConvertTo_TDWVDAAccountEntryContent(T value)
+        {
+            return s_type_converter.ConvertTo_TDWVDAAccountEntryContent(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_TDWVDAAccountEntryContent()
+        {
+            return s_type_converter.GetConversionActionTo_TDWVDAAccountEntryContent();
+        }
+        internal static IEnumerable<TDWVDAAccountEntryContent> Enumerate_TDWVDAAccountEntryContent(T value)
+        {
+            return s_type_converter.Enumerate_TDWVDAAccountEntryContent(value);
         }
         
         internal static T ConvertFrom_TDWVDAAccountEntryCore(TDWVDAAccountEntryCore value)
@@ -6631,21 +15826,106 @@ namespace TDW.VDAServer
             return s_type_converter.Enumerate_TDWVDASmartContractEntryCore(value);
         }
         
-        internal static T ConvertFrom_TRAEnvelope(TRAEnvelope value)
+        internal static T ConvertFrom_TRAClaim(TRAClaim value)
         {
-            return s_type_converter.ConvertFrom_TRAEnvelope(value);
+            return s_type_converter.ConvertFrom_TRAClaim(value);
         }
-        internal static TRAEnvelope ConvertTo_TRAEnvelope(T value)
+        internal static TRAClaim ConvertTo_TRAClaim(T value)
         {
-            return s_type_converter.ConvertTo_TRAEnvelope(value);
+            return s_type_converter.ConvertTo_TRAClaim(value);
         }
-        internal static TypeConversionAction GetConversionActionTo_TRAEnvelope()
+        internal static TypeConversionAction GetConversionActionTo_TRAClaim()
         {
-            return s_type_converter.GetConversionActionTo_TRAEnvelope();
+            return s_type_converter.GetConversionActionTo_TRAClaim();
         }
-        internal static IEnumerable<TRAEnvelope> Enumerate_TRAEnvelope(T value)
+        internal static IEnumerable<TRAClaim> Enumerate_TRAClaim(T value)
         {
-            return s_type_converter.Enumerate_TRAEnvelope(value);
+            return s_type_converter.Enumerate_TRAClaim(value);
+        }
+        
+        internal static T ConvertFrom_TRACredentialContent(TRACredentialContent value)
+        {
+            return s_type_converter.ConvertFrom_TRACredentialContent(value);
+        }
+        internal static TRACredentialContent ConvertTo_TRACredentialContent(T value)
+        {
+            return s_type_converter.ConvertTo_TRACredentialContent(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_TRACredentialContent()
+        {
+            return s_type_converter.GetConversionActionTo_TRACredentialContent();
+        }
+        internal static IEnumerable<TRACredentialContent> Enumerate_TRACredentialContent(T value)
+        {
+            return s_type_converter.Enumerate_TRACredentialContent(value);
+        }
+        
+        internal static T ConvertFrom_TRACredentialCore(TRACredentialCore value)
+        {
+            return s_type_converter.ConvertFrom_TRACredentialCore(value);
+        }
+        internal static TRACredentialCore ConvertTo_TRACredentialCore(T value)
+        {
+            return s_type_converter.ConvertTo_TRACredentialCore(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_TRACredentialCore()
+        {
+            return s_type_converter.GetConversionActionTo_TRACredentialCore();
+        }
+        internal static IEnumerable<TRACredentialCore> Enumerate_TRACredentialCore(T value)
+        {
+            return s_type_converter.Enumerate_TRACredentialCore(value);
+        }
+        
+        internal static T ConvertFrom_TRACredentialEnvelope(TRACredentialEnvelope value)
+        {
+            return s_type_converter.ConvertFrom_TRACredentialEnvelope(value);
+        }
+        internal static TRACredentialEnvelope ConvertTo_TRACredentialEnvelope(T value)
+        {
+            return s_type_converter.ConvertTo_TRACredentialEnvelope(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_TRACredentialEnvelope()
+        {
+            return s_type_converter.GetConversionActionTo_TRACredentialEnvelope();
+        }
+        internal static IEnumerable<TRACredentialEnvelope> Enumerate_TRACredentialEnvelope(T value)
+        {
+            return s_type_converter.Enumerate_TRACredentialEnvelope(value);
+        }
+        
+        internal static T ConvertFrom_TRACredentialWrapper(TRACredentialWrapper value)
+        {
+            return s_type_converter.ConvertFrom_TRACredentialWrapper(value);
+        }
+        internal static TRACredentialWrapper ConvertTo_TRACredentialWrapper(T value)
+        {
+            return s_type_converter.ConvertTo_TRACredentialWrapper(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_TRACredentialWrapper()
+        {
+            return s_type_converter.GetConversionActionTo_TRACredentialWrapper();
+        }
+        internal static IEnumerable<TRACredentialWrapper> Enumerate_TRACredentialWrapper(T value)
+        {
+            return s_type_converter.Enumerate_TRACredentialWrapper(value);
+        }
+        
+        internal static T ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+        {
+            return s_type_converter.ConvertFrom_TRAKeyValuePair(value);
+        }
+        internal static TRAKeyValuePair ConvertTo_TRAKeyValuePair(T value)
+        {
+            return s_type_converter.ConvertTo_TRAKeyValuePair(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_TRAKeyValuePair()
+        {
+            return s_type_converter.GetConversionActionTo_TRAKeyValuePair();
+        }
+        internal static IEnumerable<TRAKeyValuePair> Enumerate_TRAKeyValuePair(T value)
+        {
+            return s_type_converter.Enumerate_TRAKeyValuePair(value);
         }
         
         internal static T ConvertFrom_TRACredentialType(TRACredentialType value)
@@ -6714,6 +15994,23 @@ namespace TDW.VDAServer
         internal static IEnumerable<TRATrustLevel> Enumerate_TRATrustLevel(T value)
         {
             return s_type_converter.Enumerate_TRATrustLevel(value);
+        }
+        
+        internal static T ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+        {
+            return s_type_converter.ConvertFrom_List_List_TRAKeyValuePair(value);
+        }
+        internal static List<List<TRAKeyValuePair>> ConvertTo_List_List_TRAKeyValuePair(T value)
+        {
+            return s_type_converter.ConvertTo_List_List_TRAKeyValuePair(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_List_List_TRAKeyValuePair()
+        {
+            return s_type_converter.GetConversionActionTo_List_List_TRAKeyValuePair();
+        }
+        internal static IEnumerable<List<List<TRAKeyValuePair>>> Enumerate_List_List_TRAKeyValuePair(T value)
+        {
+            return s_type_converter.Enumerate_List_List_TRAKeyValuePair(value);
         }
         
     }

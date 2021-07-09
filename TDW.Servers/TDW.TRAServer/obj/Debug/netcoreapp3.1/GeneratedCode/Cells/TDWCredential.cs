@@ -38,14 +38,14 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of TDWCredential with the specified parameters.
         ///</summary>
-        public TDWCredential(long cell_id , TRACredentialCore CredentialCore = default(TRACredentialCore), TRAEnvelope Envelope = default(TRAEnvelope), string EncryptedCredentialCore = default(string))
+        public TDWCredential(long cell_id , TRACredentialContent CredentialContent = default(TRACredentialContent), TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope), string EncryptedCredentialContent = default(string))
         {
             
-            this.CredentialCore = CredentialCore;
+            this.CredentialContent = CredentialContent;
             
-            this.Envelope = Envelope;
+            this.CredentialEnvelope = CredentialEnvelope;
             
-            this.EncryptedCredentialCore = EncryptedCredentialCore;
+            this.EncryptedCredentialContent = EncryptedCredentialContent;
             
             CellId = cell_id;
         }
@@ -53,23 +53,23 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of TDWCredential with the specified parameters.
         ///</summary>
-        public TDWCredential( TRACredentialCore CredentialCore = default(TRACredentialCore), TRAEnvelope Envelope = default(TRAEnvelope), string EncryptedCredentialCore = default(string))
+        public TDWCredential( TRACredentialContent CredentialContent = default(TRACredentialContent), TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope), string EncryptedCredentialContent = default(string))
         {
             
-            this.CredentialCore = CredentialCore;
+            this.CredentialContent = CredentialContent;
             
-            this.Envelope = Envelope;
+            this.CredentialEnvelope = CredentialEnvelope;
             
-            this.EncryptedCredentialCore = EncryptedCredentialCore;
+            this.EncryptedCredentialContent = EncryptedCredentialContent;
             
             CellId = CellIdFactory.NewCellId();
         }
         
-        public TRACredentialCore CredentialCore;
+        public TRACredentialContent CredentialContent;
         
-        public TRAEnvelope Envelope;
+        public TRACredentialEnvelope CredentialEnvelope;
         
-        public string EncryptedCredentialCore;
+        public string EncryptedCredentialContent;
         
         public static bool operator ==(TDWCredential a, TDWCredential b)
         {
@@ -84,11 +84,11 @@ namespace TDW.TRAServer
             
             return
                 
-                (a.CredentialCore == b.CredentialCore)
+                (a.CredentialContent == b.CredentialContent)
                 &&
-                (a.Envelope == b.Envelope)
+                (a.CredentialEnvelope == b.CredentialEnvelope)
                 &&
-                (a.EncryptedCredentialCore == b.EncryptedCredentialCore)
+                (a.EncryptedCredentialContent == b.EncryptedCredentialContent)
                 
                 ;
             
@@ -136,19 +136,19 @@ namespace TDW.TRAServer
         #region Lookup tables
         internal static StringLookupTable FieldLookupTable = new StringLookupTable(
             
-            "CredentialCore"
+            "CredentialContent"
             ,
-            "Envelope"
+            "CredentialEnvelope"
             ,
-            "EncryptedCredentialCore"
+            "EncryptedCredentialContent"
             
             );
         internal static HashSet<string> AppendToFieldRerouteSet = new HashSet<string>()
         {
             
-            "CredentialCore"
+            "CredentialContent"
             ,
-            "Envelope"
+            "CredentialEnvelope"
             ,
         };
         #endregion
@@ -173,13 +173,13 @@ namespace TDW.TRAServer
                 break;
                 
                 case 0:
-                return TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore);
+                return TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent);
                 
                 case 1:
-                return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                 
                 case 2:
-                return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
+                return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
                 
             }
             /* Should not reach here */
@@ -206,15 +206,15 @@ namespace TDW.TRAServer
                 break;
                 
                 case 0:
-                this.CredentialCore = TypeConverter<T>.ConvertTo_TRACredentialCore(value);
+                this.CredentialContent = TypeConverter<T>.ConvertTo_TRACredentialContent(value);
                 break;
                 
                 case 1:
-                this.Envelope = TypeConverter<T>.ConvertTo_TRAEnvelope(value);
+                this.CredentialEnvelope = TypeConverter<T>.ConvertTo_TRACredentialEnvelope(value);
                 break;
                 
                 case 2:
-                this.EncryptedCredentialCore = TypeConverter<T>.ConvertTo_string(value);
+                this.EncryptedCredentialContent = TypeConverter<T>.ConvertTo_string(value);
                 break;
                 
                 default:
@@ -242,7 +242,7 @@ namespace TDW.TRAServer
                 
                 case 2:
                 
-                return this.EncryptedCredentialCore != null;
+                return this.EncryptedCredentialContent != null;
                 
                 default:
                 return false;
@@ -276,10 +276,10 @@ namespace TDW.TRAServer
                 case 2:
                 
                 {
-                    if (this.EncryptedCredentialCore == null)
-                        this.EncryptedCredentialCore = TypeConverter<T>.ConvertTo_string(value);
+                    if (this.EncryptedCredentialContent == null)
+                        this.EncryptedCredentialContent = TypeConverter<T>.ConvertTo_string(value);
                     else
-                        this.EncryptedCredentialCore += TypeConverter<T>.ConvertTo_string(value);
+                        this.EncryptedCredentialContent += TypeConverter<T>.ConvertTo_string(value);
                 }
                 
                 break;
@@ -297,183 +297,203 @@ namespace TDW.TRAServer
                 
                 case 0:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 1:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialContent, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("CredentialCore", TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore));
+                        yield return new KeyValuePair<string, T>("CredentialContent", TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent));
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 2:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialContent, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("CredentialCore", TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore));
+                        yield return new KeyValuePair<string, T>("CredentialContent", TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent));
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 3:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 4:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 5:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 6:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialContent, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("CredentialCore", TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore));
+                        yield return new KeyValuePair<string, T>("CredentialContent", TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent));
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 7:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
-                
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
-                    
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 8:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
+                
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 9:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 10:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 11:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 12:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("CredentialCore", TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore));
-                
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.Envelope, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
-                
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
-                    
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 13:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 14:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialContent, attributeKey, attributeValue))
                     
-                    if (this.EncryptedCredentialCore != null)
+                        yield return new KeyValuePair<string, T>("CredentialContent", TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent));
+                
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialEnvelope, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
+                
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedCredentialContent != null)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
+                
+                break;
+                
+                case 15:
+                
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedCredentialContent != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
+                
+                break;
+                
+                case 16:
+                
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedCredentialContent != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
@@ -485,7 +505,7 @@ namespace TDW.TRAServer
         }
         #region enumerate value constructs
         
-        private IEnumerable<T> _enumerate_from_CredentialCore<T>()
+        private IEnumerable<T> _enumerate_from_CredentialContent<T>()
         {
             
             switch (TypeConverter<T>.type_id)
@@ -494,7 +514,7 @@ namespace TDW.TRAServer
                 case 1:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent);
                         
                     }
                     break;
@@ -502,7 +522,7 @@ namespace TDW.TRAServer
                 case 2:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent);
                         
                     }
                     break;
@@ -510,189 +530,7 @@ namespace TDW.TRAServer
                 case 6:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore);
-                        
-                    }
-                    break;
-                
-                case 12:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore);
-                        
-                    }
-                    break;
-                
-                default:
-                    Throw.incompatible_with_cell();
-                    break;
-            }
-            yield break;
-            
-        }
-        
-        private IEnumerable<T> _enumerate_from_Envelope<T>()
-        {
-            
-            switch (TypeConverter<T>.type_id)
-            {
-                
-                case 1:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
-                        
-                    }
-                    break;
-                
-                case 2:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
-                        
-                    }
-                    break;
-                
-                case 7:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
-                        
-                    }
-                    break;
-                
-                case 12:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
-                        
-                    }
-                    break;
-                
-                default:
-                    Throw.incompatible_with_cell();
-                    break;
-            }
-            yield break;
-            
-        }
-        
-        private IEnumerable<T> _enumerate_from_EncryptedCredentialCore<T>()
-        {
-            
-            if (this.EncryptedCredentialCore != null)
-                
-            switch (TypeConverter<T>.type_id)
-            {
-                
-                case 0:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 1:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 2:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 3:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 4:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 5:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 6:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 7:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 8:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 9:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 10:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 11:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 12:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 13:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent);
                         
                     }
                     break;
@@ -700,7 +538,205 @@ namespace TDW.TRAServer
                 case 14:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent);
+                        
+                    }
+                    break;
+                
+                default:
+                    Throw.incompatible_with_cell();
+                    break;
+            }
+            yield break;
+            
+        }
+        
+        private IEnumerable<T> _enumerate_from_CredentialEnvelope<T>()
+        {
+            
+            switch (TypeConverter<T>.type_id)
+            {
+                
+                case 1:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
+                        
+                    }
+                    break;
+                
+                case 2:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
+                        
+                    }
+                    break;
+                
+                case 8:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
+                        
+                    }
+                    break;
+                
+                case 14:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
+                        
+                    }
+                    break;
+                
+                default:
+                    Throw.incompatible_with_cell();
+                    break;
+            }
+            yield break;
+            
+        }
+        
+        private IEnumerable<T> _enumerate_from_EncryptedCredentialContent<T>()
+        {
+            
+            if (this.EncryptedCredentialContent != null)
+                
+            switch (TypeConverter<T>.type_id)
+            {
+                
+                case 0:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 1:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 2:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 3:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 4:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 5:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 6:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 7:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 8:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 9:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 10:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 11:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 12:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 13:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 14:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 15:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 16:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
                         
                     }
                     break;
@@ -723,13 +759,13 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                return _enumerate_from_CredentialCore<T>();
+                return _enumerate_from_CredentialContent<T>();
                 
                 case 1:
-                return _enumerate_from_Envelope<T>();
+                return _enumerate_from_CredentialEnvelope<T>();
                 
                 case 2:
-                return _enumerate_from_EncryptedCredentialCore<T>();
+                return _enumerate_from_EncryptedCredentialContent<T>();
                 
                 default:
                 Throw.undefined_field();
@@ -742,13 +778,13 @@ namespace TDW.TRAServer
             if (attributeKey == null)
             {
                 
-                foreach (var val in _enumerate_from_CredentialCore<T>())
+                foreach (var val in _enumerate_from_CredentialContent<T>())
                     yield return val;
                 
-                foreach (var val in _enumerate_from_Envelope<T>())
+                foreach (var val in _enumerate_from_CredentialEnvelope<T>())
                     yield return val;
                 
-                foreach (var val in _enumerate_from_EncryptedCredentialCore<T>())
+                foreach (var val in _enumerate_from_EncryptedCredentialContent<T>())
                     yield return val;
                 
             }
@@ -803,16 +839,16 @@ namespace TDW.TRAServer
         {
             
             {
-                yield return "CredentialCore";
+                yield return "CredentialContent";
             }
             
             {
-                yield return "Envelope";
+                yield return "CredentialEnvelope";
             }
             
             {
-                if (this.EncryptedCredentialCore != null)
-                    yield return "EncryptedCredentialCore";
+                if (this.EncryptedCredentialContent != null)
+                    yield return "EncryptedCredentialContent";
             }
             
         }
@@ -846,19 +882,19 @@ namespace TDW.TRAServer
         #region Constructors
         private unsafe TDWCredential_Accessor()
         {
-                    CredentialCore_Accessor_Field = new TRACredentialCore_Accessor(null,
+                    CredentialContent_Accessor_Field = new TRACredentialContent_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        Envelope_Accessor_Field = new TRAEnvelope_Accessor(null,
+                });        CredentialEnvelope_Accessor_Field = new TRACredentialEnvelope_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        EncryptedCredentialCore_Accessor_Field = new StringAccessor(null,
+                });        EncryptedCredentialContent_Accessor_Field = new StringAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -878,7 +914,7 @@ namespace TDW.TRAServer
                 optional_field_names = new string[]
                 {
                     
-                    "EncryptedCredentialCore"
+                    "EncryptedCredentialContent"
                     
                 };
             return optional_field_names;
@@ -913,9 +949,9 @@ namespace TDW.TRAServer
             byte* targetPtr = m_ptr;
             {            byte* optheader_0 = targetPtr;
             targetPtr += 1;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_2 = targetPtr;
+{{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);}}{            byte* optheader_2 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
@@ -956,9 +992,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             byte* targetPtr = m_ptr;
             {            byte* optheader_0 = targetPtr;
             targetPtr += 1;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_2 = targetPtr;
+{{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);}}{            byte* optheader_2 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
@@ -991,7 +1027,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
         private static byte[] s_default_content = null;
-        private static unsafe byte[] construct( TRACredentialCore CredentialCore = default(TRACredentialCore) , TRAEnvelope Envelope = default(TRAEnvelope) , string EncryptedCredentialCore = default(string) )
+        private static unsafe byte[] construct( TRACredentialContent CredentialContent = default(TRACredentialContent) , TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope) , string EncryptedCredentialContent = default(string) )
         {
             if (s_default_content != null) return s_default_content;
             
@@ -1004,32 +1040,34 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             {
 
-        if(CredentialCore.udid!= null)
-        {
-            int strlen_3 = CredentialCore.udid.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
+            {
 
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.context!= null)
-    {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.context.Count;++iterator_3)
+        if(CredentialContent.core.udid!= null)
         {
-
-        if(CredentialCore.context[iterator_3]!= null)
-        {
-            int strlen_4 = CredentialCore.context[iterator_3].Length * 2;
+            int strlen_4 = CredentialContent.core.udid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.context!= null)
+    {
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.context.Count;++iterator_4)
+        {
+
+        if(CredentialContent.core.context[iterator_4]!= null)
+        {
+            int strlen_5 = CredentialContent.core.context[iterator_4].Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
         }
     }
 
@@ -1038,106 +1076,60 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 {
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims!= null)
+    if(CredentialContent.core.claims!= null)
     {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.claims.Count;++iterator_4)
         {
 
             {
             targetPtr += 1;
 
-        if(CredentialCore.claims[iterator_3].key!= null)
+        if(CredentialContent.core.claims[iterator_4].key!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].key.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
+            int strlen_6 = CredentialContent.core.claims[iterator_4].key.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( CredentialCore.claims[iterator_3].value!= null)
+            if( CredentialContent.core.claims[iterator_4].value!= null)
             {
 
-        if(CredentialCore.claims[iterator_3].value!= null)
+        if(CredentialContent.core.claims[iterator_4].value!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].value.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( CredentialCore.claims[iterator_3].attribute!= null)
-            {
-
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attribute!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attribute.Count;++iterator_5)
-        {
-
-            {
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].key!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key.Length * 2;
-            targetPtr += strlen_7+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].value!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value.Length * 2;
-            targetPtr += strlen_7+sizeof(int);
+            int strlen_6 = CredentialContent.core.claims[iterator_4].value.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
             }
-        }
-    }
-
-}
-
-            }
-            if( CredentialCore.claims[iterator_3].attributes!= null)
+            if( CredentialContent.core.claims[iterator_4].attribute!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes!= null)
+    if(CredentialContent.core.claims[iterator_4].attribute!= null)
     {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attributes.Count;++iterator_5)
-        {
-
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes[iterator_5]!= null)
-    {
-        for(int iterator_6 = 0;iterator_6<CredentialCore.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attribute.Count;++iterator_6)
         {
 
             {
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].key!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].value!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
@@ -1150,77 +1142,138 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
 }
 
-        }
-    }
-
-}
-
             }
-
-            }
-        }
-    }
-
-}
-
-            }
-            {
-            targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
-            {
-
-        if(Envelope.hashedThumbprint64!= null)
-        {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.signedHashSignature64!= null)
-            {
-
-        if(Envelope.signedHashSignature64!= null)
-        {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.notaryStamp!= null)
-            {
-
-        if(Envelope.notaryStamp!= null)
-        {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.comments!= null)
+            if( CredentialContent.core.claims[iterator_4].attributes!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialContent.core.claims[iterator_4].attributes!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attributes.Count;++iterator_6)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes[iterator_6]!= null)
+    {
+        for(int iterator_7 = 0;iterator_7<CredentialContent.core.claims[iterator_4].attributes[iterator_6].Count;++iterator_7)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+
+            {
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key.Length * 2;
+            targetPtr += strlen_9+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value.Length * 2;
+            targetPtr += strlen_9+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+
+}
+
+        }
+    }
+
+}
+
+            }
+
+            }
+        }
+    }
+
+}
+
+            }
+            {
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 8;
+
+        if(CredentialContent.wrapper.notaryudid!= null)
+        {
+            int strlen_4 = CredentialContent.wrapper.notaryudid.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+            {
+            targetPtr += 1;
+            if( CredentialEnvelope.hashedThumbprint64!= null)
+            {
+
+        if(CredentialEnvelope.hashedThumbprint64!= null)
+        {
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.signedHashSignature64!= null)
+            {
+
+        if(CredentialEnvelope.signedHashSignature64!= null)
+        {
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.notaryStamp!= null)
+            {
+
+        if(CredentialEnvelope.notaryStamp!= null)
+        {
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.comments!= null)
+            {
+
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialEnvelope.comments!= null)
+    {
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
+        {
+
+        if(CredentialEnvelope.comments[iterator_3]!= null)
+        {
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -1234,12 +1287,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             }
 
-            }            if( EncryptedCredentialCore!= null)
+            }            if( EncryptedCredentialContent!= null)
             {
 
-        if(EncryptedCredentialCore!= null)
+        if(EncryptedCredentialContent!= null)
         {
-            int strlen_2 = EncryptedCredentialCore.Length * 2;
+            int strlen_2 = EncryptedCredentialContent.Length * 2;
             targetPtr += strlen_2+sizeof(int);
         }else
         {
@@ -1260,37 +1313,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             {
 
-        if(CredentialCore.udid!= null)
-        {
-            int strlen_3 = CredentialCore.udid.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = CredentialCore.udid)
             {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
 
-{
-byte *storedPtr_3 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.context!= null)
-    {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.context.Count;++iterator_3)
+        if(CredentialContent.core.udid!= null)
         {
-
-        if(CredentialCore.context[iterator_3]!= null)
-        {
-            int strlen_4 = CredentialCore.context[iterator_3].Length * 2;
+            int strlen_4 = CredentialContent.core.udid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = CredentialCore.context[iterator_3])
+            fixed(char* pstr_4 = CredentialContent.core.udid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1301,31 +1331,21 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        }
-    }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
-
-}
-
 {
-byte *storedPtr_3 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims!= null)
+    if(CredentialContent.core.context!= null)
     {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.context.Count;++iterator_4)
         {
 
-            {
-            byte* optheader_4 = targetPtr;
-            *(optheader_4 + 0) = 0x00;            targetPtr += 1;
-
-        if(CredentialCore.claims[iterator_3].key!= null)
+        if(CredentialContent.core.context[iterator_4]!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].key.Length * 2;
+            int strlen_5 = CredentialContent.core.context[iterator_4].Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = CredentialCore.claims[iterator_3].key)
+            fixed(char* pstr_5 = CredentialContent.core.context[iterator_4])
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -1335,109 +1355,81 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( CredentialCore.claims[iterator_3].value!= null)
-            {
 
-        if(CredentialCore.claims[iterator_3].value!= null)
-        {
-            int strlen_5 = CredentialCore.claims[iterator_3].value.Length * 2;
-            *(int*)targetPtr = strlen_5;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_5 = CredentialCore.claims[iterator_3].value)
-            {
-                Memory.Copy(pstr_5, targetPtr, strlen_5);
-                targetPtr += strlen_5;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_4 + 0) |= 0x01;
-            }
-            if( CredentialCore.claims[iterator_3].attribute!= null)
-            {
-
-{
-byte *storedPtr_5 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attribute!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attribute.Count;++iterator_5)
-        {
-
-            {
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].key!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key.Length * 2;
-            *(int*)targetPtr = strlen_7;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key)
-            {
-                Memory.Copy(pstr_7, targetPtr, strlen_7);
-                targetPtr += strlen_7;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].value!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value.Length * 2;
-            *(int*)targetPtr = strlen_7;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value)
-            {
-                Memory.Copy(pstr_7, targetPtr, strlen_7);
-                targetPtr += strlen_7;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-            }
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
-*(optheader_4 + 0) |= 0x02;
-            }
-            if( CredentialCore.claims[iterator_3].attributes!= null)
-            {
 
 {
-byte *storedPtr_5 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes!= null)
+    if(CredentialContent.core.claims!= null)
     {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attributes.Count;++iterator_5)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.claims.Count;++iterator_4)
         {
+
+            {
+            byte* optheader_5 = targetPtr;
+            *(optheader_5 + 0) = 0x00;            targetPtr += 1;
+
+        if(CredentialContent.core.claims[iterator_4].key!= null)
+        {
+            int strlen_6 = CredentialContent.core.claims[iterator_4].key.Length * 2;
+            *(int*)targetPtr = strlen_6;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_6 = CredentialContent.core.claims[iterator_4].key)
+            {
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+            if( CredentialContent.core.claims[iterator_4].value!= null)
+            {
+
+        if(CredentialContent.core.claims[iterator_4].value!= null)
+        {
+            int strlen_6 = CredentialContent.core.claims[iterator_4].value.Length * 2;
+            *(int*)targetPtr = strlen_6;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_6 = CredentialContent.core.claims[iterator_4].value)
+            {
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_5 + 0) |= 0x01;
+            }
+            if( CredentialContent.core.claims[iterator_4].attribute!= null)
+            {
 
 {
 byte *storedPtr_6 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes[iterator_5]!= null)
+    if(CredentialContent.core.claims[iterator_4].attribute!= null)
     {
-        for(int iterator_6 = 0;iterator_6<CredentialCore.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attribute.Count;++iterator_6)
         {
 
             {
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].key!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key)
+            fixed(char* pstr_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -1448,12 +1440,12 @@ byte *storedPtr_6 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].value!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value)
+            fixed(char* pstr_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -1470,39 +1462,126 @@ byte *storedPtr_6 = targetPtr;
 *(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
 
 }
+*(optheader_5 + 0) |= 0x02;
+            }
+            if( CredentialContent.core.claims[iterator_4].attributes!= null)
+            {
+
+{
+byte *storedPtr_6 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes!= null)
+    {
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attributes.Count;++iterator_6)
+        {
+
+{
+byte *storedPtr_7 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes[iterator_6]!= null)
+    {
+        for(int iterator_7 = 0;iterator_7<CredentialContent.core.claims[iterator_4].attributes[iterator_6].Count;++iterator_7)
+        {
+
+            {
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key.Length * 2;
+            *(int*)targetPtr = strlen_9;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key)
+            {
+                Memory.Copy(pstr_9, targetPtr, strlen_9);
+                targetPtr += strlen_9;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value.Length * 2;
+            *(int*)targetPtr = strlen_9;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value)
+            {
+                Memory.Copy(pstr_9, targetPtr, strlen_9);
+                targetPtr += strlen_9;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+*(int*)storedPtr_7 = (int)(targetPtr - storedPtr_7 - 4);
+
+}
 
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
 
 }
-*(optheader_4 + 0) |= 0x04;
+*(optheader_5 + 0) |= 0x04;
             }
 
             }
         }
     }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
 
+            }
+            {
+            *(TRACredentialType*)targetPtr = CredentialContent.wrapper.credtype;
+            targetPtr += 1;
+            *(TRATrustLevel*)targetPtr = CredentialContent.wrapper.trustLevel;
+            targetPtr += 1;
+            *(TRAEncryptionFlag*)targetPtr = CredentialContent.wrapper.encryptionFlag;
+            targetPtr += 1;
+            *(long*)targetPtr = CredentialContent.wrapper.version;
+            targetPtr += 8;
+
+        if(CredentialContent.wrapper.notaryudid!= null)
+        {
+            int strlen_4 = CredentialContent.wrapper.notaryudid.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = CredentialContent.wrapper.notaryudid)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
             }
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = Envelope.credtype;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = Envelope.encryptionFlag;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.hashedThumbprint64)
+            fixed(char* pstr_3 = CredentialEnvelope.hashedThumbprint64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1514,15 +1593,15 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.signedHashSignature64)
+            fixed(char* pstr_3 = CredentialEnvelope.signedHashSignature64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1534,15 +1613,15 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x02;
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.notaryStamp)
+            fixed(char* pstr_3 = CredentialEnvelope.notaryStamp)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1554,24 +1633,24 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x04;
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = Envelope.comments[iterator_3])
+            fixed(char* pstr_4 = CredentialEnvelope.comments[iterator_3])
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1590,15 +1669,15 @@ byte *storedPtr_3 = targetPtr;
 *(optheader_2 + 0) |= 0x08;
             }
 
-            }            if( EncryptedCredentialCore!= null)
+            }            if( EncryptedCredentialContent!= null)
             {
 
-        if(EncryptedCredentialCore!= null)
+        if(EncryptedCredentialContent!= null)
         {
-            int strlen_2 = EncryptedCredentialCore.Length * 2;
+            int strlen_2 = EncryptedCredentialContent.Length * 2;
             *(int*)targetPtr = strlen_2;
             targetPtr += sizeof(int);
-            fixed(char* pstr_2 = EncryptedCredentialCore)
+            fixed(char* pstr_2 = EncryptedCredentialContent)
             {
                 Memory.Copy(pstr_2, targetPtr, strlen_2);
                 targetPtr += strlen_2;
@@ -1617,12 +1696,12 @@ byte *storedPtr_3 = targetPtr;
             s_default_content = tmpcell;
             return tmpcell;
         }
-        TRACredentialCore_Accessor CredentialCore_Accessor_Field;
+        TRACredentialContent_Accessor CredentialContent_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field CredentialCore.
+        ///Provides in-place access to the object field CredentialContent.
         ///</summary>
-        public unsafe TRACredentialCore_Accessor CredentialCore
+        public unsafe TRACredentialContent_Accessor CredentialContent
         {
             get
             {
@@ -1630,16 +1709,16 @@ byte *storedPtr_3 = targetPtr;
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
-}CredentialCore_Accessor_Field.m_ptr = targetPtr;
-                CredentialCore_Accessor_Field.m_cellId = this.m_cellId;
-                return CredentialCore_Accessor_Field;
+}CredentialContent_Accessor_Field.m_ptr = targetPtr;
+                CredentialContent_Accessor_Field.m_cellId = this.m_cellId;
+                return CredentialContent_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                CredentialCore_Accessor_Field.m_cellId = this.m_cellId;
+                CredentialContent_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
@@ -1674,12 +1753,12 @@ byte *storedPtr_3 = targetPtr;
                 }
             }
         }
-        TRAEnvelope_Accessor Envelope_Accessor_Field;
+        TRACredentialEnvelope_Accessor CredentialEnvelope_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field Envelope.
+        ///Provides in-place access to the object field CredentialEnvelope.
         ///</summary>
-        public unsafe TRAEnvelope_Accessor Envelope
+        public unsafe TRACredentialEnvelope_Accessor CredentialEnvelope
         {
             get
             {
@@ -1687,21 +1766,23 @@ byte *storedPtr_3 = targetPtr;
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}Envelope_Accessor_Field.m_ptr = targetPtr;
-                Envelope_Accessor_Field.m_cellId = this.m_cellId;
-                return Envelope_Accessor_Field;
+{{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);}}}CredentialEnvelope_Accessor_Field.m_ptr = targetPtr;
+                CredentialEnvelope_Accessor_Field.m_cellId = this.m_cellId;
+                return CredentialEnvelope_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                Envelope_Accessor_Field.m_cellId = this.m_cellId;
+                CredentialEnvelope_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);}}}
                 int offset = (int)(targetPtr - m_ptr);
                 byte* oldtargetPtr = targetPtr;
                 int oldlength = (int)(targetPtr - oldtargetPtr);
@@ -1731,12 +1812,12 @@ byte *storedPtr_3 = targetPtr;
                 }
             }
         }
-        StringAccessor EncryptedCredentialCore_Accessor_Field;
+        StringAccessor EncryptedCredentialContent_Accessor_Field;
         
         ///<summary>
-        ///Represents the presence of the optional field EncryptedCredentialCore.
+        ///Represents the presence of the optional field EncryptedCredentialContent.
         ///</summary>
-        public bool Contains_EncryptedCredentialCore
+        public bool Contains_EncryptedCredentialContent
         {
             get
             {
@@ -1761,21 +1842,21 @@ byte *storedPtr_3 = targetPtr;
             }
         }
         ///<summary>
-        ///Removes the optional field EncryptedCredentialCore from the object being operated.
+        ///Removes the optional field EncryptedCredentialContent from the object being operated.
         ///</summary>
-        public unsafe void Remove_EncryptedCredentialCore()
+        public unsafe void Remove_EncryptedCredentialContent()
         {
-            if (!this.Contains_EncryptedCredentialCore)
+            if (!this.Contains_EncryptedCredentialContent)
             {
-                throw new Exception("Optional field EncryptedCredentialCore doesn't exist for current cell.");
+                throw new Exception("Optional field EncryptedCredentialContent doesn't exist for current cell.");
             }
-            this.Contains_EncryptedCredentialCore = false;
+            this.Contains_EncryptedCredentialContent = false;
             byte* targetPtr = m_ptr;
             {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_3 = targetPtr;
+{{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);}}{            byte* optheader_3 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
@@ -1803,24 +1884,24 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
         
         ///<summary>
-        ///Provides in-place access to the object field EncryptedCredentialCore.
+        ///Provides in-place access to the object field EncryptedCredentialContent.
         ///</summary>
-        public unsafe StringAccessor EncryptedCredentialCore
+        public unsafe StringAccessor EncryptedCredentialContent
         {
             get
             {
                 
-                if (!this.Contains_EncryptedCredentialCore)
+                if (!this.Contains_EncryptedCredentialContent)
                 {
-                    throw new Exception("Optional field EncryptedCredentialCore doesn't exist for current cell.");
+                    throw new Exception("Optional field EncryptedCredentialContent doesn't exist for current cell.");
                 }
                 
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_3 = targetPtr;
+{{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);}}{            byte* optheader_3 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
@@ -1841,23 +1922,23 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
-}}EncryptedCredentialCore_Accessor_Field.m_ptr = targetPtr + 4;
-                EncryptedCredentialCore_Accessor_Field.m_cellId = this.m_cellId;
-                return EncryptedCredentialCore_Accessor_Field;
+}}EncryptedCredentialContent_Accessor_Field.m_ptr = targetPtr + 4;
+                EncryptedCredentialContent_Accessor_Field.m_cellId = this.m_cellId;
+                return EncryptedCredentialContent_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                EncryptedCredentialCore_Accessor_Field.m_cellId = this.m_cellId;
+                EncryptedCredentialContent_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_3 = targetPtr;
+{{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);}}{            byte* optheader_3 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
@@ -1879,17 +1960,17 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
 }}
-                bool creatingOptionalField = (!this.Contains_EncryptedCredentialCore);
+                bool creatingOptionalField = (!this.Contains_EncryptedCredentialContent);
                 if (creatingOptionalField)
                 {
-                    this.Contains_EncryptedCredentialCore = true;
+                    this.Contains_EncryptedCredentialContent = true;
                     
                 int length = *(int*)(value.m_ptr - 4);
-                if (value.m_cellId != EncryptedCredentialCore_Accessor_Field.m_cellId)
+                if (value.m_cellId != EncryptedCredentialContent_Accessor_Field.m_cellId)
                 {
                     //if not in the same Cell
-                    EncryptedCredentialCore_Accessor_Field.m_ptr = EncryptedCredentialCore_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                    Memory.Copy(value.m_ptr - 4, EncryptedCredentialCore_Accessor_Field.m_ptr, length + 4);
+                    EncryptedCredentialContent_Accessor_Field.m_ptr = EncryptedCredentialContent_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
+                    Memory.Copy(value.m_ptr - 4, EncryptedCredentialContent_Accessor_Field.m_ptr, length + 4);
                 }
                 else
                 {
@@ -1897,8 +1978,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     fixed (byte* tmpcellptr = tmpcell)
                     {                        
                         Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        EncryptedCredentialCore_Accessor_Field.m_ptr = EncryptedCredentialCore_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                        Memory.Copy(tmpcellptr, EncryptedCredentialCore_Accessor_Field.m_ptr, length + 4);
+                        EncryptedCredentialContent_Accessor_Field.m_ptr = EncryptedCredentialContent_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
+                        Memory.Copy(tmpcellptr, EncryptedCredentialContent_Accessor_Field.m_ptr, length + 4);
                     }
                 }
 
@@ -1908,11 +1989,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
-                if (value.m_cellId != EncryptedCredentialCore_Accessor_Field.m_cellId)
+                if (value.m_cellId != EncryptedCredentialContent_Accessor_Field.m_cellId)
                 {
                     //if not in the same Cell
-                    EncryptedCredentialCore_Accessor_Field.m_ptr = EncryptedCredentialCore_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                    Memory.Copy(value.m_ptr - 4, EncryptedCredentialCore_Accessor_Field.m_ptr, length + 4);
+                    EncryptedCredentialContent_Accessor_Field.m_ptr = EncryptedCredentialContent_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                    Memory.Copy(value.m_ptr - 4, EncryptedCredentialContent_Accessor_Field.m_ptr, length + 4);
                 }
                 else
                 {
@@ -1920,8 +2001,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     fixed (byte* tmpcellptr = tmpcell)
                     {                        
                         Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        EncryptedCredentialCore_Accessor_Field.m_ptr = EncryptedCredentialCore_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                        Memory.Copy(tmpcellptr, EncryptedCredentialCore_Accessor_Field.m_ptr, length + 4);
+                        EncryptedCredentialContent_Accessor_Field.m_ptr = EncryptedCredentialContent_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                        Memory.Copy(tmpcellptr, EncryptedCredentialContent_Accessor_Field.m_ptr, length + 4);
                     }
                 }
 
@@ -1932,11 +2013,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         
         public static unsafe implicit operator TDWCredential(TDWCredential_Accessor accessor)
         {
-            string _EncryptedCredentialCore = default(string);
-            if (accessor.Contains_EncryptedCredentialCore)
+            string _EncryptedCredentialContent = default(string);
+            if (accessor.Contains_EncryptedCredentialContent)
             {
                 
-                _EncryptedCredentialCore = accessor.EncryptedCredentialCore;
+                _EncryptedCredentialContent = accessor.EncryptedCredentialContent;
                 
             }
             
@@ -1944,13 +2025,13 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             
             ,
             
-                    accessor.CredentialCore
+                    accessor.CredentialContent
             ,
             
-                    accessor.Envelope
+                    accessor.CredentialEnvelope
             ,
             
-            _EncryptedCredentialCore 
+            _EncryptedCredentialContent 
             );
         }
         
@@ -1963,32 +2044,34 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             {
 
-        if(field.CredentialCore.udid!= null)
-        {
-            int strlen_3 = field.CredentialCore.udid.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
+            {
 
-{
-
-    targetPtr += sizeof(int);
-    if(field.CredentialCore.context!= null)
-    {
-        for(int iterator_3 = 0;iterator_3<field.CredentialCore.context.Count;++iterator_3)
+        if(field.CredentialContent.core.udid!= null)
         {
-
-        if(field.CredentialCore.context[iterator_3]!= null)
-        {
-            int strlen_4 = field.CredentialCore.context[iterator_3].Length * 2;
+            int strlen_4 = field.CredentialContent.core.udid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+{
+
+    targetPtr += sizeof(int);
+    if(field.CredentialContent.core.context!= null)
+    {
+        for(int iterator_4 = 0;iterator_4<field.CredentialContent.core.context.Count;++iterator_4)
+        {
+
+        if(field.CredentialContent.core.context[iterator_4]!= null)
+        {
+            int strlen_5 = field.CredentialContent.core.context[iterator_4].Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
         }
     }
 
@@ -1997,106 +2080,60 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 {
 
     targetPtr += sizeof(int);
-    if(field.CredentialCore.claims!= null)
+    if(field.CredentialContent.core.claims!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.CredentialCore.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<field.CredentialContent.core.claims.Count;++iterator_4)
         {
 
             {
             targetPtr += 1;
 
-        if(field.CredentialCore.claims[iterator_3].key!= null)
+        if(field.CredentialContent.core.claims[iterator_4].key!= null)
         {
-            int strlen_5 = field.CredentialCore.claims[iterator_3].key.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
+            int strlen_6 = field.CredentialContent.core.claims[iterator_4].key.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.CredentialCore.claims[iterator_3].value!= null)
+            if( field.CredentialContent.core.claims[iterator_4].value!= null)
             {
 
-        if(field.CredentialCore.claims[iterator_3].value!= null)
+        if(field.CredentialContent.core.claims[iterator_4].value!= null)
         {
-            int strlen_5 = field.CredentialCore.claims[iterator_3].value.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( field.CredentialCore.claims[iterator_3].attribute!= null)
-            {
-
-{
-
-    targetPtr += sizeof(int);
-    if(field.CredentialCore.claims[iterator_3].attribute!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<field.CredentialCore.claims[iterator_3].attribute.Count;++iterator_5)
-        {
-
-            {
-
-        if(field.CredentialCore.claims[iterator_3].attribute[iterator_5].key!= null)
-        {
-            int strlen_7 = field.CredentialCore.claims[iterator_3].attribute[iterator_5].key.Length * 2;
-            targetPtr += strlen_7+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-        if(field.CredentialCore.claims[iterator_3].attribute[iterator_5].value!= null)
-        {
-            int strlen_7 = field.CredentialCore.claims[iterator_3].attribute[iterator_5].value.Length * 2;
-            targetPtr += strlen_7+sizeof(int);
+            int strlen_6 = field.CredentialContent.core.claims[iterator_4].value.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
             }
-        }
-    }
-
-}
-
-            }
-            if( field.CredentialCore.claims[iterator_3].attributes!= null)
+            if( field.CredentialContent.core.claims[iterator_4].attribute!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(field.CredentialCore.claims[iterator_3].attributes!= null)
+    if(field.CredentialContent.core.claims[iterator_4].attribute!= null)
     {
-        for(int iterator_5 = 0;iterator_5<field.CredentialCore.claims[iterator_3].attributes.Count;++iterator_5)
-        {
-
-{
-
-    targetPtr += sizeof(int);
-    if(field.CredentialCore.claims[iterator_3].attributes[iterator_5]!= null)
-    {
-        for(int iterator_6 = 0;iterator_6<field.CredentialCore.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<field.CredentialContent.core.claims[iterator_4].attribute.Count;++iterator_6)
         {
 
             {
 
-        if(field.CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        if(field.CredentialContent.core.claims[iterator_4].attribute[iterator_6].key!= null)
         {
-            int strlen_8 = field.CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            int strlen_8 = field.CredentialContent.core.claims[iterator_4].attribute[iterator_6].key.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        if(field.CredentialContent.core.claims[iterator_4].attribute[iterator_6].value!= null)
         {
-            int strlen_8 = field.CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            int strlen_8 = field.CredentialContent.core.claims[iterator_4].attribute[iterator_6].value.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
@@ -2109,77 +2146,138 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
 }
 
-        }
-    }
-
-}
-
             }
-
-            }
-        }
-    }
-
-}
-
-            }
-            {
-            targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            if( field.Envelope.hashedThumbprint64!= null)
-            {
-
-        if(field.Envelope.hashedThumbprint64!= null)
-        {
-            int strlen_3 = field.Envelope.hashedThumbprint64.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( field.Envelope.signedHashSignature64!= null)
-            {
-
-        if(field.Envelope.signedHashSignature64!= null)
-        {
-            int strlen_3 = field.Envelope.signedHashSignature64.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( field.Envelope.notaryStamp!= null)
-            {
-
-        if(field.Envelope.notaryStamp!= null)
-        {
-            int strlen_3 = field.Envelope.notaryStamp.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( field.Envelope.comments!= null)
+            if( field.CredentialContent.core.claims[iterator_4].attributes!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(field.Envelope.comments!= null)
+    if(field.CredentialContent.core.claims[iterator_4].attributes!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.Envelope.comments.Count;++iterator_3)
+        for(int iterator_6 = 0;iterator_6<field.CredentialContent.core.claims[iterator_4].attributes.Count;++iterator_6)
         {
 
-        if(field.Envelope.comments[iterator_3]!= null)
+{
+
+    targetPtr += sizeof(int);
+    if(field.CredentialContent.core.claims[iterator_4].attributes[iterator_6]!= null)
+    {
+        for(int iterator_7 = 0;iterator_7<field.CredentialContent.core.claims[iterator_4].attributes[iterator_6].Count;++iterator_7)
         {
-            int strlen_4 = field.Envelope.comments[iterator_3].Length * 2;
+
+            {
+
+        if(field.CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key!= null)
+        {
+            int strlen_9 = field.CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key.Length * 2;
+            targetPtr += strlen_9+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value!= null)
+        {
+            int strlen_9 = field.CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value.Length * 2;
+            targetPtr += strlen_9+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+
+}
+
+        }
+    }
+
+}
+
+            }
+
+            }
+        }
+    }
+
+}
+
+            }
+            {
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 8;
+
+        if(field.CredentialContent.wrapper.notaryudid!= null)
+        {
+            int strlen_4 = field.CredentialContent.wrapper.notaryudid.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+            {
+            targetPtr += 1;
+            if( field.CredentialEnvelope.hashedThumbprint64!= null)
+            {
+
+        if(field.CredentialEnvelope.hashedThumbprint64!= null)
+        {
+            int strlen_3 = field.CredentialEnvelope.hashedThumbprint64.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( field.CredentialEnvelope.signedHashSignature64!= null)
+            {
+
+        if(field.CredentialEnvelope.signedHashSignature64!= null)
+        {
+            int strlen_3 = field.CredentialEnvelope.signedHashSignature64.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( field.CredentialEnvelope.notaryStamp!= null)
+            {
+
+        if(field.CredentialEnvelope.notaryStamp!= null)
+        {
+            int strlen_3 = field.CredentialEnvelope.notaryStamp.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( field.CredentialEnvelope.comments!= null)
+            {
+
+{
+
+    targetPtr += sizeof(int);
+    if(field.CredentialEnvelope.comments!= null)
+    {
+        for(int iterator_3 = 0;iterator_3<field.CredentialEnvelope.comments.Count;++iterator_3)
+        {
+
+        if(field.CredentialEnvelope.comments[iterator_3]!= null)
+        {
+            int strlen_4 = field.CredentialEnvelope.comments[iterator_3].Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -2193,12 +2291,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             }
 
-            }            if( field.EncryptedCredentialCore!= null)
+            }            if( field.EncryptedCredentialContent!= null)
             {
 
-        if(field.EncryptedCredentialCore!= null)
+        if(field.EncryptedCredentialContent!= null)
         {
-            int strlen_2 = field.EncryptedCredentialCore.Length * 2;
+            int strlen_2 = field.EncryptedCredentialContent.Length * 2;
             targetPtr += strlen_2+sizeof(int);
         }else
         {
@@ -2218,37 +2316,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             {
 
-        if(field.CredentialCore.udid!= null)
-        {
-            int strlen_3 = field.CredentialCore.udid.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.CredentialCore.udid)
             {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
 
-{
-byte *storedPtr_3 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(field.CredentialCore.context!= null)
-    {
-        for(int iterator_3 = 0;iterator_3<field.CredentialCore.context.Count;++iterator_3)
+        if(field.CredentialContent.core.udid!= null)
         {
-
-        if(field.CredentialCore.context[iterator_3]!= null)
-        {
-            int strlen_4 = field.CredentialCore.context[iterator_3].Length * 2;
+            int strlen_4 = field.CredentialContent.core.udid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.CredentialCore.context[iterator_3])
+            fixed(char* pstr_4 = field.CredentialContent.core.udid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -2259,31 +2334,21 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        }
-    }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
-
-}
-
 {
-byte *storedPtr_3 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.CredentialCore.claims!= null)
+    if(field.CredentialContent.core.context!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.CredentialCore.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<field.CredentialContent.core.context.Count;++iterator_4)
         {
 
-            {
-            byte* optheader_4 = targetPtr;
-            *(optheader_4 + 0) = 0x00;            targetPtr += 1;
-
-        if(field.CredentialCore.claims[iterator_3].key!= null)
+        if(field.CredentialContent.core.context[iterator_4]!= null)
         {
-            int strlen_5 = field.CredentialCore.claims[iterator_3].key.Length * 2;
+            int strlen_5 = field.CredentialContent.core.context[iterator_4].Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.CredentialCore.claims[iterator_3].key)
+            fixed(char* pstr_5 = field.CredentialContent.core.context[iterator_4])
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2293,109 +2358,81 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.CredentialCore.claims[iterator_3].value!= null)
-            {
 
-        if(field.CredentialCore.claims[iterator_3].value!= null)
-        {
-            int strlen_5 = field.CredentialCore.claims[iterator_3].value.Length * 2;
-            *(int*)targetPtr = strlen_5;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.CredentialCore.claims[iterator_3].value)
-            {
-                Memory.Copy(pstr_5, targetPtr, strlen_5);
-                targetPtr += strlen_5;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_4 + 0) |= 0x01;
-            }
-            if( field.CredentialCore.claims[iterator_3].attribute!= null)
-            {
-
-{
-byte *storedPtr_5 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(field.CredentialCore.claims[iterator_3].attribute!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<field.CredentialCore.claims[iterator_3].attribute.Count;++iterator_5)
-        {
-
-            {
-
-        if(field.CredentialCore.claims[iterator_3].attribute[iterator_5].key!= null)
-        {
-            int strlen_7 = field.CredentialCore.claims[iterator_3].attribute[iterator_5].key.Length * 2;
-            *(int*)targetPtr = strlen_7;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.CredentialCore.claims[iterator_3].attribute[iterator_5].key)
-            {
-                Memory.Copy(pstr_7, targetPtr, strlen_7);
-                targetPtr += strlen_7;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-        if(field.CredentialCore.claims[iterator_3].attribute[iterator_5].value!= null)
-        {
-            int strlen_7 = field.CredentialCore.claims[iterator_3].attribute[iterator_5].value.Length * 2;
-            *(int*)targetPtr = strlen_7;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.CredentialCore.claims[iterator_3].attribute[iterator_5].value)
-            {
-                Memory.Copy(pstr_7, targetPtr, strlen_7);
-                targetPtr += strlen_7;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-            }
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
-*(optheader_4 + 0) |= 0x02;
-            }
-            if( field.CredentialCore.claims[iterator_3].attributes!= null)
-            {
 
 {
-byte *storedPtr_5 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.CredentialCore.claims[iterator_3].attributes!= null)
+    if(field.CredentialContent.core.claims!= null)
     {
-        for(int iterator_5 = 0;iterator_5<field.CredentialCore.claims[iterator_3].attributes.Count;++iterator_5)
+        for(int iterator_4 = 0;iterator_4<field.CredentialContent.core.claims.Count;++iterator_4)
         {
+
+            {
+            byte* optheader_5 = targetPtr;
+            *(optheader_5 + 0) = 0x00;            targetPtr += 1;
+
+        if(field.CredentialContent.core.claims[iterator_4].key!= null)
+        {
+            int strlen_6 = field.CredentialContent.core.claims[iterator_4].key.Length * 2;
+            *(int*)targetPtr = strlen_6;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_6 = field.CredentialContent.core.claims[iterator_4].key)
+            {
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+            if( field.CredentialContent.core.claims[iterator_4].value!= null)
+            {
+
+        if(field.CredentialContent.core.claims[iterator_4].value!= null)
+        {
+            int strlen_6 = field.CredentialContent.core.claims[iterator_4].value.Length * 2;
+            *(int*)targetPtr = strlen_6;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_6 = field.CredentialContent.core.claims[iterator_4].value)
+            {
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_5 + 0) |= 0x01;
+            }
+            if( field.CredentialContent.core.claims[iterator_4].attribute!= null)
+            {
 
 {
 byte *storedPtr_6 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.CredentialCore.claims[iterator_3].attributes[iterator_5]!= null)
+    if(field.CredentialContent.core.claims[iterator_4].attribute!= null)
     {
-        for(int iterator_6 = 0;iterator_6<field.CredentialCore.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<field.CredentialContent.core.claims[iterator_4].attribute.Count;++iterator_6)
         {
 
             {
 
-        if(field.CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        if(field.CredentialContent.core.claims[iterator_4].attribute[iterator_6].key!= null)
         {
-            int strlen_8 = field.CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            int strlen_8 = field.CredentialContent.core.claims[iterator_4].attribute[iterator_6].key.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = field.CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key)
+            fixed(char* pstr_8 = field.CredentialContent.core.claims[iterator_4].attribute[iterator_6].key)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -2406,12 +2443,12 @@ byte *storedPtr_6 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        if(field.CredentialContent.core.claims[iterator_4].attribute[iterator_6].value!= null)
         {
-            int strlen_8 = field.CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            int strlen_8 = field.CredentialContent.core.claims[iterator_4].attribute[iterator_6].value.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = field.CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value)
+            fixed(char* pstr_8 = field.CredentialContent.core.claims[iterator_4].attribute[iterator_6].value)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -2428,39 +2465,126 @@ byte *storedPtr_6 = targetPtr;
 *(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
 
 }
+*(optheader_5 + 0) |= 0x02;
+            }
+            if( field.CredentialContent.core.claims[iterator_4].attributes!= null)
+            {
+
+{
+byte *storedPtr_6 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(field.CredentialContent.core.claims[iterator_4].attributes!= null)
+    {
+        for(int iterator_6 = 0;iterator_6<field.CredentialContent.core.claims[iterator_4].attributes.Count;++iterator_6)
+        {
+
+{
+byte *storedPtr_7 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(field.CredentialContent.core.claims[iterator_4].attributes[iterator_6]!= null)
+    {
+        for(int iterator_7 = 0;iterator_7<field.CredentialContent.core.claims[iterator_4].attributes[iterator_6].Count;++iterator_7)
+        {
+
+            {
+
+        if(field.CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key!= null)
+        {
+            int strlen_9 = field.CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key.Length * 2;
+            *(int*)targetPtr = strlen_9;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_9 = field.CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key)
+            {
+                Memory.Copy(pstr_9, targetPtr, strlen_9);
+                targetPtr += strlen_9;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value!= null)
+        {
+            int strlen_9 = field.CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value.Length * 2;
+            *(int*)targetPtr = strlen_9;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_9 = field.CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value)
+            {
+                Memory.Copy(pstr_9, targetPtr, strlen_9);
+                targetPtr += strlen_9;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+*(int*)storedPtr_7 = (int)(targetPtr - storedPtr_7 - 4);
+
+}
 
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
 
 }
-*(optheader_4 + 0) |= 0x04;
+*(optheader_5 + 0) |= 0x04;
             }
 
             }
         }
     }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
 
+            }
+            {
+            *(TRACredentialType*)targetPtr = field.CredentialContent.wrapper.credtype;
+            targetPtr += 1;
+            *(TRATrustLevel*)targetPtr = field.CredentialContent.wrapper.trustLevel;
+            targetPtr += 1;
+            *(TRAEncryptionFlag*)targetPtr = field.CredentialContent.wrapper.encryptionFlag;
+            targetPtr += 1;
+            *(long*)targetPtr = field.CredentialContent.wrapper.version;
+            targetPtr += 8;
+
+        if(field.CredentialContent.wrapper.notaryudid!= null)
+        {
+            int strlen_4 = field.CredentialContent.wrapper.notaryudid.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = field.CredentialContent.wrapper.notaryudid)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
             }
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = field.Envelope.credtype;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = field.Envelope.encryptionFlag;
-            targetPtr += 1;
-            if( field.Envelope.hashedThumbprint64!= null)
+            if( field.CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(field.Envelope.hashedThumbprint64!= null)
+        if(field.CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = field.Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = field.CredentialEnvelope.hashedThumbprint64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.Envelope.hashedThumbprint64)
+            fixed(char* pstr_3 = field.CredentialEnvelope.hashedThumbprint64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -2472,15 +2596,15 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( field.Envelope.signedHashSignature64!= null)
+            if( field.CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(field.Envelope.signedHashSignature64!= null)
+        if(field.CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = field.Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = field.CredentialEnvelope.signedHashSignature64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.Envelope.signedHashSignature64)
+            fixed(char* pstr_3 = field.CredentialEnvelope.signedHashSignature64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -2492,15 +2616,15 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x02;
             }
-            if( field.Envelope.notaryStamp!= null)
+            if( field.CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(field.Envelope.notaryStamp!= null)
+        if(field.CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = field.Envelope.notaryStamp.Length * 2;
+            int strlen_3 = field.CredentialEnvelope.notaryStamp.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.Envelope.notaryStamp)
+            fixed(char* pstr_3 = field.CredentialEnvelope.notaryStamp)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -2512,24 +2636,24 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x04;
             }
-            if( field.Envelope.comments!= null)
+            if( field.CredentialEnvelope.comments!= null)
             {
 
 {
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.Envelope.comments!= null)
+    if(field.CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<field.CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(field.Envelope.comments[iterator_3]!= null)
+        if(field.CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = field.Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = field.CredentialEnvelope.comments[iterator_3].Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.Envelope.comments[iterator_3])
+            fixed(char* pstr_4 = field.CredentialEnvelope.comments[iterator_3])
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -2548,15 +2672,15 @@ byte *storedPtr_3 = targetPtr;
 *(optheader_2 + 0) |= 0x08;
             }
 
-            }            if( field.EncryptedCredentialCore!= null)
+            }            if( field.EncryptedCredentialContent!= null)
             {
 
-        if(field.EncryptedCredentialCore!= null)
+        if(field.EncryptedCredentialContent!= null)
         {
-            int strlen_2 = field.EncryptedCredentialCore.Length * 2;
+            int strlen_2 = field.EncryptedCredentialContent.Length * 2;
             *(int*)targetPtr = strlen_2;
             targetPtr += sizeof(int);
-            fixed(char* pstr_2 = field.EncryptedCredentialCore)
+            fixed(char* pstr_2 = field.EncryptedCredentialContent)
             {
                 Memory.Copy(pstr_2, targetPtr, strlen_2);
                 targetPtr += strlen_2;
@@ -2587,9 +2711,9 @@ byte *storedPtr_3 = targetPtr;
             byte* targetPtr = a.m_ptr;
             {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_3 = targetPtr;
+{{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);}}{            byte* optheader_3 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
@@ -2620,9 +2744,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr = b.m_ptr;
             {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_3 = targetPtr;
+{{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);}}{            byte* optheader_3 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
@@ -2904,19 +3028,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         #region Lookup tables
         internal static StringLookupTable FieldLookupTable = new StringLookupTable(
             
-            "CredentialCore"
+            "CredentialContent"
             ,
-            "Envelope"
+            "CredentialEnvelope"
             ,
-            "EncryptedCredentialCore"
+            "EncryptedCredentialContent"
             
             );
         static HashSet<string> AppendToFieldRerouteSet = new HashSet<string>()
         {
             
-            "CredentialCore"
+            "CredentialContent"
             ,
-            "Envelope"
+            "CredentialEnvelope"
             ,
         };
         #endregion
@@ -2934,10 +3058,10 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     break;
                     
                     case 0:
-                    return GenericFieldAccessor.GetField<T>(this.CredentialCore, fieldName, field_divider_idx + 1);
+                    return GenericFieldAccessor.GetField<T>(this.CredentialContent, fieldName, field_divider_idx + 1);
                     
                     case 1:
-                    return GenericFieldAccessor.GetField<T>(this.Envelope, fieldName, field_divider_idx + 1);
+                    return GenericFieldAccessor.GetField<T>(this.CredentialEnvelope, fieldName, field_divider_idx + 1);
                     
                     default:
                     Throw.member_access_on_non_struct__field(field_name_string);
@@ -2951,13 +3075,13 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 break;
                 
                 case 0:
-                return TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore);
+                return TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent);
                 
                 case 1:
-                return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                 
                 case 2:
-                return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
+                return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
                 
             }
             /* Should not reach here */
@@ -2976,11 +3100,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     break;
                     
                     case 0:
-                    GenericFieldAccessor.SetField(this.CredentialCore, fieldName, field_divider_idx + 1, value);
+                    GenericFieldAccessor.SetField(this.CredentialContent, fieldName, field_divider_idx + 1, value);
                     break;
                     
                     case 1:
-                    GenericFieldAccessor.SetField(this.Envelope, fieldName, field_divider_idx + 1, value);
+                    GenericFieldAccessor.SetField(this.CredentialEnvelope, fieldName, field_divider_idx + 1, value);
                     break;
                     
                     default:
@@ -2997,10 +3121,10 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 case 0:
                 {
-                    TRACredentialCore conversion_result = TypeConverter<T>.ConvertTo_TRACredentialCore(value);
+                    TRACredentialContent conversion_result = TypeConverter<T>.ConvertTo_TRACredentialContent(value);
                     
             {
-                this.CredentialCore = conversion_result;
+                this.CredentialContent = conversion_result;
             }
             
                 }
@@ -3008,10 +3132,10 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 case 1:
                 {
-                    TRAEnvelope conversion_result = TypeConverter<T>.ConvertTo_TRAEnvelope(value);
+                    TRACredentialEnvelope conversion_result = TypeConverter<T>.ConvertTo_TRACredentialEnvelope(value);
                     
             {
-                this.Envelope = conversion_result;
+                this.CredentialEnvelope = conversion_result;
             }
             
                 }
@@ -3023,9 +3147,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     
             {
                 if (conversion_result != default(string))
-                    this.EncryptedCredentialCore = conversion_result;
+                    this.EncryptedCredentialContent = conversion_result;
                 else
-                    this.Remove_EncryptedCredentialCore();
+                    this.Remove_EncryptedCredentialContent();
             }
             
                 }
@@ -3053,7 +3177,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 case 2:
                 
-                return this.Contains_EncryptedCredentialCore;
+                return this.Contains_EncryptedCredentialContent;
                 
                 default:
                 return false;
@@ -3076,10 +3200,10 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 {
                     
-                    if (!this.Contains_EncryptedCredentialCore)
-                        this.EncryptedCredentialCore = "";
+                    if (!this.Contains_EncryptedCredentialContent)
+                        this.EncryptedCredentialContent = "";
                     
-                    this.EncryptedCredentialCore += TypeConverter<T>.ConvertTo_string(value);
+                    this.EncryptedCredentialContent += TypeConverter<T>.ConvertTo_string(value);
                 }
                 
                 break;
@@ -3097,183 +3221,203 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 case 0:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 1:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialContent, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("CredentialCore", TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore));
+                        yield return new KeyValuePair<string, T>("CredentialContent", TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent));
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 2:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialContent, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("CredentialCore", TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore));
+                        yield return new KeyValuePair<string, T>("CredentialContent", TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent));
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 3:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 4:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 5:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 6:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialContent, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("CredentialCore", TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore));
+                        yield return new KeyValuePair<string, T>("CredentialContent", TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent));
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 7:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
-                
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
-                    
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 8:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
+                
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 9:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 10:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 11:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 12:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("CredentialCore", TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore));
-                
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.Envelope, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
-                
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
-                    
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 13:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
                 case 14:
                 
-                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialCore, attributeKey, attributeValue))
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialContent, attributeKey, attributeValue))
                     
-                    if (Contains_EncryptedCredentialCore)
+                        yield return new KeyValuePair<string, T>("CredentialContent", TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent));
+                
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.CredentialEnvelope, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
+                
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedCredentialContent)
                         
-                        yield return new KeyValuePair<string, T>("EncryptedCredentialCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore));
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
+                
+                break;
+                
+                case 15:
+                
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedCredentialContent)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
+                
+                break;
+                
+                case 16:
+                
+                if (StorageSchema.TDWCredential_descriptor.check_attribute(StorageSchema.TDWCredential_descriptor.EncryptedCredentialContent, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedCredentialContent)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedCredentialContent", TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent));
                 
                 break;
                 
@@ -3285,7 +3429,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
         #region enumerate value methods
         
-        private IEnumerable<T> _enumerate_from_CredentialCore<T>()
+        private IEnumerable<T> _enumerate_from_CredentialContent<T>()
         {
             
             switch (TypeConverter<T>.type_id)
@@ -3294,7 +3438,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 case 1:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent);
                         
                     }
                     break;
@@ -3302,7 +3446,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 case 2:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent);
                         
                     }
                     break;
@@ -3310,189 +3454,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 case 6:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore);
-                        
-                    }
-                    break;
-                
-                case 12:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialCore(this.CredentialCore);
-                        
-                    }
-                    break;
-                
-                default:
-                    Throw.incompatible_with_cell();
-                    break;
-            }
-            yield break;
-            
-        }
-        
-        private IEnumerable<T> _enumerate_from_Envelope<T>()
-        {
-            
-            switch (TypeConverter<T>.type_id)
-            {
-                
-                case 1:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
-                        
-                    }
-                    break;
-                
-                case 2:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
-                        
-                    }
-                    break;
-                
-                case 7:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
-                        
-                    }
-                    break;
-                
-                case 12:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
-                        
-                    }
-                    break;
-                
-                default:
-                    Throw.incompatible_with_cell();
-                    break;
-            }
-            yield break;
-            
-        }
-        
-        private IEnumerable<T> _enumerate_from_EncryptedCredentialCore<T>()
-        {
-            
-            if (this.Contains_EncryptedCredentialCore)
-                
-            switch (TypeConverter<T>.type_id)
-            {
-                
-                case 0:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 1:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 2:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 3:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 4:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 5:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 6:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 7:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 8:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 9:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 10:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 11:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 12:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
-                        
-                    }
-                    break;
-                
-                case 13:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent);
                         
                     }
                     break;
@@ -3500,7 +3462,205 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 case 14:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialCore);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialContent(this.CredentialContent);
+                        
+                    }
+                    break;
+                
+                default:
+                    Throw.incompatible_with_cell();
+                    break;
+            }
+            yield break;
+            
+        }
+        
+        private IEnumerable<T> _enumerate_from_CredentialEnvelope<T>()
+        {
+            
+            switch (TypeConverter<T>.type_id)
+            {
+                
+                case 1:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
+                        
+                    }
+                    break;
+                
+                case 2:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
+                        
+                    }
+                    break;
+                
+                case 8:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
+                        
+                    }
+                    break;
+                
+                case 14:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
+                        
+                    }
+                    break;
+                
+                default:
+                    Throw.incompatible_with_cell();
+                    break;
+            }
+            yield break;
+            
+        }
+        
+        private IEnumerable<T> _enumerate_from_EncryptedCredentialContent<T>()
+        {
+            
+            if (this.Contains_EncryptedCredentialContent)
+                
+            switch (TypeConverter<T>.type_id)
+            {
+                
+                case 0:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 1:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 2:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 3:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 4:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 5:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 6:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 7:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 8:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 9:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 10:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 11:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 12:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 13:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 14:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 15:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
+                        
+                    }
+                    break;
+                
+                case 16:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedCredentialContent);
                         
                     }
                     break;
@@ -3523,13 +3683,13 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
                 
                 case 0:
-                return _enumerate_from_CredentialCore<T>();
+                return _enumerate_from_CredentialContent<T>();
                 
                 case 1:
-                return _enumerate_from_Envelope<T>();
+                return _enumerate_from_CredentialEnvelope<T>();
                 
                 case 2:
-                return _enumerate_from_EncryptedCredentialCore<T>();
+                return _enumerate_from_EncryptedCredentialContent<T>();
                 
                 default:
                 Throw.undefined_field();
@@ -3542,13 +3702,13 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             if (attributeKey == null)
             {
                 
-                foreach (var val in _enumerate_from_CredentialCore<T>())
+                foreach (var val in _enumerate_from_CredentialContent<T>())
                     yield return val;
                 
-                foreach (var val in _enumerate_from_Envelope<T>())
+                foreach (var val in _enumerate_from_CredentialEnvelope<T>())
                     yield return val;
                 
-                foreach (var val in _enumerate_from_EncryptedCredentialCore<T>())
+                foreach (var val in _enumerate_from_EncryptedCredentialContent<T>())
                     yield return val;
                 
             }
@@ -3565,16 +3725,16 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         {
             
             {
-                yield return "CredentialCore";
+                yield return "CredentialContent";
             }
             
             {
-                yield return "Envelope";
+                yield return "CredentialEnvelope";
             }
             
             {
-                if (Contains_EncryptedCredentialCore)
-                    yield return "EncryptedCredentialCore";
+                if (Contains_EncryptedCredentialContent)
+                    yield return "EncryptedCredentialContent";
             }
             
         }
@@ -3639,7 +3799,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         /// <param name="storage"/>A <see cref="Trinity.Storage.IKeyValueStore"/> instance.</param>
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTDWCredential(this IKeyValueStore storage, long cellId, TRACredentialCore CredentialCore = default(TRACredentialCore), TRAEnvelope Envelope = default(TRAEnvelope), string EncryptedCredentialCore = default(string))
+        public unsafe static bool SaveTDWCredential(this IKeyValueStore storage, long cellId, TRACredentialContent CredentialContent = default(TRACredentialContent), TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope), string EncryptedCredentialContent = default(string))
         {
             
             byte* targetPtr;
@@ -3651,32 +3811,34 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             {
 
-        if(CredentialCore.udid!= null)
-        {
-            int strlen_3 = CredentialCore.udid.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
+            {
 
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.context!= null)
-    {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.context.Count;++iterator_3)
+        if(CredentialContent.core.udid!= null)
         {
-
-        if(CredentialCore.context[iterator_3]!= null)
-        {
-            int strlen_4 = CredentialCore.context[iterator_3].Length * 2;
+            int strlen_4 = CredentialContent.core.udid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.context!= null)
+    {
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.context.Count;++iterator_4)
+        {
+
+        if(CredentialContent.core.context[iterator_4]!= null)
+        {
+            int strlen_5 = CredentialContent.core.context[iterator_4].Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
         }
     }
 
@@ -3685,106 +3847,60 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 {
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims!= null)
+    if(CredentialContent.core.claims!= null)
     {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.claims.Count;++iterator_4)
         {
 
             {
             targetPtr += 1;
 
-        if(CredentialCore.claims[iterator_3].key!= null)
+        if(CredentialContent.core.claims[iterator_4].key!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].key.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
+            int strlen_6 = CredentialContent.core.claims[iterator_4].key.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( CredentialCore.claims[iterator_3].value!= null)
+            if( CredentialContent.core.claims[iterator_4].value!= null)
             {
 
-        if(CredentialCore.claims[iterator_3].value!= null)
+        if(CredentialContent.core.claims[iterator_4].value!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].value.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( CredentialCore.claims[iterator_3].attribute!= null)
-            {
-
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attribute!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attribute.Count;++iterator_5)
-        {
-
-            {
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].key!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key.Length * 2;
-            targetPtr += strlen_7+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].value!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value.Length * 2;
-            targetPtr += strlen_7+sizeof(int);
+            int strlen_6 = CredentialContent.core.claims[iterator_4].value.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
             }
-        }
-    }
-
-}
-
-            }
-            if( CredentialCore.claims[iterator_3].attributes!= null)
+            if( CredentialContent.core.claims[iterator_4].attribute!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes!= null)
+    if(CredentialContent.core.claims[iterator_4].attribute!= null)
     {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attributes.Count;++iterator_5)
-        {
-
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes[iterator_5]!= null)
-    {
-        for(int iterator_6 = 0;iterator_6<CredentialCore.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attribute.Count;++iterator_6)
         {
 
             {
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].key!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].value!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
@@ -3797,77 +3913,138 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
 }
 
-        }
-    }
-
-}
-
             }
-
-            }
-        }
-    }
-
-}
-
-            }
-            {
-            targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
-            {
-
-        if(Envelope.hashedThumbprint64!= null)
-        {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.signedHashSignature64!= null)
-            {
-
-        if(Envelope.signedHashSignature64!= null)
-        {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.notaryStamp!= null)
-            {
-
-        if(Envelope.notaryStamp!= null)
-        {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.comments!= null)
+            if( CredentialContent.core.claims[iterator_4].attributes!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialContent.core.claims[iterator_4].attributes!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attributes.Count;++iterator_6)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes[iterator_6]!= null)
+    {
+        for(int iterator_7 = 0;iterator_7<CredentialContent.core.claims[iterator_4].attributes[iterator_6].Count;++iterator_7)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+
+            {
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key.Length * 2;
+            targetPtr += strlen_9+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value.Length * 2;
+            targetPtr += strlen_9+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+
+}
+
+        }
+    }
+
+}
+
+            }
+
+            }
+        }
+    }
+
+}
+
+            }
+            {
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 8;
+
+        if(CredentialContent.wrapper.notaryudid!= null)
+        {
+            int strlen_4 = CredentialContent.wrapper.notaryudid.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+            {
+            targetPtr += 1;
+            if( CredentialEnvelope.hashedThumbprint64!= null)
+            {
+
+        if(CredentialEnvelope.hashedThumbprint64!= null)
+        {
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.signedHashSignature64!= null)
+            {
+
+        if(CredentialEnvelope.signedHashSignature64!= null)
+        {
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.notaryStamp!= null)
+            {
+
+        if(CredentialEnvelope.notaryStamp!= null)
+        {
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.comments!= null)
+            {
+
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialEnvelope.comments!= null)
+    {
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
+        {
+
+        if(CredentialEnvelope.comments[iterator_3]!= null)
+        {
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -3881,12 +4058,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             }
 
-            }            if( EncryptedCredentialCore!= null)
+            }            if( EncryptedCredentialContent!= null)
             {
 
-        if(EncryptedCredentialCore!= null)
+        if(EncryptedCredentialContent!= null)
         {
-            int strlen_2 = EncryptedCredentialCore.Length * 2;
+            int strlen_2 = EncryptedCredentialContent.Length * 2;
             targetPtr += strlen_2+sizeof(int);
         }else
         {
@@ -3907,37 +4084,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             {
 
-        if(CredentialCore.udid!= null)
-        {
-            int strlen_3 = CredentialCore.udid.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = CredentialCore.udid)
             {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
 
-{
-byte *storedPtr_3 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.context!= null)
-    {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.context.Count;++iterator_3)
+        if(CredentialContent.core.udid!= null)
         {
-
-        if(CredentialCore.context[iterator_3]!= null)
-        {
-            int strlen_4 = CredentialCore.context[iterator_3].Length * 2;
+            int strlen_4 = CredentialContent.core.udid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = CredentialCore.context[iterator_3])
+            fixed(char* pstr_4 = CredentialContent.core.udid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3948,31 +4102,21 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        }
-    }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
-
-}
-
 {
-byte *storedPtr_3 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims!= null)
+    if(CredentialContent.core.context!= null)
     {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.context.Count;++iterator_4)
         {
 
-            {
-            byte* optheader_4 = targetPtr;
-            *(optheader_4 + 0) = 0x00;            targetPtr += 1;
-
-        if(CredentialCore.claims[iterator_3].key!= null)
+        if(CredentialContent.core.context[iterator_4]!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].key.Length * 2;
+            int strlen_5 = CredentialContent.core.context[iterator_4].Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = CredentialCore.claims[iterator_3].key)
+            fixed(char* pstr_5 = CredentialContent.core.context[iterator_4])
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -3982,109 +4126,81 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( CredentialCore.claims[iterator_3].value!= null)
-            {
 
-        if(CredentialCore.claims[iterator_3].value!= null)
-        {
-            int strlen_5 = CredentialCore.claims[iterator_3].value.Length * 2;
-            *(int*)targetPtr = strlen_5;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_5 = CredentialCore.claims[iterator_3].value)
-            {
-                Memory.Copy(pstr_5, targetPtr, strlen_5);
-                targetPtr += strlen_5;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_4 + 0) |= 0x01;
-            }
-            if( CredentialCore.claims[iterator_3].attribute!= null)
-            {
-
-{
-byte *storedPtr_5 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attribute!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attribute.Count;++iterator_5)
-        {
-
-            {
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].key!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key.Length * 2;
-            *(int*)targetPtr = strlen_7;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key)
-            {
-                Memory.Copy(pstr_7, targetPtr, strlen_7);
-                targetPtr += strlen_7;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].value!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value.Length * 2;
-            *(int*)targetPtr = strlen_7;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value)
-            {
-                Memory.Copy(pstr_7, targetPtr, strlen_7);
-                targetPtr += strlen_7;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-            }
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
-*(optheader_4 + 0) |= 0x02;
-            }
-            if( CredentialCore.claims[iterator_3].attributes!= null)
-            {
 
 {
-byte *storedPtr_5 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes!= null)
+    if(CredentialContent.core.claims!= null)
     {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attributes.Count;++iterator_5)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.claims.Count;++iterator_4)
         {
+
+            {
+            byte* optheader_5 = targetPtr;
+            *(optheader_5 + 0) = 0x00;            targetPtr += 1;
+
+        if(CredentialContent.core.claims[iterator_4].key!= null)
+        {
+            int strlen_6 = CredentialContent.core.claims[iterator_4].key.Length * 2;
+            *(int*)targetPtr = strlen_6;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_6 = CredentialContent.core.claims[iterator_4].key)
+            {
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+            if( CredentialContent.core.claims[iterator_4].value!= null)
+            {
+
+        if(CredentialContent.core.claims[iterator_4].value!= null)
+        {
+            int strlen_6 = CredentialContent.core.claims[iterator_4].value.Length * 2;
+            *(int*)targetPtr = strlen_6;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_6 = CredentialContent.core.claims[iterator_4].value)
+            {
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_5 + 0) |= 0x01;
+            }
+            if( CredentialContent.core.claims[iterator_4].attribute!= null)
+            {
 
 {
 byte *storedPtr_6 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes[iterator_5]!= null)
+    if(CredentialContent.core.claims[iterator_4].attribute!= null)
     {
-        for(int iterator_6 = 0;iterator_6<CredentialCore.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attribute.Count;++iterator_6)
         {
 
             {
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].key!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key)
+            fixed(char* pstr_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -4095,12 +4211,12 @@ byte *storedPtr_6 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].value!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value)
+            fixed(char* pstr_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -4117,39 +4233,126 @@ byte *storedPtr_6 = targetPtr;
 *(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
 
 }
+*(optheader_5 + 0) |= 0x02;
+            }
+            if( CredentialContent.core.claims[iterator_4].attributes!= null)
+            {
+
+{
+byte *storedPtr_6 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes!= null)
+    {
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attributes.Count;++iterator_6)
+        {
+
+{
+byte *storedPtr_7 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes[iterator_6]!= null)
+    {
+        for(int iterator_7 = 0;iterator_7<CredentialContent.core.claims[iterator_4].attributes[iterator_6].Count;++iterator_7)
+        {
+
+            {
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key.Length * 2;
+            *(int*)targetPtr = strlen_9;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key)
+            {
+                Memory.Copy(pstr_9, targetPtr, strlen_9);
+                targetPtr += strlen_9;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value.Length * 2;
+            *(int*)targetPtr = strlen_9;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value)
+            {
+                Memory.Copy(pstr_9, targetPtr, strlen_9);
+                targetPtr += strlen_9;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+*(int*)storedPtr_7 = (int)(targetPtr - storedPtr_7 - 4);
+
+}
 
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
 
 }
-*(optheader_4 + 0) |= 0x04;
+*(optheader_5 + 0) |= 0x04;
             }
 
             }
         }
     }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
 
+            }
+            {
+            *(TRACredentialType*)targetPtr = CredentialContent.wrapper.credtype;
+            targetPtr += 1;
+            *(TRATrustLevel*)targetPtr = CredentialContent.wrapper.trustLevel;
+            targetPtr += 1;
+            *(TRAEncryptionFlag*)targetPtr = CredentialContent.wrapper.encryptionFlag;
+            targetPtr += 1;
+            *(long*)targetPtr = CredentialContent.wrapper.version;
+            targetPtr += 8;
+
+        if(CredentialContent.wrapper.notaryudid!= null)
+        {
+            int strlen_4 = CredentialContent.wrapper.notaryudid.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = CredentialContent.wrapper.notaryudid)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
             }
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = Envelope.credtype;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = Envelope.encryptionFlag;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.hashedThumbprint64)
+            fixed(char* pstr_3 = CredentialEnvelope.hashedThumbprint64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -4161,15 +4364,15 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.signedHashSignature64)
+            fixed(char* pstr_3 = CredentialEnvelope.signedHashSignature64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -4181,15 +4384,15 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x02;
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.notaryStamp)
+            fixed(char* pstr_3 = CredentialEnvelope.notaryStamp)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -4201,24 +4404,24 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x04;
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = Envelope.comments[iterator_3])
+            fixed(char* pstr_4 = CredentialEnvelope.comments[iterator_3])
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -4237,15 +4440,15 @@ byte *storedPtr_3 = targetPtr;
 *(optheader_2 + 0) |= 0x08;
             }
 
-            }            if( EncryptedCredentialCore!= null)
+            }            if( EncryptedCredentialContent!= null)
             {
 
-        if(EncryptedCredentialCore!= null)
+        if(EncryptedCredentialContent!= null)
         {
-            int strlen_2 = EncryptedCredentialCore.Length * 2;
+            int strlen_2 = EncryptedCredentialContent.Length * 2;
             *(int*)targetPtr = strlen_2;
             targetPtr += sizeof(int);
-            fixed(char* pstr_2 = EncryptedCredentialCore)
+            fixed(char* pstr_2 = EncryptedCredentialContent)
             {
                 Memory.Copy(pstr_2, targetPtr, strlen_2);
                 targetPtr += strlen_2;
@@ -4272,7 +4475,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWCredential(this IKeyValueStore storage, long cellId, TDWCredential cellContent)
         {
-            return SaveTDWCredential(storage, cellId  , cellContent.CredentialCore  , cellContent.Envelope  , cellContent.EncryptedCredentialCore );
+            return SaveTDWCredential(storage, cellId  , cellContent.CredentialContent  , cellContent.CredentialEnvelope  , cellContent.EncryptedCredentialContent );
         }
         /// <summary>
         /// Adds a new cell of type TDWCredential to the key-value store if the cell Id does not exist, or updates an existing cell in the key-value store if the cell Id already exists. Cell Id is specified by the CellId field in the content object.
@@ -4282,7 +4485,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWCredential(this IKeyValueStore storage, TDWCredential cellContent)
         {
-            return SaveTDWCredential(storage, cellContent.CellId  , cellContent.CredentialCore  , cellContent.Envelope  , cellContent.EncryptedCredentialCore );
+            return SaveTDWCredential(storage, cellContent.CellId  , cellContent.CredentialContent  , cellContent.CredentialEnvelope  , cellContent.EncryptedCredentialContent );
         }
         /// <summary>
         /// Loads the content of the specified cell. Any changes done to this object are not written to the store, unless
@@ -4346,7 +4549,7 @@ byte *storedPtr_3 = targetPtr;
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <param name="options">Specifies write-ahead logging behavior. Valid values are CellAccessOptions.StrongLogAhead(default) and CellAccessOptions.WeakLogAhead. Other values are ignored.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTDWCredential(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, long cellId, TRACredentialCore CredentialCore = default(TRACredentialCore), TRAEnvelope Envelope = default(TRAEnvelope), string EncryptedCredentialCore = default(string))
+        public unsafe static bool SaveTDWCredential(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, long cellId, TRACredentialContent CredentialContent = default(TRACredentialContent), TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope), string EncryptedCredentialContent = default(string))
         {
             
             byte* targetPtr;
@@ -4358,32 +4561,34 @@ byte *storedPtr_3 = targetPtr;
 
             {
 
-        if(CredentialCore.udid!= null)
-        {
-            int strlen_3 = CredentialCore.udid.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
+            {
 
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.context!= null)
-    {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.context.Count;++iterator_3)
+        if(CredentialContent.core.udid!= null)
         {
-
-        if(CredentialCore.context[iterator_3]!= null)
-        {
-            int strlen_4 = CredentialCore.context[iterator_3].Length * 2;
+            int strlen_4 = CredentialContent.core.udid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.context!= null)
+    {
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.context.Count;++iterator_4)
+        {
+
+        if(CredentialContent.core.context[iterator_4]!= null)
+        {
+            int strlen_5 = CredentialContent.core.context[iterator_4].Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
         }
     }
 
@@ -4392,106 +4597,60 @@ byte *storedPtr_3 = targetPtr;
 {
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims!= null)
+    if(CredentialContent.core.claims!= null)
     {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.claims.Count;++iterator_4)
         {
 
             {
             targetPtr += 1;
 
-        if(CredentialCore.claims[iterator_3].key!= null)
+        if(CredentialContent.core.claims[iterator_4].key!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].key.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
+            int strlen_6 = CredentialContent.core.claims[iterator_4].key.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( CredentialCore.claims[iterator_3].value!= null)
+            if( CredentialContent.core.claims[iterator_4].value!= null)
             {
 
-        if(CredentialCore.claims[iterator_3].value!= null)
+        if(CredentialContent.core.claims[iterator_4].value!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].value.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( CredentialCore.claims[iterator_3].attribute!= null)
-            {
-
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attribute!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attribute.Count;++iterator_5)
-        {
-
-            {
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].key!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key.Length * 2;
-            targetPtr += strlen_7+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].value!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value.Length * 2;
-            targetPtr += strlen_7+sizeof(int);
+            int strlen_6 = CredentialContent.core.claims[iterator_4].value.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
             }
-        }
-    }
-
-}
-
-            }
-            if( CredentialCore.claims[iterator_3].attributes!= null)
+            if( CredentialContent.core.claims[iterator_4].attribute!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes!= null)
+    if(CredentialContent.core.claims[iterator_4].attribute!= null)
     {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attributes.Count;++iterator_5)
-        {
-
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes[iterator_5]!= null)
-    {
-        for(int iterator_6 = 0;iterator_6<CredentialCore.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attribute.Count;++iterator_6)
         {
 
             {
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].key!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].value!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
@@ -4504,77 +4663,138 @@ byte *storedPtr_3 = targetPtr;
 
 }
 
-        }
-    }
-
-}
-
             }
-
-            }
-        }
-    }
-
-}
-
-            }
-            {
-            targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
-            {
-
-        if(Envelope.hashedThumbprint64!= null)
-        {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.signedHashSignature64!= null)
-            {
-
-        if(Envelope.signedHashSignature64!= null)
-        {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.notaryStamp!= null)
-            {
-
-        if(Envelope.notaryStamp!= null)
-        {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.comments!= null)
+            if( CredentialContent.core.claims[iterator_4].attributes!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialContent.core.claims[iterator_4].attributes!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attributes.Count;++iterator_6)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes[iterator_6]!= null)
+    {
+        for(int iterator_7 = 0;iterator_7<CredentialContent.core.claims[iterator_4].attributes[iterator_6].Count;++iterator_7)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+
+            {
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key.Length * 2;
+            targetPtr += strlen_9+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value.Length * 2;
+            targetPtr += strlen_9+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+
+}
+
+        }
+    }
+
+}
+
+            }
+
+            }
+        }
+    }
+
+}
+
+            }
+            {
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 8;
+
+        if(CredentialContent.wrapper.notaryudid!= null)
+        {
+            int strlen_4 = CredentialContent.wrapper.notaryudid.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+            {
+            targetPtr += 1;
+            if( CredentialEnvelope.hashedThumbprint64!= null)
+            {
+
+        if(CredentialEnvelope.hashedThumbprint64!= null)
+        {
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.signedHashSignature64!= null)
+            {
+
+        if(CredentialEnvelope.signedHashSignature64!= null)
+        {
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.notaryStamp!= null)
+            {
+
+        if(CredentialEnvelope.notaryStamp!= null)
+        {
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.comments!= null)
+            {
+
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialEnvelope.comments!= null)
+    {
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
+        {
+
+        if(CredentialEnvelope.comments[iterator_3]!= null)
+        {
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -4588,12 +4808,12 @@ byte *storedPtr_3 = targetPtr;
 
             }
 
-            }            if( EncryptedCredentialCore!= null)
+            }            if( EncryptedCredentialContent!= null)
             {
 
-        if(EncryptedCredentialCore!= null)
+        if(EncryptedCredentialContent!= null)
         {
-            int strlen_2 = EncryptedCredentialCore.Length * 2;
+            int strlen_2 = EncryptedCredentialContent.Length * 2;
             targetPtr += strlen_2+sizeof(int);
         }else
         {
@@ -4614,37 +4834,14 @@ byte *storedPtr_3 = targetPtr;
 
             {
 
-        if(CredentialCore.udid!= null)
-        {
-            int strlen_3 = CredentialCore.udid.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = CredentialCore.udid)
             {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
 
-{
-byte *storedPtr_3 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.context!= null)
-    {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.context.Count;++iterator_3)
+        if(CredentialContent.core.udid!= null)
         {
-
-        if(CredentialCore.context[iterator_3]!= null)
-        {
-            int strlen_4 = CredentialCore.context[iterator_3].Length * 2;
+            int strlen_4 = CredentialContent.core.udid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = CredentialCore.context[iterator_3])
+            fixed(char* pstr_4 = CredentialContent.core.udid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -4655,31 +4852,21 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        }
-    }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
-
-}
-
 {
-byte *storedPtr_3 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims!= null)
+    if(CredentialContent.core.context!= null)
     {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.context.Count;++iterator_4)
         {
 
-            {
-            byte* optheader_4 = targetPtr;
-            *(optheader_4 + 0) = 0x00;            targetPtr += 1;
-
-        if(CredentialCore.claims[iterator_3].key!= null)
+        if(CredentialContent.core.context[iterator_4]!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].key.Length * 2;
+            int strlen_5 = CredentialContent.core.context[iterator_4].Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = CredentialCore.claims[iterator_3].key)
+            fixed(char* pstr_5 = CredentialContent.core.context[iterator_4])
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -4689,109 +4876,81 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( CredentialCore.claims[iterator_3].value!= null)
-            {
 
-        if(CredentialCore.claims[iterator_3].value!= null)
-        {
-            int strlen_5 = CredentialCore.claims[iterator_3].value.Length * 2;
-            *(int*)targetPtr = strlen_5;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_5 = CredentialCore.claims[iterator_3].value)
-            {
-                Memory.Copy(pstr_5, targetPtr, strlen_5);
-                targetPtr += strlen_5;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_4 + 0) |= 0x01;
-            }
-            if( CredentialCore.claims[iterator_3].attribute!= null)
-            {
-
-{
-byte *storedPtr_5 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attribute!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attribute.Count;++iterator_5)
-        {
-
-            {
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].key!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key.Length * 2;
-            *(int*)targetPtr = strlen_7;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key)
-            {
-                Memory.Copy(pstr_7, targetPtr, strlen_7);
-                targetPtr += strlen_7;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].value!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value.Length * 2;
-            *(int*)targetPtr = strlen_7;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value)
-            {
-                Memory.Copy(pstr_7, targetPtr, strlen_7);
-                targetPtr += strlen_7;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-            }
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
-*(optheader_4 + 0) |= 0x02;
-            }
-            if( CredentialCore.claims[iterator_3].attributes!= null)
-            {
 
 {
-byte *storedPtr_5 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes!= null)
+    if(CredentialContent.core.claims!= null)
     {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attributes.Count;++iterator_5)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.claims.Count;++iterator_4)
         {
+
+            {
+            byte* optheader_5 = targetPtr;
+            *(optheader_5 + 0) = 0x00;            targetPtr += 1;
+
+        if(CredentialContent.core.claims[iterator_4].key!= null)
+        {
+            int strlen_6 = CredentialContent.core.claims[iterator_4].key.Length * 2;
+            *(int*)targetPtr = strlen_6;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_6 = CredentialContent.core.claims[iterator_4].key)
+            {
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+            if( CredentialContent.core.claims[iterator_4].value!= null)
+            {
+
+        if(CredentialContent.core.claims[iterator_4].value!= null)
+        {
+            int strlen_6 = CredentialContent.core.claims[iterator_4].value.Length * 2;
+            *(int*)targetPtr = strlen_6;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_6 = CredentialContent.core.claims[iterator_4].value)
+            {
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_5 + 0) |= 0x01;
+            }
+            if( CredentialContent.core.claims[iterator_4].attribute!= null)
+            {
 
 {
 byte *storedPtr_6 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes[iterator_5]!= null)
+    if(CredentialContent.core.claims[iterator_4].attribute!= null)
     {
-        for(int iterator_6 = 0;iterator_6<CredentialCore.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attribute.Count;++iterator_6)
         {
 
             {
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].key!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key)
+            fixed(char* pstr_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -4802,12 +4961,12 @@ byte *storedPtr_6 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].value!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value)
+            fixed(char* pstr_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -4824,39 +4983,126 @@ byte *storedPtr_6 = targetPtr;
 *(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
 
 }
+*(optheader_5 + 0) |= 0x02;
+            }
+            if( CredentialContent.core.claims[iterator_4].attributes!= null)
+            {
+
+{
+byte *storedPtr_6 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes!= null)
+    {
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attributes.Count;++iterator_6)
+        {
+
+{
+byte *storedPtr_7 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes[iterator_6]!= null)
+    {
+        for(int iterator_7 = 0;iterator_7<CredentialContent.core.claims[iterator_4].attributes[iterator_6].Count;++iterator_7)
+        {
+
+            {
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key.Length * 2;
+            *(int*)targetPtr = strlen_9;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key)
+            {
+                Memory.Copy(pstr_9, targetPtr, strlen_9);
+                targetPtr += strlen_9;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value.Length * 2;
+            *(int*)targetPtr = strlen_9;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value)
+            {
+                Memory.Copy(pstr_9, targetPtr, strlen_9);
+                targetPtr += strlen_9;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+*(int*)storedPtr_7 = (int)(targetPtr - storedPtr_7 - 4);
+
+}
 
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
 
 }
-*(optheader_4 + 0) |= 0x04;
+*(optheader_5 + 0) |= 0x04;
             }
 
             }
         }
     }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
 
+            }
+            {
+            *(TRACredentialType*)targetPtr = CredentialContent.wrapper.credtype;
+            targetPtr += 1;
+            *(TRATrustLevel*)targetPtr = CredentialContent.wrapper.trustLevel;
+            targetPtr += 1;
+            *(TRAEncryptionFlag*)targetPtr = CredentialContent.wrapper.encryptionFlag;
+            targetPtr += 1;
+            *(long*)targetPtr = CredentialContent.wrapper.version;
+            targetPtr += 8;
+
+        if(CredentialContent.wrapper.notaryudid!= null)
+        {
+            int strlen_4 = CredentialContent.wrapper.notaryudid.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = CredentialContent.wrapper.notaryudid)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
             }
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = Envelope.credtype;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = Envelope.encryptionFlag;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.hashedThumbprint64)
+            fixed(char* pstr_3 = CredentialEnvelope.hashedThumbprint64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -4868,15 +5114,15 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.signedHashSignature64)
+            fixed(char* pstr_3 = CredentialEnvelope.signedHashSignature64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -4888,15 +5134,15 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x02;
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.notaryStamp)
+            fixed(char* pstr_3 = CredentialEnvelope.notaryStamp)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -4908,24 +5154,24 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x04;
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = Envelope.comments[iterator_3])
+            fixed(char* pstr_4 = CredentialEnvelope.comments[iterator_3])
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -4944,15 +5190,15 @@ byte *storedPtr_3 = targetPtr;
 *(optheader_2 + 0) |= 0x08;
             }
 
-            }            if( EncryptedCredentialCore!= null)
+            }            if( EncryptedCredentialContent!= null)
             {
 
-        if(EncryptedCredentialCore!= null)
+        if(EncryptedCredentialContent!= null)
         {
-            int strlen_2 = EncryptedCredentialCore.Length * 2;
+            int strlen_2 = EncryptedCredentialContent.Length * 2;
             *(int*)targetPtr = strlen_2;
             targetPtr += sizeof(int);
-            fixed(char* pstr_2 = EncryptedCredentialCore)
+            fixed(char* pstr_2 = EncryptedCredentialContent)
             {
                 Memory.Copy(pstr_2, targetPtr, strlen_2);
                 targetPtr += strlen_2;
@@ -4980,7 +5226,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWCredential(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, long cellId, TDWCredential cellContent)
         {
-            return SaveTDWCredential(storage, options, cellId  , cellContent.CredentialCore  , cellContent.Envelope  , cellContent.EncryptedCredentialCore );
+            return SaveTDWCredential(storage, options, cellId  , cellContent.CredentialContent  , cellContent.CredentialEnvelope  , cellContent.EncryptedCredentialContent );
         }
         /// <summary>
         /// Adds a new cell of type TDWCredential to the key-value store if the cell Id does not exist, or updates an existing cell in the key-value store if the cell Id already exists. Cell Id is specified by the CellId field in the content object.
@@ -4991,7 +5237,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWCredential(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, TDWCredential cellContent)
         {
-            return SaveTDWCredential(storage, options, cellContent.CellId  , cellContent.CredentialCore  , cellContent.Envelope  , cellContent.EncryptedCredentialCore );
+            return SaveTDWCredential(storage, options, cellContent.CellId  , cellContent.CredentialContent  , cellContent.CredentialEnvelope  , cellContent.EncryptedCredentialContent );
         }
         /// <summary>
         /// Loads the content of the specified cell. Any changes done to this object are not written to the store, unless
@@ -5047,7 +5293,7 @@ byte *storedPtr_3 = targetPtr;
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <param name="options">Specifies write-ahead logging behavior. Valid values are CellAccessOptions.StrongLogAhead(default) and CellAccessOptions.WeakLogAhead. Other values are ignored.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTDWCredential(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, long cellId, TRACredentialCore CredentialCore = default(TRACredentialCore), TRAEnvelope Envelope = default(TRAEnvelope), string EncryptedCredentialCore = default(string))
+        public unsafe static bool SaveTDWCredential(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, long cellId, TRACredentialContent CredentialContent = default(TRACredentialContent), TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope), string EncryptedCredentialContent = default(string))
         {
             
             byte* targetPtr;
@@ -5059,32 +5305,34 @@ byte *storedPtr_3 = targetPtr;
 
             {
 
-        if(CredentialCore.udid!= null)
-        {
-            int strlen_3 = CredentialCore.udid.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
+            {
 
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.context!= null)
-    {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.context.Count;++iterator_3)
+        if(CredentialContent.core.udid!= null)
         {
-
-        if(CredentialCore.context[iterator_3]!= null)
-        {
-            int strlen_4 = CredentialCore.context[iterator_3].Length * 2;
+            int strlen_4 = CredentialContent.core.udid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.context!= null)
+    {
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.context.Count;++iterator_4)
+        {
+
+        if(CredentialContent.core.context[iterator_4]!= null)
+        {
+            int strlen_5 = CredentialContent.core.context[iterator_4].Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
         }
     }
 
@@ -5093,106 +5341,60 @@ byte *storedPtr_3 = targetPtr;
 {
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims!= null)
+    if(CredentialContent.core.claims!= null)
     {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.claims.Count;++iterator_4)
         {
 
             {
             targetPtr += 1;
 
-        if(CredentialCore.claims[iterator_3].key!= null)
+        if(CredentialContent.core.claims[iterator_4].key!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].key.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
+            int strlen_6 = CredentialContent.core.claims[iterator_4].key.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( CredentialCore.claims[iterator_3].value!= null)
+            if( CredentialContent.core.claims[iterator_4].value!= null)
             {
 
-        if(CredentialCore.claims[iterator_3].value!= null)
+        if(CredentialContent.core.claims[iterator_4].value!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].value.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( CredentialCore.claims[iterator_3].attribute!= null)
-            {
-
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attribute!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attribute.Count;++iterator_5)
-        {
-
-            {
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].key!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key.Length * 2;
-            targetPtr += strlen_7+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].value!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value.Length * 2;
-            targetPtr += strlen_7+sizeof(int);
+            int strlen_6 = CredentialContent.core.claims[iterator_4].value.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
             }
-        }
-    }
-
-}
-
-            }
-            if( CredentialCore.claims[iterator_3].attributes!= null)
+            if( CredentialContent.core.claims[iterator_4].attribute!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes!= null)
+    if(CredentialContent.core.claims[iterator_4].attribute!= null)
     {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attributes.Count;++iterator_5)
-        {
-
-{
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes[iterator_5]!= null)
-    {
-        for(int iterator_6 = 0;iterator_6<CredentialCore.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attribute.Count;++iterator_6)
         {
 
             {
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].key!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].value!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
@@ -5205,77 +5407,138 @@ byte *storedPtr_3 = targetPtr;
 
 }
 
-        }
-    }
-
-}
-
             }
-
-            }
-        }
-    }
-
-}
-
-            }
-            {
-            targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
-            {
-
-        if(Envelope.hashedThumbprint64!= null)
-        {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.signedHashSignature64!= null)
-            {
-
-        if(Envelope.signedHashSignature64!= null)
-        {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.notaryStamp!= null)
-            {
-
-        if(Envelope.notaryStamp!= null)
-        {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( Envelope.comments!= null)
+            if( CredentialContent.core.claims[iterator_4].attributes!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialContent.core.claims[iterator_4].attributes!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attributes.Count;++iterator_6)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes[iterator_6]!= null)
+    {
+        for(int iterator_7 = 0;iterator_7<CredentialContent.core.claims[iterator_4].attributes[iterator_6].Count;++iterator_7)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+
+            {
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key.Length * 2;
+            targetPtr += strlen_9+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value.Length * 2;
+            targetPtr += strlen_9+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+
+}
+
+        }
+    }
+
+}
+
+            }
+
+            }
+        }
+    }
+
+}
+
+            }
+            {
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 8;
+
+        if(CredentialContent.wrapper.notaryudid!= null)
+        {
+            int strlen_4 = CredentialContent.wrapper.notaryudid.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+            {
+            targetPtr += 1;
+            if( CredentialEnvelope.hashedThumbprint64!= null)
+            {
+
+        if(CredentialEnvelope.hashedThumbprint64!= null)
+        {
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.signedHashSignature64!= null)
+            {
+
+        if(CredentialEnvelope.signedHashSignature64!= null)
+        {
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.notaryStamp!= null)
+            {
+
+        if(CredentialEnvelope.notaryStamp!= null)
+        {
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( CredentialEnvelope.comments!= null)
+            {
+
+{
+
+    targetPtr += sizeof(int);
+    if(CredentialEnvelope.comments!= null)
+    {
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
+        {
+
+        if(CredentialEnvelope.comments[iterator_3]!= null)
+        {
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -5289,12 +5552,12 @@ byte *storedPtr_3 = targetPtr;
 
             }
 
-            }            if( EncryptedCredentialCore!= null)
+            }            if( EncryptedCredentialContent!= null)
             {
 
-        if(EncryptedCredentialCore!= null)
+        if(EncryptedCredentialContent!= null)
         {
-            int strlen_2 = EncryptedCredentialCore.Length * 2;
+            int strlen_2 = EncryptedCredentialContent.Length * 2;
             targetPtr += strlen_2+sizeof(int);
         }else
         {
@@ -5315,37 +5578,14 @@ byte *storedPtr_3 = targetPtr;
 
             {
 
-        if(CredentialCore.udid!= null)
-        {
-            int strlen_3 = CredentialCore.udid.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = CredentialCore.udid)
             {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
 
-{
-byte *storedPtr_3 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.context!= null)
-    {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.context.Count;++iterator_3)
+        if(CredentialContent.core.udid!= null)
         {
-
-        if(CredentialCore.context[iterator_3]!= null)
-        {
-            int strlen_4 = CredentialCore.context[iterator_3].Length * 2;
+            int strlen_4 = CredentialContent.core.udid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = CredentialCore.context[iterator_3])
+            fixed(char* pstr_4 = CredentialContent.core.udid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -5356,31 +5596,21 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        }
-    }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
-
-}
-
 {
-byte *storedPtr_3 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims!= null)
+    if(CredentialContent.core.context!= null)
     {
-        for(int iterator_3 = 0;iterator_3<CredentialCore.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.context.Count;++iterator_4)
         {
 
-            {
-            byte* optheader_4 = targetPtr;
-            *(optheader_4 + 0) = 0x00;            targetPtr += 1;
-
-        if(CredentialCore.claims[iterator_3].key!= null)
+        if(CredentialContent.core.context[iterator_4]!= null)
         {
-            int strlen_5 = CredentialCore.claims[iterator_3].key.Length * 2;
+            int strlen_5 = CredentialContent.core.context[iterator_4].Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = CredentialCore.claims[iterator_3].key)
+            fixed(char* pstr_5 = CredentialContent.core.context[iterator_4])
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -5390,109 +5620,81 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( CredentialCore.claims[iterator_3].value!= null)
-            {
 
-        if(CredentialCore.claims[iterator_3].value!= null)
-        {
-            int strlen_5 = CredentialCore.claims[iterator_3].value.Length * 2;
-            *(int*)targetPtr = strlen_5;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_5 = CredentialCore.claims[iterator_3].value)
-            {
-                Memory.Copy(pstr_5, targetPtr, strlen_5);
-                targetPtr += strlen_5;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_4 + 0) |= 0x01;
-            }
-            if( CredentialCore.claims[iterator_3].attribute!= null)
-            {
-
-{
-byte *storedPtr_5 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attribute!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attribute.Count;++iterator_5)
-        {
-
-            {
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].key!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key.Length * 2;
-            *(int*)targetPtr = strlen_7;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].key)
-            {
-                Memory.Copy(pstr_7, targetPtr, strlen_7);
-                targetPtr += strlen_7;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-        if(CredentialCore.claims[iterator_3].attribute[iterator_5].value!= null)
-        {
-            int strlen_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value.Length * 2;
-            *(int*)targetPtr = strlen_7;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_7 = CredentialCore.claims[iterator_3].attribute[iterator_5].value)
-            {
-                Memory.Copy(pstr_7, targetPtr, strlen_7);
-                targetPtr += strlen_7;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-            }
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
-*(optheader_4 + 0) |= 0x02;
-            }
-            if( CredentialCore.claims[iterator_3].attributes!= null)
-            {
 
 {
-byte *storedPtr_5 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes!= null)
+    if(CredentialContent.core.claims!= null)
     {
-        for(int iterator_5 = 0;iterator_5<CredentialCore.claims[iterator_3].attributes.Count;++iterator_5)
+        for(int iterator_4 = 0;iterator_4<CredentialContent.core.claims.Count;++iterator_4)
         {
+
+            {
+            byte* optheader_5 = targetPtr;
+            *(optheader_5 + 0) = 0x00;            targetPtr += 1;
+
+        if(CredentialContent.core.claims[iterator_4].key!= null)
+        {
+            int strlen_6 = CredentialContent.core.claims[iterator_4].key.Length * 2;
+            *(int*)targetPtr = strlen_6;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_6 = CredentialContent.core.claims[iterator_4].key)
+            {
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+            if( CredentialContent.core.claims[iterator_4].value!= null)
+            {
+
+        if(CredentialContent.core.claims[iterator_4].value!= null)
+        {
+            int strlen_6 = CredentialContent.core.claims[iterator_4].value.Length * 2;
+            *(int*)targetPtr = strlen_6;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_6 = CredentialContent.core.claims[iterator_4].value)
+            {
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_5 + 0) |= 0x01;
+            }
+            if( CredentialContent.core.claims[iterator_4].attribute!= null)
+            {
 
 {
 byte *storedPtr_6 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(CredentialCore.claims[iterator_3].attributes[iterator_5]!= null)
+    if(CredentialContent.core.claims[iterator_4].attribute!= null)
     {
-        for(int iterator_6 = 0;iterator_6<CredentialCore.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attribute.Count;++iterator_6)
         {
 
             {
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].key!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].key)
+            fixed(char* pstr_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].key)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -5503,12 +5705,12 @@ byte *storedPtr_6 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        if(CredentialContent.core.claims[iterator_4].attribute[iterator_6].value!= null)
         {
-            int strlen_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            int strlen_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = CredentialCore.claims[iterator_3].attributes[iterator_5][iterator_6].value)
+            fixed(char* pstr_8 = CredentialContent.core.claims[iterator_4].attribute[iterator_6].value)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -5525,39 +5727,126 @@ byte *storedPtr_6 = targetPtr;
 *(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
 
 }
+*(optheader_5 + 0) |= 0x02;
+            }
+            if( CredentialContent.core.claims[iterator_4].attributes!= null)
+            {
+
+{
+byte *storedPtr_6 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes!= null)
+    {
+        for(int iterator_6 = 0;iterator_6<CredentialContent.core.claims[iterator_4].attributes.Count;++iterator_6)
+        {
+
+{
+byte *storedPtr_7 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(CredentialContent.core.claims[iterator_4].attributes[iterator_6]!= null)
+    {
+        for(int iterator_7 = 0;iterator_7<CredentialContent.core.claims[iterator_4].attributes[iterator_6].Count;++iterator_7)
+        {
+
+            {
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key.Length * 2;
+            *(int*)targetPtr = strlen_9;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].key)
+            {
+                Memory.Copy(pstr_9, targetPtr, strlen_9);
+                targetPtr += strlen_9;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value!= null)
+        {
+            int strlen_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value.Length * 2;
+            *(int*)targetPtr = strlen_9;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_9 = CredentialContent.core.claims[iterator_4].attributes[iterator_6][iterator_7].value)
+            {
+                Memory.Copy(pstr_9, targetPtr, strlen_9);
+                targetPtr += strlen_9;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+*(int*)storedPtr_7 = (int)(targetPtr - storedPtr_7 - 4);
+
+}
 
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
 
 }
-*(optheader_4 + 0) |= 0x04;
+*(optheader_5 + 0) |= 0x04;
             }
 
             }
         }
     }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
 
+            }
+            {
+            *(TRACredentialType*)targetPtr = CredentialContent.wrapper.credtype;
+            targetPtr += 1;
+            *(TRATrustLevel*)targetPtr = CredentialContent.wrapper.trustLevel;
+            targetPtr += 1;
+            *(TRAEncryptionFlag*)targetPtr = CredentialContent.wrapper.encryptionFlag;
+            targetPtr += 1;
+            *(long*)targetPtr = CredentialContent.wrapper.version;
+            targetPtr += 8;
+
+        if(CredentialContent.wrapper.notaryudid!= null)
+        {
+            int strlen_4 = CredentialContent.wrapper.notaryudid.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = CredentialContent.wrapper.notaryudid)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
             }
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = Envelope.credtype;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = Envelope.encryptionFlag;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.hashedThumbprint64)
+            fixed(char* pstr_3 = CredentialEnvelope.hashedThumbprint64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -5569,15 +5858,15 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.signedHashSignature64)
+            fixed(char* pstr_3 = CredentialEnvelope.signedHashSignature64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -5589,15 +5878,15 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x02;
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.notaryStamp)
+            fixed(char* pstr_3 = CredentialEnvelope.notaryStamp)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -5609,24 +5898,24 @@ byte *storedPtr_6 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x04;
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = Envelope.comments[iterator_3])
+            fixed(char* pstr_4 = CredentialEnvelope.comments[iterator_3])
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -5645,15 +5934,15 @@ byte *storedPtr_3 = targetPtr;
 *(optheader_2 + 0) |= 0x08;
             }
 
-            }            if( EncryptedCredentialCore!= null)
+            }            if( EncryptedCredentialContent!= null)
             {
 
-        if(EncryptedCredentialCore!= null)
+        if(EncryptedCredentialContent!= null)
         {
-            int strlen_2 = EncryptedCredentialCore.Length * 2;
+            int strlen_2 = EncryptedCredentialContent.Length * 2;
             *(int*)targetPtr = strlen_2;
             targetPtr += sizeof(int);
-            fixed(char* pstr_2 = EncryptedCredentialCore)
+            fixed(char* pstr_2 = EncryptedCredentialContent)
             {
                 Memory.Copy(pstr_2, targetPtr, strlen_2);
                 targetPtr += strlen_2;
@@ -5681,7 +5970,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWCredential(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, long cellId, TDWCredential cellContent)
         {
-            return SaveTDWCredential(storage, tx, options, cellId  , cellContent.CredentialCore  , cellContent.Envelope  , cellContent.EncryptedCredentialCore );
+            return SaveTDWCredential(storage, tx, options, cellId  , cellContent.CredentialContent  , cellContent.CredentialEnvelope  , cellContent.EncryptedCredentialContent );
         }
         /// <summary>
         /// Adds a new cell of type TDWCredential to the key-value store if the cell Id does not exist, or updates an existing cell in the key-value store if the cell Id already exists. Cell Id is specified by the CellId field in the content object.
@@ -5692,7 +5981,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWCredential(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, TDWCredential cellContent)
         {
-            return SaveTDWCredential(storage, tx, options, cellContent.CellId  , cellContent.CredentialCore  , cellContent.Envelope  , cellContent.EncryptedCredentialCore );
+            return SaveTDWCredential(storage, tx, options, cellContent.CellId  , cellContent.CredentialContent  , cellContent.CredentialEnvelope  , cellContent.EncryptedCredentialContent );
         }
         /// <summary>
         /// Loads the content of the specified cell. Any changes done to this object are not written to the store, unless

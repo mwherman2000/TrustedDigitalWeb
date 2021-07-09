@@ -38,12 +38,12 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWVDASmartContract with the specified parameters.
         ///</summary>
-        public TDWVDASmartContract(long cell_id , TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore), TRAEnvelope Envelope = default(TRAEnvelope), string EncryptedSmartContractCore = default(string))
+        public TDWVDASmartContract(long cell_id , TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore), TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope), string EncryptedSmartContractCore = default(string))
         {
             
             this.SmartContractCore = SmartContractCore;
             
-            this.Envelope = Envelope;
+            this.CredentialEnvelope = CredentialEnvelope;
             
             this.EncryptedSmartContractCore = EncryptedSmartContractCore;
             
@@ -53,12 +53,12 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWVDASmartContract with the specified parameters.
         ///</summary>
-        public TDWVDASmartContract( TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore), TRAEnvelope Envelope = default(TRAEnvelope), string EncryptedSmartContractCore = default(string))
+        public TDWVDASmartContract( TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore), TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope), string EncryptedSmartContractCore = default(string))
         {
             
             this.SmartContractCore = SmartContractCore;
             
-            this.Envelope = Envelope;
+            this.CredentialEnvelope = CredentialEnvelope;
             
             this.EncryptedSmartContractCore = EncryptedSmartContractCore;
             
@@ -67,7 +67,7 @@ namespace TDW.VDAServer
         
         public TDWVDASmartContractEntryCore SmartContractCore;
         
-        public TRAEnvelope Envelope;
+        public TRACredentialEnvelope CredentialEnvelope;
         
         public string EncryptedSmartContractCore;
         
@@ -86,7 +86,7 @@ namespace TDW.VDAServer
                 
                 (a.SmartContractCore == b.SmartContractCore)
                 &&
-                (a.Envelope == b.Envelope)
+                (a.CredentialEnvelope == b.CredentialEnvelope)
                 &&
                 (a.EncryptedSmartContractCore == b.EncryptedSmartContractCore)
                 
@@ -138,7 +138,7 @@ namespace TDW.VDAServer
             
             "SmartContractCore"
             ,
-            "Envelope"
+            "CredentialEnvelope"
             ,
             "EncryptedSmartContractCore"
             
@@ -148,7 +148,7 @@ namespace TDW.VDAServer
             
             "SmartContractCore"
             ,
-            "Envelope"
+            "CredentialEnvelope"
             ,
         };
         #endregion
@@ -176,7 +176,7 @@ namespace TDW.VDAServer
                 return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore);
                 
                 case 1:
-                return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                 
                 case 2:
                 return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
@@ -210,7 +210,7 @@ namespace TDW.VDAServer
                 break;
                 
                 case 1:
-                this.Envelope = TypeConverter<T>.ConvertTo_TRAEnvelope(value);
+                this.CredentialEnvelope = TypeConverter<T>.ConvertTo_TRACredentialEnvelope(value);
                 break;
                 
                 case 2:
@@ -321,9 +321,9 @@ namespace TDW.VDAServer
                     
                         yield return new KeyValuePair<string, T>("SmartContractCore", TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore));
                 
-                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
                 
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
@@ -339,9 +339,9 @@ namespace TDW.VDAServer
                     
                         yield return new KeyValuePair<string, T>("SmartContractCore", TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore));
                 
-                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
                 
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
@@ -403,10 +403,6 @@ namespace TDW.VDAServer
                 
                 case 9:
                 
-                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.SmartContractCore, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("SmartContractCore", TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore));
-                
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
                     if (this.EncryptedSmartContractCore != null)
@@ -416,10 +412,6 @@ namespace TDW.VDAServer
                 break;
                 
                 case 10:
-                
-                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.Envelope, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
                 
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
@@ -440,6 +432,10 @@ namespace TDW.VDAServer
                 break;
                 
                 case 12:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.SmartContractCore, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("SmartContractCore", TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore));
                 
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
@@ -471,13 +467,117 @@ namespace TDW.VDAServer
                 
                 case 15:
                 
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedSmartContractCore != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 16:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.CredentialEnvelope, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedSmartContractCore != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 17:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedSmartContractCore != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 18:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedSmartContractCore != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 19:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedSmartContractCore != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 20:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedSmartContractCore != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 21:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedSmartContractCore != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 22:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedSmartContractCore != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 23:
+                
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.SmartContractCore, attributeKey, attributeValue))
                     
                         yield return new KeyValuePair<string, T>("SmartContractCore", TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore));
                 
-                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedSmartContractCore != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 24:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (this.EncryptedSmartContractCore != null)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 25:
                 
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
@@ -517,7 +617,7 @@ namespace TDW.VDAServer
                     }
                     break;
                 
-                case 9:
+                case 12:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore);
@@ -525,7 +625,7 @@ namespace TDW.VDAServer
                     }
                     break;
                 
-                case 15:
+                case 23:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore);
@@ -541,7 +641,7 @@ namespace TDW.VDAServer
             
         }
         
-        private IEnumerable<T> _enumerate_from_Envelope<T>()
+        private IEnumerable<T> _enumerate_from_CredentialEnvelope<T>()
         {
             
             switch (TypeConverter<T>.type_id)
@@ -550,7 +650,7 @@ namespace TDW.VDAServer
                 case 2:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                         
                     }
                     break;
@@ -558,23 +658,23 @@ namespace TDW.VDAServer
                 case 3:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                         
                     }
                     break;
                 
-                case 10:
+                case 16:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                         
                     }
                     break;
                 
-                case 15:
+                case 23:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                         
                     }
                     break;
@@ -723,6 +823,86 @@ namespace TDW.VDAServer
                     }
                     break;
                 
+                case 16:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 17:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 18:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 19:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 20:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 21:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 22:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 23:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 24:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 25:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
                 default:
                     Throw.incompatible_with_cell();
                     break;
@@ -744,7 +924,7 @@ namespace TDW.VDAServer
                 return _enumerate_from_SmartContractCore<T>();
                 
                 case 1:
-                return _enumerate_from_Envelope<T>();
+                return _enumerate_from_CredentialEnvelope<T>();
                 
                 case 2:
                 return _enumerate_from_EncryptedSmartContractCore<T>();
@@ -763,7 +943,7 @@ namespace TDW.VDAServer
                 foreach (var val in _enumerate_from_SmartContractCore<T>())
                     yield return val;
                 
-                foreach (var val in _enumerate_from_Envelope<T>())
+                foreach (var val in _enumerate_from_CredentialEnvelope<T>())
                     yield return val;
                 
                 foreach (var val in _enumerate_from_EncryptedSmartContractCore<T>())
@@ -825,7 +1005,7 @@ namespace TDW.VDAServer
             }
             
             {
-                yield return "Envelope";
+                yield return "CredentialEnvelope";
             }
             
             {
@@ -870,7 +1050,7 @@ namespace TDW.VDAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        Envelope_Accessor_Field = new TRAEnvelope_Accessor(null,
+                });        CredentialEnvelope_Accessor_Field = new TRACredentialEnvelope_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -933,7 +1113,6 @@ namespace TDW.VDAServer
             targetPtr += 1;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_2 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
@@ -976,7 +1155,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_2 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
@@ -1009,7 +1187,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
         private static byte[] s_default_content = null;
-        private static unsafe byte[] construct( TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore) , TRAEnvelope Envelope = default(TRAEnvelope) , string EncryptedSmartContractCore = default(string) )
+        private static unsafe byte[] construct( TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore) , TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope) , string EncryptedSmartContractCore = default(string) )
         {
             if (s_default_content != null) return s_default_content;
             
@@ -1043,14 +1221,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             }
             {
             targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -1058,12 +1234,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -1071,12 +1247,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -1084,20 +1260,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -1173,19 +1349,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = Envelope.credtype;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = Envelope.encryptionFlag;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.hashedThumbprint64)
+            fixed(char* pstr_3 = CredentialEnvelope.hashedThumbprint64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1197,15 +1369,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.signedHashSignature64)
+            fixed(char* pstr_3 = CredentialEnvelope.signedHashSignature64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1217,15 +1389,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 *(optheader_2 + 0) |= 0x02;
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.notaryStamp)
+            fixed(char* pstr_3 = CredentialEnvelope.notaryStamp)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1237,24 +1409,24 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 *(optheader_2 + 0) |= 0x04;
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = Envelope.comments[iterator_3])
+            fixed(char* pstr_4 = CredentialEnvelope.comments[iterator_3])
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1357,12 +1529,12 @@ byte *storedPtr_3 = targetPtr;
                 }
             }
         }
-        TRAEnvelope_Accessor Envelope_Accessor_Field;
+        TRACredentialEnvelope_Accessor CredentialEnvelope_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field Envelope.
+        ///Provides in-place access to the object field CredentialEnvelope.
         ///</summary>
-        public unsafe TRAEnvelope_Accessor Envelope
+        public unsafe TRACredentialEnvelope_Accessor CredentialEnvelope
         {
             get
             {
@@ -1370,16 +1542,16 @@ byte *storedPtr_3 = targetPtr;
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}Envelope_Accessor_Field.m_ptr = targetPtr;
-                Envelope_Accessor_Field.m_cellId = this.m_cellId;
-                return Envelope_Accessor_Field;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}CredentialEnvelope_Accessor_Field.m_ptr = targetPtr;
+                CredentialEnvelope_Accessor_Field.m_cellId = this.m_cellId;
+                return CredentialEnvelope_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                Envelope_Accessor_Field.m_cellId = this.m_cellId;
+                CredentialEnvelope_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
@@ -1458,7 +1630,6 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += 1;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_3 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
@@ -1503,7 +1674,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_3 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
@@ -1540,7 +1710,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_3 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
@@ -1630,7 +1799,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     accessor.SmartContractCore
             ,
             
-                    accessor.Envelope
+                    accessor.CredentialEnvelope
             ,
             
             _EncryptedSmartContractCore 
@@ -1667,14 +1836,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             }
             {
             targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            if( field.Envelope.hashedThumbprint64!= null)
+            if( field.CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(field.Envelope.hashedThumbprint64!= null)
+        if(field.CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = field.Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = field.CredentialEnvelope.hashedThumbprint64.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -1682,12 +1849,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( field.Envelope.signedHashSignature64!= null)
+            if( field.CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(field.Envelope.signedHashSignature64!= null)
+        if(field.CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = field.Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = field.CredentialEnvelope.signedHashSignature64.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -1695,12 +1862,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( field.Envelope.notaryStamp!= null)
+            if( field.CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(field.Envelope.notaryStamp!= null)
+        if(field.CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = field.Envelope.notaryStamp.Length * 2;
+            int strlen_3 = field.CredentialEnvelope.notaryStamp.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -1708,20 +1875,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( field.Envelope.comments!= null)
+            if( field.CredentialEnvelope.comments!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(field.Envelope.comments!= null)
+    if(field.CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<field.CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(field.Envelope.comments[iterator_3]!= null)
+        if(field.CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = field.Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = field.CredentialEnvelope.comments[iterator_3].Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -1796,19 +1963,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = field.Envelope.credtype;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = field.Envelope.encryptionFlag;
-            targetPtr += 1;
-            if( field.Envelope.hashedThumbprint64!= null)
+            if( field.CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(field.Envelope.hashedThumbprint64!= null)
+        if(field.CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = field.Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = field.CredentialEnvelope.hashedThumbprint64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.Envelope.hashedThumbprint64)
+            fixed(char* pstr_3 = field.CredentialEnvelope.hashedThumbprint64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1820,15 +1983,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( field.Envelope.signedHashSignature64!= null)
+            if( field.CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(field.Envelope.signedHashSignature64!= null)
+        if(field.CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = field.Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = field.CredentialEnvelope.signedHashSignature64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.Envelope.signedHashSignature64)
+            fixed(char* pstr_3 = field.CredentialEnvelope.signedHashSignature64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1840,15 +2003,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 *(optheader_2 + 0) |= 0x02;
             }
-            if( field.Envelope.notaryStamp!= null)
+            if( field.CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(field.Envelope.notaryStamp!= null)
+        if(field.CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = field.Envelope.notaryStamp.Length * 2;
+            int strlen_3 = field.CredentialEnvelope.notaryStamp.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.Envelope.notaryStamp)
+            fixed(char* pstr_3 = field.CredentialEnvelope.notaryStamp)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1860,24 +2023,24 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 *(optheader_2 + 0) |= 0x04;
             }
-            if( field.Envelope.comments!= null)
+            if( field.CredentialEnvelope.comments!= null)
             {
 
 {
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.Envelope.comments!= null)
+    if(field.CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<field.CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(field.Envelope.comments[iterator_3]!= null)
+        if(field.CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = field.Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = field.CredentialEnvelope.comments[iterator_3].Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.Envelope.comments[iterator_3])
+            fixed(char* pstr_4 = field.CredentialEnvelope.comments[iterator_3])
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1937,7 +2100,6 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += 1;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_3 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
@@ -1970,7 +2132,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_3 = targetPtr;
             targetPtr += 1;
-            targetPtr += 2;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
@@ -2254,7 +2415,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             
             "SmartContractCore"
             ,
-            "Envelope"
+            "CredentialEnvelope"
             ,
             "EncryptedSmartContractCore"
             
@@ -2264,7 +2425,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             
             "SmartContractCore"
             ,
-            "Envelope"
+            "CredentialEnvelope"
             ,
         };
         #endregion
@@ -2285,7 +2446,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     return GenericFieldAccessor.GetField<T>(this.SmartContractCore, fieldName, field_divider_idx + 1);
                     
                     case 1:
-                    return GenericFieldAccessor.GetField<T>(this.Envelope, fieldName, field_divider_idx + 1);
+                    return GenericFieldAccessor.GetField<T>(this.CredentialEnvelope, fieldName, field_divider_idx + 1);
                     
                     default:
                     Throw.member_access_on_non_struct__field(field_name_string);
@@ -2302,7 +2463,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore);
                 
                 case 1:
-                return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                 
                 case 2:
                 return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
@@ -2328,7 +2489,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     break;
                     
                     case 1:
-                    GenericFieldAccessor.SetField(this.Envelope, fieldName, field_divider_idx + 1, value);
+                    GenericFieldAccessor.SetField(this.CredentialEnvelope, fieldName, field_divider_idx + 1, value);
                     break;
                     
                     default:
@@ -2356,10 +2517,10 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 case 1:
                 {
-                    TRAEnvelope conversion_result = TypeConverter<T>.ConvertTo_TRAEnvelope(value);
+                    TRACredentialEnvelope conversion_result = TypeConverter<T>.ConvertTo_TRACredentialEnvelope(value);
                     
             {
-                this.Envelope = conversion_result;
+                this.CredentialEnvelope = conversion_result;
             }
             
                 }
@@ -2469,9 +2630,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     
                         yield return new KeyValuePair<string, T>("SmartContractCore", TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore));
                 
-                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
                 
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
@@ -2487,9 +2648,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     
                         yield return new KeyValuePair<string, T>("SmartContractCore", TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore));
                 
-                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
                 
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
@@ -2551,10 +2712,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 case 9:
                 
-                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.SmartContractCore, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("SmartContractCore", TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore));
-                
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
                     if (Contains_EncryptedSmartContractCore)
@@ -2564,10 +2721,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 break;
                 
                 case 10:
-                
-                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.Envelope, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
                 
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
@@ -2588,6 +2741,10 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 break;
                 
                 case 12:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.SmartContractCore, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("SmartContractCore", TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore));
                 
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
@@ -2619,13 +2776,117 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 case 15:
                 
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedSmartContractCore)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 16:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.CredentialEnvelope, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedSmartContractCore)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 17:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedSmartContractCore)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 18:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedSmartContractCore)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 19:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedSmartContractCore)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 20:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedSmartContractCore)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 21:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedSmartContractCore)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 22:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedSmartContractCore)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 23:
+                
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.SmartContractCore, attributeKey, attributeValue))
                     
                         yield return new KeyValuePair<string, T>("SmartContractCore", TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore));
                 
-                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.Envelope, attributeKey, attributeValue))
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.CredentialEnvelope, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("Envelope", TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope));
+                        yield return new KeyValuePair<string, T>("CredentialEnvelope", TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope));
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedSmartContractCore)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 24:
+                
+                if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
+                    
+                    if (Contains_EncryptedSmartContractCore)
+                        
+                        yield return new KeyValuePair<string, T>("EncryptedSmartContractCore", TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore));
+                
+                break;
+                
+                case 25:
                 
                 if (StorageSchema.TDWVDASmartContract_descriptor.check_attribute(StorageSchema.TDWVDASmartContract_descriptor.EncryptedSmartContractCore, attributeKey, attributeValue))
                     
@@ -2665,7 +2926,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 9:
+                case 12:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore);
@@ -2673,7 +2934,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 15:
+                case 23:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(this.SmartContractCore);
@@ -2689,7 +2950,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             
         }
         
-        private IEnumerable<T> _enumerate_from_Envelope<T>()
+        private IEnumerable<T> _enumerate_from_CredentialEnvelope<T>()
         {
             
             switch (TypeConverter<T>.type_id)
@@ -2698,7 +2959,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 case 2:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                         
                     }
                     break;
@@ -2706,23 +2967,23 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 case 3:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                         
                     }
                     break;
                 
-                case 10:
+                case 16:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                         
                     }
                     break;
                 
-                case 15:
+                case 23:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRAEnvelope(this.Envelope);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelope(this.CredentialEnvelope);
                         
                     }
                     break;
@@ -2871,6 +3132,86 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
+                case 16:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 17:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 18:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 19:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 20:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 21:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 22:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 23:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 24:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
+                case 25:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_string(this.EncryptedSmartContractCore);
+                        
+                    }
+                    break;
+                
                 default:
                     Throw.incompatible_with_cell();
                     break;
@@ -2892,7 +3233,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 return _enumerate_from_SmartContractCore<T>();
                 
                 case 1:
-                return _enumerate_from_Envelope<T>();
+                return _enumerate_from_CredentialEnvelope<T>();
                 
                 case 2:
                 return _enumerate_from_EncryptedSmartContractCore<T>();
@@ -2911,7 +3252,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 foreach (var val in _enumerate_from_SmartContractCore<T>())
                     yield return val;
                 
-                foreach (var val in _enumerate_from_Envelope<T>())
+                foreach (var val in _enumerate_from_CredentialEnvelope<T>())
                     yield return val;
                 
                 foreach (var val in _enumerate_from_EncryptedSmartContractCore<T>())
@@ -2935,7 +3276,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             }
             
             {
-                yield return "Envelope";
+                yield return "CredentialEnvelope";
             }
             
             {
@@ -3005,7 +3346,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         /// <param name="storage"/>A <see cref="Trinity.Storage.IKeyValueStore"/> instance.</param>
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTDWVDASmartContract(this IKeyValueStore storage, long cellId, TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore), TRAEnvelope Envelope = default(TRAEnvelope), string EncryptedSmartContractCore = default(string))
+        public unsafe static bool SaveTDWVDASmartContract(this IKeyValueStore storage, long cellId, TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore), TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope), string EncryptedSmartContractCore = default(string))
         {
             
             byte* targetPtr;
@@ -3038,14 +3379,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             }
             {
             targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -3053,12 +3392,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -3066,12 +3405,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -3079,20 +3418,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -3168,19 +3507,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = Envelope.credtype;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = Envelope.encryptionFlag;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.hashedThumbprint64)
+            fixed(char* pstr_3 = CredentialEnvelope.hashedThumbprint64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -3192,15 +3527,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.signedHashSignature64)
+            fixed(char* pstr_3 = CredentialEnvelope.signedHashSignature64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -3212,15 +3547,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 *(optheader_2 + 0) |= 0x02;
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.notaryStamp)
+            fixed(char* pstr_3 = CredentialEnvelope.notaryStamp)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -3232,24 +3567,24 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 *(optheader_2 + 0) |= 0x04;
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = Envelope.comments[iterator_3])
+            fixed(char* pstr_4 = CredentialEnvelope.comments[iterator_3])
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3303,7 +3638,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWVDASmartContract(this IKeyValueStore storage, long cellId, TDWVDASmartContract cellContent)
         {
-            return SaveTDWVDASmartContract(storage, cellId  , cellContent.SmartContractCore  , cellContent.Envelope  , cellContent.EncryptedSmartContractCore );
+            return SaveTDWVDASmartContract(storage, cellId  , cellContent.SmartContractCore  , cellContent.CredentialEnvelope  , cellContent.EncryptedSmartContractCore );
         }
         /// <summary>
         /// Adds a new cell of type TDWVDASmartContract to the key-value store if the cell Id does not exist, or updates an existing cell in the key-value store if the cell Id already exists. Cell Id is specified by the CellId field in the content object.
@@ -3313,7 +3648,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWVDASmartContract(this IKeyValueStore storage, TDWVDASmartContract cellContent)
         {
-            return SaveTDWVDASmartContract(storage, cellContent.CellId  , cellContent.SmartContractCore  , cellContent.Envelope  , cellContent.EncryptedSmartContractCore );
+            return SaveTDWVDASmartContract(storage, cellContent.CellId  , cellContent.SmartContractCore  , cellContent.CredentialEnvelope  , cellContent.EncryptedSmartContractCore );
         }
         /// <summary>
         /// Loads the content of the specified cell. Any changes done to this object are not written to the store, unless
@@ -3377,7 +3712,7 @@ byte *storedPtr_3 = targetPtr;
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <param name="options">Specifies write-ahead logging behavior. Valid values are CellAccessOptions.StrongLogAhead(default) and CellAccessOptions.WeakLogAhead. Other values are ignored.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTDWVDASmartContract(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, long cellId, TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore), TRAEnvelope Envelope = default(TRAEnvelope), string EncryptedSmartContractCore = default(string))
+        public unsafe static bool SaveTDWVDASmartContract(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, long cellId, TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore), TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope), string EncryptedSmartContractCore = default(string))
         {
             
             byte* targetPtr;
@@ -3410,14 +3745,12 @@ byte *storedPtr_3 = targetPtr;
             }
             {
             targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -3425,12 +3758,12 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -3438,12 +3771,12 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -3451,20 +3784,20 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -3540,19 +3873,15 @@ byte *storedPtr_3 = targetPtr;
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = Envelope.credtype;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = Envelope.encryptionFlag;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.hashedThumbprint64)
+            fixed(char* pstr_3 = CredentialEnvelope.hashedThumbprint64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -3564,15 +3893,15 @@ byte *storedPtr_3 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.signedHashSignature64)
+            fixed(char* pstr_3 = CredentialEnvelope.signedHashSignature64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -3584,15 +3913,15 @@ byte *storedPtr_3 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x02;
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.notaryStamp)
+            fixed(char* pstr_3 = CredentialEnvelope.notaryStamp)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -3604,24 +3933,24 @@ byte *storedPtr_3 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x04;
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = Envelope.comments[iterator_3])
+            fixed(char* pstr_4 = CredentialEnvelope.comments[iterator_3])
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3676,7 +4005,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWVDASmartContract(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, long cellId, TDWVDASmartContract cellContent)
         {
-            return SaveTDWVDASmartContract(storage, options, cellId  , cellContent.SmartContractCore  , cellContent.Envelope  , cellContent.EncryptedSmartContractCore );
+            return SaveTDWVDASmartContract(storage, options, cellId  , cellContent.SmartContractCore  , cellContent.CredentialEnvelope  , cellContent.EncryptedSmartContractCore );
         }
         /// <summary>
         /// Adds a new cell of type TDWVDASmartContract to the key-value store if the cell Id does not exist, or updates an existing cell in the key-value store if the cell Id already exists. Cell Id is specified by the CellId field in the content object.
@@ -3687,7 +4016,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWVDASmartContract(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, TDWVDASmartContract cellContent)
         {
-            return SaveTDWVDASmartContract(storage, options, cellContent.CellId  , cellContent.SmartContractCore  , cellContent.Envelope  , cellContent.EncryptedSmartContractCore );
+            return SaveTDWVDASmartContract(storage, options, cellContent.CellId  , cellContent.SmartContractCore  , cellContent.CredentialEnvelope  , cellContent.EncryptedSmartContractCore );
         }
         /// <summary>
         /// Loads the content of the specified cell. Any changes done to this object are not written to the store, unless
@@ -3743,7 +4072,7 @@ byte *storedPtr_3 = targetPtr;
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <param name="options">Specifies write-ahead logging behavior. Valid values are CellAccessOptions.StrongLogAhead(default) and CellAccessOptions.WeakLogAhead. Other values are ignored.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTDWVDASmartContract(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, long cellId, TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore), TRAEnvelope Envelope = default(TRAEnvelope), string EncryptedSmartContractCore = default(string))
+        public unsafe static bool SaveTDWVDASmartContract(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, long cellId, TDWVDASmartContractEntryCore SmartContractCore = default(TDWVDASmartContractEntryCore), TRACredentialEnvelope CredentialEnvelope = default(TRACredentialEnvelope), string EncryptedSmartContractCore = default(string))
         {
             
             byte* targetPtr;
@@ -3776,14 +4105,12 @@ byte *storedPtr_3 = targetPtr;
             }
             {
             targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -3791,12 +4118,12 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -3804,12 +4131,12 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -3817,20 +4144,20 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -3906,19 +4233,15 @@ byte *storedPtr_3 = targetPtr;
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = Envelope.credtype;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = Envelope.encryptionFlag;
-            targetPtr += 1;
-            if( Envelope.hashedThumbprint64!= null)
+            if( CredentialEnvelope.hashedThumbprint64!= null)
             {
 
-        if(Envelope.hashedThumbprint64!= null)
+        if(CredentialEnvelope.hashedThumbprint64!= null)
         {
-            int strlen_3 = Envelope.hashedThumbprint64.Length * 2;
+            int strlen_3 = CredentialEnvelope.hashedThumbprint64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.hashedThumbprint64)
+            fixed(char* pstr_3 = CredentialEnvelope.hashedThumbprint64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -3930,15 +4253,15 @@ byte *storedPtr_3 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( Envelope.signedHashSignature64!= null)
+            if( CredentialEnvelope.signedHashSignature64!= null)
             {
 
-        if(Envelope.signedHashSignature64!= null)
+        if(CredentialEnvelope.signedHashSignature64!= null)
         {
-            int strlen_3 = Envelope.signedHashSignature64.Length * 2;
+            int strlen_3 = CredentialEnvelope.signedHashSignature64.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.signedHashSignature64)
+            fixed(char* pstr_3 = CredentialEnvelope.signedHashSignature64)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -3950,15 +4273,15 @@ byte *storedPtr_3 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x02;
             }
-            if( Envelope.notaryStamp!= null)
+            if( CredentialEnvelope.notaryStamp!= null)
             {
 
-        if(Envelope.notaryStamp!= null)
+        if(CredentialEnvelope.notaryStamp!= null)
         {
-            int strlen_3 = Envelope.notaryStamp.Length * 2;
+            int strlen_3 = CredentialEnvelope.notaryStamp.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = Envelope.notaryStamp)
+            fixed(char* pstr_3 = CredentialEnvelope.notaryStamp)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -3970,24 +4293,24 @@ byte *storedPtr_3 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x04;
             }
-            if( Envelope.comments!= null)
+            if( CredentialEnvelope.comments!= null)
             {
 
 {
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(Envelope.comments!= null)
+    if(CredentialEnvelope.comments!= null)
     {
-        for(int iterator_3 = 0;iterator_3<Envelope.comments.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<CredentialEnvelope.comments.Count;++iterator_3)
         {
 
-        if(Envelope.comments[iterator_3]!= null)
+        if(CredentialEnvelope.comments[iterator_3]!= null)
         {
-            int strlen_4 = Envelope.comments[iterator_3].Length * 2;
+            int strlen_4 = CredentialEnvelope.comments[iterator_3].Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = Envelope.comments[iterator_3])
+            fixed(char* pstr_4 = CredentialEnvelope.comments[iterator_3])
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -4042,7 +4365,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWVDASmartContract(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, long cellId, TDWVDASmartContract cellContent)
         {
-            return SaveTDWVDASmartContract(storage, tx, options, cellId  , cellContent.SmartContractCore  , cellContent.Envelope  , cellContent.EncryptedSmartContractCore );
+            return SaveTDWVDASmartContract(storage, tx, options, cellId  , cellContent.SmartContractCore  , cellContent.CredentialEnvelope  , cellContent.EncryptedSmartContractCore );
         }
         /// <summary>
         /// Adds a new cell of type TDWVDASmartContract to the key-value store if the cell Id does not exist, or updates an existing cell in the key-value store if the cell Id already exists. Cell Id is specified by the CellId field in the content object.
@@ -4053,7 +4376,7 @@ byte *storedPtr_3 = targetPtr;
         /// <returns>true if saving succeeds; otherwise, false.</returns>
         public unsafe static bool SaveTDWVDASmartContract(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, TDWVDASmartContract cellContent)
         {
-            return SaveTDWVDASmartContract(storage, tx, options, cellContent.CellId  , cellContent.SmartContractCore  , cellContent.Envelope  , cellContent.EncryptedSmartContractCore );
+            return SaveTDWVDASmartContract(storage, tx, options, cellContent.CellId  , cellContent.SmartContractCore  , cellContent.CredentialEnvelope  , cellContent.EncryptedSmartContractCore );
         }
         /// <summary>
         /// Loads the content of the specified cell. Any changes done to this object are not written to the store, unless

@@ -5,38 +5,6 @@
 
 include "../TDW.TRACommon/TRACommon.tsl";
 
-//////////////////////////////////////////////////////////////////////////////
-
-struct TRAKeyValuePair
-{
-	string key;
-	string value;
-}
-
-struct TRAClaim
-{
-	string key;
-	optional string value;				    
-	optional List<TRAKeyValuePair> attribute;
-	optional List<List<TRAKeyValuePair>> attributes;
-}
-
-struct TRACredentialCore
-{
-	string udid;	
-	List<string> context;
-	List<TRAClaim> claims;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-
-cell struct TDWCredential
-{	
-	TRACredentialCore CredentialCore;
-	TRAEnvelope Envelope;
-	optional string EncryptedCredentialCore;
-}
-
 ///////////////////////////////////////////////////////////////////////////////
 
 struct TDWCreateTDWCredentialRequest

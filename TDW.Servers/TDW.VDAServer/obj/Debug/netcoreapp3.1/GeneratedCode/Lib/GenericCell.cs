@@ -22,6 +22,10 @@ namespace TDW.VDAServer
             switch ((CellType)cell.CellType)
             {
                 
+                case CellType.TDWCredential:
+                storage.SaveTDWCredential(writeAheadLogOptions, (TDWCredential)cell);
+                break;
+                
                 case CellType.TDWVDAAccount:
                 storage.SaveTDWVDAAccount(writeAheadLogOptions, (TDWVDAAccount)cell);
                 break;
@@ -37,6 +41,10 @@ namespace TDW.VDAServer
         {
             switch ((CellType)cell.CellType)
             {
+                
+                case CellType.TDWCredential:
+                storage.SaveTDWCredential(writeAheadLogOptions, cellId, (TDWCredential)cell);
+                break;
                 
                 case CellType.TDWVDAAccount:
                 storage.SaveTDWVDAAccount(writeAheadLogOptions, cellId, (TDWVDAAccount)cell);
@@ -85,6 +93,10 @@ namespace TDW.VDAServer
             switch (type)
             {
                 
+                case global::TDW.VDAServer.CellType.TDWCredential:
+                return new TDWCredential();
+                break;
+                
                 case global::TDW.VDAServer.CellType.TDWVDAAccount:
                 return new TDWVDAAccount();
                 break;
@@ -105,6 +117,9 @@ namespace TDW.VDAServer
             switch (type)
             {
                 
+                case global::TDW.VDAServer.CellType.TDWCredential:
+                return new TDWCredential(cell_id: cellId);
+                
                 case global::TDW.VDAServer.CellType.TDWVDAAccount:
                 return new TDWVDAAccount(cell_id: cellId);
                 
@@ -123,6 +138,9 @@ namespace TDW.VDAServer
                 Throw.invalid_cell_type();
             switch (type)
             {
+                
+                case global::TDW.VDAServer.CellType.TDWCredential:
+                return TDWCredential.Parse(content);
                 
                 case global::TDW.VDAServer.CellType.TDWVDAAccount:
                 return TDWVDAAccount.Parse(content);
@@ -150,6 +168,9 @@ namespace TDW.VDAServer
             }
             switch ((CellType)type)
             {
+                
+                case CellType.TDWCredential:
+                return TDWCredential_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
                 
                 case CellType.TDWVDAAccount:
                 return TDWVDAAccount_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
@@ -214,6 +235,8 @@ namespace TDW.VDAServer
             switch (cellType)
             {
                 
+                case "TDWCredential": return TDWCredential_Accessor._get()._Lock(cellId, options);
+                
                 case "TDWVDAAccount": return TDWVDAAccount_Accessor._get()._Lock(cellId, options);
                 
                 case "TDWVDASmartContract": return TDWVDASmartContract_Accessor._get()._Lock(cellId, options);
@@ -232,6 +255,15 @@ namespace TDW.VDAServer
             {
                 switch ((CellType)cellInfo.CellType)
                 {
+                    
+                    case CellType.TDWCredential:
+                        {
+                            var TDWCredential_accessor = TDWCredential_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var TDWCredential_cell     = (TDWCredential)TDWCredential_accessor;
+                            TDWCredential_accessor.Dispose();
+                            yield return TDWCredential_cell;
+                            break;
+                        }
                     
                     case CellType.TDWVDAAccount:
                         {
@@ -265,6 +297,14 @@ namespace TDW.VDAServer
                 switch ((CellType)cellInfo.CellType)
                 {
                     
+                    case CellType.TDWCredential:
+                        {
+                            var TDWCredential_accessor = TDWCredential_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return TDWCredential_accessor;
+                            TDWCredential_accessor.Dispose();
+                            break;
+                        }
+                    
                     case CellType.TDWVDAAccount:
                         {
                             var TDWVDAAccount_accessor = TDWVDAAccount_Accessor.AllocIterativeAccessor(cellInfo, null);
@@ -295,6 +335,10 @@ namespace TDW.VDAServer
             switch ((CellType)cell.CellType)
             {
                 
+                case CellType.TDWCredential:
+                storage.SaveTDWCredential((TDWCredential)cell);
+                break;
+                
                 case CellType.TDWVDAAccount:
                 storage.SaveTDWVDAAccount((TDWVDAAccount)cell);
                 break;
@@ -310,6 +354,10 @@ namespace TDW.VDAServer
         {
             switch ((CellType)cell.CellType)
             {
+                
+                case CellType.TDWCredential:
+                storage.SaveTDWCredential(cellId, (TDWCredential)cell);
+                break;
                 
                 case CellType.TDWVDAAccount:
                 storage.SaveTDWVDAAccount(cellId, (TDWVDAAccount)cell);
@@ -355,6 +403,9 @@ namespace TDW.VDAServer
         {
             switch ((CellType)cellType)
             {
+                
+                case CellType.TDWCredential:
+                return TDWCredential_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
                 
                 case CellType.TDWVDAAccount:
                 return TDWVDAAccount_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);

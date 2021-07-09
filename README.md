@@ -12,9 +12,9 @@ Trusted Digital Web (TDW) Project, Hyperonomy Digital Identity Lab, Parallelspac
 - Key Management Agent (KMA)
 - Verifiable Data Agent (VDA)
 ## Code
-- TDW.Servers : TRA, KMA, and VDA repositories 
-- TDW.TDADesktop.Core : TDA repository
-- TDW.TDADesktop : Old TDA repository
+- TDW.Servers : TRA, KMA, and VDA repositories (.NET Core 3.1)
+- TDW.TDADesktop.Core : TDA repository (.NET Core 3.1)
+- TDW.TDADesktop : Old TDA repository (.NET Framework 4)
 ## Contact
 Michael Herman
 - Self-Sovereign Blockchain Architect

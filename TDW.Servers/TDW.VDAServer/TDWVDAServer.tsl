@@ -17,10 +17,16 @@ struct TDWVDAAccountEntryCore
 	string ledgeraddress;
 }
 
+struct TDWVDAAccountEntryContent
+{
+	TDWVDAAccountEntryCore core;
+	TRACredentialWrapper wrapper;
+}
+
 cell struct TDWVDAAccount
 {	
-	TDWVDAAccountEntryCore AccountCore;
-	TRAEnvelope Envelope;
+	TDWVDAAccountEntryContent AccountContent;
+	TRACredentialEnvelope CredentialEnvelope;
 	optional string EncryptedAccountCore;
 }
 
@@ -33,7 +39,7 @@ struct TDWVDASmartContractEntryCore
 cell struct TDWVDASmartContract
 {	
 	TDWVDASmartContractEntryCore SmartContractCore;
-	TRAEnvelope Envelope;
+	TRACredentialEnvelope CredentialEnvelope;
 	optional string EncryptedSmartContractCore;
 }
 

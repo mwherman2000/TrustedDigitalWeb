@@ -51,6 +51,33 @@ namespace TDW.VDAServer
             throw new DataTypeIncompatibleException("Data type 'List<string>' not compatible with the target field.");
         }
         
+        internal static void parse_List_TRAClaim(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into List<TRAClaim>.");
+        }
+        internal static void incompatible_with_List_TRAClaim()
+        {
+            throw new DataTypeIncompatibleException("Data type 'List<TRAClaim>' not compatible with the target field.");
+        }
+        
+        internal static void parse_List_TRAKeyValuePair(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into List<TRAKeyValuePair>.");
+        }
+        internal static void incompatible_with_List_TRAKeyValuePair()
+        {
+            throw new DataTypeIncompatibleException("Data type 'List<TRAKeyValuePair>' not compatible with the target field.");
+        }
+        
+        internal static void parse_TDWVDAAccountEntryContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAAccountEntryContent.");
+        }
+        internal static void incompatible_with_TDWVDAAccountEntryContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TDWVDAAccountEntryContent' not compatible with the target field.");
+        }
+        
         internal static void parse_TDWVDAAccountEntryCore(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAAccountEntryCore.");
@@ -105,13 +132,58 @@ namespace TDW.VDAServer
             throw new DataTypeIncompatibleException("Data type 'TDWVDASmartContractEntryCore' not compatible with the target field.");
         }
         
-        internal static void parse_TRAEnvelope(string value)
+        internal static void parse_TRAClaim(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAEnvelope.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAClaim.");
         }
-        internal static void incompatible_with_TRAEnvelope()
+        internal static void incompatible_with_TRAClaim()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRAEnvelope' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRAClaim' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredentialContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialContent.");
+        }
+        internal static void incompatible_with_TRACredentialContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialContent' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredentialCore(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialCore.");
+        }
+        internal static void incompatible_with_TRACredentialCore()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialCore' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredentialEnvelope(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialEnvelope.");
+        }
+        internal static void incompatible_with_TRACredentialEnvelope()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialEnvelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredentialWrapper(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialWrapper.");
+        }
+        internal static void incompatible_with_TRACredentialWrapper()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialWrapper' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAKeyValuePair(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAKeyValuePair.");
+        }
+        internal static void incompatible_with_TRAKeyValuePair()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAKeyValuePair' not compatible with the target field.");
         }
         
         internal static void parse_TRACredentialType(string value)
@@ -148,6 +220,15 @@ namespace TDW.VDAServer
         internal static void incompatible_with_TRATrustLevel()
         {
             throw new DataTypeIncompatibleException("Data type 'TRATrustLevel' not compatible with the target field.");
+        }
+        
+        internal static void parse_List_List_TRAKeyValuePair(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into List<List<TRAKeyValuePair>>.");
+        }
+        internal static void incompatible_with_List_List_TRAKeyValuePair()
+        {
+            throw new DataTypeIncompatibleException("Data type 'List<List<TRAKeyValuePair>>' not compatible with the target field.");
         }
         
         internal static void data_type_incompatible_with_list(string type)

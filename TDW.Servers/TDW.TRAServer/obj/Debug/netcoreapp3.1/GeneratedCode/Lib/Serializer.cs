@@ -148,6 +148,19 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
+        /// Serializes a TRACredentialContent object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRACredentialContent value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
         /// Serializes a TRACredentialCore object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
@@ -161,11 +174,24 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAEnvelope object to Json string.
+        /// Serializes a TRACredentialEnvelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAEnvelope value)
+        public static string ToString(TRACredentialEnvelope value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRACredentialWrapper object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRACredentialWrapper value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -251,27 +277,27 @@ namespace TDW.TRAServer
             {
                 
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"CredentialCore\":");
-                    ToString_impl(cell.CredentialCore, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"CredentialContent\":");
+                    ToString_impl(cell.CredentialContent, s_stringBuilder, in_json: true);
                     
             }
             
             {
                 
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"Envelope\":");
-                    ToString_impl(cell.Envelope, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"CredentialEnvelope\":");
+                    ToString_impl(cell.CredentialEnvelope, s_stringBuilder, in_json: true);
                     
             }
             
             {
                 
-                if (cell.EncryptedCredentialCore != null)
+                if (cell.EncryptedCredentialContent != null)
                 {
                     
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"EncryptedCredentialCore\":");
-                    ToString_impl(cell.EncryptedCredentialCore, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"EncryptedCredentialContent\":");
+                    ToString_impl(cell.EncryptedCredentialContent, s_stringBuilder, in_json: true);
                     
                 }
                 
@@ -727,6 +753,44 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRACredentialContent value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"core\":");
+                        
+                        ToString_impl(value.core, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"wrapper\":");
+                        
+                        ToString_impl(value.wrapper, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static void ToString_impl(TRACredentialCore value, StringBuilder str_builder, bool in_json)
         {
             
@@ -795,37 +859,13 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAEnvelope value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredentialEnvelope value, StringBuilder str_builder, bool in_json)
         {
             
             {
                 
                 str_builder.Append('{');
                 bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"credtype\":");
-                        
-                        ToString_impl(value.credtype, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptionFlag\":");
-                        
-                        ToString_impl(value.encryptionFlag, str_builder, in_json: true);
-                        
-                }
                 
                 {
                     
@@ -894,6 +934,86 @@ namespace TDW.TRAServer
                         str_builder.Append("\"comments\":");
                         
                         ToString_impl(value.comments, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRACredentialWrapper value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credtype\":");
+                        
+                        ToString_impl(value.credtype, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"trustLevel\":");
+                        
+                        ToString_impl(value.trustLevel, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptionFlag\":");
+                        
+                        ToString_impl(value.encryptionFlag, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"version\":");
+                        
+                        ToString_impl(value.version, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.notaryudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"notaryudid\":");
+                        
+                        ToString_impl(value.notaryudid, str_builder, in_json: true);
                         
                     }
                     

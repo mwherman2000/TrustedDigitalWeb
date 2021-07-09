@@ -7,6 +7,22 @@ namespace TDW.VDAServer
     {
         
         /// <summary>
+        /// Tells whether the cell with the given id is a TDWCredential.
+        /// </summary>
+        /// <param name="storage"/>A <see cref="Trinity.Storage.LocalMemoryStorage"/> instance.</param>
+        /// <param name="cellId">The id of the cell.</param>
+        /// <returns>True if the cell is found and is of the correct type. Otherwise false.</returns>
+        public unsafe static bool IsTDWCredential(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
+        {
+            ushort cellType;
+            if (storage.GetCellType(cellId, out cellType) == TrinityErrorCode.E_SUCCESS)
+            {
+                return cellType == (ushort)CellType.TDWCredential;
+            }
+            return false;
+        }
+        
+        /// <summary>
         /// Tells whether the cell with the given id is a TDWVDAAccount.
         /// </summary>
         /// <param name="storage"/>A <see cref="Trinity.Storage.LocalMemoryStorage"/> instance.</param>

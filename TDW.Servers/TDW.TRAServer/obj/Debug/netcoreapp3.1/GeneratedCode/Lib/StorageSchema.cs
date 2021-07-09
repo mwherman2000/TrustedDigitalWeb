@@ -40,17 +40,17 @@ namespace TDW.TRAServer
                     return attributes.Attributes.ContainsKey(attributeKey) && attributes.Attributes[attributeKey] == attributeValue;
             }
             
-            internal class CredentialCore_descriptor : IFieldDescriptor
+            internal class CredentialContent_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
                     
                 };
-                private static string s_typename = "TRACredentialCore";
-                private static Type   s_type     = typeof(TRACredentialCore);
+                private static string s_typename = "TRACredentialContent";
+                private static Type   s_type     = typeof(TRACredentialContent);
                 public string Name
                 {
-                    get { return "CredentialCore"; }
+                    get { return "CredentialContent"; }
                 }
                 public bool Optional
                 {
@@ -90,19 +90,19 @@ namespace TDW.TRAServer
                     return ret;
                 }
             }
-            internal static CredentialCore_descriptor CredentialCore = new CredentialCore_descriptor();
+            internal static CredentialContent_descriptor CredentialContent = new CredentialContent_descriptor();
             
-            internal class Envelope_descriptor : IFieldDescriptor
+            internal class CredentialEnvelope_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
                     
                 };
-                private static string s_typename = "TRAEnvelope";
-                private static Type   s_type     = typeof(TRAEnvelope);
+                private static string s_typename = "TRACredentialEnvelope";
+                private static Type   s_type     = typeof(TRACredentialEnvelope);
                 public string Name
                 {
-                    get { return "Envelope"; }
+                    get { return "CredentialEnvelope"; }
                 }
                 public bool Optional
                 {
@@ -142,9 +142,9 @@ namespace TDW.TRAServer
                     return ret;
                 }
             }
-            internal static Envelope_descriptor Envelope = new Envelope_descriptor();
+            internal static CredentialEnvelope_descriptor CredentialEnvelope = new CredentialEnvelope_descriptor();
             
-            internal class EncryptedCredentialCore_descriptor : IFieldDescriptor
+            internal class EncryptedCredentialContent_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
@@ -154,7 +154,7 @@ namespace TDW.TRAServer
                 private static Type   s_type     = typeof(string);
                 public string Name
                 {
-                    get { return "EncryptedCredentialCore"; }
+                    get { return "EncryptedCredentialContent"; }
                 }
                 public bool Optional
                 {
@@ -194,17 +194,17 @@ namespace TDW.TRAServer
                     return ret;
                 }
             }
-            internal static EncryptedCredentialCore_descriptor EncryptedCredentialCore = new EncryptedCredentialCore_descriptor();
+            internal static EncryptedCredentialContent_descriptor EncryptedCredentialContent = new EncryptedCredentialContent_descriptor();
             
             #region ICellDescriptor
             public IEnumerable<string> GetFieldNames()
             {
                 
-                yield return "CredentialCore";
+                yield return "CredentialContent";
                 
-                yield return "Envelope";
+                yield return "CredentialEnvelope";
                 
-                yield return "EncryptedCredentialCore";
+                yield return "EncryptedCredentialContent";
                 
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
@@ -216,13 +216,13 @@ namespace TDW.TRAServer
                 {
                     
                     case 0:
-                        return CredentialCore;
+                        return CredentialContent;
                     
                     case 1:
-                        return Envelope;
+                        return CredentialEnvelope;
                     
                     case 2:
-                        return EncryptedCredentialCore;
+                        return EncryptedCredentialContent;
                     
                 }
                 /* Should not reach here */
@@ -231,11 +231,11 @@ namespace TDW.TRAServer
             public IEnumerable<IFieldDescriptor> GetFieldDescriptors()
             {
                 
-                yield return CredentialCore;
+                yield return CredentialContent;
                 
-                yield return Envelope;
+                yield return CredentialEnvelope;
                 
-                yield return EncryptedCredentialCore;
+                yield return EncryptedCredentialContent;
                 
             }
             ushort ICellDescriptor.CellType
@@ -319,7 +319,7 @@ namespace TDW.TRAServer
             get
             {
                 
-                yield return "{{string|List<string>|List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>}|{TRACredentialType|TRAEncryptionFlag|optional string|optional string|optional string|optional List<string>}|optional string}";
+                yield return "{{{string|List<string>|List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>}|{TRACredentialType|TRATrustLevel|TRAEncryptionFlag|long|string}}|{optional string|optional string|optional string|optional List<string>}|optional string}";
                 
                 yield break;
             }

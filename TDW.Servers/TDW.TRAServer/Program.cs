@@ -59,10 +59,13 @@ namespace TDW.TRAServer
                 claims.Add(testclaim3);
 
                 TDWCredential Alice = new TDWCredential(default, default, null);
-                Alice.CredentialCore.udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, Alice.CellId);
-                Alice.CredentialCore = new TRACredentialCore(context: context, claims: claims);
-                Alice.Envelope = new TRAEnvelope(TRACredentialType.UDIDDocument, TRAEncryptionFlag.NotEncrypted, "<hash64>", "<signature>", "<notarystamp>");
-                Alice.Envelope.comments = new List<string> { "Alice's UDID Document", "It works!", "Created by TDW.TRAServer at " + DateTime.Now.ToString("u") };
+                string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, Alice.CellId);
+                Alice.CredentialContent.core = new TRACredentialCore(udid, context: context, claims: claims);
+                Alice.CredentialContent.wrapper = new TRACredentialWrapper(TRACredentialType.UDIDDocument, TRATrustLevel.SignedHashSignature, TRAEncryptionFlag.Encrypted, 1, default);
+                Alice.CredentialEnvelope = new TRACredentialEnvelope( "<hash64>", "<signature>", "<notarystamp>" );
+                Alice.CredentialEnvelope.comments = new List<string> { "Alice's UDID Document", 
+                    "It works!", 
+                    "Created by TDW.TRAServer at " + DateTime.Now.ToString("u") };
                 udiddoc = Alice;
                 Global.LocalStorage.SaveTDWCredential(Alice);
                 Console.WriteLine(Alice.CellId.ToString() + "\t" + BitConverter.GetBytes(Alice.CellId).Length

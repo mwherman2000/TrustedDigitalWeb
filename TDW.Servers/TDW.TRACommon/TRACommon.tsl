@@ -34,7 +34,6 @@ enum TRACredentialType
 	RevocationCertificate
 }
 
-
 enum TRAServiceType
 {
 	Unknown,
@@ -49,13 +48,57 @@ enum TRAServiceType
 	// IdentityRegistryService
 }
 
-struct TRAEnvelope 
+//////////////////////////////////////////////////////////////////////////////
+
+struct TRAKeyValuePair
+{
+	string key;
+	string value;
+}
+
+struct TRAClaim
+{
+	string key;
+	optional string value;				    
+	optional List<TRAKeyValuePair> attribute;
+	optional List<List<TRAKeyValuePair>> attributes;
+}
+
+struct TRACredentialCore
+{
+	string udid;	
+	List<string> context;
+	List<TRAClaim> claims;
+}
+
+struct TRACredentialWrapper
 {
 	TRACredentialType credtype;	
-	//TRATrustLevel trustLevel;			// Calculated - not stored
+	TRATrustLevel trustLevel;	
 	TRAEncryptionFlag encryptionFlag;
-	optional string hashedThumbprint64;	// digital hash
-	optional string signedHashSignature64;    // private key digital signature
-	optional string notaryStamp;		// verifiable data registry key
+	long version;
+	string notaryudid;
+}
+
+struct TRACredentialContent
+{
+	TRACredentialCore core;
+	TRACredentialWrapper wrapper;
+}
+
+struct TRACredentialEnvelope 
+{
+	optional string hashedThumbprint64;		// digital hash
+	optional string signedHashSignature64;	// digital signature of digital hash
+	optional string notaryStamp;			// verifiable data registry key
 	optional List<string> comments;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+
+cell struct TDWCredential
+{	
+	TRACredentialContent CredentialContent;
+	TRACredentialEnvelope CredentialEnvelope;
+	optional string EncryptedCredentialContent;
 }

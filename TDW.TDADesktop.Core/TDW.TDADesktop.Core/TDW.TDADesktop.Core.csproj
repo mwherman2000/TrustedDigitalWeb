@@ -56,4 +56,10 @@
     <ProjectReference Include="..\TDW.TDACommon\TDW.TDACommon.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Trinity.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GE\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj": {}
+    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj": {}
   },
   "projects": {
-    "C:\\GE\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj": {
+    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj",
+        "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj",
         "projectName": "TDW.VDAStratisHelpers",
-        "projectPath": "C:\\GE\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj",
+        "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj",
         "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-        "outputPath": "C:\\GE\\TDW.Servers\\TDW.VDAStratisHelpers\\obj\\",
+        "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAStratisHelpers\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",

@@ -1,0 +1,58 @@
+struct TDABasket
+{
+	List<long> itemids; // TDABasketItemCell
+}
+
+struct TDALedgers
+{
+	long[4] ledgerids; // indexed by TDALedgerNames
+}
+
+enum TDALedgerNames
+{
+	MASTERKEYS,
+	KEYRINGS,
+	WALLETS,
+	VDAADDRESSES
+}
+
+cell struct TDARootCell
+{
+	TDABasket inbasket;
+	TDABasket outbasket;
+	TDALedgers ledgers;
+}
+
+cell struct TDABasketItemCell
+{
+	string credentialudid;	// Any credential identifier
+}
+
+//////////////////////////////////////////////////////////////////////////////
+
+cell struct TDASubledgerCell
+{
+	string name;	
+	List<long> subledgerids;
+	List<string> itemudids;
+}
+
+cell struct TDAMasterKeyLedgerCell
+{
+	List<string> masterkeyids; // Master Key Entries (GUIDs)
+}
+
+cell struct TDAKeyRingLedgerCell
+{
+	List<long> subledgerids; // TDAWalletSubledger	
+}
+
+cell struct TDAWalletLedgerCell
+{
+	List<long> subledgerids; // TDAWalletSubledger	
+}	
+
+cell struct TDAVDAddressLedgerCell
+{
+	List<long> subledgerids; // TDAWalletSubledger
+}

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GE\\TDW.Servers\\TDW.VDAServer\\TDW.VDAServer.csproj": {}
+    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAServer\\TDW.VDAServer.csproj": {}
   },
   "projects": {
-    "C:\\GE\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj": {
+    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj",
+        "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj",
         "projectName": "TDW.KMAServer",
-        "projectPath": "C:\\GE\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj",
+        "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj",
         "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-        "outputPath": "C:\\GE\\TDW.Servers\\TDW.KMAServer\\obj\\",
+        "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -34,8 +34,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
-                "projectPath": "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj"
+              "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
+                "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
+    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
+        "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
         "projectName": "TDW.TRACommon",
-        "projectPath": "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
+        "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
         "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-        "outputPath": "C:\\GE\\TDW.Servers\\TDW.TRACommon\\obj\\",
+        "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -144,14 +144,14 @@
         }
       }
     },
-    "C:\\GE\\TDW.Servers\\TDW.VDAServer\\TDW.VDAServer.csproj": {
+    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAServer\\TDW.VDAServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.VDAServer\\TDW.VDAServer.csproj",
+        "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAServer\\TDW.VDAServer.csproj",
         "projectName": "TDW.VDAServer",
-        "projectPath": "C:\\GE\\TDW.Servers\\TDW.VDAServer\\TDW.VDAServer.csproj",
+        "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAServer\\TDW.VDAServer.csproj",
         "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-        "outputPath": "C:\\GE\\TDW.Servers\\TDW.VDAServer\\obj\\",
+        "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -174,11 +174,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\GE\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj": {
-                "projectPath": "C:\\GE\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj"
+              "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj": {
+                "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj"
               },
-              "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
-                "projectPath": "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj"
+              "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
+                "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj"
               }
             }
           }

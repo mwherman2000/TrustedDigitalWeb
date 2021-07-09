@@ -23,7 +23,7 @@ namespace TDW.TRAServer
             {
                 byte[] credbytes = credential.ToByteArray();
                 byte[] hashedValue = TRACryptoHashHelpers.ComputeHash(credbytes);
-                credential.Envelope.hashedThumbprint64 = BitConverter.ToString(hashedValue);
+                credential.CredentialEnvelope.hashedThumbprint64 = BitConverter.ToString(hashedValue);
             }
 
             response.rc = (long)TrinityErrorCode.E_SUCCESS;
@@ -38,7 +38,7 @@ namespace TDW.TRAServer
             {
                 byte[] credbytes = udiddoc.ToByteArray();
                 byte[] hashedValue = TRACryptoHashHelpers.ComputeHash(credbytes);
-                udiddoc.Envelope.hashedThumbprint64 = BitConverter.ToString(hashedValue);
+                udiddoc.CredentialEnvelope.hashedThumbprint64 = BitConverter.ToString(hashedValue);
             }
 
             response.rc = (long)TrinityErrorCode.E_SUCCESS;
@@ -51,7 +51,7 @@ namespace TDW.TRAServer
             long id = request.id;
             using (var udiddoc = Global.LocalStorage.UseTDWCredential(id))
             {
-                udiddoc.Envelope.notaryStamp = "<NotaryStamp>NOTARIZED</NotaryStamp>";
+                udiddoc.CredentialEnvelope.notaryStamp = "<NotaryStamp>NOTARIZED</NotaryStamp>";
             }
 
             response.rc = (long)TrinityErrorCode.E_SUCCESS;
@@ -72,9 +72,10 @@ namespace TDW.TRAServer
             var credential = new TDWCredential(default, default, default);
 
             string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, credential.CellId);
-            TRACredentialCore innercredential = new TRACredentialCore(udid, context, claims);
-            credential.CredentialCore = innercredential;
-            credential.Envelope = new TRAEnvelope(credtype, encyptionFlag, null, null, null, comments);
+            TRACredentialCore core = new TRACredentialCore(udid, context, claims);
+            credential.CredentialContent.core = core;
+            credential.CredentialContent.wrapper = new TRACredentialWrapper(default, default, default, 1, default);
+            credential.CredentialEnvelope = new TRACredentialEnvelope(null, null, null, comments);
             Console.WriteLine(JsonConvert.SerializeObject(credential));
 
             var rc = TDWTRACredentialHelpers.HashAndSignTDWCredential(ref credential, trustLevel, keypairsalt);

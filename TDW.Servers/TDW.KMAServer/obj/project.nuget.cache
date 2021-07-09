@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9SmqugrxBo/ENj4xPBo86ppMMQFzh+yMTiSvRX0lfn04BULopFmDBw0zXL6ljCiHLCVM4VPudKZ+xBommjJMSg==",
+  "dgSpecHash": "kLj/uNNNClrbIozYz6oJCK0zhiljLx0zLakIs5HP43IVHZFLi5dnJA1n0CehGZXrVPIlyNJ9B+6vbLtxSo0D9g==",
   "success": true,
-  "projectFilePath": "C:\\GE\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj",
+  "projectFilePath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mwher\\.nuget\\packages\\graphengine.core\\2.0.10947\\graphengine.core.2.0.10947.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.7\\microsoft.aspnetcore.cryptography.internal.5.0.7.nupkg.sha512",

@@ -1177,11 +1177,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.KMATester\\TDW.KMATester.csproj",
+      "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMATester\\TDW.KMATester.csproj",
       "projectName": "TDW.KMATester",
-      "projectPath": "C:\\GE\\TDW.Servers\\TDW.KMATester\\TDW.KMATester.csproj",
+      "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMATester\\TDW.KMATester.csproj",
       "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-      "outputPath": "C:\\GE\\TDW.Servers\\TDW.KMATester\\obj\\",
+      "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMATester\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -1204,8 +1204,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\GE\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj": {
-              "projectPath": "C:\\GE\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj"
+            "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj": {
+              "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj"
             }
           }
         }

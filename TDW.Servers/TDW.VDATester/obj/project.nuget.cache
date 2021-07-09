@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4c4r97zCL2fY7Hi91sYbuKusmlnZqCG66Gc4YtUuixKsGx2QFKmJlXFHfMHC6tXWXa5LwcGt1frysv05TvhkuQ==",
+  "dgSpecHash": "xkVMPEUVUBuEoKPK0xetbQvgpXRIWfC8dEHQ4Y1sCNMJVC+CDsF8mhOBlQ3Oxb8WORZkCuiYOq3UOHGUuSbo6Q==",
   "success": true,
-  "projectFilePath": "C:\\GE\\TDW.Servers\\TDW.VDATester\\TDW.VDATester.csproj",
+  "projectFilePath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDATester\\TDW.VDATester.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mwher\\.nuget\\packages\\base58check\\0.2.0\\base58check.0.2.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\graphengine.core\\2.0.10947\\graphengine.core.2.0.10947.nupkg.sha512",

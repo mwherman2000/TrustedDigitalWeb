@@ -1,0 +1,31 @@
+[07/08/2021 04:24:19 PM][ INFO    ] Loading Graph Engine Extensions.
+[07/08/2021 04:24:20 PM][ INFO    ] Scanning for TSL storage extension.
+[07/08/2021 04:24:20 PM][ INFO    ] TSL storage extension loaded.
+[07/08/2021 04:24:20 PM][ INFO    ] Scanning for MemoryCloud extensions.
+[07/08/2021 04:24:20 PM][ INFO    ] No MemoryCloud extension found.
+[07/08/2021 04:24:20 PM][ INFO    ] Scanning for startup tasks.
+[07/08/2021 04:24:20 PM][ INFO    ] EventLoop: Starting.
+[07/08/2021 04:24:21 PM][ INFO    ] LocalMemoryStorage is initialized in read-write mode
+[07/08/2021 04:24:21 PM][ INFO    ] Initializing logging facility
+[07/08/2021 04:24:21 PM][ INFO    ] Creating write-ahead log file C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDADesktop.Core\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_0.dat
+[07/08/2021 04:24:21 PM][ INFO    ] Resetting storage.
+[07/08/2021 04:24:22 PM][ INFO    ] Reset storage complete, image version = 1
+[07/08/2021 04:24:22 PM][ INFO    ] Dropping write-ahead-log file C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDADesktop.Core\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_0.dat
+[07/08/2021 04:24:22 PM][ INFO    ] Initializing logging facility
+[07/08/2021 04:24:22 PM][ INFO    ] Creating write-ahead log file C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDADesktop.Core\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_1.dat
+[07/08/2021 04:24:22 PM][ INFO    ] Saving storage to [SLOT A]
+[07/08/2021 04:24:24 PM][ INFO    ] Save storage complete, image version = 2.
+[07/08/2021 04:24:24 PM][ INFO    ] Creating write-ahead log file C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDADesktop.Core\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_2.dat
+[07/08/2021 04:24:24 PM][ INFO    ] Dropping write-ahead-log file C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDADesktop.Core\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_1.dat
+[07/08/2021 04:24:24 PM][ INFO    ] Saving cell type signatures.
+[07/08/2021 04:24:24 PM][ INFO    ] Loading storage from [SLOT A]
+[07/08/2021 04:24:26 PM][ INFO    ] Load storage complete, image version = 2
+[07/08/2021 04:24:26 PM][ INFO    ] Initializing logging facility
+[07/08/2021 04:24:26 PM][ INFO    ] Dropping write-ahead-log file C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDADesktop.Core\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_2.dat
+[07/08/2021 04:24:26 PM][ INFO    ] Creating write-ahead log file C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDADesktop.Core\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_2.dat
+[07/08/2021 04:24:26 PM][ INFO    ] Loading cell type signatures.
+[07/08/2021 04:24:26 PM][ INFO    ] Saving storage to [SLOT B]
+[07/08/2021 04:24:28 PM][ INFO    ] Save storage complete, image version = 3.
+[07/08/2021 04:24:28 PM][ INFO    ] Creating write-ahead log file C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDADesktop.Core\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_3.dat
+[07/08/2021 04:24:28 PM][ INFO    ] Dropping write-ahead-log file C:\TDW\TrustedDigitalWeb\TDW.TDADesktop.Core\TDW.TDADesktop.Core\bin\Debug\netcoreapp3.1\storage\A\write_ahead_log\primary_storage_log_2.dat
+[07/08/2021 04:24:28 PM][ INFO    ] Saving cell type signatures.

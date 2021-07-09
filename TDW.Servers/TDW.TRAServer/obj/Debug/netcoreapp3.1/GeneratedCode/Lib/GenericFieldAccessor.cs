@@ -15,23 +15,6 @@ namespace TDW.TRAServer
     {
         #region FieldID lookup table
         
-        static Dictionary<string, uint> FieldLookupTable_TRAEnvelope = new Dictionary<string, uint>()
-        {
-            
-            {"credtype" , 0}
-            ,
-            {"encryptionFlag" , 1}
-            ,
-            {"hashedThumbprint64" , 2}
-            ,
-            {"signedHashSignature64" , 3}
-            ,
-            {"notaryStamp" , 4}
-            ,
-            {"comments" , 5}
-            
-        };
-        
         static Dictionary<string, uint> FieldLookupTable_TRAKeyValuePair = new Dictionary<string, uint>()
         {
             
@@ -62,6 +45,43 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            
+        };
+        
+        static Dictionary<string, uint> FieldLookupTable_TRACredentialWrapper = new Dictionary<string, uint>()
+        {
+            
+            {"credtype" , 0}
+            ,
+            {"trustLevel" , 1}
+            ,
+            {"encryptionFlag" , 2}
+            ,
+            {"version" , 3}
+            ,
+            {"notaryudid" , 4}
+            
+        };
+        
+        static Dictionary<string, uint> FieldLookupTable_TRACredentialContent = new Dictionary<string, uint>()
+        {
+            
+            {"core" , 0}
+            ,
+            {"wrapper" , 1}
+            
+        };
+        
+        static Dictionary<string, uint> FieldLookupTable_TRACredentialEnvelope = new Dictionary<string, uint>()
+        {
+            
+            {"hashedThumbprint64" , 0}
+            ,
+            {"signedHashSignature64" , 1}
+            ,
+            {"notaryStamp" , 2}
+            ,
+            {"comments" , 3}
             
         };
         
@@ -109,162 +129,6 @@ namespace TDW.TRAServer
         };
         
         #endregion
-        
-        internal static void SetField<T>(TRAEnvelope_Accessor accessor, string fieldName, int field_name_idx, T value)
-        {
-            uint member_id;
-            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
-            if (-1 != field_divider_idx)
-            {
-                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAEnvelope.TryGetValue(member_name_string, out member_id))
-                    Throw.undefined_field();
-                switch (member_id)
-                {
-                    
-                    default:
-                        Throw.member_access_on_non_struct__field(member_name_string);
-                        break;
-                }
-                return;
-            }
-            fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAEnvelope.TryGetValue(fieldName, out member_id))
-                Throw.undefined_field();
-            switch (member_id)
-            {
-                
-                case 0:
-                    {
-                        TRACredentialType conversion_result = TypeConverter<T>.ConvertTo_TRACredentialType(value);
-                        
-            {
-                accessor.credtype = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 1:
-                    {
-                        TRAEncryptionFlag conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptionFlag(value);
-                        
-            {
-                accessor.encryptionFlag = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 2:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.hashedThumbprint64 = conversion_result;
-                else
-                    accessor.Remove_hashedThumbprint64();
-            }
-            
-                        break;
-                    }
-                
-                case 3:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.signedHashSignature64 = conversion_result;
-                else
-                    accessor.Remove_signedHashSignature64();
-            }
-            
-                        break;
-                    }
-                
-                case 4:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.notaryStamp = conversion_result;
-                else
-                    accessor.Remove_notaryStamp();
-            }
-            
-                        break;
-                    }
-                
-                case 5:
-                    {
-                        List<string> conversion_result = TypeConverter<T>.ConvertTo_List_string(value);
-                        
-            {
-                if (conversion_result != default(List<string>))
-                    accessor.comments = conversion_result;
-                else
-                    accessor.Remove_comments();
-            }
-            
-                        break;
-                    }
-                
-            }
-        }
-        internal static T GetField<T>(TRAEnvelope_Accessor accessor, string fieldName, int field_name_idx)
-        {
-            uint member_id;
-            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
-            if (-1 != field_divider_idx)
-            {
-                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAEnvelope.TryGetValue(member_name_string, out member_id))
-                    Throw.undefined_field();
-                switch (member_id)
-                {
-                    
-                    default:
-                        Throw.member_access_on_non_struct__field(member_name_string);
-                        break;
-                }
-            }
-            fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAEnvelope.TryGetValue(fieldName, out member_id))
-                Throw.undefined_field();
-            switch (member_id)
-            {
-                
-                case 0:
-                    return TypeConverter<T>.ConvertFrom_TRACredentialType(accessor.credtype);
-                    break;
-                
-                case 1:
-                    return TypeConverter<T>.ConvertFrom_TRAEncryptionFlag(accessor.encryptionFlag);
-                    break;
-                
-                case 2:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.hashedThumbprint64);
-                    break;
-                
-                case 3:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.signedHashSignature64);
-                    break;
-                
-                case 4:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.notaryStamp);
-                    break;
-                
-                case 5:
-                    return TypeConverter<T>.ConvertFrom_List_string(accessor.comments);
-                    break;
-                
-            }
-            /* Should not reach here */
-            throw new Exception("Internal error T5008");
-        }
         
         internal static void SetField<T>(TRAKeyValuePair_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
@@ -565,6 +429,359 @@ namespace TDW.TRAServer
                 
                 case 2:
                     return TypeConverter<T>.ConvertFrom_List_TRAClaim(accessor.claims);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
+        internal static void SetField<T>(TRACredentialWrapper_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRACredentialWrapper.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRACredentialWrapper.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        TRACredentialType conversion_result = TypeConverter<T>.ConvertTo_TRACredentialType(value);
+                        
+            {
+                accessor.credtype = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 1:
+                    {
+                        TRATrustLevel conversion_result = TypeConverter<T>.ConvertTo_TRATrustLevel(value);
+                        
+            {
+                accessor.trustLevel = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 2:
+                    {
+                        TRAEncryptionFlag conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptionFlag(value);
+                        
+            {
+                accessor.encryptionFlag = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        long conversion_result = TypeConverter<T>.ConvertTo_long(value);
+                        
+            {
+                accessor.version = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 4:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                accessor.notaryudid = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(TRACredentialWrapper_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRACredentialWrapper.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRACredentialWrapper.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_TRACredentialType(accessor.credtype);
+                    break;
+                
+                case 1:
+                    return TypeConverter<T>.ConvertFrom_TRATrustLevel(accessor.trustLevel);
+                    break;
+                
+                case 2:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptionFlag(accessor.encryptionFlag);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_long(accessor.version);
+                    break;
+                
+                case 4:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.notaryudid);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
+        internal static void SetField<T>(TRACredentialContent_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRACredentialContent.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 0:
+                        GenericFieldAccessor.SetField(accessor.core, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
+                    case 1:
+                        GenericFieldAccessor.SetField(accessor.wrapper, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRACredentialContent.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        TRACredentialCore conversion_result = TypeConverter<T>.ConvertTo_TRACredentialCore(value);
+                        
+            {
+                accessor.core = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 1:
+                    {
+                        TRACredentialWrapper conversion_result = TypeConverter<T>.ConvertTo_TRACredentialWrapper(value);
+                        
+            {
+                accessor.wrapper = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(TRACredentialContent_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRACredentialContent.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 0:
+                        return GenericFieldAccessor.GetField<T>(accessor.core, fieldName, field_divider_idx + 1);
+                    
+                    case 1:
+                        return GenericFieldAccessor.GetField<T>(accessor.wrapper, fieldName, field_divider_idx + 1);
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRACredentialContent.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_TRACredentialCore(accessor.core);
+                    break;
+                
+                case 1:
+                    return TypeConverter<T>.ConvertFrom_TRACredentialWrapper(accessor.wrapper);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
+        internal static void SetField<T>(TRACredentialEnvelope_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.hashedThumbprint64 = conversion_result;
+                else
+                    accessor.Remove_hashedThumbprint64();
+            }
+            
+                        break;
+                    }
+                
+                case 1:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.signedHashSignature64 = conversion_result;
+                else
+                    accessor.Remove_signedHashSignature64();
+            }
+            
+                        break;
+                    }
+                
+                case 2:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.notaryStamp = conversion_result;
+                else
+                    accessor.Remove_notaryStamp();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        List<string> conversion_result = TypeConverter<T>.ConvertTo_List_string(value);
+                        
+            {
+                if (conversion_result != default(List<string>))
+                    accessor.comments = conversion_result;
+                else
+                    accessor.Remove_comments();
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(TRACredentialEnvelope_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.hashedThumbprint64);
+                    break;
+                
+                case 1:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.signedHashSignature64);
+                    break;
+                
+                case 2:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.notaryStamp);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_List_string(accessor.comments);
                     break;
                 
             }

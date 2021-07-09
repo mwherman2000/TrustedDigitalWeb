@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wwQyAlnd16J1kAPsSLz3XQmvJJPpM4Ev2EhP8UT2Pw/nEHx1z2y8ojRCFU/Ic7nGcYJVsBrnPu/k2Cpn/ZDjIA==",
+  "dgSpecHash": "DJpx7o39Yp9tSyJ5SG0jOmoAI5FUd4DfCCMVuJBzLsNnALEtd01k/vJ+VVZt3TfmguvNfbum3RvFp8PQoGHcDA==",
   "success": true,
-  "projectFilePath": "C:\\GE\\TDW.Servers\\TDW.VDASmartContract\\TDW.VDASmartContract.csproj",
+  "projectFilePath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDASmartContract\\TDW.VDASmartContract.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.app\\2.1.0\\microsoft.netcore.app.2.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.dotnetapphost\\2.1.0\\microsoft.netcore.dotnetapphost.2.1.0.nupkg.sha512",

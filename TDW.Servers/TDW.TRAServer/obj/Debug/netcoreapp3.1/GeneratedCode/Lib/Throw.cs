@@ -69,6 +69,15 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'TRAClaim' not compatible with the target field.");
         }
         
+        internal static void parse_TRACredentialContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialContent.");
+        }
+        internal static void incompatible_with_TRACredentialContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialContent' not compatible with the target field.");
+        }
+        
         internal static void parse_TRACredentialCore(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialCore.");
@@ -78,13 +87,22 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'TRACredentialCore' not compatible with the target field.");
         }
         
-        internal static void parse_TRAEnvelope(string value)
+        internal static void parse_TRACredentialEnvelope(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAEnvelope.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialEnvelope.");
         }
-        internal static void incompatible_with_TRAEnvelope()
+        internal static void incompatible_with_TRACredentialEnvelope()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRAEnvelope' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialEnvelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredentialWrapper(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialWrapper.");
+        }
+        internal static void incompatible_with_TRACredentialWrapper()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialWrapper' not compatible with the target field.");
         }
         
         internal static void parse_TRAKeyValuePair(string value)

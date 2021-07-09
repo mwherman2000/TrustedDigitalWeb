@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GE\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj": {}
+    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj": {}
   },
   "projects": {
-    "C:\\GE\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj": {
+    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj",
+        "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj",
         "projectName": "TDW.TRACommonTester",
-        "projectPath": "C:\\GE\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj",
+        "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj",
         "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-        "outputPath": "C:\\GE\\TDW.Servers\\TDW.TRACommonTester\\obj\\",
+        "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommonTester\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -34,8 +34,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
-                "projectPath": "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj"
+              "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
+                "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
+    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
+        "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
         "projectName": "TDW.TRACommon",
-        "projectPath": "C:\\GE\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
+        "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
         "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-        "outputPath": "C:\\GE\\TDW.Servers\\TDW.TRACommon\\obj\\",
+        "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",

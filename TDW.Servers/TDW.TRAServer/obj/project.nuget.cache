@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "po/bdA/PalcbAAN336A8l7StquDJZyhIAdBtv+kaYbLhXYhxxhr9NNVTnGmeApd+XXt4tiyXIXjB+ELJIPBJMw==",
+  "dgSpecHash": "Ne8scIKsGLf8PvnOqZq2YO1mJuBlsCWu3D/lW9VEcr2mwLN7fF6R09NQKSu6t8+N3GAWy6iIwIXgW5W1pLzaLw==",
   "success": true,
-  "projectFilePath": "C:\\GE\\TDW.Servers\\TDW.TRAServer\\TDW.TRAServer.csproj",
+  "projectFilePath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\TDW.TRAServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mwher\\.nuget\\packages\\graphengine.core\\2.0.10947\\graphengine.core.2.0.10947.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.7\\microsoft.aspnetcore.cryptography.internal.5.0.7.nupkg.sha512",

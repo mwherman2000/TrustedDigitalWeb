@@ -6,3 +6,12 @@ C:\GE\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.AssemblyIn
 C:\GE\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.csproj.CoreCompileInputs.cache
 C:\GE\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.dll
 C:\GE\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.pdb
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.TRACommon\bin\Debug\netcoreapp3.1\TDW.TRACommon.deps.json
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.TRACommon\bin\Debug\netcoreapp3.1\TDW.TRACommon.dll
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.TRACommon\bin\Debug\netcoreapp3.1\TDW.TRACommon.pdb
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.AssemblyInfoInputs.cache
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.AssemblyInfo.cs
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.csproj.CoreCompileInputs.cache
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.dll
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.pdb
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.TRACommon\obj\Debug\netcoreapp3.1\TDW.TRACommon.csproj.AssemblyReference.cache
