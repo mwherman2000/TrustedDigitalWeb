@@ -34,7 +34,7 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWPostVDAIdentityRegistryEntryRequest with the specified parameters.
         ///</summary>
-        public TDWPostVDAIdentityRegistryEntryRequest(TDWVDAPostInvocationParameters parms = default(TDWVDAPostInvocationParameters),TDWVDAIdentityRegistryEntry entry = default(TDWVDAIdentityRegistryEntry))
+        public TDWPostVDAIdentityRegistryEntryRequest(TDWVDAPostInvocationParameters parms = default(TDWVDAPostInvocationParameters),TDWVDAIdentityRegistryEntryParm entry = default(TDWVDAIdentityRegistryEntryParm))
         {
             
             this.parms = parms;
@@ -70,7 +70,7 @@ namespace TDW.VDAServer
         
         public TDWVDAPostInvocationParameters parms;
         
-        public TDWVDAIdentityRegistryEntry entry;
+        public TDWVDAIdentityRegistryEntryParm entry;
         
         /// <summary>
         /// Converts the string representation of a TDWPostVDAIdentityRegistryEntryRequest to its
@@ -131,7 +131,7 @@ namespace TDW.VDAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        entry_Accessor_Field = new TDWVDAIdentityRegistryEntry_Accessor(null,
+                });        entry_Accessor_Field = new TDWVDAIdentityRegistryEntryParm_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -260,12 +260,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 }
             }
         }
-        TDWVDAIdentityRegistryEntry_Accessor entry_Accessor_Field;
+        TDWVDAIdentityRegistryEntryParm_Accessor entry_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field entry.
         ///</summary>
-        public unsafe TDWVDAIdentityRegistryEntry_Accessor entry
+        public unsafe TDWVDAIdentityRegistryEntryParm_Accessor entry
         {
             get
             {

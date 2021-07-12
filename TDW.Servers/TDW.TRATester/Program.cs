@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using System.Text;
 using TDW.TRAServer;
 using System.Collections.Generic;
+using Trinity.Core.Lib;
+using Trinity;
 
 // requestMessage.Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
 
@@ -20,6 +22,18 @@ namespace TDW.TRATester
             string hash64 = "";
             string signature64 = "";
             bool valid = false;
+
+            string notaryudid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, 1234);
+
+            TRATimestampCell tsCell = new TRATimestampCell(new TRATimestampEnvelope(), new TRACredentialEnvelopeSeal());
+            string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, tsCell.CellId);
+            DateTime now = DateTime.Now;
+            TRATimestampClaims tsclaims = new TRATimestampClaims(now.Ticks, now, now.ToString("u"));
+            tsCell.envelope.content = new TRATimestampContent(udid, TRAContexts.DefaultContext, tsclaims);
+            tsCell.envelope.metadata = new TRACredentialMetadata(TRACredentialType.VerifiableCredential, 1, TRATrustLevel.SignedHashSignature,
+                                                                 TRAEncryptionFlag.NotEncrypted, notaryudid, "Timestamp1", "My timestamp");
+            // TODO Process Trust Level
+            Global.LocalStorage.SaveTRATimestampCell(tsCell);
 
             long keypairid = 0;
             long keyringid = 1001;

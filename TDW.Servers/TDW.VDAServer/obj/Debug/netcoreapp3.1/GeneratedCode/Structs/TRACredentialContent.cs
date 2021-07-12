@@ -34,12 +34,14 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TRACredentialContent with the specified parameters.
         ///</summary>
-        public TRACredentialContent(TRACredentialCore core = default(TRACredentialCore),TRACredentialWrapper wrapper = default(TRACredentialWrapper))
+        public TRACredentialContent(string udid = default(string),List<string> context = default(List<string>),List<TRAClaim> claims = default(List<TRAClaim>))
         {
             
-            this.core = core;
+            this.udid = udid;
             
-            this.wrapper = wrapper;
+            this.context = context;
+            
+            this.claims = claims;
             
         }
         
@@ -56,9 +58,11 @@ namespace TDW.VDAServer
             
             return
                 
-                (a.core == b.core)
+                (a.udid == b.udid)
                 &&
-                (a.wrapper == b.wrapper)
+                (a.context == b.context)
+                &&
+                (a.claims == b.claims)
                 
                 ;
             
@@ -68,9 +72,11 @@ namespace TDW.VDAServer
             return !(a == b);
         }
         
-        public TRACredentialCore core;
+        public string udid;
         
-        public TRACredentialWrapper wrapper;
+        public List<string> context;
+        
+        public List<TRAClaim> claims;
         
         /// <summary>
         /// Converts the string representation of a TRACredentialContent to its
@@ -125,13 +131,19 @@ namespace TDW.VDAServer
             m_ptr = _CellPtr;
             
             ResizeFunction = func;
-                    core_Accessor_Field = new TRACredentialCore_Accessor(null,
+                    udid_Accessor_Field = new StringAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        wrapper_Accessor_Field = new TRACredentialWrapper_Accessor(null,
+                });        context_Accessor_Field = new StringAccessorListAccessor(null,
+                (ptr,ptr_offset,delta)=>
+                {
+                    int substructure_offset = (int)(ptr - this.m_ptr);
+                    this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
+                    return this.m_ptr + substructure_offset;
+                });        claims_Accessor_Field = new TRAClaim_AccessorListAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -181,8 +193,7 @@ namespace TDW.VDAServer
         public byte[] ToByteArray()
         {
             byte* targetPtr = m_ptr;
-            {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
-targetPtr += *(int*)targetPtr + sizeof(int);}}
+            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int size = (int)(targetPtr - m_ptr);
             byte[] ret = new byte[size];
             Memory.Copy(m_ptr, 0, ret, 0, size);
@@ -196,117 +207,145 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}
         public unsafe int GetBufferLength()
         {
             byte* targetPtr = m_ptr;
-            {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
-targetPtr += *(int*)targetPtr + sizeof(int);}}
+            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int size = (int)(targetPtr - m_ptr);
             return size;
         }
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
-        TRACredentialCore_Accessor core_Accessor_Field;
+        StringAccessor udid_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field core.
+        ///Provides in-place access to the object field udid.
         ///</summary>
-        public unsafe TRACredentialCore_Accessor core
+        public unsafe StringAccessor udid
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {}core_Accessor_Field.m_ptr = targetPtr;
-                core_Accessor_Field.m_cellId = this.m_cellId;
-                return core_Accessor_Field;
+                {}udid_Accessor_Field.m_ptr = targetPtr + 4;
+                udid_Accessor_Field.m_cellId = this.m_cellId;
+                return udid_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                core_Accessor_Field.m_cellId = this.m_cellId;
+                udid_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
                 {}
-                int offset = (int)(targetPtr - m_ptr);
-                byte* oldtargetPtr = targetPtr;
-                int oldlength = (int)(targetPtr - oldtargetPtr);
-                targetPtr = value.m_ptr;
-                int newlength = (int)(targetPtr - value.m_ptr);
-                if (newlength != oldlength)
+                int length = *(int*)(value.m_ptr - 4);
+                int oldlength = *(int*)targetPtr;
+                if (value.m_cellId != udid_Accessor_Field.m_cellId)
                 {
-                    if (value.m_cellId != this.m_cellId)
-                    {
-                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
-                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
-                    }
-                    else
-                    {
-                        byte[] tmpcell = new byte[newlength];
-                        fixed(byte* tmpcellptr = tmpcell)
-                        {
-                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
-                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
-                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
-                        }
-                    }
+                    //if not in the same Cell
+                    udid_Accessor_Field.m_ptr = udid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                    Memory.Copy(value.m_ptr - 4, udid_Accessor_Field.m_ptr, length + 4);
                 }
                 else
                 {
-                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
+                    byte[] tmpcell = new byte[length + 4];
+                    fixed (byte* tmpcellptr = tmpcell)
+                    {                        
+                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
+                        udid_Accessor_Field.m_ptr = udid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                        Memory.Copy(tmpcellptr, udid_Accessor_Field.m_ptr, length + 4);
+                    }
                 }
+
             }
         }
-        TRACredentialWrapper_Accessor wrapper_Accessor_Field;
+        StringAccessorListAccessor context_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field wrapper.
+        ///Provides in-place access to the object field context.
         ///</summary>
-        public unsafe TRACredentialWrapper_Accessor wrapper
+        public unsafe StringAccessorListAccessor context
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}wrapper_Accessor_Field.m_ptr = targetPtr;
-                wrapper_Accessor_Field.m_cellId = this.m_cellId;
-                return wrapper_Accessor_Field;
+                {targetPtr += *(int*)targetPtr + sizeof(int);}context_Accessor_Field.m_ptr = targetPtr + 4;
+                context_Accessor_Field.m_cellId = this.m_cellId;
+                return context_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                wrapper_Accessor_Field.m_cellId = this.m_cellId;
+                context_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
-                int offset = (int)(targetPtr - m_ptr);
-                byte* oldtargetPtr = targetPtr;
-                int oldlength = (int)(targetPtr - oldtargetPtr);
-                targetPtr = value.m_ptr;
-                int newlength = (int)(targetPtr - value.m_ptr);
-                if (newlength != oldlength)
+                {targetPtr += *(int*)targetPtr + sizeof(int);}
+                int length = *(int*)(value.m_ptr - 4);
+                int oldlength = *(int*)targetPtr;
+                if (value.m_cellId != context_Accessor_Field.m_cellId)
                 {
-                    if (value.m_cellId != this.m_cellId)
-                    {
-                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
-                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
-                    }
-                    else
-                    {
-                        byte[] tmpcell = new byte[newlength];
-                        fixed(byte* tmpcellptr = tmpcell)
-                        {
-                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
-                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
-                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
-                        }
-                    }
+                    //if not in the same Cell
+                    context_Accessor_Field.m_ptr = context_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                    Memory.Copy(value.m_ptr - 4, context_Accessor_Field.m_ptr, length + 4);
                 }
                 else
                 {
-                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
+                    byte[] tmpcell = new byte[length + 4];
+                    fixed (byte* tmpcellptr = tmpcell)
+                    {                        
+                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
+                        context_Accessor_Field.m_ptr = context_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                        Memory.Copy(tmpcellptr, context_Accessor_Field.m_ptr, length + 4);
+                    }
                 }
+
+            }
+        }
+        TRAClaim_AccessorListAccessor claims_Accessor_Field;
+        
+        ///<summary>
+        ///Provides in-place access to the object field claims.
+        ///</summary>
+        public unsafe TRAClaim_AccessorListAccessor claims
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}claims_Accessor_Field.m_ptr = targetPtr + 4;
+                claims_Accessor_Field.m_cellId = this.m_cellId;
+                return claims_Accessor_Field;
+                
+            }
+            set
+            {
+                
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                claims_Accessor_Field.m_cellId = this.m_cellId;
+                
+                byte* targetPtr = m_ptr;
+                {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                int length = *(int*)(value.m_ptr - 4);
+                int oldlength = *(int*)targetPtr;
+                if (value.m_cellId != claims_Accessor_Field.m_cellId)
+                {
+                    //if not in the same Cell
+                    claims_Accessor_Field.m_ptr = claims_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                    Memory.Copy(value.m_ptr - 4, claims_Accessor_Field.m_ptr, length + 4);
+                }
+                else
+                {
+                    byte[] tmpcell = new byte[length + 4];
+                    fixed (byte* tmpcellptr = tmpcell)
+                    {                        
+                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
+                        claims_Accessor_Field.m_ptr = claims_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                        Memory.Copy(tmpcellptr, claims_Accessor_Field.m_ptr, length + 4);
+                    }
+                }
+
             }
         }
         
@@ -315,8 +354,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}
             
             return new TRACredentialContent(
                 
-                        accessor.core,
-                        accessor.wrapper
+                        accessor.udid,
+                        accessor.context,
+                        accessor.claims
                 );
         }
         
@@ -326,12 +366,10 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}
             
             {
 
-            {
-
-        if(field.core.udid!= null)
+        if(field.udid!= null)
         {
-            int strlen_3 = field.core.udid.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
+            int strlen_2 = field.udid.Length * 2;
+            targetPtr += strlen_2+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
@@ -340,82 +378,128 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}
 {
 
     targetPtr += sizeof(int);
-    if(field.core.context!= null)
+    if(field.context!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.core.context.Count;++iterator_3)
+        for(int iterator_2 = 0;iterator_2<field.context.Count;++iterator_2)
         {
 
-        if(field.core.context[iterator_3]!= null)
+        if(field.context[iterator_2]!= null)
         {
-            int strlen_4 = field.core.context[iterator_3].Length * 2;
+            int strlen_3 = field.context[iterator_2].Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        }
+    }
+
+}
+
+{
+
+    targetPtr += sizeof(int);
+    if(field.claims!= null)
+    {
+        for(int iterator_2 = 0;iterator_2<field.claims.Count;++iterator_2)
+        {
+
+            {
+            targetPtr += 1;
+
+        if(field.claims[iterator_2].key!= null)
+        {
+            int strlen_4 = field.claims[iterator_2].key.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+            if( field.claims[iterator_2].value!= null)
+            {
+
+        if(field.claims[iterator_2].value!= null)
+        {
+            int strlen_4 = field.claims[iterator_2].value.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        }
-    }
-
-}
+            }
+            if( field.claims[iterator_2].attribute!= null)
+            {
 
 {
 
     targetPtr += sizeof(int);
-    if(field.core.claims!= null)
+    if(field.claims[iterator_2].attribute!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.core.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<field.claims[iterator_2].attribute.Count;++iterator_4)
         {
 
             {
-            targetPtr += 1;
 
-        if(field.core.claims[iterator_3].key!= null)
+        if(field.claims[iterator_2].attribute[iterator_4].key!= null)
         {
-            int strlen_5 = field.core.claims[iterator_3].key.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
+            int strlen_6 = field.claims[iterator_2].attribute[iterator_4].key.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.core.claims[iterator_3].value!= null)
-            {
 
-        if(field.core.claims[iterator_3].value!= null)
+        if(field.claims[iterator_2].attribute[iterator_4].value!= null)
         {
-            int strlen_5 = field.core.claims[iterator_3].value.Length * 2;
-            targetPtr += strlen_5+sizeof(int);
+            int strlen_6 = field.claims[iterator_2].attribute[iterator_4].value.Length * 2;
+            targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
             }
-            if( field.core.claims[iterator_3].attribute!= null)
+        }
+    }
+
+}
+
+            }
+            if( field.claims[iterator_2].attributes!= null)
             {
 
 {
 
     targetPtr += sizeof(int);
-    if(field.core.claims[iterator_3].attribute!= null)
+    if(field.claims[iterator_2].attributes!= null)
     {
-        for(int iterator_5 = 0;iterator_5<field.core.claims[iterator_3].attribute.Count;++iterator_5)
+        for(int iterator_4 = 0;iterator_4<field.claims[iterator_2].attributes.Count;++iterator_4)
+        {
+
+{
+
+    targetPtr += sizeof(int);
+    if(field.claims[iterator_2].attributes[iterator_4]!= null)
+    {
+        for(int iterator_5 = 0;iterator_5<field.claims[iterator_2].attributes[iterator_4].Count;++iterator_5)
         {
 
             {
 
-        if(field.core.claims[iterator_3].attribute[iterator_5].key!= null)
+        if(field.claims[iterator_2].attributes[iterator_4][iterator_5].key!= null)
         {
-            int strlen_7 = field.core.claims[iterator_3].attribute[iterator_5].key.Length * 2;
+            int strlen_7 = field.claims[iterator_2].attributes[iterator_4][iterator_5].key.Length * 2;
             targetPtr += strlen_7+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.core.claims[iterator_3].attribute[iterator_5].value!= null)
+        if(field.claims[iterator_2].attributes[iterator_4][iterator_5].value!= null)
         {
-            int strlen_7 = field.core.claims[iterator_3].attribute[iterator_5].value.Length * 2;
+            int strlen_7 = field.claims[iterator_2].attributes[iterator_4][iterator_5].value.Length * 2;
             targetPtr += strlen_7+sizeof(int);
         }else
         {
@@ -428,52 +512,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}
 
 }
 
-            }
-            if( field.core.claims[iterator_3].attributes!= null)
-            {
-
-{
-
-    targetPtr += sizeof(int);
-    if(field.core.claims[iterator_3].attributes!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<field.core.claims[iterator_3].attributes.Count;++iterator_5)
-        {
-
-{
-
-    targetPtr += sizeof(int);
-    if(field.core.claims[iterator_3].attributes[iterator_5]!= null)
-    {
-        for(int iterator_6 = 0;iterator_6<field.core.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
-        {
-
-            {
-
-        if(field.core.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
-        {
-            int strlen_8 = field.core.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
-            targetPtr += strlen_8+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-        if(field.core.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
-        {
-            int strlen_8 = field.core.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
-            targetPtr += strlen_8+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-        }
-    }
-
-}
-
         }
     }
 
@@ -487,23 +525,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}
 
 }
 
-            }
-            {
-            targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 8;
-
-        if(field.wrapper.notaryudid!= null)
-        {
-            int strlen_3 = field.wrapper.notaryudid.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
             }
             byte* tmpcellptr = BufferAllocator.AllocBuffer((int)targetPtr);
             Memory.memset(tmpcellptr, 0, (ulong)targetPtr);
@@ -511,14 +532,37 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}
             
             {
 
-            {
-
-        if(field.core.udid!= null)
+        if(field.udid!= null)
         {
-            int strlen_3 = field.core.udid.Length * 2;
+            int strlen_2 = field.udid.Length * 2;
+            *(int*)targetPtr = strlen_2;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_2 = field.udid)
+            {
+                Memory.Copy(pstr_2, targetPtr, strlen_2);
+                targetPtr += strlen_2;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+{
+byte *storedPtr_2 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(field.context!= null)
+    {
+        for(int iterator_2 = 0;iterator_2<field.context.Count;++iterator_2)
+        {
+
+        if(field.context[iterator_2]!= null)
+        {
+            int strlen_3 = field.context[iterator_2].Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.core.udid)
+            fixed(char* pstr_3 = field.context[iterator_2])
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -529,21 +573,31 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}
             targetPtr += sizeof(int);
         }
 
+        }
+    }
+*(int*)storedPtr_2 = (int)(targetPtr - storedPtr_2 - 4);
+
+}
+
 {
-byte *storedPtr_3 = targetPtr;
+byte *storedPtr_2 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.core.context!= null)
+    if(field.claims!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.core.context.Count;++iterator_3)
+        for(int iterator_2 = 0;iterator_2<field.claims.Count;++iterator_2)
         {
 
-        if(field.core.context[iterator_3]!= null)
+            {
+            byte* optheader_3 = targetPtr;
+            *(optheader_3 + 0) = 0x00;            targetPtr += 1;
+
+        if(field.claims[iterator_2].key!= null)
         {
-            int strlen_4 = field.core.context[iterator_3].Length * 2;
+            int strlen_4 = field.claims[iterator_2].key.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.core.context[iterator_3])
+            fixed(char* pstr_4 = field.claims[iterator_2].key)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -553,81 +607,109 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
+            if( field.claims[iterator_2].value!= null)
+            {
 
+        if(field.claims[iterator_2].value!= null)
+        {
+            int strlen_4 = field.claims[iterator_2].value.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = field.claims[iterator_2].value)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
         }
-    }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
-
-}
+*(optheader_3 + 0) |= 0x01;
+            }
+            if( field.claims[iterator_2].attribute!= null)
+            {
 
 {
-byte *storedPtr_3 = targetPtr;
+byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.core.claims!= null)
+    if(field.claims[iterator_2].attribute!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.core.claims.Count;++iterator_3)
+        for(int iterator_4 = 0;iterator_4<field.claims[iterator_2].attribute.Count;++iterator_4)
         {
 
             {
-            byte* optheader_4 = targetPtr;
-            *(optheader_4 + 0) = 0x00;            targetPtr += 1;
 
-        if(field.core.claims[iterator_3].key!= null)
+        if(field.claims[iterator_2].attribute[iterator_4].key!= null)
         {
-            int strlen_5 = field.core.claims[iterator_3].key.Length * 2;
-            *(int*)targetPtr = strlen_5;
+            int strlen_6 = field.claims[iterator_2].attribute[iterator_4].key.Length * 2;
+            *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.core.claims[iterator_3].key)
+            fixed(char* pstr_6 = field.claims[iterator_2].attribute[iterator_4].key)
             {
-                Memory.Copy(pstr_5, targetPtr, strlen_5);
-                targetPtr += strlen_5;
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
             }
         }else
         {
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.core.claims[iterator_3].value!= null)
-            {
 
-        if(field.core.claims[iterator_3].value!= null)
+        if(field.claims[iterator_2].attribute[iterator_4].value!= null)
         {
-            int strlen_5 = field.core.claims[iterator_3].value.Length * 2;
-            *(int*)targetPtr = strlen_5;
+            int strlen_6 = field.claims[iterator_2].attribute[iterator_4].value.Length * 2;
+            *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.core.claims[iterator_3].value)
+            fixed(char* pstr_6 = field.claims[iterator_2].attribute[iterator_4].value)
             {
-                Memory.Copy(pstr_5, targetPtr, strlen_5);
-                targetPtr += strlen_5;
+                Memory.Copy(pstr_6, targetPtr, strlen_6);
+                targetPtr += strlen_6;
             }
         }else
         {
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-*(optheader_4 + 0) |= 0x01;
+
             }
-            if( field.core.claims[iterator_3].attribute!= null)
+        }
+    }
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
+
+}
+*(optheader_3 + 0) |= 0x02;
+            }
+            if( field.claims[iterator_2].attributes!= null)
             {
+
+{
+byte *storedPtr_4 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(field.claims[iterator_2].attributes!= null)
+    {
+        for(int iterator_4 = 0;iterator_4<field.claims[iterator_2].attributes.Count;++iterator_4)
+        {
 
 {
 byte *storedPtr_5 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.core.claims[iterator_3].attribute!= null)
+    if(field.claims[iterator_2].attributes[iterator_4]!= null)
     {
-        for(int iterator_5 = 0;iterator_5<field.core.claims[iterator_3].attribute.Count;++iterator_5)
+        for(int iterator_5 = 0;iterator_5<field.claims[iterator_2].attributes[iterator_4].Count;++iterator_5)
         {
 
             {
 
-        if(field.core.claims[iterator_3].attribute[iterator_5].key!= null)
+        if(field.claims[iterator_2].attributes[iterator_4][iterator_5].key!= null)
         {
-            int strlen_7 = field.core.claims[iterator_3].attribute[iterator_5].key.Length * 2;
+            int strlen_7 = field.claims[iterator_2].attributes[iterator_4][iterator_5].key.Length * 2;
             *(int*)targetPtr = strlen_7;
             targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.core.claims[iterator_3].attribute[iterator_5].key)
+            fixed(char* pstr_7 = field.claims[iterator_2].attributes[iterator_4][iterator_5].key)
             {
                 Memory.Copy(pstr_7, targetPtr, strlen_7);
                 targetPtr += strlen_7;
@@ -638,12 +720,12 @@ byte *storedPtr_5 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.core.claims[iterator_3].attribute[iterator_5].value!= null)
+        if(field.claims[iterator_2].attributes[iterator_4][iterator_5].value!= null)
         {
-            int strlen_7 = field.core.claims[iterator_3].attribute[iterator_5].value.Length * 2;
+            int strlen_7 = field.claims[iterator_2].attributes[iterator_4][iterator_5].value.Length * 2;
             *(int*)targetPtr = strlen_7;
             targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.core.claims[iterator_3].attribute[iterator_5].value)
+            fixed(char* pstr_7 = field.claims[iterator_2].attributes[iterator_4][iterator_5].value)
             {
                 Memory.Copy(pstr_7, targetPtr, strlen_7);
                 targetPtr += strlen_7;
@@ -660,113 +742,22 @@ byte *storedPtr_5 = targetPtr;
 *(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
 
 }
-*(optheader_4 + 0) |= 0x02;
-            }
-            if( field.core.claims[iterator_3].attributes!= null)
-            {
-
-{
-byte *storedPtr_5 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(field.core.claims[iterator_3].attributes!= null)
-    {
-        for(int iterator_5 = 0;iterator_5<field.core.claims[iterator_3].attributes.Count;++iterator_5)
-        {
-
-{
-byte *storedPtr_6 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(field.core.claims[iterator_3].attributes[iterator_5]!= null)
-    {
-        for(int iterator_6 = 0;iterator_6<field.core.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
-        {
-
-            {
-
-        if(field.core.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
-        {
-            int strlen_8 = field.core.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
-            *(int*)targetPtr = strlen_8;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_8 = field.core.claims[iterator_3].attributes[iterator_5][iterator_6].key)
-            {
-                Memory.Copy(pstr_8, targetPtr, strlen_8);
-                targetPtr += strlen_8;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-        if(field.core.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
-        {
-            int strlen_8 = field.core.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
-            *(int*)targetPtr = strlen_8;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_8 = field.core.claims[iterator_3].attributes[iterator_5][iterator_6].value)
-            {
-                Memory.Copy(pstr_8, targetPtr, strlen_8);
-                targetPtr += strlen_8;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-            }
-        }
-    }
-*(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
-
-}
 
         }
     }
-*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+*(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
-*(optheader_4 + 0) |= 0x04;
+*(optheader_3 + 0) |= 0x04;
             }
 
             }
         }
     }
-*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
+*(int*)storedPtr_2 = (int)(targetPtr - storedPtr_2 - 4);
 
 }
 
-            }
-            {
-            *(TRACredentialType*)targetPtr = field.wrapper.credtype;
-            targetPtr += 1;
-            *(TRATrustLevel*)targetPtr = field.wrapper.trustLevel;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = field.wrapper.encryptionFlag;
-            targetPtr += 1;
-            *(long*)targetPtr = field.wrapper.version;
-            targetPtr += 8;
-
-        if(field.wrapper.notaryudid!= null)
-        {
-            int strlen_3 = field.wrapper.notaryudid.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.wrapper.notaryudid)
-            {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
-            }
             }TRACredentialContent_Accessor ret;
             
             ret = new TRACredentialContent_Accessor(tmpcellptr, null);
@@ -782,12 +773,10 @@ byte *storedPtr_6 = targetPtr;
                 return false;
             if (a.m_ptr == b.m_ptr) return true;
             byte* targetPtr = a.m_ptr;
-            {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
-targetPtr += *(int*)targetPtr + sizeof(int);}}
+            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int lengthA = (int)(targetPtr - a.m_ptr);
             targetPtr = b.m_ptr;
-            {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 11;
-targetPtr += *(int*)targetPtr + sizeof(int);}}
+            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int lengthB = (int)(targetPtr - b.m_ptr);
             if(lengthA != lengthB) return false;
             return Memory.Compare(a.m_ptr,b.m_ptr,lengthA);

@@ -25,17 +25,19 @@ namespace TDW.VDAServer
 {
     
     /// <summary>
-    /// A .NET runtime object representation of TDWVDAIdentityRegistryEntry defined in TSL.
+    /// A .NET runtime object representation of TDWVDARevocationListEntryParm defined in TSL.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public partial struct TDWVDAIdentityRegistryEntry
+    public partial struct TDWVDARevocationListEntryParm
     {
         
         ///<summary>
-        ///Initializes a new instance of TDWVDAIdentityRegistryEntry with the specified parameters.
+        ///Initializes a new instance of TDWVDARevocationListEntryParm with the specified parameters.
         ///</summary>
-        public TDWVDAIdentityRegistryEntry(long id = default(long),string udid = default(string),long credid = default(long),string credudid = default(string),string credpublickey = default(string),string serviceEndpointUdid = default(string),string issuerudid = default(string),string controllerudid = default(string))
+        public TDWVDARevocationListEntryParm(string revokeraddress = default(string),long id = default(long),string udid = default(string),long credid = default(long),string credudid = default(string),string serviceEndpointUdid = default(string),long revokedtocks = default(long),string revokedbyudid = default(string),string message = default(string))
         {
+            
+            this.revokeraddress = revokeraddress;
             
             this.id = id;
             
@@ -45,17 +47,17 @@ namespace TDW.VDAServer
             
             this.credudid = credudid;
             
-            this.credpublickey = credpublickey;
-            
             this.serviceEndpointUdid = serviceEndpointUdid;
             
-            this.issuerudid = issuerudid;
+            this.revokedtocks = revokedtocks;
             
-            this.controllerudid = controllerudid;
+            this.revokedbyudid = revokedbyudid;
+            
+            this.message = message;
             
         }
         
-        public static bool operator ==(TDWVDAIdentityRegistryEntry a, TDWVDAIdentityRegistryEntry b)
+        public static bool operator ==(TDWVDARevocationListEntryParm a, TDWVDARevocationListEntryParm b)
         {
             if (System.Object.ReferenceEquals(a, b))
             {
@@ -68,6 +70,8 @@ namespace TDW.VDAServer
             
             return
                 
+                (a.revokeraddress == b.revokeraddress)
+                &&
                 (a.id == b.id)
                 &&
                 (a.udid == b.udid)
@@ -76,21 +80,23 @@ namespace TDW.VDAServer
                 &&
                 (a.credudid == b.credudid)
                 &&
-                (a.credpublickey == b.credpublickey)
-                &&
                 (a.serviceEndpointUdid == b.serviceEndpointUdid)
                 &&
-                (a.issuerudid == b.issuerudid)
+                (a.revokedtocks == b.revokedtocks)
                 &&
-                (a.controllerudid == b.controllerudid)
+                (a.revokedbyudid == b.revokedbyudid)
+                &&
+                (a.message == b.message)
                 
                 ;
             
         }
-        public static bool operator !=(TDWVDAIdentityRegistryEntry a, TDWVDAIdentityRegistryEntry b)
+        public static bool operator !=(TDWVDARevocationListEntryParm a, TDWVDARevocationListEntryParm b)
         {
             return !(a == b);
         }
+        
+        public string revokeraddress;
         
         public long id;
         
@@ -100,39 +106,39 @@ namespace TDW.VDAServer
         
         public string credudid;
         
-        public string credpublickey;
-        
         public string serviceEndpointUdid;
         
-        public string issuerudid;
+        public long revokedtocks;
         
-        public string controllerudid;
+        public string revokedbyudid;
+        
+        public string message;
         
         /// <summary>
-        /// Converts the string representation of a TDWVDAIdentityRegistryEntry to its
+        /// Converts the string representation of a TDWVDARevocationListEntryParm to its
         /// struct equivalent. A return value indicates whether the 
         /// operation succeeded.
         /// </summary>
         /// <param name="input">A string to convert.</param>
         /// <param name="value">
         /// When this method returns, contains the struct equivalent of the value contained 
-        /// in input, if the conversion succeeded, or default(TDWVDAIdentityRegistryEntry) if the conversion
+        /// in input, if the conversion succeeded, or default(TDWVDARevocationListEntryParm) if the conversion
         /// failed. The conversion fails if the input parameter is null or String.Empty, or is 
         /// not of the correct format. This parameter is passed uninitialized. 
         /// </param>
         /// <returns>True if input was converted successfully; otherwise, false.</returns>
-        public unsafe static bool TryParse(string input, out TDWVDAIdentityRegistryEntry value)
+        public unsafe static bool TryParse(string input, out TDWVDARevocationListEntryParm value)
         {
             try
             {
-                value = Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDAIdentityRegistryEntry>(input);
+                value = Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDARevocationListEntryParm>(input);
                 return true;
             }
-            catch { value = default(TDWVDAIdentityRegistryEntry); return false; }
+            catch { value = default(TDWVDARevocationListEntryParm); return false; }
         }
-        public static TDWVDAIdentityRegistryEntry Parse(string input)
+        public static TDWVDARevocationListEntryParm Parse(string input)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDAIdentityRegistryEntry>(input);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDARevocationListEntryParm>(input);
         }
         /// <summary>
         /// Serializes this object to a Json string.
@@ -144,16 +150,16 @@ namespace TDW.VDAServer
         }
     }
     /// <summary>
-    /// Provides in-place operations of TDWVDAIdentityRegistryEntry defined in TSL.
+    /// Provides in-place operations of TDWVDARevocationListEntryParm defined in TSL.
     /// </summary>
-    public unsafe partial class TDWVDAIdentityRegistryEntry_Accessor : IAccessor
+    public unsafe partial class TDWVDARevocationListEntryParm_Accessor : IAccessor
     {
         ///<summary>
         ///The pointer to the content of the object.
         ///</summary>
         internal byte* m_ptr;
         internal long m_cellId;
-        internal unsafe TDWVDAIdentityRegistryEntry_Accessor(byte* _CellPtr
+        internal unsafe TDWVDARevocationListEntryParm_Accessor(byte* _CellPtr
             
             , ResizeFunctionDelegate func
             )
@@ -161,7 +167,13 @@ namespace TDW.VDAServer
             m_ptr = _CellPtr;
             
             ResizeFunction = func;
-                    udid_Accessor_Field = new StringAccessor(null,
+                    revokeraddress_Accessor_Field = new StringAccessor(null,
+                (ptr,ptr_offset,delta)=>
+                {
+                    int substructure_offset = (int)(ptr - this.m_ptr);
+                    this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
+                    return this.m_ptr + substructure_offset;
+                });        udid_Accessor_Field = new StringAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -173,25 +185,19 @@ namespace TDW.VDAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        credpublickey_Accessor_Field = new StringAccessor(null,
-                (ptr,ptr_offset,delta)=>
-                {
-                    int substructure_offset = (int)(ptr - this.m_ptr);
-                    this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
-                    return this.m_ptr + substructure_offset;
                 });        serviceEndpointUdid_Accessor_Field = new StringAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        issuerudid_Accessor_Field = new StringAccessor(null,
+                });        revokedbyudid_Accessor_Field = new StringAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        controllerudid_Accessor_Field = new StringAccessor(null,
+                });        message_Accessor_Field = new StringAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -241,9 +247,10 @@ namespace TDW.VDAServer
         public byte[] ToByteArray()
         {
             byte* targetPtr = m_ptr;
-            {            targetPtr += 8;
+            {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int size = (int)(targetPtr - m_ptr);
             byte[] ret = new byte[size];
             Memory.Copy(m_ptr, 0, ret, 0, size);
@@ -257,14 +264,60 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
         public unsafe int GetBufferLength()
         {
             byte* targetPtr = m_ptr;
-            {            targetPtr += 8;
+            {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int size = (int)(targetPtr - m_ptr);
             return size;
         }
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
+        StringAccessor revokeraddress_Accessor_Field;
+        
+        ///<summary>
+        ///Provides in-place access to the object field revokeraddress.
+        ///</summary>
+        public unsafe StringAccessor revokeraddress
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {}revokeraddress_Accessor_Field.m_ptr = targetPtr + 4;
+                revokeraddress_Accessor_Field.m_cellId = this.m_cellId;
+                return revokeraddress_Accessor_Field;
+                
+            }
+            set
+            {
+                
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                revokeraddress_Accessor_Field.m_cellId = this.m_cellId;
+                
+                byte* targetPtr = m_ptr;
+                {}
+                int length = *(int*)(value.m_ptr - 4);
+                int oldlength = *(int*)targetPtr;
+                if (value.m_cellId != revokeraddress_Accessor_Field.m_cellId)
+                {
+                    //if not in the same Cell
+                    revokeraddress_Accessor_Field.m_ptr = revokeraddress_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                    Memory.Copy(value.m_ptr - 4, revokeraddress_Accessor_Field.m_ptr, length + 4);
+                }
+                else
+                {
+                    byte[] tmpcell = new byte[length + 4];
+                    fixed (byte* tmpcellptr = tmpcell)
+                    {                        
+                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
+                        revokeraddress_Accessor_Field.m_ptr = revokeraddress_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                        Memory.Copy(tmpcellptr, revokeraddress_Accessor_Field.m_ptr, length + 4);
+                    }
+                }
+
+            }
+        }
         
         ///<summary>
         ///Provides in-place access to the object field id.
@@ -275,7 +328,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {}
+                {targetPtr += *(int*)targetPtr + sizeof(int);}
                 return *(long*)(targetPtr);
                 
             }
@@ -283,7 +336,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {}                *(long*)targetPtr = value;
+                {targetPtr += *(int*)targetPtr + sizeof(int);}                *(long*)targetPtr = value;
             }
         }
         StringAccessor udid_Accessor_Field;
@@ -297,7 +350,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }udid_Accessor_Field.m_ptr = targetPtr + 4;
                 udid_Accessor_Field.m_cellId = this.m_cellId;
                 return udid_Accessor_Field;
@@ -310,7 +363,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 udid_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
@@ -343,7 +396,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);}
                 return *(long*)(targetPtr);
                 
@@ -352,7 +405,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
             {
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);}                *(long*)targetPtr = value;
             }
         }
@@ -367,7 +420,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}                *(long*)targetPtr =
             {
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }credudid_Accessor_Field.m_ptr = targetPtr + 4;
                 credudid_Accessor_Field.m_cellId = this.m_cellId;
@@ -381,7 +434,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
                 credudid_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }
                 int length = *(int*)(value.m_ptr - 4);
@@ -405,55 +458,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 
             }
         }
-        StringAccessor credpublickey_Accessor_Field;
-        
-        ///<summary>
-        ///Provides in-place access to the object field credpublickey.
-        ///</summary>
-        public unsafe StringAccessor credpublickey
-        {
-            get
-            {
-                
-                byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);}credpublickey_Accessor_Field.m_ptr = targetPtr + 4;
-                credpublickey_Accessor_Field.m_cellId = this.m_cellId;
-                return credpublickey_Accessor_Field;
-                
-            }
-            set
-            {
-                
-                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                credpublickey_Accessor_Field.m_cellId = this.m_cellId;
-                
-                byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);}
-                int length = *(int*)(value.m_ptr - 4);
-                int oldlength = *(int*)targetPtr;
-                if (value.m_cellId != credpublickey_Accessor_Field.m_cellId)
-                {
-                    //if not in the same Cell
-                    credpublickey_Accessor_Field.m_ptr = credpublickey_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                    Memory.Copy(value.m_ptr - 4, credpublickey_Accessor_Field.m_ptr, length + 4);
-                }
-                else
-                {
-                    byte[] tmpcell = new byte[length + 4];
-                    fixed (byte* tmpcellptr = tmpcell)
-                    {                        
-                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        credpublickey_Accessor_Field.m_ptr = credpublickey_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                        Memory.Copy(tmpcellptr, credpublickey_Accessor_Field.m_ptr, length + 4);
-                    }
-                }
-
-            }
-        }
         StringAccessor serviceEndpointUdid_Accessor_Field;
         
         ///<summary>
@@ -465,9 +469,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
             {
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}serviceEndpointUdid_Accessor_Field.m_ptr = targetPtr + 4;
+targetPtr += *(int*)targetPtr + sizeof(int);}serviceEndpointUdid_Accessor_Field.m_ptr = targetPtr + 4;
                 serviceEndpointUdid_Accessor_Field.m_cellId = this.m_cellId;
                 return serviceEndpointUdid_Accessor_Field;
                 
@@ -479,9 +483,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 serviceEndpointUdid_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
                 if (value.m_cellId != serviceEndpointUdid_Accessor_Field.m_cellId)
@@ -503,41 +507,68 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
 
             }
         }
-        StringAccessor issuerudid_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field issuerudid.
+        ///Provides in-place access to the object field revokedtocks.
         ///</summary>
-        public unsafe StringAccessor issuerudid
+        public unsafe long revokedtocks
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}issuerudid_Accessor_Field.m_ptr = targetPtr + 4;
-                issuerudid_Accessor_Field.m_cellId = this.m_cellId;
-                return issuerudid_Accessor_Field;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                return *(long*)(targetPtr);
+                
+            }
+            set
+            {
+                
+                byte* targetPtr = m_ptr;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}                *(long*)targetPtr = value;
+            }
+        }
+        StringAccessor revokedbyudid_Accessor_Field;
+        
+        ///<summary>
+        ///Provides in-place access to the object field revokedbyudid.
+        ///</summary>
+        public unsafe StringAccessor revokedbyudid
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}revokedbyudid_Accessor_Field.m_ptr = targetPtr + 4;
+                revokedbyudid_Accessor_Field.m_cellId = this.m_cellId;
+                return revokedbyudid_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                issuerudid_Accessor_Field.m_cellId = this.m_cellId;
+                revokedbyudid_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
-                if (value.m_cellId != issuerudid_Accessor_Field.m_cellId)
+                if (value.m_cellId != revokedbyudid_Accessor_Field.m_cellId)
                 {
                     //if not in the same Cell
-                    issuerudid_Accessor_Field.m_ptr = issuerudid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                    Memory.Copy(value.m_ptr - 4, issuerudid_Accessor_Field.m_ptr, length + 4);
+                    revokedbyudid_Accessor_Field.m_ptr = revokedbyudid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                    Memory.Copy(value.m_ptr - 4, revokedbyudid_Accessor_Field.m_ptr, length + 4);
                 }
                 else
                 {
@@ -545,48 +576,50 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                     fixed (byte* tmpcellptr = tmpcell)
                     {                        
                         Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        issuerudid_Accessor_Field.m_ptr = issuerudid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                        Memory.Copy(tmpcellptr, issuerudid_Accessor_Field.m_ptr, length + 4);
+                        revokedbyudid_Accessor_Field.m_ptr = revokedbyudid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                        Memory.Copy(tmpcellptr, revokedbyudid_Accessor_Field.m_ptr, length + 4);
                     }
                 }
 
             }
         }
-        StringAccessor controllerudid_Accessor_Field;
+        StringAccessor message_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field controllerudid.
+        ///Provides in-place access to the object field message.
         ///</summary>
-        public unsafe StringAccessor controllerudid
+        public unsafe StringAccessor message
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}controllerudid_Accessor_Field.m_ptr = targetPtr + 4;
-                controllerudid_Accessor_Field.m_cellId = this.m_cellId;
-                return controllerudid_Accessor_Field;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+targetPtr += *(int*)targetPtr + sizeof(int);}message_Accessor_Field.m_ptr = targetPtr + 4;
+                message_Accessor_Field.m_cellId = this.m_cellId;
+                return message_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                controllerudid_Accessor_Field.m_cellId = this.m_cellId;
+                message_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 8;
+                {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+targetPtr += *(int*)targetPtr + sizeof(int);}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
-                if (value.m_cellId != controllerudid_Accessor_Field.m_cellId)
+                if (value.m_cellId != message_Accessor_Field.m_cellId)
                 {
                     //if not in the same Cell
-                    controllerudid_Accessor_Field.m_ptr = controllerudid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                    Memory.Copy(value.m_ptr - 4, controllerudid_Accessor_Field.m_ptr, length + 4);
+                    message_Accessor_Field.m_ptr = message_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                    Memory.Copy(value.m_ptr - 4, message_Accessor_Field.m_ptr, length + 4);
                 }
                 else
                 {
@@ -594,35 +627,45 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                     fixed (byte* tmpcellptr = tmpcell)
                     {                        
                         Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        controllerudid_Accessor_Field.m_ptr = controllerudid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                        Memory.Copy(tmpcellptr, controllerudid_Accessor_Field.m_ptr, length + 4);
+                        message_Accessor_Field.m_ptr = message_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                        Memory.Copy(tmpcellptr, message_Accessor_Field.m_ptr, length + 4);
                     }
                 }
 
             }
         }
         
-        public static unsafe implicit operator TDWVDAIdentityRegistryEntry(TDWVDAIdentityRegistryEntry_Accessor accessor)
+        public static unsafe implicit operator TDWVDARevocationListEntryParm(TDWVDARevocationListEntryParm_Accessor accessor)
         {
             
-            return new TDWVDAIdentityRegistryEntry(
+            return new TDWVDARevocationListEntryParm(
                 
+                        accessor.revokeraddress,
                         accessor.id,
                         accessor.udid,
                         accessor.credid,
                         accessor.credudid,
-                        accessor.credpublickey,
                         accessor.serviceEndpointUdid,
-                        accessor.issuerudid,
-                        accessor.controllerudid
+                        accessor.revokedtocks,
+                        accessor.revokedbyudid,
+                        accessor.message
                 );
         }
         
-        public unsafe static implicit operator TDWVDAIdentityRegistryEntry_Accessor(TDWVDAIdentityRegistryEntry field)
+        public unsafe static implicit operator TDWVDARevocationListEntryParm_Accessor(TDWVDARevocationListEntryParm field)
         {
             byte* targetPtr = null;
             
             {
+
+        if(field.revokeraddress!= null)
+        {
+            int strlen_2 = field.revokeraddress.Length * 2;
+            targetPtr += strlen_2+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
             targetPtr += 8;
 
         if(field.udid!= null)
@@ -644,15 +687,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             targetPtr += sizeof(int);
         }
 
-        if(field.credpublickey!= null)
-        {
-            int strlen_2 = field.credpublickey.Length * 2;
-            targetPtr += strlen_2+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
         if(field.serviceEndpointUdid!= null)
         {
             int strlen_2 = field.serviceEndpointUdid.Length * 2;
@@ -661,19 +695,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
         {
             targetPtr += sizeof(int);
         }
+            targetPtr += 8;
 
-        if(field.issuerudid!= null)
+        if(field.revokedbyudid!= null)
         {
-            int strlen_2 = field.issuerudid.Length * 2;
+            int strlen_2 = field.revokedbyudid.Length * 2;
             targetPtr += strlen_2+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.controllerudid!= null)
+        if(field.message!= null)
         {
-            int strlen_2 = field.controllerudid.Length * 2;
+            int strlen_2 = field.message.Length * 2;
             targetPtr += strlen_2+sizeof(int);
         }else
         {
@@ -686,6 +721,22 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             targetPtr = tmpcellptr;
             
             {
+
+        if(field.revokeraddress!= null)
+        {
+            int strlen_2 = field.revokeraddress.Length * 2;
+            *(int*)targetPtr = strlen_2;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_2 = field.revokeraddress)
+            {
+                Memory.Copy(pstr_2, targetPtr, strlen_2);
+                targetPtr += strlen_2;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
             *(long*)targetPtr = field.id;
             targetPtr += 8;
 
@@ -723,22 +774,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             targetPtr += sizeof(int);
         }
 
-        if(field.credpublickey!= null)
-        {
-            int strlen_2 = field.credpublickey.Length * 2;
-            *(int*)targetPtr = strlen_2;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_2 = field.credpublickey)
-            {
-                Memory.Copy(pstr_2, targetPtr, strlen_2);
-                targetPtr += strlen_2;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-
         if(field.serviceEndpointUdid!= null)
         {
             int strlen_2 = field.serviceEndpointUdid.Length * 2;
@@ -754,13 +789,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
+            *(long*)targetPtr = field.revokedtocks;
+            targetPtr += 8;
 
-        if(field.issuerudid!= null)
+        if(field.revokedbyudid!= null)
         {
-            int strlen_2 = field.issuerudid.Length * 2;
+            int strlen_2 = field.revokedbyudid.Length * 2;
             *(int*)targetPtr = strlen_2;
             targetPtr += sizeof(int);
-            fixed(char* pstr_2 = field.issuerudid)
+            fixed(char* pstr_2 = field.revokedbyudid)
             {
                 Memory.Copy(pstr_2, targetPtr, strlen_2);
                 targetPtr += strlen_2;
@@ -771,12 +808,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             targetPtr += sizeof(int);
         }
 
-        if(field.controllerudid!= null)
+        if(field.message!= null)
         {
-            int strlen_2 = field.controllerudid.Length * 2;
+            int strlen_2 = field.message.Length * 2;
             *(int*)targetPtr = strlen_2;
             targetPtr += sizeof(int);
-            fixed(char* pstr_2 = field.controllerudid)
+            fixed(char* pstr_2 = field.message)
             {
                 Memory.Copy(pstr_2, targetPtr, strlen_2);
                 targetPtr += strlen_2;
@@ -787,14 +824,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             targetPtr += sizeof(int);
         }
 
-            }TDWVDAIdentityRegistryEntry_Accessor ret;
+            }TDWVDARevocationListEntryParm_Accessor ret;
             
-            ret = new TDWVDAIdentityRegistryEntry_Accessor(tmpcellptr, null);
+            ret = new TDWVDARevocationListEntryParm_Accessor(tmpcellptr, null);
             
             return ret;
         }
         
-        public static bool operator ==(TDWVDAIdentityRegistryEntry_Accessor a, TDWVDAIdentityRegistryEntry_Accessor b)
+        public static bool operator ==(TDWVDARevocationListEntryParm_Accessor a, TDWVDARevocationListEntryParm_Accessor b)
         {
             if (ReferenceEquals(a, b))
                 return true;
@@ -802,19 +839,21 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 return false;
             if (a.m_ptr == b.m_ptr) return true;
             byte* targetPtr = a.m_ptr;
-            {            targetPtr += 8;
+            {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int lengthA = (int)(targetPtr - a.m_ptr);
             targetPtr = b.m_ptr;
-            {            targetPtr += 8;
+            {targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             int lengthB = (int)(targetPtr - b.m_ptr);
             if(lengthA != lengthB) return false;
             return Memory.Compare(a.m_ptr,b.m_ptr,lengthA);
         }
-        public static bool operator != (TDWVDAIdentityRegistryEntry_Accessor a, TDWVDAIdentityRegistryEntry_Accessor b)
+        public static bool operator != (TDWVDARevocationListEntryParm_Accessor a, TDWVDARevocationListEntryParm_Accessor b)
         {
             return !(a == b);
         }

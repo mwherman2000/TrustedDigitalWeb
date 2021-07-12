@@ -34,7 +34,7 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWGetRevocationListEntryResponse with the specified parameters.
         ///</summary>
-        public TDWGetRevocationListEntryResponse(TDWVDARevocationListEntry entry = default(TDWVDARevocationListEntry))
+        public TDWGetRevocationListEntryResponse(TDWVDARevocationListEntryParm entry = default(TDWVDARevocationListEntryParm))
         {
             
             this.entry = entry;
@@ -64,7 +64,7 @@ namespace TDW.VDAServer
             return !(a == b);
         }
         
-        public TDWVDARevocationListEntry entry;
+        public TDWVDARevocationListEntryParm entry;
         
         /// <summary>
         /// Converts the string representation of a TDWGetRevocationListEntryResponse to its
@@ -119,7 +119,7 @@ namespace TDW.VDAServer
             m_ptr = _CellPtr;
             
             ResizeFunction = func;
-                    entry_Accessor_Field = new TDWVDARevocationListEntry_Accessor(null,
+                    entry_Accessor_Field = new TDWVDARevocationListEntryParm_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -195,12 +195,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
         }
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
-        TDWVDARevocationListEntry_Accessor entry_Accessor_Field;
+        TDWVDARevocationListEntryParm_Accessor entry_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field entry.
         ///</summary>
-        public unsafe TDWVDARevocationListEntry_Accessor entry
+        public unsafe TDWVDARevocationListEntryParm_Accessor entry
         {
             get
             {

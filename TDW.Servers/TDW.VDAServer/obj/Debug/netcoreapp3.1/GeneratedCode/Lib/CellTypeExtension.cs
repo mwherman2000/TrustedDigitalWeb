@@ -7,49 +7,49 @@ namespace TDW.VDAServer
     {
         
         /// <summary>
-        /// Tells whether the cell with the given id is a TDWCredential.
+        /// Tells whether the cell with the given id is a TRACredentialCell.
         /// </summary>
         /// <param name="storage"/>A <see cref="Trinity.Storage.LocalMemoryStorage"/> instance.</param>
         /// <param name="cellId">The id of the cell.</param>
         /// <returns>True if the cell is found and is of the correct type. Otherwise false.</returns>
-        public unsafe static bool IsTDWCredential(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
+        public unsafe static bool IsTRACredentialCell(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
         {
             ushort cellType;
             if (storage.GetCellType(cellId, out cellType) == TrinityErrorCode.E_SUCCESS)
             {
-                return cellType == (ushort)CellType.TDWCredential;
+                return cellType == (ushort)CellType.TRACredentialCell;
             }
             return false;
         }
         
         /// <summary>
-        /// Tells whether the cell with the given id is a TDWVDAAccount.
+        /// Tells whether the cell with the given id is a TDWVDAAccountEntryCell.
         /// </summary>
         /// <param name="storage"/>A <see cref="Trinity.Storage.LocalMemoryStorage"/> instance.</param>
         /// <param name="cellId">The id of the cell.</param>
         /// <returns>True if the cell is found and is of the correct type. Otherwise false.</returns>
-        public unsafe static bool IsTDWVDAAccount(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
+        public unsafe static bool IsTDWVDAAccountEntryCell(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
         {
             ushort cellType;
             if (storage.GetCellType(cellId, out cellType) == TrinityErrorCode.E_SUCCESS)
             {
-                return cellType == (ushort)CellType.TDWVDAAccount;
+                return cellType == (ushort)CellType.TDWVDAAccountEntryCell;
             }
             return false;
         }
         
         /// <summary>
-        /// Tells whether the cell with the given id is a TDWVDASmartContract.
+        /// Tells whether the cell with the given id is a TDWVDASmartContractEntryCell.
         /// </summary>
         /// <param name="storage"/>A <see cref="Trinity.Storage.LocalMemoryStorage"/> instance.</param>
         /// <param name="cellId">The id of the cell.</param>
         /// <returns>True if the cell is found and is of the correct type. Otherwise false.</returns>
-        public unsafe static bool IsTDWVDASmartContract(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
+        public unsafe static bool IsTDWVDASmartContractEntryCell(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
         {
             ushort cellType;
             if (storage.GetCellType(cellId, out cellType) == TrinityErrorCode.E_SUCCESS)
             {
-                return cellType == (ushort)CellType.TDWVDASmartContract;
+                return cellType == (ushort)CellType.TDWVDASmartContractEntryCell;
             }
             return false;
         }

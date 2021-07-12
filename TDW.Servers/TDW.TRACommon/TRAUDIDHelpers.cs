@@ -21,6 +21,11 @@ namespace TDW.TRACommon
         public const string TRATempMethodName = "svrn:temp";
     }
 
+    public static class TRAContexts
+    {
+        public static readonly List<string> DefaultContext = new List<string> { "https://www.sovrona.com/ns/svrn/v1" };
+    }
+
     static public class TRAUDIDHelpers
     {
         public static string TRAUDIDFormat(string methodName, long id)

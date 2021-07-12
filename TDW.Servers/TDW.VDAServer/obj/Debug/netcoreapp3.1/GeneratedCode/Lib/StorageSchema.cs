@@ -17,18 +17,18 @@ namespace TDW.VDAServer
         internal static Dictionary<string, CellType> cellTypeLookupTable = new Dictionary<string, CellType>()
         {
             
-            {"TDWCredential", global::TDW.VDAServer.CellType.TDWCredential}
+            {"TRACredentialCell", global::TDW.VDAServer.CellType.TRACredentialCell}
             ,
-            {"TDWVDAAccount", global::TDW.VDAServer.CellType.TDWVDAAccount}
+            {"TDWVDAAccountEntryCell", global::TDW.VDAServer.CellType.TDWVDAAccountEntryCell}
             ,
-            {"TDWVDASmartContract", global::TDW.VDAServer.CellType.TDWVDASmartContract}
+            {"TDWVDASmartContractEntryCell", global::TDW.VDAServer.CellType.TDWVDASmartContractEntryCell}
             
         };
         #endregion
         
-        internal static readonly Type   s_cellType_TDWCredential       = typeof(global::TDW.VDAServer.TDWCredential);
-        internal static readonly string s_cellTypeName_TDWCredential   = "TDWCredential";
-        internal class TDWCredential_descriptor : ICellDescriptor
+        internal static readonly Type   s_cellType_TRACredentialCell       = typeof(global::TDW.VDAServer.TRACredentialCell);
+        internal static readonly string s_cellTypeName_TRACredentialCell   = "TRACredentialCell";
+        internal class TRACredentialCell_descriptor : ICellDescriptor
         {
             private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
             {
@@ -44,59 +44,7 @@ namespace TDW.VDAServer
                     return attributes.Attributes.ContainsKey(attributeKey) && attributes.Attributes[attributeKey] == attributeValue;
             }
             
-            internal class CredentialContent_descriptor : IFieldDescriptor
-            {
-                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
-                {
-                    
-                };
-                private static string s_typename = "TRACredentialContent";
-                private static Type   s_type     = typeof(TRACredentialContent);
-                public string Name
-                {
-                    get { return "CredentialContent"; }
-                }
-                public bool Optional
-                {
-                    get
-                    {
-                        
-                        return false;
-                        
-                    }
-                }
-                public bool IsOfType<T>()
-                {
-                    return typeof(T) == Type;
-                }
-                public bool IsList()
-                {
-                    
-                    return false;
-                    
-                }
-                public string TypeName
-                {
-                    get { return s_typename; }
-                }
-                public Type Type
-                {
-                    get { return s_type; }
-                }
-                public IReadOnlyDictionary<string, string> Attributes
-                {
-                    get { return s_attributes; }
-                }
-                public string GetAttributeValue(string attributeKey)
-                {
-                    string ret = null;
-                    s_attributes.TryGetValue(attributeKey, out ret);
-                    return ret;
-                }
-            }
-            internal static CredentialContent_descriptor CredentialContent = new CredentialContent_descriptor();
-            
-            internal class CredentialEnvelope_descriptor : IFieldDescriptor
+            internal class envelope_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
@@ -106,7 +54,7 @@ namespace TDW.VDAServer
                 private static Type   s_type     = typeof(TRACredentialEnvelope);
                 public string Name
                 {
-                    get { return "CredentialEnvelope"; }
+                    get { return "envelope"; }
                 }
                 public bool Optional
                 {
@@ -146,26 +94,26 @@ namespace TDW.VDAServer
                     return ret;
                 }
             }
-            internal static CredentialEnvelope_descriptor CredentialEnvelope = new CredentialEnvelope_descriptor();
+            internal static envelope_descriptor envelope = new envelope_descriptor();
             
-            internal class EncryptedCredentialContent_descriptor : IFieldDescriptor
+            internal class envelopeseal_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
                     
                 };
-                private static string s_typename = "string";
-                private static Type   s_type     = typeof(string);
+                private static string s_typename = "TRACredentialEnvelopeSeal";
+                private static Type   s_type     = typeof(TRACredentialEnvelopeSeal);
                 public string Name
                 {
-                    get { return "EncryptedCredentialContent"; }
+                    get { return "envelopeseal"; }
                 }
                 public bool Optional
                 {
                     get
                     {
                         
-                        return true;
+                        return false;
                         
                     }
                 }
@@ -198,35 +146,30 @@ namespace TDW.VDAServer
                     return ret;
                 }
             }
-            internal static EncryptedCredentialContent_descriptor EncryptedCredentialContent = new EncryptedCredentialContent_descriptor();
+            internal static envelopeseal_descriptor envelopeseal = new envelopeseal_descriptor();
             
             #region ICellDescriptor
             public IEnumerable<string> GetFieldNames()
             {
                 
-                yield return "CredentialContent";
+                yield return "envelope";
                 
-                yield return "CredentialEnvelope";
-                
-                yield return "EncryptedCredentialContent";
+                yield return "envelopeseal";
                 
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
             {
-                int field_id = global::TDW.VDAServer.TDWCredential.FieldLookupTable.Lookup(fieldName);
+                int field_id = global::TDW.VDAServer.TRACredentialCell.FieldLookupTable.Lookup(fieldName);
                 if (field_id == -1)
                     Throw.undefined_field();
                 switch (field_id)
                 {
                     
                     case 0:
-                        return CredentialContent;
+                        return envelope;
                     
                     case 1:
-                        return CredentialEnvelope;
-                    
-                    case 2:
-                        return EncryptedCredentialContent;
+                        return envelopeseal;
                     
                 }
                 /* Should not reach here */
@@ -235,30 +178,28 @@ namespace TDW.VDAServer
             public IEnumerable<IFieldDescriptor> GetFieldDescriptors()
             {
                 
-                yield return CredentialContent;
+                yield return envelope;
                 
-                yield return CredentialEnvelope;
-                
-                yield return EncryptedCredentialContent;
+                yield return envelopeseal;
                 
             }
             ushort ICellDescriptor.CellType
             {
-                get { return (ushort)CellType.TDWCredential; }
+                get { return (ushort)CellType.TRACredentialCell; }
             }
             #endregion
             #region ITypeDescriptor
             public string TypeName
             {
-                get { return s_cellTypeName_TDWCredential; }
+                get { return s_cellTypeName_TRACredentialCell; }
             }
             public Type Type
             {
-                get { return s_cellType_TDWCredential; }
+                get { return s_cellType_TRACredentialCell; }
             }
             public bool IsOfType<T>()
             {
-                return typeof(T) == s_cellType_TDWCredential;
+                return typeof(T) == s_cellType_TRACredentialCell;
             }
             public bool IsList()
             {
@@ -278,15 +219,15 @@ namespace TDW.VDAServer
             }
             #endregion
         }
-        internal static readonly TDWCredential_descriptor s_cellDescriptor_TDWCredential = new TDWCredential_descriptor();
+        internal static readonly TRACredentialCell_descriptor s_cellDescriptor_TRACredentialCell = new TRACredentialCell_descriptor();
         /// <summary>
-        /// Get the cell descriptor for TDWCredential.
+        /// Get the cell descriptor for TRACredentialCell.
         /// </summary>
-        public static ICellDescriptor TDWCredential { get { return s_cellDescriptor_TDWCredential; } }
+        public static ICellDescriptor TRACredentialCell { get { return s_cellDescriptor_TRACredentialCell; } }
         
-        internal static readonly Type   s_cellType_TDWVDAAccount       = typeof(global::TDW.VDAServer.TDWVDAAccount);
-        internal static readonly string s_cellTypeName_TDWVDAAccount   = "TDWVDAAccount";
-        internal class TDWVDAAccount_descriptor : ICellDescriptor
+        internal static readonly Type   s_cellType_TDWVDAAccountEntryCell       = typeof(global::TDW.VDAServer.TDWVDAAccountEntryCell);
+        internal static readonly string s_cellTypeName_TDWVDAAccountEntryCell   = "TDWVDAAccountEntryCell";
+        internal class TDWVDAAccountEntryCell_descriptor : ICellDescriptor
         {
             private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
             {
@@ -302,17 +243,17 @@ namespace TDW.VDAServer
                     return attributes.Attributes.ContainsKey(attributeKey) && attributes.Attributes[attributeKey] == attributeValue;
             }
             
-            internal class AccountContent_descriptor : IFieldDescriptor
+            internal class envelope_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
                     
                 };
-                private static string s_typename = "TDWVDAAccountEntryContent";
-                private static Type   s_type     = typeof(TDWVDAAccountEntryContent);
+                private static string s_typename = "TDWVDAAccountEntryEnvelope";
+                private static Type   s_type     = typeof(TDWVDAAccountEntryEnvelope);
                 public string Name
                 {
-                    get { return "AccountContent"; }
+                    get { return "envelope"; }
                 }
                 public bool Optional
                 {
@@ -352,19 +293,19 @@ namespace TDW.VDAServer
                     return ret;
                 }
             }
-            internal static AccountContent_descriptor AccountContent = new AccountContent_descriptor();
+            internal static envelope_descriptor envelope = new envelope_descriptor();
             
-            internal class CredentialEnvelope_descriptor : IFieldDescriptor
+            internal class envelopeseal_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
                     
                 };
-                private static string s_typename = "TRACredentialEnvelope";
-                private static Type   s_type     = typeof(TRACredentialEnvelope);
+                private static string s_typename = "TRACredentialEnvelopeSeal";
+                private static Type   s_type     = typeof(TRACredentialEnvelopeSeal);
                 public string Name
                 {
-                    get { return "CredentialEnvelope"; }
+                    get { return "envelopeseal"; }
                 }
                 public bool Optional
                 {
@@ -404,87 +345,30 @@ namespace TDW.VDAServer
                     return ret;
                 }
             }
-            internal static CredentialEnvelope_descriptor CredentialEnvelope = new CredentialEnvelope_descriptor();
-            
-            internal class EncryptedAccountCore_descriptor : IFieldDescriptor
-            {
-                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
-                {
-                    
-                };
-                private static string s_typename = "string";
-                private static Type   s_type     = typeof(string);
-                public string Name
-                {
-                    get { return "EncryptedAccountCore"; }
-                }
-                public bool Optional
-                {
-                    get
-                    {
-                        
-                        return true;
-                        
-                    }
-                }
-                public bool IsOfType<T>()
-                {
-                    return typeof(T) == Type;
-                }
-                public bool IsList()
-                {
-                    
-                    return false;
-                    
-                }
-                public string TypeName
-                {
-                    get { return s_typename; }
-                }
-                public Type Type
-                {
-                    get { return s_type; }
-                }
-                public IReadOnlyDictionary<string, string> Attributes
-                {
-                    get { return s_attributes; }
-                }
-                public string GetAttributeValue(string attributeKey)
-                {
-                    string ret = null;
-                    s_attributes.TryGetValue(attributeKey, out ret);
-                    return ret;
-                }
-            }
-            internal static EncryptedAccountCore_descriptor EncryptedAccountCore = new EncryptedAccountCore_descriptor();
+            internal static envelopeseal_descriptor envelopeseal = new envelopeseal_descriptor();
             
             #region ICellDescriptor
             public IEnumerable<string> GetFieldNames()
             {
                 
-                yield return "AccountContent";
+                yield return "envelope";
                 
-                yield return "CredentialEnvelope";
-                
-                yield return "EncryptedAccountCore";
+                yield return "envelopeseal";
                 
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
             {
-                int field_id = global::TDW.VDAServer.TDWVDAAccount.FieldLookupTable.Lookup(fieldName);
+                int field_id = global::TDW.VDAServer.TDWVDAAccountEntryCell.FieldLookupTable.Lookup(fieldName);
                 if (field_id == -1)
                     Throw.undefined_field();
                 switch (field_id)
                 {
                     
                     case 0:
-                        return AccountContent;
+                        return envelope;
                     
                     case 1:
-                        return CredentialEnvelope;
-                    
-                    case 2:
-                        return EncryptedAccountCore;
+                        return envelopeseal;
                     
                 }
                 /* Should not reach here */
@@ -493,30 +377,28 @@ namespace TDW.VDAServer
             public IEnumerable<IFieldDescriptor> GetFieldDescriptors()
             {
                 
-                yield return AccountContent;
+                yield return envelope;
                 
-                yield return CredentialEnvelope;
-                
-                yield return EncryptedAccountCore;
+                yield return envelopeseal;
                 
             }
             ushort ICellDescriptor.CellType
             {
-                get { return (ushort)CellType.TDWVDAAccount; }
+                get { return (ushort)CellType.TDWVDAAccountEntryCell; }
             }
             #endregion
             #region ITypeDescriptor
             public string TypeName
             {
-                get { return s_cellTypeName_TDWVDAAccount; }
+                get { return s_cellTypeName_TDWVDAAccountEntryCell; }
             }
             public Type Type
             {
-                get { return s_cellType_TDWVDAAccount; }
+                get { return s_cellType_TDWVDAAccountEntryCell; }
             }
             public bool IsOfType<T>()
             {
-                return typeof(T) == s_cellType_TDWVDAAccount;
+                return typeof(T) == s_cellType_TDWVDAAccountEntryCell;
             }
             public bool IsList()
             {
@@ -536,15 +418,15 @@ namespace TDW.VDAServer
             }
             #endregion
         }
-        internal static readonly TDWVDAAccount_descriptor s_cellDescriptor_TDWVDAAccount = new TDWVDAAccount_descriptor();
+        internal static readonly TDWVDAAccountEntryCell_descriptor s_cellDescriptor_TDWVDAAccountEntryCell = new TDWVDAAccountEntryCell_descriptor();
         /// <summary>
-        /// Get the cell descriptor for TDWVDAAccount.
+        /// Get the cell descriptor for TDWVDAAccountEntryCell.
         /// </summary>
-        public static ICellDescriptor TDWVDAAccount { get { return s_cellDescriptor_TDWVDAAccount; } }
+        public static ICellDescriptor TDWVDAAccountEntryCell { get { return s_cellDescriptor_TDWVDAAccountEntryCell; } }
         
-        internal static readonly Type   s_cellType_TDWVDASmartContract       = typeof(global::TDW.VDAServer.TDWVDASmartContract);
-        internal static readonly string s_cellTypeName_TDWVDASmartContract   = "TDWVDASmartContract";
-        internal class TDWVDASmartContract_descriptor : ICellDescriptor
+        internal static readonly Type   s_cellType_TDWVDASmartContractEntryCell       = typeof(global::TDW.VDAServer.TDWVDASmartContractEntryCell);
+        internal static readonly string s_cellTypeName_TDWVDASmartContractEntryCell   = "TDWVDASmartContractEntryCell";
+        internal class TDWVDASmartContractEntryCell_descriptor : ICellDescriptor
         {
             private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
             {
@@ -560,17 +442,17 @@ namespace TDW.VDAServer
                     return attributes.Attributes.ContainsKey(attributeKey) && attributes.Attributes[attributeKey] == attributeValue;
             }
             
-            internal class SmartContractCore_descriptor : IFieldDescriptor
+            internal class SmartContractEntryEnvelope_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
                     
                 };
-                private static string s_typename = "TDWVDASmartContractEntryCore";
-                private static Type   s_type     = typeof(TDWVDASmartContractEntryCore);
+                private static string s_typename = "TDWVDASmartContractEntryEnvelope";
+                private static Type   s_type     = typeof(TDWVDASmartContractEntryEnvelope);
                 public string Name
                 {
-                    get { return "SmartContractCore"; }
+                    get { return "SmartContractEntryEnvelope"; }
                 }
                 public bool Optional
                 {
@@ -610,19 +492,19 @@ namespace TDW.VDAServer
                     return ret;
                 }
             }
-            internal static SmartContractCore_descriptor SmartContractCore = new SmartContractCore_descriptor();
+            internal static SmartContractEntryEnvelope_descriptor SmartContractEntryEnvelope = new SmartContractEntryEnvelope_descriptor();
             
-            internal class CredentialEnvelope_descriptor : IFieldDescriptor
+            internal class envelopeseal_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
                     
                 };
-                private static string s_typename = "TRACredentialEnvelope";
-                private static Type   s_type     = typeof(TRACredentialEnvelope);
+                private static string s_typename = "TRACredentialEnvelopeSeal";
+                private static Type   s_type     = typeof(TRACredentialEnvelopeSeal);
                 public string Name
                 {
-                    get { return "CredentialEnvelope"; }
+                    get { return "envelopeseal"; }
                 }
                 public bool Optional
                 {
@@ -662,87 +544,30 @@ namespace TDW.VDAServer
                     return ret;
                 }
             }
-            internal static CredentialEnvelope_descriptor CredentialEnvelope = new CredentialEnvelope_descriptor();
-            
-            internal class EncryptedSmartContractCore_descriptor : IFieldDescriptor
-            {
-                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
-                {
-                    
-                };
-                private static string s_typename = "string";
-                private static Type   s_type     = typeof(string);
-                public string Name
-                {
-                    get { return "EncryptedSmartContractCore"; }
-                }
-                public bool Optional
-                {
-                    get
-                    {
-                        
-                        return true;
-                        
-                    }
-                }
-                public bool IsOfType<T>()
-                {
-                    return typeof(T) == Type;
-                }
-                public bool IsList()
-                {
-                    
-                    return false;
-                    
-                }
-                public string TypeName
-                {
-                    get { return s_typename; }
-                }
-                public Type Type
-                {
-                    get { return s_type; }
-                }
-                public IReadOnlyDictionary<string, string> Attributes
-                {
-                    get { return s_attributes; }
-                }
-                public string GetAttributeValue(string attributeKey)
-                {
-                    string ret = null;
-                    s_attributes.TryGetValue(attributeKey, out ret);
-                    return ret;
-                }
-            }
-            internal static EncryptedSmartContractCore_descriptor EncryptedSmartContractCore = new EncryptedSmartContractCore_descriptor();
+            internal static envelopeseal_descriptor envelopeseal = new envelopeseal_descriptor();
             
             #region ICellDescriptor
             public IEnumerable<string> GetFieldNames()
             {
                 
-                yield return "SmartContractCore";
+                yield return "SmartContractEntryEnvelope";
                 
-                yield return "CredentialEnvelope";
-                
-                yield return "EncryptedSmartContractCore";
+                yield return "envelopeseal";
                 
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
             {
-                int field_id = global::TDW.VDAServer.TDWVDASmartContract.FieldLookupTable.Lookup(fieldName);
+                int field_id = global::TDW.VDAServer.TDWVDASmartContractEntryCell.FieldLookupTable.Lookup(fieldName);
                 if (field_id == -1)
                     Throw.undefined_field();
                 switch (field_id)
                 {
                     
                     case 0:
-                        return SmartContractCore;
+                        return SmartContractEntryEnvelope;
                     
                     case 1:
-                        return CredentialEnvelope;
-                    
-                    case 2:
-                        return EncryptedSmartContractCore;
+                        return envelopeseal;
                     
                 }
                 /* Should not reach here */
@@ -751,30 +576,28 @@ namespace TDW.VDAServer
             public IEnumerable<IFieldDescriptor> GetFieldDescriptors()
             {
                 
-                yield return SmartContractCore;
+                yield return SmartContractEntryEnvelope;
                 
-                yield return CredentialEnvelope;
-                
-                yield return EncryptedSmartContractCore;
+                yield return envelopeseal;
                 
             }
             ushort ICellDescriptor.CellType
             {
-                get { return (ushort)CellType.TDWVDASmartContract; }
+                get { return (ushort)CellType.TDWVDASmartContractEntryCell; }
             }
             #endregion
             #region ITypeDescriptor
             public string TypeName
             {
-                get { return s_cellTypeName_TDWVDASmartContract; }
+                get { return s_cellTypeName_TDWVDASmartContractEntryCell; }
             }
             public Type Type
             {
-                get { return s_cellType_TDWVDASmartContract; }
+                get { return s_cellType_TDWVDASmartContractEntryCell; }
             }
             public bool IsOfType<T>()
             {
-                return typeof(T) == s_cellType_TDWVDASmartContract;
+                return typeof(T) == s_cellType_TDWVDASmartContractEntryCell;
             }
             public bool IsList()
             {
@@ -794,11 +617,11 @@ namespace TDW.VDAServer
             }
             #endregion
         }
-        internal static readonly TDWVDASmartContract_descriptor s_cellDescriptor_TDWVDASmartContract = new TDWVDASmartContract_descriptor();
+        internal static readonly TDWVDASmartContractEntryCell_descriptor s_cellDescriptor_TDWVDASmartContractEntryCell = new TDWVDASmartContractEntryCell_descriptor();
         /// <summary>
-        /// Get the cell descriptor for TDWVDASmartContract.
+        /// Get the cell descriptor for TDWVDASmartContractEntryCell.
         /// </summary>
-        public static ICellDescriptor TDWVDASmartContract { get { return s_cellDescriptor_TDWVDASmartContract; } }
+        public static ICellDescriptor TDWVDASmartContractEntryCell { get { return s_cellDescriptor_TDWVDASmartContractEntryCell; } }
         
         /// <summary>
         /// Enumerates descriptors for all cells defined in the TSL.
@@ -808,11 +631,11 @@ namespace TDW.VDAServer
             get
             {
                 
-                yield return TDWCredential;
+                yield return TRACredentialCell;
                 
-                yield return TDWVDAAccount;
+                yield return TDWVDAAccountEntryCell;
                 
-                yield return TDWVDASmartContract;
+                yield return TDWVDASmartContractEntryCell;
                 
                 yield break;
             }
@@ -843,11 +666,11 @@ namespace TDW.VDAServer
             get
             {
                 
-                yield return "{{{string|List<string>|List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>}|{TRACredentialType|TRATrustLevel|TRAEncryptionFlag|long|string}}|{optional string|optional string|optional string|optional List<string>}|optional string}";
+                yield return "{{optional {string|List<string>|List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>}|optional string|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{long|string|string|string|string|string}|{TRACredentialType|TRATrustLevel|TRAEncryptionFlag|long|string}}|{optional string|optional string|optional string|optional List<string>}|optional string}";
+                yield return "{{optional {string|List<string>|{string|string|string|string}}|optional string|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{string|string}|{optional string|optional string|optional string|optional List<string>}|optional string}";
+                yield return "{{optional {string|List<string>|{string|string}}|optional string|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
                 yield break;
             }

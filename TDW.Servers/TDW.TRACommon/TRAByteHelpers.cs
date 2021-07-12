@@ -13,6 +13,7 @@ namespace TDW.TRACommon
             Buffer.BlockCopy(second, 0, ret, first.Length, second.Length);
             Buffer.BlockCopy(third, 0, ret, first.Length + second.Length,
                              third.Length);
+
             return ret;
         }
 

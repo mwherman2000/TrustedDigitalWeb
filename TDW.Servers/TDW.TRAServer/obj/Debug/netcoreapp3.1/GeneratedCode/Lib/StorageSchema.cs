@@ -17,14 +17,20 @@ namespace TDW.TRAServer
         internal static Dictionary<string, CellType> cellTypeLookupTable = new Dictionary<string, CellType>()
         {
             
-            {"TDWCredential", global::TDW.TRAServer.CellType.TDWCredential}
+            {"TRACredentialCell", global::TDW.TRAServer.CellType.TRACredentialCell}
+            ,
+            {"TRATimestampCell", global::TDW.TRAServer.CellType.TRATimestampCell}
+            ,
+            {"TDWGeoLocationCell", global::TDW.TRAServer.CellType.TDWGeoLocationCell}
+            ,
+            {"TRAPostalAddressCell", global::TDW.TRAServer.CellType.TRAPostalAddressCell}
             
         };
         #endregion
         
-        internal static readonly Type   s_cellType_TDWCredential       = typeof(global::TDW.TRAServer.TDWCredential);
-        internal static readonly string s_cellTypeName_TDWCredential   = "TDWCredential";
-        internal class TDWCredential_descriptor : ICellDescriptor
+        internal static readonly Type   s_cellType_TRACredentialCell       = typeof(global::TDW.TRAServer.TRACredentialCell);
+        internal static readonly string s_cellTypeName_TRACredentialCell   = "TRACredentialCell";
+        internal class TRACredentialCell_descriptor : ICellDescriptor
         {
             private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
             {
@@ -40,59 +46,7 @@ namespace TDW.TRAServer
                     return attributes.Attributes.ContainsKey(attributeKey) && attributes.Attributes[attributeKey] == attributeValue;
             }
             
-            internal class CredentialContent_descriptor : IFieldDescriptor
-            {
-                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
-                {
-                    
-                };
-                private static string s_typename = "TRACredentialContent";
-                private static Type   s_type     = typeof(TRACredentialContent);
-                public string Name
-                {
-                    get { return "CredentialContent"; }
-                }
-                public bool Optional
-                {
-                    get
-                    {
-                        
-                        return false;
-                        
-                    }
-                }
-                public bool IsOfType<T>()
-                {
-                    return typeof(T) == Type;
-                }
-                public bool IsList()
-                {
-                    
-                    return false;
-                    
-                }
-                public string TypeName
-                {
-                    get { return s_typename; }
-                }
-                public Type Type
-                {
-                    get { return s_type; }
-                }
-                public IReadOnlyDictionary<string, string> Attributes
-                {
-                    get { return s_attributes; }
-                }
-                public string GetAttributeValue(string attributeKey)
-                {
-                    string ret = null;
-                    s_attributes.TryGetValue(attributeKey, out ret);
-                    return ret;
-                }
-            }
-            internal static CredentialContent_descriptor CredentialContent = new CredentialContent_descriptor();
-            
-            internal class CredentialEnvelope_descriptor : IFieldDescriptor
+            internal class envelope_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
@@ -102,7 +56,7 @@ namespace TDW.TRAServer
                 private static Type   s_type     = typeof(TRACredentialEnvelope);
                 public string Name
                 {
-                    get { return "CredentialEnvelope"; }
+                    get { return "envelope"; }
                 }
                 public bool Optional
                 {
@@ -142,26 +96,26 @@ namespace TDW.TRAServer
                     return ret;
                 }
             }
-            internal static CredentialEnvelope_descriptor CredentialEnvelope = new CredentialEnvelope_descriptor();
+            internal static envelope_descriptor envelope = new envelope_descriptor();
             
-            internal class EncryptedCredentialContent_descriptor : IFieldDescriptor
+            internal class envelopeseal_descriptor : IFieldDescriptor
             {
                 private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
                 {
                     
                 };
-                private static string s_typename = "string";
-                private static Type   s_type     = typeof(string);
+                private static string s_typename = "TRACredentialEnvelopeSeal";
+                private static Type   s_type     = typeof(TRACredentialEnvelopeSeal);
                 public string Name
                 {
-                    get { return "EncryptedCredentialContent"; }
+                    get { return "envelopeseal"; }
                 }
                 public bool Optional
                 {
                     get
                     {
                         
-                        return true;
+                        return false;
                         
                     }
                 }
@@ -194,35 +148,30 @@ namespace TDW.TRAServer
                     return ret;
                 }
             }
-            internal static EncryptedCredentialContent_descriptor EncryptedCredentialContent = new EncryptedCredentialContent_descriptor();
+            internal static envelopeseal_descriptor envelopeseal = new envelopeseal_descriptor();
             
             #region ICellDescriptor
             public IEnumerable<string> GetFieldNames()
             {
                 
-                yield return "CredentialContent";
+                yield return "envelope";
                 
-                yield return "CredentialEnvelope";
-                
-                yield return "EncryptedCredentialContent";
+                yield return "envelopeseal";
                 
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
             {
-                int field_id = global::TDW.TRAServer.TDWCredential.FieldLookupTable.Lookup(fieldName);
+                int field_id = global::TDW.TRAServer.TRACredentialCell.FieldLookupTable.Lookup(fieldName);
                 if (field_id == -1)
                     Throw.undefined_field();
                 switch (field_id)
                 {
                     
                     case 0:
-                        return CredentialContent;
+                        return envelope;
                     
                     case 1:
-                        return CredentialEnvelope;
-                    
-                    case 2:
-                        return EncryptedCredentialContent;
+                        return envelopeseal;
                     
                 }
                 /* Should not reach here */
@@ -231,30 +180,28 @@ namespace TDW.TRAServer
             public IEnumerable<IFieldDescriptor> GetFieldDescriptors()
             {
                 
-                yield return CredentialContent;
+                yield return envelope;
                 
-                yield return CredentialEnvelope;
-                
-                yield return EncryptedCredentialContent;
+                yield return envelopeseal;
                 
             }
             ushort ICellDescriptor.CellType
             {
-                get { return (ushort)CellType.TDWCredential; }
+                get { return (ushort)CellType.TRACredentialCell; }
             }
             #endregion
             #region ITypeDescriptor
             public string TypeName
             {
-                get { return s_cellTypeName_TDWCredential; }
+                get { return s_cellTypeName_TRACredentialCell; }
             }
             public Type Type
             {
-                get { return s_cellType_TDWCredential; }
+                get { return s_cellType_TRACredentialCell; }
             }
             public bool IsOfType<T>()
             {
-                return typeof(T) == s_cellType_TDWCredential;
+                return typeof(T) == s_cellType_TRACredentialCell;
             }
             public bool IsList()
             {
@@ -274,11 +221,608 @@ namespace TDW.TRAServer
             }
             #endregion
         }
-        internal static readonly TDWCredential_descriptor s_cellDescriptor_TDWCredential = new TDWCredential_descriptor();
+        internal static readonly TRACredentialCell_descriptor s_cellDescriptor_TRACredentialCell = new TRACredentialCell_descriptor();
         /// <summary>
-        /// Get the cell descriptor for TDWCredential.
+        /// Get the cell descriptor for TRACredentialCell.
         /// </summary>
-        public static ICellDescriptor TDWCredential { get { return s_cellDescriptor_TDWCredential; } }
+        public static ICellDescriptor TRACredentialCell { get { return s_cellDescriptor_TRACredentialCell; } }
+        
+        internal static readonly Type   s_cellType_TRATimestampCell       = typeof(global::TDW.TRAServer.TRATimestampCell);
+        internal static readonly string s_cellTypeName_TRATimestampCell   = "TRATimestampCell";
+        internal class TRATimestampCell_descriptor : ICellDescriptor
+        {
+            private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+            {
+                
+            };
+            internal static bool check_attribute(IAttributeCollection attributes, string attributeKey, string attributeValue)
+            {
+                if (attributeKey == null)
+                    return true;
+                if (attributeValue == null)
+                    return attributes.Attributes.ContainsKey(attributeKey);
+                else
+                    return attributes.Attributes.ContainsKey(attributeKey) && attributes.Attributes[attributeKey] == attributeValue;
+            }
+            
+            internal class envelope_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "TRATimestampEnvelope";
+                private static Type   s_type     = typeof(TRATimestampEnvelope);
+                public string Name
+                {
+                    get { return "envelope"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return false;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static envelope_descriptor envelope = new envelope_descriptor();
+            
+            internal class envelopeseal_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "TRACredentialEnvelopeSeal";
+                private static Type   s_type     = typeof(TRACredentialEnvelopeSeal);
+                public string Name
+                {
+                    get { return "envelopeseal"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return false;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static envelopeseal_descriptor envelopeseal = new envelopeseal_descriptor();
+            
+            #region ICellDescriptor
+            public IEnumerable<string> GetFieldNames()
+            {
+                
+                yield return "envelope";
+                
+                yield return "envelopeseal";
+                
+            }
+            public IAttributeCollection GetFieldAttributes(string fieldName)
+            {
+                int field_id = global::TDW.TRAServer.TRATimestampCell.FieldLookupTable.Lookup(fieldName);
+                if (field_id == -1)
+                    Throw.undefined_field();
+                switch (field_id)
+                {
+                    
+                    case 0:
+                        return envelope;
+                    
+                    case 1:
+                        return envelopeseal;
+                    
+                }
+                /* Should not reach here */
+                throw new Exception("Internal error T6001");
+            }
+            public IEnumerable<IFieldDescriptor> GetFieldDescriptors()
+            {
+                
+                yield return envelope;
+                
+                yield return envelopeseal;
+                
+            }
+            ushort ICellDescriptor.CellType
+            {
+                get { return (ushort)CellType.TRATimestampCell; }
+            }
+            #endregion
+            #region ITypeDescriptor
+            public string TypeName
+            {
+                get { return s_cellTypeName_TRATimestampCell; }
+            }
+            public Type Type
+            {
+                get { return s_cellType_TRATimestampCell; }
+            }
+            public bool IsOfType<T>()
+            {
+                return typeof(T) == s_cellType_TRATimestampCell;
+            }
+            public bool IsList()
+            {
+                return false;
+            }
+            #endregion
+            #region IAttributeCollection
+            public IReadOnlyDictionary<string, string> Attributes
+            {
+                get { return s_attributes; }
+            }
+            public string GetAttributeValue(string attributeKey)
+            {
+                string ret = null;
+                s_attributes.TryGetValue(attributeKey, out ret);
+                return ret;
+            }
+            #endregion
+        }
+        internal static readonly TRATimestampCell_descriptor s_cellDescriptor_TRATimestampCell = new TRATimestampCell_descriptor();
+        /// <summary>
+        /// Get the cell descriptor for TRATimestampCell.
+        /// </summary>
+        public static ICellDescriptor TRATimestampCell { get { return s_cellDescriptor_TRATimestampCell; } }
+        
+        internal static readonly Type   s_cellType_TDWGeoLocationCell       = typeof(global::TDW.TRAServer.TDWGeoLocationCell);
+        internal static readonly string s_cellTypeName_TDWGeoLocationCell   = "TDWGeoLocationCell";
+        internal class TDWGeoLocationCell_descriptor : ICellDescriptor
+        {
+            private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+            {
+                
+            };
+            internal static bool check_attribute(IAttributeCollection attributes, string attributeKey, string attributeValue)
+            {
+                if (attributeKey == null)
+                    return true;
+                if (attributeValue == null)
+                    return attributes.Attributes.ContainsKey(attributeKey);
+                else
+                    return attributes.Attributes.ContainsKey(attributeKey) && attributes.Attributes[attributeKey] == attributeValue;
+            }
+            
+            internal class envelope_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "TRAGeoLocationEnvelope";
+                private static Type   s_type     = typeof(TRAGeoLocationEnvelope);
+                public string Name
+                {
+                    get { return "envelope"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return false;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static envelope_descriptor envelope = new envelope_descriptor();
+            
+            internal class envelopeseal_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "TRACredentialEnvelopeSeal";
+                private static Type   s_type     = typeof(TRACredentialEnvelopeSeal);
+                public string Name
+                {
+                    get { return "envelopeseal"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return false;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static envelopeseal_descriptor envelopeseal = new envelopeseal_descriptor();
+            
+            #region ICellDescriptor
+            public IEnumerable<string> GetFieldNames()
+            {
+                
+                yield return "envelope";
+                
+                yield return "envelopeseal";
+                
+            }
+            public IAttributeCollection GetFieldAttributes(string fieldName)
+            {
+                int field_id = global::TDW.TRAServer.TDWGeoLocationCell.FieldLookupTable.Lookup(fieldName);
+                if (field_id == -1)
+                    Throw.undefined_field();
+                switch (field_id)
+                {
+                    
+                    case 0:
+                        return envelope;
+                    
+                    case 1:
+                        return envelopeseal;
+                    
+                }
+                /* Should not reach here */
+                throw new Exception("Internal error T6001");
+            }
+            public IEnumerable<IFieldDescriptor> GetFieldDescriptors()
+            {
+                
+                yield return envelope;
+                
+                yield return envelopeseal;
+                
+            }
+            ushort ICellDescriptor.CellType
+            {
+                get { return (ushort)CellType.TDWGeoLocationCell; }
+            }
+            #endregion
+            #region ITypeDescriptor
+            public string TypeName
+            {
+                get { return s_cellTypeName_TDWGeoLocationCell; }
+            }
+            public Type Type
+            {
+                get { return s_cellType_TDWGeoLocationCell; }
+            }
+            public bool IsOfType<T>()
+            {
+                return typeof(T) == s_cellType_TDWGeoLocationCell;
+            }
+            public bool IsList()
+            {
+                return false;
+            }
+            #endregion
+            #region IAttributeCollection
+            public IReadOnlyDictionary<string, string> Attributes
+            {
+                get { return s_attributes; }
+            }
+            public string GetAttributeValue(string attributeKey)
+            {
+                string ret = null;
+                s_attributes.TryGetValue(attributeKey, out ret);
+                return ret;
+            }
+            #endregion
+        }
+        internal static readonly TDWGeoLocationCell_descriptor s_cellDescriptor_TDWGeoLocationCell = new TDWGeoLocationCell_descriptor();
+        /// <summary>
+        /// Get the cell descriptor for TDWGeoLocationCell.
+        /// </summary>
+        public static ICellDescriptor TDWGeoLocationCell { get { return s_cellDescriptor_TDWGeoLocationCell; } }
+        
+        internal static readonly Type   s_cellType_TRAPostalAddressCell       = typeof(global::TDW.TRAServer.TRAPostalAddressCell);
+        internal static readonly string s_cellTypeName_TRAPostalAddressCell   = "TRAPostalAddressCell";
+        internal class TRAPostalAddressCell_descriptor : ICellDescriptor
+        {
+            private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+            {
+                
+            };
+            internal static bool check_attribute(IAttributeCollection attributes, string attributeKey, string attributeValue)
+            {
+                if (attributeKey == null)
+                    return true;
+                if (attributeValue == null)
+                    return attributes.Attributes.ContainsKey(attributeKey);
+                else
+                    return attributes.Attributes.ContainsKey(attributeKey) && attributes.Attributes[attributeKey] == attributeValue;
+            }
+            
+            internal class envelope_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "TRAPostalAddressEnvelope";
+                private static Type   s_type     = typeof(TRAPostalAddressEnvelope);
+                public string Name
+                {
+                    get { return "envelope"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return false;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static envelope_descriptor envelope = new envelope_descriptor();
+            
+            internal class envelopeseal_descriptor : IFieldDescriptor
+            {
+                private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
+                {
+                    
+                };
+                private static string s_typename = "TRACredentialEnvelopeSeal";
+                private static Type   s_type     = typeof(TRACredentialEnvelopeSeal);
+                public string Name
+                {
+                    get { return "envelopeseal"; }
+                }
+                public bool Optional
+                {
+                    get
+                    {
+                        
+                        return false;
+                        
+                    }
+                }
+                public bool IsOfType<T>()
+                {
+                    return typeof(T) == Type;
+                }
+                public bool IsList()
+                {
+                    
+                    return false;
+                    
+                }
+                public string TypeName
+                {
+                    get { return s_typename; }
+                }
+                public Type Type
+                {
+                    get { return s_type; }
+                }
+                public IReadOnlyDictionary<string, string> Attributes
+                {
+                    get { return s_attributes; }
+                }
+                public string GetAttributeValue(string attributeKey)
+                {
+                    string ret = null;
+                    s_attributes.TryGetValue(attributeKey, out ret);
+                    return ret;
+                }
+            }
+            internal static envelopeseal_descriptor envelopeseal = new envelopeseal_descriptor();
+            
+            #region ICellDescriptor
+            public IEnumerable<string> GetFieldNames()
+            {
+                
+                yield return "envelope";
+                
+                yield return "envelopeseal";
+                
+            }
+            public IAttributeCollection GetFieldAttributes(string fieldName)
+            {
+                int field_id = global::TDW.TRAServer.TRAPostalAddressCell.FieldLookupTable.Lookup(fieldName);
+                if (field_id == -1)
+                    Throw.undefined_field();
+                switch (field_id)
+                {
+                    
+                    case 0:
+                        return envelope;
+                    
+                    case 1:
+                        return envelopeseal;
+                    
+                }
+                /* Should not reach here */
+                throw new Exception("Internal error T6001");
+            }
+            public IEnumerable<IFieldDescriptor> GetFieldDescriptors()
+            {
+                
+                yield return envelope;
+                
+                yield return envelopeseal;
+                
+            }
+            ushort ICellDescriptor.CellType
+            {
+                get { return (ushort)CellType.TRAPostalAddressCell; }
+            }
+            #endregion
+            #region ITypeDescriptor
+            public string TypeName
+            {
+                get { return s_cellTypeName_TRAPostalAddressCell; }
+            }
+            public Type Type
+            {
+                get { return s_cellType_TRAPostalAddressCell; }
+            }
+            public bool IsOfType<T>()
+            {
+                return typeof(T) == s_cellType_TRAPostalAddressCell;
+            }
+            public bool IsList()
+            {
+                return false;
+            }
+            #endregion
+            #region IAttributeCollection
+            public IReadOnlyDictionary<string, string> Attributes
+            {
+                get { return s_attributes; }
+            }
+            public string GetAttributeValue(string attributeKey)
+            {
+                string ret = null;
+                s_attributes.TryGetValue(attributeKey, out ret);
+                return ret;
+            }
+            #endregion
+        }
+        internal static readonly TRAPostalAddressCell_descriptor s_cellDescriptor_TRAPostalAddressCell = new TRAPostalAddressCell_descriptor();
+        /// <summary>
+        /// Get the cell descriptor for TRAPostalAddressCell.
+        /// </summary>
+        public static ICellDescriptor TRAPostalAddressCell { get { return s_cellDescriptor_TRAPostalAddressCell; } }
         
         /// <summary>
         /// Enumerates descriptors for all cells defined in the TSL.
@@ -288,7 +832,13 @@ namespace TDW.TRAServer
             get
             {
                 
-                yield return TDWCredential;
+                yield return TRACredentialCell;
+                
+                yield return TRATimestampCell;
+                
+                yield return TDWGeoLocationCell;
+                
+                yield return TRAPostalAddressCell;
                 
                 yield break;
             }
@@ -319,7 +869,13 @@ namespace TDW.TRAServer
             get
             {
                 
-                yield return "{{{string|List<string>|List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>}|{TRACredentialType|TRATrustLevel|TRAEncryptionFlag|long|string}}|{optional string|optional string|optional string|optional List<string>}|optional string}";
+                yield return "{{optional {string|List<string>|List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>}|optional string|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                
+                yield return "{{optional {string|List<string>|{long|DateTime|string}}|optional string|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                
+                yield return "{{optional {string|List<string>|{double|double}}|optional string|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                
+                yield return "{{optional {string|List<string>|{string|string|string|string|string|string}}|optional string|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
                 yield break;
             }

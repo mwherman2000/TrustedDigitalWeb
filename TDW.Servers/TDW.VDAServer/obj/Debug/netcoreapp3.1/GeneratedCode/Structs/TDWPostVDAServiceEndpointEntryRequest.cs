@@ -34,7 +34,7 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWPostVDAServiceEndpointEntryRequest with the specified parameters.
         ///</summary>
-        public TDWPostVDAServiceEndpointEntryRequest(TDWVDAPostInvocationParameters parms = default(TDWVDAPostInvocationParameters),TDWVDAServiceEndpointEntry entry = default(TDWVDAServiceEndpointEntry))
+        public TDWPostVDAServiceEndpointEntryRequest(TDWVDAPostInvocationParameters parms = default(TDWVDAPostInvocationParameters),TDWVDAServiceEndpointEntryParm entry = default(TDWVDAServiceEndpointEntryParm))
         {
             
             this.parms = parms;
@@ -70,7 +70,7 @@ namespace TDW.VDAServer
         
         public TDWVDAPostInvocationParameters parms;
         
-        public TDWVDAServiceEndpointEntry entry;
+        public TDWVDAServiceEndpointEntryParm entry;
         
         /// <summary>
         /// Converts the string representation of a TDWPostVDAServiceEndpointEntryRequest to its
@@ -131,7 +131,7 @@ namespace TDW.VDAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        entry_Accessor_Field = new TDWVDAServiceEndpointEntry_Accessor(null,
+                });        entry_Accessor_Field = new TDWVDAServiceEndpointEntryParm_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -260,12 +260,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}
                 }
             }
         }
-        TDWVDAServiceEndpointEntry_Accessor entry_Accessor_Field;
+        TDWVDAServiceEndpointEntryParm_Accessor entry_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field entry.
         ///</summary>
-        public unsafe TDWVDAServiceEndpointEntry_Accessor entry
+        public unsafe TDWVDAServiceEndpointEntryParm_Accessor entry
         {
             get
             {

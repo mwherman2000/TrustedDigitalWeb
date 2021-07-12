@@ -16,6 +16,29 @@ namespace TDW.TRAServer
     internal class ExternalParser
     {
         
+        internal static unsafe bool TryParse_DateTime(string s, out DateTime value)
+        {
+            DateTime value_type_value;
+            JArray jarray;
+            
+            {
+                
+                if (DateTime.TryParse(s, null, System.Globalization.DateTimeStyles.RoundtripKind, out value_type_value))
+                {
+                    value = value_type_value;
+                    return true;
+                }
+                if (s.EndsWith(" UTC", StringComparison.Ordinal) && DateTime.TryParse(s.Substring(0, s.Length - 4) + 'Z', null, System.Globalization.DateTimeStyles.RoundtripKind, out value_type_value))
+                {
+                    value = value_type_value;
+                    return true;
+                }
+                value  = default(DateTime);
+                return false;
+            }
+            
+        }
+        
         internal static unsafe bool TryParse_List_string(string s, out List<string> value)
         {
             List<string> value_type_value;
@@ -127,6 +150,98 @@ namespace TDW.TRAServer
             catch
             {
                 value = default(List<List<TRAKeyValuePair>>);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_TRACredentialContent_nullable(string s, out TRACredentialContent? value)
+        {
+            TRACredentialContent value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(TRACredentialContent?);
+                return true;
+            }
+            else if (TRACredentialContent.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(TRACredentialContent?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_TRAGeoLocationContent_nullable(string s, out TRAGeoLocationContent? value)
+        {
+            TRAGeoLocationContent value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(TRAGeoLocationContent?);
+                return true;
+            }
+            else if (TRAGeoLocationContent.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(TRAGeoLocationContent?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_TRAPostalAddressContent_nullable(string s, out TRAPostalAddressContent? value)
+        {
+            TRAPostalAddressContent value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(TRAPostalAddressContent?);
+                return true;
+            }
+            else if (TRAPostalAddressContent.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(TRAPostalAddressContent?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_TRATimestampContent_nullable(string s, out TRATimestampContent? value)
+        {
+            TRATimestampContent value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(TRATimestampContent?);
+                return true;
+            }
+            else if (TRATimestampContent.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(TRATimestampContent?);
                 return false;
             }
             

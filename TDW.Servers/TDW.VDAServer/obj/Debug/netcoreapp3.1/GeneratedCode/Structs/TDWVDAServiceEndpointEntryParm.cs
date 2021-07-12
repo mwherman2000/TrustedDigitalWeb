@@ -25,16 +25,16 @@ namespace TDW.VDAServer
 {
     
     /// <summary>
-    /// A .NET runtime object representation of TDWVDAServiceEndpointEntry defined in TSL.
+    /// A .NET runtime object representation of TDWVDAServiceEndpointEntryParm defined in TSL.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public partial struct TDWVDAServiceEndpointEntry
+    public partial struct TDWVDAServiceEndpointEntryParm
     {
         
         ///<summary>
-        ///Initializes a new instance of TDWVDAServiceEndpointEntry with the specified parameters.
+        ///Initializes a new instance of TDWVDAServiceEndpointEntryParm with the specified parameters.
         ///</summary>
-        public TDWVDAServiceEndpointEntry(TRAServiceType servicetype = default(TRAServiceType),long id = default(long),string udid = default(string),string url = default(string),long port = default(long),string controllerudid = default(string))
+        public TDWVDAServiceEndpointEntryParm(TRAServiceType servicetype = default(TRAServiceType),long id = default(long),string udid = default(string),string url = default(string),long port = default(long),string controllerudid = default(string))
         {
             
             this.servicetype = servicetype;
@@ -51,7 +51,7 @@ namespace TDW.VDAServer
             
         }
         
-        public static bool operator ==(TDWVDAServiceEndpointEntry a, TDWVDAServiceEndpointEntry b)
+        public static bool operator ==(TDWVDAServiceEndpointEntryParm a, TDWVDAServiceEndpointEntryParm b)
         {
             if (System.Object.ReferenceEquals(a, b))
             {
@@ -79,7 +79,7 @@ namespace TDW.VDAServer
                 ;
             
         }
-        public static bool operator !=(TDWVDAServiceEndpointEntry a, TDWVDAServiceEndpointEntry b)
+        public static bool operator !=(TDWVDAServiceEndpointEntryParm a, TDWVDAServiceEndpointEntryParm b)
         {
             return !(a == b);
         }
@@ -97,30 +97,30 @@ namespace TDW.VDAServer
         public string controllerudid;
         
         /// <summary>
-        /// Converts the string representation of a TDWVDAServiceEndpointEntry to its
+        /// Converts the string representation of a TDWVDAServiceEndpointEntryParm to its
         /// struct equivalent. A return value indicates whether the 
         /// operation succeeded.
         /// </summary>
         /// <param name="input">A string to convert.</param>
         /// <param name="value">
         /// When this method returns, contains the struct equivalent of the value contained 
-        /// in input, if the conversion succeeded, or default(TDWVDAServiceEndpointEntry) if the conversion
+        /// in input, if the conversion succeeded, or default(TDWVDAServiceEndpointEntryParm) if the conversion
         /// failed. The conversion fails if the input parameter is null or String.Empty, or is 
         /// not of the correct format. This parameter is passed uninitialized. 
         /// </param>
         /// <returns>True if input was converted successfully; otherwise, false.</returns>
-        public unsafe static bool TryParse(string input, out TDWVDAServiceEndpointEntry value)
+        public unsafe static bool TryParse(string input, out TDWVDAServiceEndpointEntryParm value)
         {
             try
             {
-                value = Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDAServiceEndpointEntry>(input);
+                value = Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDAServiceEndpointEntryParm>(input);
                 return true;
             }
-            catch { value = default(TDWVDAServiceEndpointEntry); return false; }
+            catch { value = default(TDWVDAServiceEndpointEntryParm); return false; }
         }
-        public static TDWVDAServiceEndpointEntry Parse(string input)
+        public static TDWVDAServiceEndpointEntryParm Parse(string input)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDAServiceEndpointEntry>(input);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDAServiceEndpointEntryParm>(input);
         }
         /// <summary>
         /// Serializes this object to a Json string.
@@ -132,16 +132,16 @@ namespace TDW.VDAServer
         }
     }
     /// <summary>
-    /// Provides in-place operations of TDWVDAServiceEndpointEntry defined in TSL.
+    /// Provides in-place operations of TDWVDAServiceEndpointEntryParm defined in TSL.
     /// </summary>
-    public unsafe partial class TDWVDAServiceEndpointEntry_Accessor : IAccessor
+    public unsafe partial class TDWVDAServiceEndpointEntryParm_Accessor : IAccessor
     {
         ///<summary>
         ///The pointer to the content of the object.
         ///</summary>
         internal byte* m_ptr;
         internal long m_cellId;
-        internal unsafe TDWVDAServiceEndpointEntry_Accessor(byte* _CellPtr
+        internal unsafe TDWVDAServiceEndpointEntryParm_Accessor(byte* _CellPtr
             
             , ResizeFunctionDelegate func
             )
@@ -446,10 +446,10 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             }
         }
         
-        public static unsafe implicit operator TDWVDAServiceEndpointEntry(TDWVDAServiceEndpointEntry_Accessor accessor)
+        public static unsafe implicit operator TDWVDAServiceEndpointEntryParm(TDWVDAServiceEndpointEntryParm_Accessor accessor)
         {
             
-            return new TDWVDAServiceEndpointEntry(
+            return new TDWVDAServiceEndpointEntryParm(
                 
                         accessor.servicetype,
                         accessor.id,
@@ -460,7 +460,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 );
         }
         
-        public unsafe static implicit operator TDWVDAServiceEndpointEntry_Accessor(TDWVDAServiceEndpointEntry field)
+        public unsafe static implicit operator TDWVDAServiceEndpointEntryParm_Accessor(TDWVDAServiceEndpointEntryParm field)
         {
             byte* targetPtr = null;
             
@@ -557,14 +557,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             targetPtr += sizeof(int);
         }
 
-            }TDWVDAServiceEndpointEntry_Accessor ret;
+            }TDWVDAServiceEndpointEntryParm_Accessor ret;
             
-            ret = new TDWVDAServiceEndpointEntry_Accessor(tmpcellptr, null);
+            ret = new TDWVDAServiceEndpointEntryParm_Accessor(tmpcellptr, null);
             
             return ret;
         }
         
-        public static bool operator ==(TDWVDAServiceEndpointEntry_Accessor a, TDWVDAServiceEndpointEntry_Accessor b)
+        public static bool operator ==(TDWVDAServiceEndpointEntryParm_Accessor a, TDWVDAServiceEndpointEntryParm_Accessor b)
         {
             if (ReferenceEquals(a, b))
                 return true;
@@ -584,7 +584,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
             if(lengthA != lengthB) return false;
             return Memory.Compare(a.m_ptr,b.m_ptr,lengthA);
         }
-        public static bool operator != (TDWVDAServiceEndpointEntry_Accessor a, TDWVDAServiceEndpointEntry_Accessor b)
+        public static bool operator != (TDWVDAServiceEndpointEntryParm_Accessor a, TDWVDAServiceEndpointEntryParm_Accessor b)
         {
             return !(a == b);
         }

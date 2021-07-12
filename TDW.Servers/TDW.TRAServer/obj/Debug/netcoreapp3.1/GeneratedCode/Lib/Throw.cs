@@ -24,6 +24,24 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'long' not compatible with the target field.");
         }
         
+        internal static void parse_double(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into double.");
+        }
+        internal static void incompatible_with_double()
+        {
+            throw new DataTypeIncompatibleException("Data type 'double' not compatible with the target field.");
+        }
+        
+        internal static void parse_DateTime(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into DateTime.");
+        }
+        internal static void incompatible_with_DateTime()
+        {
+            throw new DataTypeIncompatibleException("Data type 'DateTime' not compatible with the target field.");
+        }
+        
         internal static void parse_string(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into string.");
@@ -78,15 +96,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'TRACredentialContent' not compatible with the target field.");
         }
         
-        internal static void parse_TRACredentialCore(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialCore.");
-        }
-        internal static void incompatible_with_TRACredentialCore()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRACredentialCore' not compatible with the target field.");
-        }
-        
         internal static void parse_TRACredentialEnvelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialEnvelope.");
@@ -96,13 +105,49 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'TRACredentialEnvelope' not compatible with the target field.");
         }
         
-        internal static void parse_TRACredentialWrapper(string value)
+        internal static void parse_TRACredentialEnvelopeSeal(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialWrapper.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialEnvelopeSeal.");
         }
-        internal static void incompatible_with_TRACredentialWrapper()
+        internal static void incompatible_with_TRACredentialEnvelopeSeal()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRACredentialWrapper' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialEnvelopeSeal' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredentialMetadata(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialMetadata.");
+        }
+        internal static void incompatible_with_TRACredentialMetadata()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialMetadata' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAGeoLocationClaims(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocationClaims.");
+        }
+        internal static void incompatible_with_TRAGeoLocationClaims()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocationClaims' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAGeoLocationContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocationContent.");
+        }
+        internal static void incompatible_with_TRAGeoLocationContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocationContent' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAGeoLocationEnvelope(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocationEnvelope.");
+        }
+        internal static void incompatible_with_TRAGeoLocationEnvelope()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocationEnvelope' not compatible with the target field.");
         }
         
         internal static void parse_TRAKeyValuePair(string value)
@@ -112,6 +157,60 @@ namespace TDW.TRAServer
         internal static void incompatible_with_TRAKeyValuePair()
         {
             throw new DataTypeIncompatibleException("Data type 'TRAKeyValuePair' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAPostalAddressClaims(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddressClaims.");
+        }
+        internal static void incompatible_with_TRAPostalAddressClaims()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddressClaims' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAPostalAddressContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddressContent.");
+        }
+        internal static void incompatible_with_TRAPostalAddressContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddressContent' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAPostalAddressEnvelope(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddressEnvelope.");
+        }
+        internal static void incompatible_with_TRAPostalAddressEnvelope()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddressEnvelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRATimestampClaims(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestampClaims.");
+        }
+        internal static void incompatible_with_TRATimestampClaims()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRATimestampClaims' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRATimestampContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestampContent.");
+        }
+        internal static void incompatible_with_TRATimestampContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRATimestampContent' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRATimestampEnvelope(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestampEnvelope.");
+        }
+        internal static void incompatible_with_TRATimestampEnvelope()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRATimestampEnvelope' not compatible with the target field.");
         }
         
         internal static void parse_TRACredentialType(string value)
@@ -148,6 +247,42 @@ namespace TDW.TRAServer
         internal static void incompatible_with_List_List_TRAKeyValuePair()
         {
             throw new DataTypeIncompatibleException("Data type 'List<List<TRAKeyValuePair>>' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredentialContent_nullable(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialContent?.");
+        }
+        internal static void incompatible_with_TRACredentialContent_nullable()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialContent?' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAGeoLocationContent_nullable(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocationContent?.");
+        }
+        internal static void incompatible_with_TRAGeoLocationContent_nullable()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocationContent?' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAPostalAddressContent_nullable(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddressContent?.");
+        }
+        internal static void incompatible_with_TRAPostalAddressContent_nullable()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddressContent?' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRATimestampContent_nullable(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestampContent?.");
+        }
+        internal static void incompatible_with_TRATimestampContent_nullable()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRATimestampContent?' not compatible with the target field.");
         }
         
         internal static void data_type_incompatible_with_list(string type)

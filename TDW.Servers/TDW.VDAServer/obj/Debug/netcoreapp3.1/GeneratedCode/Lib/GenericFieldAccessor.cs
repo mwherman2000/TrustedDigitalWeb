@@ -37,7 +37,7 @@ namespace TDW.VDAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRACredentialCore = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRACredentialContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
@@ -48,31 +48,37 @@ namespace TDW.VDAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRACredentialWrapper = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRACredentialMetadata = new Dictionary<string, uint>()
         {
             
             {"credtype" , 0}
             ,
-            {"trustLevel" , 1}
+            {"version" , 1}
             ,
-            {"encryptionFlag" , 2}
+            {"trustLevel" , 2}
             ,
-            {"version" , 3}
+            {"encryptionFlag" , 3}
             ,
             {"notaryudid" , 4}
-            
-        };
-        
-        static Dictionary<string, uint> FieldLookupTable_TRACredentialContent = new Dictionary<string, uint>()
-        {
-            
-            {"core" , 0}
             ,
-            {"wrapper" , 1}
+            {"name" , 5}
+            ,
+            {"comment" , 6}
             
         };
         
         static Dictionary<string, uint> FieldLookupTable_TRACredentialEnvelope = new Dictionary<string, uint>()
+        {
+            
+            {"content" , 0}
+            ,
+            {"encryptedcontent" , 1}
+            ,
+            {"metadata" , 2}
+            
+        };
+        
+        static Dictionary<string, uint> FieldLookupTable_TRACredentialEnvelopeSeal = new Dictionary<string, uint>()
         {
             
             {"hashedThumbprint64" , 0}
@@ -85,33 +91,42 @@ namespace TDW.VDAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TDWVDAAccountEntryCore = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TDWVDAAccountEntryClaims = new Dictionary<string, uint>()
         {
             
-            {"id" , 0}
+            {"walletname" , 0}
             ,
-            {"udid" , 1}
+            {"walletpassword" , 1}
             ,
-            {"walletname" , 2}
+            {"walletaccountname" , 2}
             ,
-            {"walletpassword" , 3}
-            ,
-            {"walletaccountname" , 4}
-            ,
-            {"ledgeraddress" , 5}
+            {"ledgeraddress" , 3}
             
         };
         
         static Dictionary<string, uint> FieldLookupTable_TDWVDAAccountEntryContent = new Dictionary<string, uint>()
         {
             
-            {"core" , 0}
+            {"udid" , 0}
             ,
-            {"wrapper" , 1}
+            {"context" , 1}
+            ,
+            {"claims" , 2}
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TDWVDASmartContractEntryCore = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TDWVDAAccountEntryEnvelope = new Dictionary<string, uint>()
+        {
+            
+            {"content" , 0}
+            ,
+            {"encryptedcontent" , 1}
+            ,
+            {"metadata" , 2}
+            
+        };
+        
+        static Dictionary<string, uint> FieldLookupTable_TDWVDASmartContractEntryClaims = new Dictionary<string, uint>()
         {
             
             {"smartcontractledgeraddress" , 0}
@@ -120,7 +135,29 @@ namespace TDW.VDAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TDWVDAServiceEndpointEntry = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TDWVDASmartContractEntryContent = new Dictionary<string, uint>()
+        {
+            
+            {"udid" , 0}
+            ,
+            {"context" , 1}
+            ,
+            {"claims" , 2}
+            
+        };
+        
+        static Dictionary<string, uint> FieldLookupTable_TDWVDASmartContractEntryEnvelope = new Dictionary<string, uint>()
+        {
+            
+            {"content" , 0}
+            ,
+            {"encryptedcontent" , 1}
+            ,
+            {"metadata" , 2}
+            
+        };
+        
+        static Dictionary<string, uint> FieldLookupTable_TDWVDAServiceEndpointEntryParm = new Dictionary<string, uint>()
         {
             
             {"servicetype" , 0}
@@ -137,7 +174,7 @@ namespace TDW.VDAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TDWVDARevocationListEntry = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TDWVDARevocationListEntryParm = new Dictionary<string, uint>()
         {
             
             {"revokeraddress" , 0}
@@ -160,7 +197,7 @@ namespace TDW.VDAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TDWVDAIdentityRegistryEntry = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TDWVDAIdentityRegistryEntryParm = new Dictionary<string, uint>()
         {
             
             {"id" , 0}
@@ -589,14 +626,14 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRACredentialCore_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRACredentialContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialCore.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredentialContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -608,7 +645,7 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialCore.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredentialContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -648,14 +685,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TRACredentialCore_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRACredentialContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialCore.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredentialContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -666,7 +703,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialCore.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredentialContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -688,14 +725,14 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRACredentialWrapper_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRACredentialMetadata_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialWrapper.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredentialMetadata.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -707,7 +744,7 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialWrapper.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredentialMetadata.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -725,6 +762,17 @@ namespace TDW.VDAServer
                 
                 case 1:
                     {
+                        long conversion_result = TypeConverter<T>.ConvertTo_long(value);
+                        
+            {
+                accessor.version = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 2:
+                    {
                         TRATrustLevel conversion_result = TypeConverter<T>.ConvertTo_TRATrustLevel(value);
                         
             {
@@ -734,23 +782,12 @@ namespace TDW.VDAServer
                         break;
                     }
                 
-                case 2:
+                case 3:
                     {
                         TRAEncryptionFlag conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptionFlag(value);
                         
             {
                 accessor.encryptionFlag = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 3:
-                    {
-                        long conversion_result = TypeConverter<T>.ConvertTo_long(value);
-                        
-            {
-                accessor.version = conversion_result;
             }
             
                         break;
@@ -767,16 +804,44 @@ namespace TDW.VDAServer
                         break;
                     }
                 
+                case 5:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.name = conversion_result;
+                else
+                    accessor.Remove_name();
+            }
+            
+                        break;
+                    }
+                
+                case 6:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.comment = conversion_result;
+                else
+                    accessor.Remove_comment();
+            }
+            
+                        break;
+                    }
+                
             }
         }
-        internal static T GetField<T>(TRACredentialWrapper_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRACredentialMetadata_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialWrapper.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredentialMetadata.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -787,7 +852,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialWrapper.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredentialMetadata.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -797,117 +862,27 @@ namespace TDW.VDAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRATrustLevel(accessor.trustLevel);
+                    return TypeConverter<T>.ConvertFrom_long(accessor.version);
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TRAEncryptionFlag(accessor.encryptionFlag);
+                    return TypeConverter<T>.ConvertFrom_TRATrustLevel(accessor.trustLevel);
                     break;
                 
                 case 3:
-                    return TypeConverter<T>.ConvertFrom_long(accessor.version);
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptionFlag(accessor.encryptionFlag);
                     break;
                 
                 case 4:
                     return TypeConverter<T>.ConvertFrom_string(accessor.notaryudid);
                     break;
                 
-            }
-            /* Should not reach here */
-            throw new Exception("Internal error T5008");
-        }
-        
-        internal static void SetField<T>(TRACredentialContent_Accessor accessor, string fieldName, int field_name_idx, T value)
-        {
-            uint member_id;
-            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
-            if (-1 != field_divider_idx)
-            {
-                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialContent.TryGetValue(member_name_string, out member_id))
-                    Throw.undefined_field();
-                switch (member_id)
-                {
-                    
-                    case 0:
-                        GenericFieldAccessor.SetField(accessor.core, fieldName, field_divider_idx + 1, value);
-                        break;
-                    
-                    case 1:
-                        GenericFieldAccessor.SetField(accessor.wrapper, fieldName, field_divider_idx + 1, value);
-                        break;
-                    
-                    default:
-                        Throw.member_access_on_non_struct__field(member_name_string);
-                        break;
-                }
-                return;
-            }
-            fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialContent.TryGetValue(fieldName, out member_id))
-                Throw.undefined_field();
-            switch (member_id)
-            {
-                
-                case 0:
-                    {
-                        TRACredentialCore conversion_result = TypeConverter<T>.ConvertTo_TRACredentialCore(value);
-                        
-            {
-                accessor.core = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 1:
-                    {
-                        TRACredentialWrapper conversion_result = TypeConverter<T>.ConvertTo_TRACredentialWrapper(value);
-                        
-            {
-                accessor.wrapper = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-            }
-        }
-        internal static T GetField<T>(TRACredentialContent_Accessor accessor, string fieldName, int field_name_idx)
-        {
-            uint member_id;
-            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
-            if (-1 != field_divider_idx)
-            {
-                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialContent.TryGetValue(member_name_string, out member_id))
-                    Throw.undefined_field();
-                switch (member_id)
-                {
-                    
-                    case 0:
-                        return GenericFieldAccessor.GetField<T>(accessor.core, fieldName, field_divider_idx + 1);
-                    
-                    case 1:
-                        return GenericFieldAccessor.GetField<T>(accessor.wrapper, fieldName, field_divider_idx + 1);
-                    
-                    default:
-                        Throw.member_access_on_non_struct__field(member_name_string);
-                        break;
-                }
-            }
-            fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialContent.TryGetValue(fieldName, out member_id))
-                Throw.undefined_field();
-            switch (member_id)
-            {
-                
-                case 0:
-                    return TypeConverter<T>.ConvertFrom_TRACredentialCore(accessor.core);
+                case 5:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.name);
                     break;
                 
-                case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredentialWrapper(accessor.wrapper);
+                case 6:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.comment);
                     break;
                 
             }
@@ -927,6 +902,14 @@ namespace TDW.VDAServer
                 switch (member_id)
                 {
                     
+                    case 0:
+                        GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
+                    case 2:
+                        GenericFieldAccessor.SetField(accessor.metadata, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -935,6 +918,117 @@ namespace TDW.VDAServer
             }
             fieldName = fieldName.Substring(field_name_idx);
             if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        TRACredentialContent? conversion_result = TypeConverter<T>.ConvertTo_TRACredentialContent_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.content = conversion_result.Value;
+                else
+                    accessor.Remove_content();
+            }
+            
+                        break;
+                    }
+                
+                case 1:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.encryptedcontent = conversion_result;
+                else
+                    accessor.Remove_encryptedcontent();
+            }
+            
+                        break;
+                    }
+                
+                case 2:
+                    {
+                        TRACredentialMetadata conversion_result = TypeConverter<T>.ConvertTo_TRACredentialMetadata(value);
+                        
+            {
+                accessor.metadata = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(TRACredentialEnvelope_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 0:
+                        return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
+                    
+                    case 2:
+                        return GenericFieldAccessor.GetField<T>(accessor.metadata, fieldName, field_divider_idx + 1);
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_TRACredentialContent_nullable(accessor.content);
+                    break;
+                
+                case 1:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
+                    break;
+                
+                case 2:
+                    return TypeConverter<T>.ConvertFrom_TRACredentialMetadata(accessor.metadata);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
+        internal static void SetField<T>(TRACredentialEnvelopeSeal_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRACredentialEnvelopeSeal.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRACredentialEnvelopeSeal.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -997,14 +1091,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TRACredentialEnvelope_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRACredentialEnvelopeSeal_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredentialEnvelopeSeal.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1015,7 +1109,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredentialEnvelopeSeal.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1041,14 +1135,14 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TDWVDAAccountEntryCore_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TDWVDAAccountEntryClaims_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TDWVDAAccountEntryCore.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TDWVDAAccountEntryClaims.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1060,34 +1154,12 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TDWVDAAccountEntryCore.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TDWVDAAccountEntryClaims.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
                 
                 case 0:
-                    {
-                        long conversion_result = TypeConverter<T>.ConvertTo_long(value);
-                        
-            {
-                accessor.id = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                accessor.udid = conversion_result;
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -1098,7 +1170,7 @@ namespace TDW.VDAServer
                         break;
                     }
                 
-                case 3:
+                case 1:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -1109,7 +1181,7 @@ namespace TDW.VDAServer
                         break;
                     }
                 
-                case 4:
+                case 2:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -1120,7 +1192,7 @@ namespace TDW.VDAServer
                         break;
                     }
                 
-                case 5:
+                case 3:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -1133,14 +1205,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TDWVDAAccountEntryCore_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TDWVDAAccountEntryClaims_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TDWVDAAccountEntryCore.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TDWVDAAccountEntryClaims.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1151,32 +1223,24 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TDWVDAAccountEntryCore.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TDWVDAAccountEntryClaims.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_long(accessor.id);
-                    break;
-                
-                case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.udid);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_string(accessor.walletname);
                     break;
                 
-                case 3:
+                case 1:
                     return TypeConverter<T>.ConvertFrom_string(accessor.walletpassword);
                     break;
                 
-                case 4:
+                case 2:
                     return TypeConverter<T>.ConvertFrom_string(accessor.walletaccountname);
                     break;
                 
-                case 5:
+                case 3:
                     return TypeConverter<T>.ConvertFrom_string(accessor.ledgeraddress);
                     break;
                 
@@ -1197,12 +1261,8 @@ namespace TDW.VDAServer
                 switch (member_id)
                 {
                     
-                    case 0:
-                        GenericFieldAccessor.SetField(accessor.core, fieldName, field_divider_idx + 1, value);
-                        break;
-                    
-                    case 1:
-                        GenericFieldAccessor.SetField(accessor.wrapper, fieldName, field_divider_idx + 1, value);
+                    case 2:
+                        GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
                     default:
@@ -1219,10 +1279,10 @@ namespace TDW.VDAServer
                 
                 case 0:
                     {
-                        TDWVDAAccountEntryCore conversion_result = TypeConverter<T>.ConvertTo_TDWVDAAccountEntryCore(value);
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
             {
-                accessor.core = conversion_result;
+                accessor.udid = conversion_result;
             }
             
                         break;
@@ -1230,10 +1290,21 @@ namespace TDW.VDAServer
                 
                 case 1:
                     {
-                        TRACredentialWrapper conversion_result = TypeConverter<T>.ConvertTo_TRACredentialWrapper(value);
+                        List<string> conversion_result = TypeConverter<T>.ConvertTo_List_string(value);
                         
             {
-                accessor.wrapper = conversion_result;
+                accessor.context = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 2:
+                    {
+                        TDWVDAAccountEntryClaims conversion_result = TypeConverter<T>.ConvertTo_TDWVDAAccountEntryClaims(value);
+                        
+            {
+                accessor.claims = conversion_result;
             }
             
                         break;
@@ -1253,11 +1324,8 @@ namespace TDW.VDAServer
                 switch (member_id)
                 {
                     
-                    case 0:
-                        return GenericFieldAccessor.GetField<T>(accessor.core, fieldName, field_divider_idx + 1);
-                    
-                    case 1:
-                        return GenericFieldAccessor.GetField<T>(accessor.wrapper, fieldName, field_divider_idx + 1);
+                    case 2:
+                        return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
@@ -1271,11 +1339,15 @@ namespace TDW.VDAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TDWVDAAccountEntryCore(accessor.core);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.udid);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredentialWrapper(accessor.wrapper);
+                    return TypeConverter<T>.ConvertFrom_List_string(accessor.context);
+                    break;
+                
+                case 2:
+                    return TypeConverter<T>.ConvertFrom_TDWVDAAccountEntryClaims(accessor.claims);
                     break;
                 
             }
@@ -1283,14 +1355,133 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TDWVDASmartContractEntryCore_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TDWVDAAccountEntryEnvelope_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TDWVDASmartContractEntryCore.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TDWVDAAccountEntryEnvelope.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 0:
+                        GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
+                    case 2:
+                        GenericFieldAccessor.SetField(accessor.metadata, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TDWVDAAccountEntryEnvelope.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        TDWVDAAccountEntryContent? conversion_result = TypeConverter<T>.ConvertTo_TDWVDAAccountEntryContent_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.content = conversion_result.Value;
+                else
+                    accessor.Remove_content();
+            }
+            
+                        break;
+                    }
+                
+                case 1:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.encryptedcontent = conversion_result;
+                else
+                    accessor.Remove_encryptedcontent();
+            }
+            
+                        break;
+                    }
+                
+                case 2:
+                    {
+                        TRACredentialMetadata conversion_result = TypeConverter<T>.ConvertTo_TRACredentialMetadata(value);
+                        
+            {
+                accessor.metadata = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(TDWVDAAccountEntryEnvelope_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TDWVDAAccountEntryEnvelope.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 0:
+                        return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
+                    
+                    case 2:
+                        return GenericFieldAccessor.GetField<T>(accessor.metadata, fieldName, field_divider_idx + 1);
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TDWVDAAccountEntryEnvelope.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_TDWVDAAccountEntryContent_nullable(accessor.content);
+                    break;
+                
+                case 1:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
+                    break;
+                
+                case 2:
+                    return TypeConverter<T>.ConvertFrom_TRACredentialMetadata(accessor.metadata);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
+        internal static void SetField<T>(TDWVDASmartContractEntryClaims_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TDWVDASmartContractEntryClaims.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1302,7 +1493,7 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TDWVDASmartContractEntryCore.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TDWVDASmartContractEntryClaims.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1331,14 +1522,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TDWVDASmartContractEntryCore_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TDWVDASmartContractEntryClaims_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TDWVDASmartContractEntryCore.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TDWVDASmartContractEntryClaims.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1349,7 +1540,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TDWVDASmartContractEntryCore.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TDWVDASmartContractEntryClaims.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1367,14 +1558,239 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TDWVDAServiceEndpointEntry_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TDWVDASmartContractEntryContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TDWVDAServiceEndpointEntry.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TDWVDASmartContractEntryContent.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 2:
+                        GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TDWVDASmartContractEntryContent.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                accessor.udid = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 1:
+                    {
+                        List<string> conversion_result = TypeConverter<T>.ConvertTo_List_string(value);
+                        
+            {
+                accessor.context = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 2:
+                    {
+                        TDWVDASmartContractEntryClaims conversion_result = TypeConverter<T>.ConvertTo_TDWVDASmartContractEntryClaims(value);
+                        
+            {
+                accessor.claims = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(TDWVDASmartContractEntryContent_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TDWVDASmartContractEntryContent.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 2:
+                        return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TDWVDASmartContractEntryContent.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.udid);
+                    break;
+                
+                case 1:
+                    return TypeConverter<T>.ConvertFrom_List_string(accessor.context);
+                    break;
+                
+                case 2:
+                    return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryClaims(accessor.claims);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
+        internal static void SetField<T>(TDWVDASmartContractEntryEnvelope_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TDWVDASmartContractEntryEnvelope.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 0:
+                        GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
+                    case 2:
+                        GenericFieldAccessor.SetField(accessor.metadata, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TDWVDASmartContractEntryEnvelope.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        TDWVDASmartContractEntryContent? conversion_result = TypeConverter<T>.ConvertTo_TDWVDASmartContractEntryContent_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.content = conversion_result.Value;
+                else
+                    accessor.Remove_content();
+            }
+            
+                        break;
+                    }
+                
+                case 1:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.encryptedcontent = conversion_result;
+                else
+                    accessor.Remove_encryptedcontent();
+            }
+            
+                        break;
+                    }
+                
+                case 2:
+                    {
+                        TRACredentialMetadata conversion_result = TypeConverter<T>.ConvertTo_TRACredentialMetadata(value);
+                        
+            {
+                accessor.metadata = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(TDWVDASmartContractEntryEnvelope_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TDWVDASmartContractEntryEnvelope.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    case 0:
+                        return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
+                    
+                    case 2:
+                        return GenericFieldAccessor.GetField<T>(accessor.metadata, fieldName, field_divider_idx + 1);
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TDWVDASmartContractEntryEnvelope.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(accessor.content);
+                    break;
+                
+                case 1:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
+                    break;
+                
+                case 2:
+                    return TypeConverter<T>.ConvertFrom_TRACredentialMetadata(accessor.metadata);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
+        internal static void SetField<T>(TDWVDAServiceEndpointEntryParm_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TDWVDAServiceEndpointEntryParm.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1386,7 +1802,7 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TDWVDAServiceEndpointEntry.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TDWVDAServiceEndpointEntryParm.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1459,14 +1875,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TDWVDAServiceEndpointEntry_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TDWVDAServiceEndpointEntryParm_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TDWVDAServiceEndpointEntry.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TDWVDAServiceEndpointEntryParm.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1477,7 +1893,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TDWVDAServiceEndpointEntry.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TDWVDAServiceEndpointEntryParm.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1511,14 +1927,14 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TDWVDARevocationListEntry_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TDWVDARevocationListEntryParm_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TDWVDARevocationListEntry.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TDWVDARevocationListEntryParm.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1530,7 +1946,7 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TDWVDARevocationListEntry.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TDWVDARevocationListEntryParm.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1636,14 +2052,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TDWVDARevocationListEntry_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TDWVDARevocationListEntryParm_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TDWVDARevocationListEntry.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TDWVDARevocationListEntryParm.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1654,7 +2070,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TDWVDARevocationListEntry.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TDWVDARevocationListEntryParm.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1700,14 +2116,14 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TDWVDAIdentityRegistryEntry_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TDWVDAIdentityRegistryEntryParm_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TDWVDAIdentityRegistryEntry.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TDWVDAIdentityRegistryEntryParm.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1719,7 +2135,7 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TDWVDAIdentityRegistryEntry.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TDWVDAIdentityRegistryEntryParm.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1814,14 +2230,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TDWVDAIdentityRegistryEntry_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TDWVDAIdentityRegistryEntryParm_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TDWVDAIdentityRegistryEntry.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TDWVDAIdentityRegistryEntryParm.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1832,7 +2248,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TDWVDAIdentityRegistryEntry.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TDWVDAIdentityRegistryEntryParm.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -2277,7 +2693,7 @@ namespace TDW.VDAServer
                 
                 case 1:
                     {
-                        TDWVDAIdentityRegistryEntry conversion_result = TypeConverter<T>.ConvertTo_TDWVDAIdentityRegistryEntry(value);
+                        TDWVDAIdentityRegistryEntryParm conversion_result = TypeConverter<T>.ConvertTo_TDWVDAIdentityRegistryEntryParm(value);
                         
             {
                 accessor.entry = conversion_result;
@@ -2322,7 +2738,7 @@ namespace TDW.VDAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TDWVDAIdentityRegistryEntry(accessor.entry);
+                    return TypeConverter<T>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(accessor.entry);
                     break;
                 
             }
@@ -2849,7 +3265,7 @@ namespace TDW.VDAServer
                 
                 case 1:
                     {
-                        TDWVDAServiceEndpointEntry conversion_result = TypeConverter<T>.ConvertTo_TDWVDAServiceEndpointEntry(value);
+                        TDWVDAServiceEndpointEntryParm conversion_result = TypeConverter<T>.ConvertTo_TDWVDAServiceEndpointEntryParm(value);
                         
             {
                 accessor.entry = conversion_result;
@@ -2894,7 +3310,7 @@ namespace TDW.VDAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TDWVDAServiceEndpointEntry(accessor.entry);
+                    return TypeConverter<T>.ConvertFrom_TDWVDAServiceEndpointEntryParm(accessor.entry);
                     break;
                 
             }
@@ -3001,7 +3417,7 @@ namespace TDW.VDAServer
                 
                 case 0:
                     {
-                        TDWVDAServiceEndpointEntry conversion_result = TypeConverter<T>.ConvertTo_TDWVDAServiceEndpointEntry(value);
+                        TDWVDAServiceEndpointEntryParm conversion_result = TypeConverter<T>.ConvertTo_TDWVDAServiceEndpointEntryParm(value);
                         
             {
                 accessor.entry = conversion_result;
@@ -3039,7 +3455,7 @@ namespace TDW.VDAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TDWVDAServiceEndpointEntry(accessor.entry);
+                    return TypeConverter<T>.ConvertFrom_TDWVDAServiceEndpointEntryParm(accessor.entry);
                     break;
                 
             }
@@ -3092,7 +3508,7 @@ namespace TDW.VDAServer
                 
                 case 1:
                     {
-                        TDWVDARevocationListEntry conversion_result = TypeConverter<T>.ConvertTo_TDWVDARevocationListEntry(value);
+                        TDWVDARevocationListEntryParm conversion_result = TypeConverter<T>.ConvertTo_TDWVDARevocationListEntryParm(value);
                         
             {
                 accessor.entry = conversion_result;
@@ -3137,7 +3553,7 @@ namespace TDW.VDAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TDWVDARevocationListEntry(accessor.entry);
+                    return TypeConverter<T>.ConvertFrom_TDWVDARevocationListEntryParm(accessor.entry);
                     break;
                 
             }
@@ -3244,7 +3660,7 @@ namespace TDW.VDAServer
                 
                 case 0:
                     {
-                        TDWVDARevocationListEntry conversion_result = TypeConverter<T>.ConvertTo_TDWVDARevocationListEntry(value);
+                        TDWVDARevocationListEntryParm conversion_result = TypeConverter<T>.ConvertTo_TDWVDARevocationListEntryParm(value);
                         
             {
                 accessor.entry = conversion_result;
@@ -3282,7 +3698,7 @@ namespace TDW.VDAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TDWVDARevocationListEntry(accessor.entry);
+                    return TypeConverter<T>.ConvertFrom_TDWVDARevocationListEntryParm(accessor.entry);
                     break;
                 
             }
@@ -3527,7 +3943,7 @@ namespace TDW.VDAServer
                 
                 case 0:
                     {
-                        TDWVDAAccountEntryCore conversion_result = TypeConverter<T>.ConvertTo_TDWVDAAccountEntryCore(value);
+                        TDWVDAAccountEntryClaims conversion_result = TypeConverter<T>.ConvertTo_TDWVDAAccountEntryClaims(value);
                         
             {
                 accessor.entry = conversion_result;
@@ -3565,7 +3981,7 @@ namespace TDW.VDAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TDWVDAAccountEntryCore(accessor.entry);
+                    return TypeConverter<T>.ConvertFrom_TDWVDAAccountEntryClaims(accessor.entry);
                     break;
                 
             }
@@ -3810,7 +4226,7 @@ namespace TDW.VDAServer
                 
                 case 0:
                     {
-                        TDWVDASmartContractEntryCore conversion_result = TypeConverter<T>.ConvertTo_TDWVDASmartContractEntryCore(value);
+                        TDWVDASmartContractEntryContent conversion_result = TypeConverter<T>.ConvertTo_TDWVDASmartContractEntryContent(value);
                         
             {
                 accessor.entry = conversion_result;
@@ -3848,7 +4264,7 @@ namespace TDW.VDAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryCore(accessor.entry);
+                    return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryContent(accessor.entry);
                     break;
                 
             }

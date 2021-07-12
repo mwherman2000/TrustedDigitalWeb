@@ -34,16 +34,14 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TRACredentialEnvelope with the specified parameters.
         ///</summary>
-        public TRACredentialEnvelope(string hashedThumbprint64 = default(string),string signedHashSignature64 = default(string),string notaryStamp = default(string),List<string> comments = default(List<string>))
+        public TRACredentialEnvelope(TRACredentialContent? content = default(TRACredentialContent?),string encryptedcontent = default(string),TRACredentialMetadata metadata = default(TRACredentialMetadata))
         {
             
-            this.hashedThumbprint64 = hashedThumbprint64;
+            this.content = content;
             
-            this.signedHashSignature64 = signedHashSignature64;
+            this.encryptedcontent = encryptedcontent;
             
-            this.notaryStamp = notaryStamp;
-            
-            this.comments = comments;
+            this.metadata = metadata;
             
         }
         
@@ -60,13 +58,11 @@ namespace TDW.VDAServer
             
             return
                 
-                (a.hashedThumbprint64 == b.hashedThumbprint64)
+                (a.content == b.content)
                 &&
-                (a.signedHashSignature64 == b.signedHashSignature64)
+                (a.encryptedcontent == b.encryptedcontent)
                 &&
-                (a.notaryStamp == b.notaryStamp)
-                &&
-                (a.comments == b.comments)
+                (a.metadata == b.metadata)
                 
                 ;
             
@@ -76,13 +72,11 @@ namespace TDW.VDAServer
             return !(a == b);
         }
         
-        public string hashedThumbprint64;
+        public TRACredentialContent? content;
         
-        public string signedHashSignature64;
+        public string encryptedcontent;
         
-        public string notaryStamp;
-        
-        public List<string> comments;
+        public TRACredentialMetadata metadata;
         
         /// <summary>
         /// Converts the string representation of a TRACredentialEnvelope to its
@@ -137,25 +131,19 @@ namespace TDW.VDAServer
             m_ptr = _CellPtr;
             
             ResizeFunction = func;
-                    hashedThumbprint64_Accessor_Field = new StringAccessor(null,
+                    content_Accessor_Field = new TRACredentialContent_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        signedHashSignature64_Accessor_Field = new StringAccessor(null,
+                });        encryptedcontent_Accessor_Field = new StringAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        notaryStamp_Accessor_Field = new StringAccessor(null,
-                (ptr,ptr_offset,delta)=>
-                {
-                    int substructure_offset = (int)(ptr - this.m_ptr);
-                    this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
-                    return this.m_ptr + substructure_offset;
-                });        comments_Accessor_Field = new StringAccessorListAccessor(null,
+                });        metadata_Accessor_Field = new TRACredentialMetadata_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -174,14 +162,10 @@ namespace TDW.VDAServer
                 optional_field_names = new string[]
                 {
                     
-                    "hashedThumbprint64"
+                    "content"
                     ,
-                    "signedHashSignature64"
+                    "encryptedcontent"
                     ,
-                    "notaryStamp"
-                    ,
-                    "comments"
-                    
                 };
             return optional_field_names;
         }
@@ -220,24 +204,27 @@ namespace TDW.VDAServer
 
                 if ((0 != (*(optheader_0 + 0) & 0x01)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
                 if ((0 != (*(optheader_0 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
-
-                if ((0 != (*(optheader_0 + 0) & 0x04)))
+{            byte* optheader_2 = targetPtr;
+            targetPtr += 1;
+            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
 
-                if ((0 != (*(optheader_0 + 0) & 0x08)))
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
-}
+}}
             int size = (int)(targetPtr - m_ptr);
             byte[] ret = new byte[size];
             Memory.Copy(m_ptr, 0, ret, 0, size);
@@ -256,35 +243,38 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_0 + 0) & 0x01)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
                 if ((0 != (*(optheader_0 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
-
-                if ((0 != (*(optheader_0 + 0) & 0x04)))
+{            byte* optheader_2 = targetPtr;
+            targetPtr += 1;
+            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
 
-                if ((0 != (*(optheader_0 + 0) & 0x08)))
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
-}
+}}
             int size = (int)(targetPtr - m_ptr);
             return size;
         }
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
-        StringAccessor hashedThumbprint64_Accessor_Field;
+        TRACredentialContent_Accessor content_Accessor_Field;
         
         ///<summary>
-        ///Represents the presence of the optional field hashedThumbprint64.
+        ///Represents the presence of the optional field content.
         ///</summary>
-        public bool Contains_hashedThumbprint64
+        public bool Contains_content
         {
             get
             {
@@ -309,111 +299,128 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             }
         }
         ///<summary>
-        ///Removes the optional field hashedThumbprint64 from the object being operated.
+        ///Removes the optional field content from the object being operated.
         ///</summary>
-        public unsafe void Remove_hashedThumbprint64()
+        public unsafe void Remove_content()
         {
-            if (!this.Contains_hashedThumbprint64)
+            if (!this.Contains_content)
             {
-                throw new Exception("Optional field hashedThumbprint64 doesn't exist for current cell.");
+                throw new Exception("Optional field content doesn't exist for current cell.");
             }
-            this.Contains_hashedThumbprint64 = false;
+            this.Contains_content = false;
             byte* targetPtr = m_ptr;
             {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
 }
             byte* startPtr = targetPtr;
-            targetPtr += *(int*)targetPtr + sizeof(int);
+            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
             this.ResizeFunction(startPtr, 0, (int)(startPtr - targetPtr));
         }
         
         ///<summary>
-        ///Provides in-place access to the object field hashedThumbprint64.
+        ///Provides in-place access to the object field content.
         ///</summary>
-        public unsafe StringAccessor hashedThumbprint64
+        public unsafe TRACredentialContent_Accessor content
         {
             get
             {
                 
-                if (!this.Contains_hashedThumbprint64)
+                if (!this.Contains_content)
                 {
-                    throw new Exception("Optional field hashedThumbprint64 doesn't exist for current cell.");
+                    throw new Exception("Optional field content doesn't exist for current cell.");
                 }
                 
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
-}hashedThumbprint64_Accessor_Field.m_ptr = targetPtr + 4;
-                hashedThumbprint64_Accessor_Field.m_cellId = this.m_cellId;
-                return hashedThumbprint64_Accessor_Field;
+}content_Accessor_Field.m_ptr = targetPtr;
+                content_Accessor_Field.m_cellId = this.m_cellId;
+                return content_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                hashedThumbprint64_Accessor_Field.m_cellId = this.m_cellId;
+                content_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
 }
-                bool creatingOptionalField = (!this.Contains_hashedThumbprint64);
+                bool creatingOptionalField = (!this.Contains_content);
                 if (creatingOptionalField)
                 {
-                    this.Contains_hashedThumbprint64 = true;
+                    this.Contains_content = true;
                     
-                int length = *(int*)(value.m_ptr - 4);
-                if (value.m_cellId != hashedThumbprint64_Accessor_Field.m_cellId)
+                int offset = (int)(targetPtr - m_ptr);
+                byte* oldtargetPtr = targetPtr;
+                int oldlength = 0;
+                targetPtr = value.m_ptr;
+                int newlength = (int)(targetPtr - value.m_ptr);
+                if (newlength != oldlength)
                 {
-                    //if not in the same Cell
-                    hashedThumbprint64_Accessor_Field.m_ptr = hashedThumbprint64_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                    Memory.Copy(value.m_ptr - 4, hashedThumbprint64_Accessor_Field.m_ptr, length + 4);
-                }
-                else
-                {
-                    byte[] tmpcell = new byte[length + 4];
-                    fixed (byte* tmpcellptr = tmpcell)
-                    {                        
-                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        hashedThumbprint64_Accessor_Field.m_ptr = hashedThumbprint64_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                        Memory.Copy(tmpcellptr, hashedThumbprint64_Accessor_Field.m_ptr, length + 4);
+                    if (value.m_cellId != this.m_cellId)
+                    {
+                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
+                    }
+                    else
+                    {
+                        byte[] tmpcell = new byte[newlength];
+                        fixed(byte* tmpcellptr = tmpcell)
+                        {
+                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
+                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
+                        }
                     }
                 }
-
+                else
+                {
+                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
+                }
                 }
                 else
                 {
                     
-                int length = *(int*)(value.m_ptr - 4);
-                int oldlength = *(int*)targetPtr;
-                if (value.m_cellId != hashedThumbprint64_Accessor_Field.m_cellId)
+                int offset = (int)(targetPtr - m_ptr);
+                byte* oldtargetPtr = targetPtr;
+                int oldlength = (int)(targetPtr - oldtargetPtr);
+                targetPtr = value.m_ptr;
+                int newlength = (int)(targetPtr - value.m_ptr);
+                if (newlength != oldlength)
                 {
-                    //if not in the same Cell
-                    hashedThumbprint64_Accessor_Field.m_ptr = hashedThumbprint64_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                    Memory.Copy(value.m_ptr - 4, hashedThumbprint64_Accessor_Field.m_ptr, length + 4);
+                    if (value.m_cellId != this.m_cellId)
+                    {
+                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
+                    }
+                    else
+                    {
+                        byte[] tmpcell = new byte[newlength];
+                        fixed(byte* tmpcellptr = tmpcell)
+                        {
+                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
+                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
+                        }
+                    }
                 }
                 else
                 {
-                    byte[] tmpcell = new byte[length + 4];
-                    fixed (byte* tmpcellptr = tmpcell)
-                    {                        
-                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        hashedThumbprint64_Accessor_Field.m_ptr = hashedThumbprint64_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                        Memory.Copy(tmpcellptr, hashedThumbprint64_Accessor_Field.m_ptr, length + 4);
-                    }
+                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
                 }
-
                 }
                 
             }
         }
-        StringAccessor signedHashSignature64_Accessor_Field;
+        StringAccessor encryptedcontent_Accessor_Field;
         
         ///<summary>
-        ///Represents the presence of the optional field signedHashSignature64.
+        ///Represents the presence of the optional field encryptedcontent.
         ///</summary>
-        public bool Contains_signedHashSignature64
+        public bool Contains_encryptedcontent
         {
             get
             {
@@ -438,22 +445,22 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             }
         }
         ///<summary>
-        ///Removes the optional field signedHashSignature64 from the object being operated.
+        ///Removes the optional field encryptedcontent from the object being operated.
         ///</summary>
-        public unsafe void Remove_signedHashSignature64()
+        public unsafe void Remove_encryptedcontent()
         {
-            if (!this.Contains_signedHashSignature64)
+            if (!this.Contains_encryptedcontent)
             {
-                throw new Exception("Optional field signedHashSignature64 doesn't exist for current cell.");
+                throw new Exception("Optional field encryptedcontent doesn't exist for current cell.");
             }
-            this.Contains_signedHashSignature64 = false;
+            this.Contains_encryptedcontent = false;
             byte* targetPtr = m_ptr;
             {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
 
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 }
             byte* startPtr = targetPtr;
@@ -462,16 +469,16 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
         
         ///<summary>
-        ///Provides in-place access to the object field signedHashSignature64.
+        ///Provides in-place access to the object field encryptedcontent.
         ///</summary>
-        public unsafe StringAccessor signedHashSignature64
+        public unsafe StringAccessor encryptedcontent
         {
             get
             {
                 
-                if (!this.Contains_signedHashSignature64)
+                if (!this.Contains_encryptedcontent)
                 {
-                    throw new Exception("Optional field signedHashSignature64 doesn't exist for current cell.");
+                    throw new Exception("Optional field encryptedcontent doesn't exist for current cell.");
                 }
                 
                 byte* targetPtr = m_ptr;
@@ -480,18 +487,18 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
-}signedHashSignature64_Accessor_Field.m_ptr = targetPtr + 4;
-                signedHashSignature64_Accessor_Field.m_cellId = this.m_cellId;
-                return signedHashSignature64_Accessor_Field;
+}encryptedcontent_Accessor_Field.m_ptr = targetPtr + 4;
+                encryptedcontent_Accessor_Field.m_cellId = this.m_cellId;
+                return encryptedcontent_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                signedHashSignature64_Accessor_Field.m_cellId = this.m_cellId;
+                encryptedcontent_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
@@ -499,20 +506,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 }
-                bool creatingOptionalField = (!this.Contains_signedHashSignature64);
+                bool creatingOptionalField = (!this.Contains_encryptedcontent);
                 if (creatingOptionalField)
                 {
-                    this.Contains_signedHashSignature64 = true;
+                    this.Contains_encryptedcontent = true;
                     
                 int length = *(int*)(value.m_ptr - 4);
-                if (value.m_cellId != signedHashSignature64_Accessor_Field.m_cellId)
+                if (value.m_cellId != encryptedcontent_Accessor_Field.m_cellId)
                 {
                     //if not in the same Cell
-                    signedHashSignature64_Accessor_Field.m_ptr = signedHashSignature64_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                    Memory.Copy(value.m_ptr - 4, signedHashSignature64_Accessor_Field.m_ptr, length + 4);
+                    encryptedcontent_Accessor_Field.m_ptr = encryptedcontent_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
+                    Memory.Copy(value.m_ptr - 4, encryptedcontent_Accessor_Field.m_ptr, length + 4);
                 }
                 else
                 {
@@ -520,8 +527,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     fixed (byte* tmpcellptr = tmpcell)
                     {                        
                         Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        signedHashSignature64_Accessor_Field.m_ptr = signedHashSignature64_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                        Memory.Copy(tmpcellptr, signedHashSignature64_Accessor_Field.m_ptr, length + 4);
+                        encryptedcontent_Accessor_Field.m_ptr = encryptedcontent_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
+                        Memory.Copy(tmpcellptr, encryptedcontent_Accessor_Field.m_ptr, length + 4);
                     }
                 }
 
@@ -531,11 +538,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
-                if (value.m_cellId != signedHashSignature64_Accessor_Field.m_cellId)
+                if (value.m_cellId != encryptedcontent_Accessor_Field.m_cellId)
                 {
                     //if not in the same Cell
-                    signedHashSignature64_Accessor_Field.m_ptr = signedHashSignature64_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                    Memory.Copy(value.m_ptr - 4, signedHashSignature64_Accessor_Field.m_ptr, length + 4);
+                    encryptedcontent_Accessor_Field.m_ptr = encryptedcontent_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                    Memory.Copy(value.m_ptr - 4, encryptedcontent_Accessor_Field.m_ptr, length + 4);
                 }
                 else
                 {
@@ -543,8 +550,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     fixed (byte* tmpcellptr = tmpcell)
                     {                        
                         Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        signedHashSignature64_Accessor_Field.m_ptr = signedHashSignature64_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                        Memory.Copy(tmpcellptr, signedHashSignature64_Accessor_Field.m_ptr, length + 4);
+                        encryptedcontent_Accessor_Field.m_ptr = encryptedcontent_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                        Memory.Copy(tmpcellptr, encryptedcontent_Accessor_Field.m_ptr, length + 4);
                     }
                 }
 
@@ -552,377 +559,106 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
             }
         }
-        StringAccessor notaryStamp_Accessor_Field;
+        TRACredentialMetadata_Accessor metadata_Accessor_Field;
         
         ///<summary>
-        ///Represents the presence of the optional field notaryStamp.
+        ///Provides in-place access to the object field metadata.
         ///</summary>
-        public bool Contains_notaryStamp
+        public unsafe TRACredentialMetadata_Accessor metadata
         {
             get
             {
-                unchecked
+                
+                byte* targetPtr = m_ptr;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
                 {
-                    return (0 != (*(this.m_ptr + 0) & 0x04)) ;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
-            }
-            internal set
-            {
-                unchecked
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
                 {
-                    if (value)
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+}metadata_Accessor_Field.m_ptr = targetPtr;
+                metadata_Accessor_Field.m_cellId = this.m_cellId;
+                return metadata_Accessor_Field;
+                
+            }
+            set
+            {
+                
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                metadata_Accessor_Field.m_cellId = this.m_cellId;
+                
+                byte* targetPtr = m_ptr;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+}
+                int offset = (int)(targetPtr - m_ptr);
+                byte* oldtargetPtr = targetPtr;
+                int oldlength = (int)(targetPtr - oldtargetPtr);
+                targetPtr = value.m_ptr;
+                int newlength = (int)(targetPtr - value.m_ptr);
+                if (newlength != oldlength)
+                {
+                    if (value.m_cellId != this.m_cellId)
                     {
-                        *(this.m_ptr + 0) |= 0x04;
+                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
                     }
                     else
                     {
-                        *(this.m_ptr + 0) &= 0xFB;
+                        byte[] tmpcell = new byte[newlength];
+                        fixed(byte* tmpcellptr = tmpcell)
+                        {
+                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
+                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
+                        }
                     }
-                }
-            }
-        }
-        ///<summary>
-        ///Removes the optional field notaryStamp from the object being operated.
-        ///</summary>
-        public unsafe void Remove_notaryStamp()
-        {
-            if (!this.Contains_notaryStamp)
-            {
-                throw new Exception("Optional field notaryStamp doesn't exist for current cell.");
-            }
-            this.Contains_notaryStamp = false;
-            byte* targetPtr = m_ptr;
-            {            byte* optheader_1 = targetPtr;
-            targetPtr += 1;
-
-                if ((0 != (*(optheader_1 + 0) & 0x01)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-
-                if ((0 != (*(optheader_1 + 0) & 0x02)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-}
-            byte* startPtr = targetPtr;
-            targetPtr += *(int*)targetPtr + sizeof(int);
-            this.ResizeFunction(startPtr, 0, (int)(startPtr - targetPtr));
-        }
-        
-        ///<summary>
-        ///Provides in-place access to the object field notaryStamp.
-        ///</summary>
-        public unsafe StringAccessor notaryStamp
-        {
-            get
-            {
-                
-                if (!this.Contains_notaryStamp)
-                {
-                    throw new Exception("Optional field notaryStamp doesn't exist for current cell.");
-                }
-                
-                byte* targetPtr = m_ptr;
-                {            byte* optheader_1 = targetPtr;
-            targetPtr += 1;
-
-                if ((0 != (*(optheader_1 + 0) & 0x01)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-
-                if ((0 != (*(optheader_1 + 0) & 0x02)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-}notaryStamp_Accessor_Field.m_ptr = targetPtr + 4;
-                notaryStamp_Accessor_Field.m_cellId = this.m_cellId;
-                return notaryStamp_Accessor_Field;
-                
-            }
-            set
-            {
-                
-                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                notaryStamp_Accessor_Field.m_cellId = this.m_cellId;
-                
-                byte* targetPtr = m_ptr;
-                {            byte* optheader_1 = targetPtr;
-            targetPtr += 1;
-
-                if ((0 != (*(optheader_1 + 0) & 0x01)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-
-                if ((0 != (*(optheader_1 + 0) & 0x02)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-}
-                bool creatingOptionalField = (!this.Contains_notaryStamp);
-                if (creatingOptionalField)
-                {
-                    this.Contains_notaryStamp = true;
-                    
-                int length = *(int*)(value.m_ptr - 4);
-                if (value.m_cellId != notaryStamp_Accessor_Field.m_cellId)
-                {
-                    //if not in the same Cell
-                    notaryStamp_Accessor_Field.m_ptr = notaryStamp_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                    Memory.Copy(value.m_ptr - 4, notaryStamp_Accessor_Field.m_ptr, length + 4);
                 }
                 else
                 {
-                    byte[] tmpcell = new byte[length + 4];
-                    fixed (byte* tmpcellptr = tmpcell)
-                    {                        
-                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        notaryStamp_Accessor_Field.m_ptr = notaryStamp_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                        Memory.Copy(tmpcellptr, notaryStamp_Accessor_Field.m_ptr, length + 4);
-                    }
+                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
                 }
-
-                }
-                else
-                {
-                    
-                int length = *(int*)(value.m_ptr - 4);
-                int oldlength = *(int*)targetPtr;
-                if (value.m_cellId != notaryStamp_Accessor_Field.m_cellId)
-                {
-                    //if not in the same Cell
-                    notaryStamp_Accessor_Field.m_ptr = notaryStamp_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                    Memory.Copy(value.m_ptr - 4, notaryStamp_Accessor_Field.m_ptr, length + 4);
-                }
-                else
-                {
-                    byte[] tmpcell = new byte[length + 4];
-                    fixed (byte* tmpcellptr = tmpcell)
-                    {                        
-                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        notaryStamp_Accessor_Field.m_ptr = notaryStamp_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                        Memory.Copy(tmpcellptr, notaryStamp_Accessor_Field.m_ptr, length + 4);
-                    }
-                }
-
-                }
-                
-            }
-        }
-        StringAccessorListAccessor comments_Accessor_Field;
-        
-        ///<summary>
-        ///Represents the presence of the optional field comments.
-        ///</summary>
-        public bool Contains_comments
-        {
-            get
-            {
-                unchecked
-                {
-                    return (0 != (*(this.m_ptr + 0) & 0x08)) ;
-                }
-            }
-            internal set
-            {
-                unchecked
-                {
-                    if (value)
-                    {
-                        *(this.m_ptr + 0) |= 0x08;
-                    }
-                    else
-                    {
-                        *(this.m_ptr + 0) &= 0xF7;
-                    }
-                }
-            }
-        }
-        ///<summary>
-        ///Removes the optional field comments from the object being operated.
-        ///</summary>
-        public unsafe void Remove_comments()
-        {
-            if (!this.Contains_comments)
-            {
-                throw new Exception("Optional field comments doesn't exist for current cell.");
-            }
-            this.Contains_comments = false;
-            byte* targetPtr = m_ptr;
-            {            byte* optheader_1 = targetPtr;
-            targetPtr += 1;
-
-                if ((0 != (*(optheader_1 + 0) & 0x01)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-
-                if ((0 != (*(optheader_1 + 0) & 0x02)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-
-                if ((0 != (*(optheader_1 + 0) & 0x04)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-}
-            byte* startPtr = targetPtr;
-            targetPtr += *(int*)targetPtr + sizeof(int);
-            this.ResizeFunction(startPtr, 0, (int)(startPtr - targetPtr));
-        }
-        
-        ///<summary>
-        ///Provides in-place access to the object field comments.
-        ///</summary>
-        public unsafe StringAccessorListAccessor comments
-        {
-            get
-            {
-                
-                if (!this.Contains_comments)
-                {
-                    throw new Exception("Optional field comments doesn't exist for current cell.");
-                }
-                
-                byte* targetPtr = m_ptr;
-                {            byte* optheader_1 = targetPtr;
-            targetPtr += 1;
-
-                if ((0 != (*(optheader_1 + 0) & 0x01)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-
-                if ((0 != (*(optheader_1 + 0) & 0x02)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-
-                if ((0 != (*(optheader_1 + 0) & 0x04)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-}comments_Accessor_Field.m_ptr = targetPtr + 4;
-                comments_Accessor_Field.m_cellId = this.m_cellId;
-                return comments_Accessor_Field;
-                
-            }
-            set
-            {
-                
-                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                comments_Accessor_Field.m_cellId = this.m_cellId;
-                
-                byte* targetPtr = m_ptr;
-                {            byte* optheader_1 = targetPtr;
-            targetPtr += 1;
-
-                if ((0 != (*(optheader_1 + 0) & 0x01)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-
-                if ((0 != (*(optheader_1 + 0) & 0x02)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-
-                if ((0 != (*(optheader_1 + 0) & 0x04)))
-                {
-targetPtr += *(int*)targetPtr + sizeof(int);
-                }
-}
-                bool creatingOptionalField = (!this.Contains_comments);
-                if (creatingOptionalField)
-                {
-                    this.Contains_comments = true;
-                    
-                int length = *(int*)(value.m_ptr - 4);
-                if (value.m_cellId != comments_Accessor_Field.m_cellId)
-                {
-                    //if not in the same Cell
-                    comments_Accessor_Field.m_ptr = comments_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                    Memory.Copy(value.m_ptr - 4, comments_Accessor_Field.m_ptr, length + 4);
-                }
-                else
-                {
-                    byte[] tmpcell = new byte[length + 4];
-                    fixed (byte* tmpcellptr = tmpcell)
-                    {                        
-                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        comments_Accessor_Field.m_ptr = comments_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                        Memory.Copy(tmpcellptr, comments_Accessor_Field.m_ptr, length + 4);
-                    }
-                }
-
-                }
-                else
-                {
-                    
-                int length = *(int*)(value.m_ptr - 4);
-                int oldlength = *(int*)targetPtr;
-                if (value.m_cellId != comments_Accessor_Field.m_cellId)
-                {
-                    //if not in the same Cell
-                    comments_Accessor_Field.m_ptr = comments_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                    Memory.Copy(value.m_ptr - 4, comments_Accessor_Field.m_ptr, length + 4);
-                }
-                else
-                {
-                    byte[] tmpcell = new byte[length + 4];
-                    fixed (byte* tmpcellptr = tmpcell)
-                    {                        
-                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        comments_Accessor_Field.m_ptr = comments_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                        Memory.Copy(tmpcellptr, comments_Accessor_Field.m_ptr, length + 4);
-                    }
-                }
-
-                }
-                
             }
         }
         
         public static unsafe implicit operator TRACredentialEnvelope(TRACredentialEnvelope_Accessor accessor)
         {
-            string _hashedThumbprint64 = default(string);
-            if (accessor.Contains_hashedThumbprint64)
+            TRACredentialContent? _content = default(TRACredentialContent?);
+            if (accessor.Contains_content)
             {
                 
-                _hashedThumbprint64 = accessor.hashedThumbprint64;
+                _content = (TRACredentialContent)accessor.content;
                 
             }
-            string _signedHashSignature64 = default(string);
-            if (accessor.Contains_signedHashSignature64)
+            string _encryptedcontent = default(string);
+            if (accessor.Contains_encryptedcontent)
             {
                 
-                _signedHashSignature64 = accessor.signedHashSignature64;
-                
-            }
-            string _notaryStamp = default(string);
-            if (accessor.Contains_notaryStamp)
-            {
-                
-                _notaryStamp = accessor.notaryStamp;
-                
-            }
-            List<string> _comments = default(List<string>);
-            if (accessor.Contains_comments)
-            {
-                
-                _comments = accessor.comments;
+                _encryptedcontent = accessor.encryptedcontent;
                 
             }
             
             return new TRACredentialEnvelope(
                 
-                        _hashedThumbprint64 ,
-                        _signedHashSignature64 ,
-                        _notaryStamp ,
-                        _comments 
+                        _content ,
+                        _encryptedcontent ,
+                        accessor.metadata
                 );
         }
         
@@ -932,60 +668,32 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             
             {
             targetPtr += 1;
-            if( field.hashedThumbprint64!= null)
+            if( field.content!= null)
             {
 
-        if(field.hashedThumbprint64!= null)
+            {
+
+        if(field.content.Value.udid!= null)
         {
-            int strlen_2 = field.hashedThumbprint64.Length * 2;
-            targetPtr += strlen_2+sizeof(int);
+            int strlen_3 = field.content.Value.udid.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-
-            }
-            if( field.signedHashSignature64!= null)
-            {
-
-        if(field.signedHashSignature64!= null)
-        {
-            int strlen_2 = field.signedHashSignature64.Length * 2;
-            targetPtr += strlen_2+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( field.notaryStamp!= null)
-            {
-
-        if(field.notaryStamp!= null)
-        {
-            int strlen_2 = field.notaryStamp.Length * 2;
-            targetPtr += strlen_2+sizeof(int);
-        }else
-        {
-            targetPtr += sizeof(int);
-        }
-
-            }
-            if( field.comments!= null)
-            {
 
 {
 
     targetPtr += sizeof(int);
-    if(field.comments!= null)
+    if(field.content.Value.context!= null)
     {
-        for(int iterator_2 = 0;iterator_2<field.comments.Count;++iterator_2)
+        for(int iterator_3 = 0;iterator_3<field.content.Value.context.Count;++iterator_3)
         {
 
-        if(field.comments[iterator_2]!= null)
+        if(field.content.Value.context[iterator_3]!= null)
         {
-            int strlen_3 = field.comments[iterator_2].Length * 2;
-            targetPtr += strlen_3+sizeof(int);
+            int strlen_4 = field.content.Value.context[iterator_3].Length * 2;
+            targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
@@ -996,8 +704,193 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
 }
 
+{
+
+    targetPtr += sizeof(int);
+    if(field.content.Value.claims!= null)
+    {
+        for(int iterator_3 = 0;iterator_3<field.content.Value.claims.Count;++iterator_3)
+        {
+
+            {
+            targetPtr += 1;
+
+        if(field.content.Value.claims[iterator_3].key!= null)
+        {
+            int strlen_5 = field.content.Value.claims[iterator_3].key.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+            if( field.content.Value.claims[iterator_3].value!= null)
+            {
+
+        if(field.content.Value.claims[iterator_3].value!= null)
+        {
+            int strlen_5 = field.content.Value.claims[iterator_3].value.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( field.content.Value.claims[iterator_3].attribute!= null)
+            {
+
+{
+
+    targetPtr += sizeof(int);
+    if(field.content.Value.claims[iterator_3].attribute!= null)
+    {
+        for(int iterator_5 = 0;iterator_5<field.content.Value.claims[iterator_3].attribute.Count;++iterator_5)
+        {
+
+            {
+
+        if(field.content.Value.claims[iterator_3].attribute[iterator_5].key!= null)
+        {
+            int strlen_7 = field.content.Value.claims[iterator_3].attribute[iterator_5].key.Length * 2;
+            targetPtr += strlen_7+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.content.Value.claims[iterator_3].attribute[iterator_5].value!= null)
+        {
+            int strlen_7 = field.content.Value.claims[iterator_3].attribute[iterator_5].value.Length * 2;
+            targetPtr += strlen_7+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+
+}
+
+            }
+            if( field.content.Value.claims[iterator_3].attributes!= null)
+            {
+
+{
+
+    targetPtr += sizeof(int);
+    if(field.content.Value.claims[iterator_3].attributes!= null)
+    {
+        for(int iterator_5 = 0;iterator_5<field.content.Value.claims[iterator_3].attributes.Count;++iterator_5)
+        {
+
+{
+
+    targetPtr += sizeof(int);
+    if(field.content.Value.claims[iterator_3].attributes[iterator_5]!= null)
+    {
+        for(int iterator_6 = 0;iterator_6<field.content.Value.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        {
+
+            {
+
+        if(field.content.Value.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        {
+            int strlen_8 = field.content.Value.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            targetPtr += strlen_8+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.content.Value.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        {
+            int strlen_8 = field.content.Value.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            targetPtr += strlen_8+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+
+}
+
+        }
+    }
+
+}
+
             }
 
+            }
+        }
+    }
+
+}
+
+            }
+            }
+            if( field.encryptedcontent!= null)
+            {
+
+        if(field.encryptedcontent!= null)
+        {
+            int strlen_2 = field.encryptedcontent.Length * 2;
+            targetPtr += strlen_2+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+
+            {
+            targetPtr += 1;
+            targetPtr += 1;
+            targetPtr += 8;
+            targetPtr += 1;
+            targetPtr += 1;
+
+        if(field.metadata.notaryudid!= null)
+        {
+            int strlen_3 = field.metadata.notaryudid.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+            if( field.metadata.name!= null)
+            {
+
+        if(field.metadata.name!= null)
+        {
+            int strlen_3 = field.metadata.name.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            if( field.metadata.comment!= null)
+            {
+
+        if(field.metadata.comment!= null)
+        {
+            int strlen_3 = field.metadata.comment.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+
+            }
             }
             byte* tmpcellptr = BufferAllocator.AllocBuffer((int)targetPtr);
             Memory.memset(tmpcellptr, 0, (ulong)targetPtr);
@@ -1006,35 +899,248 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
             byte* optheader_1 = targetPtr;
             *(optheader_1 + 0) = 0x00;            targetPtr += 1;
-            if( field.hashedThumbprint64!= null)
+            if( field.content!= null)
             {
 
-        if(field.hashedThumbprint64!= null)
-        {
-            int strlen_2 = field.hashedThumbprint64.Length * 2;
-            *(int*)targetPtr = strlen_2;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_2 = field.hashedThumbprint64)
             {
-                Memory.Copy(pstr_2, targetPtr, strlen_2);
-                targetPtr += strlen_2;
+
+        if(field.content.Value.udid!= null)
+        {
+            int strlen_3 = field.content.Value.udid.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.content.Value.udid)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
             }
         }else
         {
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-*(optheader_1 + 0) |= 0x01;
+
+{
+byte *storedPtr_3 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(field.content.Value.context!= null)
+    {
+        for(int iterator_3 = 0;iterator_3<field.content.Value.context.Count;++iterator_3)
+        {
+
+        if(field.content.Value.context[iterator_3]!= null)
+        {
+            int strlen_4 = field.content.Value.context[iterator_3].Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = field.content.Value.context[iterator_3])
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
             }
-            if( field.signedHashSignature64!= null)
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        }
+    }
+*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
+
+}
+
+{
+byte *storedPtr_3 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(field.content.Value.claims!= null)
+    {
+        for(int iterator_3 = 0;iterator_3<field.content.Value.claims.Count;++iterator_3)
+        {
+
+            {
+            byte* optheader_4 = targetPtr;
+            *(optheader_4 + 0) = 0x00;            targetPtr += 1;
+
+        if(field.content.Value.claims[iterator_3].key!= null)
+        {
+            int strlen_5 = field.content.Value.claims[iterator_3].key.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = field.content.Value.claims[iterator_3].key)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+            if( field.content.Value.claims[iterator_3].value!= null)
             {
 
-        if(field.signedHashSignature64!= null)
+        if(field.content.Value.claims[iterator_3].value!= null)
         {
-            int strlen_2 = field.signedHashSignature64.Length * 2;
+            int strlen_5 = field.content.Value.claims[iterator_3].value.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = field.content.Value.claims[iterator_3].value)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_4 + 0) |= 0x01;
+            }
+            if( field.content.Value.claims[iterator_3].attribute!= null)
+            {
+
+{
+byte *storedPtr_5 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(field.content.Value.claims[iterator_3].attribute!= null)
+    {
+        for(int iterator_5 = 0;iterator_5<field.content.Value.claims[iterator_3].attribute.Count;++iterator_5)
+        {
+
+            {
+
+        if(field.content.Value.claims[iterator_3].attribute[iterator_5].key!= null)
+        {
+            int strlen_7 = field.content.Value.claims[iterator_3].attribute[iterator_5].key.Length * 2;
+            *(int*)targetPtr = strlen_7;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_7 = field.content.Value.claims[iterator_3].attribute[iterator_5].key)
+            {
+                Memory.Copy(pstr_7, targetPtr, strlen_7);
+                targetPtr += strlen_7;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.content.Value.claims[iterator_3].attribute[iterator_5].value!= null)
+        {
+            int strlen_7 = field.content.Value.claims[iterator_3].attribute[iterator_5].value.Length * 2;
+            *(int*)targetPtr = strlen_7;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_7 = field.content.Value.claims[iterator_3].attribute[iterator_5].value)
+            {
+                Memory.Copy(pstr_7, targetPtr, strlen_7);
+                targetPtr += strlen_7;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+
+}
+*(optheader_4 + 0) |= 0x02;
+            }
+            if( field.content.Value.claims[iterator_3].attributes!= null)
+            {
+
+{
+byte *storedPtr_5 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(field.content.Value.claims[iterator_3].attributes!= null)
+    {
+        for(int iterator_5 = 0;iterator_5<field.content.Value.claims[iterator_3].attributes.Count;++iterator_5)
+        {
+
+{
+byte *storedPtr_6 = targetPtr;
+
+    targetPtr += sizeof(int);
+    if(field.content.Value.claims[iterator_3].attributes[iterator_5]!= null)
+    {
+        for(int iterator_6 = 0;iterator_6<field.content.Value.claims[iterator_3].attributes[iterator_5].Count;++iterator_6)
+        {
+
+            {
+
+        if(field.content.Value.claims[iterator_3].attributes[iterator_5][iterator_6].key!= null)
+        {
+            int strlen_8 = field.content.Value.claims[iterator_3].attributes[iterator_5][iterator_6].key.Length * 2;
+            *(int*)targetPtr = strlen_8;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_8 = field.content.Value.claims[iterator_3].attributes[iterator_5][iterator_6].key)
+            {
+                Memory.Copy(pstr_8, targetPtr, strlen_8);
+                targetPtr += strlen_8;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.content.Value.claims[iterator_3].attributes[iterator_5][iterator_6].value!= null)
+        {
+            int strlen_8 = field.content.Value.claims[iterator_3].attributes[iterator_5][iterator_6].value.Length * 2;
+            *(int*)targetPtr = strlen_8;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_8 = field.content.Value.claims[iterator_3].attributes[iterator_5][iterator_6].value)
+            {
+                Memory.Copy(pstr_8, targetPtr, strlen_8);
+                targetPtr += strlen_8;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }
+        }
+    }
+*(int*)storedPtr_6 = (int)(targetPtr - storedPtr_6 - 4);
+
+}
+
+        }
+    }
+*(int*)storedPtr_5 = (int)(targetPtr - storedPtr_5 - 4);
+
+}
+*(optheader_4 + 0) |= 0x04;
+            }
+
+            }
+        }
+    }
+*(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
+
+}
+
+            }*(optheader_1 + 0) |= 0x01;
+            }
+            if( field.encryptedcontent!= null)
+            {
+
+        if(field.encryptedcontent!= null)
+        {
+            int strlen_2 = field.encryptedcontent.Length * 2;
             *(int*)targetPtr = strlen_2;
             targetPtr += sizeof(int);
-            fixed(char* pstr_2 = field.signedHashSignature64)
+            fixed(char* pstr_2 = field.encryptedcontent)
             {
                 Memory.Copy(pstr_2, targetPtr, strlen_2);
                 targetPtr += strlen_2;
@@ -1046,44 +1152,25 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 *(optheader_1 + 0) |= 0x02;
             }
-            if( field.notaryStamp!= null)
+
             {
+            byte* optheader_2 = targetPtr;
+            *(optheader_2 + 0) = 0x00;            targetPtr += 1;
+            *(TRACredentialType*)targetPtr = field.metadata.credtype;
+            targetPtr += 1;
+            *(long*)targetPtr = field.metadata.version;
+            targetPtr += 8;
+            *(TRATrustLevel*)targetPtr = field.metadata.trustLevel;
+            targetPtr += 1;
+            *(TRAEncryptionFlag*)targetPtr = field.metadata.encryptionFlag;
+            targetPtr += 1;
 
-        if(field.notaryStamp!= null)
+        if(field.metadata.notaryudid!= null)
         {
-            int strlen_2 = field.notaryStamp.Length * 2;
-            *(int*)targetPtr = strlen_2;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_2 = field.notaryStamp)
-            {
-                Memory.Copy(pstr_2, targetPtr, strlen_2);
-                targetPtr += strlen_2;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_1 + 0) |= 0x04;
-            }
-            if( field.comments!= null)
-            {
-
-{
-byte *storedPtr_2 = targetPtr;
-
-    targetPtr += sizeof(int);
-    if(field.comments!= null)
-    {
-        for(int iterator_2 = 0;iterator_2<field.comments.Count;++iterator_2)
-        {
-
-        if(field.comments[iterator_2]!= null)
-        {
-            int strlen_3 = field.comments[iterator_2].Length * 2;
+            int strlen_3 = field.metadata.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.comments[iterator_2])
+            fixed(char* pstr_3 = field.metadata.notaryudid)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1093,15 +1180,48 @@ byte *storedPtr_2 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
+            if( field.metadata.name!= null)
+            {
 
+        if(field.metadata.name!= null)
+        {
+            int strlen_3 = field.metadata.name.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.metadata.name)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
         }
-    }
-*(int*)storedPtr_2 = (int)(targetPtr - storedPtr_2 - 4);
+*(optheader_2 + 0) |= 0x01;
+            }
+            if( field.metadata.comment!= null)
+            {
 
-}
-*(optheader_1 + 0) |= 0x08;
+        if(field.metadata.comment!= null)
+        {
+            int strlen_3 = field.metadata.comment.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.metadata.comment)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_2 + 0) |= 0x02;
             }
 
+            }
             }TRACredentialEnvelope_Accessor ret;
             
             ret = new TRACredentialEnvelope_Accessor(tmpcellptr, null);
@@ -1122,24 +1242,27 @@ byte *storedPtr_2 = targetPtr;
 
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
                 if ((0 != (*(optheader_1 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
-
-                if ((0 != (*(optheader_1 + 0) & 0x04)))
+{            byte* optheader_3 = targetPtr;
+            targetPtr += 1;
+            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
 
-                if ((0 != (*(optheader_1 + 0) & 0x08)))
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
-}
+}}
             int lengthA = (int)(targetPtr - a.m_ptr);
             targetPtr = b.m_ptr;
             {            byte* optheader_1 = targetPtr;
@@ -1147,24 +1270,27 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
                 if ((0 != (*(optheader_1 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
-
-                if ((0 != (*(optheader_1 + 0) & 0x04)))
+{            byte* optheader_3 = targetPtr;
+            targetPtr += 1;
+            targetPtr += 11;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
 
-                if ((0 != (*(optheader_1 + 0) & 0x08)))
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
-}
+}}
             int lengthB = (int)(targetPtr - b.m_ptr);
             if(lengthA != lengthB) return false;
             return Memory.Compare(a.m_ptr,b.m_ptr,lengthA);

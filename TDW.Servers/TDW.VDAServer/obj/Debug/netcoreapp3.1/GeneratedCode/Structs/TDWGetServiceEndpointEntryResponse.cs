@@ -34,7 +34,7 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWGetServiceEndpointEntryResponse with the specified parameters.
         ///</summary>
-        public TDWGetServiceEndpointEntryResponse(TDWVDAServiceEndpointEntry entry = default(TDWVDAServiceEndpointEntry))
+        public TDWGetServiceEndpointEntryResponse(TDWVDAServiceEndpointEntryParm entry = default(TDWVDAServiceEndpointEntryParm))
         {
             
             this.entry = entry;
@@ -64,7 +64,7 @@ namespace TDW.VDAServer
             return !(a == b);
         }
         
-        public TDWVDAServiceEndpointEntry entry;
+        public TDWVDAServiceEndpointEntryParm entry;
         
         /// <summary>
         /// Converts the string representation of a TDWGetServiceEndpointEntryResponse to its
@@ -119,7 +119,7 @@ namespace TDW.VDAServer
             m_ptr = _CellPtr;
             
             ResizeFunction = func;
-                    entry_Accessor_Field = new TDWVDAServiceEndpointEntry_Accessor(null,
+                    entry_Accessor_Field = new TDWVDAServiceEndpointEntryParm_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -193,12 +193,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}
         }
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
-        TDWVDAServiceEndpointEntry_Accessor entry_Accessor_Field;
+        TDWVDAServiceEndpointEntryParm_Accessor entry_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field entry.
         ///</summary>
-        public unsafe TDWVDAServiceEndpointEntry_Accessor entry
+        public unsafe TDWVDAServiceEndpointEntryParm_Accessor entry
         {
             get
             {

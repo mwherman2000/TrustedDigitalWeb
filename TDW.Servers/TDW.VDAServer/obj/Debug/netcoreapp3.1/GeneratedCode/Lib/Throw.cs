@@ -69,6 +69,15 @@ namespace TDW.VDAServer
             throw new DataTypeIncompatibleException("Data type 'List<TRAKeyValuePair>' not compatible with the target field.");
         }
         
+        internal static void parse_TDWVDAAccountEntryClaims(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAAccountEntryClaims.");
+        }
+        internal static void incompatible_with_TDWVDAAccountEntryClaims()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TDWVDAAccountEntryClaims' not compatible with the target field.");
+        }
+        
         internal static void parse_TDWVDAAccountEntryContent(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAAccountEntryContent.");
@@ -78,22 +87,22 @@ namespace TDW.VDAServer
             throw new DataTypeIncompatibleException("Data type 'TDWVDAAccountEntryContent' not compatible with the target field.");
         }
         
-        internal static void parse_TDWVDAAccountEntryCore(string value)
+        internal static void parse_TDWVDAAccountEntryEnvelope(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAAccountEntryCore.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAAccountEntryEnvelope.");
         }
-        internal static void incompatible_with_TDWVDAAccountEntryCore()
+        internal static void incompatible_with_TDWVDAAccountEntryEnvelope()
         {
-            throw new DataTypeIncompatibleException("Data type 'TDWVDAAccountEntryCore' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TDWVDAAccountEntryEnvelope' not compatible with the target field.");
         }
         
-        internal static void parse_TDWVDAIdentityRegistryEntry(string value)
+        internal static void parse_TDWVDAIdentityRegistryEntryParm(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAIdentityRegistryEntry.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAIdentityRegistryEntryParm.");
         }
-        internal static void incompatible_with_TDWVDAIdentityRegistryEntry()
+        internal static void incompatible_with_TDWVDAIdentityRegistryEntryParm()
         {
-            throw new DataTypeIncompatibleException("Data type 'TDWVDAIdentityRegistryEntry' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TDWVDAIdentityRegistryEntryParm' not compatible with the target field.");
         }
         
         internal static void parse_TDWVDAPostInvocationParameters(string value)
@@ -105,31 +114,49 @@ namespace TDW.VDAServer
             throw new DataTypeIncompatibleException("Data type 'TDWVDAPostInvocationParameters' not compatible with the target field.");
         }
         
-        internal static void parse_TDWVDARevocationListEntry(string value)
+        internal static void parse_TDWVDARevocationListEntryParm(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDARevocationListEntry.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDARevocationListEntryParm.");
         }
-        internal static void incompatible_with_TDWVDARevocationListEntry()
+        internal static void incompatible_with_TDWVDARevocationListEntryParm()
         {
-            throw new DataTypeIncompatibleException("Data type 'TDWVDARevocationListEntry' not compatible with the target field.");
-        }
-        
-        internal static void parse_TDWVDAServiceEndpointEntry(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAServiceEndpointEntry.");
-        }
-        internal static void incompatible_with_TDWVDAServiceEndpointEntry()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TDWVDAServiceEndpointEntry' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TDWVDARevocationListEntryParm' not compatible with the target field.");
         }
         
-        internal static void parse_TDWVDASmartContractEntryCore(string value)
+        internal static void parse_TDWVDAServiceEndpointEntryParm(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDASmartContractEntryCore.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAServiceEndpointEntryParm.");
         }
-        internal static void incompatible_with_TDWVDASmartContractEntryCore()
+        internal static void incompatible_with_TDWVDAServiceEndpointEntryParm()
         {
-            throw new DataTypeIncompatibleException("Data type 'TDWVDASmartContractEntryCore' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TDWVDAServiceEndpointEntryParm' not compatible with the target field.");
+        }
+        
+        internal static void parse_TDWVDASmartContractEntryClaims(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDASmartContractEntryClaims.");
+        }
+        internal static void incompatible_with_TDWVDASmartContractEntryClaims()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TDWVDASmartContractEntryClaims' not compatible with the target field.");
+        }
+        
+        internal static void parse_TDWVDASmartContractEntryContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDASmartContractEntryContent.");
+        }
+        internal static void incompatible_with_TDWVDASmartContractEntryContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TDWVDASmartContractEntryContent' not compatible with the target field.");
+        }
+        
+        internal static void parse_TDWVDASmartContractEntryEnvelope(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDASmartContractEntryEnvelope.");
+        }
+        internal static void incompatible_with_TDWVDASmartContractEntryEnvelope()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TDWVDASmartContractEntryEnvelope' not compatible with the target field.");
         }
         
         internal static void parse_TRAClaim(string value)
@@ -150,15 +177,6 @@ namespace TDW.VDAServer
             throw new DataTypeIncompatibleException("Data type 'TRACredentialContent' not compatible with the target field.");
         }
         
-        internal static void parse_TRACredentialCore(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialCore.");
-        }
-        internal static void incompatible_with_TRACredentialCore()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRACredentialCore' not compatible with the target field.");
-        }
-        
         internal static void parse_TRACredentialEnvelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialEnvelope.");
@@ -168,13 +186,22 @@ namespace TDW.VDAServer
             throw new DataTypeIncompatibleException("Data type 'TRACredentialEnvelope' not compatible with the target field.");
         }
         
-        internal static void parse_TRACredentialWrapper(string value)
+        internal static void parse_TRACredentialEnvelopeSeal(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialWrapper.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialEnvelopeSeal.");
         }
-        internal static void incompatible_with_TRACredentialWrapper()
+        internal static void incompatible_with_TRACredentialEnvelopeSeal()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRACredentialWrapper' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialEnvelopeSeal' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredentialMetadata(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialMetadata.");
+        }
+        internal static void incompatible_with_TRACredentialMetadata()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialMetadata' not compatible with the target field.");
         }
         
         internal static void parse_TRAKeyValuePair(string value)
@@ -229,6 +256,33 @@ namespace TDW.VDAServer
         internal static void incompatible_with_List_List_TRAKeyValuePair()
         {
             throw new DataTypeIncompatibleException("Data type 'List<List<TRAKeyValuePair>>' not compatible with the target field.");
+        }
+        
+        internal static void parse_TDWVDAAccountEntryContent_nullable(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDAAccountEntryContent?.");
+        }
+        internal static void incompatible_with_TDWVDAAccountEntryContent_nullable()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TDWVDAAccountEntryContent?' not compatible with the target field.");
+        }
+        
+        internal static void parse_TDWVDASmartContractEntryContent_nullable(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TDWVDASmartContractEntryContent?.");
+        }
+        internal static void incompatible_with_TDWVDASmartContractEntryContent_nullable()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TDWVDASmartContractEntryContent?' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredentialContent_nullable(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredentialContent?.");
+        }
+        internal static void incompatible_with_TRACredentialContent_nullable()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredentialContent?' not compatible with the target field.");
         }
         
         internal static void data_type_incompatible_with_list(string type)

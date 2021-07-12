@@ -19,14 +19,14 @@ namespace TDW.VDAServer
     #region Internal
     /**
      * <summary>
-     * Accepts transformation from TDWCredential_Accessor to T.
+     * Accepts transformation from TRACredentialCell_Accessor to T.
      * </summary>
      */
-    internal class TDWCredential_Accessor_local_projector<T> : IQueryable<T>
+    internal class TRACredentialCell_Accessor_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TDWCredential_Accessor_local_query_provider    query_provider;
-        internal TDWCredential_Accessor_local_projector(TDWCredential_Accessor_local_query_provider provider, Expression expression)
+        private         TRACredentialCell_Accessor_local_query_provider    query_provider;
+        internal TRACredentialCell_Accessor_local_projector(TRACredentialCell_Accessor_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -53,13 +53,13 @@ namespace TDW.VDAServer
         }
     }
     /**
-     * Accepts transformation from TDWCredential to T.
+     * Accepts transformation from TRACredentialCell to T.
      */
-    internal class TDWCredential_local_projector<T> : IQueryable<T>
+    internal class TRACredentialCell_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TDWCredential_local_query_provider             query_provider;
-        internal TDWCredential_local_projector(TDWCredential_local_query_provider provider, Expression expression)
+        private         TRACredentialCell_local_query_provider             query_provider;
+        internal TRACredentialCell_local_projector(TRACredentialCell_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -85,14 +85,14 @@ namespace TDW.VDAServer
             get { return query_provider; }
         }
     }
-    internal class TDWCredential_AccessorEnumerable : IEnumerable<TDWCredential_Accessor>
+    internal class TRACredentialCell_AccessorEnumerable : IEnumerable<TRACredentialCell_Accessor>
     {
         private     LocalMemoryStorage              m_storage;
         private     LocalTransactionContext         m_tx;
         private     HashSet<long>                   m_filter_set;
         private     bool                            m_is_positive_filtering;
-        private     Func<TDWCredential_Accessor,bool> m_filter_predicate;
-        internal TDWCredential_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private     Func<TRACredentialCell_Accessor,bool> m_filter_predicate;
+        internal TRACredentialCell_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.m_storage     = storage;
             m_filter_set       = null;
@@ -109,16 +109,16 @@ namespace TDW.VDAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TDWCredential_Accessor> GetEnumerator()
+        public IEnumerator<TRACredentialCell_Accessor> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWCredential)
+                        if (cellInfo.CellType == (ushort)CellType.TRACredentialCell)
                         {
-                            var accessor = TDWCredential_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -126,9 +126,9 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWCredential)
+                        if (cellInfo.CellType == (ushort)CellType.TRACredentialCell)
                         {
-                            var accessor = TDWCredential_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -140,7 +140,7 @@ namespace TDW.VDAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWCredential(cellID))
+                        using (var accessor = m_storage.UseTRACredentialCell(cellID))
                         {
                             yield return accessor;
                         }
@@ -148,7 +148,7 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWCredential(cellID))
+                        using (var accessor = m_storage.UseTRACredentialCell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -166,21 +166,21 @@ namespace TDW.VDAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TDWCredential_Accessor, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TRACredentialCell_Accessor, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TDWCredential_Enumerable : IEnumerable<TDWCredential>
+    internal class TRACredentialCell_Enumerable : IEnumerable<TRACredentialCell>
     {
         private LocalMemoryStorage      m_storage;
         private HashSet<long>           m_filter_set;
         private bool                    m_is_positive_filtering;
-        private Func<TDWCredential,bool>  m_filter_predicate;
-        private static Type             m_cell_type = typeof(TDWCredential);
+        private Func<TRACredentialCell,bool>  m_filter_predicate;
+        private static Type             m_cell_type = typeof(TRACredentialCell);
         private LocalTransactionContext m_tx;
-        internal TDWCredential_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        internal TRACredentialCell_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             m_storage          = storage;
             m_filter_set       = null;
@@ -197,16 +197,16 @@ namespace TDW.VDAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TDWCredential> GetEnumerator()
+        public IEnumerator<TRACredentialCell> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWCredential)
+                        if (cellInfo.CellType == (ushort)CellType.TRACredentialCell)
                         {
-                            var accessor = TDWCredential_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -214,9 +214,9 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWCredential)
+                        if (cellInfo.CellType == (ushort)CellType.TRACredentialCell)
                         {
-                            var accessor = TDWCredential_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -228,7 +228,7 @@ namespace TDW.VDAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWCredential(cellID))
+                        using (var accessor = m_storage.UseTRACredentialCell(cellID))
                         {
                             yield return accessor;
                         }
@@ -236,7 +236,7 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWCredential(cellID))
+                        using (var accessor = m_storage.UseTRACredentialCell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -254,49 +254,49 @@ namespace TDW.VDAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TDWCredential, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TRACredentialCell, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TDWCredential_Accessor_local_query_provider : IQueryProvider
+    internal class TRACredentialCell_Accessor_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_accessor_type    = typeof(TDWCredential_Accessor);
-        private static  Type                             s_cell_type        = typeof(TDWCredential);
+        private static  Type                             s_accessor_type    = typeof(TRACredentialCell_Accessor);
+        private static  Type                             s_cell_type        = typeof(TRACredentialCell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TDWCredential_AccessorEnumerable   m_accessor_enumerable;
-        internal TDWCredential_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRACredentialCell_AccessorEnumerable   m_accessor_enumerable;
+        internal TRACredentialCell_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            m_accessor_enumerable = new TDWCredential_AccessorEnumerable(storage, tx);
+            m_accessor_enumerable = new TRACredentialCell_AccessorEnumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_accessor_type)
             {
-                return (IQueryable<TElement>)new TDWCredential_Accessor_local_selector(this, expression);
+                return (IQueryable<TElement>)new TRACredentialCell_Accessor_local_selector(this, expression);
             }
             else
             {
-                return new TDWCredential_Accessor_local_projector<TElement>(this, expression);
+                return new TRACredentialCell_Accessor_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TDWCredential_Accessor>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TRACredentialCell_Accessor>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = m_accessor_enumerable.AsQueryable<TDWCredential_Accessor>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWCredential_Accessor_local_selector));
+            var  queryable            = m_accessor_enumerable.AsQueryable<TRACredentialCell_Accessor>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TRACredentialCell_Accessor_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TDWCredential_Accessor>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TRACredentialCell_Accessor>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TDWCredential_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TDWCredential_Accessor>("TDWCredential", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
+                IndexQueryTreeGenerator<TRACredentialCell_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TRACredentialCell_Accessor>("TRACredentialCell", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
                 aggregated_predicate                                               = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                                     = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -342,42 +342,42 @@ namespace TDW.VDAServer
         }
         #endregion
     }
-    internal class TDWCredential_local_query_provider : IQueryProvider
+    internal class TRACredentialCell_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_cell_type        = typeof(TDWCredential);
+        private static  Type                             s_cell_type        = typeof(TRACredentialCell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TDWCredential_Enumerable           s_cell_enumerable;
-        internal TDWCredential_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRACredentialCell_Enumerable           s_cell_enumerable;
+        internal TRACredentialCell_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            s_cell_enumerable = new TDWCredential_Enumerable(storage, tx);
+            s_cell_enumerable = new TRACredentialCell_Enumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_cell_type)
             {
-                return (IQueryable<TElement>)new TDWCredential_local_selector(this, expression);
+                return (IQueryable<TElement>)new TRACredentialCell_local_selector(this, expression);
             }
             else
             {
-                return new TDWCredential_local_projector<TElement>(this, expression);
+                return new TRACredentialCell_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TDWCredential>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TRACredentialCell>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = s_cell_enumerable.AsQueryable<TDWCredential>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWCredential_local_selector));
+            var  queryable            = s_cell_enumerable.AsQueryable<TRACredentialCell>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TRACredentialCell_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TDWCredential>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TRACredentialCell>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TDWCredential> query_tree_gen       = new IndexQueryTreeGenerator<TDWCredential>("TDWCredential", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
+                IndexQueryTreeGenerator<TRACredentialCell> query_tree_gen       = new IndexQueryTreeGenerator<TRACredentialCell>("TRACredentialCell", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
                 aggregated_predicate                                      = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                            = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -426,28 +426,28 @@ namespace TDW.VDAServer
     #endregion
     #region Public
     /// <summary>
-    /// Implements System.Linq.IQueryable{TDWCredential_Accessor} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TRACredentialCell_Accessor} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TDWCredential_Accessor_local_selector : IQueryable<TDWCredential_Accessor>
+    public class TRACredentialCell_Accessor_local_selector : IQueryable<TRACredentialCell_Accessor>
     {
         private         Expression                                   query_expression;
-        private         TDWCredential_Accessor_local_query_provider    query_provider;
-        private TDWCredential_Accessor_local_selector() { /* nobody should reach this method */ }
-        internal TDWCredential_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRACredentialCell_Accessor_local_query_provider    query_provider;
+        private TRACredentialCell_Accessor_local_selector() { /* nobody should reach this method */ }
+        internal TRACredentialCell_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TDWCredential_Accessor_local_query_provider(storage, tx);
+            this.query_provider                = new TRACredentialCell_Accessor_local_query_provider(storage, tx);
         }
-        internal unsafe TDWCredential_Accessor_local_selector(TDWCredential_Accessor_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TRACredentialCell_Accessor_local_selector(TRACredentialCell_Accessor_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<CellAccessor> interfaces
-        public IEnumerator<TDWCredential_Accessor> GetEnumerator()
+        public IEnumerator<TRACredentialCell_Accessor> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TDWCredential_Accessor>>(query_expression);
+            return Provider.Execute<IEnumerator<TRACredentialCell_Accessor>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -455,7 +455,7 @@ namespace TDW.VDAServer
         }
         public Type ElementType
         {
-            get { return typeof(TDWCredential_Accessor); }
+            get { return typeof(TRACredentialCell_Accessor); }
         }
         public Expression Expression
         {
@@ -467,43 +467,43 @@ namespace TDW.VDAServer
         }
         #endregion
         #region PLINQ Wrapper
-        public PLINQWrapper<TDWCredential_Accessor> AsParallel()
+        public PLINQWrapper<TRACredentialCell_Accessor> AsParallel()
         {
-            return new PLINQWrapper<TDWCredential_Accessor>(this);
+            return new PLINQWrapper<TRACredentialCell_Accessor>(this);
         }
         #endregion
     }
     /// <summary>
-    /// Implements System.Linq.IQueryable{TDWCredential} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TRACredentialCell} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TDWCredential_local_selector : IQueryable<TDWCredential>, IOrderedQueryable<TDWCredential>
+    public class TRACredentialCell_local_selector : IQueryable<TRACredentialCell>, IOrderedQueryable<TRACredentialCell>
     {
         private         Expression                                   query_expression;
-        private         TDWCredential_local_query_provider             query_provider;
-        private TDWCredential_local_selector() { /* nobody should reach this method */ }
-        internal TDWCredential_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRACredentialCell_local_query_provider             query_provider;
+        private TRACredentialCell_local_selector() { /* nobody should reach this method */ }
+        internal TRACredentialCell_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TDWCredential_local_query_provider(storage, tx);
+            this.query_provider                = new TRACredentialCell_local_query_provider(storage, tx);
         }
-        internal unsafe TDWCredential_local_selector(TDWCredential_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TRACredentialCell_local_selector(TRACredentialCell_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<Cell> interfaces
-        public IEnumerator<TDWCredential> GetEnumerator()
+        public IEnumerator<TRACredentialCell> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TDWCredential>>(query_expression);
+            return Provider.Execute<IEnumerator<TRACredentialCell>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator<TDWCredential>)this.GetEnumerator();
+            return (IEnumerator<TRACredentialCell>)this.GetEnumerator();
         }
         public Type ElementType
         {
-            get { return typeof(TDWCredential); }
+            get { return typeof(TRACredentialCell); }
         }
         public Expression Expression
         {
@@ -520,14 +520,14 @@ namespace TDW.VDAServer
     #region Internal
     /**
      * <summary>
-     * Accepts transformation from TDWVDAAccount_Accessor to T.
+     * Accepts transformation from TDWVDAAccountEntryCell_Accessor to T.
      * </summary>
      */
-    internal class TDWVDAAccount_Accessor_local_projector<T> : IQueryable<T>
+    internal class TDWVDAAccountEntryCell_Accessor_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TDWVDAAccount_Accessor_local_query_provider    query_provider;
-        internal TDWVDAAccount_Accessor_local_projector(TDWVDAAccount_Accessor_local_query_provider provider, Expression expression)
+        private         TDWVDAAccountEntryCell_Accessor_local_query_provider    query_provider;
+        internal TDWVDAAccountEntryCell_Accessor_local_projector(TDWVDAAccountEntryCell_Accessor_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -554,13 +554,13 @@ namespace TDW.VDAServer
         }
     }
     /**
-     * Accepts transformation from TDWVDAAccount to T.
+     * Accepts transformation from TDWVDAAccountEntryCell to T.
      */
-    internal class TDWVDAAccount_local_projector<T> : IQueryable<T>
+    internal class TDWVDAAccountEntryCell_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TDWVDAAccount_local_query_provider             query_provider;
-        internal TDWVDAAccount_local_projector(TDWVDAAccount_local_query_provider provider, Expression expression)
+        private         TDWVDAAccountEntryCell_local_query_provider             query_provider;
+        internal TDWVDAAccountEntryCell_local_projector(TDWVDAAccountEntryCell_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -586,14 +586,14 @@ namespace TDW.VDAServer
             get { return query_provider; }
         }
     }
-    internal class TDWVDAAccount_AccessorEnumerable : IEnumerable<TDWVDAAccount_Accessor>
+    internal class TDWVDAAccountEntryCell_AccessorEnumerable : IEnumerable<TDWVDAAccountEntryCell_Accessor>
     {
         private     LocalMemoryStorage              m_storage;
         private     LocalTransactionContext         m_tx;
         private     HashSet<long>                   m_filter_set;
         private     bool                            m_is_positive_filtering;
-        private     Func<TDWVDAAccount_Accessor,bool> m_filter_predicate;
-        internal TDWVDAAccount_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private     Func<TDWVDAAccountEntryCell_Accessor,bool> m_filter_predicate;
+        internal TDWVDAAccountEntryCell_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.m_storage     = storage;
             m_filter_set       = null;
@@ -610,16 +610,16 @@ namespace TDW.VDAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TDWVDAAccount_Accessor> GetEnumerator()
+        public IEnumerator<TDWVDAAccountEntryCell_Accessor> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWVDAAccount)
+                        if (cellInfo.CellType == (ushort)CellType.TDWVDAAccountEntryCell)
                         {
-                            var accessor = TDWVDAAccount_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWVDAAccountEntryCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -627,9 +627,9 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWVDAAccount)
+                        if (cellInfo.CellType == (ushort)CellType.TDWVDAAccountEntryCell)
                         {
-                            var accessor = TDWVDAAccount_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWVDAAccountEntryCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -641,7 +641,7 @@ namespace TDW.VDAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWVDAAccount(cellID))
+                        using (var accessor = m_storage.UseTDWVDAAccountEntryCell(cellID))
                         {
                             yield return accessor;
                         }
@@ -649,7 +649,7 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWVDAAccount(cellID))
+                        using (var accessor = m_storage.UseTDWVDAAccountEntryCell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -667,21 +667,21 @@ namespace TDW.VDAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TDWVDAAccount_Accessor, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TDWVDAAccountEntryCell_Accessor, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TDWVDAAccount_Enumerable : IEnumerable<TDWVDAAccount>
+    internal class TDWVDAAccountEntryCell_Enumerable : IEnumerable<TDWVDAAccountEntryCell>
     {
         private LocalMemoryStorage      m_storage;
         private HashSet<long>           m_filter_set;
         private bool                    m_is_positive_filtering;
-        private Func<TDWVDAAccount,bool>  m_filter_predicate;
-        private static Type             m_cell_type = typeof(TDWVDAAccount);
+        private Func<TDWVDAAccountEntryCell,bool>  m_filter_predicate;
+        private static Type             m_cell_type = typeof(TDWVDAAccountEntryCell);
         private LocalTransactionContext m_tx;
-        internal TDWVDAAccount_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        internal TDWVDAAccountEntryCell_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             m_storage          = storage;
             m_filter_set       = null;
@@ -698,16 +698,16 @@ namespace TDW.VDAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TDWVDAAccount> GetEnumerator()
+        public IEnumerator<TDWVDAAccountEntryCell> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWVDAAccount)
+                        if (cellInfo.CellType == (ushort)CellType.TDWVDAAccountEntryCell)
                         {
-                            var accessor = TDWVDAAccount_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWVDAAccountEntryCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -715,9 +715,9 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWVDAAccount)
+                        if (cellInfo.CellType == (ushort)CellType.TDWVDAAccountEntryCell)
                         {
-                            var accessor = TDWVDAAccount_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWVDAAccountEntryCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -729,7 +729,7 @@ namespace TDW.VDAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWVDAAccount(cellID))
+                        using (var accessor = m_storage.UseTDWVDAAccountEntryCell(cellID))
                         {
                             yield return accessor;
                         }
@@ -737,7 +737,7 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWVDAAccount(cellID))
+                        using (var accessor = m_storage.UseTDWVDAAccountEntryCell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -755,49 +755,49 @@ namespace TDW.VDAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TDWVDAAccount, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TDWVDAAccountEntryCell, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TDWVDAAccount_Accessor_local_query_provider : IQueryProvider
+    internal class TDWVDAAccountEntryCell_Accessor_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_accessor_type    = typeof(TDWVDAAccount_Accessor);
-        private static  Type                             s_cell_type        = typeof(TDWVDAAccount);
+        private static  Type                             s_accessor_type    = typeof(TDWVDAAccountEntryCell_Accessor);
+        private static  Type                             s_cell_type        = typeof(TDWVDAAccountEntryCell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TDWVDAAccount_AccessorEnumerable   m_accessor_enumerable;
-        internal TDWVDAAccount_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWVDAAccountEntryCell_AccessorEnumerable   m_accessor_enumerable;
+        internal TDWVDAAccountEntryCell_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            m_accessor_enumerable = new TDWVDAAccount_AccessorEnumerable(storage, tx);
+            m_accessor_enumerable = new TDWVDAAccountEntryCell_AccessorEnumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_accessor_type)
             {
-                return (IQueryable<TElement>)new TDWVDAAccount_Accessor_local_selector(this, expression);
+                return (IQueryable<TElement>)new TDWVDAAccountEntryCell_Accessor_local_selector(this, expression);
             }
             else
             {
-                return new TDWVDAAccount_Accessor_local_projector<TElement>(this, expression);
+                return new TDWVDAAccountEntryCell_Accessor_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TDWVDAAccount_Accessor>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TDWVDAAccountEntryCell_Accessor>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = m_accessor_enumerable.AsQueryable<TDWVDAAccount_Accessor>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWVDAAccount_Accessor_local_selector));
+            var  queryable            = m_accessor_enumerable.AsQueryable<TDWVDAAccountEntryCell_Accessor>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWVDAAccountEntryCell_Accessor_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TDWVDAAccount_Accessor>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TDWVDAAccountEntryCell_Accessor>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TDWVDAAccount_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TDWVDAAccount_Accessor>("TDWVDAAccount", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
+                IndexQueryTreeGenerator<TDWVDAAccountEntryCell_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TDWVDAAccountEntryCell_Accessor>("TDWVDAAccountEntryCell", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
                 aggregated_predicate                                               = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                                     = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -843,42 +843,42 @@ namespace TDW.VDAServer
         }
         #endregion
     }
-    internal class TDWVDAAccount_local_query_provider : IQueryProvider
+    internal class TDWVDAAccountEntryCell_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_cell_type        = typeof(TDWVDAAccount);
+        private static  Type                             s_cell_type        = typeof(TDWVDAAccountEntryCell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TDWVDAAccount_Enumerable           s_cell_enumerable;
-        internal TDWVDAAccount_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWVDAAccountEntryCell_Enumerable           s_cell_enumerable;
+        internal TDWVDAAccountEntryCell_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            s_cell_enumerable = new TDWVDAAccount_Enumerable(storage, tx);
+            s_cell_enumerable = new TDWVDAAccountEntryCell_Enumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_cell_type)
             {
-                return (IQueryable<TElement>)new TDWVDAAccount_local_selector(this, expression);
+                return (IQueryable<TElement>)new TDWVDAAccountEntryCell_local_selector(this, expression);
             }
             else
             {
-                return new TDWVDAAccount_local_projector<TElement>(this, expression);
+                return new TDWVDAAccountEntryCell_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TDWVDAAccount>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TDWVDAAccountEntryCell>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = s_cell_enumerable.AsQueryable<TDWVDAAccount>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWVDAAccount_local_selector));
+            var  queryable            = s_cell_enumerable.AsQueryable<TDWVDAAccountEntryCell>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWVDAAccountEntryCell_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TDWVDAAccount>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TDWVDAAccountEntryCell>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TDWVDAAccount> query_tree_gen       = new IndexQueryTreeGenerator<TDWVDAAccount>("TDWVDAAccount", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
+                IndexQueryTreeGenerator<TDWVDAAccountEntryCell> query_tree_gen       = new IndexQueryTreeGenerator<TDWVDAAccountEntryCell>("TDWVDAAccountEntryCell", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
                 aggregated_predicate                                      = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                            = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -927,28 +927,28 @@ namespace TDW.VDAServer
     #endregion
     #region Public
     /// <summary>
-    /// Implements System.Linq.IQueryable{TDWVDAAccount_Accessor} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TDWVDAAccountEntryCell_Accessor} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TDWVDAAccount_Accessor_local_selector : IQueryable<TDWVDAAccount_Accessor>
+    public class TDWVDAAccountEntryCell_Accessor_local_selector : IQueryable<TDWVDAAccountEntryCell_Accessor>
     {
         private         Expression                                   query_expression;
-        private         TDWVDAAccount_Accessor_local_query_provider    query_provider;
-        private TDWVDAAccount_Accessor_local_selector() { /* nobody should reach this method */ }
-        internal TDWVDAAccount_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWVDAAccountEntryCell_Accessor_local_query_provider    query_provider;
+        private TDWVDAAccountEntryCell_Accessor_local_selector() { /* nobody should reach this method */ }
+        internal TDWVDAAccountEntryCell_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TDWVDAAccount_Accessor_local_query_provider(storage, tx);
+            this.query_provider                = new TDWVDAAccountEntryCell_Accessor_local_query_provider(storage, tx);
         }
-        internal unsafe TDWVDAAccount_Accessor_local_selector(TDWVDAAccount_Accessor_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TDWVDAAccountEntryCell_Accessor_local_selector(TDWVDAAccountEntryCell_Accessor_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<CellAccessor> interfaces
-        public IEnumerator<TDWVDAAccount_Accessor> GetEnumerator()
+        public IEnumerator<TDWVDAAccountEntryCell_Accessor> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TDWVDAAccount_Accessor>>(query_expression);
+            return Provider.Execute<IEnumerator<TDWVDAAccountEntryCell_Accessor>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -956,7 +956,7 @@ namespace TDW.VDAServer
         }
         public Type ElementType
         {
-            get { return typeof(TDWVDAAccount_Accessor); }
+            get { return typeof(TDWVDAAccountEntryCell_Accessor); }
         }
         public Expression Expression
         {
@@ -968,43 +968,43 @@ namespace TDW.VDAServer
         }
         #endregion
         #region PLINQ Wrapper
-        public PLINQWrapper<TDWVDAAccount_Accessor> AsParallel()
+        public PLINQWrapper<TDWVDAAccountEntryCell_Accessor> AsParallel()
         {
-            return new PLINQWrapper<TDWVDAAccount_Accessor>(this);
+            return new PLINQWrapper<TDWVDAAccountEntryCell_Accessor>(this);
         }
         #endregion
     }
     /// <summary>
-    /// Implements System.Linq.IQueryable{TDWVDAAccount} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TDWVDAAccountEntryCell} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TDWVDAAccount_local_selector : IQueryable<TDWVDAAccount>, IOrderedQueryable<TDWVDAAccount>
+    public class TDWVDAAccountEntryCell_local_selector : IQueryable<TDWVDAAccountEntryCell>, IOrderedQueryable<TDWVDAAccountEntryCell>
     {
         private         Expression                                   query_expression;
-        private         TDWVDAAccount_local_query_provider             query_provider;
-        private TDWVDAAccount_local_selector() { /* nobody should reach this method */ }
-        internal TDWVDAAccount_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWVDAAccountEntryCell_local_query_provider             query_provider;
+        private TDWVDAAccountEntryCell_local_selector() { /* nobody should reach this method */ }
+        internal TDWVDAAccountEntryCell_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TDWVDAAccount_local_query_provider(storage, tx);
+            this.query_provider                = new TDWVDAAccountEntryCell_local_query_provider(storage, tx);
         }
-        internal unsafe TDWVDAAccount_local_selector(TDWVDAAccount_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TDWVDAAccountEntryCell_local_selector(TDWVDAAccountEntryCell_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<Cell> interfaces
-        public IEnumerator<TDWVDAAccount> GetEnumerator()
+        public IEnumerator<TDWVDAAccountEntryCell> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TDWVDAAccount>>(query_expression);
+            return Provider.Execute<IEnumerator<TDWVDAAccountEntryCell>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator<TDWVDAAccount>)this.GetEnumerator();
+            return (IEnumerator<TDWVDAAccountEntryCell>)this.GetEnumerator();
         }
         public Type ElementType
         {
-            get { return typeof(TDWVDAAccount); }
+            get { return typeof(TDWVDAAccountEntryCell); }
         }
         public Expression Expression
         {
@@ -1021,14 +1021,14 @@ namespace TDW.VDAServer
     #region Internal
     /**
      * <summary>
-     * Accepts transformation from TDWVDASmartContract_Accessor to T.
+     * Accepts transformation from TDWVDASmartContractEntryCell_Accessor to T.
      * </summary>
      */
-    internal class TDWVDASmartContract_Accessor_local_projector<T> : IQueryable<T>
+    internal class TDWVDASmartContractEntryCell_Accessor_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TDWVDASmartContract_Accessor_local_query_provider    query_provider;
-        internal TDWVDASmartContract_Accessor_local_projector(TDWVDASmartContract_Accessor_local_query_provider provider, Expression expression)
+        private         TDWVDASmartContractEntryCell_Accessor_local_query_provider    query_provider;
+        internal TDWVDASmartContractEntryCell_Accessor_local_projector(TDWVDASmartContractEntryCell_Accessor_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -1055,13 +1055,13 @@ namespace TDW.VDAServer
         }
     }
     /**
-     * Accepts transformation from TDWVDASmartContract to T.
+     * Accepts transformation from TDWVDASmartContractEntryCell to T.
      */
-    internal class TDWVDASmartContract_local_projector<T> : IQueryable<T>
+    internal class TDWVDASmartContractEntryCell_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TDWVDASmartContract_local_query_provider             query_provider;
-        internal TDWVDASmartContract_local_projector(TDWVDASmartContract_local_query_provider provider, Expression expression)
+        private         TDWVDASmartContractEntryCell_local_query_provider             query_provider;
+        internal TDWVDASmartContractEntryCell_local_projector(TDWVDASmartContractEntryCell_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -1087,14 +1087,14 @@ namespace TDW.VDAServer
             get { return query_provider; }
         }
     }
-    internal class TDWVDASmartContract_AccessorEnumerable : IEnumerable<TDWVDASmartContract_Accessor>
+    internal class TDWVDASmartContractEntryCell_AccessorEnumerable : IEnumerable<TDWVDASmartContractEntryCell_Accessor>
     {
         private     LocalMemoryStorage              m_storage;
         private     LocalTransactionContext         m_tx;
         private     HashSet<long>                   m_filter_set;
         private     bool                            m_is_positive_filtering;
-        private     Func<TDWVDASmartContract_Accessor,bool> m_filter_predicate;
-        internal TDWVDASmartContract_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private     Func<TDWVDASmartContractEntryCell_Accessor,bool> m_filter_predicate;
+        internal TDWVDASmartContractEntryCell_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.m_storage     = storage;
             m_filter_set       = null;
@@ -1111,16 +1111,16 @@ namespace TDW.VDAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TDWVDASmartContract_Accessor> GetEnumerator()
+        public IEnumerator<TDWVDASmartContractEntryCell_Accessor> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWVDASmartContract)
+                        if (cellInfo.CellType == (ushort)CellType.TDWVDASmartContractEntryCell)
                         {
-                            var accessor = TDWVDASmartContract_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWVDASmartContractEntryCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -1128,9 +1128,9 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWVDASmartContract)
+                        if (cellInfo.CellType == (ushort)CellType.TDWVDASmartContractEntryCell)
                         {
-                            var accessor = TDWVDASmartContract_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWVDASmartContractEntryCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -1142,7 +1142,7 @@ namespace TDW.VDAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWVDASmartContract(cellID))
+                        using (var accessor = m_storage.UseTDWVDASmartContractEntryCell(cellID))
                         {
                             yield return accessor;
                         }
@@ -1150,7 +1150,7 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWVDASmartContract(cellID))
+                        using (var accessor = m_storage.UseTDWVDASmartContractEntryCell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -1168,21 +1168,21 @@ namespace TDW.VDAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TDWVDASmartContract_Accessor, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TDWVDASmartContractEntryCell_Accessor, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TDWVDASmartContract_Enumerable : IEnumerable<TDWVDASmartContract>
+    internal class TDWVDASmartContractEntryCell_Enumerable : IEnumerable<TDWVDASmartContractEntryCell>
     {
         private LocalMemoryStorage      m_storage;
         private HashSet<long>           m_filter_set;
         private bool                    m_is_positive_filtering;
-        private Func<TDWVDASmartContract,bool>  m_filter_predicate;
-        private static Type             m_cell_type = typeof(TDWVDASmartContract);
+        private Func<TDWVDASmartContractEntryCell,bool>  m_filter_predicate;
+        private static Type             m_cell_type = typeof(TDWVDASmartContractEntryCell);
         private LocalTransactionContext m_tx;
-        internal TDWVDASmartContract_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        internal TDWVDASmartContractEntryCell_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             m_storage          = storage;
             m_filter_set       = null;
@@ -1199,16 +1199,16 @@ namespace TDW.VDAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TDWVDASmartContract> GetEnumerator()
+        public IEnumerator<TDWVDASmartContractEntryCell> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWVDASmartContract)
+                        if (cellInfo.CellType == (ushort)CellType.TDWVDASmartContractEntryCell)
                         {
-                            var accessor = TDWVDASmartContract_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWVDASmartContractEntryCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -1216,9 +1216,9 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWVDASmartContract)
+                        if (cellInfo.CellType == (ushort)CellType.TDWVDASmartContractEntryCell)
                         {
-                            var accessor = TDWVDASmartContract_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWVDASmartContractEntryCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -1230,7 +1230,7 @@ namespace TDW.VDAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWVDASmartContract(cellID))
+                        using (var accessor = m_storage.UseTDWVDASmartContractEntryCell(cellID))
                         {
                             yield return accessor;
                         }
@@ -1238,7 +1238,7 @@ namespace TDW.VDAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWVDASmartContract(cellID))
+                        using (var accessor = m_storage.UseTDWVDASmartContractEntryCell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -1256,49 +1256,49 @@ namespace TDW.VDAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TDWVDASmartContract, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TDWVDASmartContractEntryCell, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TDWVDASmartContract_Accessor_local_query_provider : IQueryProvider
+    internal class TDWVDASmartContractEntryCell_Accessor_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_accessor_type    = typeof(TDWVDASmartContract_Accessor);
-        private static  Type                             s_cell_type        = typeof(TDWVDASmartContract);
+        private static  Type                             s_accessor_type    = typeof(TDWVDASmartContractEntryCell_Accessor);
+        private static  Type                             s_cell_type        = typeof(TDWVDASmartContractEntryCell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TDWVDASmartContract_AccessorEnumerable   m_accessor_enumerable;
-        internal TDWVDASmartContract_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWVDASmartContractEntryCell_AccessorEnumerable   m_accessor_enumerable;
+        internal TDWVDASmartContractEntryCell_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            m_accessor_enumerable = new TDWVDASmartContract_AccessorEnumerable(storage, tx);
+            m_accessor_enumerable = new TDWVDASmartContractEntryCell_AccessorEnumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_accessor_type)
             {
-                return (IQueryable<TElement>)new TDWVDASmartContract_Accessor_local_selector(this, expression);
+                return (IQueryable<TElement>)new TDWVDASmartContractEntryCell_Accessor_local_selector(this, expression);
             }
             else
             {
-                return new TDWVDASmartContract_Accessor_local_projector<TElement>(this, expression);
+                return new TDWVDASmartContractEntryCell_Accessor_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TDWVDASmartContract_Accessor>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TDWVDASmartContractEntryCell_Accessor>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = m_accessor_enumerable.AsQueryable<TDWVDASmartContract_Accessor>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWVDASmartContract_Accessor_local_selector));
+            var  queryable            = m_accessor_enumerable.AsQueryable<TDWVDASmartContractEntryCell_Accessor>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWVDASmartContractEntryCell_Accessor_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TDWVDASmartContract_Accessor>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TDWVDASmartContractEntryCell_Accessor>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TDWVDASmartContract_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TDWVDASmartContract_Accessor>("TDWVDASmartContract", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
+                IndexQueryTreeGenerator<TDWVDASmartContractEntryCell_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TDWVDASmartContractEntryCell_Accessor>("TDWVDASmartContractEntryCell", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
                 aggregated_predicate                                               = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                                     = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -1344,42 +1344,42 @@ namespace TDW.VDAServer
         }
         #endregion
     }
-    internal class TDWVDASmartContract_local_query_provider : IQueryProvider
+    internal class TDWVDASmartContractEntryCell_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_cell_type        = typeof(TDWVDASmartContract);
+        private static  Type                             s_cell_type        = typeof(TDWVDASmartContractEntryCell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TDWVDASmartContract_Enumerable           s_cell_enumerable;
-        internal TDWVDASmartContract_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWVDASmartContractEntryCell_Enumerable           s_cell_enumerable;
+        internal TDWVDASmartContractEntryCell_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            s_cell_enumerable = new TDWVDASmartContract_Enumerable(storage, tx);
+            s_cell_enumerable = new TDWVDASmartContractEntryCell_Enumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_cell_type)
             {
-                return (IQueryable<TElement>)new TDWVDASmartContract_local_selector(this, expression);
+                return (IQueryable<TElement>)new TDWVDASmartContractEntryCell_local_selector(this, expression);
             }
             else
             {
-                return new TDWVDASmartContract_local_projector<TElement>(this, expression);
+                return new TDWVDASmartContractEntryCell_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TDWVDASmartContract>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TDWVDASmartContractEntryCell>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = s_cell_enumerable.AsQueryable<TDWVDASmartContract>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWVDASmartContract_local_selector));
+            var  queryable            = s_cell_enumerable.AsQueryable<TDWVDASmartContractEntryCell>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWVDASmartContractEntryCell_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TDWVDASmartContract>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TDWVDASmartContractEntryCell>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TDWVDASmartContract> query_tree_gen       = new IndexQueryTreeGenerator<TDWVDASmartContract>("TDWVDASmartContract", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
+                IndexQueryTreeGenerator<TDWVDASmartContractEntryCell> query_tree_gen       = new IndexQueryTreeGenerator<TDWVDASmartContractEntryCell>("TDWVDASmartContractEntryCell", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
                 aggregated_predicate                                      = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                            = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -1428,28 +1428,28 @@ namespace TDW.VDAServer
     #endregion
     #region Public
     /// <summary>
-    /// Implements System.Linq.IQueryable{TDWVDASmartContract_Accessor} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TDWVDASmartContractEntryCell_Accessor} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TDWVDASmartContract_Accessor_local_selector : IQueryable<TDWVDASmartContract_Accessor>
+    public class TDWVDASmartContractEntryCell_Accessor_local_selector : IQueryable<TDWVDASmartContractEntryCell_Accessor>
     {
         private         Expression                                   query_expression;
-        private         TDWVDASmartContract_Accessor_local_query_provider    query_provider;
-        private TDWVDASmartContract_Accessor_local_selector() { /* nobody should reach this method */ }
-        internal TDWVDASmartContract_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWVDASmartContractEntryCell_Accessor_local_query_provider    query_provider;
+        private TDWVDASmartContractEntryCell_Accessor_local_selector() { /* nobody should reach this method */ }
+        internal TDWVDASmartContractEntryCell_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TDWVDASmartContract_Accessor_local_query_provider(storage, tx);
+            this.query_provider                = new TDWVDASmartContractEntryCell_Accessor_local_query_provider(storage, tx);
         }
-        internal unsafe TDWVDASmartContract_Accessor_local_selector(TDWVDASmartContract_Accessor_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TDWVDASmartContractEntryCell_Accessor_local_selector(TDWVDASmartContractEntryCell_Accessor_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<CellAccessor> interfaces
-        public IEnumerator<TDWVDASmartContract_Accessor> GetEnumerator()
+        public IEnumerator<TDWVDASmartContractEntryCell_Accessor> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TDWVDASmartContract_Accessor>>(query_expression);
+            return Provider.Execute<IEnumerator<TDWVDASmartContractEntryCell_Accessor>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -1457,7 +1457,7 @@ namespace TDW.VDAServer
         }
         public Type ElementType
         {
-            get { return typeof(TDWVDASmartContract_Accessor); }
+            get { return typeof(TDWVDASmartContractEntryCell_Accessor); }
         }
         public Expression Expression
         {
@@ -1469,43 +1469,43 @@ namespace TDW.VDAServer
         }
         #endregion
         #region PLINQ Wrapper
-        public PLINQWrapper<TDWVDASmartContract_Accessor> AsParallel()
+        public PLINQWrapper<TDWVDASmartContractEntryCell_Accessor> AsParallel()
         {
-            return new PLINQWrapper<TDWVDASmartContract_Accessor>(this);
+            return new PLINQWrapper<TDWVDASmartContractEntryCell_Accessor>(this);
         }
         #endregion
     }
     /// <summary>
-    /// Implements System.Linq.IQueryable{TDWVDASmartContract} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TDWVDASmartContractEntryCell} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TDWVDASmartContract_local_selector : IQueryable<TDWVDASmartContract>, IOrderedQueryable<TDWVDASmartContract>
+    public class TDWVDASmartContractEntryCell_local_selector : IQueryable<TDWVDASmartContractEntryCell>, IOrderedQueryable<TDWVDASmartContractEntryCell>
     {
         private         Expression                                   query_expression;
-        private         TDWVDASmartContract_local_query_provider             query_provider;
-        private TDWVDASmartContract_local_selector() { /* nobody should reach this method */ }
-        internal TDWVDASmartContract_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWVDASmartContractEntryCell_local_query_provider             query_provider;
+        private TDWVDASmartContractEntryCell_local_selector() { /* nobody should reach this method */ }
+        internal TDWVDASmartContractEntryCell_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TDWVDASmartContract_local_query_provider(storage, tx);
+            this.query_provider                = new TDWVDASmartContractEntryCell_local_query_provider(storage, tx);
         }
-        internal unsafe TDWVDASmartContract_local_selector(TDWVDASmartContract_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TDWVDASmartContractEntryCell_local_selector(TDWVDASmartContractEntryCell_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<Cell> interfaces
-        public IEnumerator<TDWVDASmartContract> GetEnumerator()
+        public IEnumerator<TDWVDASmartContractEntryCell> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TDWVDASmartContract>>(query_expression);
+            return Provider.Execute<IEnumerator<TDWVDASmartContractEntryCell>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator<TDWVDASmartContract>)this.GetEnumerator();
+            return (IEnumerator<TDWVDASmartContractEntryCell>)this.GetEnumerator();
         }
         public Type ElementType
         {
-            get { return typeof(TDWVDASmartContract); }
+            get { return typeof(TDWVDASmartContractEntryCell); }
         }
         public Expression Expression
         {
@@ -1523,114 +1523,114 @@ namespace TDW.VDAServer
     {
         
         /// <summary>
-        /// Enumerates all the TDWCredential within the local memory storage.
+        /// Enumerates all the TRACredentialCell within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWCredential within the local memory storage.</returns>
-        public static TDWCredential_local_selector TDWCredential_Selector(this LocalMemoryStorage storage)
+        /// <returns>All the TRACredentialCell within the local memory storage.</returns>
+        public static TRACredentialCell_local_selector TRACredentialCell_Selector(this LocalMemoryStorage storage)
         {
-            return new TDWCredential_local_selector(storage, null);
+            return new TRACredentialCell_local_selector(storage, null);
         }
         /// <summary>
-        /// Enumerates all the TDWCredential_Accessor within the local memory storage.
+        /// Enumerates all the TRACredentialCell_Accessor within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWCredential_Accessor within the local memory storage.</returns>
-        public static TDWCredential_Accessor_local_selector TDWCredential_Accessor_Selector(this LocalMemoryStorage storage)
+        /// <returns>All the TRACredentialCell_Accessor within the local memory storage.</returns>
+        public static TRACredentialCell_Accessor_local_selector TRACredentialCell_Accessor_Selector(this LocalMemoryStorage storage)
         {
-            return new TDWCredential_Accessor_local_selector(storage, null);
+            return new TRACredentialCell_Accessor_local_selector(storage, null);
         }
         /// <summary>
-        /// Enumerates all the TDWCredential within the local memory storage.
+        /// Enumerates all the TRACredentialCell within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWCredential within the local memory storage.</returns>
-        public static TDWCredential_local_selector TDWCredential_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        /// <returns>All the TRACredentialCell within the local memory storage.</returns>
+        public static TRACredentialCell_local_selector TRACredentialCell_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            return new TDWCredential_local_selector(storage, tx);
+            return new TRACredentialCell_local_selector(storage, tx);
         }
         /// <summary>
-        /// Enumerates all the TDWCredential_Accessor within the local memory storage.
+        /// Enumerates all the TRACredentialCell_Accessor within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWCredential_Accessor within the local memory storage.</returns>
-        public static TDWCredential_Accessor_local_selector TDWCredential_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        /// <returns>All the TRACredentialCell_Accessor within the local memory storage.</returns>
+        public static TRACredentialCell_Accessor_local_selector TRACredentialCell_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            return new TDWCredential_Accessor_local_selector(storage, tx);
-        }
-        
-        /// <summary>
-        /// Enumerates all the TDWVDAAccount within the local memory storage.
-        /// </summary>
-        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWVDAAccount within the local memory storage.</returns>
-        public static TDWVDAAccount_local_selector TDWVDAAccount_Selector(this LocalMemoryStorage storage)
-        {
-            return new TDWVDAAccount_local_selector(storage, null);
-        }
-        /// <summary>
-        /// Enumerates all the TDWVDAAccount_Accessor within the local memory storage.
-        /// </summary>
-        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWVDAAccount_Accessor within the local memory storage.</returns>
-        public static TDWVDAAccount_Accessor_local_selector TDWVDAAccount_Accessor_Selector(this LocalMemoryStorage storage)
-        {
-            return new TDWVDAAccount_Accessor_local_selector(storage, null);
-        }
-        /// <summary>
-        /// Enumerates all the TDWVDAAccount within the local memory storage.
-        /// </summary>
-        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWVDAAccount within the local memory storage.</returns>
-        public static TDWVDAAccount_local_selector TDWVDAAccount_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
-        {
-            return new TDWVDAAccount_local_selector(storage, tx);
-        }
-        /// <summary>
-        /// Enumerates all the TDWVDAAccount_Accessor within the local memory storage.
-        /// </summary>
-        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWVDAAccount_Accessor within the local memory storage.</returns>
-        public static TDWVDAAccount_Accessor_local_selector TDWVDAAccount_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
-        {
-            return new TDWVDAAccount_Accessor_local_selector(storage, tx);
+            return new TRACredentialCell_Accessor_local_selector(storage, tx);
         }
         
         /// <summary>
-        /// Enumerates all the TDWVDASmartContract within the local memory storage.
+        /// Enumerates all the TDWVDAAccountEntryCell within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWVDASmartContract within the local memory storage.</returns>
-        public static TDWVDASmartContract_local_selector TDWVDASmartContract_Selector(this LocalMemoryStorage storage)
+        /// <returns>All the TDWVDAAccountEntryCell within the local memory storage.</returns>
+        public static TDWVDAAccountEntryCell_local_selector TDWVDAAccountEntryCell_Selector(this LocalMemoryStorage storage)
         {
-            return new TDWVDASmartContract_local_selector(storage, null);
+            return new TDWVDAAccountEntryCell_local_selector(storage, null);
         }
         /// <summary>
-        /// Enumerates all the TDWVDASmartContract_Accessor within the local memory storage.
+        /// Enumerates all the TDWVDAAccountEntryCell_Accessor within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWVDASmartContract_Accessor within the local memory storage.</returns>
-        public static TDWVDASmartContract_Accessor_local_selector TDWVDASmartContract_Accessor_Selector(this LocalMemoryStorage storage)
+        /// <returns>All the TDWVDAAccountEntryCell_Accessor within the local memory storage.</returns>
+        public static TDWVDAAccountEntryCell_Accessor_local_selector TDWVDAAccountEntryCell_Accessor_Selector(this LocalMemoryStorage storage)
         {
-            return new TDWVDASmartContract_Accessor_local_selector(storage, null);
+            return new TDWVDAAccountEntryCell_Accessor_local_selector(storage, null);
         }
         /// <summary>
-        /// Enumerates all the TDWVDASmartContract within the local memory storage.
+        /// Enumerates all the TDWVDAAccountEntryCell within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWVDASmartContract within the local memory storage.</returns>
-        public static TDWVDASmartContract_local_selector TDWVDASmartContract_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        /// <returns>All the TDWVDAAccountEntryCell within the local memory storage.</returns>
+        public static TDWVDAAccountEntryCell_local_selector TDWVDAAccountEntryCell_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            return new TDWVDASmartContract_local_selector(storage, tx);
+            return new TDWVDAAccountEntryCell_local_selector(storage, tx);
         }
         /// <summary>
-        /// Enumerates all the TDWVDASmartContract_Accessor within the local memory storage.
+        /// Enumerates all the TDWVDAAccountEntryCell_Accessor within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWVDASmartContract_Accessor within the local memory storage.</returns>
-        public static TDWVDASmartContract_Accessor_local_selector TDWVDASmartContract_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        /// <returns>All the TDWVDAAccountEntryCell_Accessor within the local memory storage.</returns>
+        public static TDWVDAAccountEntryCell_Accessor_local_selector TDWVDAAccountEntryCell_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            return new TDWVDASmartContract_Accessor_local_selector(storage, tx);
+            return new TDWVDAAccountEntryCell_Accessor_local_selector(storage, tx);
+        }
+        
+        /// <summary>
+        /// Enumerates all the TDWVDASmartContractEntryCell within the local memory storage.
+        /// </summary>
+        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
+        /// <returns>All the TDWVDASmartContractEntryCell within the local memory storage.</returns>
+        public static TDWVDASmartContractEntryCell_local_selector TDWVDASmartContractEntryCell_Selector(this LocalMemoryStorage storage)
+        {
+            return new TDWVDASmartContractEntryCell_local_selector(storage, null);
+        }
+        /// <summary>
+        /// Enumerates all the TDWVDASmartContractEntryCell_Accessor within the local memory storage.
+        /// </summary>
+        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
+        /// <returns>All the TDWVDASmartContractEntryCell_Accessor within the local memory storage.</returns>
+        public static TDWVDASmartContractEntryCell_Accessor_local_selector TDWVDASmartContractEntryCell_Accessor_Selector(this LocalMemoryStorage storage)
+        {
+            return new TDWVDASmartContractEntryCell_Accessor_local_selector(storage, null);
+        }
+        /// <summary>
+        /// Enumerates all the TDWVDASmartContractEntryCell within the local memory storage.
+        /// </summary>
+        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
+        /// <returns>All the TDWVDASmartContractEntryCell within the local memory storage.</returns>
+        public static TDWVDASmartContractEntryCell_local_selector TDWVDASmartContractEntryCell_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        {
+            return new TDWVDASmartContractEntryCell_local_selector(storage, tx);
+        }
+        /// <summary>
+        /// Enumerates all the TDWVDASmartContractEntryCell_Accessor within the local memory storage.
+        /// </summary>
+        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
+        /// <returns>All the TDWVDASmartContractEntryCell_Accessor within the local memory storage.</returns>
+        public static TDWVDASmartContractEntryCell_Accessor_local_selector TDWVDASmartContractEntryCell_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        {
+            return new TDWVDASmartContractEntryCell_Accessor_local_selector(storage, tx);
         }
         
     }

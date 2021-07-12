@@ -43,9 +43,6 @@ enum TRAServiceType
 	MasterKeyManagementService,
 	AuthenticationService,
 	VerifiableDataRegistryService,
-	// ServiceEndpointRegistryService,
-	// RevocationRegistryService,
-	// IdentityRegistryService
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -64,29 +61,33 @@ struct TRAClaim
 	optional List<List<TRAKeyValuePair>> attributes;
 }
 
-struct TRACredentialCore
+struct TRACredentialContent
 {
 	string udid;	
 	List<string> context;
 	List<TRAClaim> claims;
 }
 
-struct TRACredentialWrapper
+struct TRACredentialMetadata
 {
 	TRACredentialType credtype;	
+	long version;
 	TRATrustLevel trustLevel;	
 	TRAEncryptionFlag encryptionFlag;
-	long version;
 	string notaryudid;
+	optional string name;
+	optional string comment;
 }
 
-struct TRACredentialContent
+struct TRACredentialEnvelope
 {
-	TRACredentialCore core;
-	TRACredentialWrapper wrapper;
+	optional TRACredentialContent content;
+	optional string encryptedcontent;
+	
+	TRACredentialMetadata metadata;
 }
 
-struct TRACredentialEnvelope 
+struct TRACredentialEnvelopeSeal 
 {
 	optional string hashedThumbprint64;		// digital hash
 	optional string signedHashSignature64;	// digital signature of digital hash
@@ -96,9 +97,8 @@ struct TRACredentialEnvelope
 
 ///////////////////////////////////////////////////////////////////////////////
 
-cell struct TDWCredential
+cell struct TRACredentialCell
 {	
-	TRACredentialContent CredentialContent;
-	TRACredentialEnvelope CredentialEnvelope;
-	optional string EncryptedCredentialContent;
+	TRACredentialEnvelope     envelope;
+	TRACredentialEnvelopeSeal envelopeseal;
 }

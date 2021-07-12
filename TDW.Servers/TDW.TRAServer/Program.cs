@@ -13,6 +13,7 @@ using Trinity.Storage;
 
 using TDW.TRACommon;
 using TDW.KMAServer;
+using Trinity.Core.Lib;
 
 namespace TDW.TRAServer
 {
@@ -20,12 +21,13 @@ namespace TDW.TRAServer
     {
         public unsafe static void Main(string[] args)
         {
+            TRACredentialCell udiddoc;
+
             //Global.LocalStorage.ResetStorage();
             //Global.LocalStorage.SaveStorage();
             var rc = Global.LocalStorage.LoadStorage();
 
             Console.WriteLine("CellCount: " + Global.LocalStorage.CellCount);
-            TDWCredential udiddoc;
             if (Global.LocalStorage.CellCount == 0)
             {
                 List<string> context = new List<string> { "https://www.sovrona.com/ns/svrn/v1" };
@@ -55,19 +57,25 @@ namespace TDW.TRAServer
                         new TRAKeyValuePair( "type", "AUTHN-KEY")
                 };
                 List<List<TRAKeyValuePair>> pairslist = new List<List<TRAKeyValuePair>>{value1, value2};
-                TRAClaim testclaim3 = new TRAClaim("testkey2", null, null, pairslist);
+                TRAClaim testclaim3 = new TRAClaim("testkey3", null, null, pairslist);
                 claims.Add(testclaim3);
 
-                TDWCredential Alice = new TDWCredential(default, default, null);
-                string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, Alice.CellId);
-                Alice.CredentialContent.core = new TRACredentialCore(udid, context: context, claims: claims);
-                Alice.CredentialContent.wrapper = new TRACredentialWrapper(TRACredentialType.UDIDDocument, TRATrustLevel.SignedHashSignature, TRAEncryptionFlag.Encrypted, 1, default);
-                Alice.CredentialEnvelope = new TRACredentialEnvelope( "<hash64>", "<signature>", "<notarystamp>" );
-                Alice.CredentialEnvelope.comments = new List<string> { "Alice's UDID Document", 
+                long id = CellIdFactory.NewCellId();
+                string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, id);
+
+                TRACredentialCell Alice = new TRACredentialCell(id, default, default);
+
+                Alice.envelope.content = new TRACredentialContent(udid, context, claims);
+                Alice.envelope.metadata = new TRACredentialMetadata(TRACredentialType.UDIDDocument, 1, TRATrustLevel.SignedHashSignature, TRAEncryptionFlag.Encrypted, default);
+                Alice.envelopeseal = new TRACredentialEnvelopeSeal( "<hash64>", "<signature>", "<notarystamp>" );
+                Alice.envelopeseal.comments = new List<string> { "Alice's UDID Document", 
                     "It works!", 
                     "Created by TDW.TRAServer at " + DateTime.Now.ToString("u") };
+
+                Global.LocalStorage.SaveTRACredentialCell(Alice);
+                
                 udiddoc = Alice;
-                Global.LocalStorage.SaveTDWCredential(Alice);
+
                 Console.WriteLine(Alice.CellId.ToString() + "\t" + BitConverter.GetBytes(Alice.CellId).Length
                         + "\t" + TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, Alice.CellId));
 

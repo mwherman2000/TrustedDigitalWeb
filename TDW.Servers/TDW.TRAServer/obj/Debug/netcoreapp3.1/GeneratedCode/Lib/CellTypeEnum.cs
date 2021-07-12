@@ -5,7 +5,10 @@ namespace TDW.TRAServer
     public enum CellType: ushort
     {
         Undefined = 0,
-        TDWCredential = 1,
+        TRACredentialCell = 1,
+        TRATimestampCell = 2,
+        TDWGeoLocationCell = 3,
+        TRAPostalAddressCell = 4,
         
     }
 }

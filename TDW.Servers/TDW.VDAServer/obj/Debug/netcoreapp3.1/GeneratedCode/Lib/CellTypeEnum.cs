@@ -5,9 +5,9 @@ namespace TDW.VDAServer
     public enum CellType: ushort
     {
         Undefined = 0,
-        TDWCredential = 1,
-        TDWVDAAccount = 2,
-        TDWVDASmartContract = 3,
+        TRACredentialCell = 1,
+        TDWVDAAccountEntryCell = 2,
+        TDWVDASmartContractEntryCell = 3,
         
     }
 }

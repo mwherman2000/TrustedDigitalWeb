@@ -11,7 +11,7 @@ namespace TDW.TRAServer
 {
     public static class TDWTRACredentialHelpers
     {
-        public static TrinityErrorCode HashAndSignTDWCredential(ref TDWCredential credential, TRATrustLevel trustLevel, string keypairsalt)
+        public static TrinityErrorCode HashAndSignTDWCredential(ref TRACredentialCell credential, TRATrustLevel trustLevel, string keypairsalt)
         {
             string hash64 = "";
             string signature64 = "";
@@ -23,8 +23,8 @@ namespace TDW.TRAServer
             long keyringid = 1001;
             string keyringudid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRAKeyRingMethodName, keyringid);
 
-            string jsonCredentialWrapper = JsonConvert.SerializeObject(credential.CredentialContent);
-            Console.WriteLine("jsonCredentialWrapper: " + jsonCredentialWrapper);
+            string jsonenvelope = JsonConvert.SerializeObject(credential.envelope);
+            Console.WriteLine("jsonenvelope: " + jsonenvelope);
 
             using (var httpClient = new HttpClient())
             {
@@ -55,7 +55,7 @@ namespace TDW.TRAServer
                     using (var requestMessage = new HttpRequestMessage(new HttpMethod("POST"), "http://localhost:8081/ComputePayloadHash/"))
                     {
                         requestMessage.Headers.TryAddWithoutValidation("Accept", "application/json");
-                        string payload64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(jsonCredentialWrapper));
+                        string payload64 = Convert.ToBase64String(Encoding.UTF8.GetBytes(jsonenvelope));
                         KMAComputePayloadHashRequest request = new KMAComputePayloadHashRequest(payload64);
                         string jsonRequest = JsonConvert.SerializeObject(request);
                         requestMessage.Content = new StringContent(jsonRequest);
@@ -66,7 +66,7 @@ namespace TDW.TRAServer
                         Console.WriteLine(jsonResponse);
                         KMAPayloadHashResponse response = JsonConvert.DeserializeObject<KMAPayloadHashResponse>(jsonResponse);
                         hash64 = response.hash64;
-                        credential.CredentialEnvelope.hashedThumbprint64 = hash64;
+                        credential.envelopeseal.hashedThumbprint64 = hash64;
                         Console.WriteLine("hash64:\t" + hash64);
                         Console.WriteLine("Press Enter to continue...");
                         //Console.ReadLine();
@@ -80,7 +80,7 @@ namespace TDW.TRAServer
                     using (var requestMessage = new HttpRequestMessage(new HttpMethod("POST"), "http://localhost:8081/ComputeHashKeyPairSignature/"))
                     {
                         requestMessage.Headers.TryAddWithoutValidation("Accept", "application/json");
-                        KMAComputeHashKeyPairSignatureRequest request = new KMAComputeHashKeyPairSignatureRequest(keypairid, keypairsalt, credential.CredentialEnvelope.hashedThumbprint64);
+                        KMAComputeHashKeyPairSignatureRequest request = new KMAComputeHashKeyPairSignatureRequest(keypairid, keypairsalt, credential.envelopeseal.hashedThumbprint64);
                         string jsonRequest = JsonConvert.SerializeObject(request);
                         requestMessage.Content = new StringContent(jsonRequest);
                         var task = httpClient.SendAsync(requestMessage);
@@ -90,7 +90,7 @@ namespace TDW.TRAServer
                         Console.WriteLine(jsonResponse);
                         KMAHashKeyPairSignatureResponse response = JsonConvert.DeserializeObject<KMAHashKeyPairSignatureResponse>(jsonResponse);
                         signature64 = response.signature64;
-                        credential.CredentialEnvelope.signedHashSignature64 = signature64;
+                        credential.envelopeseal.signedHashSignature64 = signature64;
                         Console.WriteLine("signature64: " + signature64);
                         Console.WriteLine("Press Enter to continue...");
                         //Console.ReadLine();
@@ -108,7 +108,7 @@ namespace TDW.TRAServer
                 {
                     requestMessage.Headers.TryAddWithoutValidation("Accept", "application/json");
                     KMAValidateHashKeyPairSignatureRequest request = new KMAValidateHashKeyPairSignatureRequest(keypairid, keypairsalt,
-                        credential.CredentialEnvelope.hashedThumbprint64, credential.CredentialEnvelope.signedHashSignature64);
+                        credential.envelopeseal.hashedThumbprint64, credential.envelopeseal.signedHashSignature64);
                     string jsonRequest = JsonConvert.SerializeObject(request);
                     requestMessage.Content = new StringContent(jsonRequest);
                     var task = httpClient.SendAsync(requestMessage);

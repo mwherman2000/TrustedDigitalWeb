@@ -22,16 +22,16 @@ namespace TDW.VDAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TDWCredential:
-                storage.SaveTDWCredential(writeAheadLogOptions, (TDWCredential)cell);
+                case CellType.TRACredentialCell:
+                storage.SaveTRACredentialCell(writeAheadLogOptions, (TRACredentialCell)cell);
                 break;
                 
-                case CellType.TDWVDAAccount:
-                storage.SaveTDWVDAAccount(writeAheadLogOptions, (TDWVDAAccount)cell);
+                case CellType.TDWVDAAccountEntryCell:
+                storage.SaveTDWVDAAccountEntryCell(writeAheadLogOptions, (TDWVDAAccountEntryCell)cell);
                 break;
                 
-                case CellType.TDWVDASmartContract:
-                storage.SaveTDWVDASmartContract(writeAheadLogOptions, (TDWVDASmartContract)cell);
+                case CellType.TDWVDASmartContractEntryCell:
+                storage.SaveTDWVDASmartContractEntryCell(writeAheadLogOptions, (TDWVDASmartContractEntryCell)cell);
                 break;
                 
             }
@@ -42,16 +42,16 @@ namespace TDW.VDAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TDWCredential:
-                storage.SaveTDWCredential(writeAheadLogOptions, cellId, (TDWCredential)cell);
+                case CellType.TRACredentialCell:
+                storage.SaveTRACredentialCell(writeAheadLogOptions, cellId, (TRACredentialCell)cell);
                 break;
                 
-                case CellType.TDWVDAAccount:
-                storage.SaveTDWVDAAccount(writeAheadLogOptions, cellId, (TDWVDAAccount)cell);
+                case CellType.TDWVDAAccountEntryCell:
+                storage.SaveTDWVDAAccountEntryCell(writeAheadLogOptions, cellId, (TDWVDAAccountEntryCell)cell);
                 break;
                 
-                case CellType.TDWVDASmartContract:
-                storage.SaveTDWVDASmartContract(writeAheadLogOptions, cellId, (TDWVDASmartContract)cell);
+                case CellType.TDWVDASmartContractEntryCell:
+                storage.SaveTDWVDASmartContractEntryCell(writeAheadLogOptions, cellId, (TDWVDASmartContractEntryCell)cell);
                 break;
                 
             }
@@ -93,16 +93,16 @@ namespace TDW.VDAServer
             switch (type)
             {
                 
-                case global::TDW.VDAServer.CellType.TDWCredential:
-                return new TDWCredential();
+                case global::TDW.VDAServer.CellType.TRACredentialCell:
+                return new TRACredentialCell();
                 break;
                 
-                case global::TDW.VDAServer.CellType.TDWVDAAccount:
-                return new TDWVDAAccount();
+                case global::TDW.VDAServer.CellType.TDWVDAAccountEntryCell:
+                return new TDWVDAAccountEntryCell();
                 break;
                 
-                case global::TDW.VDAServer.CellType.TDWVDASmartContract:
-                return new TDWVDASmartContract();
+                case global::TDW.VDAServer.CellType.TDWVDASmartContractEntryCell:
+                return new TDWVDASmartContractEntryCell();
                 break;
                 
             }
@@ -117,14 +117,14 @@ namespace TDW.VDAServer
             switch (type)
             {
                 
-                case global::TDW.VDAServer.CellType.TDWCredential:
-                return new TDWCredential(cell_id: cellId);
+                case global::TDW.VDAServer.CellType.TRACredentialCell:
+                return new TRACredentialCell(cell_id: cellId);
                 
-                case global::TDW.VDAServer.CellType.TDWVDAAccount:
-                return new TDWVDAAccount(cell_id: cellId);
+                case global::TDW.VDAServer.CellType.TDWVDAAccountEntryCell:
+                return new TDWVDAAccountEntryCell(cell_id: cellId);
                 
-                case global::TDW.VDAServer.CellType.TDWVDASmartContract:
-                return new TDWVDASmartContract(cell_id: cellId);
+                case global::TDW.VDAServer.CellType.TDWVDASmartContractEntryCell:
+                return new TDWVDASmartContractEntryCell(cell_id: cellId);
                 
             }
             /* Should not reach here */
@@ -139,14 +139,14 @@ namespace TDW.VDAServer
             switch (type)
             {
                 
-                case global::TDW.VDAServer.CellType.TDWCredential:
-                return TDWCredential.Parse(content);
+                case global::TDW.VDAServer.CellType.TRACredentialCell:
+                return TRACredentialCell.Parse(content);
                 
-                case global::TDW.VDAServer.CellType.TDWVDAAccount:
-                return TDWVDAAccount.Parse(content);
+                case global::TDW.VDAServer.CellType.TDWVDAAccountEntryCell:
+                return TDWVDAAccountEntryCell.Parse(content);
                 
-                case global::TDW.VDAServer.CellType.TDWVDASmartContract:
-                return TDWVDASmartContract.Parse(content);
+                case global::TDW.VDAServer.CellType.TDWVDASmartContractEntryCell:
+                return TDWVDASmartContractEntryCell.Parse(content);
                 
             }
             /* Should not reach here */
@@ -169,14 +169,14 @@ namespace TDW.VDAServer
             switch ((CellType)type)
             {
                 
-                case CellType.TDWCredential:
-                return TDWCredential_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                case CellType.TRACredentialCell:
+                return TRACredentialCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
                 
-                case CellType.TDWVDAAccount:
-                return TDWVDAAccount_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                case CellType.TDWVDAAccountEntryCell:
+                return TDWVDAAccountEntryCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
                 
-                case CellType.TDWVDASmartContract:
-                return TDWVDASmartContract_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                case CellType.TDWVDASmartContractEntryCell:
+                return TDWVDASmartContractEntryCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
                 
                 default:
                 storage.ReleaseCellLock(cellId, entryIndex);
@@ -235,11 +235,11 @@ namespace TDW.VDAServer
             switch (cellType)
             {
                 
-                case "TDWCredential": return TDWCredential_Accessor._get()._Lock(cellId, options);
+                case "TRACredentialCell": return TRACredentialCell_Accessor._get()._Lock(cellId, options);
                 
-                case "TDWVDAAccount": return TDWVDAAccount_Accessor._get()._Lock(cellId, options);
+                case "TDWVDAAccountEntryCell": return TDWVDAAccountEntryCell_Accessor._get()._Lock(cellId, options);
                 
-                case "TDWVDASmartContract": return TDWVDASmartContract_Accessor._get()._Lock(cellId, options);
+                case "TDWVDASmartContractEntryCell": return TDWVDASmartContractEntryCell_Accessor._get()._Lock(cellId, options);
                 
                 default:
                 Throw.invalid_cell_type();
@@ -256,30 +256,30 @@ namespace TDW.VDAServer
                 switch ((CellType)cellInfo.CellType)
                 {
                     
-                    case CellType.TDWCredential:
+                    case CellType.TRACredentialCell:
                         {
-                            var TDWCredential_accessor = TDWCredential_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            var TDWCredential_cell     = (TDWCredential)TDWCredential_accessor;
-                            TDWCredential_accessor.Dispose();
-                            yield return TDWCredential_cell;
+                            var TRACredentialCell_accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var TRACredentialCell_cell     = (TRACredentialCell)TRACredentialCell_accessor;
+                            TRACredentialCell_accessor.Dispose();
+                            yield return TRACredentialCell_cell;
                             break;
                         }
                     
-                    case CellType.TDWVDAAccount:
+                    case CellType.TDWVDAAccountEntryCell:
                         {
-                            var TDWVDAAccount_accessor = TDWVDAAccount_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            var TDWVDAAccount_cell     = (TDWVDAAccount)TDWVDAAccount_accessor;
-                            TDWVDAAccount_accessor.Dispose();
-                            yield return TDWVDAAccount_cell;
+                            var TDWVDAAccountEntryCell_accessor = TDWVDAAccountEntryCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var TDWVDAAccountEntryCell_cell     = (TDWVDAAccountEntryCell)TDWVDAAccountEntryCell_accessor;
+                            TDWVDAAccountEntryCell_accessor.Dispose();
+                            yield return TDWVDAAccountEntryCell_cell;
                             break;
                         }
                     
-                    case CellType.TDWVDASmartContract:
+                    case CellType.TDWVDASmartContractEntryCell:
                         {
-                            var TDWVDASmartContract_accessor = TDWVDASmartContract_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            var TDWVDASmartContract_cell     = (TDWVDASmartContract)TDWVDASmartContract_accessor;
-                            TDWVDASmartContract_accessor.Dispose();
-                            yield return TDWVDASmartContract_cell;
+                            var TDWVDASmartContractEntryCell_accessor = TDWVDASmartContractEntryCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var TDWVDASmartContractEntryCell_cell     = (TDWVDASmartContractEntryCell)TDWVDASmartContractEntryCell_accessor;
+                            TDWVDASmartContractEntryCell_accessor.Dispose();
+                            yield return TDWVDASmartContractEntryCell_cell;
                             break;
                         }
                     
@@ -297,27 +297,27 @@ namespace TDW.VDAServer
                 switch ((CellType)cellInfo.CellType)
                 {
                     
-                    case CellType.TDWCredential:
+                    case CellType.TRACredentialCell:
                         {
-                            var TDWCredential_accessor = TDWCredential_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            yield return TDWCredential_accessor;
-                            TDWCredential_accessor.Dispose();
+                            var TRACredentialCell_accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return TRACredentialCell_accessor;
+                            TRACredentialCell_accessor.Dispose();
                             break;
                         }
                     
-                    case CellType.TDWVDAAccount:
+                    case CellType.TDWVDAAccountEntryCell:
                         {
-                            var TDWVDAAccount_accessor = TDWVDAAccount_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            yield return TDWVDAAccount_accessor;
-                            TDWVDAAccount_accessor.Dispose();
+                            var TDWVDAAccountEntryCell_accessor = TDWVDAAccountEntryCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return TDWVDAAccountEntryCell_accessor;
+                            TDWVDAAccountEntryCell_accessor.Dispose();
                             break;
                         }
                     
-                    case CellType.TDWVDASmartContract:
+                    case CellType.TDWVDASmartContractEntryCell:
                         {
-                            var TDWVDASmartContract_accessor = TDWVDASmartContract_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            yield return TDWVDASmartContract_accessor;
-                            TDWVDASmartContract_accessor.Dispose();
+                            var TDWVDASmartContractEntryCell_accessor = TDWVDASmartContractEntryCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return TDWVDASmartContractEntryCell_accessor;
+                            TDWVDASmartContractEntryCell_accessor.Dispose();
                             break;
                         }
                     
@@ -335,16 +335,16 @@ namespace TDW.VDAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TDWCredential:
-                storage.SaveTDWCredential((TDWCredential)cell);
+                case CellType.TRACredentialCell:
+                storage.SaveTRACredentialCell((TRACredentialCell)cell);
                 break;
                 
-                case CellType.TDWVDAAccount:
-                storage.SaveTDWVDAAccount((TDWVDAAccount)cell);
+                case CellType.TDWVDAAccountEntryCell:
+                storage.SaveTDWVDAAccountEntryCell((TDWVDAAccountEntryCell)cell);
                 break;
                 
-                case CellType.TDWVDASmartContract:
-                storage.SaveTDWVDASmartContract((TDWVDASmartContract)cell);
+                case CellType.TDWVDASmartContractEntryCell:
+                storage.SaveTDWVDASmartContractEntryCell((TDWVDASmartContractEntryCell)cell);
                 break;
                 
             }
@@ -355,16 +355,16 @@ namespace TDW.VDAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TDWCredential:
-                storage.SaveTDWCredential(cellId, (TDWCredential)cell);
+                case CellType.TRACredentialCell:
+                storage.SaveTRACredentialCell(cellId, (TRACredentialCell)cell);
                 break;
                 
-                case CellType.TDWVDAAccount:
-                storage.SaveTDWVDAAccount(cellId, (TDWVDAAccount)cell);
+                case CellType.TDWVDAAccountEntryCell:
+                storage.SaveTDWVDAAccountEntryCell(cellId, (TDWVDAAccountEntryCell)cell);
                 break;
                 
-                case CellType.TDWVDASmartContract:
-                storage.SaveTDWVDASmartContract(cellId, (TDWVDASmartContract)cell);
+                case CellType.TDWVDASmartContractEntryCell:
+                storage.SaveTDWVDASmartContractEntryCell(cellId, (TDWVDASmartContractEntryCell)cell);
                 break;
                 
             }
@@ -404,14 +404,14 @@ namespace TDW.VDAServer
             switch ((CellType)cellType)
             {
                 
-                case CellType.TDWCredential:
-                return TDWCredential_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                case CellType.TRACredentialCell:
+                return TRACredentialCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
                 
-                case CellType.TDWVDAAccount:
-                return TDWVDAAccount_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                case CellType.TDWVDAAccountEntryCell:
+                return TDWVDAAccountEntryCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
                 
-                case CellType.TDWVDASmartContract:
-                return TDWVDASmartContract_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                case CellType.TDWVDASmartContractEntryCell:
+                return TDWVDASmartContractEntryCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
                 
                 default:
                 throw new CellTypeNotMatchException("Cannot determine cell type.");

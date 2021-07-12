@@ -44,6 +44,32 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
+        /// Serializes a double object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(double value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a DateTime object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(DateTime value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
         /// Serializes a string object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
@@ -161,19 +187,6 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredentialCore object to Json string.
-        /// </summary>
-        /// <param name="value">The target object to be serialized.</param>
-        /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredentialCore value)
-        {
-            s_ensure_string_builder();
-            ToString_impl(value, s_stringBuilder, in_json: false);
-            return s_stringBuilder.ToString();
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        /// <summary>
         /// Serializes a TRACredentialEnvelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
@@ -187,11 +200,63 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredentialWrapper object to Json string.
+        /// Serializes a TRACredentialEnvelopeSeal object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredentialWrapper value)
+        public static string ToString(TRACredentialEnvelopeSeal value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRACredentialMetadata object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRACredentialMetadata value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRAGeoLocationClaims object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAGeoLocationClaims value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRAGeoLocationContent object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAGeoLocationContent value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRAGeoLocationEnvelope object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAGeoLocationEnvelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -205,6 +270,84 @@ namespace TDW.TRAServer
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
         public static string ToString(TRAKeyValuePair value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRAPostalAddressClaims object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAPostalAddressClaims value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRAPostalAddressContent object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAPostalAddressContent value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRAPostalAddressEnvelope object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAPostalAddressEnvelope value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRATimestampClaims object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRATimestampClaims value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRATimestampContent object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRATimestampContent value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRATimestampEnvelope object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRATimestampEnvelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -263,12 +406,64 @@ namespace TDW.TRAServer
             return s_stringBuilder.ToString();
         }
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TDWCredential object to Json string.
+        /// Serializes a TRACredentialContent? object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRACredentialContent? value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRAGeoLocationContent? object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAGeoLocationContent? value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRAPostalAddressContent? object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAPostalAddressContent? value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRATimestampContent? object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRATimestampContent? value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        /// <summary>
+        /// Serializes a TRACredentialCell object to Json string.
         /// </summary>
         /// <param name="value">The target cell object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TDWCredential cell)
+        public static string ToString(TRACredentialCell cell)
         {
             s_ensure_string_builder();
             s_stringBuilder.Append('{');
@@ -277,30 +472,110 @@ namespace TDW.TRAServer
             {
                 
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"CredentialContent\":");
-                    ToString_impl(cell.CredentialContent, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"envelope\":");
+                    ToString_impl(cell.envelope, s_stringBuilder, in_json: true);
                     
             }
             
             {
                 
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"CredentialEnvelope\":");
-                    ToString_impl(cell.CredentialEnvelope, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"envelopeseal\":");
+                    ToString_impl(cell.envelopeseal, s_stringBuilder, in_json: true);
+                    
+            }
+            
+            s_stringBuilder.Append('}');
+            return s_stringBuilder.ToString();
+        }
+        
+        /// <summary>
+        /// Serializes a TRATimestampCell object to Json string.
+        /// </summary>
+        /// <param name="value">The target cell object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRATimestampCell cell)
+        {
+            s_ensure_string_builder();
+            s_stringBuilder.Append('{');
+            s_stringBuilder.AppendFormat("\"CellId\":{0}", cell.CellId);
+            
+            {
+                
+                    s_stringBuilder.Append(',');
+                    s_stringBuilder.Append("\"envelope\":");
+                    ToString_impl(cell.envelope, s_stringBuilder, in_json: true);
                     
             }
             
             {
                 
-                if (cell.EncryptedCredentialContent != null)
-                {
-                    
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"EncryptedCredentialContent\":");
-                    ToString_impl(cell.EncryptedCredentialContent, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"envelopeseal\":");
+                    ToString_impl(cell.envelopeseal, s_stringBuilder, in_json: true);
                     
-                }
+            }
+            
+            s_stringBuilder.Append('}');
+            return s_stringBuilder.ToString();
+        }
+        
+        /// <summary>
+        /// Serializes a TDWGeoLocationCell object to Json string.
+        /// </summary>
+        /// <param name="value">The target cell object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TDWGeoLocationCell cell)
+        {
+            s_ensure_string_builder();
+            s_stringBuilder.Append('{');
+            s_stringBuilder.AppendFormat("\"CellId\":{0}", cell.CellId);
+            
+            {
                 
+                    s_stringBuilder.Append(',');
+                    s_stringBuilder.Append("\"envelope\":");
+                    ToString_impl(cell.envelope, s_stringBuilder, in_json: true);
+                    
+            }
+            
+            {
+                
+                    s_stringBuilder.Append(',');
+                    s_stringBuilder.Append("\"envelopeseal\":");
+                    ToString_impl(cell.envelopeseal, s_stringBuilder, in_json: true);
+                    
+            }
+            
+            s_stringBuilder.Append('}');
+            return s_stringBuilder.ToString();
+        }
+        
+        /// <summary>
+        /// Serializes a TRAPostalAddressCell object to Json string.
+        /// </summary>
+        /// <param name="value">The target cell object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAPostalAddressCell cell)
+        {
+            s_ensure_string_builder();
+            s_stringBuilder.Append('{');
+            s_stringBuilder.AppendFormat("\"CellId\":{0}", cell.CellId);
+            
+            {
+                
+                    s_stringBuilder.Append(',');
+                    s_stringBuilder.Append("\"envelope\":");
+                    ToString_impl(cell.envelope, s_stringBuilder, in_json: true);
+                    
+            }
+            
+            {
+                
+                    s_stringBuilder.Append(',');
+                    s_stringBuilder.Append("\"envelopeseal\":");
+                    ToString_impl(cell.envelopeseal, s_stringBuilder, in_json: true);
+                    
             }
             
             s_stringBuilder.Append('}');
@@ -316,6 +591,44 @@ namespace TDW.TRAServer
                 {
                     str_builder.Append(value);
                 }
+                
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(double value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                {
+                    str_builder.Append(value);
+                }
+                
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(DateTime value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if(in_json)
+                    str_builder.Append('"');
+                
+                {
+                    
+                    {
+                        str_builder.Append(value.ToString("o", CultureInfo.InvariantCulture));
+                    }
+                    
+                }
+                
+                if(in_json)
+                    str_builder.Append('"');
                 
             }
             
@@ -763,44 +1076,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"core\":");
-                        
-                        ToString_impl(value.core, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"wrapper\":");
-                        
-                        ToString_impl(value.wrapper, str_builder, in_json: true);
-                        
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredentialCore value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
                     if (value.udid != null)
                     
                     {
@@ -860,6 +1135,68 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static void ToString_impl(TRACredentialEnvelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.content != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedcontent != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedcontent\":");
+                        
+                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"metadata\":");
+                        
+                        ToString_impl(value.metadata, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRACredentialEnvelopeSeal value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -945,7 +1282,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredentialWrapper value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredentialMetadata value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -962,6 +1299,18 @@ namespace TDW.TRAServer
                         str_builder.Append("\"credtype\":");
                         
                         ToString_impl(value.credtype, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"version\":");
+                        
+                        ToString_impl(value.version, str_builder, in_json: true);
                         
                 }
                 
@@ -991,18 +1340,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"version\":");
-                        
-                        ToString_impl(value.version, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
                     if (value.notaryudid != null)
                     
                     {
@@ -1017,6 +1354,204 @@ namespace TDW.TRAServer
                         
                     }
                     
+                }
+                
+                {
+                    
+                    if (value.name != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"name\":");
+                        
+                        ToString_impl(value.name, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.comment != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"comment\":");
+                        
+                        ToString_impl(value.comment, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAGeoLocationClaims value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"latitude\":");
+                        
+                        ToString_impl(value.latitude, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"longitude\":");
+                        
+                        ToString_impl(value.longitude, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAGeoLocationContent value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.udid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.context != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.claims, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAGeoLocationEnvelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.content != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedcontent != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedcontent\":");
+                        
+                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"metadata\":");
+                        
+                        ToString_impl(value.metadata, str_builder, in_json: true);
+                        
                 }
                 
                 str_builder.Append('}');
@@ -1067,6 +1602,432 @@ namespace TDW.TRAServer
                         
                     }
                     
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAPostalAddressClaims value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.streetAddress != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"streetAddress\":");
+                        
+                        ToString_impl(value.streetAddress, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.postOfficeBoxNumber != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"postOfficeBoxNumber\":");
+                        
+                        ToString_impl(value.postOfficeBoxNumber, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.addressLocality != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"addressLocality\":");
+                        
+                        ToString_impl(value.addressLocality, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.addressRegion != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"addressRegion\":");
+                        
+                        ToString_impl(value.addressRegion, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.addressCountry != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"addressCountry\":");
+                        
+                        ToString_impl(value.addressCountry, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.postalCode != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"postalCode\":");
+                        
+                        ToString_impl(value.postalCode, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAPostalAddressContent value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.udid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.context != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.claims, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAPostalAddressEnvelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.content != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedcontent != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedcontent\":");
+                        
+                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"metadata\":");
+                        
+                        ToString_impl(value.metadata, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRATimestampClaims value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"ticks\":");
+                        
+                        ToString_impl(value.ticks, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"datetime\":");
+                        
+                        ToString_impl(value.datetime, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.timestamp != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"timestamp\":");
+                        
+                        ToString_impl(value.timestamp, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRATimestampContent value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.udid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.context != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.claims, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRATimestampEnvelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.content != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedcontent != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedcontent\":");
+                        
+                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"metadata\":");
+                        
+                        ToString_impl(value.metadata, str_builder, in_json: true);
+                        
                 }
                 
                 str_builder.Append('}');
@@ -1154,6 +2115,272 @@ namespace TDW.TRAServer
                     ToString_impl(element, str_builder, in_json:true);
                 }
                 str_builder.Append(']');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRACredentialContent? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.udid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.context != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.claims != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAGeoLocationContent? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.udid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.context != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAPostalAddressContent? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.udid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.context != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRATimestampContent? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.udid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.context != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
             }
             
         }

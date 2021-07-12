@@ -21,35 +21,31 @@ using Trinity.Network.Messaging;
 using Trinity.TSL;
 using System.Text.RegularExpressions;
 using Trinity.Core.Lib;
-namespace TDW.VDAServer
+namespace TDW.TRAServer
 {
     
     /// <summary>
-    /// A .NET runtime object representation of TRACredentialWrapper defined in TSL.
+    /// A .NET runtime object representation of TRATimestampClaims defined in TSL.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public partial struct TRACredentialWrapper
+    public partial struct TRATimestampClaims
     {
         
         ///<summary>
-        ///Initializes a new instance of TRACredentialWrapper with the specified parameters.
+        ///Initializes a new instance of TRATimestampClaims with the specified parameters.
         ///</summary>
-        public TRACredentialWrapper(TRACredentialType credtype = default(TRACredentialType),TRATrustLevel trustLevel = default(TRATrustLevel),TRAEncryptionFlag encryptionFlag = default(TRAEncryptionFlag),long version = default(long),string notaryudid = default(string))
+        public TRATimestampClaims(long ticks = default(long),DateTime datetime = default(DateTime),string timestamp = default(string))
         {
             
-            this.credtype = credtype;
+            this.ticks = ticks;
             
-            this.trustLevel = trustLevel;
+            this.datetime = datetime;
             
-            this.encryptionFlag = encryptionFlag;
-            
-            this.version = version;
-            
-            this.notaryudid = notaryudid;
+            this.timestamp = timestamp;
             
         }
         
-        public static bool operator ==(TRACredentialWrapper a, TRACredentialWrapper b)
+        public static bool operator ==(TRATimestampClaims a, TRATimestampClaims b)
         {
             if (System.Object.ReferenceEquals(a, b))
             {
@@ -62,59 +58,51 @@ namespace TDW.VDAServer
             
             return
                 
-                (a.credtype == b.credtype)
+                (a.ticks == b.ticks)
                 &&
-                (a.trustLevel == b.trustLevel)
+                (a.datetime == b.datetime)
                 &&
-                (a.encryptionFlag == b.encryptionFlag)
-                &&
-                (a.version == b.version)
-                &&
-                (a.notaryudid == b.notaryudid)
+                (a.timestamp == b.timestamp)
                 
                 ;
             
         }
-        public static bool operator !=(TRACredentialWrapper a, TRACredentialWrapper b)
+        public static bool operator !=(TRATimestampClaims a, TRATimestampClaims b)
         {
             return !(a == b);
         }
         
-        public TRACredentialType credtype;
+        public long ticks;
         
-        public TRATrustLevel trustLevel;
+        public DateTime datetime;
         
-        public TRAEncryptionFlag encryptionFlag;
-        
-        public long version;
-        
-        public string notaryudid;
+        public string timestamp;
         
         /// <summary>
-        /// Converts the string representation of a TRACredentialWrapper to its
+        /// Converts the string representation of a TRATimestampClaims to its
         /// struct equivalent. A return value indicates whether the 
         /// operation succeeded.
         /// </summary>
         /// <param name="input">A string to convert.</param>
         /// <param name="value">
         /// When this method returns, contains the struct equivalent of the value contained 
-        /// in input, if the conversion succeeded, or default(TRACredentialWrapper) if the conversion
+        /// in input, if the conversion succeeded, or default(TRATimestampClaims) if the conversion
         /// failed. The conversion fails if the input parameter is null or String.Empty, or is 
         /// not of the correct format. This parameter is passed uninitialized. 
         /// </param>
         /// <returns>True if input was converted successfully; otherwise, false.</returns>
-        public unsafe static bool TryParse(string input, out TRACredentialWrapper value)
+        public unsafe static bool TryParse(string input, out TRATimestampClaims value)
         {
             try
             {
-                value = Newtonsoft.Json.JsonConvert.DeserializeObject<TRACredentialWrapper>(input);
+                value = Newtonsoft.Json.JsonConvert.DeserializeObject<TRATimestampClaims>(input);
                 return true;
             }
-            catch { value = default(TRACredentialWrapper); return false; }
+            catch { value = default(TRATimestampClaims); return false; }
         }
-        public static TRACredentialWrapper Parse(string input)
+        public static TRATimestampClaims Parse(string input)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TRACredentialWrapper>(input);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TRATimestampClaims>(input);
         }
         /// <summary>
         /// Serializes this object to a Json string.
@@ -126,16 +114,16 @@ namespace TDW.VDAServer
         }
     }
     /// <summary>
-    /// Provides in-place operations of TRACredentialWrapper defined in TSL.
+    /// Provides in-place operations of TRATimestampClaims defined in TSL.
     /// </summary>
-    public unsafe partial class TRACredentialWrapper_Accessor : IAccessor
+    public unsafe partial class TRATimestampClaims_Accessor : IAccessor
     {
         ///<summary>
         ///The pointer to the content of the object.
         ///</summary>
         internal byte* m_ptr;
         internal long m_cellId;
-        internal unsafe TRACredentialWrapper_Accessor(byte* _CellPtr
+        internal unsafe TRATimestampClaims_Accessor(byte* _CellPtr
             
             , ResizeFunctionDelegate func
             )
@@ -143,7 +131,7 @@ namespace TDW.VDAServer
             m_ptr = _CellPtr;
             
             ResizeFunction = func;
-                    notaryudid_Accessor_Field = new StringAccessor(null,
+                    datetime_Accessor_Field = new DateTimeAccessor(null);        timestamp_Accessor_Field = new StringAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -193,7 +181,7 @@ namespace TDW.VDAServer
         public byte[] ToByteArray()
         {
             byte* targetPtr = m_ptr;
-            {            targetPtr += 11;
+            {            targetPtr += 16;
 targetPtr += *(int*)targetPtr + sizeof(int);}
             int size = (int)(targetPtr - m_ptr);
             byte[] ret = new byte[size];
@@ -208,7 +196,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
         public unsafe int GetBufferLength()
         {
             byte* targetPtr = m_ptr;
-            {            targetPtr += 11;
+            {            targetPtr += 16;
 targetPtr += *(int*)targetPtr + sizeof(int);}
             int size = (int)(targetPtr - m_ptr);
             return size;
@@ -217,83 +205,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
         #endregion
         
         ///<summary>
-        ///Provides in-place access to the object field credtype.
+        ///Provides in-place access to the object field ticks.
         ///</summary>
-        public unsafe TRACredentialType credtype
+        public unsafe long ticks
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
                 {}
-                return *(TRACredentialType*)(targetPtr);
-                
-            }
-            set
-            {
-                
-                byte* targetPtr = m_ptr;
-                {}                *(TRACredentialType*)targetPtr = value;
-            }
-        }
-        
-        ///<summary>
-        ///Provides in-place access to the object field trustLevel.
-        ///</summary>
-        public unsafe TRATrustLevel trustLevel
-        {
-            get
-            {
-                
-                byte* targetPtr = m_ptr;
-                {            targetPtr += 1;
-}
-                return *(TRATrustLevel*)(targetPtr);
-                
-            }
-            set
-            {
-                
-                byte* targetPtr = m_ptr;
-                {            targetPtr += 1;
-}                *(TRATrustLevel*)targetPtr = value;
-            }
-        }
-        
-        ///<summary>
-        ///Provides in-place access to the object field encryptionFlag.
-        ///</summary>
-        public unsafe TRAEncryptionFlag encryptionFlag
-        {
-            get
-            {
-                
-                byte* targetPtr = m_ptr;
-                {            targetPtr += 2;
-}
-                return *(TRAEncryptionFlag*)(targetPtr);
-                
-            }
-            set
-            {
-                
-                byte* targetPtr = m_ptr;
-                {            targetPtr += 2;
-}                *(TRAEncryptionFlag*)targetPtr = value;
-            }
-        }
-        
-        ///<summary>
-        ///Provides in-place access to the object field version.
-        ///</summary>
-        public unsafe long version
-        {
-            get
-            {
-                
-                byte* targetPtr = m_ptr;
-                {            targetPtr += 3;
-}
                 return *(long*)(targetPtr);
                 
             }
@@ -301,43 +221,70 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
             {
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 3;
-}                *(long*)targetPtr = value;
+                {}                *(long*)targetPtr = value;
             }
         }
-        StringAccessor notaryudid_Accessor_Field;
+        DateTimeAccessor datetime_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field notaryudid.
+        ///Provides in-place access to the object field datetime.
         ///</summary>
-        public unsafe StringAccessor notaryudid
+        public unsafe DateTimeAccessor datetime
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 11;
-}notaryudid_Accessor_Field.m_ptr = targetPtr + 4;
-                notaryudid_Accessor_Field.m_cellId = this.m_cellId;
-                return notaryudid_Accessor_Field;
+                {            targetPtr += 8;
+}datetime_Accessor_Field.m_ptr = targetPtr;
+                datetime_Accessor_Field.m_cellId = this.m_cellId;
+                return datetime_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                notaryudid_Accessor_Field.m_cellId = this.m_cellId;
+                datetime_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {            targetPtr += 11;
+                {            targetPtr += 8;
+}                Memory.Copy(value.m_ptr, targetPtr, 8); 
+            }
+        }
+        StringAccessor timestamp_Accessor_Field;
+        
+        ///<summary>
+        ///Provides in-place access to the object field timestamp.
+        ///</summary>
+        public unsafe StringAccessor timestamp
+        {
+            get
+            {
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 16;
+}timestamp_Accessor_Field.m_ptr = targetPtr + 4;
+                timestamp_Accessor_Field.m_cellId = this.m_cellId;
+                return timestamp_Accessor_Field;
+                
+            }
+            set
+            {
+                
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                timestamp_Accessor_Field.m_cellId = this.m_cellId;
+                
+                byte* targetPtr = m_ptr;
+                {            targetPtr += 16;
 }
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
-                if (value.m_cellId != notaryudid_Accessor_Field.m_cellId)
+                if (value.m_cellId != timestamp_Accessor_Field.m_cellId)
                 {
                     //if not in the same Cell
-                    notaryudid_Accessor_Field.m_ptr = notaryudid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                    Memory.Copy(value.m_ptr - 4, notaryudid_Accessor_Field.m_ptr, length + 4);
+                    timestamp_Accessor_Field.m_ptr = timestamp_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                    Memory.Copy(value.m_ptr - 4, timestamp_Accessor_Field.m_ptr, length + 4);
                 }
                 else
                 {
@@ -345,40 +292,35 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                     fixed (byte* tmpcellptr = tmpcell)
                     {                        
                         Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        notaryudid_Accessor_Field.m_ptr = notaryudid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                        Memory.Copy(tmpcellptr, notaryudid_Accessor_Field.m_ptr, length + 4);
+                        timestamp_Accessor_Field.m_ptr = timestamp_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                        Memory.Copy(tmpcellptr, timestamp_Accessor_Field.m_ptr, length + 4);
                     }
                 }
 
             }
         }
         
-        public static unsafe implicit operator TRACredentialWrapper(TRACredentialWrapper_Accessor accessor)
+        public static unsafe implicit operator TRATimestampClaims(TRATimestampClaims_Accessor accessor)
         {
             
-            return new TRACredentialWrapper(
+            return new TRATimestampClaims(
                 
-                        accessor.credtype,
-                        accessor.trustLevel,
-                        accessor.encryptionFlag,
-                        accessor.version,
-                        accessor.notaryudid
+                        accessor.ticks,
+                        accessor.datetime,
+                        accessor.timestamp
                 );
         }
         
-        public unsafe static implicit operator TRACredentialWrapper_Accessor(TRACredentialWrapper field)
+        public unsafe static implicit operator TRATimestampClaims_Accessor(TRATimestampClaims field)
         {
             byte* targetPtr = null;
             
             {
-            targetPtr += 1;
-            targetPtr += 1;
-            targetPtr += 1;
             targetPtr += 8;
-
-        if(field.notaryudid!= null)
+targetPtr += 8;
+        if(field.timestamp!= null)
         {
-            int strlen_2 = field.notaryudid.Length * 2;
+            int strlen_2 = field.timestamp.Length * 2;
             targetPtr += strlen_2+sizeof(int);
         }else
         {
@@ -391,21 +333,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
             targetPtr = tmpcellptr;
             
             {
-            *(TRACredentialType*)targetPtr = field.credtype;
-            targetPtr += 1;
-            *(TRATrustLevel*)targetPtr = field.trustLevel;
-            targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = field.encryptionFlag;
-            targetPtr += 1;
-            *(long*)targetPtr = field.version;
+            *(long*)targetPtr = field.ticks;
             targetPtr += 8;
 
-        if(field.notaryudid!= null)
         {
-            int strlen_2 = field.notaryudid.Length * 2;
+            *(long*)targetPtr = field.datetime.ToBinary();
+            targetPtr += 8;
+        }
+
+        if(field.timestamp!= null)
+        {
+            int strlen_2 = field.timestamp.Length * 2;
             *(int*)targetPtr = strlen_2;
             targetPtr += sizeof(int);
-            fixed(char* pstr_2 = field.notaryudid)
+            fixed(char* pstr_2 = field.timestamp)
             {
                 Memory.Copy(pstr_2, targetPtr, strlen_2);
                 targetPtr += strlen_2;
@@ -416,14 +357,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
             targetPtr += sizeof(int);
         }
 
-            }TRACredentialWrapper_Accessor ret;
+            }TRATimestampClaims_Accessor ret;
             
-            ret = new TRACredentialWrapper_Accessor(tmpcellptr, null);
+            ret = new TRATimestampClaims_Accessor(tmpcellptr, null);
             
             return ret;
         }
         
-        public static bool operator ==(TRACredentialWrapper_Accessor a, TRACredentialWrapper_Accessor b)
+        public static bool operator ==(TRATimestampClaims_Accessor a, TRATimestampClaims_Accessor b)
         {
             if (ReferenceEquals(a, b))
                 return true;
@@ -431,17 +372,17 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                 return false;
             if (a.m_ptr == b.m_ptr) return true;
             byte* targetPtr = a.m_ptr;
-            {            targetPtr += 11;
+            {            targetPtr += 16;
 targetPtr += *(int*)targetPtr + sizeof(int);}
             int lengthA = (int)(targetPtr - a.m_ptr);
             targetPtr = b.m_ptr;
-            {            targetPtr += 11;
+            {            targetPtr += 16;
 targetPtr += *(int*)targetPtr + sizeof(int);}
             int lengthB = (int)(targetPtr - b.m_ptr);
             if(lengthA != lengthB) return false;
             return Memory.Compare(a.m_ptr,b.m_ptr,lengthA);
         }
-        public static bool operator != (TRACredentialWrapper_Accessor a, TRACredentialWrapper_Accessor b)
+        public static bool operator != (TRATimestampClaims_Accessor a, TRATimestampClaims_Accessor b)
         {
             return !(a == b);
         }

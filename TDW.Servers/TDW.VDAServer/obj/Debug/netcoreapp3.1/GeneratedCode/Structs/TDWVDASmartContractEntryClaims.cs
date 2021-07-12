@@ -25,16 +25,16 @@ namespace TDW.VDAServer
 {
     
     /// <summary>
-    /// A .NET runtime object representation of TDWVDASmartContractEntryCore defined in TSL.
+    /// A .NET runtime object representation of TDWVDASmartContractEntryClaims defined in TSL.
     /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    public partial struct TDWVDASmartContractEntryCore
+    public partial struct TDWVDASmartContractEntryClaims
     {
         
         ///<summary>
-        ///Initializes a new instance of TDWVDASmartContractEntryCore with the specified parameters.
+        ///Initializes a new instance of TDWVDASmartContractEntryClaims with the specified parameters.
         ///</summary>
-        public TDWVDASmartContractEntryCore(string smartcontractledgeraddress = default(string),string vdaserviceendpointudid = default(string))
+        public TDWVDASmartContractEntryClaims(string smartcontractledgeraddress = default(string),string vdaserviceendpointudid = default(string))
         {
             
             this.smartcontractledgeraddress = smartcontractledgeraddress;
@@ -43,7 +43,7 @@ namespace TDW.VDAServer
             
         }
         
-        public static bool operator ==(TDWVDASmartContractEntryCore a, TDWVDASmartContractEntryCore b)
+        public static bool operator ==(TDWVDASmartContractEntryClaims a, TDWVDASmartContractEntryClaims b)
         {
             if (System.Object.ReferenceEquals(a, b))
             {
@@ -63,7 +63,7 @@ namespace TDW.VDAServer
                 ;
             
         }
-        public static bool operator !=(TDWVDASmartContractEntryCore a, TDWVDASmartContractEntryCore b)
+        public static bool operator !=(TDWVDASmartContractEntryClaims a, TDWVDASmartContractEntryClaims b)
         {
             return !(a == b);
         }
@@ -73,30 +73,30 @@ namespace TDW.VDAServer
         public string vdaserviceendpointudid;
         
         /// <summary>
-        /// Converts the string representation of a TDWVDASmartContractEntryCore to its
+        /// Converts the string representation of a TDWVDASmartContractEntryClaims to its
         /// struct equivalent. A return value indicates whether the 
         /// operation succeeded.
         /// </summary>
         /// <param name="input">A string to convert.</param>
         /// <param name="value">
         /// When this method returns, contains the struct equivalent of the value contained 
-        /// in input, if the conversion succeeded, or default(TDWVDASmartContractEntryCore) if the conversion
+        /// in input, if the conversion succeeded, or default(TDWVDASmartContractEntryClaims) if the conversion
         /// failed. The conversion fails if the input parameter is null or String.Empty, or is 
         /// not of the correct format. This parameter is passed uninitialized. 
         /// </param>
         /// <returns>True if input was converted successfully; otherwise, false.</returns>
-        public unsafe static bool TryParse(string input, out TDWVDASmartContractEntryCore value)
+        public unsafe static bool TryParse(string input, out TDWVDASmartContractEntryClaims value)
         {
             try
             {
-                value = Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDASmartContractEntryCore>(input);
+                value = Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDASmartContractEntryClaims>(input);
                 return true;
             }
-            catch { value = default(TDWVDASmartContractEntryCore); return false; }
+            catch { value = default(TDWVDASmartContractEntryClaims); return false; }
         }
-        public static TDWVDASmartContractEntryCore Parse(string input)
+        public static TDWVDASmartContractEntryClaims Parse(string input)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDASmartContractEntryCore>(input);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TDWVDASmartContractEntryClaims>(input);
         }
         /// <summary>
         /// Serializes this object to a Json string.
@@ -108,16 +108,16 @@ namespace TDW.VDAServer
         }
     }
     /// <summary>
-    /// Provides in-place operations of TDWVDASmartContractEntryCore defined in TSL.
+    /// Provides in-place operations of TDWVDASmartContractEntryClaims defined in TSL.
     /// </summary>
-    public unsafe partial class TDWVDASmartContractEntryCore_Accessor : IAccessor
+    public unsafe partial class TDWVDASmartContractEntryClaims_Accessor : IAccessor
     {
         ///<summary>
         ///The pointer to the content of the object.
         ///</summary>
         internal byte* m_ptr;
         internal long m_cellId;
-        internal unsafe TDWVDASmartContractEntryCore_Accessor(byte* _CellPtr
+        internal unsafe TDWVDASmartContractEntryClaims_Accessor(byte* _CellPtr
             
             , ResizeFunctionDelegate func
             )
@@ -292,17 +292,17 @@ namespace TDW.VDAServer
             }
         }
         
-        public static unsafe implicit operator TDWVDASmartContractEntryCore(TDWVDASmartContractEntryCore_Accessor accessor)
+        public static unsafe implicit operator TDWVDASmartContractEntryClaims(TDWVDASmartContractEntryClaims_Accessor accessor)
         {
             
-            return new TDWVDASmartContractEntryCore(
+            return new TDWVDASmartContractEntryClaims(
                 
                         accessor.smartcontractledgeraddress,
                         accessor.vdaserviceendpointudid
                 );
         }
         
-        public unsafe static implicit operator TDWVDASmartContractEntryCore_Accessor(TDWVDASmartContractEntryCore field)
+        public unsafe static implicit operator TDWVDASmartContractEntryClaims_Accessor(TDWVDASmartContractEntryClaims field)
         {
             byte* targetPtr = null;
             
@@ -365,14 +365,14 @@ namespace TDW.VDAServer
             targetPtr += sizeof(int);
         }
 
-            }TDWVDASmartContractEntryCore_Accessor ret;
+            }TDWVDASmartContractEntryClaims_Accessor ret;
             
-            ret = new TDWVDASmartContractEntryCore_Accessor(tmpcellptr, null);
+            ret = new TDWVDASmartContractEntryClaims_Accessor(tmpcellptr, null);
             
             return ret;
         }
         
-        public static bool operator ==(TDWVDASmartContractEntryCore_Accessor a, TDWVDASmartContractEntryCore_Accessor b)
+        public static bool operator ==(TDWVDASmartContractEntryClaims_Accessor a, TDWVDASmartContractEntryClaims_Accessor b)
         {
             if (ReferenceEquals(a, b))
                 return true;
@@ -388,7 +388,7 @@ namespace TDW.VDAServer
             if(lengthA != lengthB) return false;
             return Memory.Compare(a.m_ptr,b.m_ptr,lengthA);
         }
-        public static bool operator != (TDWVDASmartContractEntryCore_Accessor a, TDWVDASmartContractEntryCore_Accessor b)
+        public static bool operator != (TDWVDASmartContractEntryClaims_Accessor a, TDWVDASmartContractEntryClaims_Accessor b)
         {
             return !(a == b);
         }

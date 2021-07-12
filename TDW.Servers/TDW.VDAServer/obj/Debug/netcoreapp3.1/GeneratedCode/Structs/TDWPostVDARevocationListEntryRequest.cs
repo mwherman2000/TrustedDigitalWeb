@@ -34,7 +34,7 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWPostVDARevocationListEntryRequest with the specified parameters.
         ///</summary>
-        public TDWPostVDARevocationListEntryRequest(TDWVDAPostInvocationParameters parms = default(TDWVDAPostInvocationParameters),TDWVDARevocationListEntry entry = default(TDWVDARevocationListEntry))
+        public TDWPostVDARevocationListEntryRequest(TDWVDAPostInvocationParameters parms = default(TDWVDAPostInvocationParameters),TDWVDARevocationListEntryParm entry = default(TDWVDARevocationListEntryParm))
         {
             
             this.parms = parms;
@@ -70,7 +70,7 @@ namespace TDW.VDAServer
         
         public TDWVDAPostInvocationParameters parms;
         
-        public TDWVDARevocationListEntry entry;
+        public TDWVDARevocationListEntryParm entry;
         
         /// <summary>
         /// Converts the string representation of a TDWPostVDARevocationListEntryRequest to its
@@ -131,7 +131,7 @@ namespace TDW.VDAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        entry_Accessor_Field = new TDWVDARevocationListEntry_Accessor(null,
+                });        entry_Accessor_Field = new TDWVDARevocationListEntryParm_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -262,12 +262,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 }
             }
         }
-        TDWVDARevocationListEntry_Accessor entry_Accessor_Field;
+        TDWVDARevocationListEntryParm_Accessor entry_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field entry.
         ///</summary>
-        public unsafe TDWVDARevocationListEntry_Accessor entry
+        public unsafe TDWVDARevocationListEntryParm_Accessor entry
         {
             get
             {

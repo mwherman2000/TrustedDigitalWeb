@@ -22,8 +22,20 @@ namespace TDW.TRAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TDWCredential:
-                storage.SaveTDWCredential(writeAheadLogOptions, (TDWCredential)cell);
+                case CellType.TRACredentialCell:
+                storage.SaveTRACredentialCell(writeAheadLogOptions, (TRACredentialCell)cell);
+                break;
+                
+                case CellType.TRATimestampCell:
+                storage.SaveTRATimestampCell(writeAheadLogOptions, (TRATimestampCell)cell);
+                break;
+                
+                case CellType.TDWGeoLocationCell:
+                storage.SaveTDWGeoLocationCell(writeAheadLogOptions, (TDWGeoLocationCell)cell);
+                break;
+                
+                case CellType.TRAPostalAddressCell:
+                storage.SaveTRAPostalAddressCell(writeAheadLogOptions, (TRAPostalAddressCell)cell);
                 break;
                 
             }
@@ -34,8 +46,20 @@ namespace TDW.TRAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TDWCredential:
-                storage.SaveTDWCredential(writeAheadLogOptions, cellId, (TDWCredential)cell);
+                case CellType.TRACredentialCell:
+                storage.SaveTRACredentialCell(writeAheadLogOptions, cellId, (TRACredentialCell)cell);
+                break;
+                
+                case CellType.TRATimestampCell:
+                storage.SaveTRATimestampCell(writeAheadLogOptions, cellId, (TRATimestampCell)cell);
+                break;
+                
+                case CellType.TDWGeoLocationCell:
+                storage.SaveTDWGeoLocationCell(writeAheadLogOptions, cellId, (TDWGeoLocationCell)cell);
+                break;
+                
+                case CellType.TRAPostalAddressCell:
+                storage.SaveTRAPostalAddressCell(writeAheadLogOptions, cellId, (TRAPostalAddressCell)cell);
                 break;
                 
             }
@@ -77,8 +101,20 @@ namespace TDW.TRAServer
             switch (type)
             {
                 
-                case global::TDW.TRAServer.CellType.TDWCredential:
-                return new TDWCredential();
+                case global::TDW.TRAServer.CellType.TRACredentialCell:
+                return new TRACredentialCell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.TRATimestampCell:
+                return new TRATimestampCell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.TDWGeoLocationCell:
+                return new TDWGeoLocationCell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.TRAPostalAddressCell:
+                return new TRAPostalAddressCell();
                 break;
                 
             }
@@ -93,8 +129,17 @@ namespace TDW.TRAServer
             switch (type)
             {
                 
-                case global::TDW.TRAServer.CellType.TDWCredential:
-                return new TDWCredential(cell_id: cellId);
+                case global::TDW.TRAServer.CellType.TRACredentialCell:
+                return new TRACredentialCell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.TRATimestampCell:
+                return new TRATimestampCell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.TDWGeoLocationCell:
+                return new TDWGeoLocationCell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.TRAPostalAddressCell:
+                return new TRAPostalAddressCell(cell_id: cellId);
                 
             }
             /* Should not reach here */
@@ -109,8 +154,17 @@ namespace TDW.TRAServer
             switch (type)
             {
                 
-                case global::TDW.TRAServer.CellType.TDWCredential:
-                return TDWCredential.Parse(content);
+                case global::TDW.TRAServer.CellType.TRACredentialCell:
+                return TRACredentialCell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.TRATimestampCell:
+                return TRATimestampCell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.TDWGeoLocationCell:
+                return TDWGeoLocationCell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.TRAPostalAddressCell:
+                return TRAPostalAddressCell.Parse(content);
                 
             }
             /* Should not reach here */
@@ -133,8 +187,17 @@ namespace TDW.TRAServer
             switch ((CellType)type)
             {
                 
-                case CellType.TDWCredential:
-                return TDWCredential_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                case CellType.TRACredentialCell:
+                return TRACredentialCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.TRATimestampCell:
+                return TRATimestampCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.TDWGeoLocationCell:
+                return TDWGeoLocationCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.TRAPostalAddressCell:
+                return TRAPostalAddressCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
                 
                 default:
                 storage.ReleaseCellLock(cellId, entryIndex);
@@ -193,7 +256,13 @@ namespace TDW.TRAServer
             switch (cellType)
             {
                 
-                case "TDWCredential": return TDWCredential_Accessor._get()._Lock(cellId, options);
+                case "TRACredentialCell": return TRACredentialCell_Accessor._get()._Lock(cellId, options);
+                
+                case "TRATimestampCell": return TRATimestampCell_Accessor._get()._Lock(cellId, options);
+                
+                case "TDWGeoLocationCell": return TDWGeoLocationCell_Accessor._get()._Lock(cellId, options);
+                
+                case "TRAPostalAddressCell": return TRAPostalAddressCell_Accessor._get()._Lock(cellId, options);
                 
                 default:
                 Throw.invalid_cell_type();
@@ -210,12 +279,39 @@ namespace TDW.TRAServer
                 switch ((CellType)cellInfo.CellType)
                 {
                     
-                    case CellType.TDWCredential:
+                    case CellType.TRACredentialCell:
                         {
-                            var TDWCredential_accessor = TDWCredential_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            var TDWCredential_cell     = (TDWCredential)TDWCredential_accessor;
-                            TDWCredential_accessor.Dispose();
-                            yield return TDWCredential_cell;
+                            var TRACredentialCell_accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var TRACredentialCell_cell     = (TRACredentialCell)TRACredentialCell_accessor;
+                            TRACredentialCell_accessor.Dispose();
+                            yield return TRACredentialCell_cell;
+                            break;
+                        }
+                    
+                    case CellType.TRATimestampCell:
+                        {
+                            var TRATimestampCell_accessor = TRATimestampCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var TRATimestampCell_cell     = (TRATimestampCell)TRATimestampCell_accessor;
+                            TRATimestampCell_accessor.Dispose();
+                            yield return TRATimestampCell_cell;
+                            break;
+                        }
+                    
+                    case CellType.TDWGeoLocationCell:
+                        {
+                            var TDWGeoLocationCell_accessor = TDWGeoLocationCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var TDWGeoLocationCell_cell     = (TDWGeoLocationCell)TDWGeoLocationCell_accessor;
+                            TDWGeoLocationCell_accessor.Dispose();
+                            yield return TDWGeoLocationCell_cell;
+                            break;
+                        }
+                    
+                    case CellType.TRAPostalAddressCell:
+                        {
+                            var TRAPostalAddressCell_accessor = TRAPostalAddressCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var TRAPostalAddressCell_cell     = (TRAPostalAddressCell)TRAPostalAddressCell_accessor;
+                            TRAPostalAddressCell_accessor.Dispose();
+                            yield return TRAPostalAddressCell_cell;
                             break;
                         }
                     
@@ -233,11 +329,35 @@ namespace TDW.TRAServer
                 switch ((CellType)cellInfo.CellType)
                 {
                     
-                    case CellType.TDWCredential:
+                    case CellType.TRACredentialCell:
                         {
-                            var TDWCredential_accessor = TDWCredential_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            yield return TDWCredential_accessor;
-                            TDWCredential_accessor.Dispose();
+                            var TRACredentialCell_accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return TRACredentialCell_accessor;
+                            TRACredentialCell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.TRATimestampCell:
+                        {
+                            var TRATimestampCell_accessor = TRATimestampCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return TRATimestampCell_accessor;
+                            TRATimestampCell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.TDWGeoLocationCell:
+                        {
+                            var TDWGeoLocationCell_accessor = TDWGeoLocationCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return TDWGeoLocationCell_accessor;
+                            TDWGeoLocationCell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.TRAPostalAddressCell:
+                        {
+                            var TRAPostalAddressCell_accessor = TRAPostalAddressCell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return TRAPostalAddressCell_accessor;
+                            TRAPostalAddressCell_accessor.Dispose();
                             break;
                         }
                     
@@ -255,8 +375,20 @@ namespace TDW.TRAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TDWCredential:
-                storage.SaveTDWCredential((TDWCredential)cell);
+                case CellType.TRACredentialCell:
+                storage.SaveTRACredentialCell((TRACredentialCell)cell);
+                break;
+                
+                case CellType.TRATimestampCell:
+                storage.SaveTRATimestampCell((TRATimestampCell)cell);
+                break;
+                
+                case CellType.TDWGeoLocationCell:
+                storage.SaveTDWGeoLocationCell((TDWGeoLocationCell)cell);
+                break;
+                
+                case CellType.TRAPostalAddressCell:
+                storage.SaveTRAPostalAddressCell((TRAPostalAddressCell)cell);
                 break;
                 
             }
@@ -267,8 +399,20 @@ namespace TDW.TRAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TDWCredential:
-                storage.SaveTDWCredential(cellId, (TDWCredential)cell);
+                case CellType.TRACredentialCell:
+                storage.SaveTRACredentialCell(cellId, (TRACredentialCell)cell);
+                break;
+                
+                case CellType.TRATimestampCell:
+                storage.SaveTRATimestampCell(cellId, (TRATimestampCell)cell);
+                break;
+                
+                case CellType.TDWGeoLocationCell:
+                storage.SaveTDWGeoLocationCell(cellId, (TDWGeoLocationCell)cell);
+                break;
+                
+                case CellType.TRAPostalAddressCell:
+                storage.SaveTRAPostalAddressCell(cellId, (TRAPostalAddressCell)cell);
                 break;
                 
             }
@@ -308,8 +452,17 @@ namespace TDW.TRAServer
             switch ((CellType)cellType)
             {
                 
-                case CellType.TDWCredential:
-                return TDWCredential_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                case CellType.TRACredentialCell:
+                return TRACredentialCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.TRATimestampCell:
+                return TRATimestampCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.TDWGeoLocationCell:
+                return TDWGeoLocationCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.TRAPostalAddressCell:
+                return TRAPostalAddressCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
                 
                 default:
                 throw new CellTypeNotMatchException("Cannot determine cell type.");

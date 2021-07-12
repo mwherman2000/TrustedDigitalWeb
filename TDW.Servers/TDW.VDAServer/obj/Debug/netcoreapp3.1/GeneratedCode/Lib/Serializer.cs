@@ -421,6 +421,19 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
+        /// Serializes a TDWVDAAccountEntryClaims object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TDWVDAAccountEntryClaims value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
         /// Serializes a TDWVDAAccountEntryContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
@@ -434,11 +447,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TDWVDAAccountEntryCore object to Json string.
+        /// Serializes a TDWVDAAccountEntryEnvelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TDWVDAAccountEntryCore value)
+        public static string ToString(TDWVDAAccountEntryEnvelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -447,11 +460,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TDWVDAIdentityRegistryEntry object to Json string.
+        /// Serializes a TDWVDAIdentityRegistryEntryParm object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TDWVDAIdentityRegistryEntry value)
+        public static string ToString(TDWVDAIdentityRegistryEntryParm value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -473,11 +486,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TDWVDARevocationListEntry object to Json string.
+        /// Serializes a TDWVDARevocationListEntryParm object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TDWVDARevocationListEntry value)
+        public static string ToString(TDWVDARevocationListEntryParm value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -486,11 +499,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TDWVDAServiceEndpointEntry object to Json string.
+        /// Serializes a TDWVDAServiceEndpointEntryParm object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TDWVDAServiceEndpointEntry value)
+        public static string ToString(TDWVDAServiceEndpointEntryParm value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -499,11 +512,37 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TDWVDASmartContractEntryCore object to Json string.
+        /// Serializes a TDWVDASmartContractEntryClaims object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TDWVDASmartContractEntryCore value)
+        public static string ToString(TDWVDASmartContractEntryClaims value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TDWVDASmartContractEntryContent object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TDWVDASmartContractEntryContent value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TDWVDASmartContractEntryEnvelope object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TDWVDASmartContractEntryEnvelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -538,19 +577,6 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredentialCore object to Json string.
-        /// </summary>
-        /// <param name="value">The target object to be serialized.</param>
-        /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredentialCore value)
-        {
-            s_ensure_string_builder();
-            ToString_impl(value, s_stringBuilder, in_json: false);
-            return s_stringBuilder.ToString();
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        /// <summary>
         /// Serializes a TRACredentialEnvelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
@@ -564,11 +590,24 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredentialWrapper object to Json string.
+        /// Serializes a TRACredentialEnvelopeSeal object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredentialWrapper value)
+        public static string ToString(TRACredentialEnvelopeSeal value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRACredentialMetadata object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRACredentialMetadata value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -653,12 +692,51 @@ namespace TDW.VDAServer
             return s_stringBuilder.ToString();
         }
         
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TDWCredential object to Json string.
+        /// Serializes a TDWVDAAccountEntryContent? object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TDWVDAAccountEntryContent? value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TDWVDASmartContractEntryContent? object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TDWVDASmartContractEntryContent? value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRACredentialContent? object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRACredentialContent? value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        /// <summary>
+        /// Serializes a TRACredentialCell object to Json string.
         /// </summary>
         /// <param name="value">The target cell object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TDWCredential cell)
+        public static string ToString(TRACredentialCell cell)
         {
             s_ensure_string_builder();
             s_stringBuilder.Append('{');
@@ -667,30 +745,17 @@ namespace TDW.VDAServer
             {
                 
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"CredentialContent\":");
-                    ToString_impl(cell.CredentialContent, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"envelope\":");
+                    ToString_impl(cell.envelope, s_stringBuilder, in_json: true);
                     
             }
             
             {
                 
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"CredentialEnvelope\":");
-                    ToString_impl(cell.CredentialEnvelope, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"envelopeseal\":");
+                    ToString_impl(cell.envelopeseal, s_stringBuilder, in_json: true);
                     
-            }
-            
-            {
-                
-                if (cell.EncryptedCredentialContent != null)
-                {
-                    
-                    s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"EncryptedCredentialContent\":");
-                    ToString_impl(cell.EncryptedCredentialContent, s_stringBuilder, in_json: true);
-                    
-                }
-                
             }
             
             s_stringBuilder.Append('}');
@@ -698,11 +763,11 @@ namespace TDW.VDAServer
         }
         
         /// <summary>
-        /// Serializes a TDWVDAAccount object to Json string.
+        /// Serializes a TDWVDAAccountEntryCell object to Json string.
         /// </summary>
         /// <param name="value">The target cell object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TDWVDAAccount cell)
+        public static string ToString(TDWVDAAccountEntryCell cell)
         {
             s_ensure_string_builder();
             s_stringBuilder.Append('{');
@@ -711,30 +776,17 @@ namespace TDW.VDAServer
             {
                 
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"AccountContent\":");
-                    ToString_impl(cell.AccountContent, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"envelope\":");
+                    ToString_impl(cell.envelope, s_stringBuilder, in_json: true);
                     
             }
             
             {
                 
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"CredentialEnvelope\":");
-                    ToString_impl(cell.CredentialEnvelope, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"envelopeseal\":");
+                    ToString_impl(cell.envelopeseal, s_stringBuilder, in_json: true);
                     
-            }
-            
-            {
-                
-                if (cell.EncryptedAccountCore != null)
-                {
-                    
-                    s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"EncryptedAccountCore\":");
-                    ToString_impl(cell.EncryptedAccountCore, s_stringBuilder, in_json: true);
-                    
-                }
-                
             }
             
             s_stringBuilder.Append('}');
@@ -742,11 +794,11 @@ namespace TDW.VDAServer
         }
         
         /// <summary>
-        /// Serializes a TDWVDASmartContract object to Json string.
+        /// Serializes a TDWVDASmartContractEntryCell object to Json string.
         /// </summary>
         /// <param name="value">The target cell object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TDWVDASmartContract cell)
+        public static string ToString(TDWVDASmartContractEntryCell cell)
         {
             s_ensure_string_builder();
             s_stringBuilder.Append('{');
@@ -755,30 +807,17 @@ namespace TDW.VDAServer
             {
                 
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"SmartContractCore\":");
-                    ToString_impl(cell.SmartContractCore, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"SmartContractEntryEnvelope\":");
+                    ToString_impl(cell.SmartContractEntryEnvelope, s_stringBuilder, in_json: true);
                     
             }
             
             {
                 
                     s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"CredentialEnvelope\":");
-                    ToString_impl(cell.CredentialEnvelope, s_stringBuilder, in_json: true);
+                    s_stringBuilder.Append("\"envelopeseal\":");
+                    ToString_impl(cell.envelopeseal, s_stringBuilder, in_json: true);
                     
-            }
-            
-            {
-                
-                if (cell.EncryptedSmartContractCore != null)
-                {
-                    
-                    s_stringBuilder.Append(',');
-                    s_stringBuilder.Append("\"EncryptedSmartContractCore\":");
-                    ToString_impl(cell.EncryptedSmartContractCore, s_stringBuilder, in_json: true);
-                    
-                }
-                
             }
             
             s_stringBuilder.Append('}');
@@ -1699,81 +1738,13 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TDWVDAAccountEntryContent value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TDWVDAAccountEntryClaims value, StringBuilder str_builder, bool in_json)
         {
             
             {
                 
                 str_builder.Append('{');
                 bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"core\":");
-                        
-                        ToString_impl(value.core, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"wrapper\":");
-                        
-                        ToString_impl(value.wrapper, str_builder, in_json: true);
-                        
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TDWVDAAccountEntryCore value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"id\":");
-                        
-                        ToString_impl(value.id, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                    if (value.udid != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
-                        
-                        ToString_impl(value.udid, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
                 
                 {
                     
@@ -1853,7 +1824,131 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TDWVDAIdentityRegistryEntry value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TDWVDAAccountEntryContent value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.udid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.context != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.claims, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TDWVDAAccountEntryEnvelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.content != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedcontent != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedcontent\":");
+                        
+                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"metadata\":");
+                        
+                        ToString_impl(value.metadata, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TDWVDAIdentityRegistryEntryParm value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2097,7 +2192,7 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TDWVDARevocationListEntry value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TDWVDARevocationListEntryParm value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2255,7 +2350,7 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TDWVDAServiceEndpointEntry value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TDWVDAServiceEndpointEntryParm value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2359,7 +2454,7 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TDWVDASmartContractEntryCore value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TDWVDASmartContractEntryClaims value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2401,6 +2496,130 @@ namespace TDW.VDAServer
                         
                     }
                     
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TDWVDASmartContractEntryContent value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.udid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.context != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.claims, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TDWVDASmartContractEntryEnvelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.content != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedcontent != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedcontent\":");
+                        
+                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"metadata\":");
+                        
+                        ToString_impl(value.metadata, str_builder, in_json: true);
+                        
                 }
                 
                 str_builder.Append('}');
@@ -2505,44 +2724,6 @@ namespace TDW.VDAServer
                 
                 {
                     
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"core\":");
-                        
-                        ToString_impl(value.core, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"wrapper\":");
-                        
-                        ToString_impl(value.wrapper, str_builder, in_json: true);
-                        
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredentialCore value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
                     if (value.udid != null)
                     
                     {
@@ -2602,6 +2783,68 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static void ToString_impl(TRACredentialEnvelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.content != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedcontent != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedcontent\":");
+                        
+                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"metadata\":");
+                        
+                        ToString_impl(value.metadata, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRACredentialEnvelopeSeal value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2687,7 +2930,7 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredentialWrapper value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredentialMetadata value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2704,6 +2947,18 @@ namespace TDW.VDAServer
                         str_builder.Append("\"credtype\":");
                         
                         ToString_impl(value.credtype, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"version\":");
+                        
+                        ToString_impl(value.version, str_builder, in_json: true);
                         
                 }
                 
@@ -2733,18 +2988,6 @@ namespace TDW.VDAServer
                 
                 {
                     
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"version\":");
-                        
-                        ToString_impl(value.version, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
                     if (value.notaryudid != null)
                     
                     {
@@ -2756,6 +2999,42 @@ namespace TDW.VDAServer
                         str_builder.Append("\"notaryudid\":");
                         
                         ToString_impl(value.notaryudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.name != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"name\":");
+                        
+                        ToString_impl(value.name, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.comment != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"comment\":");
+                        
+                        ToString_impl(value.comment, str_builder, in_json: true);
                         
                     }
                     
@@ -2916,6 +3195,207 @@ namespace TDW.VDAServer
                     ToString_impl(element, str_builder, in_json:true);
                 }
                 str_builder.Append(']');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TDWVDAAccountEntryContent? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.udid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.context != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TDWVDASmartContractEntryContent? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.udid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.context != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRACredentialContent? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.udid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"udid\":");
+                        
+                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.context != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"context\":");
+                        
+                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.claims != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"claims\":");
+                        
+                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
             }
             
         }
