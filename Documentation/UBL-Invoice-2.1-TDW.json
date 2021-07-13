@@ -1,0 +1,470 @@
+{
+    {
+        "CellId": -7977519317037772656,
+        "envelope": {
+            "content": {
+                "udid": "did:svrn:credential:9090/25A7/7228/4A91",
+                "context": [
+                    "urn:oasis:names:specification:ubl:schema:xsd:Invoice-2",
+                    "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2",
+                    "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
+                ],
+                "claims": {
+                    "cbc_UBLVersionID": "2.1",
+                    "cbc_ID": "TOSL108",
+                    "cbc_IssueDate": "2009-12-15T00:00:00.0000000",
+                    "cbc_InvoiceTypeCode": {
+                        "_listID": "Un/ECE 100 Subset",
+                        "_listAgencyID": "6",
+                        "code": "308"
+                    },
+                    "Cbc_Note": {
+                        "_languageID": "en",
+                        "note": "Ordered in our booth at the convention."
+                    },
+                    "cbc_TaxPointDate": "2009-11-30T00:00:00.0000000",
+                    "cbc_DocumentCurrencyCode": {
+                        "_listID": "ISO 4217 Alpha",
+                        "_listAgencyID": "6",
+                        "code": "EUR"
+                    },
+                    "cbc_AccountingCost": "Project cost code 123",
+                    "cbc_InvoicePeriod": {
+                        "cbc_StartDate": "2009-11-01T00:00:00.0000000",
+                        "cbc_EndDate": "2009-11-30T00:00:00.0000000"
+                    },
+                    "cbc_OrderReference": {
+                        "cbc_ID": "123"
+                    },
+                    "cac_ContractDocumentReference": {
+                        "ID": "321",
+                        "DocumentType": "Framework Agreement"
+                    },
+                    "cac_AdditionalDocumentReferences": [
+                        {
+                            "ID": "Doc1",
+                            "DocumentType": "Timesheet",
+                            "cac_Attachment": {
+                                "cac_ExternalReferenceUdid": "did:svrn:credential:0E5F/81F2/05DB/4C0B"
+                            }
+                        },
+                        {
+                            "ID": "Doc2",
+                            "DocumentType": "Drawing",
+                            "cac_Attachment": {
+                                "cac_ExternalReferenceUdid": "did:svrn:credential:5ADE/2C22/2F74/48D8"
+                            }
+                        }
+                    ],
+                    "cac_AccountingSupplierParty": {
+                        "cac_PartyUdid": "did:svrn:credential:5F0A/7008/738F/D221"
+                    },
+                    "cac_AccountingCustomerParty": {
+                        "cac_PartyUdid": "did:svrn:credential:DC48/9C1C/E1C0/5412"
+                    },
+                    "cac_PayeeParty": {
+                        "cac_PartyUdid": "did:svrn:credential:93E8/A853/37B2/5D4E"
+                    },
+                    "cac_Delivery": {
+                        "cbc_ActualDeliveryDate": "2009-12-15T00:00:00.0000000",
+                        "cac_DeliveryLocation": {
+                            "cbc_ID": {
+                                "_schemeID": "GLN",
+                                "_schemeAgencyID": "9",
+                                "code": "6754238987648"
+                            },
+                            "cac_AddressUdid": "did:svrn:credential:93BA/2AB0/C101/6F16"
+                        }
+                    },
+                    "cac_PaymentMeansUdid": "did:svrn:credential:86DD/BBEB/3220/9C7E",
+                    "cac_PaymentTerms": {
+                        "cbc_Note": {
+                            "_languageID": "en",
+                            "note": "Penalty percentage 10% from due date"
+                        }
+                    },
+                    "cac_AllowanceCharges": [
+                        {
+                            "cbc_ChargeIndicator": true,
+                            "cbc_AllowanceChargeReason": "Packing cost",
+                            "cbc_Amount": {
+                                "_CurrencyID": "EUR",
+                                "amount": 100
+                            }
+                        },
+                        {
+                            "cbc_ChargeIndicator": false,
+                            "cbc_AllowanceChargeReason": "Promotion discount",
+                            "cbc_Amount": {
+                                "_CurrencyID": "EUR",
+                                "amount": 100
+                            }
+                        }
+                    ],
+                    "cac_TaxTotal": {
+                        "cbc_TaxAmount": {
+                            "_CurrencyID": "EUR",
+                            "amount": 292.2
+                        },
+                        "cac_TaxSubtotals": []
+                    },
+                    "cac_LegalMonetaryTotal": {
+                        "cbc_LineExtensionAmount": {
+                            "_CurrencyID": "EUR",
+                            "amount": 1436.5
+                        },
+                        "cbc_TaxExclusiveAmount": {
+                            "_CurrencyID": "EUR",
+                            "amount": 1436.5
+                        },
+                        "cbc_TaxInclusiveAmount": {
+                            "_CurrencyID": "EUR",
+                            "amount": 1729
+                        },
+                        "cbc_AllowanceTotalAmount": {
+                            "_CurrencyID": "EUR",
+                            "amount": 100
+                        },
+                        "cbc_ChargeTotalAmount": {
+                            "_CurrencyID": "EUR",
+                            "amount": 100
+                        },
+                        "cbc_PrepaidAmount": {
+                            "_CurrencyID": "EUR",
+                            "amount": 1000
+                        },
+                        "cbc_PayableRoundingAmount": {
+                            "_CurrencyID": "EUR",
+                            "amount": 0.3
+                        },
+                        "cbc_PayableAmount": {
+                            "_CurrencyID": "EUR",
+                            "amount": 729
+                        }
+                    },
+                    "cac_InvoiceLine": [
+                        {
+                            "cbc_ID": "1",
+                            "cbc_Note": {
+                                "_languageID": "en",
+                                "note": "Scratch on box"
+                            },
+                            "cbc_InvoicedQuantity": {
+                                "_unitCode": "C62",
+                                "quantity": 1
+                            },
+                            "cbc_LineExtensionAmount": {
+                                "_CurrencyID": "EUR",
+                                "amount": 1273
+                            },
+                            "cbc_AccountingCost": "BookingCode",
+                            "cac_OrderLineReference": {
+                                "cbc_LineID": "1"
+                            },
+                            "cac_AllowanceCharges": [
+                                {
+                                    "cbc_ChargeIndicator": false,
+                                    "cbc_AllowanceChargeReason": "Damage",
+                                    "cbc_Amount": {
+                                        "_CurrencyID": "EUR",
+                                        "amount": 12
+                                    }
+                                },
+                                {
+                                    "cbc_ChargeIndicator": true,
+                                    "cbc_AllowanceChargeReason": "Testing",
+                                    "cbc_Amount": {
+                                        "_CurrencyID": "EUR",
+                                        "amount": 10
+                                    }
+                                }
+                            ],
+                            "cac_TaxTotal": {
+                                "cbc_TaxAmount": {
+                                    "_CurrencyID": "EUR",
+                                    "amount": 254.6
+                                }
+                            },
+                            "cac_ItemUdid": "did:svrn:credential:8C60/15BD/3F30/2999",
+                            "cac_Price": {
+                                "cbc_PriceAmount": {
+                                    "_CurrencyID": "EUR",
+                                    "amount": 3.96
+                                },
+                                "cbc_BaseQuantity": {
+                                    "_unitCode": "C62",
+                                    "quantity": 1
+                                },
+                                "cac_AllowanceCharge": {
+                                    "cbc_ChargeIndicator": false,
+                                    "cbc_Amount": {
+                                        "amount": 0
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "cbc_ID": "2",
+                            "cbc_Note": {
+                                "_languageID": "en",
+                                "note": "Scratch on box"
+                            },
+                            "cbc_InvoicedQuantity": {
+                                "_unitCode": "C62",
+                                "quantity": 1
+                            },
+                            "cbc_LineExtensionAmount": {
+                                "_CurrencyID": "EUR",
+                                "amount": 1273
+                            },
+                            "cbc_AccountingCost": "BookingCode",
+                            "cac_OrderLineReference": {
+                                "cbc_LineID": "2"
+                            },
+                            "cac_AllowanceCharges": [
+                                {
+                                    "cbc_ChargeIndicator": false,
+                                    "cbc_AllowanceChargeReason": "Damage",
+                                    "cbc_Amount": {
+                                        "_CurrencyID": "EUR",
+                                        "amount": 12
+                                    }
+                                },
+                                {
+                                    "cbc_ChargeIndicator": true,
+                                    "cbc_AllowanceChargeReason": "Testing",
+                                    "cbc_Amount": {
+                                        "_CurrencyID": "EUR",
+                                        "amount": 10
+                                    }
+                                }
+                            ],
+                            "cac_TaxTotal": {
+                                "cbc_TaxAmount": {
+                                    "_CurrencyID": "EUR",
+                                    "amount": 254.6
+                                }
+                            },
+                            "cac_ItemUdid": "did:svrn:credential:8A19/8F46/CBF4/A0AD",
+                            "cac_Price": {
+                                "cbc_PriceAmount": {
+                                    "_CurrencyID": "EUR",
+                                    "amount": 3.96
+                                },
+                                "cbc_BaseQuantity": {
+                                    "_unitCode": "C62",
+                                    "quantity": 1
+                                },
+                                "cac_AllowanceCharge": {
+                                    "cbc_ChargeIndicator": false,
+                                    "cbc_Amount": {
+                                        "amount": 0
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "cbc_ID": "3",
+                            "cbc_Note": {
+                                "_languageID": "en",
+                                "note": "Scratch on box"
+                            },
+                            "cbc_InvoicedQuantity": {
+                                "_unitCode": "C62",
+                                "quantity": 1
+                            },
+                            "cbc_LineExtensionAmount": {
+                                "_CurrencyID": "EUR",
+                                "amount": 1273
+                            },
+                            "cbc_AccountingCost": "BookingCode",
+                            "cac_OrderLineReference": {
+                                "cbc_LineID": "3"
+                            },
+                            "cac_AllowanceCharges": [
+                                {
+                                    "cbc_ChargeIndicator": false,
+                                    "cbc_AllowanceChargeReason": "Damage",
+                                    "cbc_Amount": {
+                                        "_CurrencyID": "EUR",
+                                        "amount": 12
+                                    }
+                                },
+                                {
+                                    "cbc_ChargeIndicator": true,
+                                    "cbc_AllowanceChargeReason": "Testing",
+                                    "cbc_Amount": {
+                                        "_CurrencyID": "EUR",
+                                        "amount": 10
+                                    }
+                                }
+                            ],
+                            "cac_TaxTotal": {
+                                "cbc_TaxAmount": {
+                                    "_CurrencyID": "EUR",
+                                    "amount": 254.6
+                                }
+                            },
+                            "cac_ItemUdid": "did:svrn:credential:AC21/74B8/6522/5FDB",
+                            "cac_Price": {
+                                "cbc_PriceAmount": {
+                                    "_CurrencyID": "EUR",
+                                    "amount": 3.96
+                                },
+                                "cbc_BaseQuantity": {
+                                    "_unitCode": "C62",
+                                    "quantity": 1
+                                },
+                                "cac_AllowanceCharge": {
+                                    "cbc_ChargeIndicator": false,
+                                    "cbc_Amount": {
+                                        "amount": 0
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "cbc_ID": "4",
+                            "cbc_Note": {
+                                "_languageID": "en",
+                                "note": "Scratch on box"
+                            },
+                            "cbc_InvoicedQuantity": {
+                                "_unitCode": "C62",
+                                "quantity": 1
+                            },
+                            "cbc_LineExtensionAmount": {
+                                "_CurrencyID": "EUR",
+                                "amount": 1273
+                            },
+                            "cbc_AccountingCost": "BookingCode",
+                            "cac_OrderLineReference": {
+                                "cbc_LineID": "4"
+                            },
+                            "cac_AllowanceCharges": [
+                                {
+                                    "cbc_ChargeIndicator": false,
+                                    "cbc_AllowanceChargeReason": "Damage",
+                                    "cbc_Amount": {
+                                        "_CurrencyID": "EUR",
+                                        "amount": 12
+                                    }
+                                },
+                                {
+                                    "cbc_ChargeIndicator": true,
+                                    "cbc_AllowanceChargeReason": "Testing",
+                                    "cbc_Amount": {
+                                        "_CurrencyID": "EUR",
+                                        "amount": 10
+                                    }
+                                }
+                            ],
+                            "cac_TaxTotal": {
+                                "cbc_TaxAmount": {
+                                    "_CurrencyID": "EUR",
+                                    "amount": 254.6
+                                }
+                            },
+                            "cac_ItemUdid": "did:svrn:credential:D985/9604/0469/E072",
+                            "cac_Price": {
+                                "cbc_PriceAmount": {
+                                    "_CurrencyID": "EUR",
+                                    "amount": 3.96
+                                },
+                                "cbc_BaseQuantity": {
+                                    "_unitCode": "C62",
+                                    "quantity": 1
+                                },
+                                "cac_AllowanceCharge": {
+                                    "cbc_ChargeIndicator": false,
+                                    "cbc_Amount": {
+                                        "amount": 0
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "cbc_ID": "5",
+                            "cbc_Note": {
+                                "_languageID": "en",
+                                "note": "Scratch on box"
+                            },
+                            "cbc_InvoicedQuantity": {
+                                "_unitCode": "C62",
+                                "quantity": 1
+                            },
+                            "cbc_LineExtensionAmount": {
+                                "_CurrencyID": "EUR",
+                                "amount": 1273
+                            },
+                            "cbc_AccountingCost": "BookingCode",
+                            "cac_OrderLineReference": {
+                                "cbc_LineID": "5"
+                            },
+                            "cac_AllowanceCharges": [
+                                {
+                                    "cbc_ChargeIndicator": false,
+                                    "cbc_AllowanceChargeReason": "Damage",
+                                    "cbc_Amount": {
+                                        "_CurrencyID": "EUR",
+                                        "amount": 12
+                                    }
+                                },
+                                {
+                                    "cbc_ChargeIndicator": true,
+                                    "cbc_AllowanceChargeReason": "Testing",
+                                    "cbc_Amount": {
+                                        "_CurrencyID": "EUR",
+                                        "amount": 10
+                                    }
+                                }
+                            ],
+                            "cac_TaxTotal": {
+                                "cbc_TaxAmount": {
+                                    "_CurrencyID": "EUR",
+                                    "amount": 254.6
+                                }
+                            },
+                            "cac_ItemUdid": "did:svrn:credential:4B2A/C6D7/9C9F/0F63",
+                            "cac_Price": {
+                                "cbc_PriceAmount": {
+                                    "_CurrencyID": "EUR",
+                                    "amount": 3.96
+                                },
+                                "cbc_BaseQuantity": {
+                                    "_unitCode": "C62",
+                                    "quantity": 1
+                                },
+                                "cac_AllowanceCharge": {
+                                    "cbc_ChargeIndicator": false,
+                                    "cbc_Amount": {
+                                        "amount": 0
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            "label": {
+                "credtype": "VerifiableCredential",
+                "version": 1,
+                "trustLevel": "SignedHashSignature",
+                "encryptionFlag": "NotEncrypted",
+                "notaryudid": "did:svrn:credential:D204/0000/0000/0000",
+                "name": "Timestamp1",
+                "comment": "My timestamp"
+            }
+        },
+        "envelopeseal": {
+            "hashedThumbprint64": "<hash64>",
+            "signedHashSignature64": "<signature>",
+            "notaryStamp": "<notarystamp>",
+            "comments": [
+                "Sample UBL 2.1 Invoice Verifiable Credential",
+                "It works!",
+                "Created by TDW.TRAServer at 2021-07-13 11:10:51Z"
+            ]
+        }
+    }
+}

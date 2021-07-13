@@ -22,8 +22,8 @@ namespace TDW.VDAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TRACredentialCell:
-                storage.SaveTRACredentialCell(writeAheadLogOptions, (TRACredentialCell)cell);
+                case CellType.TRACredential_Cell:
+                storage.SaveTRACredential_Cell(writeAheadLogOptions, (TRACredential_Cell)cell);
                 break;
                 
                 case CellType.TDWVDAAccountEntryCell:
@@ -42,8 +42,8 @@ namespace TDW.VDAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TRACredentialCell:
-                storage.SaveTRACredentialCell(writeAheadLogOptions, cellId, (TRACredentialCell)cell);
+                case CellType.TRACredential_Cell:
+                storage.SaveTRACredential_Cell(writeAheadLogOptions, cellId, (TRACredential_Cell)cell);
                 break;
                 
                 case CellType.TDWVDAAccountEntryCell:
@@ -93,8 +93,8 @@ namespace TDW.VDAServer
             switch (type)
             {
                 
-                case global::TDW.VDAServer.CellType.TRACredentialCell:
-                return new TRACredentialCell();
+                case global::TDW.VDAServer.CellType.TRACredential_Cell:
+                return new TRACredential_Cell();
                 break;
                 
                 case global::TDW.VDAServer.CellType.TDWVDAAccountEntryCell:
@@ -117,8 +117,8 @@ namespace TDW.VDAServer
             switch (type)
             {
                 
-                case global::TDW.VDAServer.CellType.TRACredentialCell:
-                return new TRACredentialCell(cell_id: cellId);
+                case global::TDW.VDAServer.CellType.TRACredential_Cell:
+                return new TRACredential_Cell(cell_id: cellId);
                 
                 case global::TDW.VDAServer.CellType.TDWVDAAccountEntryCell:
                 return new TDWVDAAccountEntryCell(cell_id: cellId);
@@ -139,8 +139,8 @@ namespace TDW.VDAServer
             switch (type)
             {
                 
-                case global::TDW.VDAServer.CellType.TRACredentialCell:
-                return TRACredentialCell.Parse(content);
+                case global::TDW.VDAServer.CellType.TRACredential_Cell:
+                return TRACredential_Cell.Parse(content);
                 
                 case global::TDW.VDAServer.CellType.TDWVDAAccountEntryCell:
                 return TDWVDAAccountEntryCell.Parse(content);
@@ -169,8 +169,8 @@ namespace TDW.VDAServer
             switch ((CellType)type)
             {
                 
-                case CellType.TRACredentialCell:
-                return TRACredentialCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                case CellType.TRACredential_Cell:
+                return TRACredential_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
                 
                 case CellType.TDWVDAAccountEntryCell:
                 return TDWVDAAccountEntryCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
@@ -235,7 +235,7 @@ namespace TDW.VDAServer
             switch (cellType)
             {
                 
-                case "TRACredentialCell": return TRACredentialCell_Accessor._get()._Lock(cellId, options);
+                case "TRACredential_Cell": return TRACredential_Cell_Accessor._get()._Lock(cellId, options);
                 
                 case "TDWVDAAccountEntryCell": return TDWVDAAccountEntryCell_Accessor._get()._Lock(cellId, options);
                 
@@ -256,12 +256,12 @@ namespace TDW.VDAServer
                 switch ((CellType)cellInfo.CellType)
                 {
                     
-                    case CellType.TRACredentialCell:
+                    case CellType.TRACredential_Cell:
                         {
-                            var TRACredentialCell_accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            var TRACredentialCell_cell     = (TRACredentialCell)TRACredentialCell_accessor;
-                            TRACredentialCell_accessor.Dispose();
-                            yield return TRACredentialCell_cell;
+                            var TRACredential_Cell_accessor = TRACredential_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var TRACredential_Cell_cell     = (TRACredential_Cell)TRACredential_Cell_accessor;
+                            TRACredential_Cell_accessor.Dispose();
+                            yield return TRACredential_Cell_cell;
                             break;
                         }
                     
@@ -297,11 +297,11 @@ namespace TDW.VDAServer
                 switch ((CellType)cellInfo.CellType)
                 {
                     
-                    case CellType.TRACredentialCell:
+                    case CellType.TRACredential_Cell:
                         {
-                            var TRACredentialCell_accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            yield return TRACredentialCell_accessor;
-                            TRACredentialCell_accessor.Dispose();
+                            var TRACredential_Cell_accessor = TRACredential_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return TRACredential_Cell_accessor;
+                            TRACredential_Cell_accessor.Dispose();
                             break;
                         }
                     
@@ -335,8 +335,8 @@ namespace TDW.VDAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TRACredentialCell:
-                storage.SaveTRACredentialCell((TRACredentialCell)cell);
+                case CellType.TRACredential_Cell:
+                storage.SaveTRACredential_Cell((TRACredential_Cell)cell);
                 break;
                 
                 case CellType.TDWVDAAccountEntryCell:
@@ -355,8 +355,8 @@ namespace TDW.VDAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TRACredentialCell:
-                storage.SaveTRACredentialCell(cellId, (TRACredentialCell)cell);
+                case CellType.TRACredential_Cell:
+                storage.SaveTRACredential_Cell(cellId, (TRACredential_Cell)cell);
                 break;
                 
                 case CellType.TDWVDAAccountEntryCell:
@@ -404,8 +404,8 @@ namespace TDW.VDAServer
             switch ((CellType)cellType)
             {
                 
-                case CellType.TRACredentialCell:
-                return TRACredentialCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                case CellType.TRACredential_Cell:
+                return TRACredential_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
                 
                 case CellType.TDWVDAAccountEntryCell:
                 return TDWVDAAccountEntryCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);

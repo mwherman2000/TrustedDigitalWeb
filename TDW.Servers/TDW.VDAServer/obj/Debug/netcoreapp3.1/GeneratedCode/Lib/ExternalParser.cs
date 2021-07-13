@@ -205,24 +205,24 @@ namespace TDW.VDAServer
             
         }
         
-        internal static unsafe bool TryParse_TRACredentialContent_nullable(string s, out TRACredentialContent? value)
+        internal static unsafe bool TryParse_TRACredential_Content_nullable(string s, out TRACredential_Content? value)
         {
-            TRACredentialContent value_type_value;
+            TRACredential_Content value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TRACredentialContent?);
+                value = default(TRACredential_Content?);
                 return true;
             }
-            else if (TRACredentialContent.TryParse(s, out value_type_value))
+            else if (TRACredential_Content.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TRACredentialContent?);
+                value = default(TRACredential_Content?);
                 return false;
             }
             

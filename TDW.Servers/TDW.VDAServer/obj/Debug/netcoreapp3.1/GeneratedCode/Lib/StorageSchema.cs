@@ -17,7 +17,7 @@ namespace TDW.VDAServer
         internal static Dictionary<string, CellType> cellTypeLookupTable = new Dictionary<string, CellType>()
         {
             
-            {"TRACredentialCell", global::TDW.VDAServer.CellType.TRACredentialCell}
+            {"TRACredential_Cell", global::TDW.VDAServer.CellType.TRACredential_Cell}
             ,
             {"TDWVDAAccountEntryCell", global::TDW.VDAServer.CellType.TDWVDAAccountEntryCell}
             ,
@@ -26,9 +26,9 @@ namespace TDW.VDAServer
         };
         #endregion
         
-        internal static readonly Type   s_cellType_TRACredentialCell       = typeof(global::TDW.VDAServer.TRACredentialCell);
-        internal static readonly string s_cellTypeName_TRACredentialCell   = "TRACredentialCell";
-        internal class TRACredentialCell_descriptor : ICellDescriptor
+        internal static readonly Type   s_cellType_TRACredential_Cell       = typeof(global::TDW.VDAServer.TRACredential_Cell);
+        internal static readonly string s_cellTypeName_TRACredential_Cell   = "TRACredential_Cell";
+        internal class TRACredential_Cell_descriptor : ICellDescriptor
         {
             private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
             {
@@ -50,8 +50,8 @@ namespace TDW.VDAServer
                 {
                     
                 };
-                private static string s_typename = "TRACredentialEnvelope";
-                private static Type   s_type     = typeof(TRACredentialEnvelope);
+                private static string s_typename = "TRACredential_Envelope";
+                private static Type   s_type     = typeof(TRACredential_Envelope);
                 public string Name
                 {
                     get { return "envelope"; }
@@ -102,8 +102,8 @@ namespace TDW.VDAServer
                 {
                     
                 };
-                private static string s_typename = "TRACredentialEnvelopeSeal";
-                private static Type   s_type     = typeof(TRACredentialEnvelopeSeal);
+                private static string s_typename = "TRACredential_EnvelopeSeal";
+                private static Type   s_type     = typeof(TRACredential_EnvelopeSeal);
                 public string Name
                 {
                     get { return "envelopeseal"; }
@@ -159,7 +159,7 @@ namespace TDW.VDAServer
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
             {
-                int field_id = global::TDW.VDAServer.TRACredentialCell.FieldLookupTable.Lookup(fieldName);
+                int field_id = global::TDW.VDAServer.TRACredential_Cell.FieldLookupTable.Lookup(fieldName);
                 if (field_id == -1)
                     Throw.undefined_field();
                 switch (field_id)
@@ -185,21 +185,21 @@ namespace TDW.VDAServer
             }
             ushort ICellDescriptor.CellType
             {
-                get { return (ushort)CellType.TRACredentialCell; }
+                get { return (ushort)CellType.TRACredential_Cell; }
             }
             #endregion
             #region ITypeDescriptor
             public string TypeName
             {
-                get { return s_cellTypeName_TRACredentialCell; }
+                get { return s_cellTypeName_TRACredential_Cell; }
             }
             public Type Type
             {
-                get { return s_cellType_TRACredentialCell; }
+                get { return s_cellType_TRACredential_Cell; }
             }
             public bool IsOfType<T>()
             {
-                return typeof(T) == s_cellType_TRACredentialCell;
+                return typeof(T) == s_cellType_TRACredential_Cell;
             }
             public bool IsList()
             {
@@ -219,11 +219,11 @@ namespace TDW.VDAServer
             }
             #endregion
         }
-        internal static readonly TRACredentialCell_descriptor s_cellDescriptor_TRACredentialCell = new TRACredentialCell_descriptor();
+        internal static readonly TRACredential_Cell_descriptor s_cellDescriptor_TRACredential_Cell = new TRACredential_Cell_descriptor();
         /// <summary>
-        /// Get the cell descriptor for TRACredentialCell.
+        /// Get the cell descriptor for TRACredential_Cell.
         /// </summary>
-        public static ICellDescriptor TRACredentialCell { get { return s_cellDescriptor_TRACredentialCell; } }
+        public static ICellDescriptor TRACredential_Cell { get { return s_cellDescriptor_TRACredential_Cell; } }
         
         internal static readonly Type   s_cellType_TDWVDAAccountEntryCell       = typeof(global::TDW.VDAServer.TDWVDAAccountEntryCell);
         internal static readonly string s_cellTypeName_TDWVDAAccountEntryCell   = "TDWVDAAccountEntryCell";
@@ -301,8 +301,8 @@ namespace TDW.VDAServer
                 {
                     
                 };
-                private static string s_typename = "TRACredentialEnvelopeSeal";
-                private static Type   s_type     = typeof(TRACredentialEnvelopeSeal);
+                private static string s_typename = "TRACredential_EnvelopeSeal";
+                private static Type   s_type     = typeof(TRACredential_EnvelopeSeal);
                 public string Name
                 {
                     get { return "envelopeseal"; }
@@ -500,8 +500,8 @@ namespace TDW.VDAServer
                 {
                     
                 };
-                private static string s_typename = "TRACredentialEnvelopeSeal";
-                private static Type   s_type     = typeof(TRACredentialEnvelopeSeal);
+                private static string s_typename = "TRACredential_EnvelopeSeal";
+                private static Type   s_type     = typeof(TRACredential_EnvelopeSeal);
                 public string Name
                 {
                     get { return "envelopeseal"; }
@@ -631,7 +631,7 @@ namespace TDW.VDAServer
             get
             {
                 
-                yield return TRACredentialCell;
+                yield return TRACredential_Cell;
                 
                 yield return TDWVDAAccountEntryCell;
                 

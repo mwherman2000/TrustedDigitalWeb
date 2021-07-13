@@ -61,14 +61,14 @@ struct TRAClaim
 	optional List<List<TRAKeyValuePair>> attributes;
 }
 
-struct TRACredentialContent
+struct TRACredential_Content
 {
 	string udid;	
 	List<string> context;
 	List<TRAClaim> claims;
 }
 
-struct TRACredentialMetadata
+struct TRACredential_Label
 {
 	TRACredentialType credtype;	
 	long version;
@@ -79,15 +79,15 @@ struct TRACredentialMetadata
 	optional string comment;
 }
 
-struct TRACredentialEnvelope
+struct TRACredential_Envelope
 {
-	optional TRACredentialContent content;
+	optional TRACredential_Content content;
 	optional string encryptedcontent;
 	
-	TRACredentialMetadata metadata;
+	TRACredential_Label label;
 }
 
-struct TRACredentialEnvelopeSeal 
+struct TRACredential_EnvelopeSeal 
 {
 	optional string hashedThumbprint64;		// digital hash
 	optional string signedHashSignature64;	// digital signature of digital hash
@@ -97,8 +97,8 @@ struct TRACredentialEnvelopeSeal
 
 ///////////////////////////////////////////////////////////////////////////////
 
-cell struct TRACredentialCell
+cell struct TRACredential_Cell
 {	
-	TRACredentialEnvelope     envelope;
-	TRACredentialEnvelopeSeal envelopeseal;
+	TRACredential_Envelope     envelope;
+	TRACredential_EnvelopeSeal envelopeseal;
 }

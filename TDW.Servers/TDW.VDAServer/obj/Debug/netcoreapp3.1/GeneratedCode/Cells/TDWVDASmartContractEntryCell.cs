@@ -38,7 +38,7 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWVDASmartContractEntryCell with the specified parameters.
         ///</summary>
-        public TDWVDASmartContractEntryCell(long cell_id , TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope), TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal))
+        public TDWVDASmartContractEntryCell(long cell_id , TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope), TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal))
         {
             
             this.SmartContractEntryEnvelope = SmartContractEntryEnvelope;
@@ -51,7 +51,7 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWVDASmartContractEntryCell with the specified parameters.
         ///</summary>
-        public TDWVDASmartContractEntryCell( TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope), TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal))
+        public TDWVDASmartContractEntryCell( TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope), TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal))
         {
             
             this.SmartContractEntryEnvelope = SmartContractEntryEnvelope;
@@ -63,7 +63,7 @@ namespace TDW.VDAServer
         
         public TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope;
         
-        public TRACredentialEnvelopeSeal envelopeseal;
+        public TRACredential_EnvelopeSeal envelopeseal;
         
         public static bool operator ==(TDWVDASmartContractEntryCell a, TDWVDASmartContractEntryCell b)
         {
@@ -166,7 +166,7 @@ namespace TDW.VDAServer
                 return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryEnvelope(this.SmartContractEntryEnvelope);
                 
                 case 1:
-                return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                 
             }
             /* Should not reach here */
@@ -197,7 +197,7 @@ namespace TDW.VDAServer
                 break;
                 
                 case 1:
-                this.envelopeseal = TypeConverter<T>.ConvertTo_TRACredentialEnvelopeSeal(value);
+                this.envelopeseal = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeSeal(value);
                 break;
                 
                 default:
@@ -271,7 +271,7 @@ namespace TDW.VDAServer
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
@@ -283,7 +283,7 @@ namespace TDW.VDAServer
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
@@ -299,7 +299,7 @@ namespace TDW.VDAServer
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
@@ -311,7 +311,7 @@ namespace TDW.VDAServer
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
@@ -378,7 +378,7 @@ namespace TDW.VDAServer
                 case 2:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
@@ -386,7 +386,7 @@ namespace TDW.VDAServer
                 case 3:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
@@ -394,7 +394,7 @@ namespace TDW.VDAServer
                 case 19:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
@@ -402,7 +402,7 @@ namespace TDW.VDAServer
                 case 26:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
@@ -543,7 +543,7 @@ namespace TDW.VDAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        envelopeseal_Accessor_Field = new TRACredentialEnvelopeSeal_Accessor(null,
+                });        envelopeseal_Accessor_Field = new TRACredential_EnvelopeSeal_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -706,7 +706,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
         private static byte[] s_default_content = null;
-        private static unsafe byte[] construct( TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope) , TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal) )
+        private static unsafe byte[] construct( TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope) , TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal) )
         {
             if (s_default_content != null) return s_default_content;
             
@@ -798,20 +798,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
             targetPtr += 1;
 
-        if(SmartContractEntryEnvelope.metadata.notaryudid!= null)
+        if(SmartContractEntryEnvelope.label.notaryudid!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.notaryudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( SmartContractEntryEnvelope.metadata.name!= null)
+            if( SmartContractEntryEnvelope.label.name!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.name!= null)
+        if(SmartContractEntryEnvelope.label.name!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.name.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.name.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -819,12 +819,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( SmartContractEntryEnvelope.metadata.comment!= null)
+            if( SmartContractEntryEnvelope.label.comment!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.comment!= null)
+        if(SmartContractEntryEnvelope.label.comment!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.comment.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.comment.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -1028,21 +1028,21 @@ byte *storedPtr_4 = targetPtr;
             {
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = SmartContractEntryEnvelope.metadata.credtype;
+            *(TRACredentialType*)targetPtr = SmartContractEntryEnvelope.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = SmartContractEntryEnvelope.metadata.version;
+            *(long*)targetPtr = SmartContractEntryEnvelope.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = SmartContractEntryEnvelope.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = SmartContractEntryEnvelope.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = SmartContractEntryEnvelope.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = SmartContractEntryEnvelope.label.encryptionFlag;
             targetPtr += 1;
 
-        if(SmartContractEntryEnvelope.metadata.notaryudid!= null)
+        if(SmartContractEntryEnvelope.label.notaryudid!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.notaryudid)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.notaryudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1052,15 +1052,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( SmartContractEntryEnvelope.metadata.name!= null)
+            if( SmartContractEntryEnvelope.label.name!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.name!= null)
+        if(SmartContractEntryEnvelope.label.name!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.name.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.name.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.name)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.name)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1072,15 +1072,15 @@ byte *storedPtr_4 = targetPtr;
         }
 *(optheader_3 + 0) |= 0x01;
             }
-            if( SmartContractEntryEnvelope.metadata.comment!= null)
+            if( SmartContractEntryEnvelope.label.comment!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.comment!= null)
+        if(SmartContractEntryEnvelope.label.comment!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.comment.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.comment.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.comment)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.comment)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1254,12 +1254,12 @@ byte *storedPtr_3 = targetPtr;
                 }
             }
         }
-        TRACredentialEnvelopeSeal_Accessor envelopeseal_Accessor_Field;
+        TRACredential_EnvelopeSeal_Accessor envelopeseal_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field envelopeseal.
         ///</summary>
-        public unsafe TRACredentialEnvelopeSeal_Accessor envelopeseal
+        public unsafe TRACredential_EnvelopeSeal_Accessor envelopeseal
         {
             get
             {
@@ -1460,20 +1460,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
             targetPtr += 1;
 
-        if(field.SmartContractEntryEnvelope.metadata.notaryudid!= null)
+        if(field.SmartContractEntryEnvelope.label.notaryudid!= null)
         {
-            int strlen_4 = field.SmartContractEntryEnvelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = field.SmartContractEntryEnvelope.label.notaryudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.SmartContractEntryEnvelope.metadata.name!= null)
+            if( field.SmartContractEntryEnvelope.label.name!= null)
             {
 
-        if(field.SmartContractEntryEnvelope.metadata.name!= null)
+        if(field.SmartContractEntryEnvelope.label.name!= null)
         {
-            int strlen_4 = field.SmartContractEntryEnvelope.metadata.name.Length * 2;
+            int strlen_4 = field.SmartContractEntryEnvelope.label.name.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -1481,12 +1481,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( field.SmartContractEntryEnvelope.metadata.comment!= null)
+            if( field.SmartContractEntryEnvelope.label.comment!= null)
             {
 
-        if(field.SmartContractEntryEnvelope.metadata.comment!= null)
+        if(field.SmartContractEntryEnvelope.label.comment!= null)
         {
-            int strlen_4 = field.SmartContractEntryEnvelope.metadata.comment.Length * 2;
+            int strlen_4 = field.SmartContractEntryEnvelope.label.comment.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -1689,21 +1689,21 @@ byte *storedPtr_4 = targetPtr;
             {
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = field.SmartContractEntryEnvelope.metadata.credtype;
+            *(TRACredentialType*)targetPtr = field.SmartContractEntryEnvelope.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = field.SmartContractEntryEnvelope.metadata.version;
+            *(long*)targetPtr = field.SmartContractEntryEnvelope.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = field.SmartContractEntryEnvelope.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = field.SmartContractEntryEnvelope.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = field.SmartContractEntryEnvelope.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = field.SmartContractEntryEnvelope.label.encryptionFlag;
             targetPtr += 1;
 
-        if(field.SmartContractEntryEnvelope.metadata.notaryudid!= null)
+        if(field.SmartContractEntryEnvelope.label.notaryudid!= null)
         {
-            int strlen_4 = field.SmartContractEntryEnvelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = field.SmartContractEntryEnvelope.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.SmartContractEntryEnvelope.metadata.notaryudid)
+            fixed(char* pstr_4 = field.SmartContractEntryEnvelope.label.notaryudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1713,15 +1713,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.SmartContractEntryEnvelope.metadata.name!= null)
+            if( field.SmartContractEntryEnvelope.label.name!= null)
             {
 
-        if(field.SmartContractEntryEnvelope.metadata.name!= null)
+        if(field.SmartContractEntryEnvelope.label.name!= null)
         {
-            int strlen_4 = field.SmartContractEntryEnvelope.metadata.name.Length * 2;
+            int strlen_4 = field.SmartContractEntryEnvelope.label.name.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.SmartContractEntryEnvelope.metadata.name)
+            fixed(char* pstr_4 = field.SmartContractEntryEnvelope.label.name)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1733,15 +1733,15 @@ byte *storedPtr_4 = targetPtr;
         }
 *(optheader_3 + 0) |= 0x01;
             }
-            if( field.SmartContractEntryEnvelope.metadata.comment!= null)
+            if( field.SmartContractEntryEnvelope.label.comment!= null)
             {
 
-        if(field.SmartContractEntryEnvelope.metadata.comment!= null)
+        if(field.SmartContractEntryEnvelope.label.comment!= null)
         {
-            int strlen_4 = field.SmartContractEntryEnvelope.metadata.comment.Length * 2;
+            int strlen_4 = field.SmartContractEntryEnvelope.label.comment.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.SmartContractEntryEnvelope.metadata.comment)
+            fixed(char* pstr_4 = field.SmartContractEntryEnvelope.label.comment)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -2273,7 +2273,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryEnvelope(this.SmartContractEntryEnvelope);
                 
                 case 1:
-                return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                 
             }
             /* Should not reach here */
@@ -2324,7 +2324,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 case 1:
                 {
-                    TRACredentialEnvelopeSeal conversion_result = TypeConverter<T>.ConvertTo_TRACredentialEnvelopeSeal(value);
+                    TRACredential_EnvelopeSeal conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeSeal(value);
                     
             {
                 this.envelopeseal = conversion_result;
@@ -2389,7 +2389,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
@@ -2401,7 +2401,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
@@ -2417,7 +2417,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
@@ -2429,7 +2429,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
@@ -2496,7 +2496,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 case 2:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
@@ -2504,7 +2504,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 case 3:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
@@ -2512,7 +2512,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 case 19:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
@@ -2520,7 +2520,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 case 26:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
@@ -2648,7 +2648,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         /// <param name="storage"/>A <see cref="Trinity.Storage.IKeyValueStore"/> instance.</param>
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTDWVDASmartContractEntryCell(this IKeyValueStore storage, long cellId, TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope), TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal))
+        public unsafe static bool SaveTDWVDASmartContractEntryCell(this IKeyValueStore storage, long cellId, TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope), TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal))
         {
             
             byte* targetPtr;
@@ -2739,20 +2739,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
             targetPtr += 1;
 
-        if(SmartContractEntryEnvelope.metadata.notaryudid!= null)
+        if(SmartContractEntryEnvelope.label.notaryudid!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.notaryudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( SmartContractEntryEnvelope.metadata.name!= null)
+            if( SmartContractEntryEnvelope.label.name!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.name!= null)
+        if(SmartContractEntryEnvelope.label.name!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.name.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.name.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -2760,12 +2760,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( SmartContractEntryEnvelope.metadata.comment!= null)
+            if( SmartContractEntryEnvelope.label.comment!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.comment!= null)
+        if(SmartContractEntryEnvelope.label.comment!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.comment.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.comment.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -2969,21 +2969,21 @@ byte *storedPtr_4 = targetPtr;
             {
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = SmartContractEntryEnvelope.metadata.credtype;
+            *(TRACredentialType*)targetPtr = SmartContractEntryEnvelope.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = SmartContractEntryEnvelope.metadata.version;
+            *(long*)targetPtr = SmartContractEntryEnvelope.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = SmartContractEntryEnvelope.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = SmartContractEntryEnvelope.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = SmartContractEntryEnvelope.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = SmartContractEntryEnvelope.label.encryptionFlag;
             targetPtr += 1;
 
-        if(SmartContractEntryEnvelope.metadata.notaryudid!= null)
+        if(SmartContractEntryEnvelope.label.notaryudid!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.notaryudid)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.notaryudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -2993,15 +2993,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( SmartContractEntryEnvelope.metadata.name!= null)
+            if( SmartContractEntryEnvelope.label.name!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.name!= null)
+        if(SmartContractEntryEnvelope.label.name!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.name.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.name.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.name)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.name)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3013,15 +3013,15 @@ byte *storedPtr_4 = targetPtr;
         }
 *(optheader_3 + 0) |= 0x01;
             }
-            if( SmartContractEntryEnvelope.metadata.comment!= null)
+            if( SmartContractEntryEnvelope.label.comment!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.comment!= null)
+        if(SmartContractEntryEnvelope.label.comment!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.comment.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.comment.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.comment)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.comment)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3224,7 +3224,7 @@ byte *storedPtr_3 = targetPtr;
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <param name="options">Specifies write-ahead logging behavior. Valid values are CellAccessOptions.StrongLogAhead(default) and CellAccessOptions.WeakLogAhead. Other values are ignored.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTDWVDASmartContractEntryCell(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, long cellId, TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope), TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal))
+        public unsafe static bool SaveTDWVDASmartContractEntryCell(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, long cellId, TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope), TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal))
         {
             
             byte* targetPtr;
@@ -3315,20 +3315,20 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
 
-        if(SmartContractEntryEnvelope.metadata.notaryudid!= null)
+        if(SmartContractEntryEnvelope.label.notaryudid!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.notaryudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( SmartContractEntryEnvelope.metadata.name!= null)
+            if( SmartContractEntryEnvelope.label.name!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.name!= null)
+        if(SmartContractEntryEnvelope.label.name!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.name.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.name.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -3336,12 +3336,12 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-            if( SmartContractEntryEnvelope.metadata.comment!= null)
+            if( SmartContractEntryEnvelope.label.comment!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.comment!= null)
+        if(SmartContractEntryEnvelope.label.comment!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.comment.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.comment.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -3545,21 +3545,21 @@ byte *storedPtr_4 = targetPtr;
             {
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = SmartContractEntryEnvelope.metadata.credtype;
+            *(TRACredentialType*)targetPtr = SmartContractEntryEnvelope.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = SmartContractEntryEnvelope.metadata.version;
+            *(long*)targetPtr = SmartContractEntryEnvelope.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = SmartContractEntryEnvelope.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = SmartContractEntryEnvelope.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = SmartContractEntryEnvelope.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = SmartContractEntryEnvelope.label.encryptionFlag;
             targetPtr += 1;
 
-        if(SmartContractEntryEnvelope.metadata.notaryudid!= null)
+        if(SmartContractEntryEnvelope.label.notaryudid!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.notaryudid)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.notaryudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3569,15 +3569,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( SmartContractEntryEnvelope.metadata.name!= null)
+            if( SmartContractEntryEnvelope.label.name!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.name!= null)
+        if(SmartContractEntryEnvelope.label.name!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.name.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.name.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.name)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.name)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3589,15 +3589,15 @@ byte *storedPtr_4 = targetPtr;
         }
 *(optheader_3 + 0) |= 0x01;
             }
-            if( SmartContractEntryEnvelope.metadata.comment!= null)
+            if( SmartContractEntryEnvelope.label.comment!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.comment!= null)
+        if(SmartContractEntryEnvelope.label.comment!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.comment.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.comment.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.comment)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.comment)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3794,7 +3794,7 @@ byte *storedPtr_3 = targetPtr;
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <param name="options">Specifies write-ahead logging behavior. Valid values are CellAccessOptions.StrongLogAhead(default) and CellAccessOptions.WeakLogAhead. Other values are ignored.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTDWVDASmartContractEntryCell(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, long cellId, TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope), TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal))
+        public unsafe static bool SaveTDWVDASmartContractEntryCell(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, long cellId, TDWVDASmartContractEntryEnvelope SmartContractEntryEnvelope = default(TDWVDASmartContractEntryEnvelope), TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal))
         {
             
             byte* targetPtr;
@@ -3885,20 +3885,20 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
 
-        if(SmartContractEntryEnvelope.metadata.notaryudid!= null)
+        if(SmartContractEntryEnvelope.label.notaryudid!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.notaryudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( SmartContractEntryEnvelope.metadata.name!= null)
+            if( SmartContractEntryEnvelope.label.name!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.name!= null)
+        if(SmartContractEntryEnvelope.label.name!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.name.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.name.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -3906,12 +3906,12 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-            if( SmartContractEntryEnvelope.metadata.comment!= null)
+            if( SmartContractEntryEnvelope.label.comment!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.comment!= null)
+        if(SmartContractEntryEnvelope.label.comment!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.comment.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.comment.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -4115,21 +4115,21 @@ byte *storedPtr_4 = targetPtr;
             {
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = SmartContractEntryEnvelope.metadata.credtype;
+            *(TRACredentialType*)targetPtr = SmartContractEntryEnvelope.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = SmartContractEntryEnvelope.metadata.version;
+            *(long*)targetPtr = SmartContractEntryEnvelope.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = SmartContractEntryEnvelope.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = SmartContractEntryEnvelope.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = SmartContractEntryEnvelope.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = SmartContractEntryEnvelope.label.encryptionFlag;
             targetPtr += 1;
 
-        if(SmartContractEntryEnvelope.metadata.notaryudid!= null)
+        if(SmartContractEntryEnvelope.label.notaryudid!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.notaryudid)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.notaryudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -4139,15 +4139,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( SmartContractEntryEnvelope.metadata.name!= null)
+            if( SmartContractEntryEnvelope.label.name!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.name!= null)
+        if(SmartContractEntryEnvelope.label.name!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.name.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.name.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.name)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.name)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -4159,15 +4159,15 @@ byte *storedPtr_4 = targetPtr;
         }
 *(optheader_3 + 0) |= 0x01;
             }
-            if( SmartContractEntryEnvelope.metadata.comment!= null)
+            if( SmartContractEntryEnvelope.label.comment!= null)
             {
 
-        if(SmartContractEntryEnvelope.metadata.comment!= null)
+        if(SmartContractEntryEnvelope.label.comment!= null)
         {
-            int strlen_4 = SmartContractEntryEnvelope.metadata.comment.Length * 2;
+            int strlen_4 = SmartContractEntryEnvelope.label.comment.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = SmartContractEntryEnvelope.metadata.comment)
+            fixed(char* pstr_4 = SmartContractEntryEnvelope.label.comment)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;

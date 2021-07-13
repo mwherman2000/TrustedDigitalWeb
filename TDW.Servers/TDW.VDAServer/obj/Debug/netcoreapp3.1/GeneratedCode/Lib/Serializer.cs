@@ -564,11 +564,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredentialContent object to Json string.
+        /// Serializes a TRACredential_Content object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredentialContent value)
+        public static string ToString(TRACredential_Content value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -577,11 +577,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredentialEnvelope object to Json string.
+        /// Serializes a TRACredential_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredentialEnvelope value)
+        public static string ToString(TRACredential_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -590,11 +590,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredentialEnvelopeSeal object to Json string.
+        /// Serializes a TRACredential_EnvelopeSeal object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredentialEnvelopeSeal value)
+        public static string ToString(TRACredential_EnvelopeSeal value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -603,11 +603,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredentialMetadata object to Json string.
+        /// Serializes a TRACredential_Label object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredentialMetadata value)
+        public static string ToString(TRACredential_Label value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -720,11 +720,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredentialContent? object to Json string.
+        /// Serializes a TRACredential_Content? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredentialContent? value)
+        public static string ToString(TRACredential_Content? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -732,11 +732,11 @@ namespace TDW.VDAServer
         }
         
         /// <summary>
-        /// Serializes a TRACredentialCell object to Json string.
+        /// Serializes a TRACredential_Cell object to Json string.
         /// </summary>
         /// <param name="value">The target cell object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredentialCell cell)
+        public static string ToString(TRACredential_Cell cell)
         {
             s_ensure_string_builder();
             s_stringBuilder.Append('{');
@@ -1936,9 +1936,9 @@ namespace TDW.VDAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"metadata\":");
+                        str_builder.Append("\"label\":");
                         
-                        ToString_impl(value.metadata, str_builder, in_json: true);
+                        ToString_impl(value.label, str_builder, in_json: true);
                         
                 }
                 
@@ -2616,9 +2616,9 @@ namespace TDW.VDAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"metadata\":");
+                        str_builder.Append("\"label\":");
                         
-                        ToString_impl(value.metadata, str_builder, in_json: true);
+                        ToString_impl(value.label, str_builder, in_json: true);
                         
                 }
                 
@@ -2714,7 +2714,7 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredentialContent value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredential_Content value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2782,7 +2782,7 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredentialEnvelope value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredential_Envelope value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2832,9 +2832,9 @@ namespace TDW.VDAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"metadata\":");
+                        str_builder.Append("\"label\":");
                         
-                        ToString_impl(value.metadata, str_builder, in_json: true);
+                        ToString_impl(value.label, str_builder, in_json: true);
                         
                 }
                 
@@ -2844,7 +2844,7 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredentialEnvelopeSeal value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredential_EnvelopeSeal value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2930,7 +2930,7 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredentialMetadata value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredential_Label value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -3330,7 +3330,7 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredentialContent? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredential_Content? value, StringBuilder str_builder, bool in_json)
         {
             
             {

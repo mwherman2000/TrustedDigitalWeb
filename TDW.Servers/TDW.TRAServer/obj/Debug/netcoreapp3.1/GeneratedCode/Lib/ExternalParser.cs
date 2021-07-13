@@ -16,6 +16,33 @@ namespace TDW.TRAServer
     internal class ExternalParser
     {
         
+        internal static unsafe bool TryParse_bool(string s, out bool value)
+        {
+            bool value_type_value;
+            JArray jarray;
+            
+            {
+                
+                double double_val;
+                if (bool.TryParse(s, out value_type_value))
+                {
+                    value = value_type_value;
+                    return true;
+                }
+                else if (double.TryParse(s, out double_val))
+                {
+                    value = (double_val != 0);
+                    return true;
+                }
+                else
+                {
+                    value = default(bool);
+                    return false;
+                }
+            }
+            
+        }
+        
         internal static unsafe bool TryParse_DateTime(string s, out DateTime value)
         {
             DateTime value_type_value;
@@ -60,6 +87,156 @@ namespace TDW.TRAServer
             catch
             {
                 value = default(List<string>);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_List_Cac_AllowanceCharge(string s, out List<Cac_AllowanceCharge> value)
+        {
+            List<Cac_AllowanceCharge> value_type_value;
+            JArray jarray;
+            
+            try
+            {
+                value = new List<Cac_AllowanceCharge>();
+                jarray = JArray.Parse(s);
+                foreach (var jarray_element in jarray)
+                {
+                    Cac_AllowanceCharge element;
+                    
+                    if (!Cac_AllowanceCharge.TryParse((string)jarray_element, out element))
+                    {
+                        continue;
+                    }
+                    value.Add(element);
+                    
+                }
+                return true;
+            }
+            catch
+            {
+                value = default(List<Cac_AllowanceCharge>);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_List_Cac_DocumentReference(string s, out List<Cac_DocumentReference> value)
+        {
+            List<Cac_DocumentReference> value_type_value;
+            JArray jarray;
+            
+            try
+            {
+                value = new List<Cac_DocumentReference>();
+                jarray = JArray.Parse(s);
+                foreach (var jarray_element in jarray)
+                {
+                    Cac_DocumentReference element;
+                    
+                    if (!Cac_DocumentReference.TryParse((string)jarray_element, out element))
+                    {
+                        continue;
+                    }
+                    value.Add(element);
+                    
+                }
+                return true;
+            }
+            catch
+            {
+                value = default(List<Cac_DocumentReference>);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_List_Cac_InvoiceLine(string s, out List<Cac_InvoiceLine> value)
+        {
+            List<Cac_InvoiceLine> value_type_value;
+            JArray jarray;
+            
+            try
+            {
+                value = new List<Cac_InvoiceLine>();
+                jarray = JArray.Parse(s);
+                foreach (var jarray_element in jarray)
+                {
+                    Cac_InvoiceLine element;
+                    
+                    if (!Cac_InvoiceLine.TryParse((string)jarray_element, out element))
+                    {
+                        continue;
+                    }
+                    value.Add(element);
+                    
+                }
+                return true;
+            }
+            catch
+            {
+                value = default(List<Cac_InvoiceLine>);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_List_Cac_TaxSubtotal(string s, out List<Cac_TaxSubtotal> value)
+        {
+            List<Cac_TaxSubtotal> value_type_value;
+            JArray jarray;
+            
+            try
+            {
+                value = new List<Cac_TaxSubtotal>();
+                jarray = JArray.Parse(s);
+                foreach (var jarray_element in jarray)
+                {
+                    Cac_TaxSubtotal element;
+                    
+                    if (!Cac_TaxSubtotal.TryParse((string)jarray_element, out element))
+                    {
+                        continue;
+                    }
+                    value.Add(element);
+                    
+                }
+                return true;
+            }
+            catch
+            {
+                value = default(List<Cac_TaxSubtotal>);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_List_Cbc_ListCode(string s, out List<Cbc_ListCode> value)
+        {
+            List<Cbc_ListCode> value_type_value;
+            JArray jarray;
+            
+            try
+            {
+                value = new List<Cbc_ListCode>();
+                jarray = JArray.Parse(s);
+                foreach (var jarray_element in jarray)
+                {
+                    Cbc_ListCode element;
+                    
+                    if (!Cbc_ListCode.TryParse((string)jarray_element, out element))
+                    {
+                        continue;
+                    }
+                    value.Add(element);
+                    
+                }
+                return true;
+            }
+            catch
+            {
+                value = default(List<Cbc_ListCode>);
                 return false;
             }
             
@@ -155,24 +332,277 @@ namespace TDW.TRAServer
             
         }
         
-        internal static unsafe bool TryParse_TRACredentialContent_nullable(string s, out TRACredentialContent? value)
+        internal static unsafe bool TryParse_Cac_Address_Content_nullable(string s, out Cac_Address_Content? value)
         {
-            TRACredentialContent value_type_value;
+            Cac_Address_Content value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TRACredentialContent?);
+                value = default(Cac_Address_Content?);
                 return true;
             }
-            else if (TRACredentialContent.TryParse(s, out value_type_value))
+            else if (Cac_Address_Content.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TRACredentialContent?);
+                value = default(Cac_Address_Content?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_Cac_Attachment_nullable(string s, out Cac_Attachment? value)
+        {
+            Cac_Attachment value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(Cac_Attachment?);
+                return true;
+            }
+            else if (Cac_Attachment.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(Cac_Attachment?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_Cac_Contact_Content_nullable(string s, out Cac_Contact_Content? value)
+        {
+            Cac_Contact_Content value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(Cac_Contact_Content?);
+                return true;
+            }
+            else if (Cac_Contact_Content.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(Cac_Contact_Content?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_Cac_ExternalReference_Content_nullable(string s, out Cac_ExternalReference_Content? value)
+        {
+            Cac_ExternalReference_Content value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(Cac_ExternalReference_Content?);
+                return true;
+            }
+            else if (Cac_ExternalReference_Content.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(Cac_ExternalReference_Content?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_Cac_Item_Content_nullable(string s, out Cac_Item_Content? value)
+        {
+            Cac_Item_Content value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(Cac_Item_Content?);
+                return true;
+            }
+            else if (Cac_Item_Content.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(Cac_Item_Content?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_Cac_PartyLegalEntity_Content_nullable(string s, out Cac_PartyLegalEntity_Content? value)
+        {
+            Cac_PartyLegalEntity_Content value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(Cac_PartyLegalEntity_Content?);
+                return true;
+            }
+            else if (Cac_PartyLegalEntity_Content.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(Cac_PartyLegalEntity_Content?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_Cac_Party_Content_nullable(string s, out Cac_Party_Content? value)
+        {
+            Cac_Party_Content value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(Cac_Party_Content?);
+                return true;
+            }
+            else if (Cac_Party_Content.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(Cac_Party_Content?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_Cac_PayeeFinancialAccount_Content_nullable(string s, out Cac_PayeeFinancialAccount_Content? value)
+        {
+            Cac_PayeeFinancialAccount_Content value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(Cac_PayeeFinancialAccount_Content?);
+                return true;
+            }
+            else if (Cac_PayeeFinancialAccount_Content.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(Cac_PayeeFinancialAccount_Content?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_Cac_PaymentMeans_Content_nullable(string s, out Cac_PaymentMeans_Content? value)
+        {
+            Cac_PaymentMeans_Content value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(Cac_PaymentMeans_Content?);
+                return true;
+            }
+            else if (Cac_PaymentMeans_Content.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(Cac_PaymentMeans_Content?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_Cac_Person_Content_nullable(string s, out Cac_Person_Content? value)
+        {
+            Cac_Person_Content value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(Cac_Person_Content?);
+                return true;
+            }
+            else if (Cac_Person_Content.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(Cac_Person_Content?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_Cbc_EmbeddedDocumentBinaryObject_nullable(string s, out Cbc_EmbeddedDocumentBinaryObject? value)
+        {
+            Cbc_EmbeddedDocumentBinaryObject value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(Cbc_EmbeddedDocumentBinaryObject?);
+                return true;
+            }
+            else if (Cbc_EmbeddedDocumentBinaryObject.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(Cbc_EmbeddedDocumentBinaryObject?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_TRACredential_Content_nullable(string s, out TRACredential_Content? value)
+        {
+            TRACredential_Content value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(TRACredential_Content?);
+                return true;
+            }
+            else if (TRACredential_Content.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(TRACredential_Content?);
                 return false;
             }
             

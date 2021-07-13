@@ -23,17 +23,197 @@ namespace TDW.TRATester
             string signature64 = "";
             bool valid = false;
 
+            DateTime now = DateTime.Now;
             string notaryudid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, 1234);
 
-            TRATimestampCell tsCell = new TRATimestampCell(new TRATimestampEnvelope(), new TRACredentialEnvelopeSeal());
-            string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, tsCell.CellId);
-            DateTime now = DateTime.Now;
-            TRATimestampClaims tsclaims = new TRATimestampClaims(now.Ticks, now, now.ToString("u"));
-            tsCell.envelope.content = new TRATimestampContent(udid, TRAContexts.DefaultContext, tsclaims);
-            tsCell.envelope.metadata = new TRACredentialMetadata(TRACredentialType.VerifiableCredential, 1, TRATrustLevel.SignedHashSignature,
-                                                                 TRAEncryptionFlag.NotEncrypted, notaryudid, "Timestamp1", "My timestamp");
-            // TODO Process Trust Level
-            Global.LocalStorage.SaveTRATimestampCell(tsCell);
+            {
+                long id = CellIdFactory.NewCellId();
+                string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, id);
+
+                TRATimestampCell tsCell = new TRATimestampCell(id, new TRATimestampEnvelope(), new TRACredential_EnvelopeSeal());
+                TRATimestampClaims tsclaims = new TRATimestampClaims(now.Ticks, now, now.ToString("u"));
+                tsCell.envelope.content = new TRATimestampContent(udid, TRAContexts.DefaultContext, tsclaims);
+                tsCell.envelope.label = new TRACredential_Label(TRACredentialType.VerifiableCredential, 1, TRATrustLevel.SignedHashSignature,
+                                                                     TRAEncryptionFlag.NotEncrypted, notaryudid, "Timestamp1", "My timestamp");
+                Global.LocalStorage.SaveTRATimestampCell(tsCell);
+                // TODO Process Trust Level
+            }
+
+            {
+                long Doc1_cac_ExternalReferenceId = CellIdFactory.NewCellId();
+                string Doc1_cac_ExternalReferenceUdid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, Doc1_cac_ExternalReferenceId);
+                long Doc2_cac_ExternalReferenceId = CellIdFactory.NewCellId();
+                string Doc2_cac_ExternalReferenceUdid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, Doc2_cac_ExternalReferenceId);
+                long cac_AccountingSupplierPartyId = CellIdFactory.NewCellId();
+                string cac_AccountingSupplierPartyUdid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, cac_AccountingSupplierPartyId);
+                long cac_AccountingCustomerPartyId = CellIdFactory.NewCellId();
+                string cac_AccountingCustomerPartyUdid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, cac_AccountingCustomerPartyId);
+                long cac_PartyPartyId = CellIdFactory.NewCellId();
+                string cac_PartyPartyUdid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, cac_PartyPartyId);
+                long cac_AddressId = CellIdFactory.NewCellId();
+                string cac_AddressUdid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, cac_AddressId);
+                long cac_PaymentMeansId = CellIdFactory.NewCellId();
+                string cac_PaymentMeansUdid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, cac_PaymentMeansId);
+
+                long invoiceLineItem1Id = CellIdFactory.NewCellId();
+                string invoiceLineItem1Udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, invoiceLineItem1Id);
+                long invoiceLineItem2Id = CellIdFactory.NewCellId();
+                string invoiceLineItem2Udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, invoiceLineItem2Id);
+                long invoiceLineItem3Id = CellIdFactory.NewCellId();
+                string invoiceLineItem3Udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, invoiceLineItem3Id);
+                long invoiceLineItem4Id = CellIdFactory.NewCellId();
+                string invoiceLineItem4Udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, invoiceLineItem4Id);
+                long invoiceLineItem5Id = CellIdFactory.NewCellId();
+                string invoiceLineItem5Udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, invoiceLineItem5Id);
+
+                UBL21_Invoice2_Claims invoiceClaims = new UBL21_Invoice2_Claims(
+                    UBL21Helpers.UBLVersionID, 
+                    cbc_ID: "TOSL108", 
+                    cbc_IssueDate: new DateTime(2009, 12, 15),
+                    new Cbc_ListCode("Un/ECE 100 Subset", "6", "308"), 
+                    new Cbc_Note(ISO639_1_LanguageCodes.en, "Ordered in our booth at the convention."), 
+                    cbc_TaxPointDate: new DateTime(2009, 11, 30), 
+                    cbc_DocumentCurrencyCode: new Cbc_ListCode("ISO 4217 Alpha", "6", "EUR"), 
+                    "Project cost code 123",
+                    cbc_InvoicePeriod: new Cbc_TimePeriod(new DateTime(2009, 11, 1), new DateTime(2009, 11, 30)), 
+                    new Cbc_OrderReference("123"),
+                    cac_ContractDocumentReference: new Cac_DocumentReference("321", "Framework Agreement"),
+                    cac_AdditionalDocumentReferences: new List<Cac_DocumentReference>
+                    {
+                        new Cac_DocumentReference("Doc1", "Timesheet", new Cac_Attachment(Doc1_cac_ExternalReferenceUdid)),
+                        new Cac_DocumentReference("Doc2", "Drawing", new Cac_Attachment(Doc2_cac_ExternalReferenceUdid))
+                    },
+                    new Cac_AccountingSupplierParty(cac_AccountingSupplierPartyUdid),
+                    new Cac_AccountingCustomerParty(cac_AccountingCustomerPartyUdid),
+                    new Cac_PayeeParty(cac_PartyPartyUdid),
+                    new Cac_Delivery(new DateTime(2009, 12, 15),
+                        new Cac_DeliveryLocation(
+                            new Cbc_SchemeCode("GLN", "9", "6754238987648"),
+                            cac_AddressUdid)
+                        ),
+                    cac_PaymentMeansUdid,
+                    new Cac_PaymentTerms(new Cbc_Note(ISO639_1_LanguageCodes.en, "Penalty percentage 10% from due date")),
+                    new List<Cac_AllowanceCharge>
+                    {
+                        new Cac_AllowanceCharge(true, "Packing cost", new Cbc_Amount("EUR", 100)),
+                        new Cac_AllowanceCharge(false, "Promotion discount", new Cbc_Amount("EUR", 100))
+                    },
+                    new Cac_TaxTotal(new Cbc_Amount("EUR", 292.20),
+                    new List<Cac_TaxSubtotal>
+                    {
+
+                    }),
+                    new Cac_LegalMonetaryTotal(
+                        cbc_LineExtensionAmount: new Cbc_Amount("EUR", 1436.5),
+                        cbc_TaxExclusiveAmount: new Cbc_Amount("EUR", 1436.5),
+                        cbc_TaxInclusiveAmount: new Cbc_Amount("EUR", 1729),
+                        cbc_AllowanceTotalAmount: new Cbc_Amount("EUR", 100),
+                        cbc_ChargeTotalAmount: new Cbc_Amount("EUR", 100),
+                        cbc_PrepaidAmount: new Cbc_Amount("EUR", 1000),
+                        cbc_PayableRoundingAmount: new Cbc_Amount("EUR", 0.30),
+                        cbc_PayableAmount: new Cbc_Amount("EUR", 729)
+                    ),
+                    new List<Cac_InvoiceLine>
+                    {
+                        new Cac_InvoiceLine(
+                            cbc_ID: "1", 
+                            new Cbc_Note(ISO639_1_LanguageCodes.en, "Scratch on box"),
+                            cbc_InvoicedQuantity: new Cbc_Quantity("C62", 1),
+                            cbc_LineExtensionAmount: new Cbc_Amount("EUR", 1273),
+                            cbc_AccountingCost: "BookingCode",
+                            new Cac_OrderLineReference("1"),
+                            new List<Cac_AllowanceCharge>
+                            {
+                                new Cac_AllowanceCharge(false, "Damage", new Cbc_Amount("EUR", 12)),
+                                new Cac_AllowanceCharge(true, "Testing", new Cbc_Amount("EUR", 10))
+                            },
+                            new Cac_TaxTotal(new Cbc_Amount("EUR", 254.6)), 
+                            invoiceLineItem1Udid,
+                            new Cac_Price(cbc_PriceAmount: new Cbc_Amount("EUR", 3.96), cbc_BaseQuantity: new Cbc_Quantity("C62", 1))
+                        ),
+                        new Cac_InvoiceLine(
+                            cbc_ID: "2",
+                            new Cbc_Note(ISO639_1_LanguageCodes.en, "Scratch on box"),
+                            cbc_InvoicedQuantity: new Cbc_Quantity("C62", 1),
+                            cbc_LineExtensionAmount: new Cbc_Amount("EUR", 1273),
+                            cbc_AccountingCost: "BookingCode",
+                            new Cac_OrderLineReference("2"),
+                            new List<Cac_AllowanceCharge>
+                            {
+                                new Cac_AllowanceCharge(false, "Damage", new Cbc_Amount("EUR", 12)),
+                                new Cac_AllowanceCharge(true, "Testing", new Cbc_Amount("EUR", 10))
+                            },
+                            new Cac_TaxTotal(new Cbc_Amount("EUR", 254.6)),
+                            invoiceLineItem2Udid,
+                            new Cac_Price(cbc_PriceAmount: new Cbc_Amount("EUR", 3.96), cbc_BaseQuantity: new Cbc_Quantity("C62", 1))
+                        ),
+                        new Cac_InvoiceLine(
+                            cbc_ID: "3",
+                            new Cbc_Note(ISO639_1_LanguageCodes.en, "Scratch on box"),
+                            cbc_InvoicedQuantity: new Cbc_Quantity("C62", 1),
+                            cbc_LineExtensionAmount: new Cbc_Amount("EUR", 1273),
+                            cbc_AccountingCost: "BookingCode",
+                            new Cac_OrderLineReference("3"),
+                            new List<Cac_AllowanceCharge>
+                            {
+                                new Cac_AllowanceCharge(false, "Damage", new Cbc_Amount("EUR", 12)),
+                                new Cac_AllowanceCharge(true, "Testing", new Cbc_Amount("EUR", 10))
+                            },
+                            new Cac_TaxTotal(new Cbc_Amount("EUR", 254.6)),
+                            invoiceLineItem3Udid,
+                            new Cac_Price(cbc_PriceAmount: new Cbc_Amount("EUR", 3.96), cbc_BaseQuantity: new Cbc_Quantity("C62", 1))
+                        ),
+                        new Cac_InvoiceLine(
+                            cbc_ID: "4",
+                            new Cbc_Note(ISO639_1_LanguageCodes.en, "Scratch on box"),
+                            cbc_InvoicedQuantity: new Cbc_Quantity("C62", 1),
+                            cbc_LineExtensionAmount: new Cbc_Amount("EUR", 1273),
+                            cbc_AccountingCost: "BookingCode",
+                            new Cac_OrderLineReference("4"),
+                            new List<Cac_AllowanceCharge>
+                            {
+                                new Cac_AllowanceCharge(false, "Damage", new Cbc_Amount("EUR", 12)),
+                                new Cac_AllowanceCharge(true, "Testing", new Cbc_Amount("EUR", 10))
+                            },
+                            new Cac_TaxTotal(new Cbc_Amount("EUR", 254.6)),
+                            invoiceLineItem4Udid,
+                            new Cac_Price(cbc_PriceAmount: new Cbc_Amount("EUR", 3.96), cbc_BaseQuantity: new Cbc_Quantity("C62", 1))
+                        ),
+                                                new Cac_InvoiceLine(
+                            cbc_ID: "5",
+                            new Cbc_Note(ISO639_1_LanguageCodes.en, "Scratch on box"),
+                            cbc_InvoicedQuantity: new Cbc_Quantity("C62", 1),
+                            cbc_LineExtensionAmount: new Cbc_Amount("EUR", 1273),
+                            cbc_AccountingCost: "BookingCode",
+                            new Cac_OrderLineReference("5"),
+                            new List<Cac_AllowanceCharge>
+                            {
+                                new Cac_AllowanceCharge(false, "Damage", new Cbc_Amount("EUR", 12)),
+                                new Cac_AllowanceCharge(true, "Testing", new Cbc_Amount("EUR", 10))
+                            },
+                            new Cac_TaxTotal(new Cbc_Amount("EUR", 254.6)),
+                            invoiceLineItem5Udid,
+                            new Cac_Price(cbc_PriceAmount: new Cbc_Amount("EUR", 3.96), cbc_BaseQuantity: new Cbc_Quantity("C62", 1))
+                        ),
+                    }   
+                );
+
+                long invoiceId = CellIdFactory.NewCellId();
+                string invoiceUdid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, invoiceId);
+                UBL21_Invoice2_Cell invoiceCell = new UBL21_Invoice2_Cell(invoiceId, new UBL21_Invoice2_Envelope(), new TRACredential_EnvelopeSeal());
+                invoiceCell.envelope.content = new UBL21_Invoice2_Content(invoiceUdid, UBL21Helpers.UBLDefaultContext, invoiceClaims);
+                invoiceCell.envelope.label = new TRACredential_Label(
+                        TRACredentialType.VerifiableCredential, 1, 
+                        TRATrustLevel.SignedHashSignature,
+                        TRAEncryptionFlag.NotEncrypted, notaryudid, "Timestamp1", "My timestamp");
+                invoiceCell.envelopeseal = new TRACredential_EnvelopeSeal("<hash64>", "<signature>", "<notarystamp>");
+                invoiceCell.envelopeseal.comments = new List<string> { "Sample UBL 2.1 Invoice Verifiable Credential",
+                    "It works!",
+                    "Created by TDW.TRAServer at " + DateTime.Now.ToString("u") };
+
+                Global.LocalStorage.SaveUBL21_Invoice2_Cell(invoiceCell);
+                // TODO Process Trust Level
+            }
 
             long keypairid = 0;
             long keyringid = 1001;

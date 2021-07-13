@@ -7,17 +7,17 @@ namespace TDW.VDAServer
     {
         
         /// <summary>
-        /// Tells whether the cell with the given id is a TRACredentialCell.
+        /// Tells whether the cell with the given id is a TRACredential_Cell.
         /// </summary>
         /// <param name="storage"/>A <see cref="Trinity.Storage.LocalMemoryStorage"/> instance.</param>
         /// <param name="cellId">The id of the cell.</param>
         /// <returns>True if the cell is found and is of the correct type. Otherwise false.</returns>
-        public unsafe static bool IsTRACredentialCell(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
+        public unsafe static bool IsTRACredential_Cell(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
         {
             ushort cellType;
             if (storage.GetCellType(cellId, out cellType) == TrinityErrorCode.E_SUCCESS)
             {
-                return cellType == (ushort)CellType.TRACredentialCell;
+                return cellType == (ushort)CellType.TRACredential_Cell;
             }
             return false;
         }

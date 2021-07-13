@@ -20,7 +20,7 @@ namespace TDW.TRAServer
         public override void SignHashThumbprintTDWCredentialHandler(TDWProcessCredentialRequestReader request, TDWCredentialResponseWriter response)
         {
             long id = request.id;
-            using (var credential = Global.LocalStorage.UseTRACredentialCell(id))
+            using (var credential = Global.LocalStorage.UseTRACredential_Cell(id))
             {
                 byte[] credbytes = credential.ToByteArray();
                 byte[] hashedValue = TRACryptoHashHelpers.ComputeHash(credbytes);
@@ -35,7 +35,7 @@ namespace TDW.TRAServer
         public override void SignSignatureTDWCredentialHandler(TDWProcessCredentialRequestReader request, TDWCredentialResponseWriter response)
         {
             long id = request.id;
-            using (var udiddoc = Global.LocalStorage.UseTRACredentialCell(id))
+            using (var udiddoc = Global.LocalStorage.UseTRACredential_Cell(id))
             {
                 byte[] credbytes = udiddoc.ToByteArray();
                 byte[] hashedValue = TRACryptoHashHelpers.ComputeHash(credbytes);
@@ -50,7 +50,7 @@ namespace TDW.TRAServer
         public override void NotarizeTDWCredentialHandler(TDWProcessCredentialRequestReader request, TDWCredentialResponseWriter response)
         {
             long id = request.id;
-            using (var udiddoc = Global.LocalStorage.UseTRACredentialCell(id))
+            using (var udiddoc = Global.LocalStorage.UseTRACredential_Cell(id))
             {
                 udiddoc.envelopeseal.notaryStamp = "<NotaryStamp>NOTARIZED</NotaryStamp>";
             }
@@ -73,18 +73,18 @@ namespace TDW.TRAServer
             long id = CellIdFactory.NewCellId();
             string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, id);
 
-            TRACredentialContent content = new TRACredentialContent(udid, context, claims);
+            TRACredential_Content content = new TRACredential_Content(udid, context, claims);
 
-            var credential = new TRACredentialCell(id, default, default);
+            var credential = new TRACredential_Cell(id, default, default);
             credential.envelope.content = content;
-            credential.envelope.metadata = new TRACredentialMetadata(default, 1, default, default, default);
-            credential.envelopeseal = new TRACredentialEnvelopeSeal(null, null, null, comments);
+            credential.envelope.label = new TRACredential_Label(default, 1, default, default, default);
+            credential.envelopeseal = new TRACredential_EnvelopeSeal(null, null, null, comments);
 
             Console.WriteLine(JsonConvert.SerializeObject(credential));
 
             var rc = TDWTRACredentialHelpers.HashAndSignTDWCredential(ref credential, trustLevel, keypairsalt);
 
-            Global.LocalStorage.SaveTRACredentialCell(credential);
+            Global.LocalStorage.SaveTRACredential_Cell(credential);
             Console.WriteLine(JsonConvert.SerializeObject(credential));
 
             response.id = credential.CellId;

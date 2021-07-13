@@ -1,0 +1,12 @@
+[07/13/2021 11:10:36 AM][ INFO    ] Loading Graph Engine Extensions.
+[07/13/2021 11:10:38 AM][ INFO    ] Scanning for TSL storage extension.
+[07/13/2021 11:10:39 AM][ INFO    ] TSL storage extension loaded.
+[07/13/2021 11:10:39 AM][ INFO    ] Scanning for MemoryCloud extensions.
+[07/13/2021 11:10:39 AM][ INFO    ] No MemoryCloud extension found.
+[07/13/2021 11:10:39 AM][ INFO    ] Scanning for startup tasks.
+[07/13/2021 11:10:39 AM][ INFO    ] EventLoop: Starting.
+[07/13/2021 11:10:39 AM][ INFO    ] LocalMemoryStorage is initialized in read-write mode
+[07/13/2021 11:10:39 AM][ INFO    ] Initializing logging facility
+[07/13/2021 11:10:40 AM][ INFO    ] Reading log file.
+[07/13/2021 11:10:40 AM][ INFO    ] Write-ahead-log successfully loaded. Recovered 0 records.
+[07/13/2021 11:10:40 AM][ INFO    ] Creating write-ahead log file C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.TRATester\bin\Debug\netcoreapp3.1\storage\B\write_ahead_log\primary_storage_log_0.dat

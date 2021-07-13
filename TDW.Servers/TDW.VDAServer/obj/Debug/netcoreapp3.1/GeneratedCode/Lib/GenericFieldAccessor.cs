@@ -37,7 +37,7 @@ namespace TDW.VDAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRACredentialContent = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRACredential_Content = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
@@ -48,7 +48,7 @@ namespace TDW.VDAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRACredentialMetadata = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRACredential_Label = new Dictionary<string, uint>()
         {
             
             {"credtype" , 0}
@@ -67,18 +67,18 @@ namespace TDW.VDAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRACredentialEnvelope = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRACredential_Envelope = new Dictionary<string, uint>()
         {
             
             {"content" , 0}
             ,
             {"encryptedcontent" , 1}
             ,
-            {"metadata" , 2}
+            {"label" , 2}
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRACredentialEnvelopeSeal = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRACredential_EnvelopeSeal = new Dictionary<string, uint>()
         {
             
             {"hashedThumbprint64" , 0}
@@ -122,7 +122,7 @@ namespace TDW.VDAServer
             ,
             {"encryptedcontent" , 1}
             ,
-            {"metadata" , 2}
+            {"label" , 2}
             
         };
         
@@ -153,7 +153,7 @@ namespace TDW.VDAServer
             ,
             {"encryptedcontent" , 1}
             ,
-            {"metadata" , 2}
+            {"label" , 2}
             
         };
         
@@ -626,14 +626,14 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRACredentialContent_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRACredential_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialContent.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_Content.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -645,7 +645,7 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialContent.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_Content.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -685,14 +685,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TRACredentialContent_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRACredential_Content_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialContent.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_Content.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -703,7 +703,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialContent.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_Content.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -725,14 +725,14 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRACredentialMetadata_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRACredential_Label_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialMetadata.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_Label.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -744,7 +744,7 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialMetadata.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_Label.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -834,14 +834,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TRACredentialMetadata_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRACredential_Label_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialMetadata.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_Label.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -852,7 +852,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialMetadata.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_Label.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -890,14 +890,14 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRACredentialEnvelope_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRACredential_Envelope_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_Envelope.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -907,7 +907,7 @@ namespace TDW.VDAServer
                         break;
                     
                     case 2:
-                        GenericFieldAccessor.SetField(accessor.metadata, fieldName, field_divider_idx + 1, value);
+                        GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
                     default:
@@ -917,14 +917,14 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_Envelope.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
                 
                 case 0:
                     {
-                        TRACredentialContent? conversion_result = TypeConverter<T>.ConvertTo_TRACredentialContent_nullable(value);
+                        TRACredential_Content? conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Content_nullable(value);
                         
             {
                 if (conversion_result.HasValue)
@@ -952,10 +952,10 @@ namespace TDW.VDAServer
                 
                 case 2:
                     {
-                        TRACredentialMetadata conversion_result = TypeConverter<T>.ConvertTo_TRACredentialMetadata(value);
+                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
             {
-                accessor.metadata = conversion_result;
+                accessor.label = conversion_result;
             }
             
                         break;
@@ -963,14 +963,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TRACredentialEnvelope_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRACredential_Envelope_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_Envelope.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -979,7 +979,7 @@ namespace TDW.VDAServer
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
                     case 2:
-                        return GenericFieldAccessor.GetField<T>(accessor.metadata, fieldName, field_divider_idx + 1);
+                        return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
@@ -987,13 +987,13 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialEnvelope.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_Envelope.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TRACredentialContent_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_Content_nullable(accessor.content);
                     break;
                 
                 case 1:
@@ -1001,7 +1001,7 @@ namespace TDW.VDAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TRACredentialMetadata(accessor.metadata);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
             }
@@ -1009,14 +1009,14 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRACredentialEnvelopeSeal_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRACredential_EnvelopeSeal_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialEnvelopeSeal.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_EnvelopeSeal.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1028,7 +1028,7 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialEnvelopeSeal.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_EnvelopeSeal.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1091,14 +1091,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TRACredentialEnvelopeSeal_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRACredential_EnvelopeSeal_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredentialEnvelopeSeal.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_EnvelopeSeal.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1109,7 +1109,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredentialEnvelopeSeal.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_EnvelopeSeal.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1372,7 +1372,7 @@ namespace TDW.VDAServer
                         break;
                     
                     case 2:
-                        GenericFieldAccessor.SetField(accessor.metadata, fieldName, field_divider_idx + 1, value);
+                        GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
                     default:
@@ -1417,10 +1417,10 @@ namespace TDW.VDAServer
                 
                 case 2:
                     {
-                        TRACredentialMetadata conversion_result = TypeConverter<T>.ConvertTo_TRACredentialMetadata(value);
+                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
             {
-                accessor.metadata = conversion_result;
+                accessor.label = conversion_result;
             }
             
                         break;
@@ -1444,7 +1444,7 @@ namespace TDW.VDAServer
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
                     case 2:
-                        return GenericFieldAccessor.GetField<T>(accessor.metadata, fieldName, field_divider_idx + 1);
+                        return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
@@ -1466,7 +1466,7 @@ namespace TDW.VDAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TRACredentialMetadata(accessor.metadata);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
             }
@@ -1681,7 +1681,7 @@ namespace TDW.VDAServer
                         break;
                     
                     case 2:
-                        GenericFieldAccessor.SetField(accessor.metadata, fieldName, field_divider_idx + 1, value);
+                        GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
                     default:
@@ -1726,10 +1726,10 @@ namespace TDW.VDAServer
                 
                 case 2:
                     {
-                        TRACredentialMetadata conversion_result = TypeConverter<T>.ConvertTo_TRACredentialMetadata(value);
+                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
             {
-                accessor.metadata = conversion_result;
+                accessor.label = conversion_result;
             }
             
                         break;
@@ -1753,7 +1753,7 @@ namespace TDW.VDAServer
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
                     case 2:
-                        return GenericFieldAccessor.GetField<T>(accessor.metadata, fieldName, field_divider_idx + 1);
+                        return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
@@ -1775,7 +1775,7 @@ namespace TDW.VDAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TRACredentialMetadata(accessor.metadata);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
             }

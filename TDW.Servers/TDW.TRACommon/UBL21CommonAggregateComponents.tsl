@@ -1,0 +1,182 @@
+// Trusted Digial Web Project
+// Hyperonomy Digital Identity Lab
+// Parallelspace Corporation
+// (c) Copyright 2021 Parallelspace Corporation. All Rights Reserved
+
+// http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html#T-INVOICE
+// http://docs.oasis-open.org/ubl/os-UBL-2.1/xml/UBL-Invoice-2.1-Example.xml
+// https://docs.oasis-open.org/ubl/os-UBL-2.3/xml/UBL-Invoice-2.1-Example-Trivial.xml
+
+// Context:
+// <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+//	xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+//	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+// UBLVersionID: 2.1
+
+include "../TDW.TRACommon/UBL21CommonBasicComponents.tsl";
+
+//////////////////////////////////////////////////////////////////////////////
+/// UBL 2.1 Common Aggregate Components
+
+struct Cac_AccountingSupplierParty
+{
+	string cac_PartyUdid; // Cbc_Party_Cell;
+}
+
+struct Cac_AccountingCustomerParty
+{
+	string cac_PartyUdid; // Cbc_Party_Cell;
+}
+
+struct Cac_AllowanceCharge
+{
+	bool cbc_ChargeIndicator;
+	string cbc_AllowanceChargeReason;
+	Cbc_Amount cbc_Amount;
+}
+
+struct Cac_Attachment
+{
+	string cac_ExternalReferenceUdid; // Cac_ExternalReference_Cell
+}
+
+struct Cac_ClassifiedTaxCategory
+{
+	Cbc_SchemeCode cbc_ID;
+	double cbc_Percent;
+	Cac_TaxScheme cac_TaxScheme;
+}
+
+struct Cac_Country
+{
+	Cbc_ListCode cbc_IdentificationCode;		
+}
+
+struct Cac_Delivery
+{
+	DateTime cbc_ActualDeliveryDate;	
+	Cac_DeliveryLocation cac_DeliveryLocation;
+}
+
+struct Cac_DeliveryLocation
+{
+	Cbc_SchemeCode cbc_ID;
+	string cac_AddressUdid; // Cac_Address_Cell
+}
+
+struct Cac_DocumentReference
+{
+	string ID;
+	string DocumentType;
+	optional Cac_Attachment cac_Attachment;
+}
+
+struct Cbc_EmbeddedDocumentBinaryObject
+{
+	string _mimeCode;
+	string binary16;
+}
+
+struct Cac_FinancialInstitution
+{
+	string cbc_ID;
+}
+
+struct Cac_FinancialInstitutionBranch
+{
+	Cac_FinancialInstitution cac_FinancialInstitution;
+}
+
+struct Cac_InvoiceLine
+{
+	string cbc_ID;
+	Cbc_Note cbc_Note;
+	Cbc_Quantity cbc_InvoicedQuantity;
+	Cbc_Amount cbc_LineExtensionAmount;
+	string cbc_AccountingCost;
+	Cac_OrderLineReference cac_OrderLineReference;
+	List<Cac_AllowanceCharge> cac_AllowanceCharges;
+	Cac_TaxTotal cac_TaxTotal;
+	string cac_ItemUdid; // Cac_Item_Cell
+	Cac_Price cac_Price;
+}
+
+struct Cac_LegalMonetaryTotal
+{
+	Cbc_Amount cbc_LineExtensionAmount;
+	Cbc_Amount cbc_TaxExclusiveAmount;
+	Cbc_Amount cbc_TaxInclusiveAmount;
+	Cbc_Amount cbc_AllowanceTotalAmount;
+	Cbc_Amount cbc_ChargeTotalAmount;
+	Cbc_Amount cbc_PrepaidAmount;
+	Cbc_Amount cbc_PayableRoundingAmount;
+	Cbc_Amount cbc_PayableAmount;
+}
+
+struct Cac_OrderLineReference
+{
+	string cbc_LineID;
+}
+
+struct Cac_PartyIdentification
+{
+	Cbc_SchemeCode cbc_ID;
+}
+
+struct Cac_PartyName
+{
+	string cbc_Name;	
+}
+
+struct Cac_PartyTaxScheme
+{
+	Cbc_SchemeCode cbc_CompanyID;
+	Cac_TaxScheme cac_TaxScheme;
+}
+
+struct Cac_Price
+{
+	Cbc_Amount cbc_PriceAmount;
+	Cbc_Quantity cbc_BaseQuantity;
+	Cac_AllowanceCharge cac_AllowanceCharge;
+}
+
+struct Cac_PayeeParty
+{
+	string cac_PartyUdid; // Cbc_Party_Cell;
+}
+
+struct Cac_PaymentTerms
+{
+	Cbc_Note cbc_Note;	
+}
+
+struct Cac_SellersItemIdentification
+{
+	string cbc_ID;	
+}
+
+struct Cac_TaxCategory
+{
+	Cbc_SchemeCode cbc_ID;
+	double cbc_Percent;
+	Cac_TaxScheme cac_TaxScheme;
+}
+
+struct Cac_TaxScheme
+{
+	Cbc_SchemeCode cbc_ID;	
+}
+
+struct Cac_TaxSubtotal
+{
+	Cbc_Amount cbc_TaxableAmount;	
+	Cbc_Amount cbc_TaxAmount;
+	Cac_TaxCategory cac_TaxCategory;
+}
+
+struct Cac_TaxTotal
+{
+	Cbc_Amount cbc_TaxAmount;
+	List<Cac_TaxSubtotal> cac_TaxSubtotals;
+}

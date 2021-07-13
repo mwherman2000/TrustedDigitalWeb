@@ -34,14 +34,14 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of TRAGeoLocationEnvelope with the specified parameters.
         ///</summary>
-        public TRAGeoLocationEnvelope(TRAGeoLocationContent? content = default(TRAGeoLocationContent?),string encryptedcontent = default(string),TRACredentialMetadata metadata = default(TRACredentialMetadata))
+        public TRAGeoLocationEnvelope(TRAGeoLocationContent? content = default(TRAGeoLocationContent?),string encryptedcontent = default(string),TRACredential_Label label = default(TRACredential_Label))
         {
             
             this.content = content;
             
             this.encryptedcontent = encryptedcontent;
             
-            this.metadata = metadata;
+            this.label = label;
             
         }
         
@@ -62,7 +62,7 @@ namespace TDW.TRAServer
                 &&
                 (a.encryptedcontent == b.encryptedcontent)
                 &&
-                (a.metadata == b.metadata)
+                (a.label == b.label)
                 
                 ;
             
@@ -76,7 +76,7 @@ namespace TDW.TRAServer
         
         public string encryptedcontent;
         
-        public TRACredentialMetadata metadata;
+        public TRACredential_Label label;
         
         /// <summary>
         /// Converts the string representation of a TRAGeoLocationEnvelope to its
@@ -143,7 +143,7 @@ namespace TDW.TRAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        metadata_Accessor_Field = new TRACredentialMetadata_Accessor(null,
+                });        label_Accessor_Field = new TRACredential_Label_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -565,12 +565,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
             }
         }
-        TRACredentialMetadata_Accessor metadata_Accessor_Field;
+        TRACredential_Label_Accessor label_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field metadata.
+        ///Provides in-place access to the object field label.
         ///</summary>
-        public unsafe TRACredentialMetadata_Accessor metadata
+        public unsafe TRACredential_Label_Accessor label
         {
             get
             {
@@ -589,16 +589,16 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
-}metadata_Accessor_Field.m_ptr = targetPtr;
-                metadata_Accessor_Field.m_cellId = this.m_cellId;
-                return metadata_Accessor_Field;
+}label_Accessor_Field.m_ptr = targetPtr;
+                label_Accessor_Field.m_cellId = this.m_cellId;
+                return label_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                metadata_Accessor_Field.m_cellId = this.m_cellId;
+                label_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
                 {            byte* optheader_1 = targetPtr;
@@ -666,7 +666,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                         _content ,
                         _encryptedcontent ,
-                        accessor.metadata
+                        accessor.label
                 );
         }
         
@@ -736,20 +736,20 @@ targetPtr += 16;
             targetPtr += 1;
             targetPtr += 1;
 
-        if(field.metadata.notaryudid!= null)
+        if(field.label.notaryudid!= null)
         {
-            int strlen_3 = field.metadata.notaryudid.Length * 2;
+            int strlen_3 = field.label.notaryudid.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.metadata.name!= null)
+            if( field.label.name!= null)
             {
 
-        if(field.metadata.name!= null)
+        if(field.label.name!= null)
         {
-            int strlen_3 = field.metadata.name.Length * 2;
+            int strlen_3 = field.label.name.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -757,12 +757,12 @@ targetPtr += 16;
         }
 
             }
-            if( field.metadata.comment!= null)
+            if( field.label.comment!= null)
             {
 
-        if(field.metadata.comment!= null)
+        if(field.label.comment!= null)
         {
-            int strlen_3 = field.metadata.comment.Length * 2;
+            int strlen_3 = field.label.comment.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -865,21 +865,21 @@ byte *storedPtr_3 = targetPtr;
             {
             byte* optheader_2 = targetPtr;
             *(optheader_2 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = field.metadata.credtype;
+            *(TRACredentialType*)targetPtr = field.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = field.metadata.version;
+            *(long*)targetPtr = field.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = field.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = field.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = field.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = field.label.encryptionFlag;
             targetPtr += 1;
 
-        if(field.metadata.notaryudid!= null)
+        if(field.label.notaryudid!= null)
         {
-            int strlen_3 = field.metadata.notaryudid.Length * 2;
+            int strlen_3 = field.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.metadata.notaryudid)
+            fixed(char* pstr_3 = field.label.notaryudid)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -889,15 +889,15 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.metadata.name!= null)
+            if( field.label.name!= null)
             {
 
-        if(field.metadata.name!= null)
+        if(field.label.name!= null)
         {
-            int strlen_3 = field.metadata.name.Length * 2;
+            int strlen_3 = field.label.name.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.metadata.name)
+            fixed(char* pstr_3 = field.label.name)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -909,15 +909,15 @@ byte *storedPtr_3 = targetPtr;
         }
 *(optheader_2 + 0) |= 0x01;
             }
-            if( field.metadata.comment!= null)
+            if( field.label.comment!= null)
             {
 
-        if(field.metadata.comment!= null)
+        if(field.label.comment!= null)
         {
-            int strlen_3 = field.metadata.comment.Length * 2;
+            int strlen_3 = field.label.comment.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.metadata.comment)
+            fixed(char* pstr_3 = field.label.comment)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;

@@ -38,7 +38,7 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of TRAPostalAddressCell with the specified parameters.
         ///</summary>
-        public TRAPostalAddressCell(long cell_id , TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope), TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal))
+        public TRAPostalAddressCell(long cell_id , TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope), TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal))
         {
             
             this.envelope = envelope;
@@ -51,7 +51,7 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of TRAPostalAddressCell with the specified parameters.
         ///</summary>
-        public TRAPostalAddressCell( TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope), TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal))
+        public TRAPostalAddressCell( TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope), TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal))
         {
             
             this.envelope = envelope;
@@ -63,7 +63,7 @@ namespace TDW.TRAServer
         
         public TRAPostalAddressEnvelope envelope;
         
-        public TRACredentialEnvelopeSeal envelopeseal;
+        public TRACredential_EnvelopeSeal envelopeseal;
         
         public static bool operator ==(TRAPostalAddressCell a, TRAPostalAddressCell b)
         {
@@ -166,7 +166,7 @@ namespace TDW.TRAServer
                 return TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope);
                 
                 case 1:
-                return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                 
             }
             /* Should not reach here */
@@ -197,7 +197,7 @@ namespace TDW.TRAServer
                 break;
                 
                 case 1:
-                this.envelopeseal = TypeConverter<T>.ConvertTo_TRACredentialEnvelopeSeal(value);
+                this.envelopeseal = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeSeal(value);
                 break;
                 
                 default:
@@ -263,18 +263,6 @@ namespace TDW.TRAServer
             switch (TypeConverter<T>.type_id)
             {
                 
-                case 3:
-                
-                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("envelope", TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope));
-                
-                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
-                
-                break;
-                
                 case 4:
                 
                 if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
@@ -283,27 +271,11 @@ namespace TDW.TRAServer
                 
                 if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
-                case 10:
-                
-                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
-                
-                break;
-                
-                case 18:
-                
-                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("envelope", TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope));
-                
-                break;
-                
-                case 25:
+                case 5:
                 
                 if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
                     
@@ -311,7 +283,35 @@ namespace TDW.TRAServer
                 
                 if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
+                
+                break;
+                
+                case 76:
+                
+                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
+                
+                break;
+                
+                case 84:
+                
+                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("envelope", TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope));
+                
+                break;
+                
+                case 95:
+                
+                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("envelope", TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope));
+                
+                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
@@ -329,14 +329,6 @@ namespace TDW.TRAServer
             switch (TypeConverter<T>.type_id)
             {
                 
-                case 3:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope);
-                        
-                    }
-                    break;
-                
                 case 4:
                     {
                         
@@ -345,7 +337,7 @@ namespace TDW.TRAServer
                     }
                     break;
                 
-                case 18:
+                case 5:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope);
@@ -353,7 +345,15 @@ namespace TDW.TRAServer
                     }
                     break;
                 
-                case 25:
+                case 84:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope);
+                        
+                    }
+                    break;
+                
+                case 95:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope);
@@ -375,34 +375,34 @@ namespace TDW.TRAServer
             switch (TypeConverter<T>.type_id)
             {
                 
-                case 3:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
-                        
-                    }
-                    break;
-                
                 case 4:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
                 
-                case 10:
+                case 5:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
                 
-                case 25:
+                case 76:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
+                        
+                    }
+                    break;
+                
+                case 95:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
@@ -543,7 +543,7 @@ namespace TDW.TRAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        envelopeseal_Accessor_Field = new TRACredentialEnvelopeSeal_Accessor(null,
+                });        envelopeseal_Accessor_Field = new TRACredential_EnvelopeSeal_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -706,7 +706,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
         private static byte[] s_default_content = null;
-        private static unsafe byte[] construct( TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope) , TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal) )
+        private static unsafe byte[] construct( TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope) , TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal) )
         {
             if (s_default_content != null) return s_default_content;
             
@@ -834,20 +834,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
             targetPtr += 1;
 
-        if(envelope.metadata.notaryudid!= null)
+        if(envelope.label.notaryudid!= null)
         {
-            int strlen_4 = envelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = envelope.label.notaryudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( envelope.metadata.name!= null)
+            if( envelope.label.name!= null)
             {
 
-        if(envelope.metadata.name!= null)
+        if(envelope.label.name!= null)
         {
-            int strlen_4 = envelope.metadata.name.Length * 2;
+            int strlen_4 = envelope.label.name.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -855,12 +855,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( envelope.metadata.comment!= null)
+            if( envelope.label.comment!= null)
             {
 
-        if(envelope.metadata.comment!= null)
+        if(envelope.label.comment!= null)
         {
-            int strlen_4 = envelope.metadata.comment.Length * 2;
+            int strlen_4 = envelope.label.comment.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -1128,21 +1128,21 @@ byte *storedPtr_4 = targetPtr;
             {
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = envelope.metadata.credtype;
+            *(TRACredentialType*)targetPtr = envelope.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = envelope.metadata.version;
+            *(long*)targetPtr = envelope.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = envelope.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = envelope.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = envelope.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = envelope.label.encryptionFlag;
             targetPtr += 1;
 
-        if(envelope.metadata.notaryudid!= null)
+        if(envelope.label.notaryudid!= null)
         {
-            int strlen_4 = envelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = envelope.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.notaryudid)
+            fixed(char* pstr_4 = envelope.label.notaryudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1152,15 +1152,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( envelope.metadata.name!= null)
+            if( envelope.label.name!= null)
             {
 
-        if(envelope.metadata.name!= null)
+        if(envelope.label.name!= null)
         {
-            int strlen_4 = envelope.metadata.name.Length * 2;
+            int strlen_4 = envelope.label.name.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.name)
+            fixed(char* pstr_4 = envelope.label.name)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1172,15 +1172,15 @@ byte *storedPtr_4 = targetPtr;
         }
 *(optheader_3 + 0) |= 0x01;
             }
-            if( envelope.metadata.comment!= null)
+            if( envelope.label.comment!= null)
             {
 
-        if(envelope.metadata.comment!= null)
+        if(envelope.label.comment!= null)
         {
-            int strlen_4 = envelope.metadata.comment.Length * 2;
+            int strlen_4 = envelope.label.comment.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.comment)
+            fixed(char* pstr_4 = envelope.label.comment)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1354,12 +1354,12 @@ byte *storedPtr_3 = targetPtr;
                 }
             }
         }
-        TRACredentialEnvelopeSeal_Accessor envelopeseal_Accessor_Field;
+        TRACredential_EnvelopeSeal_Accessor envelopeseal_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field envelopeseal.
         ///</summary>
-        public unsafe TRACredentialEnvelopeSeal_Accessor envelopeseal
+        public unsafe TRACredential_EnvelopeSeal_Accessor envelopeseal
         {
             get
             {
@@ -1596,20 +1596,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
             targetPtr += 1;
 
-        if(field.envelope.metadata.notaryudid!= null)
+        if(field.envelope.label.notaryudid!= null)
         {
-            int strlen_4 = field.envelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = field.envelope.label.notaryudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.envelope.metadata.name!= null)
+            if( field.envelope.label.name!= null)
             {
 
-        if(field.envelope.metadata.name!= null)
+        if(field.envelope.label.name!= null)
         {
-            int strlen_4 = field.envelope.metadata.name.Length * 2;
+            int strlen_4 = field.envelope.label.name.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -1617,12 +1617,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( field.envelope.metadata.comment!= null)
+            if( field.envelope.label.comment!= null)
             {
 
-        if(field.envelope.metadata.comment!= null)
+        if(field.envelope.label.comment!= null)
         {
-            int strlen_4 = field.envelope.metadata.comment.Length * 2;
+            int strlen_4 = field.envelope.label.comment.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -1889,21 +1889,21 @@ byte *storedPtr_4 = targetPtr;
             {
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = field.envelope.metadata.credtype;
+            *(TRACredentialType*)targetPtr = field.envelope.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = field.envelope.metadata.version;
+            *(long*)targetPtr = field.envelope.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = field.envelope.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = field.envelope.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = field.envelope.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = field.envelope.label.encryptionFlag;
             targetPtr += 1;
 
-        if(field.envelope.metadata.notaryudid!= null)
+        if(field.envelope.label.notaryudid!= null)
         {
-            int strlen_4 = field.envelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = field.envelope.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.envelope.metadata.notaryudid)
+            fixed(char* pstr_4 = field.envelope.label.notaryudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1913,15 +1913,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.envelope.metadata.name!= null)
+            if( field.envelope.label.name!= null)
             {
 
-        if(field.envelope.metadata.name!= null)
+        if(field.envelope.label.name!= null)
         {
-            int strlen_4 = field.envelope.metadata.name.Length * 2;
+            int strlen_4 = field.envelope.label.name.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.envelope.metadata.name)
+            fixed(char* pstr_4 = field.envelope.label.name)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1933,15 +1933,15 @@ byte *storedPtr_4 = targetPtr;
         }
 *(optheader_3 + 0) |= 0x01;
             }
-            if( field.envelope.metadata.comment!= null)
+            if( field.envelope.label.comment!= null)
             {
 
-        if(field.envelope.metadata.comment!= null)
+        if(field.envelope.label.comment!= null)
         {
-            int strlen_4 = field.envelope.metadata.comment.Length * 2;
+            int strlen_4 = field.envelope.label.comment.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.envelope.metadata.comment)
+            fixed(char* pstr_4 = field.envelope.label.comment)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -2473,7 +2473,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 return TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope);
                 
                 case 1:
-                return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                 
             }
             /* Should not reach here */
@@ -2524,7 +2524,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 case 1:
                 {
-                    TRACredentialEnvelopeSeal conversion_result = TypeConverter<T>.ConvertTo_TRACredentialEnvelopeSeal(value);
+                    TRACredential_EnvelopeSeal conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeSeal(value);
                     
             {
                 this.envelopeseal = conversion_result;
@@ -2581,18 +2581,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             switch (TypeConverter<T>.type_id)
             {
                 
-                case 3:
-                
-                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("envelope", TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope));
-                
-                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
-                
-                break;
-                
                 case 4:
                 
                 if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
@@ -2601,27 +2589,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
-                case 10:
-                
-                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
-                
-                break;
-                
-                case 18:
-                
-                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
-                    
-                        yield return new KeyValuePair<string, T>("envelope", TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope));
-                
-                break;
-                
-                case 25:
+                case 5:
                 
                 if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
                     
@@ -2629,7 +2601,35 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
-                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal));
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
+                
+                break;
+                
+                case 76:
+                
+                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
+                
+                break;
+                
+                case 84:
+                
+                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("envelope", TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope));
+                
+                break;
+                
+                case 95:
+                
+                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelope, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("envelope", TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope));
+                
+                if (StorageSchema.TRAPostalAddressCell_descriptor.check_attribute(StorageSchema.TRAPostalAddressCell_descriptor.envelopeseal, attributeKey, attributeValue))
+                    
+                        yield return new KeyValuePair<string, T>("envelopeseal", TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal));
                 
                 break;
                 
@@ -2647,14 +2647,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             switch (TypeConverter<T>.type_id)
             {
                 
-                case 3:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope);
-                        
-                    }
-                    break;
-                
                 case 4:
                     {
                         
@@ -2663,7 +2655,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 18:
+                case 5:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope);
@@ -2671,7 +2663,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 25:
+                case 84:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope);
+                        
+                    }
+                    break;
+                
+                case 95:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRAPostalAddressEnvelope(this.envelope);
@@ -2693,34 +2693,34 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             switch (TypeConverter<T>.type_id)
             {
                 
-                case 3:
-                    {
-                        
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
-                        
-                    }
-                    break;
-                
                 case 4:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
                 
-                case 10:
+                case 5:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
                 
-                case 25:
+                case 76:
                     {
                         
-                        yield return TypeConverter<T>.ConvertFrom_TRACredentialEnvelopeSeal(this.envelopeseal);
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
+                        
+                    }
+                    break;
+                
+                case 95:
+                    {
+                        
+                        yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
                         
                     }
                     break;
@@ -2848,7 +2848,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         /// <param name="storage"/>A <see cref="Trinity.Storage.IKeyValueStore"/> instance.</param>
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTRAPostalAddressCell(this IKeyValueStore storage, long cellId, TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope), TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal))
+        public unsafe static bool SaveTRAPostalAddressCell(this IKeyValueStore storage, long cellId, TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope), TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal))
         {
             
             byte* targetPtr;
@@ -2975,20 +2975,20 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
             targetPtr += 1;
 
-        if(envelope.metadata.notaryudid!= null)
+        if(envelope.label.notaryudid!= null)
         {
-            int strlen_4 = envelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = envelope.label.notaryudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( envelope.metadata.name!= null)
+            if( envelope.label.name!= null)
             {
 
-        if(envelope.metadata.name!= null)
+        if(envelope.label.name!= null)
         {
-            int strlen_4 = envelope.metadata.name.Length * 2;
+            int strlen_4 = envelope.label.name.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -2996,12 +2996,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
 
             }
-            if( envelope.metadata.comment!= null)
+            if( envelope.label.comment!= null)
             {
 
-        if(envelope.metadata.comment!= null)
+        if(envelope.label.comment!= null)
         {
-            int strlen_4 = envelope.metadata.comment.Length * 2;
+            int strlen_4 = envelope.label.comment.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -3269,21 +3269,21 @@ byte *storedPtr_4 = targetPtr;
             {
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = envelope.metadata.credtype;
+            *(TRACredentialType*)targetPtr = envelope.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = envelope.metadata.version;
+            *(long*)targetPtr = envelope.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = envelope.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = envelope.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = envelope.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = envelope.label.encryptionFlag;
             targetPtr += 1;
 
-        if(envelope.metadata.notaryudid!= null)
+        if(envelope.label.notaryudid!= null)
         {
-            int strlen_4 = envelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = envelope.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.notaryudid)
+            fixed(char* pstr_4 = envelope.label.notaryudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3293,15 +3293,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( envelope.metadata.name!= null)
+            if( envelope.label.name!= null)
             {
 
-        if(envelope.metadata.name!= null)
+        if(envelope.label.name!= null)
         {
-            int strlen_4 = envelope.metadata.name.Length * 2;
+            int strlen_4 = envelope.label.name.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.name)
+            fixed(char* pstr_4 = envelope.label.name)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3313,15 +3313,15 @@ byte *storedPtr_4 = targetPtr;
         }
 *(optheader_3 + 0) |= 0x01;
             }
-            if( envelope.metadata.comment!= null)
+            if( envelope.label.comment!= null)
             {
 
-        if(envelope.metadata.comment!= null)
+        if(envelope.label.comment!= null)
         {
-            int strlen_4 = envelope.metadata.comment.Length * 2;
+            int strlen_4 = envelope.label.comment.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.comment)
+            fixed(char* pstr_4 = envelope.label.comment)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3524,7 +3524,7 @@ byte *storedPtr_3 = targetPtr;
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <param name="options">Specifies write-ahead logging behavior. Valid values are CellAccessOptions.StrongLogAhead(default) and CellAccessOptions.WeakLogAhead. Other values are ignored.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTRAPostalAddressCell(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, long cellId, TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope), TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal))
+        public unsafe static bool SaveTRAPostalAddressCell(this Trinity.Storage.LocalMemoryStorage storage, CellAccessOptions options, long cellId, TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope), TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal))
         {
             
             byte* targetPtr;
@@ -3651,20 +3651,20 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
 
-        if(envelope.metadata.notaryudid!= null)
+        if(envelope.label.notaryudid!= null)
         {
-            int strlen_4 = envelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = envelope.label.notaryudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( envelope.metadata.name!= null)
+            if( envelope.label.name!= null)
             {
 
-        if(envelope.metadata.name!= null)
+        if(envelope.label.name!= null)
         {
-            int strlen_4 = envelope.metadata.name.Length * 2;
+            int strlen_4 = envelope.label.name.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -3672,12 +3672,12 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-            if( envelope.metadata.comment!= null)
+            if( envelope.label.comment!= null)
             {
 
-        if(envelope.metadata.comment!= null)
+        if(envelope.label.comment!= null)
         {
-            int strlen_4 = envelope.metadata.comment.Length * 2;
+            int strlen_4 = envelope.label.comment.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -3945,21 +3945,21 @@ byte *storedPtr_4 = targetPtr;
             {
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = envelope.metadata.credtype;
+            *(TRACredentialType*)targetPtr = envelope.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = envelope.metadata.version;
+            *(long*)targetPtr = envelope.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = envelope.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = envelope.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = envelope.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = envelope.label.encryptionFlag;
             targetPtr += 1;
 
-        if(envelope.metadata.notaryudid!= null)
+        if(envelope.label.notaryudid!= null)
         {
-            int strlen_4 = envelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = envelope.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.notaryudid)
+            fixed(char* pstr_4 = envelope.label.notaryudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3969,15 +3969,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( envelope.metadata.name!= null)
+            if( envelope.label.name!= null)
             {
 
-        if(envelope.metadata.name!= null)
+        if(envelope.label.name!= null)
         {
-            int strlen_4 = envelope.metadata.name.Length * 2;
+            int strlen_4 = envelope.label.name.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.name)
+            fixed(char* pstr_4 = envelope.label.name)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -3989,15 +3989,15 @@ byte *storedPtr_4 = targetPtr;
         }
 *(optheader_3 + 0) |= 0x01;
             }
-            if( envelope.metadata.comment!= null)
+            if( envelope.label.comment!= null)
             {
 
-        if(envelope.metadata.comment!= null)
+        if(envelope.label.comment!= null)
         {
-            int strlen_4 = envelope.metadata.comment.Length * 2;
+            int strlen_4 = envelope.label.comment.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.comment)
+            fixed(char* pstr_4 = envelope.label.comment)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -4194,7 +4194,7 @@ byte *storedPtr_3 = targetPtr;
         /// <param name="cellId">A 64-bit cell Id.</param>
         /// <param name="options">Specifies write-ahead logging behavior. Valid values are CellAccessOptions.StrongLogAhead(default) and CellAccessOptions.WeakLogAhead. Other values are ignored.</param>
         /// <returns>true if saving succeeds; otherwise, false.</returns>
-        public unsafe static bool SaveTRAPostalAddressCell(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, long cellId, TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope), TRACredentialEnvelopeSeal envelopeseal = default(TRACredentialEnvelopeSeal))
+        public unsafe static bool SaveTRAPostalAddressCell(this Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx, CellAccessOptions options, long cellId, TRAPostalAddressEnvelope envelope = default(TRAPostalAddressEnvelope), TRACredential_EnvelopeSeal envelopeseal = default(TRACredential_EnvelopeSeal))
         {
             
             byte* targetPtr;
@@ -4321,20 +4321,20 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
 
-        if(envelope.metadata.notaryudid!= null)
+        if(envelope.label.notaryudid!= null)
         {
-            int strlen_4 = envelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = envelope.label.notaryudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( envelope.metadata.name!= null)
+            if( envelope.label.name!= null)
             {
 
-        if(envelope.metadata.name!= null)
+        if(envelope.label.name!= null)
         {
-            int strlen_4 = envelope.metadata.name.Length * 2;
+            int strlen_4 = envelope.label.name.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -4342,12 +4342,12 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-            if( envelope.metadata.comment!= null)
+            if( envelope.label.comment!= null)
             {
 
-        if(envelope.metadata.comment!= null)
+        if(envelope.label.comment!= null)
         {
-            int strlen_4 = envelope.metadata.comment.Length * 2;
+            int strlen_4 = envelope.label.comment.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -4615,21 +4615,21 @@ byte *storedPtr_4 = targetPtr;
             {
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
-            *(TRACredentialType*)targetPtr = envelope.metadata.credtype;
+            *(TRACredentialType*)targetPtr = envelope.label.credtype;
             targetPtr += 1;
-            *(long*)targetPtr = envelope.metadata.version;
+            *(long*)targetPtr = envelope.label.version;
             targetPtr += 8;
-            *(TRATrustLevel*)targetPtr = envelope.metadata.trustLevel;
+            *(TRATrustLevel*)targetPtr = envelope.label.trustLevel;
             targetPtr += 1;
-            *(TRAEncryptionFlag*)targetPtr = envelope.metadata.encryptionFlag;
+            *(TRAEncryptionFlag*)targetPtr = envelope.label.encryptionFlag;
             targetPtr += 1;
 
-        if(envelope.metadata.notaryudid!= null)
+        if(envelope.label.notaryudid!= null)
         {
-            int strlen_4 = envelope.metadata.notaryudid.Length * 2;
+            int strlen_4 = envelope.label.notaryudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.notaryudid)
+            fixed(char* pstr_4 = envelope.label.notaryudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -4639,15 +4639,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( envelope.metadata.name!= null)
+            if( envelope.label.name!= null)
             {
 
-        if(envelope.metadata.name!= null)
+        if(envelope.label.name!= null)
         {
-            int strlen_4 = envelope.metadata.name.Length * 2;
+            int strlen_4 = envelope.label.name.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.name)
+            fixed(char* pstr_4 = envelope.label.name)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -4659,15 +4659,15 @@ byte *storedPtr_4 = targetPtr;
         }
 *(optheader_3 + 0) |= 0x01;
             }
-            if( envelope.metadata.comment!= null)
+            if( envelope.label.comment!= null)
             {
 
-        if(envelope.metadata.comment!= null)
+        if(envelope.label.comment!= null)
         {
-            int strlen_4 = envelope.metadata.comment.Length * 2;
+            int strlen_4 = envelope.label.comment.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = envelope.metadata.comment)
+            fixed(char* pstr_4 = envelope.label.comment)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;

@@ -22,8 +22,8 @@ namespace TDW.TRAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TRACredentialCell:
-                storage.SaveTRACredentialCell(writeAheadLogOptions, (TRACredentialCell)cell);
+                case CellType.TRACredential_Cell:
+                storage.SaveTRACredential_Cell(writeAheadLogOptions, (TRACredential_Cell)cell);
                 break;
                 
                 case CellType.TRATimestampCell:
@@ -38,6 +38,50 @@ namespace TDW.TRAServer
                 storage.SaveTRAPostalAddressCell(writeAheadLogOptions, (TRAPostalAddressCell)cell);
                 break;
                 
+                case CellType.Cac_Item_Cell:
+                storage.SaveCac_Item_Cell(writeAheadLogOptions, (Cac_Item_Cell)cell);
+                break;
+                
+                case CellType.Cac_ExternalReference_Cell:
+                storage.SaveCac_ExternalReference_Cell(writeAheadLogOptions, (Cac_ExternalReference_Cell)cell);
+                break;
+                
+                case CellType.Cac_Address_Cell:
+                storage.SaveCac_Address_Cell(writeAheadLogOptions, (Cac_Address_Cell)cell);
+                break;
+                
+                case CellType.Cac_PostalAddress_Cell:
+                storage.SaveCac_PostalAddress_Cell(writeAheadLogOptions, (Cac_PostalAddress_Cell)cell);
+                break;
+                
+                case CellType.Cac_PartyLegalEntity_Cell:
+                storage.SaveCac_PartyLegalEntity_Cell(writeAheadLogOptions, (Cac_PartyLegalEntity_Cell)cell);
+                break;
+                
+                case CellType.Cac_Contact_Cell:
+                storage.SaveCac_Contact_Cell(writeAheadLogOptions, (Cac_Contact_Cell)cell);
+                break;
+                
+                case CellType.Cac_Person_Cell:
+                storage.SaveCac_Person_Cell(writeAheadLogOptions, (Cac_Person_Cell)cell);
+                break;
+                
+                case CellType.Cac_PaymentMeans_Cell:
+                storage.SaveCac_PaymentMeans_Cell(writeAheadLogOptions, (Cac_PaymentMeans_Cell)cell);
+                break;
+                
+                case CellType.Cac_PayeeFinancialAccount_Cell:
+                storage.SaveCac_PayeeFinancialAccount_Cell(writeAheadLogOptions, (Cac_PayeeFinancialAccount_Cell)cell);
+                break;
+                
+                case CellType.Cac_Party_Cell:
+                storage.SaveCac_Party_Cell(writeAheadLogOptions, (Cac_Party_Cell)cell);
+                break;
+                
+                case CellType.UBL21_Invoice2_Cell:
+                storage.SaveUBL21_Invoice2_Cell(writeAheadLogOptions, (UBL21_Invoice2_Cell)cell);
+                break;
+                
             }
         }
         /// <inheritdoc/>
@@ -46,8 +90,8 @@ namespace TDW.TRAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TRACredentialCell:
-                storage.SaveTRACredentialCell(writeAheadLogOptions, cellId, (TRACredentialCell)cell);
+                case CellType.TRACredential_Cell:
+                storage.SaveTRACredential_Cell(writeAheadLogOptions, cellId, (TRACredential_Cell)cell);
                 break;
                 
                 case CellType.TRATimestampCell:
@@ -60,6 +104,50 @@ namespace TDW.TRAServer
                 
                 case CellType.TRAPostalAddressCell:
                 storage.SaveTRAPostalAddressCell(writeAheadLogOptions, cellId, (TRAPostalAddressCell)cell);
+                break;
+                
+                case CellType.Cac_Item_Cell:
+                storage.SaveCac_Item_Cell(writeAheadLogOptions, cellId, (Cac_Item_Cell)cell);
+                break;
+                
+                case CellType.Cac_ExternalReference_Cell:
+                storage.SaveCac_ExternalReference_Cell(writeAheadLogOptions, cellId, (Cac_ExternalReference_Cell)cell);
+                break;
+                
+                case CellType.Cac_Address_Cell:
+                storage.SaveCac_Address_Cell(writeAheadLogOptions, cellId, (Cac_Address_Cell)cell);
+                break;
+                
+                case CellType.Cac_PostalAddress_Cell:
+                storage.SaveCac_PostalAddress_Cell(writeAheadLogOptions, cellId, (Cac_PostalAddress_Cell)cell);
+                break;
+                
+                case CellType.Cac_PartyLegalEntity_Cell:
+                storage.SaveCac_PartyLegalEntity_Cell(writeAheadLogOptions, cellId, (Cac_PartyLegalEntity_Cell)cell);
+                break;
+                
+                case CellType.Cac_Contact_Cell:
+                storage.SaveCac_Contact_Cell(writeAheadLogOptions, cellId, (Cac_Contact_Cell)cell);
+                break;
+                
+                case CellType.Cac_Person_Cell:
+                storage.SaveCac_Person_Cell(writeAheadLogOptions, cellId, (Cac_Person_Cell)cell);
+                break;
+                
+                case CellType.Cac_PaymentMeans_Cell:
+                storage.SaveCac_PaymentMeans_Cell(writeAheadLogOptions, cellId, (Cac_PaymentMeans_Cell)cell);
+                break;
+                
+                case CellType.Cac_PayeeFinancialAccount_Cell:
+                storage.SaveCac_PayeeFinancialAccount_Cell(writeAheadLogOptions, cellId, (Cac_PayeeFinancialAccount_Cell)cell);
+                break;
+                
+                case CellType.Cac_Party_Cell:
+                storage.SaveCac_Party_Cell(writeAheadLogOptions, cellId, (Cac_Party_Cell)cell);
+                break;
+                
+                case CellType.UBL21_Invoice2_Cell:
+                storage.SaveUBL21_Invoice2_Cell(writeAheadLogOptions, cellId, (UBL21_Invoice2_Cell)cell);
                 break;
                 
             }
@@ -101,8 +189,8 @@ namespace TDW.TRAServer
             switch (type)
             {
                 
-                case global::TDW.TRAServer.CellType.TRACredentialCell:
-                return new TRACredentialCell();
+                case global::TDW.TRAServer.CellType.TRACredential_Cell:
+                return new TRACredential_Cell();
                 break;
                 
                 case global::TDW.TRAServer.CellType.TRATimestampCell:
@@ -117,6 +205,50 @@ namespace TDW.TRAServer
                 return new TRAPostalAddressCell();
                 break;
                 
+                case global::TDW.TRAServer.CellType.Cac_Item_Cell:
+                return new Cac_Item_Cell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.Cac_ExternalReference_Cell:
+                return new Cac_ExternalReference_Cell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.Cac_Address_Cell:
+                return new Cac_Address_Cell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.Cac_PostalAddress_Cell:
+                return new Cac_PostalAddress_Cell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.Cac_PartyLegalEntity_Cell:
+                return new Cac_PartyLegalEntity_Cell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.Cac_Contact_Cell:
+                return new Cac_Contact_Cell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.Cac_Person_Cell:
+                return new Cac_Person_Cell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.Cac_PaymentMeans_Cell:
+                return new Cac_PaymentMeans_Cell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.Cac_PayeeFinancialAccount_Cell:
+                return new Cac_PayeeFinancialAccount_Cell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.Cac_Party_Cell:
+                return new Cac_Party_Cell();
+                break;
+                
+                case global::TDW.TRAServer.CellType.UBL21_Invoice2_Cell:
+                return new UBL21_Invoice2_Cell();
+                break;
+                
             }
             /* Should not reach here */
             return null;
@@ -129,8 +261,8 @@ namespace TDW.TRAServer
             switch (type)
             {
                 
-                case global::TDW.TRAServer.CellType.TRACredentialCell:
-                return new TRACredentialCell(cell_id: cellId);
+                case global::TDW.TRAServer.CellType.TRACredential_Cell:
+                return new TRACredential_Cell(cell_id: cellId);
                 
                 case global::TDW.TRAServer.CellType.TRATimestampCell:
                 return new TRATimestampCell(cell_id: cellId);
@@ -140,6 +272,39 @@ namespace TDW.TRAServer
                 
                 case global::TDW.TRAServer.CellType.TRAPostalAddressCell:
                 return new TRAPostalAddressCell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.Cac_Item_Cell:
+                return new Cac_Item_Cell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.Cac_ExternalReference_Cell:
+                return new Cac_ExternalReference_Cell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.Cac_Address_Cell:
+                return new Cac_Address_Cell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.Cac_PostalAddress_Cell:
+                return new Cac_PostalAddress_Cell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.Cac_PartyLegalEntity_Cell:
+                return new Cac_PartyLegalEntity_Cell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.Cac_Contact_Cell:
+                return new Cac_Contact_Cell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.Cac_Person_Cell:
+                return new Cac_Person_Cell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.Cac_PaymentMeans_Cell:
+                return new Cac_PaymentMeans_Cell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.Cac_PayeeFinancialAccount_Cell:
+                return new Cac_PayeeFinancialAccount_Cell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.Cac_Party_Cell:
+                return new Cac_Party_Cell(cell_id: cellId);
+                
+                case global::TDW.TRAServer.CellType.UBL21_Invoice2_Cell:
+                return new UBL21_Invoice2_Cell(cell_id: cellId);
                 
             }
             /* Should not reach here */
@@ -154,8 +319,8 @@ namespace TDW.TRAServer
             switch (type)
             {
                 
-                case global::TDW.TRAServer.CellType.TRACredentialCell:
-                return TRACredentialCell.Parse(content);
+                case global::TDW.TRAServer.CellType.TRACredential_Cell:
+                return TRACredential_Cell.Parse(content);
                 
                 case global::TDW.TRAServer.CellType.TRATimestampCell:
                 return TRATimestampCell.Parse(content);
@@ -165,6 +330,39 @@ namespace TDW.TRAServer
                 
                 case global::TDW.TRAServer.CellType.TRAPostalAddressCell:
                 return TRAPostalAddressCell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.Cac_Item_Cell:
+                return Cac_Item_Cell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.Cac_ExternalReference_Cell:
+                return Cac_ExternalReference_Cell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.Cac_Address_Cell:
+                return Cac_Address_Cell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.Cac_PostalAddress_Cell:
+                return Cac_PostalAddress_Cell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.Cac_PartyLegalEntity_Cell:
+                return Cac_PartyLegalEntity_Cell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.Cac_Contact_Cell:
+                return Cac_Contact_Cell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.Cac_Person_Cell:
+                return Cac_Person_Cell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.Cac_PaymentMeans_Cell:
+                return Cac_PaymentMeans_Cell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.Cac_PayeeFinancialAccount_Cell:
+                return Cac_PayeeFinancialAccount_Cell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.Cac_Party_Cell:
+                return Cac_Party_Cell.Parse(content);
+                
+                case global::TDW.TRAServer.CellType.UBL21_Invoice2_Cell:
+                return UBL21_Invoice2_Cell.Parse(content);
                 
             }
             /* Should not reach here */
@@ -187,8 +385,8 @@ namespace TDW.TRAServer
             switch ((CellType)type)
             {
                 
-                case CellType.TRACredentialCell:
-                return TRACredentialCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                case CellType.TRACredential_Cell:
+                return TRACredential_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
                 
                 case CellType.TRATimestampCell:
                 return TRATimestampCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
@@ -198,6 +396,39 @@ namespace TDW.TRAServer
                 
                 case CellType.TRAPostalAddressCell:
                 return TRAPostalAddressCell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.Cac_Item_Cell:
+                return Cac_Item_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.Cac_ExternalReference_Cell:
+                return Cac_ExternalReference_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.Cac_Address_Cell:
+                return Cac_Address_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.Cac_PostalAddress_Cell:
+                return Cac_PostalAddress_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.Cac_PartyLegalEntity_Cell:
+                return Cac_PartyLegalEntity_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.Cac_Contact_Cell:
+                return Cac_Contact_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.Cac_Person_Cell:
+                return Cac_Person_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.Cac_PaymentMeans_Cell:
+                return Cac_PaymentMeans_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.Cac_PayeeFinancialAccount_Cell:
+                return Cac_PayeeFinancialAccount_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.Cac_Party_Cell:
+                return Cac_Party_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
+                
+                case CellType.UBL21_Invoice2_Cell:
+                return UBL21_Invoice2_Cell_Accessor._get()._Setup(cellId, cellPtr, entryIndex, CellAccessOptions.ThrowExceptionOnCellNotFound);
                 
                 default:
                 storage.ReleaseCellLock(cellId, entryIndex);
@@ -256,13 +487,35 @@ namespace TDW.TRAServer
             switch (cellType)
             {
                 
-                case "TRACredentialCell": return TRACredentialCell_Accessor._get()._Lock(cellId, options);
+                case "TRACredential_Cell": return TRACredential_Cell_Accessor._get()._Lock(cellId, options);
                 
                 case "TRATimestampCell": return TRATimestampCell_Accessor._get()._Lock(cellId, options);
                 
                 case "TDWGeoLocationCell": return TDWGeoLocationCell_Accessor._get()._Lock(cellId, options);
                 
                 case "TRAPostalAddressCell": return TRAPostalAddressCell_Accessor._get()._Lock(cellId, options);
+                
+                case "Cac_Item_Cell": return Cac_Item_Cell_Accessor._get()._Lock(cellId, options);
+                
+                case "Cac_ExternalReference_Cell": return Cac_ExternalReference_Cell_Accessor._get()._Lock(cellId, options);
+                
+                case "Cac_Address_Cell": return Cac_Address_Cell_Accessor._get()._Lock(cellId, options);
+                
+                case "Cac_PostalAddress_Cell": return Cac_PostalAddress_Cell_Accessor._get()._Lock(cellId, options);
+                
+                case "Cac_PartyLegalEntity_Cell": return Cac_PartyLegalEntity_Cell_Accessor._get()._Lock(cellId, options);
+                
+                case "Cac_Contact_Cell": return Cac_Contact_Cell_Accessor._get()._Lock(cellId, options);
+                
+                case "Cac_Person_Cell": return Cac_Person_Cell_Accessor._get()._Lock(cellId, options);
+                
+                case "Cac_PaymentMeans_Cell": return Cac_PaymentMeans_Cell_Accessor._get()._Lock(cellId, options);
+                
+                case "Cac_PayeeFinancialAccount_Cell": return Cac_PayeeFinancialAccount_Cell_Accessor._get()._Lock(cellId, options);
+                
+                case "Cac_Party_Cell": return Cac_Party_Cell_Accessor._get()._Lock(cellId, options);
+                
+                case "UBL21_Invoice2_Cell": return UBL21_Invoice2_Cell_Accessor._get()._Lock(cellId, options);
                 
                 default:
                 Throw.invalid_cell_type();
@@ -279,12 +532,12 @@ namespace TDW.TRAServer
                 switch ((CellType)cellInfo.CellType)
                 {
                     
-                    case CellType.TRACredentialCell:
+                    case CellType.TRACredential_Cell:
                         {
-                            var TRACredentialCell_accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            var TRACredentialCell_cell     = (TRACredentialCell)TRACredentialCell_accessor;
-                            TRACredentialCell_accessor.Dispose();
-                            yield return TRACredentialCell_cell;
+                            var TRACredential_Cell_accessor = TRACredential_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var TRACredential_Cell_cell     = (TRACredential_Cell)TRACredential_Cell_accessor;
+                            TRACredential_Cell_accessor.Dispose();
+                            yield return TRACredential_Cell_cell;
                             break;
                         }
                     
@@ -315,6 +568,105 @@ namespace TDW.TRAServer
                             break;
                         }
                     
+                    case CellType.Cac_Item_Cell:
+                        {
+                            var Cac_Item_Cell_accessor = Cac_Item_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var Cac_Item_Cell_cell     = (Cac_Item_Cell)Cac_Item_Cell_accessor;
+                            Cac_Item_Cell_accessor.Dispose();
+                            yield return Cac_Item_Cell_cell;
+                            break;
+                        }
+                    
+                    case CellType.Cac_ExternalReference_Cell:
+                        {
+                            var Cac_ExternalReference_Cell_accessor = Cac_ExternalReference_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var Cac_ExternalReference_Cell_cell     = (Cac_ExternalReference_Cell)Cac_ExternalReference_Cell_accessor;
+                            Cac_ExternalReference_Cell_accessor.Dispose();
+                            yield return Cac_ExternalReference_Cell_cell;
+                            break;
+                        }
+                    
+                    case CellType.Cac_Address_Cell:
+                        {
+                            var Cac_Address_Cell_accessor = Cac_Address_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var Cac_Address_Cell_cell     = (Cac_Address_Cell)Cac_Address_Cell_accessor;
+                            Cac_Address_Cell_accessor.Dispose();
+                            yield return Cac_Address_Cell_cell;
+                            break;
+                        }
+                    
+                    case CellType.Cac_PostalAddress_Cell:
+                        {
+                            var Cac_PostalAddress_Cell_accessor = Cac_PostalAddress_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var Cac_PostalAddress_Cell_cell     = (Cac_PostalAddress_Cell)Cac_PostalAddress_Cell_accessor;
+                            Cac_PostalAddress_Cell_accessor.Dispose();
+                            yield return Cac_PostalAddress_Cell_cell;
+                            break;
+                        }
+                    
+                    case CellType.Cac_PartyLegalEntity_Cell:
+                        {
+                            var Cac_PartyLegalEntity_Cell_accessor = Cac_PartyLegalEntity_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var Cac_PartyLegalEntity_Cell_cell     = (Cac_PartyLegalEntity_Cell)Cac_PartyLegalEntity_Cell_accessor;
+                            Cac_PartyLegalEntity_Cell_accessor.Dispose();
+                            yield return Cac_PartyLegalEntity_Cell_cell;
+                            break;
+                        }
+                    
+                    case CellType.Cac_Contact_Cell:
+                        {
+                            var Cac_Contact_Cell_accessor = Cac_Contact_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var Cac_Contact_Cell_cell     = (Cac_Contact_Cell)Cac_Contact_Cell_accessor;
+                            Cac_Contact_Cell_accessor.Dispose();
+                            yield return Cac_Contact_Cell_cell;
+                            break;
+                        }
+                    
+                    case CellType.Cac_Person_Cell:
+                        {
+                            var Cac_Person_Cell_accessor = Cac_Person_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var Cac_Person_Cell_cell     = (Cac_Person_Cell)Cac_Person_Cell_accessor;
+                            Cac_Person_Cell_accessor.Dispose();
+                            yield return Cac_Person_Cell_cell;
+                            break;
+                        }
+                    
+                    case CellType.Cac_PaymentMeans_Cell:
+                        {
+                            var Cac_PaymentMeans_Cell_accessor = Cac_PaymentMeans_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var Cac_PaymentMeans_Cell_cell     = (Cac_PaymentMeans_Cell)Cac_PaymentMeans_Cell_accessor;
+                            Cac_PaymentMeans_Cell_accessor.Dispose();
+                            yield return Cac_PaymentMeans_Cell_cell;
+                            break;
+                        }
+                    
+                    case CellType.Cac_PayeeFinancialAccount_Cell:
+                        {
+                            var Cac_PayeeFinancialAccount_Cell_accessor = Cac_PayeeFinancialAccount_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var Cac_PayeeFinancialAccount_Cell_cell     = (Cac_PayeeFinancialAccount_Cell)Cac_PayeeFinancialAccount_Cell_accessor;
+                            Cac_PayeeFinancialAccount_Cell_accessor.Dispose();
+                            yield return Cac_PayeeFinancialAccount_Cell_cell;
+                            break;
+                        }
+                    
+                    case CellType.Cac_Party_Cell:
+                        {
+                            var Cac_Party_Cell_accessor = Cac_Party_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var Cac_Party_Cell_cell     = (Cac_Party_Cell)Cac_Party_Cell_accessor;
+                            Cac_Party_Cell_accessor.Dispose();
+                            yield return Cac_Party_Cell_cell;
+                            break;
+                        }
+                    
+                    case CellType.UBL21_Invoice2_Cell:
+                        {
+                            var UBL21_Invoice2_Cell_accessor = UBL21_Invoice2_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            var UBL21_Invoice2_Cell_cell     = (UBL21_Invoice2_Cell)UBL21_Invoice2_Cell_accessor;
+                            UBL21_Invoice2_Cell_accessor.Dispose();
+                            yield return UBL21_Invoice2_Cell_cell;
+                            break;
+                        }
+                    
                     default:
                     continue;
                 }
@@ -329,11 +681,11 @@ namespace TDW.TRAServer
                 switch ((CellType)cellInfo.CellType)
                 {
                     
-                    case CellType.TRACredentialCell:
+                    case CellType.TRACredential_Cell:
                         {
-                            var TRACredentialCell_accessor = TRACredentialCell_Accessor.AllocIterativeAccessor(cellInfo, null);
-                            yield return TRACredentialCell_accessor;
-                            TRACredentialCell_accessor.Dispose();
+                            var TRACredential_Cell_accessor = TRACredential_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return TRACredential_Cell_accessor;
+                            TRACredential_Cell_accessor.Dispose();
                             break;
                         }
                     
@@ -361,6 +713,94 @@ namespace TDW.TRAServer
                             break;
                         }
                     
+                    case CellType.Cac_Item_Cell:
+                        {
+                            var Cac_Item_Cell_accessor = Cac_Item_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return Cac_Item_Cell_accessor;
+                            Cac_Item_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.Cac_ExternalReference_Cell:
+                        {
+                            var Cac_ExternalReference_Cell_accessor = Cac_ExternalReference_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return Cac_ExternalReference_Cell_accessor;
+                            Cac_ExternalReference_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.Cac_Address_Cell:
+                        {
+                            var Cac_Address_Cell_accessor = Cac_Address_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return Cac_Address_Cell_accessor;
+                            Cac_Address_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.Cac_PostalAddress_Cell:
+                        {
+                            var Cac_PostalAddress_Cell_accessor = Cac_PostalAddress_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return Cac_PostalAddress_Cell_accessor;
+                            Cac_PostalAddress_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.Cac_PartyLegalEntity_Cell:
+                        {
+                            var Cac_PartyLegalEntity_Cell_accessor = Cac_PartyLegalEntity_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return Cac_PartyLegalEntity_Cell_accessor;
+                            Cac_PartyLegalEntity_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.Cac_Contact_Cell:
+                        {
+                            var Cac_Contact_Cell_accessor = Cac_Contact_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return Cac_Contact_Cell_accessor;
+                            Cac_Contact_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.Cac_Person_Cell:
+                        {
+                            var Cac_Person_Cell_accessor = Cac_Person_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return Cac_Person_Cell_accessor;
+                            Cac_Person_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.Cac_PaymentMeans_Cell:
+                        {
+                            var Cac_PaymentMeans_Cell_accessor = Cac_PaymentMeans_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return Cac_PaymentMeans_Cell_accessor;
+                            Cac_PaymentMeans_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.Cac_PayeeFinancialAccount_Cell:
+                        {
+                            var Cac_PayeeFinancialAccount_Cell_accessor = Cac_PayeeFinancialAccount_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return Cac_PayeeFinancialAccount_Cell_accessor;
+                            Cac_PayeeFinancialAccount_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.Cac_Party_Cell:
+                        {
+                            var Cac_Party_Cell_accessor = Cac_Party_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return Cac_Party_Cell_accessor;
+                            Cac_Party_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
+                    case CellType.UBL21_Invoice2_Cell:
+                        {
+                            var UBL21_Invoice2_Cell_accessor = UBL21_Invoice2_Cell_Accessor.AllocIterativeAccessor(cellInfo, null);
+                            yield return UBL21_Invoice2_Cell_accessor;
+                            UBL21_Invoice2_Cell_accessor.Dispose();
+                            break;
+                        }
+                    
                     default:
                     continue;
                 }
@@ -375,8 +815,8 @@ namespace TDW.TRAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TRACredentialCell:
-                storage.SaveTRACredentialCell((TRACredentialCell)cell);
+                case CellType.TRACredential_Cell:
+                storage.SaveTRACredential_Cell((TRACredential_Cell)cell);
                 break;
                 
                 case CellType.TRATimestampCell:
@@ -391,6 +831,50 @@ namespace TDW.TRAServer
                 storage.SaveTRAPostalAddressCell((TRAPostalAddressCell)cell);
                 break;
                 
+                case CellType.Cac_Item_Cell:
+                storage.SaveCac_Item_Cell((Cac_Item_Cell)cell);
+                break;
+                
+                case CellType.Cac_ExternalReference_Cell:
+                storage.SaveCac_ExternalReference_Cell((Cac_ExternalReference_Cell)cell);
+                break;
+                
+                case CellType.Cac_Address_Cell:
+                storage.SaveCac_Address_Cell((Cac_Address_Cell)cell);
+                break;
+                
+                case CellType.Cac_PostalAddress_Cell:
+                storage.SaveCac_PostalAddress_Cell((Cac_PostalAddress_Cell)cell);
+                break;
+                
+                case CellType.Cac_PartyLegalEntity_Cell:
+                storage.SaveCac_PartyLegalEntity_Cell((Cac_PartyLegalEntity_Cell)cell);
+                break;
+                
+                case CellType.Cac_Contact_Cell:
+                storage.SaveCac_Contact_Cell((Cac_Contact_Cell)cell);
+                break;
+                
+                case CellType.Cac_Person_Cell:
+                storage.SaveCac_Person_Cell((Cac_Person_Cell)cell);
+                break;
+                
+                case CellType.Cac_PaymentMeans_Cell:
+                storage.SaveCac_PaymentMeans_Cell((Cac_PaymentMeans_Cell)cell);
+                break;
+                
+                case CellType.Cac_PayeeFinancialAccount_Cell:
+                storage.SaveCac_PayeeFinancialAccount_Cell((Cac_PayeeFinancialAccount_Cell)cell);
+                break;
+                
+                case CellType.Cac_Party_Cell:
+                storage.SaveCac_Party_Cell((Cac_Party_Cell)cell);
+                break;
+                
+                case CellType.UBL21_Invoice2_Cell:
+                storage.SaveUBL21_Invoice2_Cell((UBL21_Invoice2_Cell)cell);
+                break;
+                
             }
         }
         /// <inheritdoc/>
@@ -399,8 +883,8 @@ namespace TDW.TRAServer
             switch ((CellType)cell.CellType)
             {
                 
-                case CellType.TRACredentialCell:
-                storage.SaveTRACredentialCell(cellId, (TRACredentialCell)cell);
+                case CellType.TRACredential_Cell:
+                storage.SaveTRACredential_Cell(cellId, (TRACredential_Cell)cell);
                 break;
                 
                 case CellType.TRATimestampCell:
@@ -413,6 +897,50 @@ namespace TDW.TRAServer
                 
                 case CellType.TRAPostalAddressCell:
                 storage.SaveTRAPostalAddressCell(cellId, (TRAPostalAddressCell)cell);
+                break;
+                
+                case CellType.Cac_Item_Cell:
+                storage.SaveCac_Item_Cell(cellId, (Cac_Item_Cell)cell);
+                break;
+                
+                case CellType.Cac_ExternalReference_Cell:
+                storage.SaveCac_ExternalReference_Cell(cellId, (Cac_ExternalReference_Cell)cell);
+                break;
+                
+                case CellType.Cac_Address_Cell:
+                storage.SaveCac_Address_Cell(cellId, (Cac_Address_Cell)cell);
+                break;
+                
+                case CellType.Cac_PostalAddress_Cell:
+                storage.SaveCac_PostalAddress_Cell(cellId, (Cac_PostalAddress_Cell)cell);
+                break;
+                
+                case CellType.Cac_PartyLegalEntity_Cell:
+                storage.SaveCac_PartyLegalEntity_Cell(cellId, (Cac_PartyLegalEntity_Cell)cell);
+                break;
+                
+                case CellType.Cac_Contact_Cell:
+                storage.SaveCac_Contact_Cell(cellId, (Cac_Contact_Cell)cell);
+                break;
+                
+                case CellType.Cac_Person_Cell:
+                storage.SaveCac_Person_Cell(cellId, (Cac_Person_Cell)cell);
+                break;
+                
+                case CellType.Cac_PaymentMeans_Cell:
+                storage.SaveCac_PaymentMeans_Cell(cellId, (Cac_PaymentMeans_Cell)cell);
+                break;
+                
+                case CellType.Cac_PayeeFinancialAccount_Cell:
+                storage.SaveCac_PayeeFinancialAccount_Cell(cellId, (Cac_PayeeFinancialAccount_Cell)cell);
+                break;
+                
+                case CellType.Cac_Party_Cell:
+                storage.SaveCac_Party_Cell(cellId, (Cac_Party_Cell)cell);
+                break;
+                
+                case CellType.UBL21_Invoice2_Cell:
+                storage.SaveUBL21_Invoice2_Cell(cellId, (UBL21_Invoice2_Cell)cell);
                 break;
                 
             }
@@ -452,8 +980,8 @@ namespace TDW.TRAServer
             switch ((CellType)cellType)
             {
                 
-                case CellType.TRACredentialCell:
-                return TRACredentialCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                case CellType.TRACredential_Cell:
+                return TRACredential_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
                 
                 case CellType.TRATimestampCell:
                 return TRATimestampCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
@@ -463,6 +991,39 @@ namespace TDW.TRAServer
                 
                 case CellType.TRAPostalAddressCell:
                 return TRAPostalAddressCell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.Cac_Item_Cell:
+                return Cac_Item_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.Cac_ExternalReference_Cell:
+                return Cac_ExternalReference_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.Cac_Address_Cell:
+                return Cac_Address_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.Cac_PostalAddress_Cell:
+                return Cac_PostalAddress_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.Cac_PartyLegalEntity_Cell:
+                return Cac_PartyLegalEntity_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.Cac_Contact_Cell:
+                return Cac_Contact_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.Cac_Person_Cell:
+                return Cac_Person_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.Cac_PaymentMeans_Cell:
+                return Cac_PaymentMeans_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.Cac_PayeeFinancialAccount_Cell:
+                return Cac_PayeeFinancialAccount_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.Cac_Party_Cell:
+                return Cac_Party_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
+                
+                case CellType.UBL21_Invoice2_Cell:
+                return UBL21_Invoice2_Cell_Accessor._get()._Setup(cellId, cellBuffer, entryIndex, options);
                 
                 default:
                 throw new CellTypeNotMatchException("Cannot determine cell type.");

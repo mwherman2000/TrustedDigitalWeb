@@ -11,7 +11,7 @@ namespace TDW.TRAServer
 {
     public static class TDWTRACredentialHelpers
     {
-        public static TrinityErrorCode HashAndSignTDWCredential(ref TRACredentialCell credential, TRATrustLevel trustLevel, string keypairsalt)
+        public static TrinityErrorCode HashAndSignTDWCredential(ref TRACredential_Cell credential, TRATrustLevel trustLevel, string keypairsalt)
         {
             string hash64 = "";
             string signature64 = "";

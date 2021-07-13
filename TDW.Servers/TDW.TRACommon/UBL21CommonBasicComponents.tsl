@@ -1,0 +1,64 @@
+// Trusted Digial Web Project
+// Hyperonomy Digital Identity Lab
+// Parallelspace Corporation
+// (c) Copyright 2021 Parallelspace Corporation. All Rights Reserved
+
+// http://docs.oasis-open.org/ubl/os-UBL-2.1/UBL-2.1.html#T-INVOICE
+// http://docs.oasis-open.org/ubl/os-UBL-2.1/xml/UBL-Invoice-2.1-Example.xml
+// https://docs.oasis-open.org/ubl/os-UBL-2.3/xml/UBL-Invoice-2.1-Example-Trivial.xml
+
+// Context:
+// <Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"
+//	xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+//	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">
+// UBLVersionID: 2.1
+
+include "../TDW.TRACommon/ISO639-1LanguageCodes.tsl";
+
+//////////////////////////////////////////////////////////////////////////////
+/// UBL 2.1 Common Basic Components
+
+struct Cbc_Amount
+{
+	string _CurrencyID;
+	double amount;
+}
+
+struct Cbc_ListCode
+{
+	string _listID;
+	string _listAgencyID;
+	string code;
+}
+
+struct Cbc_Note
+{
+	ISO639_1_LanguageCodes _languageID;	
+	string note;
+}
+
+struct Cbc_OrderReference
+{
+	string cbc_ID;	
+}
+
+struct Cbc_Quantity
+{
+	string _unitCode;
+	long quantity;
+}
+
+struct Cbc_SchemeCode
+{
+	string _schemeID;
+	optional string _schemeAgencyID;
+	string code;
+}
+
+
+struct Cbc_TimePeriod
+{
+	DateTime cbc_StartDate;
+	DateTime cbc_EndDate;
+}
+
