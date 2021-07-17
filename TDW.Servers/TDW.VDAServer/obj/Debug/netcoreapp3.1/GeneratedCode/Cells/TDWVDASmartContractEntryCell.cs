@@ -287,7 +287,7 @@ namespace TDW.VDAServer
                 
                 break;
                 
-                case 15:
+                case 14:
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.SmartContractEntryEnvelope, attributeKey, attributeValue))
                     
@@ -295,7 +295,7 @@ namespace TDW.VDAServer
                 
                 break;
                 
-                case 19:
+                case 18:
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
@@ -345,7 +345,7 @@ namespace TDW.VDAServer
                     }
                     break;
                 
-                case 15:
+                case 14:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryEnvelope(this.SmartContractEntryEnvelope);
@@ -391,7 +391,7 @@ namespace TDW.VDAServer
                     }
                     break;
                 
-                case 19:
+                case 18:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
@@ -597,12 +597,19 @@ namespace TDW.VDAServer
 
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_4 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_4 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                if ((0 != (*(optheader_4 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 {            byte* optheader_4 = targetPtr;
             targetPtr += 1;
@@ -657,12 +664,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_4 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_4 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                if ((0 != (*(optheader_4 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 {            byte* optheader_4 = targetPtr;
             targetPtr += 1;
@@ -722,6 +736,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
 
             {
+            targetPtr += 1;
 
         if(SmartContractEntryEnvelope.content.Value.udid!= null)
         {
@@ -753,21 +768,23 @@ targetPtr += *(int*)targetPtr + sizeof(int);
     }
 
 }
+            if( SmartContractEntryEnvelope.content.Value.claims!= null)
+            {
 
             {
 
-        if(SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -776,19 +793,42 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             }
             }
-            }
-            if( SmartContractEntryEnvelope.encryptedcontent!= null)
+            if( SmartContractEntryEnvelope.content.Value.encryptedclaims!= null)
             {
 
-        if(SmartContractEntryEnvelope.encryptedcontent!= null)
+            {
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16!= null)
         {
-            int strlen_3 = SmartContractEntryEnvelope.encryptedcontent.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+
+            }
             }
 
             {
@@ -919,6 +959,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
 
             {
+            byte* optheader_3 = targetPtr;
+            *(optheader_3 + 0) = 0x00;            targetPtr += 1;
 
         if(SmartContractEntryEnvelope.content.Value.udid!= null)
         {
@@ -966,15 +1008,17 @@ byte *storedPtr_4 = targetPtr;
 *(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
+            if( SmartContractEntryEnvelope.content.Value.claims!= null)
+            {
 
             {
 
-        if(SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress)
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -985,12 +1029,12 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid)
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -1001,28 +1045,65 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
+            }*(optheader_3 + 0) |= 0x01;
             }
+            if( SmartContractEntryEnvelope.content.Value.encryptedclaims!= null)
+            {
+
+            {
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }*(optheader_3 + 0) |= 0x02;
+            }
+
             }*(optheader_2 + 0) |= 0x01;
-            }
-            if( SmartContractEntryEnvelope.encryptedcontent!= null)
-            {
-
-        if(SmartContractEntryEnvelope.encryptedcontent!= null)
-        {
-            int strlen_3 = SmartContractEntryEnvelope.encryptedcontent.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = SmartContractEntryEnvelope.encryptedcontent)
-            {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_2 + 0) |= 0x02;
             }
 
             {
@@ -1270,12 +1351,19 @@ byte *storedPtr_3 = targetPtr;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_5 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_5 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_5 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 {            byte* optheader_5 = targetPtr;
             targetPtr += 1;
@@ -1307,12 +1395,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_5 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_5 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_5 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 {            byte* optheader_5 = targetPtr;
             targetPtr += 1;
@@ -1384,6 +1479,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
 
             {
+            targetPtr += 1;
 
         if(field.SmartContractEntryEnvelope.content.Value.udid!= null)
         {
@@ -1415,21 +1511,23 @@ targetPtr += *(int*)targetPtr + sizeof(int);
     }
 
 }
+            if( field.SmartContractEntryEnvelope.content.Value.claims!= null)
+            {
 
             {
 
-        if(field.SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress!= null)
+        if(field.SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid!= null)
+        if(field.SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -1438,19 +1536,42 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             }
             }
-            }
-            if( field.SmartContractEntryEnvelope.encryptedcontent!= null)
+            if( field.SmartContractEntryEnvelope.content.Value.encryptedclaims!= null)
             {
 
-        if(field.SmartContractEntryEnvelope.encryptedcontent!= null)
+            {
+
+        if(field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16!= null)
         {
-            int strlen_3 = field.SmartContractEntryEnvelope.encryptedcontent.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
+            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+        if(field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+
+            }
             }
 
             {
@@ -1580,6 +1701,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
 
             {
+            byte* optheader_3 = targetPtr;
+            *(optheader_3 + 0) = 0x00;            targetPtr += 1;
 
         if(field.SmartContractEntryEnvelope.content.Value.udid!= null)
         {
@@ -1627,15 +1750,17 @@ byte *storedPtr_4 = targetPtr;
 *(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
+            if( field.SmartContractEntryEnvelope.content.Value.claims!= null)
+            {
 
             {
 
-        if(field.SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress!= null)
+        if(field.SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress)
+            fixed(char* pstr_5 = field.SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -1646,12 +1771,12 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid!= null)
+        if(field.SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid)
+            fixed(char* pstr_5 = field.SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -1662,28 +1787,65 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
+            }*(optheader_3 + 0) |= 0x01;
             }
+            if( field.SmartContractEntryEnvelope.content.Value.encryptedclaims!= null)
+            {
+
+            {
+
+        if(field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_5 = field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = field.SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }*(optheader_3 + 0) |= 0x02;
+            }
+
             }*(optheader_2 + 0) |= 0x01;
-            }
-            if( field.SmartContractEntryEnvelope.encryptedcontent!= null)
-            {
-
-        if(field.SmartContractEntryEnvelope.encryptedcontent!= null)
-        {
-            int strlen_3 = field.SmartContractEntryEnvelope.encryptedcontent.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.SmartContractEntryEnvelope.encryptedcontent)
-            {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_2 + 0) |= 0x02;
             }
 
             {
@@ -1877,12 +2039,19 @@ byte *storedPtr_3 = targetPtr;
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_5 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_5 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_5 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 {            byte* optheader_5 = targetPtr;
             targetPtr += 1;
@@ -1927,12 +2096,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_5 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_5 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_5 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 {            byte* optheader_5 = targetPtr;
             targetPtr += 1;
@@ -2405,7 +2581,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 break;
                 
-                case 15:
+                case 14:
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.SmartContractEntryEnvelope, attributeKey, attributeValue))
                     
@@ -2413,7 +2589,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 break;
                 
-                case 19:
+                case 18:
                 
                 if (StorageSchema.TDWVDASmartContractEntryCell_descriptor.check_attribute(StorageSchema.TDWVDASmartContractEntryCell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
@@ -2463,7 +2639,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 15:
+                case 14:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryEnvelope(this.SmartContractEntryEnvelope);
@@ -2509,7 +2685,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 19:
+                case 18:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
@@ -2663,6 +2839,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
 
             {
+            targetPtr += 1;
 
         if(SmartContractEntryEnvelope.content.Value.udid!= null)
         {
@@ -2694,21 +2871,23 @@ targetPtr += *(int*)targetPtr + sizeof(int);
     }
 
 }
+            if( SmartContractEntryEnvelope.content.Value.claims!= null)
+            {
 
             {
 
-        if(SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -2717,19 +2896,42 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             }
             }
-            }
-            if( SmartContractEntryEnvelope.encryptedcontent!= null)
+            if( SmartContractEntryEnvelope.content.Value.encryptedclaims!= null)
             {
 
-        if(SmartContractEntryEnvelope.encryptedcontent!= null)
+            {
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16!= null)
         {
-            int strlen_3 = SmartContractEntryEnvelope.encryptedcontent.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+
+            }
             }
 
             {
@@ -2860,6 +3062,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
 
             {
+            byte* optheader_3 = targetPtr;
+            *(optheader_3 + 0) = 0x00;            targetPtr += 1;
 
         if(SmartContractEntryEnvelope.content.Value.udid!= null)
         {
@@ -2907,15 +3111,17 @@ byte *storedPtr_4 = targetPtr;
 *(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
+            if( SmartContractEntryEnvelope.content.Value.claims!= null)
+            {
 
             {
 
-        if(SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress)
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2926,12 +3132,12 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid)
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2942,28 +3148,65 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
+            }*(optheader_3 + 0) |= 0x01;
             }
+            if( SmartContractEntryEnvelope.content.Value.encryptedclaims!= null)
+            {
+
+            {
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }*(optheader_3 + 0) |= 0x02;
+            }
+
             }*(optheader_2 + 0) |= 0x01;
-            }
-            if( SmartContractEntryEnvelope.encryptedcontent!= null)
-            {
-
-        if(SmartContractEntryEnvelope.encryptedcontent!= null)
-        {
-            int strlen_3 = SmartContractEntryEnvelope.encryptedcontent.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = SmartContractEntryEnvelope.encryptedcontent)
-            {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_2 + 0) |= 0x02;
             }
 
             {
@@ -3239,6 +3482,7 @@ byte *storedPtr_3 = targetPtr;
             {
 
             {
+            targetPtr += 1;
 
         if(SmartContractEntryEnvelope.content.Value.udid!= null)
         {
@@ -3270,21 +3514,23 @@ byte *storedPtr_3 = targetPtr;
     }
 
 }
+            if( SmartContractEntryEnvelope.content.Value.claims!= null)
+            {
 
             {
 
-        if(SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -3293,19 +3539,42 @@ byte *storedPtr_3 = targetPtr;
 
             }
             }
-            }
-            if( SmartContractEntryEnvelope.encryptedcontent!= null)
+            if( SmartContractEntryEnvelope.content.Value.encryptedclaims!= null)
             {
 
-        if(SmartContractEntryEnvelope.encryptedcontent!= null)
+            {
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16!= null)
         {
-            int strlen_3 = SmartContractEntryEnvelope.encryptedcontent.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+
+            }
             }
 
             {
@@ -3436,6 +3705,8 @@ byte *storedPtr_3 = targetPtr;
             {
 
             {
+            byte* optheader_3 = targetPtr;
+            *(optheader_3 + 0) = 0x00;            targetPtr += 1;
 
         if(SmartContractEntryEnvelope.content.Value.udid!= null)
         {
@@ -3483,15 +3754,17 @@ byte *storedPtr_4 = targetPtr;
 *(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
+            if( SmartContractEntryEnvelope.content.Value.claims!= null)
+            {
 
             {
 
-        if(SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress)
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -3502,12 +3775,12 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid)
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -3518,28 +3791,65 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
+            }*(optheader_3 + 0) |= 0x01;
             }
+            if( SmartContractEntryEnvelope.content.Value.encryptedclaims!= null)
+            {
+
+            {
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }*(optheader_3 + 0) |= 0x02;
+            }
+
             }*(optheader_2 + 0) |= 0x01;
-            }
-            if( SmartContractEntryEnvelope.encryptedcontent!= null)
-            {
-
-        if(SmartContractEntryEnvelope.encryptedcontent!= null)
-        {
-            int strlen_3 = SmartContractEntryEnvelope.encryptedcontent.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = SmartContractEntryEnvelope.encryptedcontent)
-            {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_2 + 0) |= 0x02;
             }
 
             {
@@ -3809,6 +4119,7 @@ byte *storedPtr_3 = targetPtr;
             {
 
             {
+            targetPtr += 1;
 
         if(SmartContractEntryEnvelope.content.Value.udid!= null)
         {
@@ -3840,21 +4151,23 @@ byte *storedPtr_3 = targetPtr;
     }
 
 }
+            if( SmartContractEntryEnvelope.content.Value.claims!= null)
+            {
 
             {
 
-        if(SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -3863,19 +4176,42 @@ byte *storedPtr_3 = targetPtr;
 
             }
             }
-            }
-            if( SmartContractEntryEnvelope.encryptedcontent!= null)
+            if( SmartContractEntryEnvelope.content.Value.encryptedclaims!= null)
             {
 
-        if(SmartContractEntryEnvelope.encryptedcontent!= null)
+            {
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16!= null)
         {
-            int strlen_3 = SmartContractEntryEnvelope.encryptedcontent.Length * 2;
-            targetPtr += strlen_3+sizeof(int);
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key.Length * 2;
+            targetPtr += strlen_5+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+
+            }
             }
 
             {
@@ -4006,6 +4342,8 @@ byte *storedPtr_3 = targetPtr;
             {
 
             {
+            byte* optheader_3 = targetPtr;
+            *(optheader_3 + 0) = 0x00;            targetPtr += 1;
 
         if(SmartContractEntryEnvelope.content.Value.udid!= null)
         {
@@ -4053,15 +4391,17 @@ byte *storedPtr_4 = targetPtr;
 *(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
+            if( SmartContractEntryEnvelope.content.Value.claims!= null)
+            {
 
             {
 
-        if(SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.smartcontractledgeraddress)
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.Value.smartcontractledgeraddress)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -4072,12 +4412,12 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid!= null)
+        if(SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.vdaserviceendpointudid)
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.claims.Value.vdaserviceendpointudid)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -4088,28 +4428,65 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
+            }*(optheader_3 + 0) |= 0x01;
             }
+            if( SmartContractEntryEnvelope.content.Value.encryptedclaims!= null)
+            {
+
+            {
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.ciphertext16)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.alg)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key.Length * 2;
+            *(int*)targetPtr = strlen_5;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_5 = SmartContractEntryEnvelope.content.Value.encryptedclaims.Value.key)
+            {
+                Memory.Copy(pstr_5, targetPtr, strlen_5);
+                targetPtr += strlen_5;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }*(optheader_3 + 0) |= 0x02;
+            }
+
             }*(optheader_2 + 0) |= 0x01;
-            }
-            if( SmartContractEntryEnvelope.encryptedcontent!= null)
-            {
-
-        if(SmartContractEntryEnvelope.encryptedcontent!= null)
-        {
-            int strlen_3 = SmartContractEntryEnvelope.encryptedcontent.Length * 2;
-            *(int*)targetPtr = strlen_3;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_3 = SmartContractEntryEnvelope.encryptedcontent)
-            {
-                Memory.Copy(pstr_3, targetPtr, strlen_3);
-                targetPtr += strlen_3;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_2 + 0) |= 0x02;
             }
 
             {

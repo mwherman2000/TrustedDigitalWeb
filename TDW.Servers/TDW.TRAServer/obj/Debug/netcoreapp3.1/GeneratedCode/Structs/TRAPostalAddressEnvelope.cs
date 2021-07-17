@@ -34,12 +34,10 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of TRAPostalAddressEnvelope with the specified parameters.
         ///</summary>
-        public TRAPostalAddressEnvelope(TRAPostalAddressContent? content = default(TRAPostalAddressContent?),string encryptedcontent = default(string),TRACredential_Label label = default(TRACredential_Label))
+        public TRAPostalAddressEnvelope(TRAPostalAddressContent? content = default(TRAPostalAddressContent?),TRACredential_Label label = default(TRACredential_Label))
         {
             
             this.content = content;
-            
-            this.encryptedcontent = encryptedcontent;
             
             this.label = label;
             
@@ -60,8 +58,6 @@ namespace TDW.TRAServer
                 
                 (a.content == b.content)
                 &&
-                (a.encryptedcontent == b.encryptedcontent)
-                &&
                 (a.label == b.label)
                 
                 ;
@@ -73,8 +69,6 @@ namespace TDW.TRAServer
         }
         
         public TRAPostalAddressContent? content;
-        
-        public string encryptedcontent;
         
         public TRACredential_Label label;
         
@@ -137,12 +131,6 @@ namespace TDW.TRAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        encryptedcontent_Accessor_Field = new StringAccessor(null,
-                (ptr,ptr_offset,delta)=>
-                {
-                    int substructure_offset = (int)(ptr - this.m_ptr);
-                    this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
-                    return this.m_ptr + substructure_offset;
                 });        label_Accessor_Field = new TRACredential_Label_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
@@ -163,8 +151,6 @@ namespace TDW.TRAServer
                 {
                     
                     "content"
-                    ,
-                    "encryptedcontent"
                     ,
                 };
             return optional_field_names;
@@ -204,12 +190,19 @@ namespace TDW.TRAServer
 
                 if ((0 != (*(optheader_0 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_2 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_2 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_0 + 0) & 0x02)))
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 {            byte* optheader_2 = targetPtr;
             targetPtr += 1;
@@ -243,12 +236,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_0 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_2 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_2 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_0 + 0) & 0x02)))
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 {            byte* optheader_2 = targetPtr;
             targetPtr += 1;
@@ -313,7 +313,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
 }
             byte* startPtr = targetPtr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+            {            byte* optheader_2 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_2 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
             this.ResizeFunction(startPtr, 0, (int)(startPtr - targetPtr));
         }
         
@@ -415,150 +427,6 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
             }
         }
-        StringAccessor encryptedcontent_Accessor_Field;
-        
-        ///<summary>
-        ///Represents the presence of the optional field encryptedcontent.
-        ///</summary>
-        public bool Contains_encryptedcontent
-        {
-            get
-            {
-                unchecked
-                {
-                    return (0 != (*(this.m_ptr + 0) & 0x02)) ;
-                }
-            }
-            internal set
-            {
-                unchecked
-                {
-                    if (value)
-                    {
-                        *(this.m_ptr + 0) |= 0x02;
-                    }
-                    else
-                    {
-                        *(this.m_ptr + 0) &= 0xFD;
-                    }
-                }
-            }
-        }
-        ///<summary>
-        ///Removes the optional field encryptedcontent from the object being operated.
-        ///</summary>
-        public unsafe void Remove_encryptedcontent()
-        {
-            if (!this.Contains_encryptedcontent)
-            {
-                throw new Exception("Optional field encryptedcontent doesn't exist for current cell.");
-            }
-            this.Contains_encryptedcontent = false;
-            byte* targetPtr = m_ptr;
-            {            byte* optheader_1 = targetPtr;
-            targetPtr += 1;
-
-                if ((0 != (*(optheader_1 + 0) & 0x01)))
-                {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
-                }
-}
-            byte* startPtr = targetPtr;
-            targetPtr += *(int*)targetPtr + sizeof(int);
-            this.ResizeFunction(startPtr, 0, (int)(startPtr - targetPtr));
-        }
-        
-        ///<summary>
-        ///Provides in-place access to the object field encryptedcontent.
-        ///</summary>
-        public unsafe StringAccessor encryptedcontent
-        {
-            get
-            {
-                
-                if (!this.Contains_encryptedcontent)
-                {
-                    throw new Exception("Optional field encryptedcontent doesn't exist for current cell.");
-                }
-                
-                byte* targetPtr = m_ptr;
-                {            byte* optheader_1 = targetPtr;
-            targetPtr += 1;
-
-                if ((0 != (*(optheader_1 + 0) & 0x01)))
-                {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
-                }
-}encryptedcontent_Accessor_Field.m_ptr = targetPtr + 4;
-                encryptedcontent_Accessor_Field.m_cellId = this.m_cellId;
-                return encryptedcontent_Accessor_Field;
-                
-            }
-            set
-            {
-                
-                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                encryptedcontent_Accessor_Field.m_cellId = this.m_cellId;
-                
-                byte* targetPtr = m_ptr;
-                {            byte* optheader_1 = targetPtr;
-            targetPtr += 1;
-
-                if ((0 != (*(optheader_1 + 0) & 0x01)))
-                {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
-                }
-}
-                bool creatingOptionalField = (!this.Contains_encryptedcontent);
-                if (creatingOptionalField)
-                {
-                    this.Contains_encryptedcontent = true;
-                    
-                int length = *(int*)(value.m_ptr - 4);
-                if (value.m_cellId != encryptedcontent_Accessor_Field.m_cellId)
-                {
-                    //if not in the same Cell
-                    encryptedcontent_Accessor_Field.m_ptr = encryptedcontent_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                    Memory.Copy(value.m_ptr - 4, encryptedcontent_Accessor_Field.m_ptr, length + 4);
-                }
-                else
-                {
-                    byte[] tmpcell = new byte[length + 4];
-                    fixed (byte* tmpcellptr = tmpcell)
-                    {                        
-                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        encryptedcontent_Accessor_Field.m_ptr = encryptedcontent_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
-                        Memory.Copy(tmpcellptr, encryptedcontent_Accessor_Field.m_ptr, length + 4);
-                    }
-                }
-
-                }
-                else
-                {
-                    
-                int length = *(int*)(value.m_ptr - 4);
-                int oldlength = *(int*)targetPtr;
-                if (value.m_cellId != encryptedcontent_Accessor_Field.m_cellId)
-                {
-                    //if not in the same Cell
-                    encryptedcontent_Accessor_Field.m_ptr = encryptedcontent_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                    Memory.Copy(value.m_ptr - 4, encryptedcontent_Accessor_Field.m_ptr, length + 4);
-                }
-                else
-                {
-                    byte[] tmpcell = new byte[length + 4];
-                    fixed (byte* tmpcellptr = tmpcell)
-                    {                        
-                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
-                        encryptedcontent_Accessor_Field.m_ptr = encryptedcontent_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
-                        Memory.Copy(tmpcellptr, encryptedcontent_Accessor_Field.m_ptr, length + 4);
-                    }
-                }
-
-                }
-                
-            }
-        }
         TRACredential_Label_Accessor label_Accessor_Field;
         
         ///<summary>
@@ -575,12 +443,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_3 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_3 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_1 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 }label_Accessor_Field.m_ptr = targetPtr;
                 label_Accessor_Field.m_cellId = this.m_cellId;
@@ -599,12 +474,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_3 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_3 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_1 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 }
                 int offset = (int)(targetPtr - m_ptr);
@@ -646,18 +528,10 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 _content = (TRAPostalAddressContent)accessor.content;
                 
             }
-            string _encryptedcontent = default(string);
-            if (accessor.Contains_encryptedcontent)
-            {
-                
-                _encryptedcontent = accessor.encryptedcontent;
-                
-            }
             
             return new TRAPostalAddressEnvelope(
                 
                         _content ,
-                        _encryptedcontent ,
                         accessor.label
                 );
         }
@@ -672,6 +546,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
 
             {
+            targetPtr += 1;
 
         if(field.content.Value.udid!= null)
         {
@@ -703,57 +578,59 @@ targetPtr += *(int*)targetPtr + sizeof(int);
     }
 
 }
+            if( field.content.Value.claims!= null)
+            {
 
             {
 
-        if(field.content.Value.claims.streetAddress!= null)
+        if(field.content.Value.claims.Value.streetAddress!= null)
         {
-            int strlen_4 = field.content.Value.claims.streetAddress.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.streetAddress.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.content.Value.claims.postOfficeBoxNumber!= null)
+        if(field.content.Value.claims.Value.postOfficeBoxNumber!= null)
         {
-            int strlen_4 = field.content.Value.claims.postOfficeBoxNumber.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.postOfficeBoxNumber.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.content.Value.claims.addressLocality!= null)
+        if(field.content.Value.claims.Value.addressLocality!= null)
         {
-            int strlen_4 = field.content.Value.claims.addressLocality.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.addressLocality.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.content.Value.claims.addressRegion!= null)
+        if(field.content.Value.claims.Value.addressRegion!= null)
         {
-            int strlen_4 = field.content.Value.claims.addressRegion.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.addressRegion.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.content.Value.claims.addressCountry!= null)
+        if(field.content.Value.claims.Value.addressCountry!= null)
         {
-            int strlen_4 = field.content.Value.claims.addressCountry.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.addressCountry.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.content.Value.claims.postalCode!= null)
+        if(field.content.Value.claims.Value.postalCode!= null)
         {
-            int strlen_4 = field.content.Value.claims.postalCode.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.postalCode.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -762,19 +639,42 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
             }
             }
-            }
-            if( field.encryptedcontent!= null)
+            if( field.content.Value.encryptedclaims!= null)
             {
 
-        if(field.encryptedcontent!= null)
+            {
+
+        if(field.content.Value.encryptedclaims.Value.ciphertext16!= null)
         {
-            int strlen_2 = field.encryptedcontent.Length * 2;
-            targetPtr += strlen_2+sizeof(int);
+            int strlen_4 = field.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
+        if(field.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_4 = field.content.Value.encryptedclaims.Value.alg.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_4 = field.content.Value.encryptedclaims.Value.key.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+
+            }
             }
 
             {
@@ -832,6 +732,8 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             {
 
             {
+            byte* optheader_2 = targetPtr;
+            *(optheader_2 + 0) = 0x00;            targetPtr += 1;
 
         if(field.content.Value.udid!= null)
         {
@@ -879,15 +781,17 @@ byte *storedPtr_3 = targetPtr;
 *(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
 
 }
+            if( field.content.Value.claims!= null)
+            {
 
             {
 
-        if(field.content.Value.claims.streetAddress!= null)
+        if(field.content.Value.claims.Value.streetAddress!= null)
         {
-            int strlen_4 = field.content.Value.claims.streetAddress.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.streetAddress.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.content.Value.claims.streetAddress)
+            fixed(char* pstr_4 = field.content.Value.claims.Value.streetAddress)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -898,12 +802,12 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.content.Value.claims.postOfficeBoxNumber!= null)
+        if(field.content.Value.claims.Value.postOfficeBoxNumber!= null)
         {
-            int strlen_4 = field.content.Value.claims.postOfficeBoxNumber.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.postOfficeBoxNumber.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.content.Value.claims.postOfficeBoxNumber)
+            fixed(char* pstr_4 = field.content.Value.claims.Value.postOfficeBoxNumber)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -914,12 +818,12 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.content.Value.claims.addressLocality!= null)
+        if(field.content.Value.claims.Value.addressLocality!= null)
         {
-            int strlen_4 = field.content.Value.claims.addressLocality.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.addressLocality.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.content.Value.claims.addressLocality)
+            fixed(char* pstr_4 = field.content.Value.claims.Value.addressLocality)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -930,12 +834,12 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.content.Value.claims.addressRegion!= null)
+        if(field.content.Value.claims.Value.addressRegion!= null)
         {
-            int strlen_4 = field.content.Value.claims.addressRegion.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.addressRegion.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.content.Value.claims.addressRegion)
+            fixed(char* pstr_4 = field.content.Value.claims.Value.addressRegion)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -946,12 +850,12 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.content.Value.claims.addressCountry!= null)
+        if(field.content.Value.claims.Value.addressCountry!= null)
         {
-            int strlen_4 = field.content.Value.claims.addressCountry.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.addressCountry.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.content.Value.claims.addressCountry)
+            fixed(char* pstr_4 = field.content.Value.claims.Value.addressCountry)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -962,12 +866,12 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.content.Value.claims.postalCode!= null)
+        if(field.content.Value.claims.Value.postalCode!= null)
         {
-            int strlen_4 = field.content.Value.claims.postalCode.Length * 2;
+            int strlen_4 = field.content.Value.claims.Value.postalCode.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.content.Value.claims.postalCode)
+            fixed(char* pstr_4 = field.content.Value.claims.Value.postalCode)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -978,28 +882,65 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
+            }*(optheader_2 + 0) |= 0x01;
             }
+            if( field.content.Value.encryptedclaims!= null)
+            {
+
+            {
+
+        if(field.content.Value.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_4 = field.content.Value.encryptedclaims.Value.ciphertext16.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = field.content.Value.encryptedclaims.Value.ciphertext16)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.content.Value.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_4 = field.content.Value.encryptedclaims.Value.alg.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = field.content.Value.encryptedclaims.Value.alg)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.content.Value.encryptedclaims.Value.key!= null)
+        {
+            int strlen_4 = field.content.Value.encryptedclaims.Value.key.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = field.content.Value.encryptedclaims.Value.key)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }*(optheader_2 + 0) |= 0x02;
+            }
+
             }*(optheader_1 + 0) |= 0x01;
-            }
-            if( field.encryptedcontent!= null)
-            {
-
-        if(field.encryptedcontent!= null)
-        {
-            int strlen_2 = field.encryptedcontent.Length * 2;
-            *(int*)targetPtr = strlen_2;
-            targetPtr += sizeof(int);
-            fixed(char* pstr_2 = field.encryptedcontent)
-            {
-                Memory.Copy(pstr_2, targetPtr, strlen_2);
-                targetPtr += strlen_2;
-            }
-        }else
-        {
-            *(int*)targetPtr = 0;
-            targetPtr += sizeof(int);
-        }
-*(optheader_1 + 0) |= 0x02;
             }
 
             {
@@ -1091,12 +1032,19 @@ byte *storedPtr_3 = targetPtr;
 
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_3 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_3 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_1 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 {            byte* optheader_3 = targetPtr;
             targetPtr += 1;
@@ -1119,12 +1067,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+{            byte* optheader_3 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_3 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_1 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
                 {
-targetPtr += *(int*)targetPtr + sizeof(int);
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
                 }
 {            byte* optheader_3 = targetPtr;
             targetPtr += 1;

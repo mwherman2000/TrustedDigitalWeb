@@ -666,11 +666,11 @@ namespace TDW.VDAServer
             get
             {
                 
-                yield return "{{optional {string|List<string>|List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>}|optional string|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{optional {string|List<string>|{string|string|string|string}}|optional string|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{optional {string|List<string>|optional {string|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{optional {string|List<string>|{string|string}}|optional string|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{optional {string|List<string>|optional {string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
                 yield break;
             }

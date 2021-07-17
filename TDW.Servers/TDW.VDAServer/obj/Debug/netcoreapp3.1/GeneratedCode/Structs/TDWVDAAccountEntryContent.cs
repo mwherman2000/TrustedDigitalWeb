@@ -34,7 +34,7 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWVDAAccountEntryContent with the specified parameters.
         ///</summary>
-        public TDWVDAAccountEntryContent(string udid = default(string),List<string> context = default(List<string>),TDWVDAAccountEntryClaims claims = default(TDWVDAAccountEntryClaims))
+        public TDWVDAAccountEntryContent(string udid = default(string),List<string> context = default(List<string>),TDWVDAAccountEntryClaims? claims = default(TDWVDAAccountEntryClaims?),TRAEncryptedClaims? encryptedclaims = default(TRAEncryptedClaims?))
         {
             
             this.udid = udid;
@@ -42,6 +42,8 @@ namespace TDW.VDAServer
             this.context = context;
             
             this.claims = claims;
+            
+            this.encryptedclaims = encryptedclaims;
             
         }
         
@@ -63,6 +65,8 @@ namespace TDW.VDAServer
                 (a.context == b.context)
                 &&
                 (a.claims == b.claims)
+                &&
+                (a.encryptedclaims == b.encryptedclaims)
                 
                 ;
             
@@ -76,7 +80,9 @@ namespace TDW.VDAServer
         
         public List<string> context;
         
-        public TDWVDAAccountEntryClaims claims;
+        public TDWVDAAccountEntryClaims? claims;
+        
+        public TRAEncryptedClaims? encryptedclaims;
         
         /// <summary>
         /// Converts the string representation of a TDWVDAAccountEntryContent to its
@@ -149,6 +155,12 @@ namespace TDW.VDAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
+                });        encryptedclaims_Accessor_Field = new TRAEncryptedClaims_Accessor(null,
+                (ptr,ptr_offset,delta)=>
+                {
+                    int substructure_offset = (int)(ptr - this.m_ptr);
+                    this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
+                    return this.m_ptr + substructure_offset;
                 });
         }
         
@@ -161,6 +173,10 @@ namespace TDW.VDAServer
             if (optional_field_names == null)
                 optional_field_names = new string[]
                 {
+                    
+                    "claims"
+                    ,
+                    "encryptedclaims"
                     
                 };
             return optional_field_names;
@@ -183,7 +199,9 @@ namespace TDW.VDAServer
         internal unsafe byte[] GetOptionalFieldMap()
         {
             
-            return new byte[0];
+            byte [] bytes = new byte[1];
+            Memory.Copy(m_ptr, 0, bytes, 0, 1);
+            return bytes;
             
         }
         
@@ -193,7 +211,19 @@ namespace TDW.VDAServer
         public byte[] ToByteArray()
         {
             byte* targetPtr = m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+            {            byte* optheader_0 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_0 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_0 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
             int size = (int)(targetPtr - m_ptr);
             byte[] ret = new byte[size];
             Memory.Copy(m_ptr, 0, ret, 0, size);
@@ -207,7 +237,19 @@ namespace TDW.VDAServer
         public unsafe int GetBufferLength()
         {
             byte* targetPtr = m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+            {            byte* optheader_0 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_0 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_0 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
             int size = (int)(targetPtr - m_ptr);
             return size;
         }
@@ -224,7 +266,9 @@ namespace TDW.VDAServer
             {
                 
                 byte* targetPtr = m_ptr;
-                {}udid_Accessor_Field.m_ptr = targetPtr + 4;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+}udid_Accessor_Field.m_ptr = targetPtr + 4;
                 udid_Accessor_Field.m_cellId = this.m_cellId;
                 return udid_Accessor_Field;
                 
@@ -236,7 +280,9 @@ namespace TDW.VDAServer
                 udid_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {}
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
                 if (value.m_cellId != udid_Accessor_Field.m_cellId)
@@ -269,7 +315,9 @@ namespace TDW.VDAServer
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);}context_Accessor_Field.m_ptr = targetPtr + 4;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}context_Accessor_Field.m_ptr = targetPtr + 4;
                 context_Accessor_Field.m_cellId = this.m_cellId;
                 return context_Accessor_Field;
                 
@@ -281,7 +329,9 @@ namespace TDW.VDAServer
                 context_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);}
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
                 if (value.m_cellId != context_Accessor_Field.m_cellId)
@@ -306,6 +356,52 @@ namespace TDW.VDAServer
         TDWVDAAccountEntryClaims_Accessor claims_Accessor_Field;
         
         ///<summary>
+        ///Represents the presence of the optional field claims.
+        ///</summary>
+        public bool Contains_claims
+        {
+            get
+            {
+                unchecked
+                {
+                    return (0 != (*(this.m_ptr + 0) & 0x01)) ;
+                }
+            }
+            internal set
+            {
+                unchecked
+                {
+                    if (value)
+                    {
+                        *(this.m_ptr + 0) |= 0x01;
+                    }
+                    else
+                    {
+                        *(this.m_ptr + 0) &= 0xFE;
+                    }
+                }
+            }
+        }
+        ///<summary>
+        ///Removes the optional field claims from the object being operated.
+        ///</summary>
+        public unsafe void Remove_claims()
+        {
+            if (!this.Contains_claims)
+            {
+                throw new Exception("Optional field claims doesn't exist for current cell.");
+            }
+            this.Contains_claims = false;
+            byte* targetPtr = m_ptr;
+            {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+            byte* startPtr = targetPtr;
+            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+            this.ResizeFunction(startPtr, 0, (int)(startPtr - targetPtr));
+        }
+        
+        ///<summary>
         ///Provides in-place access to the object field claims.
         ///</summary>
         public unsafe TDWVDAAccountEntryClaims_Accessor claims
@@ -313,8 +409,15 @@ namespace TDW.VDAServer
             get
             {
                 
+                if (!this.Contains_claims)
+                {
+                    throw new Exception("Optional field claims doesn't exist for current cell.");
+                }
+                
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}claims_Accessor_Field.m_ptr = targetPtr;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}claims_Accessor_Field.m_ptr = targetPtr;
                 claims_Accessor_Field.m_cellId = this.m_cellId;
                 return claims_Accessor_Field;
                 
@@ -326,7 +429,45 @@ namespace TDW.VDAServer
                 claims_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                bool creatingOptionalField = (!this.Contains_claims);
+                if (creatingOptionalField)
+                {
+                    this.Contains_claims = true;
+                    
+                int offset = (int)(targetPtr - m_ptr);
+                byte* oldtargetPtr = targetPtr;
+                int oldlength = 0;
+                targetPtr = value.m_ptr;
+                int newlength = (int)(targetPtr - value.m_ptr);
+                if (newlength != oldlength)
+                {
+                    if (value.m_cellId != this.m_cellId)
+                    {
+                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
+                    }
+                    else
+                    {
+                        byte[] tmpcell = new byte[newlength];
+                        fixed(byte* tmpcellptr = tmpcell)
+                        {
+                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
+                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
+                        }
+                    }
+                }
+                else
+                {
+                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
+                }
+                }
+                else
+                {
+                    
                 int offset = (int)(targetPtr - m_ptr);
                 byte* oldtargetPtr = targetPtr;
                 int oldlength = (int)(targetPtr - oldtargetPtr);
@@ -354,17 +495,195 @@ namespace TDW.VDAServer
                 {
                     Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
                 }
+                }
+                
+            }
+        }
+        TRAEncryptedClaims_Accessor encryptedclaims_Accessor_Field;
+        
+        ///<summary>
+        ///Represents the presence of the optional field encryptedclaims.
+        ///</summary>
+        public bool Contains_encryptedclaims
+        {
+            get
+            {
+                unchecked
+                {
+                    return (0 != (*(this.m_ptr + 0) & 0x02)) ;
+                }
+            }
+            internal set
+            {
+                unchecked
+                {
+                    if (value)
+                    {
+                        *(this.m_ptr + 0) |= 0x02;
+                    }
+                    else
+                    {
+                        *(this.m_ptr + 0) &= 0xFD;
+                    }
+                }
+            }
+        }
+        ///<summary>
+        ///Removes the optional field encryptedclaims from the object being operated.
+        ///</summary>
+        public unsafe void Remove_encryptedclaims()
+        {
+            if (!this.Contains_encryptedclaims)
+            {
+                throw new Exception("Optional field encryptedclaims doesn't exist for current cell.");
+            }
+            this.Contains_encryptedclaims = false;
+            byte* targetPtr = m_ptr;
+            {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
+            byte* startPtr = targetPtr;
+            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+            this.ResizeFunction(startPtr, 0, (int)(startPtr - targetPtr));
+        }
+        
+        ///<summary>
+        ///Provides in-place access to the object field encryptedclaims.
+        ///</summary>
+        public unsafe TRAEncryptedClaims_Accessor encryptedclaims
+        {
+            get
+            {
+                
+                if (!this.Contains_encryptedclaims)
+                {
+                    throw new Exception("Optional field encryptedclaims doesn't exist for current cell.");
+                }
+                
+                byte* targetPtr = m_ptr;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}encryptedclaims_Accessor_Field.m_ptr = targetPtr;
+                encryptedclaims_Accessor_Field.m_cellId = this.m_cellId;
+                return encryptedclaims_Accessor_Field;
+                
+            }
+            set
+            {
+                
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                encryptedclaims_Accessor_Field.m_cellId = this.m_cellId;
+                
+                byte* targetPtr = m_ptr;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
+                bool creatingOptionalField = (!this.Contains_encryptedclaims);
+                if (creatingOptionalField)
+                {
+                    this.Contains_encryptedclaims = true;
+                    
+                int offset = (int)(targetPtr - m_ptr);
+                byte* oldtargetPtr = targetPtr;
+                int oldlength = 0;
+                targetPtr = value.m_ptr;
+                int newlength = (int)(targetPtr - value.m_ptr);
+                if (newlength != oldlength)
+                {
+                    if (value.m_cellId != this.m_cellId)
+                    {
+                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
+                    }
+                    else
+                    {
+                        byte[] tmpcell = new byte[newlength];
+                        fixed(byte* tmpcellptr = tmpcell)
+                        {
+                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
+                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
+                        }
+                    }
+                }
+                else
+                {
+                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
+                }
+                }
+                else
+                {
+                    
+                int offset = (int)(targetPtr - m_ptr);
+                byte* oldtargetPtr = targetPtr;
+                int oldlength = (int)(targetPtr - oldtargetPtr);
+                targetPtr = value.m_ptr;
+                int newlength = (int)(targetPtr - value.m_ptr);
+                if (newlength != oldlength)
+                {
+                    if (value.m_cellId != this.m_cellId)
+                    {
+                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
+                    }
+                    else
+                    {
+                        byte[] tmpcell = new byte[newlength];
+                        fixed(byte* tmpcellptr = tmpcell)
+                        {
+                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
+                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
+                        }
+                    }
+                }
+                else
+                {
+                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
+                }
+                }
+                
             }
         }
         
         public static unsafe implicit operator TDWVDAAccountEntryContent(TDWVDAAccountEntryContent_Accessor accessor)
         {
+            TDWVDAAccountEntryClaims? _claims = default(TDWVDAAccountEntryClaims?);
+            if (accessor.Contains_claims)
+            {
+                
+                _claims = (TDWVDAAccountEntryClaims)accessor.claims;
+                
+            }
+            TRAEncryptedClaims? _encryptedclaims = default(TRAEncryptedClaims?);
+            if (accessor.Contains_encryptedclaims)
+            {
+                
+                _encryptedclaims = (TRAEncryptedClaims)accessor.encryptedclaims;
+                
+            }
             
             return new TDWVDAAccountEntryContent(
                 
                         accessor.udid,
                         accessor.context,
-                        accessor.claims
+                        _claims ,
+                        _encryptedclaims 
                 );
         }
         
@@ -373,6 +692,7 @@ namespace TDW.VDAServer
             byte* targetPtr = null;
             
             {
+            targetPtr += 1;
 
         if(field.udid!= null)
         {
@@ -404,39 +724,41 @@ namespace TDW.VDAServer
     }
 
 }
+            if( field.claims!= null)
+            {
 
             {
 
-        if(field.claims.walletname!= null)
+        if(field.claims.Value.walletname!= null)
         {
-            int strlen_3 = field.claims.walletname.Length * 2;
+            int strlen_3 = field.claims.Value.walletname.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.walletpassword!= null)
+        if(field.claims.Value.walletpassword!= null)
         {
-            int strlen_3 = field.claims.walletpassword.Length * 2;
+            int strlen_3 = field.claims.Value.walletpassword.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.walletaccountname!= null)
+        if(field.claims.Value.walletaccountname!= null)
         {
-            int strlen_3 = field.claims.walletaccountname.Length * 2;
+            int strlen_3 = field.claims.Value.walletaccountname.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.ledgeraddress!= null)
+        if(field.claims.Value.ledgeraddress!= null)
         {
-            int strlen_3 = field.claims.ledgeraddress.Length * 2;
+            int strlen_3 = field.claims.Value.ledgeraddress.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -444,12 +766,50 @@ namespace TDW.VDAServer
         }
 
             }
+            }
+            if( field.encryptedclaims!= null)
+            {
+
+            {
+
+        if(field.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.ciphertext16.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.alg.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.encryptedclaims.Value.key!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.key.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+
             }
             byte* tmpcellptr = BufferAllocator.AllocBuffer((int)targetPtr);
             Memory.memset(tmpcellptr, 0, (ulong)targetPtr);
             targetPtr = tmpcellptr;
             
             {
+            byte* optheader_1 = targetPtr;
+            *(optheader_1 + 0) = 0x00;            targetPtr += 1;
 
         if(field.udid!= null)
         {
@@ -497,15 +857,17 @@ byte *storedPtr_2 = targetPtr;
 *(int*)storedPtr_2 = (int)(targetPtr - storedPtr_2 - 4);
 
 }
+            if( field.claims!= null)
+            {
 
             {
 
-        if(field.claims.walletname!= null)
+        if(field.claims.Value.walletname!= null)
         {
-            int strlen_3 = field.claims.walletname.Length * 2;
+            int strlen_3 = field.claims.Value.walletname.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.claims.walletname)
+            fixed(char* pstr_3 = field.claims.Value.walletname)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -516,12 +878,12 @@ byte *storedPtr_2 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.walletpassword!= null)
+        if(field.claims.Value.walletpassword!= null)
         {
-            int strlen_3 = field.claims.walletpassword.Length * 2;
+            int strlen_3 = field.claims.Value.walletpassword.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.claims.walletpassword)
+            fixed(char* pstr_3 = field.claims.Value.walletpassword)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -532,12 +894,12 @@ byte *storedPtr_2 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.walletaccountname!= null)
+        if(field.claims.Value.walletaccountname!= null)
         {
-            int strlen_3 = field.claims.walletaccountname.Length * 2;
+            int strlen_3 = field.claims.Value.walletaccountname.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.claims.walletaccountname)
+            fixed(char* pstr_3 = field.claims.Value.walletaccountname)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -548,12 +910,12 @@ byte *storedPtr_2 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.ledgeraddress!= null)
+        if(field.claims.Value.ledgeraddress!= null)
         {
-            int strlen_3 = field.claims.ledgeraddress.Length * 2;
+            int strlen_3 = field.claims.Value.ledgeraddress.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.claims.ledgeraddress)
+            fixed(char* pstr_3 = field.claims.Value.ledgeraddress)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -564,7 +926,64 @@ byte *storedPtr_2 = targetPtr;
             targetPtr += sizeof(int);
         }
 
+            }*(optheader_1 + 0) |= 0x01;
             }
+            if( field.encryptedclaims!= null)
+            {
+
+            {
+
+        if(field.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.ciphertext16.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.encryptedclaims.Value.ciphertext16)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.alg.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.encryptedclaims.Value.alg)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.encryptedclaims.Value.key!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.key.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.encryptedclaims.Value.key)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }*(optheader_1 + 0) |= 0x02;
+            }
+
             }TDWVDAAccountEntryContent_Accessor ret;
             
             ret = new TDWVDAAccountEntryContent_Accessor(tmpcellptr, null);
@@ -580,10 +999,34 @@ byte *storedPtr_2 = targetPtr;
                 return false;
             if (a.m_ptr == b.m_ptr) return true;
             byte* targetPtr = a.m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+            {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
             int lengthA = (int)(targetPtr - a.m_ptr);
             targetPtr = b.m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}
+            {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
             int lengthB = (int)(targetPtr - b.m_ptr);
             if(lengthA != lengthB) return false;
             return Memory.Compare(a.m_ptr,b.m_ptr,lengthA);

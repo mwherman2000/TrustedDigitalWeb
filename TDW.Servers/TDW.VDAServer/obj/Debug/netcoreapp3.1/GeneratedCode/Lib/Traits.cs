@@ -24,39 +24,39 @@ namespace TDW.VDAServer
             ,
             { typeof(List<string>), 3 }
             ,
-            { typeof(List<TRAClaim>), 4 }
+            { typeof(List<TRAKeyValuePair>), 4 }
             ,
-            { typeof(List<TRAKeyValuePair>), 5 }
+            { typeof(TDWVDAAccountEntryClaims), 5 }
             ,
-            { typeof(TDWVDAAccountEntryClaims), 6 }
+            { typeof(TDWVDAAccountEntryContent), 6 }
             ,
-            { typeof(TDWVDAAccountEntryContent), 7 }
+            { typeof(TDWVDAAccountEntryEnvelope), 7 }
             ,
-            { typeof(TDWVDAAccountEntryEnvelope), 8 }
+            { typeof(TDWVDAIdentityRegistryEntryParm), 8 }
             ,
-            { typeof(TDWVDAIdentityRegistryEntryParm), 9 }
+            { typeof(TDWVDAPostInvocationParameters), 9 }
             ,
-            { typeof(TDWVDAPostInvocationParameters), 10 }
+            { typeof(TDWVDARevocationListEntryParm), 10 }
             ,
-            { typeof(TDWVDARevocationListEntryParm), 11 }
+            { typeof(TDWVDAServiceEndpointEntryParm), 11 }
             ,
-            { typeof(TDWVDAServiceEndpointEntryParm), 12 }
+            { typeof(TDWVDASmartContractEntryClaims), 12 }
             ,
-            { typeof(TDWVDASmartContractEntryClaims), 13 }
+            { typeof(TDWVDASmartContractEntryContent), 13 }
             ,
-            { typeof(TDWVDASmartContractEntryContent), 14 }
+            { typeof(TDWVDASmartContractEntryEnvelope), 14 }
             ,
-            { typeof(TDWVDASmartContractEntryEnvelope), 15 }
+            { typeof(TRAClaim), 15 }
             ,
-            { typeof(TRAClaim), 16 }
+            { typeof(TRACredential_Content), 16 }
             ,
-            { typeof(TRACredential_Content), 17 }
+            { typeof(TRACredential_Envelope), 17 }
             ,
-            { typeof(TRACredential_Envelope), 18 }
+            { typeof(TRACredential_EnvelopeSeal), 18 }
             ,
-            { typeof(TRACredential_EnvelopeSeal), 19 }
+            { typeof(TRACredential_Label), 19 }
             ,
-            { typeof(TRACredential_Label), 20 }
+            { typeof(TRAEncryptedClaims), 20 }
             ,
             { typeof(TRAKeyValuePair), 21 }
             ,
@@ -70,11 +70,17 @@ namespace TDW.VDAServer
             ,
             { typeof(List<List<TRAKeyValuePair>>), 27 }
             ,
-            { typeof(TDWVDAAccountEntryContent?), 29 }
+            { typeof(List<TRAClaim>), 28 }
             ,
-            { typeof(TDWVDASmartContractEntryContent?), 30 }
+            { typeof(TDWVDAAccountEntryClaims?), 30 }
             ,
-            { typeof(TRACredential_Content?), 31 }
+            { typeof(TDWVDAAccountEntryContent?), 31 }
+            ,
+            { typeof(TDWVDASmartContractEntryClaims?), 32 }
+            ,
+            { typeof(TDWVDASmartContractEntryContent?), 33 }
+            ,
+            { typeof(TRAEncryptedClaims?), 34 }
             ,
         };
         #endregion
@@ -139,11 +145,6 @@ namespace TDW.VDAServer
         List<string> ConvertTo_List_string(T value);
         TypeConversionAction GetConversionActionTo_List_string();
         IEnumerable<List<string>> Enumerate_List_string(T value);
-        
-        T ConvertFrom_List_TRAClaim(List<TRAClaim> value);
-        List<TRAClaim> ConvertTo_List_TRAClaim(T value);
-        TypeConversionAction GetConversionActionTo_List_TRAClaim();
-        IEnumerable<List<TRAClaim>> Enumerate_List_TRAClaim(T value);
         
         T ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value);
         List<TRAKeyValuePair> ConvertTo_List_TRAKeyValuePair(T value);
@@ -225,6 +226,11 @@ namespace TDW.VDAServer
         TypeConversionAction GetConversionActionTo_TRACredential_Label();
         IEnumerable<TRACredential_Label> Enumerate_TRACredential_Label(T value);
         
+        T ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value);
+        TRAEncryptedClaims ConvertTo_TRAEncryptedClaims(T value);
+        TypeConversionAction GetConversionActionTo_TRAEncryptedClaims();
+        IEnumerable<TRAEncryptedClaims> Enumerate_TRAEncryptedClaims(T value);
+        
         T ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value);
         TRAKeyValuePair ConvertTo_TRAKeyValuePair(T value);
         TypeConversionAction GetConversionActionTo_TRAKeyValuePair();
@@ -255,20 +261,35 @@ namespace TDW.VDAServer
         TypeConversionAction GetConversionActionTo_List_List_TRAKeyValuePair();
         IEnumerable<List<List<TRAKeyValuePair>>> Enumerate_List_List_TRAKeyValuePair(T value);
         
+        T ConvertFrom_List_TRAClaim(List<TRAClaim> value);
+        List<TRAClaim> ConvertTo_List_TRAClaim(T value);
+        TypeConversionAction GetConversionActionTo_List_TRAClaim();
+        IEnumerable<List<TRAClaim>> Enumerate_List_TRAClaim(T value);
+        
+        T ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value);
+        TDWVDAAccountEntryClaims? ConvertTo_TDWVDAAccountEntryClaims_nullable(T value);
+        TypeConversionAction GetConversionActionTo_TDWVDAAccountEntryClaims_nullable();
+        IEnumerable<TDWVDAAccountEntryClaims?> Enumerate_TDWVDAAccountEntryClaims_nullable(T value);
+        
         T ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value);
         TDWVDAAccountEntryContent? ConvertTo_TDWVDAAccountEntryContent_nullable(T value);
         TypeConversionAction GetConversionActionTo_TDWVDAAccountEntryContent_nullable();
         IEnumerable<TDWVDAAccountEntryContent?> Enumerate_TDWVDAAccountEntryContent_nullable(T value);
+        
+        T ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value);
+        TDWVDASmartContractEntryClaims? ConvertTo_TDWVDASmartContractEntryClaims_nullable(T value);
+        TypeConversionAction GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable();
+        IEnumerable<TDWVDASmartContractEntryClaims?> Enumerate_TDWVDASmartContractEntryClaims_nullable(T value);
         
         T ConvertFrom_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryContent? value);
         TDWVDASmartContractEntryContent? ConvertTo_TDWVDASmartContractEntryContent_nullable(T value);
         TypeConversionAction GetConversionActionTo_TDWVDASmartContractEntryContent_nullable();
         IEnumerable<TDWVDASmartContractEntryContent?> Enumerate_TDWVDASmartContractEntryContent_nullable(T value);
         
-        T ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value);
-        TRACredential_Content? ConvertTo_TRACredential_Content_nullable(T value);
-        TypeConversionAction GetConversionActionTo_TRACredential_Content_nullable();
-        IEnumerable<TRACredential_Content?> Enumerate_TRACredential_Content_nullable(T value);
+        T ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value);
+        TRAEncryptedClaims? ConvertTo_TRAEncryptedClaims_nullable(T value);
+        TypeConversionAction GetConversionActionTo_TRAEncryptedClaims_nullable();
+        IEnumerable<TRAEncryptedClaims?> Enumerate_TRAEncryptedClaims_nullable(T value);
         
     }
     internal class TypeConverter<T> : ITypeConverter<T>
@@ -282,8 +303,6 @@ namespace TDW.VDAServer
             , ITypeConverter<string>
         
             , ITypeConverter<List<string>>
-        
-            , ITypeConverter<List<TRAClaim>>
         
             , ITypeConverter<List<TRAKeyValuePair>>
         
@@ -317,6 +336,8 @@ namespace TDW.VDAServer
         
             , ITypeConverter<TRACredential_Label>
         
+            , ITypeConverter<TRAEncryptedClaims>
+        
             , ITypeConverter<TRAKeyValuePair>
         
             , ITypeConverter<TRACredentialType>
@@ -329,11 +350,17 @@ namespace TDW.VDAServer
         
             , ITypeConverter<List<List<TRAKeyValuePair>>>
         
+            , ITypeConverter<List<TRAClaim>>
+        
+            , ITypeConverter<TDWVDAAccountEntryClaims?>
+        
             , ITypeConverter<TDWVDAAccountEntryContent?>
+        
+            , ITypeConverter<TDWVDASmartContractEntryClaims?>
         
             , ITypeConverter<TDWVDASmartContractEntryContent?>
         
-            , ITypeConverter<TRACredential_Content?>
+            , ITypeConverter<TRAEncryptedClaims?>
         
         {
             bool ITypeConverter<bool>.ConvertFrom_bool(bool value)
@@ -445,30 +472,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<bool>.Enumerate_List_string(bool value)
-            {
-                
-                yield break;
-            }
-            bool ITypeConverter<bool>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'bool'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<bool>.ConvertTo_List_TRAClaim(bool value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_bool(value);
-            }
-            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<bool>.Enumerate_List_TRAClaim(bool value)
             {
                 
                 yield break;
@@ -857,6 +860,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            bool ITypeConverter<bool>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'bool'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<bool>.ConvertTo_TRAEncryptedClaims(bool value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<bool>.Enumerate_TRAEncryptedClaims(bool value)
+            {
+                
+                yield break;
+            }
             bool ITypeConverter<bool>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -1001,6 +1028,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            bool ITypeConverter<bool>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'bool'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<bool>.ConvertTo_List_TRAClaim(bool value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<bool>.Enumerate_List_TRAClaim(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'bool'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<bool>.ConvertTo_TDWVDAAccountEntryClaims_nullable(bool value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<bool>.Enumerate_TDWVDAAccountEntryClaims_nullable(bool value)
+            {
+                
+                yield break;
+            }
             bool ITypeConverter<bool>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -1021,6 +1096,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<bool>.Enumerate_TDWVDAAccountEntryContent_nullable(bool value)
+            {
+                
+                yield break;
+            }
+            bool ITypeConverter<bool>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'bool'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<bool>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(bool value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_bool(value);
+            }
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<bool>.Enumerate_TDWVDASmartContractEntryClaims_nullable(bool value)
             {
                 
                 yield break;
@@ -1049,17 +1148,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            bool ITypeConverter<bool>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            bool ITypeConverter<bool>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'bool'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'bool'.");
                 
             }
-            TRACredential_Content? ITypeConverter<bool>.ConvertTo_TRACredential_Content_nullable(bool value)
+            TRAEncryptedClaims? ITypeConverter<bool>.ConvertTo_TRAEncryptedClaims_nullable(bool value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_bool(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_bool(value);
             }
-            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<bool>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -1068,7 +1167,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<bool>.Enumerate_TRACredential_Content_nullable(bool value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<bool>.Enumerate_TRAEncryptedClaims_nullable(bool value)
             {
                 
                 yield break;
@@ -1182,30 +1281,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<long>.Enumerate_List_string(long value)
-            {
-                
-                yield break;
-            }
-            long ITypeConverter<long>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'long'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<long>.ConvertTo_List_TRAClaim(long value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_long(value);
-            }
-            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<long>.Enumerate_List_TRAClaim(long value)
             {
                 
                 yield break;
@@ -1594,6 +1669,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            long ITypeConverter<long>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'long'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<long>.ConvertTo_TRAEncryptedClaims(long value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<long>.Enumerate_TRAEncryptedClaims(long value)
+            {
+                
+                yield break;
+            }
             long ITypeConverter<long>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -1738,6 +1837,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            long ITypeConverter<long>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'long'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<long>.ConvertTo_List_TRAClaim(long value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<long>.Enumerate_List_TRAClaim(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'long'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<long>.ConvertTo_TDWVDAAccountEntryClaims_nullable(long value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<long>.Enumerate_TDWVDAAccountEntryClaims_nullable(long value)
+            {
+                
+                yield break;
+            }
             long ITypeConverter<long>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -1758,6 +1905,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<long>.Enumerate_TDWVDAAccountEntryContent_nullable(long value)
+            {
+                
+                yield break;
+            }
+            long ITypeConverter<long>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'long'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<long>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(long value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_long(value);
+            }
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<long>.Enumerate_TDWVDASmartContractEntryClaims_nullable(long value)
             {
                 
                 yield break;
@@ -1786,17 +1957,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            long ITypeConverter<long>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            long ITypeConverter<long>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'long'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'long'.");
                 
             }
-            TRACredential_Content? ITypeConverter<long>.ConvertTo_TRACredential_Content_nullable(long value)
+            TRAEncryptedClaims? ITypeConverter<long>.ConvertTo_TRAEncryptedClaims_nullable(long value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_long(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_long(value);
             }
-            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<long>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -1805,7 +1976,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<long>.Enumerate_TRACredential_Content_nullable(long value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<long>.Enumerate_TRAEncryptedClaims_nullable(long value)
             {
                 
                 yield break;
@@ -1902,30 +2073,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<string>.Enumerate_List_string(string value)
-            {
-                
-                yield break;
-            }
-            string ITypeConverter<string>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                return Serializer.ToString(value);
-                
-            }
-            List<TRAClaim> ITypeConverter<string>.ConvertTo_List_TRAClaim(string value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_string(value);
-            }
-            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_PARSESTRING;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<string>.Enumerate_List_TRAClaim(string value)
             {
                 
                 yield break;
@@ -2314,6 +2461,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            string ITypeConverter<string>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            TRAEncryptedClaims ITypeConverter<string>.ConvertTo_TRAEncryptedClaims(string value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<string>.Enumerate_TRAEncryptedClaims(string value)
+            {
+                
+                yield break;
+            }
             string ITypeConverter<string>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -2458,6 +2629,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            string ITypeConverter<string>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            List<TRAClaim> ITypeConverter<string>.ConvertTo_List_TRAClaim(string value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<string>.Enumerate_List_TRAClaim(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<string>.ConvertTo_TDWVDAAccountEntryClaims_nullable(string value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<string>.Enumerate_TDWVDAAccountEntryClaims_nullable(string value)
+            {
+                
+                yield break;
+            }
             string ITypeConverter<string>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -2478,6 +2697,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<string>.Enumerate_TDWVDAAccountEntryContent_nullable(string value)
+            {
+                
+                yield break;
+            }
+            string ITypeConverter<string>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                return Serializer.ToString(value);
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<string>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(string value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_string(value);
+            }
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_PARSESTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<string>.Enumerate_TDWVDASmartContractEntryClaims_nullable(string value)
             {
                 
                 yield break;
@@ -2506,17 +2749,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            string ITypeConverter<string>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            string ITypeConverter<string>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
                 return Serializer.ToString(value);
                 
             }
-            TRACredential_Content? ITypeConverter<string>.ConvertTo_TRACredential_Content_nullable(string value)
+            TRAEncryptedClaims? ITypeConverter<string>.ConvertTo_TRAEncryptedClaims_nullable(string value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_string(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_string(value);
             }
-            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<string>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_PARSESTRING;
@@ -2525,7 +2768,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<string>.Enumerate_TRACredential_Content_nullable(string value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<string>.Enumerate_TRAEncryptedClaims_nullable(string value)
             {
                 
                 yield break;
@@ -2669,40 +2912,6 @@ namespace TDW.VDAServer
                 
                 foreach (var element in value)
                     yield return TypeConverter<List<string>>.ConvertFrom_string(element);
-                
-                yield break;
-            }
-            List<string> ITypeConverter<List<string>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                {
-                    List<string> intermediate_result = new List<string>();
-                    foreach (var element in value)
-                    {
-                        intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRAClaim(element));
-                    }
-                    return intermediate_result;
-                }
-                
-            }
-            List<TRAClaim> ITypeConverter<List<string>>.ConvertTo_List_TRAClaim(List<string> value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_string(value);
-            }
-            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_CONVERTLIST;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<List<string>>.Enumerate_List_TRAClaim(List<string> value)
-            {
-                
-                foreach (var element in value)
-                    yield return TypeConverter<List<TRAClaim>>.ConvertFrom_string(element);
                 
                 yield break;
             }
@@ -3205,6 +3414,37 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRAEncryptedClaims(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TRAEncryptedClaims ITypeConverter<List<string>>.ConvertTo_TRAEncryptedClaims(List<string> value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<List<string>>.Enumerate_TRAEncryptedClaims(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TRAEncryptedClaims>.ConvertFrom_string(element);
+                
+                yield break;
+            }
             List<string> ITypeConverter<List<string>>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -3394,6 +3634,71 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    foreach (var element in value)
+                    {
+                        intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRAClaim(element));
+                    }
+                    return intermediate_result;
+                }
+                
+            }
+            List<TRAClaim> ITypeConverter<List<string>>.ConvertTo_List_TRAClaim(List<string> value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_CONVERTLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<List<string>>.Enumerate_List_TRAClaim(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<TRAClaim>>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<List<string>>.ConvertTo_TDWVDAAccountEntryClaims_nullable(List<string> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<List<string>>.Enumerate_TDWVDAAccountEntryClaims_nullable(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_string(element);
+                
+                yield break;
+            }
             List<string> ITypeConverter<List<string>>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -3422,6 +3727,37 @@ namespace TDW.VDAServer
                 
                 foreach (var element in value)
                     yield return TypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_string(element);
+                
+                yield break;
+            }
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                {
+                    List<string> intermediate_result = new List<string>();
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<List<string>>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(List<string> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_List_string(value);
+            }
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<List<string>>.Enumerate_TDWVDASmartContractEntryClaims_nullable(List<string> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_string(element);
                 
                 yield break;
             }
@@ -3456,21 +3792,21 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            List<string> ITypeConverter<List<string>>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            List<string> ITypeConverter<List<string>>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
                 {
                     List<string> intermediate_result = new List<string>();
-                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRACredential_Content_nullable(value));
+                    intermediate_result.Add(TypeConverter<string>.ConvertFrom_TRAEncryptedClaims_nullable(value));
                     return intermediate_result;
                 }
                 
             }
-            TRACredential_Content? ITypeConverter<List<string>>.ConvertTo_TRACredential_Content_nullable(List<string> value)
+            TRAEncryptedClaims? ITypeConverter<List<string>>.ConvertTo_TRAEncryptedClaims_nullable(List<string> value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_List_string(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_List_string(value);
             }
-            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<List<string>>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -3479,780 +3815,11 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<List<string>>.Enumerate_TRACredential_Content_nullable(List<string> value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<List<string>>.Enumerate_TRAEncryptedClaims_nullable(List<string> value)
             {
                 
                 foreach (var element in value)
-                    yield return TypeConverter<TRACredential_Content?>.ConvertFrom_string(element);
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_bool(bool value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'bool' to 'List<TRAClaim>'.");
-                
-            }
-            bool ITypeConverter<List<TRAClaim>>.ConvertTo_bool(List<TRAClaim> value)
-            {
-                return TypeConverter<bool>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_bool()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<bool> ITypeConverter<List<TRAClaim>>.Enumerate_bool(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_long(long value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'long' to 'List<TRAClaim>'.");
-                
-            }
-            long ITypeConverter<List<TRAClaim>>.ConvertTo_long(List<TRAClaim> value)
-            {
-                return TypeConverter<long>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_long()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<long> ITypeConverter<List<TRAClaim>>.Enumerate_long(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_string(string value)
-            {
-                
-                {
-                    #region String parse
-                    List<TRAClaim> intermediate_result;
-                    bool conversion_success;
-                    
-                    {
-                        conversion_success = ExternalParser.TryParse_List_TRAClaim(value, out intermediate_result);
-                    }
-                    
-                    if (!conversion_success)
-                    {
-                        
-                        try
-                        {
-                            TRAClaim element = TypeConverter<TRAClaim>.ConvertFrom_string(value);
-                            intermediate_result = new List<TRAClaim>();
-                            intermediate_result.Add(element);
-                        }
-                        catch
-                        {
-                            throw new ArgumentException("Cannot parse \"" + value + "\" into either 'List<TRAClaim>' or 'TRAClaim'.");
-                        }
-                        
-                    }
-                    return intermediate_result;
-                    #endregion
-                }
-                
-            }
-            string ITypeConverter<List<TRAClaim>>.ConvertTo_string(List<TRAClaim> value)
-            {
-                return TypeConverter<string>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_string()
-            {
-                
-                return TypeConversionAction.TC_TOSTRING;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<string> ITypeConverter<List<TRAClaim>>.Enumerate_string(List<TRAClaim> value)
-            {
-                
-                foreach (var element in value)
-                    yield return TypeConverter<string>.ConvertFrom_TRAClaim(element);
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_string(List<string> value)
-            {
-                
-                {
-                    List<TRAClaim> intermediate_result = new List<TRAClaim>();
-                    foreach (var element in value)
-                    {
-                        intermediate_result.Add(TypeConverter<TRAClaim>.ConvertFrom_string(element));
-                    }
-                    return intermediate_result;
-                }
-                
-            }
-            List<string> ITypeConverter<List<TRAClaim>>.ConvertTo_List_string(List<TRAClaim> value)
-            {
-                return TypeConverter<List<string>>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_string()
-            {
-                
-                return TypeConversionAction.TC_CONVERTLIST;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<string>> ITypeConverter<List<TRAClaim>>.Enumerate_List_string(List<TRAClaim> value)
-            {
-                
-                foreach (var element in value)
-                    yield return TypeConverter<List<string>>.ConvertFrom_TRAClaim(element);
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                return (List<TRAClaim>)value;
-                
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertTo_List_TRAClaim(List<TRAClaim> value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_ASSIGN;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<List<TRAClaim>>.Enumerate_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                foreach (var element in value)
-                    yield return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAClaim(element);
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'List<TRAClaim>'.");
-                
-            }
-            List<TRAKeyValuePair> ITypeConverter<List<TRAClaim>>.ConvertTo_List_TRAKeyValuePair(List<TRAClaim> value)
-            {
-                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_TRAKeyValuePair()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<List<TRAClaim>>.Enumerate_List_TRAKeyValuePair(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryClaims(TDWVDAAccountEntryClaims value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDAAccountEntryClaims ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryClaims(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryClaims()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDAAccountEntryClaims> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryClaims(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDAAccountEntryContent ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryContent(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryContent()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryContent(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryEnvelope(TDWVDAAccountEntryEnvelope value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryEnvelope' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDAAccountEntryEnvelope ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryEnvelope(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryEnvelope()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDAAccountEntryEnvelope> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryEnvelope(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(TDWVDAIdentityRegistryEntryParm value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntryParm' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDAIdentityRegistryEntryParm ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAIdentityRegistryEntryParm(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAIdentityRegistryEntryParm()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDAIdentityRegistryEntryParm> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAIdentityRegistryEntryParm(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDAPostInvocationParameters ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAPostInvocationParameters(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAPostInvocationParameters()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAPostInvocationParameters(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDARevocationListEntryParm(TDWVDARevocationListEntryParm value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntryParm' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDARevocationListEntryParm ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDARevocationListEntryParm(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDARevocationListEntryParm()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDARevocationListEntryParm> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDARevocationListEntryParm(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAServiceEndpointEntryParm(TDWVDAServiceEndpointEntryParm value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntryParm' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDAServiceEndpointEntryParm ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAServiceEndpointEntryParm(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAServiceEndpointEntryParm()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDAServiceEndpointEntryParm> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAServiceEndpointEntryParm(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryClaims(TDWVDASmartContractEntryClaims value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDASmartContractEntryClaims ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDASmartContractEntryClaims(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDASmartContractEntryClaims()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDASmartContractEntryClaims> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDASmartContractEntryClaims(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryContent(TDWVDASmartContractEntryContent value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDASmartContractEntryContent ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDASmartContractEntryContent(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDASmartContractEntryContent()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDASmartContractEntryContent> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDASmartContractEntryContent(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryEnvelope(TDWVDASmartContractEntryEnvelope value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryEnvelope' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDASmartContractEntryEnvelope ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDASmartContractEntryEnvelope(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDASmartContractEntryEnvelope()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDASmartContractEntryEnvelope> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDASmartContractEntryEnvelope(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAClaim(TRAClaim value)
-            {
-                
-                {
-                    List<TRAClaim> intermediate_result = new List<TRAClaim>();
-                    intermediate_result.Add(TypeConverter<TRAClaim>.ConvertFrom_TRAClaim(value));
-                    return intermediate_result;
-                }
-                
-            }
-            TRAClaim ITypeConverter<List<TRAClaim>>.ConvertTo_TRAClaim(List<TRAClaim> value)
-            {
-                return TypeConverter<TRAClaim>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRAClaim> ITypeConverter<List<TRAClaim>>.Enumerate_TRAClaim(List<TRAClaim> value)
-            {
-                
-                foreach (var element in value)
-                    yield return TypeConverter<TRAClaim>.ConvertFrom_TRAClaim(element);
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Content(TRACredential_Content value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content' to 'List<TRAClaim>'.");
-                
-            }
-            TRACredential_Content ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredential_Content(List<TRAClaim> value)
-            {
-                return TypeConverter<TRACredential_Content>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredential_Content()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRACredential_Content> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredential_Content(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Envelope(TRACredential_Envelope value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Envelope' to 'List<TRAClaim>'.");
-                
-            }
-            TRACredential_Envelope ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredential_Envelope(List<TRAClaim> value)
-            {
-                return TypeConverter<TRACredential_Envelope>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredential_Envelope()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRACredential_Envelope> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredential_Envelope(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_EnvelopeSeal(TRACredential_EnvelopeSeal value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TRACredential_EnvelopeSeal' to 'List<TRAClaim>'.");
-                
-            }
-            TRACredential_EnvelopeSeal ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredential_EnvelopeSeal(List<TRAClaim> value)
-            {
-                return TypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredential_EnvelopeSeal()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRACredential_EnvelopeSeal> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredential_EnvelopeSeal(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Label(TRACredential_Label value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Label' to 'List<TRAClaim>'.");
-                
-            }
-            TRACredential_Label ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredential_Label(List<TRAClaim> value)
-            {
-                return TypeConverter<TRACredential_Label>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredential_Label()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRACredential_Label> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredential_Label(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'List<TRAClaim>'.");
-                
-            }
-            TRAKeyValuePair ITypeConverter<List<TRAClaim>>.ConvertTo_TRAKeyValuePair(List<TRAClaim> value)
-            {
-                return TypeConverter<TRAKeyValuePair>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAKeyValuePair()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRAKeyValuePair> ITypeConverter<List<TRAClaim>>.Enumerate_TRAKeyValuePair(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialType(TRACredentialType value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'List<TRAClaim>'.");
-                
-            }
-            TRACredentialType ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredentialType(List<TRAClaim> value)
-            {
-                return TypeConverter<TRACredentialType>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredentialType()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRACredentialType> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredentialType(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'List<TRAClaim>'.");
-                
-            }
-            TRAEncryptionFlag ITypeConverter<List<TRAClaim>>.ConvertTo_TRAEncryptionFlag(List<TRAClaim> value)
-            {
-                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAEncryptionFlag()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRAEncryptionFlag> ITypeConverter<List<TRAClaim>>.Enumerate_TRAEncryptionFlag(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAServiceType(TRAServiceType value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'List<TRAClaim>'.");
-                
-            }
-            TRAServiceType ITypeConverter<List<TRAClaim>>.ConvertTo_TRAServiceType(List<TRAClaim> value)
-            {
-                return TypeConverter<TRAServiceType>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAServiceType()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRAServiceType> ITypeConverter<List<TRAClaim>>.Enumerate_TRAServiceType(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'List<TRAClaim>'.");
-                
-            }
-            TRATrustLevel ITypeConverter<List<TRAClaim>>.ConvertTo_TRATrustLevel(List<TRAClaim> value)
-            {
-                return TypeConverter<TRATrustLevel>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRATrustLevel()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRATrustLevel> ITypeConverter<List<TRAClaim>>.Enumerate_TRATrustLevel(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'List<TRAClaim>'.");
-                
-            }
-            List<List<TRAKeyValuePair>> ITypeConverter<List<TRAClaim>>.ConvertTo_List_List_TRAKeyValuePair(List<TRAClaim> value)
-            {
-                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_List_TRAKeyValuePair()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<List<TRAClaim>>.Enumerate_List_List_TRAKeyValuePair(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent?' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDAAccountEntryContent? ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryContent_nullable(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryContent_nullable()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryContent_nullable(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryContent? value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent?' to 'List<TRAClaim>'.");
-                
-            }
-            TDWVDASmartContractEntryContent? ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDASmartContractEntryContent_nullable(List<TRAClaim> value)
-            {
-                return TypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDASmartContractEntryContent_nullable()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TDWVDASmartContractEntryContent?> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDASmartContractEntryContent_nullable(List<TRAClaim> value)
-            {
-                
-                yield break;
-            }
-            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'List<TRAClaim>'.");
-                
-            }
-            TRACredential_Content? ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredential_Content_nullable(List<TRAClaim> value)
-            {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_List_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredential_Content_nullable()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredential_Content_nullable(List<TRAClaim> value)
-            {
+                    yield return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_string(element);
                 
                 yield break;
             }
@@ -4388,30 +3955,6 @@ namespace TDW.VDAServer
                 
                 foreach (var element in value)
                     yield return TypeConverter<List<string>>.ConvertFrom_TRAKeyValuePair(element);
-                
-                yield break;
-            }
-            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'List<TRAKeyValuePair>'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_List_TRAClaim(List<TRAKeyValuePair> value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAKeyValuePair(value);
-            }
-            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_List_TRAClaim(List<TRAKeyValuePair> value)
-            {
                 
                 yield break;
             }
@@ -4802,6 +4345,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRAEncryptedClaims(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRAEncryptedClaims(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
             List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -4956,6 +4523,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_List_TRAClaim(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_List_TRAClaim(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TDWVDAAccountEntryClaims_nullable(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TDWVDAAccountEntryClaims_nullable(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
             List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -4976,6 +4591,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TDWVDAAccountEntryContent_nullable(List<TRAKeyValuePair> value)
+            {
+                
+                yield break;
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'List<TRAKeyValuePair>'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(List<TRAKeyValuePair> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TDWVDASmartContractEntryClaims_nullable(List<TRAKeyValuePair> value)
             {
                 
                 yield break;
@@ -5004,17 +4643,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            List<TRAKeyValuePair> ITypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'List<TRAKeyValuePair>'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'List<TRAKeyValuePair>'.");
                 
             }
-            TRACredential_Content? ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRACredential_Content_nullable(List<TRAKeyValuePair> value)
+            TRAEncryptedClaims? ITypeConverter<List<TRAKeyValuePair>>.ConvertTo_TRAEncryptedClaims_nullable(List<TRAKeyValuePair> value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_List_TRAKeyValuePair(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_List_TRAKeyValuePair(value);
             }
-            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<List<TRAKeyValuePair>>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -5023,7 +4662,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRACredential_Content_nullable(List<TRAKeyValuePair> value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<List<TRAKeyValuePair>>.Enumerate_TRAEncryptedClaims_nullable(List<TRAKeyValuePair> value)
             {
                 
                 yield break;
@@ -5137,30 +4776,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAAccountEntryClaims>.Enumerate_List_string(TDWVDAAccountEntryClaims value)
-            {
-                
-                yield break;
-            }
-            TDWVDAAccountEntryClaims ITypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryClaims'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryClaims>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryClaims value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryClaims(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryClaims>.Enumerate_List_TRAClaim(TDWVDAAccountEntryClaims value)
             {
                 
                 yield break;
@@ -5549,6 +5164,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAAccountEntryClaims ITypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDAAccountEntryClaims'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDAAccountEntryClaims>.ConvertTo_TRAEncryptedClaims(TDWVDAAccountEntryClaims value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAAccountEntryClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDAAccountEntryClaims>.Enumerate_TRAEncryptedClaims(TDWVDAAccountEntryClaims value)
+            {
+                
+                yield break;
+            }
             TDWVDAAccountEntryClaims ITypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -5693,6 +5332,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAAccountEntryClaims ITypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryClaims'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryClaims>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryClaims value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryClaims>.Enumerate_List_TRAClaim(TDWVDAAccountEntryClaims value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims ITypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                return TypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TDWVDAAccountEntryClaims(value.Value);
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAAccountEntryClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDAAccountEntryClaims>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims value)
+            {
+                
+                yield break;
+            }
             TDWVDAAccountEntryClaims ITypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -5713,6 +5400,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDAAccountEntryClaims>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryClaims value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims ITypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDAAccountEntryClaims'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDAAccountEntryClaims value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAAccountEntryClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDAAccountEntryClaims>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDAAccountEntryClaims value)
             {
                 
                 yield break;
@@ -5741,17 +5452,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAAccountEntryClaims ITypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDAAccountEntryClaims ITypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDAAccountEntryClaims'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDAAccountEntryClaims'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDAAccountEntryClaims>.ConvertTo_TRACredential_Content_nullable(TDWVDAAccountEntryClaims value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDAAccountEntryClaims>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDAAccountEntryClaims value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAAccountEntryClaims(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAAccountEntryClaims(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -5760,7 +5471,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDAAccountEntryClaims>.Enumerate_TRACredential_Content_nullable(TDWVDAAccountEntryClaims value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDAAccountEntryClaims>.Enumerate_TRAEncryptedClaims_nullable(TDWVDAAccountEntryClaims value)
             {
                 
                 yield break;
@@ -5874,30 +5585,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_List_string(TDWVDAAccountEntryContent value)
-            {
-                
-                yield break;
-            }
-            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryContent'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryContent value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryContent(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_List_TRAClaim(TDWVDAAccountEntryContent value)
             {
                 
                 yield break;
@@ -6286,6 +5973,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRAEncryptedClaims(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRAEncryptedClaims(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
             TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -6430,6 +6141,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_List_TRAClaim(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
             TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -6450,6 +6209,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDAAccountEntryContent'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDAAccountEntryContent value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAAccountEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDAAccountEntryContent value)
             {
                 
                 yield break;
@@ -6478,17 +6261,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDAAccountEntryContent'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDAAccountEntryContent'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRACredential_Content_nullable(TDWVDAAccountEntryContent value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDAAccountEntryContent>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDAAccountEntryContent value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAAccountEntryContent(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAAccountEntryContent(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -6497,7 +6280,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRACredential_Content_nullable(TDWVDAAccountEntryContent value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDAAccountEntryContent>.Enumerate_TRAEncryptedClaims_nullable(TDWVDAAccountEntryContent value)
             {
                 
                 yield break;
@@ -6611,30 +6394,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAAccountEntryEnvelope>.Enumerate_List_string(TDWVDAAccountEntryEnvelope value)
-            {
-                
-                yield break;
-            }
-            TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryEnvelope'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryEnvelope value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryEnvelope(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDAAccountEntryEnvelope>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryEnvelope>.Enumerate_List_TRAClaim(TDWVDAAccountEntryEnvelope value)
             {
                 
                 yield break;
@@ -7023,6 +6782,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDAAccountEntryEnvelope'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertTo_TRAEncryptedClaims(TDWVDAAccountEntryEnvelope value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAAccountEntryEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryEnvelope>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDAAccountEntryEnvelope>.Enumerate_TRAEncryptedClaims(TDWVDAAccountEntryEnvelope value)
+            {
+                
+                yield break;
+            }
             TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -7167,6 +6950,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryEnvelope'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryEnvelope value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryEnvelope>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryEnvelope>.Enumerate_List_TRAClaim(TDWVDAAccountEntryEnvelope value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDAAccountEntryEnvelope'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryEnvelope value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAAccountEntryEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryEnvelope>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDAAccountEntryEnvelope>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryEnvelope value)
+            {
+                
+                yield break;
+            }
             TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -7187,6 +7018,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDAAccountEntryEnvelope>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryEnvelope value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDAAccountEntryEnvelope'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDAAccountEntryEnvelope value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAAccountEntryEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryEnvelope>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDAAccountEntryEnvelope>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDAAccountEntryEnvelope value)
             {
                 
                 yield break;
@@ -7215,17 +7070,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDAAccountEntryEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDAAccountEntryEnvelope'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertTo_TRACredential_Content_nullable(TDWVDAAccountEntryEnvelope value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDAAccountEntryEnvelope>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDAAccountEntryEnvelope value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAAccountEntryEnvelope(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAAccountEntryEnvelope(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAAccountEntryEnvelope>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryEnvelope>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -7234,7 +7089,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDAAccountEntryEnvelope>.Enumerate_TRACredential_Content_nullable(TDWVDAAccountEntryEnvelope value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDAAccountEntryEnvelope>.Enumerate_TRAEncryptedClaims_nullable(TDWVDAAccountEntryEnvelope value)
             {
                 
                 yield break;
@@ -7348,30 +7203,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.Enumerate_List_string(TDWVDAIdentityRegistryEntryParm value)
-            {
-                
-                yield break;
-            }
-            TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAIdentityRegistryEntryParm'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertTo_List_TRAClaim(TDWVDAIdentityRegistryEntryParm value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntryParm>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.Enumerate_List_TRAClaim(TDWVDAIdentityRegistryEntryParm value)
             {
                 
                 yield break;
@@ -7760,6 +7591,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDAIdentityRegistryEntryParm'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertTo_TRAEncryptedClaims(TDWVDAIdentityRegistryEntryParm value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntryParm>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.Enumerate_TRAEncryptedClaims(TDWVDAIdentityRegistryEntryParm value)
+            {
+                
+                yield break;
+            }
             TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -7904,6 +7759,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAIdentityRegistryEntryParm'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertTo_List_TRAClaim(TDWVDAIdentityRegistryEntryParm value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntryParm>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.Enumerate_List_TRAClaim(TDWVDAIdentityRegistryEntryParm value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDAIdentityRegistryEntryParm'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDAIdentityRegistryEntryParm value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntryParm>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDAIdentityRegistryEntryParm value)
+            {
+                
+                yield break;
+            }
             TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -7924,6 +7827,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDAIdentityRegistryEntryParm value)
+            {
+                
+                yield break;
+            }
+            TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDAIdentityRegistryEntryParm'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDAIdentityRegistryEntryParm value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntryParm>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDAIdentityRegistryEntryParm value)
             {
                 
                 yield break;
@@ -7952,17 +7879,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDAIdentityRegistryEntryParm'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDAIdentityRegistryEntryParm'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertTo_TRACredential_Content_nullable(TDWVDAIdentityRegistryEntryParm value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDAIdentityRegistryEntryParm value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntryParm>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDAIdentityRegistryEntryParm>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -7971,7 +7898,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.Enumerate_TRACredential_Content_nullable(TDWVDAIdentityRegistryEntryParm value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDAIdentityRegistryEntryParm>.Enumerate_TRAEncryptedClaims_nullable(TDWVDAIdentityRegistryEntryParm value)
             {
                 
                 yield break;
@@ -8085,30 +8012,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_List_string(TDWVDAPostInvocationParameters value)
-            {
-                
-                yield break;
-            }
-            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAPostInvocationParameters'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_List_TRAClaim(TDWVDAPostInvocationParameters value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAPostInvocationParameters(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_List_TRAClaim(TDWVDAPostInvocationParameters value)
             {
                 
                 yield break;
@@ -8497,6 +8400,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TRAEncryptedClaims(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRAEncryptedClaims(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
             TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -8641,6 +8568,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_List_TRAClaim(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_List_TRAClaim(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
             TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -8661,6 +8636,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDAPostInvocationParameters value)
+            {
+                
+                yield break;
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDAPostInvocationParameters'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDAPostInvocationParameters value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDAPostInvocationParameters value)
             {
                 
                 yield break;
@@ -8689,17 +8688,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDAPostInvocationParameters'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDAPostInvocationParameters'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TRACredential_Content_nullable(TDWVDAPostInvocationParameters value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDAPostInvocationParameters>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDAPostInvocationParameters value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAPostInvocationParameters(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAPostInvocationParameters(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDAPostInvocationParameters>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -8708,7 +8707,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRACredential_Content_nullable(TDWVDAPostInvocationParameters value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDAPostInvocationParameters>.Enumerate_TRAEncryptedClaims_nullable(TDWVDAPostInvocationParameters value)
             {
                 
                 yield break;
@@ -8822,30 +8821,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDARevocationListEntryParm>.Enumerate_List_string(TDWVDARevocationListEntryParm value)
-            {
-                
-                yield break;
-            }
-            TDWVDARevocationListEntryParm ITypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDARevocationListEntryParm'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDARevocationListEntryParm>.ConvertTo_List_TRAClaim(TDWVDARevocationListEntryParm value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDARevocationListEntryParm(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDARevocationListEntryParm>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDARevocationListEntryParm>.Enumerate_List_TRAClaim(TDWVDARevocationListEntryParm value)
             {
                 
                 yield break;
@@ -9234,6 +9209,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDARevocationListEntryParm ITypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDARevocationListEntryParm'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDARevocationListEntryParm>.ConvertTo_TRAEncryptedClaims(TDWVDARevocationListEntryParm value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDARevocationListEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntryParm>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDARevocationListEntryParm>.Enumerate_TRAEncryptedClaims(TDWVDARevocationListEntryParm value)
+            {
+                
+                yield break;
+            }
             TDWVDARevocationListEntryParm ITypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -9378,6 +9377,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDARevocationListEntryParm ITypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDARevocationListEntryParm'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDARevocationListEntryParm>.ConvertTo_List_TRAClaim(TDWVDARevocationListEntryParm value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDARevocationListEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntryParm>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDARevocationListEntryParm>.Enumerate_List_TRAClaim(TDWVDARevocationListEntryParm value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntryParm ITypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDARevocationListEntryParm'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDARevocationListEntryParm>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDARevocationListEntryParm value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDARevocationListEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntryParm>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDARevocationListEntryParm>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDARevocationListEntryParm value)
+            {
+                
+                yield break;
+            }
             TDWVDARevocationListEntryParm ITypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -9398,6 +9445,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDARevocationListEntryParm>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDARevocationListEntryParm value)
+            {
+                
+                yield break;
+            }
+            TDWVDARevocationListEntryParm ITypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDARevocationListEntryParm'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDARevocationListEntryParm>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDARevocationListEntryParm value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDARevocationListEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntryParm>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDARevocationListEntryParm>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDARevocationListEntryParm value)
             {
                 
                 yield break;
@@ -9426,17 +9497,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDARevocationListEntryParm ITypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDARevocationListEntryParm ITypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDARevocationListEntryParm'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDARevocationListEntryParm'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDARevocationListEntryParm>.ConvertTo_TRACredential_Content_nullable(TDWVDARevocationListEntryParm value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDARevocationListEntryParm>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDARevocationListEntryParm value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDARevocationListEntryParm(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDARevocationListEntryParm(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDARevocationListEntryParm>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDARevocationListEntryParm>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -9445,7 +9516,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDARevocationListEntryParm>.Enumerate_TRACredential_Content_nullable(TDWVDARevocationListEntryParm value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDARevocationListEntryParm>.Enumerate_TRAEncryptedClaims_nullable(TDWVDARevocationListEntryParm value)
             {
                 
                 yield break;
@@ -9559,30 +9630,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAServiceEndpointEntryParm>.Enumerate_List_string(TDWVDAServiceEndpointEntryParm value)
-            {
-                
-                yield break;
-            }
-            TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAServiceEndpointEntryParm'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertTo_List_TRAClaim(TDWVDAServiceEndpointEntryParm value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAServiceEndpointEntryParm(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntryParm>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAServiceEndpointEntryParm>.Enumerate_List_TRAClaim(TDWVDAServiceEndpointEntryParm value)
             {
                 
                 yield break;
@@ -9971,6 +10018,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDAServiceEndpointEntryParm'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertTo_TRAEncryptedClaims(TDWVDAServiceEndpointEntryParm value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAServiceEndpointEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntryParm>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDAServiceEndpointEntryParm>.Enumerate_TRAEncryptedClaims(TDWVDAServiceEndpointEntryParm value)
+            {
+                
+                yield break;
+            }
             TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -10115,6 +10186,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAServiceEndpointEntryParm'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertTo_List_TRAClaim(TDWVDAServiceEndpointEntryParm value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAServiceEndpointEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntryParm>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAServiceEndpointEntryParm>.Enumerate_List_TRAClaim(TDWVDAServiceEndpointEntryParm value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDAServiceEndpointEntryParm'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDAServiceEndpointEntryParm value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAServiceEndpointEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntryParm>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDAServiceEndpointEntryParm>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDAServiceEndpointEntryParm value)
+            {
+                
+                yield break;
+            }
             TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -10135,6 +10254,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDAServiceEndpointEntryParm>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDAServiceEndpointEntryParm value)
+            {
+                
+                yield break;
+            }
+            TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDAServiceEndpointEntryParm'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDAServiceEndpointEntryParm value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAServiceEndpointEntryParm(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntryParm>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDAServiceEndpointEntryParm>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDAServiceEndpointEntryParm value)
             {
                 
                 yield break;
@@ -10163,17 +10306,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDAServiceEndpointEntryParm'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDAServiceEndpointEntryParm'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertTo_TRACredential_Content_nullable(TDWVDAServiceEndpointEntryParm value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDAServiceEndpointEntryParm value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAServiceEndpointEntryParm(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAServiceEndpointEntryParm(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntryParm>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDAServiceEndpointEntryParm>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -10182,7 +10325,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDAServiceEndpointEntryParm>.Enumerate_TRACredential_Content_nullable(TDWVDAServiceEndpointEntryParm value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDAServiceEndpointEntryParm>.Enumerate_TRAEncryptedClaims_nullable(TDWVDAServiceEndpointEntryParm value)
             {
                 
                 yield break;
@@ -10296,30 +10439,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDASmartContractEntryClaims>.Enumerate_List_string(TDWVDASmartContractEntryClaims value)
-            {
-                
-                yield break;
-            }
-            TDWVDASmartContractEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDASmartContractEntryClaims'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertTo_List_TRAClaim(TDWVDASmartContractEntryClaims value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryClaims(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDASmartContractEntryClaims>.Enumerate_List_TRAClaim(TDWVDASmartContractEntryClaims value)
             {
                 
                 yield break;
@@ -10708,6 +10827,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDASmartContractEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDASmartContractEntryClaims'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertTo_TRAEncryptedClaims(TDWVDASmartContractEntryClaims value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDASmartContractEntryClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDASmartContractEntryClaims>.Enumerate_TRAEncryptedClaims(TDWVDASmartContractEntryClaims value)
+            {
+                
+                yield break;
+            }
             TDWVDASmartContractEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -10852,6 +10995,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDASmartContractEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDASmartContractEntryClaims'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertTo_List_TRAClaim(TDWVDASmartContractEntryClaims value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDASmartContractEntryClaims>.Enumerate_List_TRAClaim(TDWVDASmartContractEntryClaims value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDASmartContractEntryClaims'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDASmartContractEntryClaims value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDASmartContractEntryClaims>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDASmartContractEntryClaims value)
+            {
+                
+                yield break;
+            }
             TDWVDASmartContractEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -10872,6 +11063,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDASmartContractEntryClaims>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDASmartContractEntryClaims value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                return TypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TDWVDASmartContractEntryClaims(value.Value);
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDASmartContractEntryClaims>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims value)
             {
                 
                 yield break;
@@ -10900,17 +11115,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDASmartContractEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDASmartContractEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDASmartContractEntryClaims'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDASmartContractEntryClaims'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertTo_TRACredential_Content_nullable(TDWVDASmartContractEntryClaims value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDASmartContractEntryClaims>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDASmartContractEntryClaims value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDASmartContractEntryClaims(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -10919,7 +11134,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDASmartContractEntryClaims>.Enumerate_TRACredential_Content_nullable(TDWVDASmartContractEntryClaims value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDASmartContractEntryClaims>.Enumerate_TRAEncryptedClaims_nullable(TDWVDASmartContractEntryClaims value)
             {
                 
                 yield break;
@@ -11033,30 +11248,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDASmartContractEntryContent>.Enumerate_List_string(TDWVDASmartContractEntryContent value)
-            {
-                
-                yield break;
-            }
-            TDWVDASmartContractEntryContent ITypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDASmartContractEntryContent'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDASmartContractEntryContent>.ConvertTo_List_TRAClaim(TDWVDASmartContractEntryContent value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryContent(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDASmartContractEntryContent>.Enumerate_List_TRAClaim(TDWVDASmartContractEntryContent value)
             {
                 
                 yield break;
@@ -11445,6 +11636,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDASmartContractEntryContent ITypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDASmartContractEntryContent'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDASmartContractEntryContent>.ConvertTo_TRAEncryptedClaims(TDWVDASmartContractEntryContent value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDASmartContractEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDASmartContractEntryContent>.Enumerate_TRAEncryptedClaims(TDWVDASmartContractEntryContent value)
+            {
+                
+                yield break;
+            }
             TDWVDASmartContractEntryContent ITypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -11589,6 +11804,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDASmartContractEntryContent ITypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDASmartContractEntryContent'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDASmartContractEntryContent>.ConvertTo_List_TRAClaim(TDWVDASmartContractEntryContent value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDASmartContractEntryContent>.Enumerate_List_TRAClaim(TDWVDASmartContractEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryContent ITypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDASmartContractEntryContent'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDASmartContractEntryContent>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDASmartContractEntryContent value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDASmartContractEntryContent>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDASmartContractEntryContent value)
+            {
+                
+                yield break;
+            }
             TDWVDASmartContractEntryContent ITypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -11609,6 +11872,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDASmartContractEntryContent>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDASmartContractEntryContent value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryContent ITypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDASmartContractEntryContent'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryContent>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryContent value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryContent(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDASmartContractEntryContent>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryContent value)
             {
                 
                 yield break;
@@ -11637,17 +11924,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDASmartContractEntryContent ITypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDASmartContractEntryContent ITypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDASmartContractEntryContent'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDASmartContractEntryContent'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDASmartContractEntryContent>.ConvertTo_TRACredential_Content_nullable(TDWVDASmartContractEntryContent value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDASmartContractEntryContent>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDASmartContractEntryContent value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDASmartContractEntryContent(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDASmartContractEntryContent(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -11656,7 +11943,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDASmartContractEntryContent>.Enumerate_TRACredential_Content_nullable(TDWVDASmartContractEntryContent value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDASmartContractEntryContent>.Enumerate_TRAEncryptedClaims_nullable(TDWVDASmartContractEntryContent value)
             {
                 
                 yield break;
@@ -11770,30 +12057,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDASmartContractEntryEnvelope>.Enumerate_List_string(TDWVDASmartContractEntryEnvelope value)
-            {
-                
-                yield break;
-            }
-            TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDASmartContractEntryEnvelope'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertTo_List_TRAClaim(TDWVDASmartContractEntryEnvelope value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryEnvelope(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryEnvelope>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDASmartContractEntryEnvelope>.Enumerate_List_TRAClaim(TDWVDASmartContractEntryEnvelope value)
             {
                 
                 yield break;
@@ -12182,6 +12445,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDASmartContractEntryEnvelope'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertTo_TRAEncryptedClaims(TDWVDASmartContractEntryEnvelope value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDASmartContractEntryEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryEnvelope>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDASmartContractEntryEnvelope>.Enumerate_TRAEncryptedClaims(TDWVDASmartContractEntryEnvelope value)
+            {
+                
+                yield break;
+            }
             TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -12326,6 +12613,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDASmartContractEntryEnvelope'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertTo_List_TRAClaim(TDWVDASmartContractEntryEnvelope value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryEnvelope>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDASmartContractEntryEnvelope>.Enumerate_List_TRAClaim(TDWVDASmartContractEntryEnvelope value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDASmartContractEntryEnvelope'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDASmartContractEntryEnvelope value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryEnvelope>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDASmartContractEntryEnvelope>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDASmartContractEntryEnvelope value)
+            {
+                
+                yield break;
+            }
             TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -12346,6 +12681,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDASmartContractEntryEnvelope>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDASmartContractEntryEnvelope value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDASmartContractEntryEnvelope'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryEnvelope value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryEnvelope(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryEnvelope>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDASmartContractEntryEnvelope>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryEnvelope value)
             {
                 
                 yield break;
@@ -12374,17 +12733,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDASmartContractEntryEnvelope'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDASmartContractEntryEnvelope'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertTo_TRACredential_Content_nullable(TDWVDASmartContractEntryEnvelope value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDASmartContractEntryEnvelope value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDASmartContractEntryEnvelope(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDASmartContractEntryEnvelope(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryEnvelope>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryEnvelope>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -12393,7 +12752,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDASmartContractEntryEnvelope>.Enumerate_TRACredential_Content_nullable(TDWVDASmartContractEntryEnvelope value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDASmartContractEntryEnvelope>.Enumerate_TRAEncryptedClaims_nullable(TDWVDASmartContractEntryEnvelope value)
             {
                 
                 yield break;
@@ -12507,30 +12866,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRAClaim>.Enumerate_List_string(TRAClaim value)
-            {
-                
-                yield break;
-            }
-            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAClaim'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TRAClaim>.ConvertTo_List_TRAClaim(TRAClaim value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAClaim(value);
-            }
-            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_WRAPINLIST;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRAClaim>.Enumerate_List_TRAClaim(TRAClaim value)
             {
                 
                 yield break;
@@ -12919,6 +13254,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TRAClaim'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRAClaim>.ConvertTo_TRAEncryptedClaims(TRAClaim value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRAClaim>.Enumerate_TRAEncryptedClaims(TRAClaim value)
+            {
+                
+                yield break;
+            }
             TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -13063,6 +13422,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAClaim'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRAClaim>.ConvertTo_List_TRAClaim(TRAClaim value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRAClaim>.Enumerate_List_TRAClaim(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRAClaim'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRAClaim>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRAClaim value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRAClaim>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRAClaim value)
+            {
+                
+                yield break;
+            }
             TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -13083,6 +13490,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRAClaim>.Enumerate_TDWVDAAccountEntryContent_nullable(TRAClaim value)
+            {
+                
+                yield break;
+            }
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRAClaim'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRAClaim>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRAClaim value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRAClaim>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRAClaim value)
             {
                 
                 yield break;
@@ -13111,17 +13542,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRAClaim ITypeConverter<TRAClaim>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TRAClaim'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TRAClaim'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TRAClaim>.ConvertTo_TRACredential_Content_nullable(TRAClaim value)
+            TRAEncryptedClaims? ITypeConverter<TRAClaim>.ConvertTo_TRAEncryptedClaims_nullable(TRAClaim value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRAClaim(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAClaim(value);
             }
-            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRAClaim>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -13130,7 +13561,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRAClaim>.Enumerate_TRACredential_Content_nullable(TRAClaim value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRAClaim>.Enumerate_TRAEncryptedClaims_nullable(TRAClaim value)
             {
                 
                 yield break;
@@ -13244,30 +13675,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRACredential_Content>.Enumerate_List_string(TRACredential_Content value)
-            {
-                
-                yield break;
-            }
-            TRACredential_Content ITypeConverter<TRACredential_Content>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredential_Content'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TRACredential_Content>.ConvertTo_List_TRAClaim(TRACredential_Content value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Content(value);
-            }
-            TypeConversionAction ITypeConverter<TRACredential_Content>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredential_Content>.Enumerate_List_TRAClaim(TRACredential_Content value)
             {
                 
                 yield break;
@@ -13656,6 +14063,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRACredential_Content ITypeConverter<TRACredential_Content>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TRACredential_Content'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRACredential_Content>.ConvertTo_TRAEncryptedClaims(TRACredential_Content value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRACredential_Content(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Content>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRACredential_Content>.Enumerate_TRAEncryptedClaims(TRACredential_Content value)
+            {
+                
+                yield break;
+            }
             TRACredential_Content ITypeConverter<TRACredential_Content>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -13800,6 +14231,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRACredential_Content ITypeConverter<TRACredential_Content>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredential_Content'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRACredential_Content>.ConvertTo_List_TRAClaim(TRACredential_Content value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Content(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Content>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredential_Content>.Enumerate_List_TRAClaim(TRACredential_Content value)
+            {
+                
+                yield break;
+            }
+            TRACredential_Content ITypeConverter<TRACredential_Content>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRACredential_Content'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRACredential_Content>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRACredential_Content value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRACredential_Content(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Content>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRACredential_Content>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRACredential_Content value)
+            {
+                
+                yield break;
+            }
             TRACredential_Content ITypeConverter<TRACredential_Content>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -13820,6 +14299,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRACredential_Content>.Enumerate_TDWVDAAccountEntryContent_nullable(TRACredential_Content value)
+            {
+                
+                yield break;
+            }
+            TRACredential_Content ITypeConverter<TRACredential_Content>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRACredential_Content'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRACredential_Content>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRACredential_Content value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRACredential_Content(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Content>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRACredential_Content>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRACredential_Content value)
             {
                 
                 yield break;
@@ -13848,26 +14351,26 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRACredential_Content ITypeConverter<TRACredential_Content>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRACredential_Content ITypeConverter<TRACredential_Content>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                return TypeConverter<TRACredential_Content>.ConvertFrom_TRACredential_Content(value.Value);
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TRACredential_Content'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content>.ConvertTo_TRACredential_Content_nullable(TRACredential_Content value)
+            TRAEncryptedClaims? ITypeConverter<TRACredential_Content>.ConvertTo_TRAEncryptedClaims_nullable(TRACredential_Content value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRACredential_Content(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRACredential_Content(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRACredential_Content>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
-                return TypeConversionAction.TC_ASSIGN;
+                return TypeConversionAction.TC_NONCONVERTIBLE;
                 
             }
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRACredential_Content>.Enumerate_TRACredential_Content_nullable(TRACredential_Content value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRACredential_Content>.Enumerate_TRAEncryptedClaims_nullable(TRACredential_Content value)
             {
                 
                 yield break;
@@ -13981,30 +14484,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRACredential_Envelope>.Enumerate_List_string(TRACredential_Envelope value)
-            {
-                
-                yield break;
-            }
-            TRACredential_Envelope ITypeConverter<TRACredential_Envelope>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredential_Envelope'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TRACredential_Envelope>.ConvertTo_List_TRAClaim(TRACredential_Envelope value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Envelope(value);
-            }
-            TypeConversionAction ITypeConverter<TRACredential_Envelope>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredential_Envelope>.Enumerate_List_TRAClaim(TRACredential_Envelope value)
             {
                 
                 yield break;
@@ -14393,6 +14872,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRACredential_Envelope ITypeConverter<TRACredential_Envelope>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TRACredential_Envelope'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRACredential_Envelope>.ConvertTo_TRAEncryptedClaims(TRACredential_Envelope value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRACredential_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Envelope>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRACredential_Envelope>.Enumerate_TRAEncryptedClaims(TRACredential_Envelope value)
+            {
+                
+                yield break;
+            }
             TRACredential_Envelope ITypeConverter<TRACredential_Envelope>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -14537,6 +15040,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRACredential_Envelope ITypeConverter<TRACredential_Envelope>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredential_Envelope'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRACredential_Envelope>.ConvertTo_List_TRAClaim(TRACredential_Envelope value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Envelope>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredential_Envelope>.Enumerate_List_TRAClaim(TRACredential_Envelope value)
+            {
+                
+                yield break;
+            }
+            TRACredential_Envelope ITypeConverter<TRACredential_Envelope>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRACredential_Envelope'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRACredential_Envelope>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRACredential_Envelope value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRACredential_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Envelope>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRACredential_Envelope>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRACredential_Envelope value)
+            {
+                
+                yield break;
+            }
             TRACredential_Envelope ITypeConverter<TRACredential_Envelope>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -14557,6 +15108,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRACredential_Envelope>.Enumerate_TDWVDAAccountEntryContent_nullable(TRACredential_Envelope value)
+            {
+                
+                yield break;
+            }
+            TRACredential_Envelope ITypeConverter<TRACredential_Envelope>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRACredential_Envelope'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRACredential_Envelope>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRACredential_Envelope value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRACredential_Envelope(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Envelope>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRACredential_Envelope>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRACredential_Envelope value)
             {
                 
                 yield break;
@@ -14585,17 +15160,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRACredential_Envelope ITypeConverter<TRACredential_Envelope>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRACredential_Envelope ITypeConverter<TRACredential_Envelope>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TRACredential_Envelope'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TRACredential_Envelope'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Envelope>.ConvertTo_TRACredential_Content_nullable(TRACredential_Envelope value)
+            TRAEncryptedClaims? ITypeConverter<TRACredential_Envelope>.ConvertTo_TRAEncryptedClaims_nullable(TRACredential_Envelope value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRACredential_Envelope(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRACredential_Envelope(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Envelope>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRACredential_Envelope>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -14604,7 +15179,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRACredential_Envelope>.Enumerate_TRACredential_Content_nullable(TRACredential_Envelope value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRACredential_Envelope>.Enumerate_TRAEncryptedClaims_nullable(TRACredential_Envelope value)
             {
                 
                 yield break;
@@ -14718,30 +15293,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRACredential_EnvelopeSeal>.Enumerate_List_string(TRACredential_EnvelopeSeal value)
-            {
-                
-                yield break;
-            }
-            TRACredential_EnvelopeSeal ITypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredential_EnvelopeSeal'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TRACredential_EnvelopeSeal>.ConvertTo_List_TRAClaim(TRACredential_EnvelopeSeal value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_EnvelopeSeal(value);
-            }
-            TypeConversionAction ITypeConverter<TRACredential_EnvelopeSeal>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredential_EnvelopeSeal>.Enumerate_List_TRAClaim(TRACredential_EnvelopeSeal value)
             {
                 
                 yield break;
@@ -15130,6 +15681,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRACredential_EnvelopeSeal ITypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TRACredential_EnvelopeSeal'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRACredential_EnvelopeSeal>.ConvertTo_TRAEncryptedClaims(TRACredential_EnvelopeSeal value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRACredential_EnvelopeSeal(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_EnvelopeSeal>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRACredential_EnvelopeSeal>.Enumerate_TRAEncryptedClaims(TRACredential_EnvelopeSeal value)
+            {
+                
+                yield break;
+            }
             TRACredential_EnvelopeSeal ITypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -15274,6 +15849,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRACredential_EnvelopeSeal ITypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredential_EnvelopeSeal'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRACredential_EnvelopeSeal>.ConvertTo_List_TRAClaim(TRACredential_EnvelopeSeal value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_EnvelopeSeal(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_EnvelopeSeal>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredential_EnvelopeSeal>.Enumerate_List_TRAClaim(TRACredential_EnvelopeSeal value)
+            {
+                
+                yield break;
+            }
+            TRACredential_EnvelopeSeal ITypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRACredential_EnvelopeSeal'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRACredential_EnvelopeSeal>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRACredential_EnvelopeSeal value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRACredential_EnvelopeSeal(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_EnvelopeSeal>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRACredential_EnvelopeSeal>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRACredential_EnvelopeSeal value)
+            {
+                
+                yield break;
+            }
             TRACredential_EnvelopeSeal ITypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -15294,6 +15917,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRACredential_EnvelopeSeal>.Enumerate_TDWVDAAccountEntryContent_nullable(TRACredential_EnvelopeSeal value)
+            {
+                
+                yield break;
+            }
+            TRACredential_EnvelopeSeal ITypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRACredential_EnvelopeSeal'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRACredential_EnvelopeSeal>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRACredential_EnvelopeSeal value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRACredential_EnvelopeSeal(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_EnvelopeSeal>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRACredential_EnvelopeSeal>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRACredential_EnvelopeSeal value)
             {
                 
                 yield break;
@@ -15322,17 +15969,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRACredential_EnvelopeSeal ITypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRACredential_EnvelopeSeal ITypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TRACredential_EnvelopeSeal'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TRACredential_EnvelopeSeal'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TRACredential_EnvelopeSeal>.ConvertTo_TRACredential_Content_nullable(TRACredential_EnvelopeSeal value)
+            TRAEncryptedClaims? ITypeConverter<TRACredential_EnvelopeSeal>.ConvertTo_TRAEncryptedClaims_nullable(TRACredential_EnvelopeSeal value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRACredential_EnvelopeSeal(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRACredential_EnvelopeSeal(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_EnvelopeSeal>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRACredential_EnvelopeSeal>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -15341,7 +15988,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRACredential_EnvelopeSeal>.Enumerate_TRACredential_Content_nullable(TRACredential_EnvelopeSeal value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRACredential_EnvelopeSeal>.Enumerate_TRAEncryptedClaims_nullable(TRACredential_EnvelopeSeal value)
             {
                 
                 yield break;
@@ -15455,30 +16102,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRACredential_Label>.Enumerate_List_string(TRACredential_Label value)
-            {
-                
-                yield break;
-            }
-            TRACredential_Label ITypeConverter<TRACredential_Label>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredential_Label'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TRACredential_Label>.ConvertTo_List_TRAClaim(TRACredential_Label value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Label(value);
-            }
-            TypeConversionAction ITypeConverter<TRACredential_Label>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredential_Label>.Enumerate_List_TRAClaim(TRACredential_Label value)
             {
                 
                 yield break;
@@ -15867,6 +16490,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRACredential_Label ITypeConverter<TRACredential_Label>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TRACredential_Label'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRACredential_Label>.ConvertTo_TRAEncryptedClaims(TRACredential_Label value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRACredential_Label(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Label>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRACredential_Label>.Enumerate_TRAEncryptedClaims(TRACredential_Label value)
+            {
+                
+                yield break;
+            }
             TRACredential_Label ITypeConverter<TRACredential_Label>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -16011,6 +16658,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRACredential_Label ITypeConverter<TRACredential_Label>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredential_Label'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRACredential_Label>.ConvertTo_List_TRAClaim(TRACredential_Label value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Label(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Label>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredential_Label>.Enumerate_List_TRAClaim(TRACredential_Label value)
+            {
+                
+                yield break;
+            }
+            TRACredential_Label ITypeConverter<TRACredential_Label>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRACredential_Label'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRACredential_Label>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRACredential_Label value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRACredential_Label(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Label>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRACredential_Label>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRACredential_Label value)
+            {
+                
+                yield break;
+            }
             TRACredential_Label ITypeConverter<TRACredential_Label>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -16031,6 +16726,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRACredential_Label>.Enumerate_TDWVDAAccountEntryContent_nullable(TRACredential_Label value)
+            {
+                
+                yield break;
+            }
+            TRACredential_Label ITypeConverter<TRACredential_Label>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRACredential_Label'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRACredential_Label>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRACredential_Label value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRACredential_Label(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredential_Label>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRACredential_Label>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRACredential_Label value)
             {
                 
                 yield break;
@@ -16059,17 +16778,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRACredential_Label ITypeConverter<TRACredential_Label>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRACredential_Label ITypeConverter<TRACredential_Label>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TRACredential_Label'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TRACredential_Label'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Label>.ConvertTo_TRACredential_Content_nullable(TRACredential_Label value)
+            TRAEncryptedClaims? ITypeConverter<TRACredential_Label>.ConvertTo_TRAEncryptedClaims_nullable(TRACredential_Label value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRACredential_Label(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRACredential_Label(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Label>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRACredential_Label>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -16078,7 +16797,816 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRACredential_Label>.Enumerate_TRACredential_Content_nullable(TRACredential_Label value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRACredential_Label>.Enumerate_TRAEncryptedClaims_nullable(TRACredential_Label value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TRAEncryptedClaims'.");
+                
+            }
+            bool ITypeConverter<TRAEncryptedClaims>.ConvertTo_bool(TRAEncryptedClaims value)
+            {
+                return TypeConverter<bool>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<TRAEncryptedClaims>.Enumerate_bool(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TRAEncryptedClaims'.");
+                
+            }
+            long ITypeConverter<TRAEncryptedClaims>.ConvertTo_long(TRAEncryptedClaims value)
+            {
+                return TypeConverter<long>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TRAEncryptedClaims>.Enumerate_long(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    TRAEncryptedClaims intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = TRAEncryptedClaims.TryParse(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "TRAEncryptedClaims");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<TRAEncryptedClaims>.ConvertTo_string(TRAEncryptedClaims value)
+            {
+                return TypeConverter<string>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<TRAEncryptedClaims>.Enumerate_string(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TRAEncryptedClaims'.");
+                
+            }
+            List<string> ITypeConverter<TRAEncryptedClaims>.ConvertTo_List_string(TRAEncryptedClaims value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<TRAEncryptedClaims>.Enumerate_List_string(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRAEncryptedClaims'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TRAEncryptedClaims>.ConvertTo_List_TRAKeyValuePair(TRAEncryptedClaims value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRAEncryptedClaims>.Enumerate_List_TRAKeyValuePair(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAAccountEntryClaims(TDWVDAAccountEntryClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDAAccountEntryClaims ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDAAccountEntryClaims(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDAAccountEntryClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDAAccountEntryClaims(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDAAccountEntryContent(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDAAccountEntryContent(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAAccountEntryEnvelope(TDWVDAAccountEntryEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryEnvelope' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDAAccountEntryEnvelope ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDAAccountEntryEnvelope(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDAAccountEntryEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryEnvelope> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDAAccountEntryEnvelope(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(TDWVDAIdentityRegistryEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntryParm' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDAIdentityRegistryEntryParm ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDAIdentityRegistryEntryParm(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDAIdentityRegistryEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntryParm> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDAIdentityRegistryEntryParm(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDAPostInvocationParameters(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDAPostInvocationParameters(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDARevocationListEntryParm(TDWVDARevocationListEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntryParm' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDARevocationListEntryParm ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDARevocationListEntryParm(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDARevocationListEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntryParm> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDARevocationListEntryParm(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAServiceEndpointEntryParm(TDWVDAServiceEndpointEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntryParm' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDAServiceEndpointEntryParm ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDAServiceEndpointEntryParm(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDAServiceEndpointEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntryParm> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDAServiceEndpointEntryParm(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDASmartContractEntryClaims(TDWVDASmartContractEntryClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDASmartContractEntryClaims ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDASmartContractEntryClaims(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDASmartContractEntryClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDASmartContractEntryClaims(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDASmartContractEntryContent(TDWVDASmartContractEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDASmartContractEntryContent ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDASmartContractEntryContent(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDASmartContractEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryContent> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDASmartContractEntryContent(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDASmartContractEntryEnvelope(TDWVDASmartContractEntryEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryEnvelope' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDASmartContractEntryEnvelope ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDASmartContractEntryEnvelope(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDASmartContractEntryEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryEnvelope> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDASmartContractEntryEnvelope(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRAEncryptedClaims'.");
+                
+            }
+            TRAClaim ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRAClaim(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRAClaim(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRACredential_Content(TRACredential_Content value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Content' to 'TRAEncryptedClaims'.");
+                
+            }
+            TRACredential_Content ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRACredential_Content(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRACredential_Content>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRACredential_Content()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Content> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRACredential_Content(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRACredential_Envelope(TRACredential_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Envelope' to 'TRAEncryptedClaims'.");
+                
+            }
+            TRACredential_Envelope ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRACredential_Envelope(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRACredential_Envelope>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRACredential_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Envelope> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRACredential_Envelope(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRACredential_EnvelopeSeal(TRACredential_EnvelopeSeal value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_EnvelopeSeal' to 'TRAEncryptedClaims'.");
+                
+            }
+            TRACredential_EnvelopeSeal ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRACredential_EnvelopeSeal(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRACredential_EnvelopeSeal()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_EnvelopeSeal> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRACredential_EnvelopeSeal(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRACredential_Label(TRACredential_Label value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Label' to 'TRAEncryptedClaims'.");
+                
+            }
+            TRACredential_Label ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRACredential_Label(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRACredential_Label>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRACredential_Label()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Label> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRACredential_Label(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                return (TRAEncryptedClaims)value;
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRAEncryptedClaims'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRAKeyValuePair(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRAKeyValuePair(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TRAEncryptedClaims'.");
+                
+            }
+            TRACredentialType ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRACredentialType(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRACredentialType(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TRAEncryptedClaims'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRAEncryptionFlag(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRAEncryptionFlag(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TRAEncryptedClaims'.");
+                
+            }
+            TRAServiceType ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRAServiceType(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRAServiceType(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TRAEncryptedClaims'.");
+                
+            }
+            TRATrustLevel ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRATrustLevel(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRATrustLevel(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRAEncryptedClaims'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TRAEncryptedClaims>.ConvertTo_List_List_TRAKeyValuePair(TRAEncryptedClaims value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRAEncryptedClaims>.Enumerate_List_List_TRAKeyValuePair(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAEncryptedClaims'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRAEncryptedClaims>.ConvertTo_List_TRAClaim(TRAEncryptedClaims value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRAEncryptedClaims>.Enumerate_List_TRAClaim(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent?' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDAAccountEntryContent? ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDAAccountEntryContent_nullable(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDAAccountEntryContent_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDAAccountEntryContent_nullable(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryContent? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent?' to 'TRAEncryptedClaims'.");
+                
+            }
+            TDWVDASmartContractEntryContent? ITypeConverter<TRAEncryptedClaims>.ConvertTo_TDWVDASmartContractEntryContent_nullable(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TDWVDASmartContractEntryContent_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryContent?> ITypeConverter<TRAEncryptedClaims>.Enumerate_TDWVDASmartContractEntryContent_nullable(TRAEncryptedClaims value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
+            {
+                
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAEncryptedClaims(value.Value);
+                
+            }
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims>.ConvertTo_TRAEncryptedClaims_nullable(TRAEncryptedClaims value)
+            {
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAEncryptedClaims(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims>.GetConversionActionTo_TRAEncryptedClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRAEncryptedClaims>.Enumerate_TRAEncryptedClaims_nullable(TRAEncryptedClaims value)
             {
                 
                 yield break;
@@ -16192,30 +17720,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRAKeyValuePair>.Enumerate_List_string(TRAKeyValuePair value)
-            {
-                
-                yield break;
-            }
-            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAKeyValuePair'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TRAKeyValuePair>.ConvertTo_List_TRAClaim(TRAKeyValuePair value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAKeyValuePair(value);
-            }
-            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRAKeyValuePair>.Enumerate_List_TRAClaim(TRAKeyValuePair value)
             {
                 
                 yield break;
@@ -16604,6 +18108,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TRAKeyValuePair'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRAKeyValuePair>.ConvertTo_TRAEncryptedClaims(TRAKeyValuePair value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRAKeyValuePair>.Enumerate_TRAEncryptedClaims(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
             TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -16748,6 +18276,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAKeyValuePair'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRAKeyValuePair>.ConvertTo_List_TRAClaim(TRAKeyValuePair value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRAKeyValuePair>.Enumerate_List_TRAClaim(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRAKeyValuePair'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRAKeyValuePair>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRAKeyValuePair value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRAKeyValuePair>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
             TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -16768,6 +18344,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRAKeyValuePair>.Enumerate_TDWVDAAccountEntryContent_nullable(TRAKeyValuePair value)
+            {
+                
+                yield break;
+            }
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRAKeyValuePair'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRAKeyValuePair>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRAKeyValuePair value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRAKeyValuePair>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRAKeyValuePair value)
             {
                 
                 yield break;
@@ -16796,17 +18396,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRAKeyValuePair ITypeConverter<TRAKeyValuePair>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TRAKeyValuePair'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TRAKeyValuePair'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TRAKeyValuePair>.ConvertTo_TRACredential_Content_nullable(TRAKeyValuePair value)
+            TRAEncryptedClaims? ITypeConverter<TRAKeyValuePair>.ConvertTo_TRAEncryptedClaims_nullable(TRAKeyValuePair value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRAKeyValuePair(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAKeyValuePair(value);
             }
-            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRAKeyValuePair>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -16815,7 +18415,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRAKeyValuePair>.Enumerate_TRACredential_Content_nullable(TRAKeyValuePair value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRAKeyValuePair>.Enumerate_TRAEncryptedClaims_nullable(TRAKeyValuePair value)
             {
                 
                 yield break;
@@ -16929,30 +18529,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRACredentialType>.Enumerate_List_string(TRACredentialType value)
-            {
-                
-                yield break;
-            }
-            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredentialType'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TRACredentialType>.ConvertTo_List_TRAClaim(TRACredentialType value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialType(value);
-            }
-            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredentialType>.Enumerate_List_TRAClaim(TRACredentialType value)
             {
                 
                 yield break;
@@ -17341,6 +18917,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TRACredentialType'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRACredentialType>.ConvertTo_TRAEncryptedClaims(TRACredentialType value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRACredentialType>.Enumerate_TRAEncryptedClaims(TRACredentialType value)
+            {
+                
+                yield break;
+            }
             TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -17485,6 +19085,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredentialType'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRACredentialType>.ConvertTo_List_TRAClaim(TRACredentialType value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredentialType>.Enumerate_List_TRAClaim(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRACredentialType'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRACredentialType>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRACredentialType value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRACredentialType>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRACredentialType value)
+            {
+                
+                yield break;
+            }
             TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -17505,6 +19153,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRACredentialType>.Enumerate_TDWVDAAccountEntryContent_nullable(TRACredentialType value)
+            {
+                
+                yield break;
+            }
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRACredentialType'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRACredentialType>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRACredentialType value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRACredentialType(value);
+            }
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRACredentialType>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRACredentialType value)
             {
                 
                 yield break;
@@ -17533,17 +19205,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRACredentialType ITypeConverter<TRACredentialType>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TRACredentialType'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TRACredentialType'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TRACredentialType>.ConvertTo_TRACredential_Content_nullable(TRACredentialType value)
+            TRAEncryptedClaims? ITypeConverter<TRACredentialType>.ConvertTo_TRAEncryptedClaims_nullable(TRACredentialType value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRACredentialType(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRACredentialType(value);
             }
-            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRACredentialType>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -17552,7 +19224,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRACredentialType>.Enumerate_TRACredential_Content_nullable(TRACredentialType value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRACredentialType>.Enumerate_TRAEncryptedClaims_nullable(TRACredentialType value)
             {
                 
                 yield break;
@@ -17666,30 +19338,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRAEncryptionFlag>.Enumerate_List_string(TRAEncryptionFlag value)
-            {
-                
-                yield break;
-            }
-            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAEncryptionFlag'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TRAEncryptionFlag>.ConvertTo_List_TRAClaim(TRAEncryptionFlag value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAEncryptionFlag(value);
-            }
-            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRAEncryptionFlag>.Enumerate_List_TRAClaim(TRAEncryptionFlag value)
             {
                 
                 yield break;
@@ -18078,6 +19726,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TRAEncryptionFlag'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptionFlag>.ConvertTo_TRAEncryptedClaims(TRAEncryptionFlag value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRAEncryptedClaims(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
             TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -18222,6 +19894,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAEncryptionFlag'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRAEncryptionFlag>.ConvertTo_List_TRAClaim(TRAEncryptionFlag value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRAEncryptionFlag>.Enumerate_List_TRAClaim(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRAEncryptionFlag'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRAEncryptionFlag>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRAEncryptionFlag value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRAEncryptionFlag>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
             TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -18242,6 +19962,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRAEncryptionFlag>.Enumerate_TDWVDAAccountEntryContent_nullable(TRAEncryptionFlag value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRAEncryptionFlag'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRAEncryptionFlag>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRAEncryptionFlag value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAEncryptionFlag(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRAEncryptionFlag>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRAEncryptionFlag value)
             {
                 
                 yield break;
@@ -18270,17 +20014,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRAEncryptionFlag ITypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TRAEncryptionFlag'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TRAEncryptionFlag'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TRAEncryptionFlag>.ConvertTo_TRACredential_Content_nullable(TRAEncryptionFlag value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptionFlag>.ConvertTo_TRAEncryptedClaims_nullable(TRAEncryptionFlag value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRAEncryptionFlag(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAEncryptionFlag(value);
             }
-            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRAEncryptionFlag>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -18289,7 +20033,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRACredential_Content_nullable(TRAEncryptionFlag value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRAEncryptionFlag>.Enumerate_TRAEncryptedClaims_nullable(TRAEncryptionFlag value)
             {
                 
                 yield break;
@@ -18403,30 +20147,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRAServiceType>.Enumerate_List_string(TRAServiceType value)
-            {
-                
-                yield break;
-            }
-            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAServiceType'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TRAServiceType>.ConvertTo_List_TRAClaim(TRAServiceType value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAServiceType(value);
-            }
-            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRAServiceType>.Enumerate_List_TRAClaim(TRAServiceType value)
             {
                 
                 yield break;
@@ -18815,6 +20535,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TRAServiceType'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRAServiceType>.ConvertTo_TRAEncryptedClaims(TRAServiceType value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRAServiceType>.Enumerate_TRAEncryptedClaims(TRAServiceType value)
+            {
+                
+                yield break;
+            }
             TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -18959,6 +20703,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAServiceType'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRAServiceType>.ConvertTo_List_TRAClaim(TRAServiceType value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRAServiceType>.Enumerate_List_TRAClaim(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRAServiceType'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRAServiceType>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRAServiceType value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRAServiceType>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRAServiceType value)
+            {
+                
+                yield break;
+            }
             TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -18979,6 +20771,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRAServiceType>.Enumerate_TDWVDAAccountEntryContent_nullable(TRAServiceType value)
+            {
+                
+                yield break;
+            }
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRAServiceType'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRAServiceType>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRAServiceType value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAServiceType(value);
+            }
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRAServiceType>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRAServiceType value)
             {
                 
                 yield break;
@@ -19007,17 +20823,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRAServiceType ITypeConverter<TRAServiceType>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TRAServiceType'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TRAServiceType'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TRAServiceType>.ConvertTo_TRACredential_Content_nullable(TRAServiceType value)
+            TRAEncryptedClaims? ITypeConverter<TRAServiceType>.ConvertTo_TRAEncryptedClaims_nullable(TRAServiceType value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRAServiceType(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAServiceType(value);
             }
-            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRAServiceType>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -19026,7 +20842,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRAServiceType>.Enumerate_TRACredential_Content_nullable(TRAServiceType value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRAServiceType>.Enumerate_TRAEncryptedClaims_nullable(TRAServiceType value)
             {
                 
                 yield break;
@@ -19140,30 +20956,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TRATrustLevel>.Enumerate_List_string(TRATrustLevel value)
-            {
-                
-                yield break;
-            }
-            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRATrustLevel'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TRATrustLevel>.ConvertTo_List_TRAClaim(TRATrustLevel value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRATrustLevel(value);
-            }
-            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRATrustLevel>.Enumerate_List_TRAClaim(TRATrustLevel value)
             {
                 
                 yield break;
@@ -19552,6 +21344,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TRATrustLevel'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRATrustLevel>.ConvertTo_TRAEncryptedClaims(TRATrustLevel value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRATrustLevel>.Enumerate_TRAEncryptedClaims(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
             TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -19696,6 +21512,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRATrustLevel'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TRATrustLevel>.ConvertTo_List_TRAClaim(TRATrustLevel value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRATrustLevel>.Enumerate_List_TRAClaim(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRATrustLevel'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TRATrustLevel>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRATrustLevel value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRATrustLevel>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
             TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -19716,6 +21580,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRATrustLevel>.Enumerate_TDWVDAAccountEntryContent_nullable(TRATrustLevel value)
+            {
+                
+                yield break;
+            }
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRATrustLevel'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRATrustLevel>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRATrustLevel value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRATrustLevel(value);
+            }
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRATrustLevel>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRATrustLevel value)
             {
                 
                 yield break;
@@ -19744,17 +21632,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRATrustLevel ITypeConverter<TRATrustLevel>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TRATrustLevel'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TRATrustLevel'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TRATrustLevel>.ConvertTo_TRACredential_Content_nullable(TRATrustLevel value)
+            TRAEncryptedClaims? ITypeConverter<TRATrustLevel>.ConvertTo_TRAEncryptedClaims_nullable(TRATrustLevel value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRATrustLevel(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRATrustLevel(value);
             }
-            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRATrustLevel>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -19763,7 +21651,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRATrustLevel>.Enumerate_TRACredential_Content_nullable(TRATrustLevel value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRATrustLevel>.Enumerate_TRAEncryptedClaims_nullable(TRATrustLevel value)
             {
                 
                 yield break;
@@ -19900,30 +21788,6 @@ namespace TDW.VDAServer
                 
                 foreach (var element in value)
                     yield return TypeConverter<List<string>>.ConvertFrom_List_TRAKeyValuePair(element);
-                
-                yield break;
-            }
-            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'List<List<TRAKeyValuePair>>'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_List_TRAClaim(List<List<TRAKeyValuePair>> value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_List_TRAKeyValuePair(value);
-            }
-            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_List_TRAClaim(List<List<TRAKeyValuePair>> value)
-            {
                 
                 yield break;
             }
@@ -20321,6 +22185,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRAEncryptedClaims(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRAEncryptedClaims(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
             List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -20472,6 +22360,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_List_TRAClaim(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_List_TRAClaim(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TDWVDAAccountEntryClaims_nullable(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TDWVDAAccountEntryClaims_nullable(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
             List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -20492,6 +22428,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TDWVDAAccountEntryContent_nullable(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'List<List<TRAKeyValuePair>>'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(List<List<TRAKeyValuePair>> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_List_List_TRAKeyValuePair(value);
+            }
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TDWVDASmartContractEntryClaims_nullable(List<List<TRAKeyValuePair>> value)
             {
                 
                 yield break;
@@ -20520,17 +22480,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            List<List<TRAKeyValuePair>> ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'List<List<TRAKeyValuePair>>'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'List<List<TRAKeyValuePair>>'.");
                 
             }
-            TRACredential_Content? ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRACredential_Content_nullable(List<List<TRAKeyValuePair>> value)
+            TRAEncryptedClaims? ITypeConverter<List<List<TRAKeyValuePair>>>.ConvertTo_TRAEncryptedClaims_nullable(List<List<TRAKeyValuePair>> value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_List_List_TRAKeyValuePair(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_List_List_TRAKeyValuePair(value);
             }
-            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<List<List<TRAKeyValuePair>>>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -20539,7 +22499,1657 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRACredential_Content_nullable(List<List<TRAKeyValuePair>> value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<List<List<TRAKeyValuePair>>>.Enumerate_TRAEncryptedClaims_nullable(List<List<TRAKeyValuePair>> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'List<TRAClaim>'.");
+                
+            }
+            bool ITypeConverter<List<TRAClaim>>.ConvertTo_bool(List<TRAClaim> value)
+            {
+                return TypeConverter<bool>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<List<TRAClaim>>.Enumerate_bool(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'List<TRAClaim>'.");
+                
+            }
+            long ITypeConverter<List<TRAClaim>>.ConvertTo_long(List<TRAClaim> value)
+            {
+                return TypeConverter<long>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<List<TRAClaim>>.Enumerate_long(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    List<TRAClaim> intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = ExternalParser.TryParse_List_TRAClaim(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        try
+                        {
+                            TRAClaim element = TypeConverter<TRAClaim>.ConvertFrom_string(value);
+                            intermediate_result = new List<TRAClaim>();
+                            intermediate_result.Add(element);
+                        }
+                        catch
+                        {
+                            throw new ArgumentException("Cannot parse \"" + value + "\" into either 'List<TRAClaim>' or 'TRAClaim'.");
+                        }
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<List<TRAClaim>>.ConvertTo_string(List<TRAClaim> value)
+            {
+                return TypeConverter<string>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<List<TRAClaim>>.Enumerate_string(List<TRAClaim> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<string>.ConvertFrom_TRAClaim(element);
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                {
+                    List<TRAClaim> intermediate_result = new List<TRAClaim>();
+                    foreach (var element in value)
+                    {
+                        intermediate_result.Add(TypeConverter<TRAClaim>.ConvertFrom_string(element));
+                    }
+                    return intermediate_result;
+                }
+                
+            }
+            List<string> ITypeConverter<List<TRAClaim>>.ConvertTo_List_string(List<TRAClaim> value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_CONVERTLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<List<TRAClaim>>.Enumerate_List_string(List<TRAClaim> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<string>>.ConvertFrom_TRAClaim(element);
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'List<TRAClaim>'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<List<TRAClaim>>.ConvertTo_List_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<List<TRAClaim>>.Enumerate_List_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryClaims(TDWVDAAccountEntryClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAAccountEntryClaims ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryClaims(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryClaims(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryContent(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryContent(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryEnvelope(TDWVDAAccountEntryEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryEnvelope' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAAccountEntryEnvelope ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryEnvelope(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryEnvelope> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryEnvelope(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(TDWVDAIdentityRegistryEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntryParm' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAIdentityRegistryEntryParm ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAIdentityRegistryEntryParm(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAIdentityRegistryEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntryParm> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAIdentityRegistryEntryParm(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAPostInvocationParameters(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAPostInvocationParameters(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDARevocationListEntryParm(TDWVDARevocationListEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntryParm' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDARevocationListEntryParm ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDARevocationListEntryParm(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDARevocationListEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntryParm> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDARevocationListEntryParm(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAServiceEndpointEntryParm(TDWVDAServiceEndpointEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntryParm' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAServiceEndpointEntryParm ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAServiceEndpointEntryParm(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAServiceEndpointEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntryParm> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAServiceEndpointEntryParm(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryClaims(TDWVDASmartContractEntryClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDASmartContractEntryClaims ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDASmartContractEntryClaims(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDASmartContractEntryClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDASmartContractEntryClaims(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryContent(TDWVDASmartContractEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDASmartContractEntryContent ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDASmartContractEntryContent(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDASmartContractEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryContent> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDASmartContractEntryContent(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryEnvelope(TDWVDASmartContractEntryEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryEnvelope' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDASmartContractEntryEnvelope ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDASmartContractEntryEnvelope(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDASmartContractEntryEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryEnvelope> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDASmartContractEntryEnvelope(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                {
+                    List<TRAClaim> intermediate_result = new List<TRAClaim>();
+                    intermediate_result.Add(TypeConverter<TRAClaim>.ConvertFrom_TRAClaim(value));
+                    return intermediate_result;
+                }
+                
+            }
+            TRAClaim ITypeConverter<List<TRAClaim>>.ConvertTo_TRAClaim(List<TRAClaim> value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<List<TRAClaim>>.Enumerate_TRAClaim(List<TRAClaim> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<TRAClaim>.ConvertFrom_TRAClaim(element);
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Content(TRACredential_Content value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Content' to 'List<TRAClaim>'.");
+                
+            }
+            TRACredential_Content ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredential_Content(List<TRAClaim> value)
+            {
+                return TypeConverter<TRACredential_Content>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredential_Content()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Content> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredential_Content(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Envelope(TRACredential_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Envelope' to 'List<TRAClaim>'.");
+                
+            }
+            TRACredential_Envelope ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredential_Envelope(List<TRAClaim> value)
+            {
+                return TypeConverter<TRACredential_Envelope>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredential_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Envelope> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredential_Envelope(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_EnvelopeSeal(TRACredential_EnvelopeSeal value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_EnvelopeSeal' to 'List<TRAClaim>'.");
+                
+            }
+            TRACredential_EnvelopeSeal ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredential_EnvelopeSeal(List<TRAClaim> value)
+            {
+                return TypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredential_EnvelopeSeal()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_EnvelopeSeal> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredential_EnvelopeSeal(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Label(TRACredential_Label value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Label' to 'List<TRAClaim>'.");
+                
+            }
+            TRACredential_Label ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredential_Label(List<TRAClaim> value)
+            {
+                return TypeConverter<TRACredential_Label>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredential_Label()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Label> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredential_Label(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'List<TRAClaim>'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<List<TRAClaim>>.ConvertTo_TRAEncryptedClaims(List<TRAClaim> value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<List<TRAClaim>>.Enumerate_TRAEncryptedClaims(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'List<TRAClaim>'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<List<TRAClaim>>.ConvertTo_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<List<TRAClaim>>.Enumerate_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'List<TRAClaim>'.");
+                
+            }
+            TRACredentialType ITypeConverter<List<TRAClaim>>.ConvertTo_TRACredentialType(List<TRAClaim> value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<List<TRAClaim>>.Enumerate_TRACredentialType(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'List<TRAClaim>'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<List<TRAClaim>>.ConvertTo_TRAEncryptionFlag(List<TRAClaim> value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<List<TRAClaim>>.Enumerate_TRAEncryptionFlag(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'List<TRAClaim>'.");
+                
+            }
+            TRAServiceType ITypeConverter<List<TRAClaim>>.ConvertTo_TRAServiceType(List<TRAClaim> value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<List<TRAClaim>>.Enumerate_TRAServiceType(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'List<TRAClaim>'.");
+                
+            }
+            TRATrustLevel ITypeConverter<List<TRAClaim>>.ConvertTo_TRATrustLevel(List<TRAClaim> value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<List<TRAClaim>>.Enumerate_TRATrustLevel(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'List<TRAClaim>'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<List<TRAClaim>>.ConvertTo_List_List_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<List<TRAClaim>>.Enumerate_List_List_TRAKeyValuePair(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                return (List<TRAClaim>)value;
+                
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertTo_List_TRAClaim(List<TRAClaim> value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<List<TRAClaim>>.Enumerate_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                foreach (var element in value)
+                    yield return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAClaim(element);
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryClaims_nullable(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryClaims_nullable(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent?' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDAAccountEntryContent? ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDAAccountEntryContent_nullable(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDAAccountEntryContent_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDAAccountEntryContent_nullable(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDASmartContractEntryClaims_nullable(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryContent? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent?' to 'List<TRAClaim>'.");
+                
+            }
+            TDWVDASmartContractEntryContent? ITypeConverter<List<TRAClaim>>.ConvertTo_TDWVDASmartContractEntryContent_nullable(List<TRAClaim> value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TDWVDASmartContractEntryContent_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryContent?> ITypeConverter<List<TRAClaim>>.Enumerate_TDWVDASmartContractEntryContent_nullable(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            List<TRAClaim> ITypeConverter<List<TRAClaim>>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'List<TRAClaim>'.");
+                
+            }
+            TRAEncryptedClaims? ITypeConverter<List<TRAClaim>>.ConvertTo_TRAEncryptedClaims_nullable(List<TRAClaim> value)
+            {
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_List_TRAClaim(value);
+            }
+            TypeConversionAction ITypeConverter<List<TRAClaim>>.GetConversionActionTo_TRAEncryptedClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<List<TRAClaim>>.Enumerate_TRAEncryptedClaims_nullable(List<TRAClaim> value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            bool ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_bool(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<bool>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_bool(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            long ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_long(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<long>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_long(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    TDWVDAAccountEntryClaims? intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = ExternalParser.TryParse_TDWVDAAccountEntryClaims_nullable(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "TDWVDAAccountEntryClaims?");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_string(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<string>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_string(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            List<string> ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_List_string(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_List_string(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_List_TRAKeyValuePair(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_List_TRAKeyValuePair(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAAccountEntryClaims(TDWVDAAccountEntryClaims value)
+            {
+                
+                return (TDWVDAAccountEntryClaims?)value;
+                
+            }
+            TDWVDAAccountEntryClaims ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDAAccountEntryClaims(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDAAccountEntryClaims()
+            {
+                
+                return TypeConversionAction.TC_EXTRACTNULLABLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDAAccountEntryClaims(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDAAccountEntryContent(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDAAccountEntryContent(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAAccountEntryEnvelope(TDWVDAAccountEntryEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryEnvelope' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDAAccountEntryEnvelope(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDAAccountEntryEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryEnvelope> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDAAccountEntryEnvelope(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(TDWVDAIdentityRegistryEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntryParm' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDAIdentityRegistryEntryParm(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDAIdentityRegistryEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntryParm> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDAIdentityRegistryEntryParm(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDAPostInvocationParameters(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDAPostInvocationParameters(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDARevocationListEntryParm(TDWVDARevocationListEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntryParm' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDARevocationListEntryParm ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDARevocationListEntryParm(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDARevocationListEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntryParm> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDARevocationListEntryParm(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAServiceEndpointEntryParm(TDWVDAServiceEndpointEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntryParm' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDAServiceEndpointEntryParm(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDAServiceEndpointEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntryParm> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDAServiceEndpointEntryParm(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims(TDWVDASmartContractEntryClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDASmartContractEntryClaims ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDASmartContractEntryClaims(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDASmartContractEntryClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDASmartContractEntryClaims(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryContent(TDWVDASmartContractEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDASmartContractEntryContent ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDASmartContractEntryContent(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDASmartContractEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryContent> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDASmartContractEntryContent(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryEnvelope(TDWVDASmartContractEntryEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryEnvelope' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDASmartContractEntryEnvelope(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDASmartContractEntryEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryEnvelope> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDASmartContractEntryEnvelope(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRAClaim ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRAClaim(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRAClaim(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRACredential_Content(TRACredential_Content value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Content' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRACredential_Content ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRACredential_Content(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRACredential_Content>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRACredential_Content()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Content> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRACredential_Content(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRACredential_Envelope(TRACredential_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Envelope' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRACredential_Envelope ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRACredential_Envelope(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRACredential_Envelope>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRACredential_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Envelope> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRACredential_Envelope(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRACredential_EnvelopeSeal(TRACredential_EnvelopeSeal value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_EnvelopeSeal' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRACredential_EnvelopeSeal ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRACredential_EnvelopeSeal(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRACredential_EnvelopeSeal()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_EnvelopeSeal> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRACredential_EnvelopeSeal(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRACredential_Label(TRACredential_Label value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Label' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRACredential_Label ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRACredential_Label(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRACredential_Label>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRACredential_Label()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Label> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRACredential_Label(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRAEncryptedClaims(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRAEncryptedClaims(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRAKeyValuePair(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRAKeyValuePair(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRACredentialType ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRACredentialType(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRACredentialType(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRAEncryptionFlag(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRAEncryptionFlag(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRAServiceType ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRAServiceType(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRAServiceType(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRATrustLevel ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRATrustLevel(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRATrustLevel(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_List_List_TRAKeyValuePair(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_List_List_TRAKeyValuePair(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_List_TRAClaim(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                return (TDWVDAAccountEntryClaims?)value;
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent?' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDAAccountEntryContent? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDAAccountEntryContent_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryContent? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent?' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TDWVDASmartContractEntryContent? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TDWVDASmartContractEntryContent_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TDWVDASmartContractEntryContent_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryContent?> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TDWVDASmartContractEntryContent_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDAAccountEntryClaims?'.");
+                
+            }
+            TRAEncryptedClaims? ITypeConverter<TDWVDAAccountEntryClaims?>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryClaims?>.GetConversionActionTo_TRAEncryptedClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDAAccountEntryClaims?>.Enumerate_TRAEncryptedClaims_nullable(TDWVDAAccountEntryClaims? value)
             {
                 
                 yield break;
@@ -20653,30 +24263,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDAAccountEntryContent?>.Enumerate_List_string(TDWVDAAccountEntryContent? value)
-            {
-                
-                yield break;
-            }
-            TDWVDAAccountEntryContent? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryContent?'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryContent?>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryContent? value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryContent_nullable(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent?>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryContent?>.Enumerate_List_TRAClaim(TDWVDAAccountEntryContent? value)
             {
                 
                 yield break;
@@ -21065,6 +24651,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAAccountEntryContent? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDAAccountEntryContent?'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDAAccountEntryContent?>.ConvertTo_TRAEncryptedClaims(TDWVDAAccountEntryContent? value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDAAccountEntryContent_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent?>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDAAccountEntryContent?>.Enumerate_TRAEncryptedClaims(TDWVDAAccountEntryContent? value)
+            {
+                
+                yield break;
+            }
             TDWVDAAccountEntryContent? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -21209,6 +24819,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDAAccountEntryContent? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDAAccountEntryContent?'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDAAccountEntryContent?>.ConvertTo_List_TRAClaim(TDWVDAAccountEntryContent? value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDAAccountEntryContent_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent?>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDAAccountEntryContent?>.Enumerate_List_TRAClaim(TDWVDAAccountEntryContent? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDAAccountEntryContent?'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryContent? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDAAccountEntryContent_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent?>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDAAccountEntryContent?>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryContent? value)
+            {
+                
+                yield break;
+            }
             TDWVDAAccountEntryContent? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -21229,6 +24887,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDAAccountEntryContent?>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
+            {
+                
+                yield break;
+            }
+            TDWVDAAccountEntryContent? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDAAccountEntryContent?'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDAAccountEntryContent? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAAccountEntryContent_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent?>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDAAccountEntryContent?>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDAAccountEntryContent? value)
             {
                 
                 yield break;
@@ -21257,17 +24939,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDAAccountEntryContent? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDAAccountEntryContent? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDAAccountEntryContent?'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDAAccountEntryContent?'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertTo_TRACredential_Content_nullable(TDWVDAAccountEntryContent? value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDAAccountEntryContent?>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDAAccountEntryContent? value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAAccountEntryContent_nullable(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAAccountEntryContent_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent?>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TDWVDAAccountEntryContent?>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -21276,7 +24958,816 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDAAccountEntryContent?>.Enumerate_TRACredential_Content_nullable(TDWVDAAccountEntryContent? value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDAAccountEntryContent?>.Enumerate_TRAEncryptedClaims_nullable(TDWVDAAccountEntryContent? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_bool(bool value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            bool ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_bool(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<bool>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_bool()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<bool> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_bool(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            long ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_long(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<long>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_long(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_string(string value)
+            {
+                
+                {
+                    #region String parse
+                    TDWVDASmartContractEntryClaims? intermediate_result;
+                    bool conversion_success;
+                    
+                    {
+                        conversion_success = ExternalParser.TryParse_TDWVDASmartContractEntryClaims_nullable(value, out intermediate_result);
+                    }
+                    
+                    if (!conversion_success)
+                    {
+                        
+                        Throw.cannot_parse(value, "TDWVDASmartContractEntryClaims?");
+                        
+                    }
+                    return intermediate_result;
+                    #endregion
+                }
+                
+            }
+            string ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_string(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<string>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_string()
+            {
+                
+                return TypeConversionAction.TC_TOSTRING;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<string> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_string(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_List_string(List<string> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            List<string> ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_List_string(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<List<string>>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_List_string()
+            {
+                
+                return TypeConversionAction.TC_WRAPINLIST;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<string>> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_List_string(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            List<TRAKeyValuePair> ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_List_TRAKeyValuePair(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_List_TRAKeyValuePair(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAAccountEntryClaims(TDWVDAAccountEntryClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDAAccountEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDAAccountEntryClaims(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDAAccountEntryClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDAAccountEntryClaims(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDAAccountEntryContent ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDAAccountEntryContent(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDAAccountEntryContent(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAAccountEntryEnvelope(TDWVDAAccountEntryEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryEnvelope' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDAAccountEntryEnvelope ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDAAccountEntryEnvelope(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDAAccountEntryEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryEnvelope> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDAAccountEntryEnvelope(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(TDWVDAIdentityRegistryEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntryParm' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDAIdentityRegistryEntryParm ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDAIdentityRegistryEntryParm(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDAIdentityRegistryEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAIdentityRegistryEntryParm> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDAIdentityRegistryEntryParm(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDAPostInvocationParameters ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDAPostInvocationParameters(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDAPostInvocationParameters(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDARevocationListEntryParm(TDWVDARevocationListEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntryParm' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDARevocationListEntryParm ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDARevocationListEntryParm(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDARevocationListEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDARevocationListEntryParm> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDARevocationListEntryParm(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAServiceEndpointEntryParm(TDWVDAServiceEndpointEntryParm value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntryParm' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDAServiceEndpointEntryParm ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDAServiceEndpointEntryParm(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDAServiceEndpointEntryParm()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAServiceEndpointEntryParm> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDAServiceEndpointEntryParm(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims(TDWVDASmartContractEntryClaims value)
+            {
+                
+                return (TDWVDASmartContractEntryClaims?)value;
+                
+            }
+            TDWVDASmartContractEntryClaims ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDASmartContractEntryClaims(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDASmartContractEntryClaims()
+            {
+                
+                return TypeConversionAction.TC_EXTRACTNULLABLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDASmartContractEntryClaims(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryContent(TDWVDASmartContractEntryContent value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDASmartContractEntryContent ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDASmartContractEntryContent(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDASmartContractEntryContent()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryContent> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDASmartContractEntryContent(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryEnvelope(TDWVDASmartContractEntryEnvelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryEnvelope' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDASmartContractEntryEnvelope ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDASmartContractEntryEnvelope(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDASmartContractEntryEnvelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryEnvelope> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDASmartContractEntryEnvelope(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAClaim(TRAClaim value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRAClaim ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRAClaim(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRAClaim>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAClaim> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRAClaim(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRACredential_Content(TRACredential_Content value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Content' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRACredential_Content ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRACredential_Content(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRACredential_Content>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRACredential_Content()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Content> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRACredential_Content(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRACredential_Envelope(TRACredential_Envelope value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Envelope' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRACredential_Envelope ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRACredential_Envelope(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRACredential_Envelope>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRACredential_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Envelope> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRACredential_Envelope(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRACredential_EnvelopeSeal(TRACredential_EnvelopeSeal value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_EnvelopeSeal' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRACredential_EnvelopeSeal ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRACredential_EnvelopeSeal(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRACredential_EnvelopeSeal()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_EnvelopeSeal> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRACredential_EnvelopeSeal(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRACredential_Label(TRACredential_Label value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Label' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRACredential_Label ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRACredential_Label(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRACredential_Label>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRACredential_Label()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Label> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRACredential_Label(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRAEncryptedClaims(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRAEncryptedClaims(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRAKeyValuePair ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRAKeyValuePair(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRAKeyValuePair(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRACredentialType ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRACredentialType(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRACredentialType>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRACredentialType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredentialType> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRACredentialType(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRAEncryptionFlag ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRAEncryptionFlag(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRAEncryptionFlag()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRAEncryptionFlag(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRAServiceType ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRAServiceType(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRAServiceType>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRAServiceType()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAServiceType> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRAServiceType(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRATrustLevel ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRATrustLevel(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRATrustLevel()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRATrustLevel> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRATrustLevel(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            List<List<TRAKeyValuePair>> ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_List_List_TRAKeyValuePair(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_List_List_TRAKeyValuePair(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_List_TRAClaim(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_List_TRAClaim(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent?' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDAAccountEntryContent? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDAAccountEntryContent_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDAAccountEntryContent_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                return (TDWVDASmartContractEntryClaims?)value;
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_ASSIGN;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryContent? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent?' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TDWVDASmartContractEntryContent? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TDWVDASmartContractEntryContent_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryContent?> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDASmartContractEntryClaims?'.");
+                
+            }
+            TRAEncryptedClaims? ITypeConverter<TDWVDASmartContractEntryClaims?>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryClaims?>.GetConversionActionTo_TRAEncryptedClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDASmartContractEntryClaims?>.Enumerate_TRAEncryptedClaims_nullable(TDWVDASmartContractEntryClaims? value)
             {
                 
                 yield break;
@@ -21390,30 +25881,6 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<List<string>> ITypeConverter<TDWVDASmartContractEntryContent?>.Enumerate_List_string(TDWVDASmartContractEntryContent? value)
-            {
-                
-                yield break;
-            }
-            TDWVDASmartContractEntryContent? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDASmartContractEntryContent?'.");
-                
-            }
-            List<TRAClaim> ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertTo_List_TRAClaim(TDWVDASmartContractEntryContent? value)
-            {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(value);
-            }
-            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent?>.GetConversionActionTo_List_TRAClaim()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDASmartContractEntryContent?>.Enumerate_List_TRAClaim(TDWVDASmartContractEntryContent? value)
             {
                 
                 yield break;
@@ -21802,6 +26269,30 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDASmartContractEntryContent? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims' to 'TDWVDASmartContractEntryContent?'.");
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertTo_TRAEncryptedClaims(TDWVDASmartContractEntryContent? value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent?>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TDWVDASmartContractEntryContent?>.Enumerate_TRAEncryptedClaims(TDWVDASmartContractEntryContent? value)
+            {
+                
+                yield break;
+            }
             TDWVDASmartContractEntryContent? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
@@ -21946,6 +26437,54 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
+            TDWVDASmartContractEntryContent? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TDWVDASmartContractEntryContent?'.");
+                
+            }
+            List<TRAClaim> ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertTo_List_TRAClaim(TDWVDASmartContractEntryContent? value)
+            {
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent?>.GetConversionActionTo_List_TRAClaim()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<List<TRAClaim>> ITypeConverter<TDWVDASmartContractEntryContent?>.Enumerate_List_TRAClaim(TDWVDASmartContractEntryContent? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryContent? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TDWVDASmartContractEntryContent?'.");
+                
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TDWVDASmartContractEntryContent? value)
+            {
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent?>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TDWVDASmartContractEntryContent?>.Enumerate_TDWVDAAccountEntryClaims_nullable(TDWVDASmartContractEntryContent? value)
+            {
+                
+                yield break;
+            }
             TDWVDASmartContractEntryContent? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
@@ -21966,6 +26505,30 @@ namespace TDW.VDAServer
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TDWVDASmartContractEntryContent?>.Enumerate_TDWVDAAccountEntryContent_nullable(TDWVDASmartContractEntryContent? value)
+            {
+                
+                yield break;
+            }
+            TDWVDASmartContractEntryContent? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TDWVDASmartContractEntryContent?'.");
+                
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryContent? value)
+            {
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent?>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TDWVDASmartContractEntryContent?>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryContent? value)
             {
                 
                 yield break;
@@ -21994,41 +26557,17 @@ namespace TDW.VDAServer
                 
                 yield break;
             }
-            TDWVDASmartContractEntryContent? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TDWVDASmartContractEntryContent? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Content?' to 'TDWVDASmartContractEntryContent?'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptedClaims?' to 'TDWVDASmartContractEntryContent?'.");
                 
             }
-            TRACredential_Content? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertTo_TRACredential_Content_nullable(TDWVDASmartContractEntryContent? value)
+            TRAEncryptedClaims? ITypeConverter<TDWVDASmartContractEntryContent?>.ConvertTo_TRAEncryptedClaims_nullable(TDWVDASmartContractEntryContent? value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent?>.GetConversionActionTo_TRACredential_Content_nullable()
-            {
-                
-                return TypeConversionAction.TC_NONCONVERTIBLE;
-                
-            }
-            /// <summary>
-            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
-            /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TDWVDASmartContractEntryContent?>.Enumerate_TRACredential_Content_nullable(TDWVDASmartContractEntryContent? value)
-            {
-                
-                yield break;
-            }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_bool(bool value)
-            {
-                
-                throw new InvalidCastException("Invalid cast from 'bool' to 'TRACredential_Content?'.");
-                
-            }
-            bool ITypeConverter<TRACredential_Content?>.ConvertTo_bool(TRACredential_Content? value)
-            {
-                return TypeConverter<bool>.ConvertFrom_TRACredential_Content_nullable(value);
-            }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_bool()
+            TypeConversionAction ITypeConverter<TDWVDASmartContractEntryContent?>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22037,22 +26576,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<bool> ITypeConverter<TRACredential_Content?>.Enumerate_bool(TRACredential_Content? value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TDWVDASmartContractEntryContent?>.Enumerate_TRAEncryptedClaims_nullable(TDWVDASmartContractEntryContent? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_long(long value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_bool(bool value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'long' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'bool' to 'TRAEncryptedClaims?'.");
                 
             }
-            long ITypeConverter<TRACredential_Content?>.ConvertTo_long(TRACredential_Content? value)
+            bool ITypeConverter<TRAEncryptedClaims?>.ConvertTo_bool(TRAEncryptedClaims? value)
             {
-                return TypeConverter<long>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<bool>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_long()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_bool()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22061,27 +26600,51 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<long> ITypeConverter<TRACredential_Content?>.Enumerate_long(TRACredential_Content? value)
+            IEnumerable<bool> ITypeConverter<TRAEncryptedClaims?>.Enumerate_bool(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_string(string value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_long(long value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'long' to 'TRAEncryptedClaims?'.");
+                
+            }
+            long ITypeConverter<TRAEncryptedClaims?>.ConvertTo_long(TRAEncryptedClaims? value)
+            {
+                return TypeConverter<long>.ConvertFrom_TRAEncryptedClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_long()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<long> ITypeConverter<TRAEncryptedClaims?>.Enumerate_long(TRAEncryptedClaims? value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_string(string value)
             {
                 
                 {
                     #region String parse
-                    TRACredential_Content? intermediate_result;
+                    TRAEncryptedClaims? intermediate_result;
                     bool conversion_success;
                     
                     {
-                        conversion_success = ExternalParser.TryParse_TRACredential_Content_nullable(value, out intermediate_result);
+                        conversion_success = ExternalParser.TryParse_TRAEncryptedClaims_nullable(value, out intermediate_result);
                     }
                     
                     if (!conversion_success)
                     {
                         
-                        Throw.cannot_parse(value, "TRACredential_Content?");
+                        Throw.cannot_parse(value, "TRAEncryptedClaims?");
                         
                     }
                     return intermediate_result;
@@ -22089,11 +26652,11 @@ namespace TDW.VDAServer
                 }
                 
             }
-            string ITypeConverter<TRACredential_Content?>.ConvertTo_string(TRACredential_Content? value)
+            string ITypeConverter<TRAEncryptedClaims?>.ConvertTo_string(TRAEncryptedClaims? value)
             {
-                return TypeConverter<string>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<string>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_string()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_string()
             {
                 
                 return TypeConversionAction.TC_TOSTRING;
@@ -22102,22 +26665,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<string> ITypeConverter<TRACredential_Content?>.Enumerate_string(TRACredential_Content? value)
+            IEnumerable<string> ITypeConverter<TRAEncryptedClaims?>.Enumerate_string(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_List_string(List<string> value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_List_string(List<string> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'List<string>' to 'TRAEncryptedClaims?'.");
                 
             }
-            List<string> ITypeConverter<TRACredential_Content?>.ConvertTo_List_string(TRACredential_Content? value)
+            List<string> ITypeConverter<TRAEncryptedClaims?>.ConvertTo_List_string(TRAEncryptedClaims? value)
             {
-                return TypeConverter<List<string>>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<List<string>>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_List_string()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_List_string()
             {
                 
                 return TypeConversionAction.TC_WRAPINLIST;
@@ -22126,22 +26689,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<string>> ITypeConverter<TRACredential_Content?>.Enumerate_List_string(TRACredential_Content? value)
+            IEnumerable<List<string>> ITypeConverter<TRAEncryptedClaims?>.Enumerate_List_string(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRAEncryptedClaims?'.");
                 
             }
-            List<TRAClaim> ITypeConverter<TRACredential_Content?>.ConvertTo_List_TRAClaim(TRACredential_Content? value)
+            List<TRAKeyValuePair> ITypeConverter<TRAEncryptedClaims?>.ConvertTo_List_TRAKeyValuePair(TRAEncryptedClaims? value)
             {
-                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_List_TRAClaim()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_List_TRAKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22150,22 +26713,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<TRAClaim>> ITypeConverter<TRACredential_Content?>.Enumerate_List_TRAClaim(TRACredential_Content? value)
+            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRAEncryptedClaims?>.Enumerate_List_TRAKeyValuePair(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAAccountEntryClaims(TDWVDAAccountEntryClaims value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<TRAKeyValuePair>' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims' to 'TRAEncryptedClaims?'.");
                 
             }
-            List<TRAKeyValuePair> ITypeConverter<TRACredential_Content?>.ConvertTo_List_TRAKeyValuePair(TRACredential_Content? value)
+            TDWVDAAccountEntryClaims ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDAAccountEntryClaims(TRAEncryptedClaims? value)
             {
-                return TypeConverter<List<TRAKeyValuePair>>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_List_TRAKeyValuePair()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDAAccountEntryClaims()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22174,22 +26737,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<TRAKeyValuePair>> ITypeConverter<TRACredential_Content?>.Enumerate_List_TRAKeyValuePair(TRACredential_Content? value)
+            IEnumerable<TDWVDAAccountEntryClaims> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDAAccountEntryClaims(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAAccountEntryClaims(TDWVDAAccountEntryClaims value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDAAccountEntryClaims ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDAAccountEntryClaims(TRACredential_Content? value)
+            TDWVDAAccountEntryContent ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDAAccountEntryContent(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDAAccountEntryClaims>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDAAccountEntryClaims()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDAAccountEntryContent()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22198,22 +26761,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAAccountEntryClaims> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDAAccountEntryClaims(TRACredential_Content? value)
+            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDAAccountEntryContent(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAAccountEntryContent(TDWVDAAccountEntryContent value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAAccountEntryEnvelope(TDWVDAAccountEntryEnvelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryEnvelope' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDAAccountEntryContent ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDAAccountEntryContent(TRACredential_Content? value)
+            TDWVDAAccountEntryEnvelope ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDAAccountEntryEnvelope(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDAAccountEntryContent>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDAAccountEntryContent()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDAAccountEntryEnvelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22222,22 +26785,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAAccountEntryContent> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDAAccountEntryContent(TRACredential_Content? value)
+            IEnumerable<TDWVDAAccountEntryEnvelope> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDAAccountEntryEnvelope(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAAccountEntryEnvelope(TDWVDAAccountEntryEnvelope value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(TDWVDAIdentityRegistryEntryParm value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryEnvelope' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntryParm' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDAAccountEntryEnvelope ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDAAccountEntryEnvelope(TRACredential_Content? value)
+            TDWVDAIdentityRegistryEntryParm ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDAIdentityRegistryEntryParm(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDAAccountEntryEnvelope>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDAAccountEntryEnvelope()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDAIdentityRegistryEntryParm()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22246,22 +26809,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAAccountEntryEnvelope> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDAAccountEntryEnvelope(TRACredential_Content? value)
+            IEnumerable<TDWVDAIdentityRegistryEntryParm> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDAIdentityRegistryEntryParm(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAIdentityRegistryEntryParm(TDWVDAIdentityRegistryEntryParm value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAIdentityRegistryEntryParm' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDAIdentityRegistryEntryParm ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDAIdentityRegistryEntryParm(TRACredential_Content? value)
+            TDWVDAPostInvocationParameters ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDAPostInvocationParameters(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDAIdentityRegistryEntryParm>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDAIdentityRegistryEntryParm()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDAPostInvocationParameters()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22270,22 +26833,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAIdentityRegistryEntryParm> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDAIdentityRegistryEntryParm(TRACredential_Content? value)
+            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDAPostInvocationParameters(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAPostInvocationParameters(TDWVDAPostInvocationParameters value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDARevocationListEntryParm(TDWVDARevocationListEntryParm value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAPostInvocationParameters' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntryParm' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDAPostInvocationParameters ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDAPostInvocationParameters(TRACredential_Content? value)
+            TDWVDARevocationListEntryParm ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDARevocationListEntryParm(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDAPostInvocationParameters>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDAPostInvocationParameters()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDARevocationListEntryParm()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22294,22 +26857,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAPostInvocationParameters> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDAPostInvocationParameters(TRACredential_Content? value)
+            IEnumerable<TDWVDARevocationListEntryParm> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDARevocationListEntryParm(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDARevocationListEntryParm(TDWVDARevocationListEntryParm value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAServiceEndpointEntryParm(TDWVDAServiceEndpointEntryParm value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDARevocationListEntryParm' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntryParm' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDARevocationListEntryParm ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDARevocationListEntryParm(TRACredential_Content? value)
+            TDWVDAServiceEndpointEntryParm ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDAServiceEndpointEntryParm(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDARevocationListEntryParm>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDARevocationListEntryParm()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDAServiceEndpointEntryParm()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22318,22 +26881,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDARevocationListEntryParm> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDARevocationListEntryParm(TRACredential_Content? value)
+            IEnumerable<TDWVDAServiceEndpointEntryParm> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDAServiceEndpointEntryParm(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAServiceEndpointEntryParm(TDWVDAServiceEndpointEntryParm value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims(TDWVDASmartContractEntryClaims value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAServiceEndpointEntryParm' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDAServiceEndpointEntryParm ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDAServiceEndpointEntryParm(TRACredential_Content? value)
+            TDWVDASmartContractEntryClaims ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDASmartContractEntryClaims(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDAServiceEndpointEntryParm>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDAServiceEndpointEntryParm()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDASmartContractEntryClaims()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22342,22 +26905,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAServiceEndpointEntryParm> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDAServiceEndpointEntryParm(TRACredential_Content? value)
+            IEnumerable<TDWVDASmartContractEntryClaims> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDASmartContractEntryClaims(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDASmartContractEntryClaims(TDWVDASmartContractEntryClaims value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDASmartContractEntryContent(TDWVDASmartContractEntryContent value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDASmartContractEntryClaims ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDASmartContractEntryClaims(TRACredential_Content? value)
+            TDWVDASmartContractEntryContent ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDASmartContractEntryContent(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDASmartContractEntryClaims>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDASmartContractEntryClaims()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDASmartContractEntryContent()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22366,22 +26929,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDASmartContractEntryClaims> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDASmartContractEntryClaims(TRACredential_Content? value)
+            IEnumerable<TDWVDASmartContractEntryContent> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDASmartContractEntryContent(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDASmartContractEntryContent(TDWVDASmartContractEntryContent value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDASmartContractEntryEnvelope(TDWVDASmartContractEntryEnvelope value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryEnvelope' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDASmartContractEntryContent ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDASmartContractEntryContent(TRACredential_Content? value)
+            TDWVDASmartContractEntryEnvelope ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDASmartContractEntryEnvelope(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDASmartContractEntryContent>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDASmartContractEntryContent()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDASmartContractEntryEnvelope()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22390,22 +26953,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDASmartContractEntryContent> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDASmartContractEntryContent(TRACredential_Content? value)
+            IEnumerable<TDWVDASmartContractEntryEnvelope> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDASmartContractEntryEnvelope(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDASmartContractEntryEnvelope(TDWVDASmartContractEntryEnvelope value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAClaim(TRAClaim value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryEnvelope' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDASmartContractEntryEnvelope ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDASmartContractEntryEnvelope(TRACredential_Content? value)
+            TRAClaim ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRAClaim(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDASmartContractEntryEnvelope>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TRAClaim>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDASmartContractEntryEnvelope()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22414,22 +26977,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDASmartContractEntryEnvelope> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDASmartContractEntryEnvelope(TRACredential_Content? value)
+            IEnumerable<TRAClaim> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRAClaim(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRAClaim(TRAClaim value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRACredential_Content(TRACredential_Content value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAClaim' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Content' to 'TRAEncryptedClaims?'.");
                 
             }
-            TRAClaim ITypeConverter<TRACredential_Content?>.ConvertTo_TRAClaim(TRACredential_Content? value)
+            TRACredential_Content ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRACredential_Content(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRAClaim>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TRACredential_Content>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRAClaim()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRACredential_Content()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22438,22 +27001,94 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAClaim> ITypeConverter<TRACredential_Content?>.Enumerate_TRAClaim(TRACredential_Content? value)
+            IEnumerable<TRACredential_Content> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRACredential_Content(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRACredential_Content(TRACredential_Content value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRACredential_Envelope(TRACredential_Envelope value)
             {
                 
-                return (TRACredential_Content?)value;
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Envelope' to 'TRAEncryptedClaims?'.");
                 
             }
-            TRACredential_Content ITypeConverter<TRACredential_Content?>.ConvertTo_TRACredential_Content(TRACredential_Content? value)
+            TRACredential_Envelope ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRACredential_Envelope(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRACredential_Content>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TRACredential_Envelope>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRACredential_Content()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRACredential_Envelope()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Envelope> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRACredential_Envelope(TRAEncryptedClaims? value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRACredential_EnvelopeSeal(TRACredential_EnvelopeSeal value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_EnvelopeSeal' to 'TRAEncryptedClaims?'.");
+                
+            }
+            TRACredential_EnvelopeSeal ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRACredential_EnvelopeSeal(TRAEncryptedClaims? value)
+            {
+                return TypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TRAEncryptedClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRACredential_EnvelopeSeal()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_EnvelopeSeal> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRACredential_EnvelopeSeal(TRAEncryptedClaims? value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRACredential_Label(TRACredential_Label value)
+            {
+                
+                throw new InvalidCastException("Invalid cast from 'TRACredential_Label' to 'TRAEncryptedClaims?'.");
+                
+            }
+            TRACredential_Label ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRACredential_Label(TRAEncryptedClaims? value)
+            {
+                return TypeConverter<TRACredential_Label>.ConvertFrom_TRAEncryptedClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRACredential_Label()
+            {
+                
+                return TypeConversionAction.TC_NONCONVERTIBLE;
+                
+            }
+            /// <summary>
+            /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
+            /// </summary>
+            IEnumerable<TRACredential_Label> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRACredential_Label(TRAEncryptedClaims? value)
+            {
+                
+                yield break;
+            }
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                
+                return (TRAEncryptedClaims?)value;
+                
+            }
+            TRAEncryptedClaims ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRAEncryptedClaims(TRAEncryptedClaims? value)
+            {
+                return TypeConverter<TRAEncryptedClaims>.ConvertFrom_TRAEncryptedClaims_nullable(value);
+            }
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRAEncryptedClaims()
             {
                 
                 return TypeConversionAction.TC_EXTRACTNULLABLE;
@@ -22462,22 +27097,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content> ITypeConverter<TRACredential_Content?>.Enumerate_TRACredential_Content(TRACredential_Content? value)
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRAEncryptedClaims(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRACredential_Envelope(TRACredential_Envelope value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Envelope' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRAEncryptedClaims?'.");
                 
             }
-            TRACredential_Envelope ITypeConverter<TRACredential_Content?>.ConvertTo_TRACredential_Envelope(TRACredential_Content? value)
+            TRAKeyValuePair ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRAKeyValuePair(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRACredential_Envelope>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRACredential_Envelope()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRAKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22486,22 +27121,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Envelope> ITypeConverter<TRACredential_Content?>.Enumerate_TRACredential_Envelope(TRACredential_Content? value)
+            IEnumerable<TRAKeyValuePair> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRAKeyValuePair(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRACredential_EnvelopeSeal(TRACredential_EnvelopeSeal value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRACredentialType(TRACredentialType value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_EnvelopeSeal' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TRAEncryptedClaims?'.");
                 
             }
-            TRACredential_EnvelopeSeal ITypeConverter<TRACredential_Content?>.ConvertTo_TRACredential_EnvelopeSeal(TRACredential_Content? value)
+            TRACredentialType ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRACredentialType(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRACredential_EnvelopeSeal>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TRACredentialType>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRACredential_EnvelopeSeal()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRACredentialType()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22510,22 +27145,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_EnvelopeSeal> ITypeConverter<TRACredential_Content?>.Enumerate_TRACredential_EnvelopeSeal(TRACredential_Content? value)
+            IEnumerable<TRACredentialType> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRACredentialType(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRACredential_Label(TRACredential_Label value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredential_Label' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TRAEncryptedClaims?'.");
                 
             }
-            TRACredential_Label ITypeConverter<TRACredential_Content?>.ConvertTo_TRACredential_Label(TRACredential_Content? value)
+            TRAEncryptionFlag ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRAEncryptionFlag(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRACredential_Label>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRACredential_Label()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRAEncryptionFlag()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22534,22 +27169,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Label> ITypeConverter<TRACredential_Content?>.Enumerate_TRACredential_Label(TRACredential_Content? value)
+            IEnumerable<TRAEncryptionFlag> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRAEncryptionFlag(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAServiceType(TRAServiceType value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAKeyValuePair' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TRAEncryptedClaims?'.");
                 
             }
-            TRAKeyValuePair ITypeConverter<TRACredential_Content?>.ConvertTo_TRAKeyValuePair(TRACredential_Content? value)
+            TRAServiceType ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRAServiceType(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRAKeyValuePair>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TRAServiceType>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRAKeyValuePair()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRAServiceType()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22558,22 +27193,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAKeyValuePair> ITypeConverter<TRACredential_Content?>.Enumerate_TRAKeyValuePair(TRACredential_Content? value)
+            IEnumerable<TRAServiceType> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRAServiceType(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRACredentialType(TRACredentialType value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRACredentialType' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TRAEncryptedClaims?'.");
                 
             }
-            TRACredentialType ITypeConverter<TRACredential_Content?>.ConvertTo_TRACredentialType(TRACredential_Content? value)
+            TRATrustLevel ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRATrustLevel(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRACredentialType>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TRATrustLevel>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRACredentialType()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRATrustLevel()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22582,22 +27217,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredentialType> ITypeConverter<TRACredential_Content?>.Enumerate_TRACredentialType(TRACredential_Content? value)
+            IEnumerable<TRATrustLevel> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRATrustLevel(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRAEncryptionFlag(TRAEncryptionFlag value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAEncryptionFlag' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRAEncryptedClaims?'.");
                 
             }
-            TRAEncryptionFlag ITypeConverter<TRACredential_Content?>.ConvertTo_TRAEncryptionFlag(TRACredential_Content? value)
+            List<List<TRAKeyValuePair>> ITypeConverter<TRAEncryptedClaims?>.ConvertTo_List_List_TRAKeyValuePair(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRAEncryptionFlag>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRAEncryptionFlag()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_List_List_TRAKeyValuePair()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22606,22 +27241,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAEncryptionFlag> ITypeConverter<TRACredential_Content?>.Enumerate_TRAEncryptionFlag(TRACredential_Content? value)
+            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRAEncryptedClaims?>.Enumerate_List_List_TRAKeyValuePair(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRAServiceType(TRAServiceType value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRAServiceType' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'List<TRAClaim>' to 'TRAEncryptedClaims?'.");
                 
             }
-            TRAServiceType ITypeConverter<TRACredential_Content?>.ConvertTo_TRAServiceType(TRACredential_Content? value)
+            List<TRAClaim> ITypeConverter<TRAEncryptedClaims?>.ConvertTo_List_TRAClaim(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRAServiceType>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<List<TRAClaim>>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRAServiceType()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_List_TRAClaim()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22630,22 +27265,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRAServiceType> ITypeConverter<TRACredential_Content?>.Enumerate_TRAServiceType(TRACredential_Content? value)
+            IEnumerable<List<TRAClaim>> ITypeConverter<TRAEncryptedClaims?>.Enumerate_List_TRAClaim(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRATrustLevel(TRATrustLevel value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TRATrustLevel' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryClaims?' to 'TRAEncryptedClaims?'.");
                 
             }
-            TRATrustLevel ITypeConverter<TRACredential_Content?>.ConvertTo_TRATrustLevel(TRACredential_Content? value)
+            TDWVDAAccountEntryClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDAAccountEntryClaims_nullable(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRATrustLevel>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDAAccountEntryClaims?>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRATrustLevel()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22654,22 +27289,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRATrustLevel> ITypeConverter<TRACredential_Content?>.Enumerate_TRATrustLevel(TRACredential_Content? value)
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDAAccountEntryClaims_nullable(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_List_List_TRAKeyValuePair(List<List<TRAKeyValuePair>> value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'List<List<TRAKeyValuePair>>' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent?' to 'TRAEncryptedClaims?'.");
                 
             }
-            List<List<TRAKeyValuePair>> ITypeConverter<TRACredential_Content?>.ConvertTo_List_List_TRAKeyValuePair(TRACredential_Content? value)
+            TDWVDAAccountEntryContent? ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDAAccountEntryContent_nullable(TRAEncryptedClaims? value)
             {
-                return TypeConverter<List<List<TRAKeyValuePair>>>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_List_List_TRAKeyValuePair()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDAAccountEntryContent_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22678,22 +27313,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<List<List<TRAKeyValuePair>>> ITypeConverter<TRACredential_Content?>.Enumerate_List_List_TRAKeyValuePair(TRACredential_Content? value)
+            IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDAAccountEntryContent_nullable(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDAAccountEntryContent?' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryClaims?' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDAAccountEntryContent? ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDAAccountEntryContent_nullable(TRACredential_Content? value)
+            TDWVDASmartContractEntryClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDAAccountEntryContent?>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDASmartContractEntryClaims?>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDAAccountEntryContent_nullable()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22702,22 +27337,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDAAccountEntryContent_nullable(TRACredential_Content? value)
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDASmartContractEntryClaims_nullable(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryContent? value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryContent? value)
             {
                 
-                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent?' to 'TRACredential_Content?'.");
+                throw new InvalidCastException("Invalid cast from 'TDWVDASmartContractEntryContent?' to 'TRAEncryptedClaims?'.");
                 
             }
-            TDWVDASmartContractEntryContent? ITypeConverter<TRACredential_Content?>.ConvertTo_TDWVDASmartContractEntryContent_nullable(TRACredential_Content? value)
+            TDWVDASmartContractEntryContent? ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TDWVDASmartContractEntryContent_nullable(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TDWVDASmartContractEntryContent?>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TDWVDASmartContractEntryContent_nullable()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TDWVDASmartContractEntryContent_nullable()
             {
                 
                 return TypeConversionAction.TC_NONCONVERTIBLE;
@@ -22726,22 +27361,22 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TDWVDASmartContractEntryContent?> ITypeConverter<TRACredential_Content?>.Enumerate_TDWVDASmartContractEntryContent_nullable(TRACredential_Content? value)
+            IEnumerable<TDWVDASmartContractEntryContent?> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TDWVDASmartContractEntryContent_nullable(TRAEncryptedClaims? value)
             {
                 
                 yield break;
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
-                return (TRACredential_Content?)value;
+                return (TRAEncryptedClaims?)value;
                 
             }
-            TRACredential_Content? ITypeConverter<TRACredential_Content?>.ConvertTo_TRACredential_Content_nullable(TRACredential_Content? value)
+            TRAEncryptedClaims? ITypeConverter<TRAEncryptedClaims?>.ConvertTo_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
-                return TypeConverter<TRACredential_Content?>.ConvertFrom_TRACredential_Content_nullable(value);
+                return TypeConverter<TRAEncryptedClaims?>.ConvertFrom_TRAEncryptedClaims_nullable(value);
             }
-            TypeConversionAction ITypeConverter<TRACredential_Content?>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<TRAEncryptedClaims?>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 
                 return TypeConversionAction.TC_ASSIGN;
@@ -22750,7 +27385,7 @@ namespace TDW.VDAServer
             /// <summary>
             /// ONLY VALID FOR TC_CONVERTLIST AND TC_ARRAYTOLIST.
             /// </summary>
-            IEnumerable<TRACredential_Content?> ITypeConverter<TRACredential_Content?>.Enumerate_TRACredential_Content_nullable(TRACredential_Content? value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<TRAEncryptedClaims?>.Enumerate_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 
                 yield break;
@@ -22820,23 +27455,6 @@ namespace TDW.VDAServer
                 throw new NotImplementedException();
             }
             IEnumerable<List<string>> ITypeConverter<object>.Enumerate_List_string(object value)
-            {
-                throw new NotImplementedException();
-            }
-            
-            object ITypeConverter<object>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-            {
-                return value;
-            }
-            List<TRAClaim> ITypeConverter<object>.ConvertTo_List_TRAClaim(object value)
-            {
-                throw new NotImplementedException();
-            }
-            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_List_TRAClaim()
-            {
-                throw new NotImplementedException();
-            }
-            IEnumerable<List<TRAClaim>> ITypeConverter<object>.Enumerate_List_TRAClaim(object value)
             {
                 throw new NotImplementedException();
             }
@@ -23113,6 +27731,23 @@ namespace TDW.VDAServer
                 throw new NotImplementedException();
             }
             
+            object ITypeConverter<object>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+            {
+                return value;
+            }
+            TRAEncryptedClaims ITypeConverter<object>.ConvertTo_TRAEncryptedClaims(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TRAEncryptedClaims()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<TRAEncryptedClaims> ITypeConverter<object>.Enumerate_TRAEncryptedClaims(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
             object ITypeConverter<object>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
             {
                 return value;
@@ -23215,6 +27850,40 @@ namespace TDW.VDAServer
                 throw new NotImplementedException();
             }
             
+            object ITypeConverter<object>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+            {
+                return value;
+            }
+            List<TRAClaim> ITypeConverter<object>.ConvertTo_List_TRAClaim(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_List_TRAClaim()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<List<TRAClaim>> ITypeConverter<object>.Enumerate_List_TRAClaim(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+            {
+                return value;
+            }
+            TDWVDAAccountEntryClaims? ITypeConverter<object>.ConvertTo_TDWVDAAccountEntryClaims_nullable(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<object>.Enumerate_TDWVDAAccountEntryClaims_nullable(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
             object ITypeConverter<object>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
             {
                 return value;
@@ -23228,6 +27897,23 @@ namespace TDW.VDAServer
                 throw new NotImplementedException();
             }
             IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<object>.Enumerate_TDWVDAAccountEntryContent_nullable(object value)
+            {
+                throw new NotImplementedException();
+            }
+            
+            object ITypeConverter<object>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+            {
+                return value;
+            }
+            TDWVDASmartContractEntryClaims? ITypeConverter<object>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(object value)
+            {
+                throw new NotImplementedException();
+            }
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+            {
+                throw new NotImplementedException();
+            }
+            IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<object>.Enumerate_TDWVDASmartContractEntryClaims_nullable(object value)
             {
                 throw new NotImplementedException();
             }
@@ -23249,19 +27935,19 @@ namespace TDW.VDAServer
                 throw new NotImplementedException();
             }
             
-            object ITypeConverter<object>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+            object ITypeConverter<object>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
             {
                 return value;
             }
-            TRACredential_Content? ITypeConverter<object>.ConvertTo_TRACredential_Content_nullable(object value)
+            TRAEncryptedClaims? ITypeConverter<object>.ConvertTo_TRAEncryptedClaims_nullable(object value)
             {
                 throw new NotImplementedException();
             }
-            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TRACredential_Content_nullable()
+            TypeConversionAction ITypeConverter<object>.GetConversionActionTo_TRAEncryptedClaims_nullable()
             {
                 throw new NotImplementedException();
             }
-            IEnumerable<TRACredential_Content?> ITypeConverter<object>.Enumerate_TRACredential_Content_nullable(object value)
+            IEnumerable<TRAEncryptedClaims?> ITypeConverter<object>.Enumerate_TRAEncryptedClaims_nullable(object value)
             {
                 throw new NotImplementedException();
             }
@@ -23334,23 +28020,6 @@ namespace TDW.VDAServer
             throw new NotImplementedException("Internal error T5013.");
         }
         IEnumerable<List<string>> ITypeConverter<T>.Enumerate_List_string(T value)
-        {
-            throw new NotImplementedException("Internal error T5013.");
-        }
-        
-        T ITypeConverter<T>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-        {
-            throw new NotImplementedException("Internal error T5013.");
-        }
-        List<TRAClaim> ITypeConverter<T>.ConvertTo_List_TRAClaim(T value)
-        {
-            throw new NotImplementedException("Internal error T5013.");
-        }
-        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_List_TRAClaim()
-        {
-            throw new NotImplementedException("Internal error T5013.");
-        }
-        IEnumerable<List<TRAClaim>> ITypeConverter<T>.Enumerate_List_TRAClaim(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
@@ -23627,6 +28296,23 @@ namespace TDW.VDAServer
             throw new NotImplementedException("Internal error T5013.");
         }
         
+        T ITypeConverter<T>.ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TRAEncryptedClaims ITypeConverter<T>.ConvertTo_TRAEncryptedClaims(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TRAEncryptedClaims()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<TRAEncryptedClaims> ITypeConverter<T>.Enumerate_TRAEncryptedClaims(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
         T ITypeConverter<T>.ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
         {
             throw new NotImplementedException("Internal error T5013.");
@@ -23729,6 +28415,40 @@ namespace TDW.VDAServer
             throw new NotImplementedException("Internal error T5013.");
         }
         
+        T ITypeConverter<T>.ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        List<TRAClaim> ITypeConverter<T>.ConvertTo_List_TRAClaim(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_List_TRAClaim()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<List<TRAClaim>> ITypeConverter<T>.Enumerate_List_TRAClaim(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TDWVDAAccountEntryClaims? ITypeConverter<T>.ConvertTo_TDWVDAAccountEntryClaims_nullable(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<TDWVDAAccountEntryClaims?> ITypeConverter<T>.Enumerate_TDWVDAAccountEntryClaims_nullable(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
         T ITypeConverter<T>.ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
         {
             throw new NotImplementedException("Internal error T5013.");
@@ -23742,6 +28462,23 @@ namespace TDW.VDAServer
             throw new NotImplementedException("Internal error T5013.");
         }
         IEnumerable<TDWVDAAccountEntryContent?> ITypeConverter<T>.Enumerate_TDWVDAAccountEntryContent_nullable(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        
+        T ITypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TDWVDASmartContractEntryClaims? ITypeConverter<T>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(T value)
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+        {
+            throw new NotImplementedException("Internal error T5013.");
+        }
+        IEnumerable<TDWVDASmartContractEntryClaims?> ITypeConverter<T>.Enumerate_TDWVDASmartContractEntryClaims_nullable(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
@@ -23763,19 +28500,19 @@ namespace TDW.VDAServer
             throw new NotImplementedException("Internal error T5013.");
         }
         
-        T ITypeConverter<T>.ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+        T ITypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        TRACredential_Content? ITypeConverter<T>.ConvertTo_TRACredential_Content_nullable(T value)
+        TRAEncryptedClaims? ITypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TRACredential_Content_nullable()
+        TypeConversionAction ITypeConverter<T>.GetConversionActionTo_TRAEncryptedClaims_nullable()
         {
             throw new NotImplementedException("Internal error T5013.");
         }
-        IEnumerable<TRACredential_Content?> ITypeConverter<T>.Enumerate_TRACredential_Content_nullable(T value)
+        IEnumerable<TRAEncryptedClaims?> ITypeConverter<T>.Enumerate_TRAEncryptedClaims_nullable(T value)
         {
             throw new NotImplementedException("Internal error T5013.");
         }
@@ -23849,23 +28586,6 @@ namespace TDW.VDAServer
         internal static IEnumerable<List<string>> Enumerate_List_string(T value)
         {
             return s_type_converter.Enumerate_List_string(value);
-        }
-        
-        internal static T ConvertFrom_List_TRAClaim(List<TRAClaim> value)
-        {
-            return s_type_converter.ConvertFrom_List_TRAClaim(value);
-        }
-        internal static List<TRAClaim> ConvertTo_List_TRAClaim(T value)
-        {
-            return s_type_converter.ConvertTo_List_TRAClaim(value);
-        }
-        internal static TypeConversionAction GetConversionActionTo_List_TRAClaim()
-        {
-            return s_type_converter.GetConversionActionTo_List_TRAClaim();
-        }
-        internal static IEnumerable<List<TRAClaim>> Enumerate_List_TRAClaim(T value)
-        {
-            return s_type_converter.Enumerate_List_TRAClaim(value);
         }
         
         internal static T ConvertFrom_List_TRAKeyValuePair(List<TRAKeyValuePair> value)
@@ -24140,6 +28860,23 @@ namespace TDW.VDAServer
             return s_type_converter.Enumerate_TRACredential_Label(value);
         }
         
+        internal static T ConvertFrom_TRAEncryptedClaims(TRAEncryptedClaims value)
+        {
+            return s_type_converter.ConvertFrom_TRAEncryptedClaims(value);
+        }
+        internal static TRAEncryptedClaims ConvertTo_TRAEncryptedClaims(T value)
+        {
+            return s_type_converter.ConvertTo_TRAEncryptedClaims(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_TRAEncryptedClaims()
+        {
+            return s_type_converter.GetConversionActionTo_TRAEncryptedClaims();
+        }
+        internal static IEnumerable<TRAEncryptedClaims> Enumerate_TRAEncryptedClaims(T value)
+        {
+            return s_type_converter.Enumerate_TRAEncryptedClaims(value);
+        }
+        
         internal static T ConvertFrom_TRAKeyValuePair(TRAKeyValuePair value)
         {
             return s_type_converter.ConvertFrom_TRAKeyValuePair(value);
@@ -24242,6 +28979,40 @@ namespace TDW.VDAServer
             return s_type_converter.Enumerate_List_List_TRAKeyValuePair(value);
         }
         
+        internal static T ConvertFrom_List_TRAClaim(List<TRAClaim> value)
+        {
+            return s_type_converter.ConvertFrom_List_TRAClaim(value);
+        }
+        internal static List<TRAClaim> ConvertTo_List_TRAClaim(T value)
+        {
+            return s_type_converter.ConvertTo_List_TRAClaim(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_List_TRAClaim()
+        {
+            return s_type_converter.GetConversionActionTo_List_TRAClaim();
+        }
+        internal static IEnumerable<List<TRAClaim>> Enumerate_List_TRAClaim(T value)
+        {
+            return s_type_converter.Enumerate_List_TRAClaim(value);
+        }
+        
+        internal static T ConvertFrom_TDWVDAAccountEntryClaims_nullable(TDWVDAAccountEntryClaims? value)
+        {
+            return s_type_converter.ConvertFrom_TDWVDAAccountEntryClaims_nullable(value);
+        }
+        internal static TDWVDAAccountEntryClaims? ConvertTo_TDWVDAAccountEntryClaims_nullable(T value)
+        {
+            return s_type_converter.ConvertTo_TDWVDAAccountEntryClaims_nullable(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_TDWVDAAccountEntryClaims_nullable()
+        {
+            return s_type_converter.GetConversionActionTo_TDWVDAAccountEntryClaims_nullable();
+        }
+        internal static IEnumerable<TDWVDAAccountEntryClaims?> Enumerate_TDWVDAAccountEntryClaims_nullable(T value)
+        {
+            return s_type_converter.Enumerate_TDWVDAAccountEntryClaims_nullable(value);
+        }
+        
         internal static T ConvertFrom_TDWVDAAccountEntryContent_nullable(TDWVDAAccountEntryContent? value)
         {
             return s_type_converter.ConvertFrom_TDWVDAAccountEntryContent_nullable(value);
@@ -24257,6 +29028,23 @@ namespace TDW.VDAServer
         internal static IEnumerable<TDWVDAAccountEntryContent?> Enumerate_TDWVDAAccountEntryContent_nullable(T value)
         {
             return s_type_converter.Enumerate_TDWVDAAccountEntryContent_nullable(value);
+        }
+        
+        internal static T ConvertFrom_TDWVDASmartContractEntryClaims_nullable(TDWVDASmartContractEntryClaims? value)
+        {
+            return s_type_converter.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(value);
+        }
+        internal static TDWVDASmartContractEntryClaims? ConvertTo_TDWVDASmartContractEntryClaims_nullable(T value)
+        {
+            return s_type_converter.ConvertTo_TDWVDASmartContractEntryClaims_nullable(value);
+        }
+        internal static TypeConversionAction GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable()
+        {
+            return s_type_converter.GetConversionActionTo_TDWVDASmartContractEntryClaims_nullable();
+        }
+        internal static IEnumerable<TDWVDASmartContractEntryClaims?> Enumerate_TDWVDASmartContractEntryClaims_nullable(T value)
+        {
+            return s_type_converter.Enumerate_TDWVDASmartContractEntryClaims_nullable(value);
         }
         
         internal static T ConvertFrom_TDWVDASmartContractEntryContent_nullable(TDWVDASmartContractEntryContent? value)
@@ -24276,21 +29064,21 @@ namespace TDW.VDAServer
             return s_type_converter.Enumerate_TDWVDASmartContractEntryContent_nullable(value);
         }
         
-        internal static T ConvertFrom_TRACredential_Content_nullable(TRACredential_Content? value)
+        internal static T ConvertFrom_TRAEncryptedClaims_nullable(TRAEncryptedClaims? value)
         {
-            return s_type_converter.ConvertFrom_TRACredential_Content_nullable(value);
+            return s_type_converter.ConvertFrom_TRAEncryptedClaims_nullable(value);
         }
-        internal static TRACredential_Content? ConvertTo_TRACredential_Content_nullable(T value)
+        internal static TRAEncryptedClaims? ConvertTo_TRAEncryptedClaims_nullable(T value)
         {
-            return s_type_converter.ConvertTo_TRACredential_Content_nullable(value);
+            return s_type_converter.ConvertTo_TRAEncryptedClaims_nullable(value);
         }
-        internal static TypeConversionAction GetConversionActionTo_TRACredential_Content_nullable()
+        internal static TypeConversionAction GetConversionActionTo_TRAEncryptedClaims_nullable()
         {
-            return s_type_converter.GetConversionActionTo_TRACredential_Content_nullable();
+            return s_type_converter.GetConversionActionTo_TRAEncryptedClaims_nullable();
         }
-        internal static IEnumerable<TRACredential_Content?> Enumerate_TRACredential_Content_nullable(T value)
+        internal static IEnumerable<TRAEncryptedClaims?> Enumerate_TRAEncryptedClaims_nullable(T value)
         {
-            return s_type_converter.Enumerate_TRACredential_Content_nullable(value);
+            return s_type_converter.Enumerate_TRAEncryptedClaims_nullable(value);
         }
         
     }

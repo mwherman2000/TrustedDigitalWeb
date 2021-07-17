@@ -34,7 +34,7 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of UBL21_Invoice2_Content with the specified parameters.
         ///</summary>
-        public UBL21_Invoice2_Content(string udid = default(string),List<string> context = default(List<string>),UBL21_Invoice2_Claims claims = default(UBL21_Invoice2_Claims))
+        public UBL21_Invoice2_Content(string udid = default(string),List<string> context = default(List<string>),UBL21_Invoice2_Claims? claims = default(UBL21_Invoice2_Claims?),TRAEncryptedClaims? encryptedclaims = default(TRAEncryptedClaims?))
         {
             
             this.udid = udid;
@@ -42,6 +42,8 @@ namespace TDW.TRAServer
             this.context = context;
             
             this.claims = claims;
+            
+            this.encryptedclaims = encryptedclaims;
             
         }
         
@@ -63,6 +65,8 @@ namespace TDW.TRAServer
                 (a.context == b.context)
                 &&
                 (a.claims == b.claims)
+                &&
+                (a.encryptedclaims == b.encryptedclaims)
                 
                 ;
             
@@ -76,7 +80,9 @@ namespace TDW.TRAServer
         
         public List<string> context;
         
-        public UBL21_Invoice2_Claims claims;
+        public UBL21_Invoice2_Claims? claims;
+        
+        public TRAEncryptedClaims? encryptedclaims;
         
         /// <summary>
         /// Converts the string representation of a UBL21_Invoice2_Content to its
@@ -149,6 +155,12 @@ namespace TDW.TRAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
+                });        encryptedclaims_Accessor_Field = new TRAEncryptedClaims_Accessor(null,
+                (ptr,ptr_offset,delta)=>
+                {
+                    int substructure_offset = (int)(ptr - this.m_ptr);
+                    this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
+                    return this.m_ptr + substructure_offset;
                 });
         }
         
@@ -161,6 +173,10 @@ namespace TDW.TRAServer
             if (optional_field_names == null)
                 optional_field_names = new string[]
                 {
+                    
+                    "claims"
+                    ,
+                    "encryptedclaims"
                     
                 };
             return optional_field_names;
@@ -183,7 +199,9 @@ namespace TDW.TRAServer
         internal unsafe byte[] GetOptionalFieldMap()
         {
             
-            return new byte[0];
+            byte [] bytes = new byte[1];
+            Memory.Copy(m_ptr, 0, bytes, 0, 1);
+            return bytes;
             
         }
         
@@ -193,7 +211,12 @@ namespace TDW.TRAServer
         public byte[] ToByteArray()
         {
             byte* targetPtr = m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+            {            byte* optheader_0 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_0 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
@@ -222,7 +245,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-}}targetPtr += *(int*)targetPtr + sizeof(int);}}
+}}targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_0 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
             int size = (int)(targetPtr - m_ptr);
             byte[] ret = new byte[size];
             Memory.Copy(m_ptr, 0, ret, 0, size);
@@ -236,7 +266,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
         public unsafe int GetBufferLength()
         {
             byte* targetPtr = m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+            {            byte* optheader_0 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_0 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
@@ -265,7 +300,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-}}targetPtr += *(int*)targetPtr + sizeof(int);}}
+}}targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_0 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
             int size = (int)(targetPtr - m_ptr);
             return size;
         }
@@ -282,7 +324,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
             {
                 
                 byte* targetPtr = m_ptr;
-                {}udid_Accessor_Field.m_ptr = targetPtr + 4;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+}udid_Accessor_Field.m_ptr = targetPtr + 4;
                 udid_Accessor_Field.m_cellId = this.m_cellId;
                 return udid_Accessor_Field;
                 
@@ -294,7 +338,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
                 udid_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {}
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
                 if (value.m_cellId != udid_Accessor_Field.m_cellId)
@@ -327,7 +373,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
             {
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);}context_Accessor_Field.m_ptr = targetPtr + 4;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}context_Accessor_Field.m_ptr = targetPtr + 4;
                 context_Accessor_Field.m_cellId = this.m_cellId;
                 return context_Accessor_Field;
                 
@@ -339,7 +387,9 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
                 context_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);}
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
                 if (value.m_cellId != context_Accessor_Field.m_cellId)
@@ -364,6 +414,81 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
         UBL21_Invoice2_Claims_Accessor claims_Accessor_Field;
         
         ///<summary>
+        ///Represents the presence of the optional field claims.
+        ///</summary>
+        public bool Contains_claims
+        {
+            get
+            {
+                unchecked
+                {
+                    return (0 != (*(this.m_ptr + 0) & 0x01)) ;
+                }
+            }
+            internal set
+            {
+                unchecked
+                {
+                    if (value)
+                    {
+                        *(this.m_ptr + 0) |= 0x01;
+                    }
+                    else
+                    {
+                        *(this.m_ptr + 0) &= 0xFE;
+                    }
+                }
+            }
+        }
+        ///<summary>
+        ///Removes the optional field claims from the object being operated.
+        ///</summary>
+        public unsafe void Remove_claims()
+        {
+            if (!this.Contains_claims)
+            {
+                throw new Exception("Optional field claims doesn't exist for current cell.");
+            }
+            this.Contains_claims = false;
+            byte* targetPtr = m_ptr;
+            {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+            byte* startPtr = targetPtr;
+            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
+{targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_4 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_4 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);}{targetPtr += *(int*)targetPtr + sizeof(int);}{targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 8;
+{{            byte* optheader_8 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_8 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + sizeof(int);{{            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + sizeof(int);{{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}targetPtr += *(int*)targetPtr + sizeof(int);}{{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}}targetPtr += *(int*)targetPtr + sizeof(int);}
+            this.ResizeFunction(startPtr, 0, (int)(startPtr - targetPtr));
+        }
+        
+        ///<summary>
         ///Provides in-place access to the object field claims.
         ///</summary>
         public unsafe UBL21_Invoice2_Claims_Accessor claims
@@ -371,8 +496,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
             get
             {
                 
+                if (!this.Contains_claims)
+                {
+                    throw new Exception("Optional field claims doesn't exist for current cell.");
+                }
+                
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}claims_Accessor_Field.m_ptr = targetPtr;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}claims_Accessor_Field.m_ptr = targetPtr;
                 claims_Accessor_Field.m_cellId = this.m_cellId;
                 return claims_Accessor_Field;
                 
@@ -384,7 +516,45 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
                 claims_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
-                {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                bool creatingOptionalField = (!this.Contains_claims);
+                if (creatingOptionalField)
+                {
+                    this.Contains_claims = true;
+                    
+                int offset = (int)(targetPtr - m_ptr);
+                byte* oldtargetPtr = targetPtr;
+                int oldlength = 0;
+                targetPtr = value.m_ptr;
+                int newlength = (int)(targetPtr - value.m_ptr);
+                if (newlength != oldlength)
+                {
+                    if (value.m_cellId != this.m_cellId)
+                    {
+                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
+                    }
+                    else
+                    {
+                        byte[] tmpcell = new byte[newlength];
+                        fixed(byte* tmpcellptr = tmpcell)
+                        {
+                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
+                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
+                        }
+                    }
+                }
+                else
+                {
+                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
+                }
+                }
+                else
+                {
+                    
                 int offset = (int)(targetPtr - m_ptr);
                 byte* oldtargetPtr = targetPtr;
                 int oldlength = (int)(targetPtr - oldtargetPtr);
@@ -412,17 +582,282 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
                 {
                     Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
                 }
+                }
+                
+            }
+        }
+        TRAEncryptedClaims_Accessor encryptedclaims_Accessor_Field;
+        
+        ///<summary>
+        ///Represents the presence of the optional field encryptedclaims.
+        ///</summary>
+        public bool Contains_encryptedclaims
+        {
+            get
+            {
+                unchecked
+                {
+                    return (0 != (*(this.m_ptr + 0) & 0x02)) ;
+                }
+            }
+            internal set
+            {
+                unchecked
+                {
+                    if (value)
+                    {
+                        *(this.m_ptr + 0) |= 0x02;
+                    }
+                    else
+                    {
+                        *(this.m_ptr + 0) &= 0xFD;
+                    }
+                }
+            }
+        }
+        ///<summary>
+        ///Removes the optional field encryptedclaims from the object being operated.
+        ///</summary>
+        public unsafe void Remove_encryptedclaims()
+        {
+            if (!this.Contains_encryptedclaims)
+            {
+                throw new Exception("Optional field encryptedclaims doesn't exist for current cell.");
+            }
+            this.Contains_encryptedclaims = false;
+            byte* targetPtr = m_ptr;
+            {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
+{targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_5 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_5 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);}{targetPtr += *(int*)targetPtr + sizeof(int);}{targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 8;
+{{            byte* optheader_9 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_9 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + sizeof(int);{{            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + sizeof(int);{{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}targetPtr += *(int*)targetPtr + sizeof(int);}{{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}}targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
+            byte* startPtr = targetPtr;
+            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+            this.ResizeFunction(startPtr, 0, (int)(startPtr - targetPtr));
+        }
+        
+        ///<summary>
+        ///Provides in-place access to the object field encryptedclaims.
+        ///</summary>
+        public unsafe TRAEncryptedClaims_Accessor encryptedclaims
+        {
+            get
+            {
+                
+                if (!this.Contains_encryptedclaims)
+                {
+                    throw new Exception("Optional field encryptedclaims doesn't exist for current cell.");
+                }
+                
+                byte* targetPtr = m_ptr;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
+{targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_5 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_5 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);}{targetPtr += *(int*)targetPtr + sizeof(int);}{targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 8;
+{{            byte* optheader_9 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_9 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + sizeof(int);{{            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + sizeof(int);{{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}targetPtr += *(int*)targetPtr + sizeof(int);}{{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}}targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}encryptedclaims_Accessor_Field.m_ptr = targetPtr;
+                encryptedclaims_Accessor_Field.m_cellId = this.m_cellId;
+                return encryptedclaims_Accessor_Field;
+                
+            }
+            set
+            {
+                
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                encryptedclaims_Accessor_Field.m_cellId = this.m_cellId;
+                
+                byte* targetPtr = m_ptr;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
+{targetPtr += *(int*)targetPtr + sizeof(int);}{            byte* optheader_5 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_5 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);}{targetPtr += *(int*)targetPtr + sizeof(int);}{targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 8;
+{{            byte* optheader_9 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_9 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + sizeof(int);{{            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + sizeof(int);{{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}targetPtr += *(int*)targetPtr + sizeof(int);}{{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+}}targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
+                bool creatingOptionalField = (!this.Contains_encryptedclaims);
+                if (creatingOptionalField)
+                {
+                    this.Contains_encryptedclaims = true;
+                    
+                int offset = (int)(targetPtr - m_ptr);
+                byte* oldtargetPtr = targetPtr;
+                int oldlength = 0;
+                targetPtr = value.m_ptr;
+                int newlength = (int)(targetPtr - value.m_ptr);
+                if (newlength != oldlength)
+                {
+                    if (value.m_cellId != this.m_cellId)
+                    {
+                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
+                    }
+                    else
+                    {
+                        byte[] tmpcell = new byte[newlength];
+                        fixed(byte* tmpcellptr = tmpcell)
+                        {
+                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
+                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
+                        }
+                    }
+                }
+                else
+                {
+                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
+                }
+                }
+                else
+                {
+                    
+                int offset = (int)(targetPtr - m_ptr);
+                byte* oldtargetPtr = targetPtr;
+                int oldlength = (int)(targetPtr - oldtargetPtr);
+                targetPtr = value.m_ptr;
+                int newlength = (int)(targetPtr - value.m_ptr);
+                if (newlength != oldlength)
+                {
+                    if (value.m_cellId != this.m_cellId)
+                    {
+                        this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                        Memory.Copy(value.m_ptr, this.m_ptr + offset, newlength);
+                    }
+                    else
+                    {
+                        byte[] tmpcell = new byte[newlength];
+                        fixed(byte* tmpcellptr = tmpcell)
+                        {
+                            Memory.Copy(value.m_ptr, tmpcellptr, newlength);
+                            this.m_ptr = this.ResizeFunction(this.m_ptr, offset, newlength - oldlength);
+                            Memory.Copy(tmpcellptr, this.m_ptr + offset, newlength);
+                        }
+                    }
+                }
+                else
+                {
+                    Memory.Copy(value.m_ptr, oldtargetPtr, oldlength);
+                }
+                }
+                
             }
         }
         
         public static unsafe implicit operator UBL21_Invoice2_Content(UBL21_Invoice2_Content_Accessor accessor)
         {
+            UBL21_Invoice2_Claims? _claims = default(UBL21_Invoice2_Claims?);
+            if (accessor.Contains_claims)
+            {
+                
+                _claims = (UBL21_Invoice2_Claims)accessor.claims;
+                
+            }
+            TRAEncryptedClaims? _encryptedclaims = default(TRAEncryptedClaims?);
+            if (accessor.Contains_encryptedclaims)
+            {
+                
+                _encryptedclaims = (TRAEncryptedClaims)accessor.encryptedclaims;
+                
+            }
             
             return new UBL21_Invoice2_Content(
                 
                         accessor.udid,
                         accessor.context,
-                        accessor.claims
+                        _claims ,
+                        _encryptedclaims 
                 );
         }
         
@@ -431,6 +866,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
             byte* targetPtr = null;
             
             {
+            targetPtr += 1;
 
         if(field.udid!= null)
         {
@@ -462,21 +898,23 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
     }
 
 }
+            if( field.claims!= null)
+            {
 
             {
 
-        if(field.claims.cbc_UBLVersionID!= null)
+        if(field.claims.Value.cbc_UBLVersionID!= null)
         {
-            int strlen_3 = field.claims.cbc_UBLVersionID.Length * 2;
+            int strlen_3 = field.claims.Value.cbc_UBLVersionID.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cbc_ID!= null)
+        if(field.claims.Value.cbc_ID!= null)
         {
-            int strlen_3 = field.claims.cbc_ID.Length * 2;
+            int strlen_3 = field.claims.Value.cbc_ID.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -485,27 +923,27 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 targetPtr += 8;
             {
 
-        if(field.claims.cbc_InvoiceTypeCode._listID!= null)
+        if(field.claims.Value.cbc_InvoiceTypeCode._listID!= null)
         {
-            int strlen_4 = field.claims.cbc_InvoiceTypeCode._listID.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_InvoiceTypeCode._listID.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cbc_InvoiceTypeCode._listAgencyID!= null)
+        if(field.claims.Value.cbc_InvoiceTypeCode._listAgencyID!= null)
         {
-            int strlen_4 = field.claims.cbc_InvoiceTypeCode._listAgencyID.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_InvoiceTypeCode._listAgencyID.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cbc_InvoiceTypeCode.code!= null)
+        if(field.claims.Value.cbc_InvoiceTypeCode.code!= null)
         {
-            int strlen_4 = field.claims.cbc_InvoiceTypeCode.code.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_InvoiceTypeCode.code.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -516,9 +954,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.claims.Cbc_Note.note!= null)
+        if(field.claims.Value.Cbc_Note.note!= null)
         {
-            int strlen_4 = field.claims.Cbc_Note.note.Length * 2;
+            int strlen_4 = field.claims.Value.Cbc_Note.note.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -528,27 +966,27 @@ targetPtr += 8;
             }targetPtr += 8;
             {
 
-        if(field.claims.cbc_DocumentCurrencyCode._listID!= null)
+        if(field.claims.Value.cbc_DocumentCurrencyCode._listID!= null)
         {
-            int strlen_4 = field.claims.cbc_DocumentCurrencyCode._listID.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_DocumentCurrencyCode._listID.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cbc_DocumentCurrencyCode._listAgencyID!= null)
+        if(field.claims.Value.cbc_DocumentCurrencyCode._listAgencyID!= null)
         {
-            int strlen_4 = field.claims.cbc_DocumentCurrencyCode._listAgencyID.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_DocumentCurrencyCode._listAgencyID.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cbc_DocumentCurrencyCode.code!= null)
+        if(field.claims.Value.cbc_DocumentCurrencyCode.code!= null)
         {
-            int strlen_4 = field.claims.cbc_DocumentCurrencyCode.code.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_DocumentCurrencyCode.code.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -556,9 +994,9 @@ targetPtr += 8;
         }
 
             }
-        if(field.claims.cbc_AccountingCost!= null)
+        if(field.claims.Value.cbc_AccountingCost!= null)
         {
-            int strlen_3 = field.claims.cbc_AccountingCost.Length * 2;
+            int strlen_3 = field.claims.Value.cbc_AccountingCost.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -568,9 +1006,9 @@ targetPtr += 16;
 
             {
 
-        if(field.claims.cbc_OrderReference.cbc_ID!= null)
+        if(field.claims.Value.cbc_OrderReference.cbc_ID!= null)
         {
-            int strlen_4 = field.claims.cbc_OrderReference.cbc_ID.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_OrderReference.cbc_ID.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -581,31 +1019,31 @@ targetPtr += 16;
             {
             targetPtr += 1;
 
-        if(field.claims.cac_ContractDocumentReference.ID!= null)
+        if(field.claims.Value.cac_ContractDocumentReference.ID!= null)
         {
-            int strlen_4 = field.claims.cac_ContractDocumentReference.ID.Length * 2;
+            int strlen_4 = field.claims.Value.cac_ContractDocumentReference.ID.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cac_ContractDocumentReference.DocumentType!= null)
+        if(field.claims.Value.cac_ContractDocumentReference.DocumentType!= null)
         {
-            int strlen_4 = field.claims.cac_ContractDocumentReference.DocumentType.Length * 2;
+            int strlen_4 = field.claims.Value.cac_ContractDocumentReference.DocumentType.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_ContractDocumentReference.cac_Attachment!= null)
+            if( field.claims.Value.cac_ContractDocumentReference.cac_Attachment!= null)
             {
 
             {
 
-        if(field.claims.cac_ContractDocumentReference.cac_Attachment.Value.cac_ExternalReferenceUdid!= null)
+        if(field.claims.Value.cac_ContractDocumentReference.cac_Attachment.Value.cac_ExternalReferenceUdid!= null)
         {
-            int strlen_5 = field.claims.cac_ContractDocumentReference.cac_Attachment.Value.cac_ExternalReferenceUdid.Length * 2;
+            int strlen_5 = field.claims.Value.cac_ContractDocumentReference.cac_Attachment.Value.cac_ExternalReferenceUdid.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -619,39 +1057,39 @@ targetPtr += 16;
 {
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_AdditionalDocumentReferences!= null)
+    if(field.claims.Value.cac_AdditionalDocumentReferences!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.claims.cac_AdditionalDocumentReferences.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<field.claims.Value.cac_AdditionalDocumentReferences.Count;++iterator_3)
         {
 
             {
             targetPtr += 1;
 
-        if(field.claims.cac_AdditionalDocumentReferences[iterator_3].ID!= null)
+        if(field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].ID!= null)
         {
-            int strlen_5 = field.claims.cac_AdditionalDocumentReferences[iterator_3].ID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].ID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cac_AdditionalDocumentReferences[iterator_3].DocumentType!= null)
+        if(field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].DocumentType!= null)
         {
-            int strlen_5 = field.claims.cac_AdditionalDocumentReferences[iterator_3].DocumentType.Length * 2;
+            int strlen_5 = field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].DocumentType.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment!= null)
+            if( field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment!= null)
             {
 
             {
 
-        if(field.claims.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment.Value.cac_ExternalReferenceUdid!= null)
+        if(field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment.Value.cac_ExternalReferenceUdid!= null)
         {
-            int strlen_6 = field.claims.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment.Value.cac_ExternalReferenceUdid.Length * 2;
+            int strlen_6 = field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment.Value.cac_ExternalReferenceUdid.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -669,9 +1107,9 @@ targetPtr += 16;
 
             {
 
-        if(field.claims.cac_AccountingSupplierParty.cac_PartyUdid!= null)
+        if(field.claims.Value.cac_AccountingSupplierParty.cac_PartyUdid!= null)
         {
-            int strlen_4 = field.claims.cac_AccountingSupplierParty.cac_PartyUdid.Length * 2;
+            int strlen_4 = field.claims.Value.cac_AccountingSupplierParty.cac_PartyUdid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -681,9 +1119,9 @@ targetPtr += 16;
             }
             {
 
-        if(field.claims.cac_AccountingCustomerParty.cac_PartyUdid!= null)
+        if(field.claims.Value.cac_AccountingCustomerParty.cac_PartyUdid!= null)
         {
-            int strlen_4 = field.claims.cac_AccountingCustomerParty.cac_PartyUdid.Length * 2;
+            int strlen_4 = field.claims.Value.cac_AccountingCustomerParty.cac_PartyUdid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -693,9 +1131,9 @@ targetPtr += 16;
             }
             {
 
-        if(field.claims.cac_PayeeParty.cac_PartyUdid!= null)
+        if(field.claims.Value.cac_PayeeParty.cac_PartyUdid!= null)
         {
-            int strlen_4 = field.claims.cac_PayeeParty.cac_PartyUdid.Length * 2;
+            int strlen_4 = field.claims.Value.cac_PayeeParty.cac_PartyUdid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -710,20 +1148,20 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeID!= null)
+        if(field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeID!= null)
         {
-            int strlen_6 = field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeID.Length * 2;
+            int strlen_6 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeID.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID!= null)
+            if( field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID!= null)
             {
 
-        if(field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID!= null)
+        if(field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID!= null)
         {
-            int strlen_6 = field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID.Length * 2;
+            int strlen_6 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -732,9 +1170,9 @@ targetPtr += 8;
 
             }
 
-        if(field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID.code!= null)
+        if(field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID.code!= null)
         {
-            int strlen_6 = field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID.code.Length * 2;
+            int strlen_6 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID.code.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -742,9 +1180,9 @@ targetPtr += 8;
         }
 
             }
-        if(field.claims.cac_Delivery.cac_DeliveryLocation.cac_AddressUdid!= null)
+        if(field.claims.Value.cac_Delivery.cac_DeliveryLocation.cac_AddressUdid!= null)
         {
-            int strlen_5 = field.claims.cac_Delivery.cac_DeliveryLocation.cac_AddressUdid.Length * 2;
+            int strlen_5 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cac_AddressUdid.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -753,9 +1191,9 @@ targetPtr += 8;
 
             }
             }
-        if(field.claims.cac_PaymentMeansUdid!= null)
+        if(field.claims.Value.cac_PaymentMeansUdid!= null)
         {
-            int strlen_3 = field.claims.cac_PaymentMeansUdid.Length * 2;
+            int strlen_3 = field.claims.Value.cac_PaymentMeansUdid.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -767,9 +1205,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.claims.cac_PaymentTerms.cbc_Note.note!= null)
+        if(field.claims.Value.cac_PaymentTerms.cbc_Note.note!= null)
         {
-            int strlen_5 = field.claims.cac_PaymentTerms.cbc_Note.note.Length * 2;
+            int strlen_5 = field.claims.Value.cac_PaymentTerms.cbc_Note.note.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -781,17 +1219,17 @@ targetPtr += 8;
 {
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_AllowanceCharges!= null)
+    if(field.claims.Value.cac_AllowanceCharges!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.claims.cac_AllowanceCharges.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<field.claims.Value.cac_AllowanceCharges.Count;++iterator_3)
         {
 
             {
             targetPtr += 1;
 
-        if(field.claims.cac_AllowanceCharges[iterator_3].cbc_AllowanceChargeReason!= null)
+        if(field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_AllowanceChargeReason!= null)
         {
-            int strlen_5 = field.claims.cac_AllowanceCharges[iterator_3].cbc_AllowanceChargeReason.Length * 2;
+            int strlen_5 = field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_AllowanceChargeReason.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -800,9 +1238,9 @@ targetPtr += 8;
 
             {
 
-        if(field.claims.cac_AllowanceCharges[iterator_3].cbc_Amount._CurrencyID!= null)
+        if(field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_Amount._CurrencyID!= null)
         {
-            int strlen_6 = field.claims.cac_AllowanceCharges[iterator_3].cbc_Amount._CurrencyID.Length * 2;
+            int strlen_6 = field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_Amount._CurrencyID.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -821,9 +1259,9 @@ targetPtr += 8;
 
             {
 
-        if(field.claims.cac_TaxTotal.cbc_TaxAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_TaxTotal.cbc_TaxAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_TaxTotal.cbc_TaxAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_TaxTotal.cbc_TaxAmount._CurrencyID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -835,18 +1273,18 @@ targetPtr += 8;
 {
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_TaxTotal.cac_TaxSubtotals!= null)
+    if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals!= null)
     {
-        for(int iterator_4 = 0;iterator_4<field.claims.cac_TaxTotal.cac_TaxSubtotals.Count;++iterator_4)
+        for(int iterator_4 = 0;iterator_4<field.claims.Value.cac_TaxTotal.cac_TaxSubtotals.Count;++iterator_4)
         {
 
             {
 
             {
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount._CurrencyID!= null)
         {
-            int strlen_7 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount._CurrencyID.Length * 2;
+            int strlen_7 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount._CurrencyID.Length * 2;
             targetPtr += strlen_7+sizeof(int);
         }else
         {
@@ -857,9 +1295,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount._CurrencyID!= null)
         {
-            int strlen_7 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount._CurrencyID.Length * 2;
+            int strlen_7 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount._CurrencyID.Length * 2;
             targetPtr += strlen_7+sizeof(int);
         }else
         {
@@ -873,20 +1311,20 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeID!= null)
         {
-            int strlen_8 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeID.Length * 2;
+            int strlen_8 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeID.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
+            if( field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
             {
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
         {
-            int strlen_8 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID.Length * 2;
+            int strlen_8 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
@@ -895,9 +1333,9 @@ targetPtr += 8;
 
             }
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID.code!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID.code!= null)
         {
-            int strlen_8 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID.code.Length * 2;
+            int strlen_8 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID.code.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
@@ -911,20 +1349,20 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID!= null)
         {
-            int strlen_9 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID.Length * 2;
+            int strlen_9 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID.Length * 2;
             targetPtr += strlen_9+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
+            if( field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
             {
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
         {
-            int strlen_9 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID.Length * 2;
+            int strlen_9 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID.Length * 2;
             targetPtr += strlen_9+sizeof(int);
         }else
         {
@@ -933,9 +1371,9 @@ targetPtr += 8;
 
             }
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID.code!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID.code!= null)
         {
-            int strlen_9 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID.code.Length * 2;
+            int strlen_9 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID.code.Length * 2;
             targetPtr += strlen_9+sizeof(int);
         }else
         {
@@ -956,9 +1394,9 @@ targetPtr += 8;
 
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_LineExtensionAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_LineExtensionAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_LineExtensionAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_LineExtensionAmount._CurrencyID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -969,9 +1407,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount._CurrencyID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -982,9 +1420,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount._CurrencyID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -995,9 +1433,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount._CurrencyID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -1008,9 +1446,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount._CurrencyID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -1021,9 +1459,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_PrepaidAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_PrepaidAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_PrepaidAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_PrepaidAmount._CurrencyID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -1034,9 +1472,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount._CurrencyID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -1047,9 +1485,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_PayableAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_PayableAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableAmount._CurrencyID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -1062,16 +1500,16 @@ targetPtr += 8;
 {
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_InvoiceLine!= null)
+    if(field.claims.Value.cac_InvoiceLine!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.claims.cac_InvoiceLine.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<field.claims.Value.cac_InvoiceLine.Count;++iterator_3)
         {
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cbc_ID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cbc_ID!= null)
         {
-            int strlen_5 = field.claims.cac_InvoiceLine[iterator_3].cbc_ID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_ID.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -1081,9 +1519,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cbc_Note.note!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cbc_Note.note!= null)
         {
-            int strlen_6 = field.claims.cac_InvoiceLine[iterator_3].cbc_Note.note.Length * 2;
+            int strlen_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_Note.note.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -1093,9 +1531,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity._unitCode!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity._unitCode!= null)
         {
-            int strlen_6 = field.claims.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity._unitCode.Length * 2;
+            int strlen_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity._unitCode.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -1106,9 +1544,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount._CurrencyID!= null)
         {
-            int strlen_6 = field.claims.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount._CurrencyID.Length * 2;
+            int strlen_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount._CurrencyID.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -1117,9 +1555,9 @@ targetPtr += 8;
             targetPtr += 8;
 
             }
-        if(field.claims.cac_InvoiceLine[iterator_3].cbc_AccountingCost!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cbc_AccountingCost!= null)
         {
-            int strlen_5 = field.claims.cac_InvoiceLine[iterator_3].cbc_AccountingCost.Length * 2;
+            int strlen_5 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_AccountingCost.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -1128,9 +1566,9 @@ targetPtr += 8;
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_OrderLineReference.cbc_LineID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_OrderLineReference.cbc_LineID!= null)
         {
-            int strlen_6 = field.claims.cac_InvoiceLine[iterator_3].cac_OrderLineReference.cbc_LineID.Length * 2;
+            int strlen_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_OrderLineReference.cbc_LineID.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -1141,17 +1579,17 @@ targetPtr += 8;
 {
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges!= null)
+    if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges!= null)
     {
-        for(int iterator_5 = 0;iterator_5<field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges.Count;++iterator_5)
+        for(int iterator_5 = 0;iterator_5<field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges.Count;++iterator_5)
         {
 
             {
             targetPtr += 1;
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_AllowanceChargeReason!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_AllowanceChargeReason!= null)
         {
-            int strlen_7 = field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_AllowanceChargeReason.Length * 2;
+            int strlen_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_AllowanceChargeReason.Length * 2;
             targetPtr += strlen_7+sizeof(int);
         }else
         {
@@ -1160,9 +1598,9 @@ targetPtr += 8;
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount._CurrencyID!= null)
         {
-            int strlen_8 = field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount._CurrencyID.Length * 2;
+            int strlen_8 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount._CurrencyID.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
@@ -1181,9 +1619,9 @@ targetPtr += 8;
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount._CurrencyID!= null)
         {
-            int strlen_7 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount._CurrencyID.Length * 2;
+            int strlen_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount._CurrencyID.Length * 2;
             targetPtr += strlen_7+sizeof(int);
         }else
         {
@@ -1195,18 +1633,18 @@ targetPtr += 8;
 {
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals!= null)
+    if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals!= null)
     {
-        for(int iterator_6 = 0;iterator_6<field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals.Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals.Count;++iterator_6)
         {
 
             {
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount._CurrencyID!= null)
         {
-            int strlen_9 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount._CurrencyID.Length * 2;
+            int strlen_9 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount._CurrencyID.Length * 2;
             targetPtr += strlen_9+sizeof(int);
         }else
         {
@@ -1217,9 +1655,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount._CurrencyID!= null)
         {
-            int strlen_9 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount._CurrencyID.Length * 2;
+            int strlen_9 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount._CurrencyID.Length * 2;
             targetPtr += strlen_9+sizeof(int);
         }else
         {
@@ -1233,20 +1671,20 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeID!= null)
         {
-            int strlen_10 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeID.Length * 2;
+            int strlen_10 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeID.Length * 2;
             targetPtr += strlen_10+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
+            if( field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
         {
-            int strlen_10 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID.Length * 2;
+            int strlen_10 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID.Length * 2;
             targetPtr += strlen_10+sizeof(int);
         }else
         {
@@ -1255,9 +1693,9 @@ targetPtr += 8;
 
             }
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID.code!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID.code!= null)
         {
-            int strlen_10 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID.code.Length * 2;
+            int strlen_10 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID.code.Length * 2;
             targetPtr += strlen_10+sizeof(int);
         }else
         {
@@ -1271,20 +1709,20 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID!= null)
         {
-            int strlen_11 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID.Length * 2;
+            int strlen_11 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID.Length * 2;
             targetPtr += strlen_11+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
+            if( field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
         {
-            int strlen_11 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID.Length * 2;
+            int strlen_11 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID.Length * 2;
             targetPtr += strlen_11+sizeof(int);
         }else
         {
@@ -1293,9 +1731,9 @@ targetPtr += 8;
 
             }
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID.code!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID.code!= null)
         {
-            int strlen_11 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID.code.Length * 2;
+            int strlen_11 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID.code.Length * 2;
             targetPtr += strlen_11+sizeof(int);
         }else
         {
@@ -1312,9 +1750,9 @@ targetPtr += 8;
 }
 
             }
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_ItemUdid!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_ItemUdid!= null)
         {
-            int strlen_5 = field.claims.cac_InvoiceLine[iterator_3].cac_ItemUdid.Length * 2;
+            int strlen_5 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_ItemUdid.Length * 2;
             targetPtr += strlen_5+sizeof(int);
         }else
         {
@@ -1325,9 +1763,9 @@ targetPtr += 8;
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount._CurrencyID!= null)
         {
-            int strlen_7 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount._CurrencyID.Length * 2;
+            int strlen_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount._CurrencyID.Length * 2;
             targetPtr += strlen_7+sizeof(int);
         }else
         {
@@ -1338,9 +1776,9 @@ targetPtr += 8;
             }
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity._unitCode!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity._unitCode!= null)
         {
-            int strlen_7 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity._unitCode.Length * 2;
+            int strlen_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity._unitCode.Length * 2;
             targetPtr += strlen_7+sizeof(int);
         }else
         {
@@ -1352,9 +1790,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_AllowanceChargeReason!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_AllowanceChargeReason!= null)
         {
-            int strlen_7 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_AllowanceChargeReason.Length * 2;
+            int strlen_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_AllowanceChargeReason.Length * 2;
             targetPtr += strlen_7+sizeof(int);
         }else
         {
@@ -1363,9 +1801,9 @@ targetPtr += 8;
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount._CurrencyID!= null)
         {
-            int strlen_8 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount._CurrencyID.Length * 2;
+            int strlen_8 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount._CurrencyID.Length * 2;
             targetPtr += strlen_8+sizeof(int);
         }else
         {
@@ -1383,12 +1821,50 @@ targetPtr += 8;
 }
 
             }
+            }
+            if( field.encryptedclaims!= null)
+            {
+
+            {
+
+        if(field.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.ciphertext16.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.alg.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.encryptedclaims.Value.key!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.key.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+
             }
             byte* tmpcellptr = BufferAllocator.AllocBuffer((int)targetPtr);
             Memory.memset(tmpcellptr, 0, (ulong)targetPtr);
             targetPtr = tmpcellptr;
             
             {
+            byte* optheader_1 = targetPtr;
+            *(optheader_1 + 0) = 0x00;            targetPtr += 1;
 
         if(field.udid!= null)
         {
@@ -1436,15 +1912,17 @@ byte *storedPtr_2 = targetPtr;
 *(int*)storedPtr_2 = (int)(targetPtr - storedPtr_2 - 4);
 
 }
+            if( field.claims!= null)
+            {
 
             {
 
-        if(field.claims.cbc_UBLVersionID!= null)
+        if(field.claims.Value.cbc_UBLVersionID!= null)
         {
-            int strlen_3 = field.claims.cbc_UBLVersionID.Length * 2;
+            int strlen_3 = field.claims.Value.cbc_UBLVersionID.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.claims.cbc_UBLVersionID)
+            fixed(char* pstr_3 = field.claims.Value.cbc_UBLVersionID)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1455,12 +1933,12 @@ byte *storedPtr_2 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cbc_ID!= null)
+        if(field.claims.Value.cbc_ID!= null)
         {
-            int strlen_3 = field.claims.cbc_ID.Length * 2;
+            int strlen_3 = field.claims.Value.cbc_ID.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.claims.cbc_ID)
+            fixed(char* pstr_3 = field.claims.Value.cbc_ID)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1472,18 +1950,18 @@ byte *storedPtr_2 = targetPtr;
         }
 
         {
-            *(long*)targetPtr = field.claims.cbc_IssueDate.ToBinary();
+            *(long*)targetPtr = field.claims.Value.cbc_IssueDate.ToBinary();
             targetPtr += 8;
         }
 
             {
 
-        if(field.claims.cbc_InvoiceTypeCode._listID!= null)
+        if(field.claims.Value.cbc_InvoiceTypeCode._listID!= null)
         {
-            int strlen_4 = field.claims.cbc_InvoiceTypeCode._listID.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_InvoiceTypeCode._listID.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cbc_InvoiceTypeCode._listID)
+            fixed(char* pstr_4 = field.claims.Value.cbc_InvoiceTypeCode._listID)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1494,12 +1972,12 @@ byte *storedPtr_2 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cbc_InvoiceTypeCode._listAgencyID!= null)
+        if(field.claims.Value.cbc_InvoiceTypeCode._listAgencyID!= null)
         {
-            int strlen_4 = field.claims.cbc_InvoiceTypeCode._listAgencyID.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_InvoiceTypeCode._listAgencyID.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cbc_InvoiceTypeCode._listAgencyID)
+            fixed(char* pstr_4 = field.claims.Value.cbc_InvoiceTypeCode._listAgencyID)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1510,12 +1988,12 @@ byte *storedPtr_2 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cbc_InvoiceTypeCode.code!= null)
+        if(field.claims.Value.cbc_InvoiceTypeCode.code!= null)
         {
-            int strlen_4 = field.claims.cbc_InvoiceTypeCode.code.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_InvoiceTypeCode.code.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cbc_InvoiceTypeCode.code)
+            fixed(char* pstr_4 = field.claims.Value.cbc_InvoiceTypeCode.code)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1528,15 +2006,15 @@ byte *storedPtr_2 = targetPtr;
 
             }
             {
-            *(ISO639_1_LanguageCodes*)targetPtr = field.claims.Cbc_Note._languageID;
+            *(ISO639_1_LanguageCodes*)targetPtr = field.claims.Value.Cbc_Note._languageID;
             targetPtr += 1;
 
-        if(field.claims.Cbc_Note.note!= null)
+        if(field.claims.Value.Cbc_Note.note!= null)
         {
-            int strlen_4 = field.claims.Cbc_Note.note.Length * 2;
+            int strlen_4 = field.claims.Value.Cbc_Note.note.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.Cbc_Note.note)
+            fixed(char* pstr_4 = field.claims.Value.Cbc_Note.note)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1549,18 +2027,18 @@ byte *storedPtr_2 = targetPtr;
 
             }
         {
-            *(long*)targetPtr = field.claims.cbc_TaxPointDate.ToBinary();
+            *(long*)targetPtr = field.claims.Value.cbc_TaxPointDate.ToBinary();
             targetPtr += 8;
         }
 
             {
 
-        if(field.claims.cbc_DocumentCurrencyCode._listID!= null)
+        if(field.claims.Value.cbc_DocumentCurrencyCode._listID!= null)
         {
-            int strlen_4 = field.claims.cbc_DocumentCurrencyCode._listID.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_DocumentCurrencyCode._listID.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cbc_DocumentCurrencyCode._listID)
+            fixed(char* pstr_4 = field.claims.Value.cbc_DocumentCurrencyCode._listID)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1571,12 +2049,12 @@ byte *storedPtr_2 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cbc_DocumentCurrencyCode._listAgencyID!= null)
+        if(field.claims.Value.cbc_DocumentCurrencyCode._listAgencyID!= null)
         {
-            int strlen_4 = field.claims.cbc_DocumentCurrencyCode._listAgencyID.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_DocumentCurrencyCode._listAgencyID.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cbc_DocumentCurrencyCode._listAgencyID)
+            fixed(char* pstr_4 = field.claims.Value.cbc_DocumentCurrencyCode._listAgencyID)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1587,12 +2065,12 @@ byte *storedPtr_2 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cbc_DocumentCurrencyCode.code!= null)
+        if(field.claims.Value.cbc_DocumentCurrencyCode.code!= null)
         {
-            int strlen_4 = field.claims.cbc_DocumentCurrencyCode.code.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_DocumentCurrencyCode.code.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cbc_DocumentCurrencyCode.code)
+            fixed(char* pstr_4 = field.claims.Value.cbc_DocumentCurrencyCode.code)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1604,12 +2082,12 @@ byte *storedPtr_2 = targetPtr;
         }
 
             }
-        if(field.claims.cbc_AccountingCost!= null)
+        if(field.claims.Value.cbc_AccountingCost!= null)
         {
-            int strlen_3 = field.claims.cbc_AccountingCost.Length * 2;
+            int strlen_3 = field.claims.Value.cbc_AccountingCost.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.claims.cbc_AccountingCost)
+            fixed(char* pstr_3 = field.claims.Value.cbc_AccountingCost)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1623,24 +2101,24 @@ byte *storedPtr_2 = targetPtr;
             {
 
         {
-            *(long*)targetPtr = field.claims.cbc_InvoicePeriod.cbc_StartDate.ToBinary();
+            *(long*)targetPtr = field.claims.Value.cbc_InvoicePeriod.cbc_StartDate.ToBinary();
             targetPtr += 8;
         }
 
         {
-            *(long*)targetPtr = field.claims.cbc_InvoicePeriod.cbc_EndDate.ToBinary();
+            *(long*)targetPtr = field.claims.Value.cbc_InvoicePeriod.cbc_EndDate.ToBinary();
             targetPtr += 8;
         }
 
             }
             {
 
-        if(field.claims.cbc_OrderReference.cbc_ID!= null)
+        if(field.claims.Value.cbc_OrderReference.cbc_ID!= null)
         {
-            int strlen_4 = field.claims.cbc_OrderReference.cbc_ID.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_OrderReference.cbc_ID.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cbc_OrderReference.cbc_ID)
+            fixed(char* pstr_4 = field.claims.Value.cbc_OrderReference.cbc_ID)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1656,12 +2134,12 @@ byte *storedPtr_2 = targetPtr;
             byte* optheader_3 = targetPtr;
             *(optheader_3 + 0) = 0x00;            targetPtr += 1;
 
-        if(field.claims.cac_ContractDocumentReference.ID!= null)
+        if(field.claims.Value.cac_ContractDocumentReference.ID!= null)
         {
-            int strlen_4 = field.claims.cac_ContractDocumentReference.ID.Length * 2;
+            int strlen_4 = field.claims.Value.cac_ContractDocumentReference.ID.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cac_ContractDocumentReference.ID)
+            fixed(char* pstr_4 = field.claims.Value.cac_ContractDocumentReference.ID)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1672,12 +2150,12 @@ byte *storedPtr_2 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cac_ContractDocumentReference.DocumentType!= null)
+        if(field.claims.Value.cac_ContractDocumentReference.DocumentType!= null)
         {
-            int strlen_4 = field.claims.cac_ContractDocumentReference.DocumentType.Length * 2;
+            int strlen_4 = field.claims.Value.cac_ContractDocumentReference.DocumentType.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cac_ContractDocumentReference.DocumentType)
+            fixed(char* pstr_4 = field.claims.Value.cac_ContractDocumentReference.DocumentType)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1687,17 +2165,17 @@ byte *storedPtr_2 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_ContractDocumentReference.cac_Attachment!= null)
+            if( field.claims.Value.cac_ContractDocumentReference.cac_Attachment!= null)
             {
 
             {
 
-        if(field.claims.cac_ContractDocumentReference.cac_Attachment.Value.cac_ExternalReferenceUdid!= null)
+        if(field.claims.Value.cac_ContractDocumentReference.cac_Attachment.Value.cac_ExternalReferenceUdid!= null)
         {
-            int strlen_5 = field.claims.cac_ContractDocumentReference.cac_Attachment.Value.cac_ExternalReferenceUdid.Length * 2;
+            int strlen_5 = field.claims.Value.cac_ContractDocumentReference.cac_Attachment.Value.cac_ExternalReferenceUdid.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_ContractDocumentReference.cac_Attachment.Value.cac_ExternalReferenceUdid)
+            fixed(char* pstr_5 = field.claims.Value.cac_ContractDocumentReference.cac_Attachment.Value.cac_ExternalReferenceUdid)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -1716,21 +2194,21 @@ byte *storedPtr_2 = targetPtr;
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_AdditionalDocumentReferences!= null)
+    if(field.claims.Value.cac_AdditionalDocumentReferences!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.claims.cac_AdditionalDocumentReferences.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<field.claims.Value.cac_AdditionalDocumentReferences.Count;++iterator_3)
         {
 
             {
             byte* optheader_4 = targetPtr;
             *(optheader_4 + 0) = 0x00;            targetPtr += 1;
 
-        if(field.claims.cac_AdditionalDocumentReferences[iterator_3].ID!= null)
+        if(field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].ID!= null)
         {
-            int strlen_5 = field.claims.cac_AdditionalDocumentReferences[iterator_3].ID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].ID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_AdditionalDocumentReferences[iterator_3].ID)
+            fixed(char* pstr_5 = field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].ID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -1741,12 +2219,12 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.claims.cac_AdditionalDocumentReferences[iterator_3].DocumentType!= null)
+        if(field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].DocumentType!= null)
         {
-            int strlen_5 = field.claims.cac_AdditionalDocumentReferences[iterator_3].DocumentType.Length * 2;
+            int strlen_5 = field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].DocumentType.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_AdditionalDocumentReferences[iterator_3].DocumentType)
+            fixed(char* pstr_5 = field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].DocumentType)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -1756,17 +2234,17 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment!= null)
+            if( field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment!= null)
             {
 
             {
 
-        if(field.claims.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment.Value.cac_ExternalReferenceUdid!= null)
+        if(field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment.Value.cac_ExternalReferenceUdid!= null)
         {
-            int strlen_6 = field.claims.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment.Value.cac_ExternalReferenceUdid.Length * 2;
+            int strlen_6 = field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment.Value.cac_ExternalReferenceUdid.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = field.claims.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment.Value.cac_ExternalReferenceUdid)
+            fixed(char* pstr_6 = field.claims.Value.cac_AdditionalDocumentReferences[iterator_3].cac_Attachment.Value.cac_ExternalReferenceUdid)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -1789,12 +2267,12 @@ byte *storedPtr_3 = targetPtr;
 
             {
 
-        if(field.claims.cac_AccountingSupplierParty.cac_PartyUdid!= null)
+        if(field.claims.Value.cac_AccountingSupplierParty.cac_PartyUdid!= null)
         {
-            int strlen_4 = field.claims.cac_AccountingSupplierParty.cac_PartyUdid.Length * 2;
+            int strlen_4 = field.claims.Value.cac_AccountingSupplierParty.cac_PartyUdid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cac_AccountingSupplierParty.cac_PartyUdid)
+            fixed(char* pstr_4 = field.claims.Value.cac_AccountingSupplierParty.cac_PartyUdid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1808,12 +2286,12 @@ byte *storedPtr_3 = targetPtr;
             }
             {
 
-        if(field.claims.cac_AccountingCustomerParty.cac_PartyUdid!= null)
+        if(field.claims.Value.cac_AccountingCustomerParty.cac_PartyUdid!= null)
         {
-            int strlen_4 = field.claims.cac_AccountingCustomerParty.cac_PartyUdid.Length * 2;
+            int strlen_4 = field.claims.Value.cac_AccountingCustomerParty.cac_PartyUdid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cac_AccountingCustomerParty.cac_PartyUdid)
+            fixed(char* pstr_4 = field.claims.Value.cac_AccountingCustomerParty.cac_PartyUdid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1827,12 +2305,12 @@ byte *storedPtr_3 = targetPtr;
             }
             {
 
-        if(field.claims.cac_PayeeParty.cac_PartyUdid!= null)
+        if(field.claims.Value.cac_PayeeParty.cac_PartyUdid!= null)
         {
-            int strlen_4 = field.claims.cac_PayeeParty.cac_PartyUdid.Length * 2;
+            int strlen_4 = field.claims.Value.cac_PayeeParty.cac_PartyUdid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.cac_PayeeParty.cac_PartyUdid)
+            fixed(char* pstr_4 = field.claims.Value.cac_PayeeParty.cac_PartyUdid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -1847,7 +2325,7 @@ byte *storedPtr_3 = targetPtr;
             {
 
         {
-            *(long*)targetPtr = field.claims.cac_Delivery.cbc_ActualDeliveryDate.ToBinary();
+            *(long*)targetPtr = field.claims.Value.cac_Delivery.cbc_ActualDeliveryDate.ToBinary();
             targetPtr += 8;
         }
 
@@ -1857,12 +2335,12 @@ byte *storedPtr_3 = targetPtr;
             byte* optheader_5 = targetPtr;
             *(optheader_5 + 0) = 0x00;            targetPtr += 1;
 
-        if(field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeID!= null)
+        if(field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeID!= null)
         {
-            int strlen_6 = field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeID.Length * 2;
+            int strlen_6 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeID.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeID)
+            fixed(char* pstr_6 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeID)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -1872,15 +2350,15 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID!= null)
+            if( field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID!= null)
             {
 
-        if(field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID!= null)
+        if(field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID!= null)
         {
-            int strlen_6 = field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID.Length * 2;
+            int strlen_6 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID)
+            fixed(char* pstr_6 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID._schemeAgencyID)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -1893,12 +2371,12 @@ byte *storedPtr_3 = targetPtr;
 *(optheader_5 + 0) |= 0x01;
             }
 
-        if(field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID.code!= null)
+        if(field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID.code!= null)
         {
-            int strlen_6 = field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID.code.Length * 2;
+            int strlen_6 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID.code.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = field.claims.cac_Delivery.cac_DeliveryLocation.cbc_ID.code)
+            fixed(char* pstr_6 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cbc_ID.code)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -1910,12 +2388,12 @@ byte *storedPtr_3 = targetPtr;
         }
 
             }
-        if(field.claims.cac_Delivery.cac_DeliveryLocation.cac_AddressUdid!= null)
+        if(field.claims.Value.cac_Delivery.cac_DeliveryLocation.cac_AddressUdid!= null)
         {
-            int strlen_5 = field.claims.cac_Delivery.cac_DeliveryLocation.cac_AddressUdid.Length * 2;
+            int strlen_5 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cac_AddressUdid.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_Delivery.cac_DeliveryLocation.cac_AddressUdid)
+            fixed(char* pstr_5 = field.claims.Value.cac_Delivery.cac_DeliveryLocation.cac_AddressUdid)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -1928,12 +2406,12 @@ byte *storedPtr_3 = targetPtr;
 
             }
             }
-        if(field.claims.cac_PaymentMeansUdid!= null)
+        if(field.claims.Value.cac_PaymentMeansUdid!= null)
         {
-            int strlen_3 = field.claims.cac_PaymentMeansUdid.Length * 2;
+            int strlen_3 = field.claims.Value.cac_PaymentMeansUdid.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.claims.cac_PaymentMeansUdid)
+            fixed(char* pstr_3 = field.claims.Value.cac_PaymentMeansUdid)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;
@@ -1947,15 +2425,15 @@ byte *storedPtr_3 = targetPtr;
             {
 
             {
-            *(ISO639_1_LanguageCodes*)targetPtr = field.claims.cac_PaymentTerms.cbc_Note._languageID;
+            *(ISO639_1_LanguageCodes*)targetPtr = field.claims.Value.cac_PaymentTerms.cbc_Note._languageID;
             targetPtr += 1;
 
-        if(field.claims.cac_PaymentTerms.cbc_Note.note!= null)
+        if(field.claims.Value.cac_PaymentTerms.cbc_Note.note!= null)
         {
-            int strlen_5 = field.claims.cac_PaymentTerms.cbc_Note.note.Length * 2;
+            int strlen_5 = field.claims.Value.cac_PaymentTerms.cbc_Note.note.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_PaymentTerms.cbc_Note.note)
+            fixed(char* pstr_5 = field.claims.Value.cac_PaymentTerms.cbc_Note.note)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -1972,21 +2450,21 @@ byte *storedPtr_3 = targetPtr;
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_AllowanceCharges!= null)
+    if(field.claims.Value.cac_AllowanceCharges!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.claims.cac_AllowanceCharges.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<field.claims.Value.cac_AllowanceCharges.Count;++iterator_3)
         {
 
             {
-            *(bool*)targetPtr = field.claims.cac_AllowanceCharges[iterator_3].cbc_ChargeIndicator;
+            *(bool*)targetPtr = field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_ChargeIndicator;
             targetPtr += 1;
 
-        if(field.claims.cac_AllowanceCharges[iterator_3].cbc_AllowanceChargeReason!= null)
+        if(field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_AllowanceChargeReason!= null)
         {
-            int strlen_5 = field.claims.cac_AllowanceCharges[iterator_3].cbc_AllowanceChargeReason.Length * 2;
+            int strlen_5 = field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_AllowanceChargeReason.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_AllowanceCharges[iterator_3].cbc_AllowanceChargeReason)
+            fixed(char* pstr_5 = field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_AllowanceChargeReason)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -1999,12 +2477,12 @@ byte *storedPtr_3 = targetPtr;
 
             {
 
-        if(field.claims.cac_AllowanceCharges[iterator_3].cbc_Amount._CurrencyID!= null)
+        if(field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_Amount._CurrencyID!= null)
         {
-            int strlen_6 = field.claims.cac_AllowanceCharges[iterator_3].cbc_Amount._CurrencyID.Length * 2;
+            int strlen_6 = field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_Amount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = field.claims.cac_AllowanceCharges[iterator_3].cbc_Amount._CurrencyID)
+            fixed(char* pstr_6 = field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_Amount._CurrencyID)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -2014,7 +2492,7 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_AllowanceCharges[iterator_3].cbc_Amount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_AllowanceCharges[iterator_3].cbc_Amount.amount;
             targetPtr += 8;
 
             }
@@ -2029,12 +2507,12 @@ byte *storedPtr_3 = targetPtr;
 
             {
 
-        if(field.claims.cac_TaxTotal.cbc_TaxAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_TaxTotal.cbc_TaxAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_TaxTotal.cbc_TaxAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_TaxTotal.cbc_TaxAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_TaxTotal.cbc_TaxAmount._CurrencyID)
+            fixed(char* pstr_5 = field.claims.Value.cac_TaxTotal.cbc_TaxAmount._CurrencyID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2044,7 +2522,7 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_TaxTotal.cbc_TaxAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_TaxTotal.cbc_TaxAmount.amount;
             targetPtr += 8;
 
             }
@@ -2052,21 +2530,21 @@ byte *storedPtr_3 = targetPtr;
 byte *storedPtr_4 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_TaxTotal.cac_TaxSubtotals!= null)
+    if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals!= null)
     {
-        for(int iterator_4 = 0;iterator_4<field.claims.cac_TaxTotal.cac_TaxSubtotals.Count;++iterator_4)
+        for(int iterator_4 = 0;iterator_4<field.claims.Value.cac_TaxTotal.cac_TaxSubtotals.Count;++iterator_4)
         {
 
             {
 
             {
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount._CurrencyID!= null)
         {
-            int strlen_7 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount._CurrencyID.Length * 2;
+            int strlen_7 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_7;
             targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount._CurrencyID)
+            fixed(char* pstr_7 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount._CurrencyID)
             {
                 Memory.Copy(pstr_7, targetPtr, strlen_7);
                 targetPtr += strlen_7;
@@ -2076,18 +2554,18 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxableAmount.amount;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount._CurrencyID!= null)
         {
-            int strlen_7 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount._CurrencyID.Length * 2;
+            int strlen_7 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_7;
             targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount._CurrencyID)
+            fixed(char* pstr_7 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount._CurrencyID)
             {
                 Memory.Copy(pstr_7, targetPtr, strlen_7);
                 targetPtr += strlen_7;
@@ -2097,7 +2575,7 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cbc_TaxAmount.amount;
             targetPtr += 8;
 
             }
@@ -2107,12 +2585,12 @@ byte *storedPtr_4 = targetPtr;
             byte* optheader_7 = targetPtr;
             *(optheader_7 + 0) = 0x00;            targetPtr += 1;
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeID!= null)
         {
-            int strlen_8 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeID.Length * 2;
+            int strlen_8 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeID.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeID)
+            fixed(char* pstr_8 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeID)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -2122,15 +2600,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
+            if( field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
             {
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
         {
-            int strlen_8 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID.Length * 2;
+            int strlen_8 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID)
+            fixed(char* pstr_8 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID._schemeAgencyID)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -2143,12 +2621,12 @@ byte *storedPtr_4 = targetPtr;
 *(optheader_7 + 0) |= 0x01;
             }
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID.code!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID.code!= null)
         {
-            int strlen_8 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID.code.Length * 2;
+            int strlen_8 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID.code.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID.code)
+            fixed(char* pstr_8 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_ID.code)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -2159,7 +2637,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }            *(double*)targetPtr = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_Percent;
+            }            *(double*)targetPtr = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cbc_Percent;
             targetPtr += 8;
 
             {
@@ -2168,12 +2646,12 @@ byte *storedPtr_4 = targetPtr;
             byte* optheader_8 = targetPtr;
             *(optheader_8 + 0) = 0x00;            targetPtr += 1;
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID!= null)
         {
-            int strlen_9 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID.Length * 2;
+            int strlen_9 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID.Length * 2;
             *(int*)targetPtr = strlen_9;
             targetPtr += sizeof(int);
-            fixed(char* pstr_9 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID)
+            fixed(char* pstr_9 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID)
             {
                 Memory.Copy(pstr_9, targetPtr, strlen_9);
                 targetPtr += strlen_9;
@@ -2183,15 +2661,15 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
+            if( field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
             {
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
         {
-            int strlen_9 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID.Length * 2;
+            int strlen_9 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID.Length * 2;
             *(int*)targetPtr = strlen_9;
             targetPtr += sizeof(int);
-            fixed(char* pstr_9 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID)
+            fixed(char* pstr_9 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID)
             {
                 Memory.Copy(pstr_9, targetPtr, strlen_9);
                 targetPtr += strlen_9;
@@ -2204,12 +2682,12 @@ byte *storedPtr_4 = targetPtr;
 *(optheader_8 + 0) |= 0x01;
             }
 
-        if(field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID.code!= null)
+        if(field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID.code!= null)
         {
-            int strlen_9 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID.code.Length * 2;
+            int strlen_9 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID.code.Length * 2;
             *(int*)targetPtr = strlen_9;
             targetPtr += sizeof(int);
-            fixed(char* pstr_9 = field.claims.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID.code)
+            fixed(char* pstr_9 = field.claims.Value.cac_TaxTotal.cac_TaxSubtotals[iterator_4].cac_TaxCategory.cac_TaxScheme.cbc_ID.code)
             {
                 Memory.Copy(pstr_9, targetPtr, strlen_9);
                 targetPtr += strlen_9;
@@ -2235,12 +2713,12 @@ byte *storedPtr_4 = targetPtr;
 
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_LineExtensionAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_LineExtensionAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_LineExtensionAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_LineExtensionAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_LegalMonetaryTotal.cbc_LineExtensionAmount._CurrencyID)
+            fixed(char* pstr_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_LineExtensionAmount._CurrencyID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2250,18 +2728,18 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_LegalMonetaryTotal.cbc_LineExtensionAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_LegalMonetaryTotal.cbc_LineExtensionAmount.amount;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount._CurrencyID)
+            fixed(char* pstr_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount._CurrencyID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2271,18 +2749,18 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxExclusiveAmount.amount;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount._CurrencyID)
+            fixed(char* pstr_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount._CurrencyID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2292,18 +2770,18 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_LegalMonetaryTotal.cbc_TaxInclusiveAmount.amount;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount._CurrencyID)
+            fixed(char* pstr_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount._CurrencyID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2313,18 +2791,18 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_LegalMonetaryTotal.cbc_AllowanceTotalAmount.amount;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount._CurrencyID)
+            fixed(char* pstr_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount._CurrencyID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2334,18 +2812,18 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_LegalMonetaryTotal.cbc_ChargeTotalAmount.amount;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_PrepaidAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_PrepaidAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_PrepaidAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_PrepaidAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_LegalMonetaryTotal.cbc_PrepaidAmount._CurrencyID)
+            fixed(char* pstr_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_PrepaidAmount._CurrencyID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2355,18 +2833,18 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_LegalMonetaryTotal.cbc_PrepaidAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_LegalMonetaryTotal.cbc_PrepaidAmount.amount;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount._CurrencyID)
+            fixed(char* pstr_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount._CurrencyID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2376,18 +2854,18 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableRoundingAmount.amount;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_LegalMonetaryTotal.cbc_PayableAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableAmount._CurrencyID!= null)
         {
-            int strlen_5 = field.claims.cac_LegalMonetaryTotal.cbc_PayableAmount._CurrencyID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_LegalMonetaryTotal.cbc_PayableAmount._CurrencyID)
+            fixed(char* pstr_5 = field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableAmount._CurrencyID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2397,7 +2875,7 @@ byte *storedPtr_4 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_LegalMonetaryTotal.cbc_PayableAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_LegalMonetaryTotal.cbc_PayableAmount.amount;
             targetPtr += 8;
 
             }
@@ -2406,19 +2884,19 @@ byte *storedPtr_4 = targetPtr;
 byte *storedPtr_3 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_InvoiceLine!= null)
+    if(field.claims.Value.cac_InvoiceLine!= null)
     {
-        for(int iterator_3 = 0;iterator_3<field.claims.cac_InvoiceLine.Count;++iterator_3)
+        for(int iterator_3 = 0;iterator_3<field.claims.Value.cac_InvoiceLine.Count;++iterator_3)
         {
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cbc_ID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cbc_ID!= null)
         {
-            int strlen_5 = field.claims.cac_InvoiceLine[iterator_3].cbc_ID.Length * 2;
+            int strlen_5 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_ID.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_InvoiceLine[iterator_3].cbc_ID)
+            fixed(char* pstr_5 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_ID)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2430,15 +2908,15 @@ byte *storedPtr_3 = targetPtr;
         }
 
             {
-            *(ISO639_1_LanguageCodes*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cbc_Note._languageID;
+            *(ISO639_1_LanguageCodes*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_Note._languageID;
             targetPtr += 1;
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cbc_Note.note!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cbc_Note.note!= null)
         {
-            int strlen_6 = field.claims.cac_InvoiceLine[iterator_3].cbc_Note.note.Length * 2;
+            int strlen_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_Note.note.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = field.claims.cac_InvoiceLine[iterator_3].cbc_Note.note)
+            fixed(char* pstr_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_Note.note)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -2452,12 +2930,12 @@ byte *storedPtr_3 = targetPtr;
             }
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity._unitCode!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity._unitCode!= null)
         {
-            int strlen_6 = field.claims.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity._unitCode.Length * 2;
+            int strlen_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity._unitCode.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = field.claims.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity._unitCode)
+            fixed(char* pstr_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity._unitCode)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -2467,18 +2945,18 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(long*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity.quantity;
+            *(long*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_InvoicedQuantity.quantity;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount._CurrencyID!= null)
         {
-            int strlen_6 = field.claims.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount._CurrencyID.Length * 2;
+            int strlen_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = field.claims.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount._CurrencyID)
+            fixed(char* pstr_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount._CurrencyID)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -2488,16 +2966,16 @@ byte *storedPtr_3 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_LineExtensionAmount.amount;
             targetPtr += 8;
 
             }
-        if(field.claims.cac_InvoiceLine[iterator_3].cbc_AccountingCost!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cbc_AccountingCost!= null)
         {
-            int strlen_5 = field.claims.cac_InvoiceLine[iterator_3].cbc_AccountingCost.Length * 2;
+            int strlen_5 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_AccountingCost.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_InvoiceLine[iterator_3].cbc_AccountingCost)
+            fixed(char* pstr_5 = field.claims.Value.cac_InvoiceLine[iterator_3].cbc_AccountingCost)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2510,12 +2988,12 @@ byte *storedPtr_3 = targetPtr;
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_OrderLineReference.cbc_LineID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_OrderLineReference.cbc_LineID!= null)
         {
-            int strlen_6 = field.claims.cac_InvoiceLine[iterator_3].cac_OrderLineReference.cbc_LineID.Length * 2;
+            int strlen_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_OrderLineReference.cbc_LineID.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = field.claims.cac_InvoiceLine[iterator_3].cac_OrderLineReference.cbc_LineID)
+            fixed(char* pstr_6 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_OrderLineReference.cbc_LineID)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -2531,21 +3009,21 @@ byte *storedPtr_3 = targetPtr;
 byte *storedPtr_5 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges!= null)
+    if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges!= null)
     {
-        for(int iterator_5 = 0;iterator_5<field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges.Count;++iterator_5)
+        for(int iterator_5 = 0;iterator_5<field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges.Count;++iterator_5)
         {
 
             {
-            *(bool*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_ChargeIndicator;
+            *(bool*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_ChargeIndicator;
             targetPtr += 1;
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_AllowanceChargeReason!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_AllowanceChargeReason!= null)
         {
-            int strlen_7 = field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_AllowanceChargeReason.Length * 2;
+            int strlen_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_AllowanceChargeReason.Length * 2;
             *(int*)targetPtr = strlen_7;
             targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_AllowanceChargeReason)
+            fixed(char* pstr_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_AllowanceChargeReason)
             {
                 Memory.Copy(pstr_7, targetPtr, strlen_7);
                 targetPtr += strlen_7;
@@ -2558,12 +3036,12 @@ byte *storedPtr_5 = targetPtr;
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount._CurrencyID!= null)
         {
-            int strlen_8 = field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount._CurrencyID.Length * 2;
+            int strlen_8 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount._CurrencyID)
+            fixed(char* pstr_8 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount._CurrencyID)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -2573,7 +3051,7 @@ byte *storedPtr_5 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cac_AllowanceCharges[iterator_5].cbc_Amount.amount;
             targetPtr += 8;
 
             }
@@ -2588,12 +3066,12 @@ byte *storedPtr_5 = targetPtr;
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount._CurrencyID!= null)
         {
-            int strlen_7 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount._CurrencyID.Length * 2;
+            int strlen_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_7;
             targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount._CurrencyID)
+            fixed(char* pstr_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount._CurrencyID)
             {
                 Memory.Copy(pstr_7, targetPtr, strlen_7);
                 targetPtr += strlen_7;
@@ -2603,7 +3081,7 @@ byte *storedPtr_5 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cbc_TaxAmount.amount;
             targetPtr += 8;
 
             }
@@ -2611,21 +3089,21 @@ byte *storedPtr_5 = targetPtr;
 byte *storedPtr_6 = targetPtr;
 
     targetPtr += sizeof(int);
-    if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals!= null)
+    if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals!= null)
     {
-        for(int iterator_6 = 0;iterator_6<field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals.Count;++iterator_6)
+        for(int iterator_6 = 0;iterator_6<field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals.Count;++iterator_6)
         {
 
             {
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount._CurrencyID!= null)
         {
-            int strlen_9 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount._CurrencyID.Length * 2;
+            int strlen_9 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_9;
             targetPtr += sizeof(int);
-            fixed(char* pstr_9 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount._CurrencyID)
+            fixed(char* pstr_9 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount._CurrencyID)
             {
                 Memory.Copy(pstr_9, targetPtr, strlen_9);
                 targetPtr += strlen_9;
@@ -2635,18 +3113,18 @@ byte *storedPtr_6 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxableAmount.amount;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount._CurrencyID!= null)
         {
-            int strlen_9 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount._CurrencyID.Length * 2;
+            int strlen_9 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_9;
             targetPtr += sizeof(int);
-            fixed(char* pstr_9 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount._CurrencyID)
+            fixed(char* pstr_9 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount._CurrencyID)
             {
                 Memory.Copy(pstr_9, targetPtr, strlen_9);
                 targetPtr += strlen_9;
@@ -2656,7 +3134,7 @@ byte *storedPtr_6 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cbc_TaxAmount.amount;
             targetPtr += 8;
 
             }
@@ -2666,12 +3144,12 @@ byte *storedPtr_6 = targetPtr;
             byte* optheader_9 = targetPtr;
             *(optheader_9 + 0) = 0x00;            targetPtr += 1;
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeID!= null)
         {
-            int strlen_10 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeID.Length * 2;
+            int strlen_10 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeID.Length * 2;
             *(int*)targetPtr = strlen_10;
             targetPtr += sizeof(int);
-            fixed(char* pstr_10 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeID)
+            fixed(char* pstr_10 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeID)
             {
                 Memory.Copy(pstr_10, targetPtr, strlen_10);
                 targetPtr += strlen_10;
@@ -2681,15 +3159,15 @@ byte *storedPtr_6 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
+            if( field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID!= null)
         {
-            int strlen_10 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID.Length * 2;
+            int strlen_10 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID.Length * 2;
             *(int*)targetPtr = strlen_10;
             targetPtr += sizeof(int);
-            fixed(char* pstr_10 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID)
+            fixed(char* pstr_10 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID._schemeAgencyID)
             {
                 Memory.Copy(pstr_10, targetPtr, strlen_10);
                 targetPtr += strlen_10;
@@ -2702,12 +3180,12 @@ byte *storedPtr_6 = targetPtr;
 *(optheader_9 + 0) |= 0x01;
             }
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID.code!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID.code!= null)
         {
-            int strlen_10 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID.code.Length * 2;
+            int strlen_10 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID.code.Length * 2;
             *(int*)targetPtr = strlen_10;
             targetPtr += sizeof(int);
-            fixed(char* pstr_10 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID.code)
+            fixed(char* pstr_10 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_ID.code)
             {
                 Memory.Copy(pstr_10, targetPtr, strlen_10);
                 targetPtr += strlen_10;
@@ -2718,7 +3196,7 @@ byte *storedPtr_6 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }            *(double*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_Percent;
+            }            *(double*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cbc_Percent;
             targetPtr += 8;
 
             {
@@ -2727,12 +3205,12 @@ byte *storedPtr_6 = targetPtr;
             byte* optheader_10 = targetPtr;
             *(optheader_10 + 0) = 0x00;            targetPtr += 1;
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID!= null)
         {
-            int strlen_11 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID.Length * 2;
+            int strlen_11 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID.Length * 2;
             *(int*)targetPtr = strlen_11;
             targetPtr += sizeof(int);
-            fixed(char* pstr_11 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID)
+            fixed(char* pstr_11 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeID)
             {
                 Memory.Copy(pstr_11, targetPtr, strlen_11);
                 targetPtr += strlen_11;
@@ -2742,15 +3220,15 @@ byte *storedPtr_6 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            if( field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
+            if( field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID!= null)
         {
-            int strlen_11 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID.Length * 2;
+            int strlen_11 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID.Length * 2;
             *(int*)targetPtr = strlen_11;
             targetPtr += sizeof(int);
-            fixed(char* pstr_11 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID)
+            fixed(char* pstr_11 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID._schemeAgencyID)
             {
                 Memory.Copy(pstr_11, targetPtr, strlen_11);
                 targetPtr += strlen_11;
@@ -2763,12 +3241,12 @@ byte *storedPtr_6 = targetPtr;
 *(optheader_10 + 0) |= 0x01;
             }
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID.code!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID.code!= null)
         {
-            int strlen_11 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID.code.Length * 2;
+            int strlen_11 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID.code.Length * 2;
             *(int*)targetPtr = strlen_11;
             targetPtr += sizeof(int);
-            fixed(char* pstr_11 = field.claims.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID.code)
+            fixed(char* pstr_11 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_TaxTotal.cac_TaxSubtotals[iterator_6].cac_TaxCategory.cac_TaxScheme.cbc_ID.code)
             {
                 Memory.Copy(pstr_11, targetPtr, strlen_11);
                 targetPtr += strlen_11;
@@ -2790,12 +3268,12 @@ byte *storedPtr_6 = targetPtr;
 }
 
             }
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_ItemUdid!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_ItemUdid!= null)
         {
-            int strlen_5 = field.claims.cac_InvoiceLine[iterator_3].cac_ItemUdid.Length * 2;
+            int strlen_5 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_ItemUdid.Length * 2;
             *(int*)targetPtr = strlen_5;
             targetPtr += sizeof(int);
-            fixed(char* pstr_5 = field.claims.cac_InvoiceLine[iterator_3].cac_ItemUdid)
+            fixed(char* pstr_5 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_ItemUdid)
             {
                 Memory.Copy(pstr_5, targetPtr, strlen_5);
                 targetPtr += strlen_5;
@@ -2810,12 +3288,12 @@ byte *storedPtr_6 = targetPtr;
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount._CurrencyID!= null)
         {
-            int strlen_7 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount._CurrencyID.Length * 2;
+            int strlen_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_7;
             targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount._CurrencyID)
+            fixed(char* pstr_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount._CurrencyID)
             {
                 Memory.Copy(pstr_7, targetPtr, strlen_7);
                 targetPtr += strlen_7;
@@ -2825,18 +3303,18 @@ byte *storedPtr_6 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_PriceAmount.amount;
             targetPtr += 8;
 
             }
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity._unitCode!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity._unitCode!= null)
         {
-            int strlen_7 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity._unitCode.Length * 2;
+            int strlen_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity._unitCode.Length * 2;
             *(int*)targetPtr = strlen_7;
             targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity._unitCode)
+            fixed(char* pstr_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity._unitCode)
             {
                 Memory.Copy(pstr_7, targetPtr, strlen_7);
                 targetPtr += strlen_7;
@@ -2846,20 +3324,20 @@ byte *storedPtr_6 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(long*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity.quantity;
+            *(long*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cbc_BaseQuantity.quantity;
             targetPtr += 8;
 
             }
             {
-            *(bool*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_ChargeIndicator;
+            *(bool*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_ChargeIndicator;
             targetPtr += 1;
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_AllowanceChargeReason!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_AllowanceChargeReason!= null)
         {
-            int strlen_7 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_AllowanceChargeReason.Length * 2;
+            int strlen_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_AllowanceChargeReason.Length * 2;
             *(int*)targetPtr = strlen_7;
             targetPtr += sizeof(int);
-            fixed(char* pstr_7 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_AllowanceChargeReason)
+            fixed(char* pstr_7 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_AllowanceChargeReason)
             {
                 Memory.Copy(pstr_7, targetPtr, strlen_7);
                 targetPtr += strlen_7;
@@ -2872,12 +3350,12 @@ byte *storedPtr_6 = targetPtr;
 
             {
 
-        if(field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount._CurrencyID!= null)
+        if(field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount._CurrencyID!= null)
         {
-            int strlen_8 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount._CurrencyID.Length * 2;
+            int strlen_8 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount._CurrencyID.Length * 2;
             *(int*)targetPtr = strlen_8;
             targetPtr += sizeof(int);
-            fixed(char* pstr_8 = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount._CurrencyID)
+            fixed(char* pstr_8 = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount._CurrencyID)
             {
                 Memory.Copy(pstr_8, targetPtr, strlen_8);
                 targetPtr += strlen_8;
@@ -2887,7 +3365,7 @@ byte *storedPtr_6 = targetPtr;
             *(int*)targetPtr = 0;
             targetPtr += sizeof(int);
         }
-            *(double*)targetPtr = field.claims.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount.amount;
+            *(double*)targetPtr = field.claims.Value.cac_InvoiceLine[iterator_3].cac_Price.cac_AllowanceCharge.cbc_Amount.amount;
             targetPtr += 8;
 
             }
@@ -2900,7 +3378,64 @@ byte *storedPtr_6 = targetPtr;
 
 }
 
+            }*(optheader_1 + 0) |= 0x01;
             }
+            if( field.encryptedclaims!= null)
+            {
+
+            {
+
+        if(field.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.ciphertext16.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.encryptedclaims.Value.ciphertext16)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.alg.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.encryptedclaims.Value.alg)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.encryptedclaims.Value.key!= null)
+        {
+            int strlen_3 = field.encryptedclaims.Value.key.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.encryptedclaims.Value.key)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }*(optheader_1 + 0) |= 0x02;
+            }
+
             }UBL21_Invoice2_Content_Accessor ret;
             
             ret = new UBL21_Invoice2_Content_Accessor(tmpcellptr, null);
@@ -2916,7 +3451,12 @@ byte *storedPtr_6 = targetPtr;
                 return false;
             if (a.m_ptr == b.m_ptr) return true;
             byte* targetPtr = a.m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+            {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
@@ -2945,10 +3485,22 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-}}targetPtr += *(int*)targetPtr + sizeof(int);}}
+}}targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
             int lengthA = (int)(targetPtr - a.m_ptr);
             targetPtr = b.m_ptr;
-            {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
+            {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 16;
@@ -2977,7 +3529,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 }{targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-}}targetPtr += *(int*)targetPtr + sizeof(int);}}
+}}targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}
             int lengthB = (int)(targetPtr - b.m_ptr);
             if(lengthA != lengthB) return false;
             return Memory.Compare(a.m_ptr,b.m_ptr,lengthA);

@@ -55,17 +55,25 @@ struct TRAKeyValuePair
 
 struct TRAClaim
 {
-	string key;
+	string key; // for one of the following...
 	optional string value;				    
 	optional List<TRAKeyValuePair> attribute;
 	optional List<List<TRAKeyValuePair>> attributes;
+}
+
+struct TRAEncryptedClaims
+{
+	string ciphertext16;
+	string alg; // TODO
+	string key; // TODO
 }
 
 struct TRACredential_Content
 {
 	string udid;	
 	List<string> context;
-	List<TRAClaim> claims;
+	optional List<TRAClaim> claims;
+	optional TRAEncryptedClaims encryptedclaims;
 }
 
 struct TRACredential_Label
@@ -81,9 +89,7 @@ struct TRACredential_Label
 
 struct TRACredential_Envelope
 {
-	optional TRACredential_Content content;
-	optional string encryptedcontent;
-	
+	TRACredential_Content content;
 	TRACredential_Label label;
 }
 
@@ -97,7 +103,7 @@ struct TRACredential_EnvelopeSeal
 
 ///////////////////////////////////////////////////////////////////////////////
 
-cell struct TRACredential_Cell
+cell struct TRACredential_Cell // Serializable and Persistable FDO
 {	
 	TRACredential_Envelope     envelope;
 	TRACredential_EnvelopeSeal envelopeseal;

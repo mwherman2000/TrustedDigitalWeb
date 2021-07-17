@@ -373,3 +373,4 @@ C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\Gener
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TRACredential_Envelope.cs
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TRACredential_EnvelopeSeal.cs
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TRACredential_Label.cs
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TRAEncryptedClaims.cs

@@ -37,6 +37,17 @@ namespace TDW.TRAServer
             
         };
         
+        static Dictionary<string, uint> FieldLookupTable_TRAEncryptedClaims = new Dictionary<string, uint>()
+        {
+            
+            {"ciphertext16" , 0}
+            ,
+            {"alg" , 1}
+            ,
+            {"key" , 2}
+            
+        };
+        
         static Dictionary<string, uint> FieldLookupTable_TRACredential_Content = new Dictionary<string, uint>()
         {
             
@@ -45,6 +56,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -72,9 +85,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -110,6 +121,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -118,9 +131,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -141,6 +152,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -149,9 +162,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -180,6 +191,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -188,9 +201,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -530,6 +541,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -538,9 +551,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -561,6 +572,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -569,9 +582,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -606,6 +617,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -614,9 +627,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -639,6 +650,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -647,9 +660,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -672,6 +683,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -680,9 +693,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -707,6 +718,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -715,9 +728,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -744,6 +755,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -752,9 +765,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -775,6 +786,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -783,9 +796,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -818,6 +829,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -826,9 +839,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -889,6 +900,8 @@ namespace TDW.TRAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -897,9 +910,7 @@ namespace TDW.TRAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -1155,6 +1166,105 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
+        internal static void SetField<T>(TRAEncryptedClaims_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRAEncryptedClaims.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRAEncryptedClaims.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                accessor.ciphertext16 = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 1:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                accessor.alg = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 2:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                accessor.key = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(TRAEncryptedClaims_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRAEncryptedClaims.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRAEncryptedClaims.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.ciphertext16);
+                    break;
+                
+                case 1:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.alg);
+                    break;
+                
+                case 2:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.key);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
         internal static void SetField<T>(TRACredential_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
@@ -1166,6 +1276,10 @@ namespace TDW.TRAServer
                     Throw.undefined_field();
                 switch (member_id)
                 {
+                    
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
                     
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
@@ -1206,7 +1320,24 @@ namespace TDW.TRAServer
                         List<TRAClaim> conversion_result = TypeConverter<T>.ConvertTo_List_TRAClaim(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result != default(List<TRAClaim>))
+                    accessor.claims = conversion_result;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -1225,6 +1356,9 @@ namespace TDW.TRAServer
                     Throw.undefined_field();
                 switch (member_id)
                 {
+                    
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
@@ -1247,6 +1381,10 @@ namespace TDW.TRAServer
                 
                 case 2:
                     return TypeConverter<T>.ConvertFrom_List_TRAClaim(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -1435,7 +1573,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -1453,33 +1591,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        TRACredential_Content? conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Content_nullable(value);
+                        TRACredential_Content conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -1507,7 +1628,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -1522,14 +1643,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -1779,6 +1896,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -1815,10 +1936,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        TRATimestampClaims conversion_result = TypeConverter<T>.ConvertTo_TRATimestampClaims(value);
+                        TRATimestampClaims? conversion_result = TypeConverter<T>.ConvertTo_TRATimestampClaims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -1841,6 +1979,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -1861,7 +2002,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TRATimestampClaims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_TRATimestampClaims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -1885,7 +2030,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -1903,33 +2048,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        TRATimestampContent? conversion_result = TypeConverter<T>.ConvertTo_TRATimestampContent_nullable(value);
+                        TRATimestampContent conversion_result = TypeConverter<T>.ConvertTo_TRATimestampContent(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -1957,7 +2085,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -1972,14 +2100,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TRATimestampContent_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_TRATimestampContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -2088,6 +2212,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -2124,10 +2252,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        TRAGeoLocationClaims conversion_result = TypeConverter<T>.ConvertTo_TRAGeoLocationClaims(value);
+                        TRAGeoLocationClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAGeoLocationClaims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -2150,6 +2295,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -2170,7 +2318,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TRAGeoLocationClaims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_TRAGeoLocationClaims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -2194,7 +2346,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -2226,20 +2378,6 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
-                    {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
             {
@@ -2266,7 +2404,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -2285,10 +2423,6 @@ namespace TDW.TRAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -2457,6 +2591,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -2493,10 +2631,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        TRAPostalAddressClaims conversion_result = TypeConverter<T>.ConvertTo_TRAPostalAddressClaims(value);
+                        TRAPostalAddressClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAPostalAddressClaims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -2519,6 +2674,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -2539,7 +2697,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TRAPostalAddressClaims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_TRAPostalAddressClaims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -2563,7 +2725,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -2595,20 +2757,6 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
-                    {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
             {
@@ -2635,7 +2783,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -2654,10 +2802,6 @@ namespace TDW.TRAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -5982,6 +6126,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -6018,10 +6166,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        Cac_Item_Claims conversion_result = TypeConverter<T>.ConvertTo_Cac_Item_Claims(value);
+                        Cac_Item_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_Item_Claims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -6044,6 +6209,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -6064,7 +6232,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_Item_Claims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_Cac_Item_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -6088,7 +6260,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -6106,33 +6278,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_Item_Content? conversion_result = TypeConverter<T>.ConvertTo_Cac_Item_Content_nullable(value);
+                        Cac_Item_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_Item_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -6160,7 +6315,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -6175,14 +6330,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_Item_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_Item_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -6304,6 +6455,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -6340,10 +6495,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        Cac_ExternalReference_Claims conversion_result = TypeConverter<T>.ConvertTo_Cac_ExternalReference_Claims(value);
+                        Cac_ExternalReference_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_ExternalReference_Claims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -6366,6 +6538,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -6386,7 +6561,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_ExternalReference_Claims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_Cac_ExternalReference_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -6410,7 +6589,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -6428,33 +6607,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_ExternalReference_Content? conversion_result = TypeConverter<T>.ConvertTo_Cac_ExternalReference_Content_nullable(value);
+                        Cac_ExternalReference_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_ExternalReference_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -6482,7 +6644,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -6497,14 +6659,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_ExternalReference_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_ExternalReference_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -6725,6 +6883,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -6761,10 +6923,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        Cac_Address_Claims conversion_result = TypeConverter<T>.ConvertTo_Cac_Address_Claims(value);
+                        Cac_Address_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_Address_Claims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -6787,6 +6966,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -6807,7 +6989,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_Address_Claims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_Cac_Address_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -6831,7 +7017,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -6849,33 +7035,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_Address_Content? conversion_result = TypeConverter<T>.ConvertTo_Cac_Address_Content_nullable(value);
+                        Cac_Address_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_Address_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -6903,7 +7072,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -6918,14 +7087,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_Address_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_Address_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -7056,6 +7221,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -7092,10 +7261,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        Cac_PartyLegalEntity_Claims conversion_result = TypeConverter<T>.ConvertTo_Cac_PartyLegalEntity_Claims(value);
+                        Cac_PartyLegalEntity_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_PartyLegalEntity_Claims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -7118,6 +7304,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -7138,7 +7327,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_PartyLegalEntity_Claims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_Cac_PartyLegalEntity_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -7162,7 +7355,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -7180,33 +7373,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_PartyLegalEntity_Content? conversion_result = TypeConverter<T>.ConvertTo_Cac_PartyLegalEntity_Content_nullable(value);
+                        Cac_PartyLegalEntity_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_PartyLegalEntity_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -7234,7 +7410,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -7249,14 +7425,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_PartyLegalEntity_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_PartyLegalEntity_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -7380,6 +7552,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -7416,10 +7592,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        Cac_Contact_Claims conversion_result = TypeConverter<T>.ConvertTo_Cac_Contact_Claims(value);
+                        Cac_Contact_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_Contact_Claims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -7442,6 +7635,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -7462,7 +7658,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_Contact_Claims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_Cac_Contact_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -7486,7 +7686,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -7504,33 +7704,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_Contact_Content? conversion_result = TypeConverter<T>.ConvertTo_Cac_Contact_Content_nullable(value);
+                        Cac_Contact_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_Contact_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -7558,7 +7741,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -7573,14 +7756,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_Contact_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_Contact_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -7719,6 +7898,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -7755,10 +7938,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        Cac_Person_Claims conversion_result = TypeConverter<T>.ConvertTo_Cac_Person_Claims(value);
+                        Cac_Person_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_Person_Claims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -7781,6 +7981,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -7801,7 +8004,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_Person_Claims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_Cac_Person_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -7825,7 +8032,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -7843,33 +8050,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_Person_Content? conversion_result = TypeConverter<T>.ConvertTo_Cac_Person_Content_nullable(value);
+                        Cac_Person_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_Person_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -7897,7 +8087,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -7912,14 +8102,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_Person_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_Person_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -8080,6 +8266,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -8116,10 +8306,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        Cac_PaymentMeans_Claims conversion_result = TypeConverter<T>.ConvertTo_Cac_PaymentMeans_Claims(value);
+                        Cac_PaymentMeans_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_PaymentMeans_Claims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -8142,6 +8349,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -8162,7 +8372,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_PaymentMeans_Claims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_Cac_PaymentMeans_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -8186,7 +8400,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -8204,33 +8418,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_PaymentMeans_Content? conversion_result = TypeConverter<T>.ConvertTo_Cac_PaymentMeans_Content_nullable(value);
+                        Cac_PaymentMeans_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_PaymentMeans_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -8258,7 +8455,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -8273,14 +8470,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_PaymentMeans_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_PaymentMeans_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -8396,6 +8589,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -8432,10 +8629,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        Cac_PayeeFinancialAccount_Claims conversion_result = TypeConverter<T>.ConvertTo_Cac_PayeeFinancialAccount_Claims(value);
+                        Cac_PayeeFinancialAccount_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_PayeeFinancialAccount_Claims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -8458,6 +8672,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -8478,7 +8695,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_PayeeFinancialAccount_Claims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_Cac_PayeeFinancialAccount_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -8502,7 +8723,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -8520,33 +8741,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_PayeeFinancialAccount_Content? conversion_result = TypeConverter<T>.ConvertTo_Cac_PayeeFinancialAccount_Content_nullable(value);
+                        Cac_PayeeFinancialAccount_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_PayeeFinancialAccount_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -8574,7 +8778,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -8589,14 +8793,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_PayeeFinancialAccount_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_PayeeFinancialAccount_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -8823,6 +9023,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -8859,10 +9063,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        Cac_Party_Claims conversion_result = TypeConverter<T>.ConvertTo_Cac_Party_Claims(value);
+                        Cac_Party_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_Party_Claims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -8885,6 +9106,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -8905,7 +9129,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_Party_Claims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_Cac_Party_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -8929,7 +9157,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -8947,33 +9175,16 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_Party_Content? conversion_result = TypeConverter<T>.ConvertTo_Cac_Party_Content_nullable(value);
+                        Cac_Party_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_Party_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -9001,7 +9212,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -9016,14 +9227,10 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_Party_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_Party_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -9523,6 +9730,10 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -9559,10 +9770,27 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        UBL21_Invoice2_Claims conversion_result = TypeConverter<T>.ConvertTo_UBL21_Invoice2_Claims(value);
+                        UBL21_Invoice2_Claims? conversion_result = TypeConverter<T>.ConvertTo_UBL21_Invoice2_Claims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -9585,6 +9813,9 @@ namespace TDW.TRAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -9605,7 +9836,11 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_UBL21_Invoice2_Claims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_UBL21_Invoice2_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -9629,7 +9864,7 @@ namespace TDW.TRAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -9658,20 +9893,6 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
-                    {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
             {
@@ -9698,7 +9919,7 @@ namespace TDW.TRAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -9717,10 +9938,6 @@ namespace TDW.TRAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 

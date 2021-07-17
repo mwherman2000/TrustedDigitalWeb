@@ -332,24 +332,24 @@ namespace TDW.TRAServer
             
         }
         
-        internal static unsafe bool TryParse_Cac_Address_Content_nullable(string s, out Cac_Address_Content? value)
+        internal static unsafe bool TryParse_Cac_Address_Claims_nullable(string s, out Cac_Address_Claims? value)
         {
-            Cac_Address_Content value_type_value;
+            Cac_Address_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(Cac_Address_Content?);
+                value = default(Cac_Address_Claims?);
                 return true;
             }
-            else if (Cac_Address_Content.TryParse(s, out value_type_value))
+            else if (Cac_Address_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(Cac_Address_Content?);
+                value = default(Cac_Address_Claims?);
                 return false;
             }
             
@@ -378,185 +378,185 @@ namespace TDW.TRAServer
             
         }
         
-        internal static unsafe bool TryParse_Cac_Contact_Content_nullable(string s, out Cac_Contact_Content? value)
+        internal static unsafe bool TryParse_Cac_Contact_Claims_nullable(string s, out Cac_Contact_Claims? value)
         {
-            Cac_Contact_Content value_type_value;
+            Cac_Contact_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(Cac_Contact_Content?);
+                value = default(Cac_Contact_Claims?);
                 return true;
             }
-            else if (Cac_Contact_Content.TryParse(s, out value_type_value))
+            else if (Cac_Contact_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(Cac_Contact_Content?);
+                value = default(Cac_Contact_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_Cac_ExternalReference_Content_nullable(string s, out Cac_ExternalReference_Content? value)
+        internal static unsafe bool TryParse_Cac_ExternalReference_Claims_nullable(string s, out Cac_ExternalReference_Claims? value)
         {
-            Cac_ExternalReference_Content value_type_value;
+            Cac_ExternalReference_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(Cac_ExternalReference_Content?);
+                value = default(Cac_ExternalReference_Claims?);
                 return true;
             }
-            else if (Cac_ExternalReference_Content.TryParse(s, out value_type_value))
+            else if (Cac_ExternalReference_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(Cac_ExternalReference_Content?);
+                value = default(Cac_ExternalReference_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_Cac_Item_Content_nullable(string s, out Cac_Item_Content? value)
+        internal static unsafe bool TryParse_Cac_Item_Claims_nullable(string s, out Cac_Item_Claims? value)
         {
-            Cac_Item_Content value_type_value;
+            Cac_Item_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(Cac_Item_Content?);
+                value = default(Cac_Item_Claims?);
                 return true;
             }
-            else if (Cac_Item_Content.TryParse(s, out value_type_value))
+            else if (Cac_Item_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(Cac_Item_Content?);
+                value = default(Cac_Item_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_Cac_PartyLegalEntity_Content_nullable(string s, out Cac_PartyLegalEntity_Content? value)
+        internal static unsafe bool TryParse_Cac_PartyLegalEntity_Claims_nullable(string s, out Cac_PartyLegalEntity_Claims? value)
         {
-            Cac_PartyLegalEntity_Content value_type_value;
+            Cac_PartyLegalEntity_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(Cac_PartyLegalEntity_Content?);
+                value = default(Cac_PartyLegalEntity_Claims?);
                 return true;
             }
-            else if (Cac_PartyLegalEntity_Content.TryParse(s, out value_type_value))
+            else if (Cac_PartyLegalEntity_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(Cac_PartyLegalEntity_Content?);
+                value = default(Cac_PartyLegalEntity_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_Cac_Party_Content_nullable(string s, out Cac_Party_Content? value)
+        internal static unsafe bool TryParse_Cac_Party_Claims_nullable(string s, out Cac_Party_Claims? value)
         {
-            Cac_Party_Content value_type_value;
+            Cac_Party_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(Cac_Party_Content?);
+                value = default(Cac_Party_Claims?);
                 return true;
             }
-            else if (Cac_Party_Content.TryParse(s, out value_type_value))
+            else if (Cac_Party_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(Cac_Party_Content?);
+                value = default(Cac_Party_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_Cac_PayeeFinancialAccount_Content_nullable(string s, out Cac_PayeeFinancialAccount_Content? value)
+        internal static unsafe bool TryParse_Cac_PayeeFinancialAccount_Claims_nullable(string s, out Cac_PayeeFinancialAccount_Claims? value)
         {
-            Cac_PayeeFinancialAccount_Content value_type_value;
+            Cac_PayeeFinancialAccount_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(Cac_PayeeFinancialAccount_Content?);
+                value = default(Cac_PayeeFinancialAccount_Claims?);
                 return true;
             }
-            else if (Cac_PayeeFinancialAccount_Content.TryParse(s, out value_type_value))
+            else if (Cac_PayeeFinancialAccount_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(Cac_PayeeFinancialAccount_Content?);
+                value = default(Cac_PayeeFinancialAccount_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_Cac_PaymentMeans_Content_nullable(string s, out Cac_PaymentMeans_Content? value)
+        internal static unsafe bool TryParse_Cac_PaymentMeans_Claims_nullable(string s, out Cac_PaymentMeans_Claims? value)
         {
-            Cac_PaymentMeans_Content value_type_value;
+            Cac_PaymentMeans_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(Cac_PaymentMeans_Content?);
+                value = default(Cac_PaymentMeans_Claims?);
                 return true;
             }
-            else if (Cac_PaymentMeans_Content.TryParse(s, out value_type_value))
+            else if (Cac_PaymentMeans_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(Cac_PaymentMeans_Content?);
+                value = default(Cac_PaymentMeans_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_Cac_Person_Content_nullable(string s, out Cac_Person_Content? value)
+        internal static unsafe bool TryParse_Cac_Person_Claims_nullable(string s, out Cac_Person_Claims? value)
         {
-            Cac_Person_Content value_type_value;
+            Cac_Person_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(Cac_Person_Content?);
+                value = default(Cac_Person_Claims?);
                 return true;
             }
-            else if (Cac_Person_Content.TryParse(s, out value_type_value))
+            else if (Cac_Person_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(Cac_Person_Content?);
+                value = default(Cac_Person_Claims?);
                 return false;
             }
             
@@ -585,24 +585,47 @@ namespace TDW.TRAServer
             
         }
         
-        internal static unsafe bool TryParse_TRACredential_Content_nullable(string s, out TRACredential_Content? value)
+        internal static unsafe bool TryParse_TRAEncryptedClaims_nullable(string s, out TRAEncryptedClaims? value)
         {
-            TRACredential_Content value_type_value;
+            TRAEncryptedClaims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TRACredential_Content?);
+                value = default(TRAEncryptedClaims?);
                 return true;
             }
-            else if (TRACredential_Content.TryParse(s, out value_type_value))
+            else if (TRAEncryptedClaims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TRACredential_Content?);
+                value = default(TRAEncryptedClaims?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_TRAGeoLocationClaims_nullable(string s, out TRAGeoLocationClaims? value)
+        {
+            TRAGeoLocationClaims value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(TRAGeoLocationClaims?);
+                return true;
+            }
+            else if (TRAGeoLocationClaims.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(TRAGeoLocationClaims?);
                 return false;
             }
             
@@ -631,6 +654,29 @@ namespace TDW.TRAServer
             
         }
         
+        internal static unsafe bool TryParse_TRAPostalAddressClaims_nullable(string s, out TRAPostalAddressClaims? value)
+        {
+            TRAPostalAddressClaims value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(TRAPostalAddressClaims?);
+                return true;
+            }
+            else if (TRAPostalAddressClaims.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(TRAPostalAddressClaims?);
+                return false;
+            }
+            
+        }
+        
         internal static unsafe bool TryParse_TRAPostalAddressContent_nullable(string s, out TRAPostalAddressContent? value)
         {
             TRAPostalAddressContent value_type_value;
@@ -654,24 +700,47 @@ namespace TDW.TRAServer
             
         }
         
-        internal static unsafe bool TryParse_TRATimestampContent_nullable(string s, out TRATimestampContent? value)
+        internal static unsafe bool TryParse_TRATimestampClaims_nullable(string s, out TRATimestampClaims? value)
         {
-            TRATimestampContent value_type_value;
+            TRATimestampClaims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TRATimestampContent?);
+                value = default(TRATimestampClaims?);
                 return true;
             }
-            else if (TRATimestampContent.TryParse(s, out value_type_value))
+            else if (TRATimestampClaims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TRATimestampContent?);
+                value = default(TRATimestampClaims?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_UBL21_Invoice2_Claims_nullable(string s, out UBL21_Invoice2_Claims? value)
+        {
+            UBL21_Invoice2_Claims value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(UBL21_Invoice2_Claims?);
+                return true;
+            }
+            else if (UBL21_Invoice2_Claims.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(UBL21_Invoice2_Claims?);
                 return false;
             }
             

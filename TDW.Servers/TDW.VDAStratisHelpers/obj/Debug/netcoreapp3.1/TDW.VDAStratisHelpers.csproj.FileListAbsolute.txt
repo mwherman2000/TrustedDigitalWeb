@@ -23,4 +23,3 @@ C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\obj\Debug\netcoreapp3
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.csproj.CoreCompileInputs.cache
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.dll
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.pdb
-C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.csproj.AssemblyReference.cache

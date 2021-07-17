@@ -37,6 +37,17 @@ namespace TDW.VDAServer
             
         };
         
+        static Dictionary<string, uint> FieldLookupTable_TRAEncryptedClaims = new Dictionary<string, uint>()
+        {
+            
+            {"ciphertext16" , 0}
+            ,
+            {"alg" , 1}
+            ,
+            {"key" , 2}
+            
+        };
+        
         static Dictionary<string, uint> FieldLookupTable_TRACredential_Content = new Dictionary<string, uint>()
         {
             
@@ -45,6 +56,8 @@ namespace TDW.VDAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -72,9 +85,7 @@ namespace TDW.VDAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -112,6 +123,8 @@ namespace TDW.VDAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -120,9 +133,7 @@ namespace TDW.VDAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -143,6 +154,8 @@ namespace TDW.VDAServer
             {"context" , 1}
             ,
             {"claims" , 2}
+            ,
+            {"encryptedclaims" , 3}
             
         };
         
@@ -151,9 +164,7 @@ namespace TDW.VDAServer
             
             {"content" , 0}
             ,
-            {"encryptedcontent" , 1}
-            ,
-            {"label" , 2}
+            {"label" , 1}
             
         };
         
@@ -626,6 +637,105 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
+        internal static void SetField<T>(TRAEncryptedClaims_Accessor accessor, string fieldName, int field_name_idx, T value)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRAEncryptedClaims.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+                return;
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRAEncryptedClaims.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                accessor.ciphertext16 = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 1:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                accessor.alg = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+                case 2:
+                    {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                accessor.key = conversion_result;
+            }
+            
+                        break;
+                    }
+                
+            }
+        }
+        internal static T GetField<T>(TRAEncryptedClaims_Accessor accessor, string fieldName, int field_name_idx)
+        {
+            uint member_id;
+            int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
+            if (-1 != field_divider_idx)
+            {
+                string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
+                if (!FieldLookupTable_TRAEncryptedClaims.TryGetValue(member_name_string, out member_id))
+                    Throw.undefined_field();
+                switch (member_id)
+                {
+                    
+                    default:
+                        Throw.member_access_on_non_struct__field(member_name_string);
+                        break;
+                }
+            }
+            fieldName = fieldName.Substring(field_name_idx);
+            if (!FieldLookupTable_TRAEncryptedClaims.TryGetValue(fieldName, out member_id))
+                Throw.undefined_field();
+            switch (member_id)
+            {
+                
+                case 0:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.ciphertext16);
+                    break;
+                
+                case 1:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.alg);
+                    break;
+                
+                case 2:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.key);
+                    break;
+                
+            }
+            /* Should not reach here */
+            throw new Exception("Internal error T5008");
+        }
+        
         internal static void SetField<T>(TRACredential_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
@@ -637,6 +747,10 @@ namespace TDW.VDAServer
                     Throw.undefined_field();
                 switch (member_id)
                 {
+                    
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
                     
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
@@ -677,7 +791,24 @@ namespace TDW.VDAServer
                         List<TRAClaim> conversion_result = TypeConverter<T>.ConvertTo_List_TRAClaim(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result != default(List<TRAClaim>))
+                    accessor.claims = conversion_result;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -696,6 +827,9 @@ namespace TDW.VDAServer
                     Throw.undefined_field();
                 switch (member_id)
                 {
+                    
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
@@ -718,6 +852,10 @@ namespace TDW.VDAServer
                 
                 case 2:
                     return TypeConverter<T>.ConvertFrom_List_TRAClaim(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -906,7 +1044,7 @@ namespace TDW.VDAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -924,33 +1062,16 @@ namespace TDW.VDAServer
                 
                 case 0:
                     {
-                        TRACredential_Content? conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Content_nullable(value);
+                        TRACredential_Content conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Content(value);
                         
             {
-                if (conversion_result.HasValue)
-                    accessor.content = conversion_result.Value;
-                else
-                    accessor.Remove_content();
+                accessor.content = conversion_result;
             }
             
                         break;
                     }
                 
                 case 1:
-                    {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
                     {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
@@ -978,7 +1099,7 @@ namespace TDW.VDAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -993,14 +1114,10 @@ namespace TDW.VDAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Content_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_Content(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -1265,6 +1382,10 @@ namespace TDW.VDAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -1301,10 +1422,27 @@ namespace TDW.VDAServer
                 
                 case 2:
                     {
-                        TDWVDAAccountEntryClaims conversion_result = TypeConverter<T>.ConvertTo_TDWVDAAccountEntryClaims(value);
+                        TDWVDAAccountEntryClaims? conversion_result = TypeConverter<T>.ConvertTo_TDWVDAAccountEntryClaims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -1327,6 +1465,9 @@ namespace TDW.VDAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -1347,7 +1488,11 @@ namespace TDW.VDAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TDWVDAAccountEntryClaims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_TDWVDAAccountEntryClaims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -1371,7 +1516,7 @@ namespace TDW.VDAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -1403,20 +1548,6 @@ namespace TDW.VDAServer
                 
                 case 1:
                     {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
-                    {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
             {
@@ -1443,7 +1574,7 @@ namespace TDW.VDAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -1462,10 +1593,6 @@ namespace TDW.VDAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 
@@ -1574,6 +1701,10 @@ namespace TDW.VDAServer
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
+                    case 3:
+                        GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
+                        break;
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -1610,10 +1741,27 @@ namespace TDW.VDAServer
                 
                 case 2:
                     {
-                        TDWVDASmartContractEntryClaims conversion_result = TypeConverter<T>.ConvertTo_TDWVDASmartContractEntryClaims(value);
+                        TDWVDASmartContractEntryClaims? conversion_result = TypeConverter<T>.ConvertTo_TDWVDASmartContractEntryClaims_nullable(value);
                         
             {
-                accessor.claims = conversion_result;
+                if (conversion_result.HasValue)
+                    accessor.claims = conversion_result.Value;
+                else
+                    accessor.Remove_claims();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
+                        
+            {
+                if (conversion_result.HasValue)
+                    accessor.encryptedclaims = conversion_result.Value;
+                else
+                    accessor.Remove_encryptedclaims();
             }
             
                         break;
@@ -1636,6 +1784,9 @@ namespace TDW.VDAServer
                     case 2:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
+                    case 3:
+                        return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
+                    
                     default:
                         Throw.member_access_on_non_struct__field(member_name_string);
                         break;
@@ -1656,7 +1807,11 @@ namespace TDW.VDAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryClaims(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_TDWVDASmartContractEntryClaims_nullable(accessor.claims);
+                    break;
+                
+                case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
             }
@@ -1680,7 +1835,7 @@ namespace TDW.VDAServer
                         GenericFieldAccessor.SetField(accessor.content, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 2:
+                    case 1:
                         GenericFieldAccessor.SetField(accessor.label, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -1712,20 +1867,6 @@ namespace TDW.VDAServer
                 
                 case 1:
                     {
-                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
-                        
-            {
-                if (conversion_result != default(string))
-                    accessor.encryptedcontent = conversion_result;
-                else
-                    accessor.Remove_encryptedcontent();
-            }
-            
-                        break;
-                    }
-                
-                case 2:
-                    {
                         TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
                         
             {
@@ -1752,7 +1893,7 @@ namespace TDW.VDAServer
                     case 0:
                         return GenericFieldAccessor.GetField<T>(accessor.content, fieldName, field_divider_idx + 1);
                     
-                    case 2:
+                    case 1:
                         return GenericFieldAccessor.GetField<T>(accessor.label, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -1771,10 +1912,6 @@ namespace TDW.VDAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.encryptedcontent);
-                    break;
-                
-                case 2:
                     return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
                     break;
                 

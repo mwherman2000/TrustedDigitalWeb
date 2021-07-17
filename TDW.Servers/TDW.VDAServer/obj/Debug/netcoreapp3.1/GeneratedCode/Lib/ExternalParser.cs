@@ -69,36 +69,6 @@ namespace TDW.VDAServer
             
         }
         
-        internal static unsafe bool TryParse_List_TRAClaim(string s, out List<TRAClaim> value)
-        {
-            List<TRAClaim> value_type_value;
-            JArray jarray;
-            
-            try
-            {
-                value = new List<TRAClaim>();
-                jarray = JArray.Parse(s);
-                foreach (var jarray_element in jarray)
-                {
-                    TRAClaim element;
-                    
-                    if (!TRAClaim.TryParse((string)jarray_element, out element))
-                    {
-                        continue;
-                    }
-                    value.Add(element);
-                    
-                }
-                return true;
-            }
-            catch
-            {
-                value = default(List<TRAClaim>);
-                return false;
-            }
-            
-        }
-        
         internal static unsafe bool TryParse_List_TRAKeyValuePair(string s, out List<TRAKeyValuePair> value)
         {
             List<TRAKeyValuePair> value_type_value;
@@ -159,6 +129,59 @@ namespace TDW.VDAServer
             
         }
         
+        internal static unsafe bool TryParse_List_TRAClaim(string s, out List<TRAClaim> value)
+        {
+            List<TRAClaim> value_type_value;
+            JArray jarray;
+            
+            try
+            {
+                value = new List<TRAClaim>();
+                jarray = JArray.Parse(s);
+                foreach (var jarray_element in jarray)
+                {
+                    TRAClaim element;
+                    
+                    if (!TRAClaim.TryParse((string)jarray_element, out element))
+                    {
+                        continue;
+                    }
+                    value.Add(element);
+                    
+                }
+                return true;
+            }
+            catch
+            {
+                value = default(List<TRAClaim>);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_TDWVDAAccountEntryClaims_nullable(string s, out TDWVDAAccountEntryClaims? value)
+        {
+            TDWVDAAccountEntryClaims value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(TDWVDAAccountEntryClaims?);
+                return true;
+            }
+            else if (TDWVDAAccountEntryClaims.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(TDWVDAAccountEntryClaims?);
+                return false;
+            }
+            
+        }
+        
         internal static unsafe bool TryParse_TDWVDAAccountEntryContent_nullable(string s, out TDWVDAAccountEntryContent? value)
         {
             TDWVDAAccountEntryContent value_type_value;
@@ -177,6 +200,29 @@ namespace TDW.VDAServer
             else
             {
                 value = default(TDWVDAAccountEntryContent?);
+                return false;
+            }
+            
+        }
+        
+        internal static unsafe bool TryParse_TDWVDASmartContractEntryClaims_nullable(string s, out TDWVDASmartContractEntryClaims? value)
+        {
+            TDWVDASmartContractEntryClaims value_type_value;
+            JArray jarray;
+            
+            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
+            {
+                value = default(TDWVDASmartContractEntryClaims?);
+                return true;
+            }
+            else if (TDWVDASmartContractEntryClaims.TryParse(s, out value_type_value))
+            {
+                value = value_type_value;
+                return true;
+            }
+            else
+            {
+                value = default(TDWVDASmartContractEntryClaims?);
                 return false;
             }
             
@@ -205,24 +251,24 @@ namespace TDW.VDAServer
             
         }
         
-        internal static unsafe bool TryParse_TRACredential_Content_nullable(string s, out TRACredential_Content? value)
+        internal static unsafe bool TryParse_TRAEncryptedClaims_nullable(string s, out TRAEncryptedClaims? value)
         {
-            TRACredential_Content value_type_value;
+            TRAEncryptedClaims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TRACredential_Content?);
+                value = default(TRAEncryptedClaims?);
                 return true;
             }
-            else if (TRACredential_Content.TryParse(s, out value_type_value))
+            else if (TRAEncryptedClaims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TRACredential_Content?);
+                value = default(TRAEncryptedClaims?);
                 return false;
             }
             

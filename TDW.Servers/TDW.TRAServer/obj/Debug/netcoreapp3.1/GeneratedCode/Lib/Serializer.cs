@@ -1084,6 +1084,19 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
+        /// Serializes a TRAEncryptedClaims object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAEncryptedClaims value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
         /// Serializes a TRAGeoLocationClaims object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
@@ -1318,11 +1331,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Address_Content? object to Json string.
+        /// Serializes a Cac_Address_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Address_Content? value)
+        public static string ToString(Cac_Address_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1344,11 +1357,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Contact_Content? object to Json string.
+        /// Serializes a Cac_Contact_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Contact_Content? value)
+        public static string ToString(Cac_Contact_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1357,11 +1370,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_ExternalReference_Content? object to Json string.
+        /// Serializes a Cac_ExternalReference_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_ExternalReference_Content? value)
+        public static string ToString(Cac_ExternalReference_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1370,11 +1383,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Item_Content? object to Json string.
+        /// Serializes a Cac_Item_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Item_Content? value)
+        public static string ToString(Cac_Item_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1383,11 +1396,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_PartyLegalEntity_Content? object to Json string.
+        /// Serializes a Cac_PartyLegalEntity_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_PartyLegalEntity_Content? value)
+        public static string ToString(Cac_PartyLegalEntity_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1396,11 +1409,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Party_Content? object to Json string.
+        /// Serializes a Cac_Party_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Party_Content? value)
+        public static string ToString(Cac_Party_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1409,11 +1422,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_PayeeFinancialAccount_Content? object to Json string.
+        /// Serializes a Cac_PayeeFinancialAccount_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_PayeeFinancialAccount_Content? value)
+        public static string ToString(Cac_PayeeFinancialAccount_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1422,11 +1435,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_PaymentMeans_Content? object to Json string.
+        /// Serializes a Cac_PaymentMeans_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_PaymentMeans_Content? value)
+        public static string ToString(Cac_PaymentMeans_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1435,11 +1448,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Person_Content? object to Json string.
+        /// Serializes a Cac_Person_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Person_Content? value)
+        public static string ToString(Cac_Person_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1461,11 +1474,24 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredential_Content? object to Json string.
+        /// Serializes a TRAEncryptedClaims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredential_Content? value)
+        public static string ToString(TRAEncryptedClaims? value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRAGeoLocationClaims? object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAGeoLocationClaims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1487,6 +1513,19 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
+        /// Serializes a TRAPostalAddressClaims? object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRAPostalAddressClaims? value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
         /// Serializes a TRAPostalAddressContent? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
@@ -1500,11 +1539,24 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRATimestampContent? object to Json string.
+        /// Serializes a TRATimestampClaims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRATimestampContent? value)
+        public static string ToString(TRATimestampClaims? value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a UBL21_Invoice2_Claims? object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(UBL21_Invoice2_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -2530,6 +2582,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -2538,6 +2594,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -2556,10 +2632,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -2568,26 +2640,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -2860,6 +2912,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -2868,6 +2924,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -2886,10 +2962,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -2898,26 +2970,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -3210,6 +3262,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -3218,6 +3274,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -3236,10 +3312,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -3248,26 +3320,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -3636,6 +3688,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -3644,6 +3700,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -3662,10 +3738,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -3674,26 +3746,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -3990,6 +4042,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -3998,6 +4054,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -4016,10 +4092,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -4028,26 +4100,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -4318,6 +4370,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -4326,6 +4382,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -4344,10 +4420,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -4356,26 +4428,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -4486,6 +4538,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -4494,6 +4550,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -4512,10 +4588,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -4524,26 +4596,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -4734,6 +4786,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -4742,6 +4798,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -4760,10 +4836,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -4772,26 +4844,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -4970,6 +5022,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -4978,6 +5034,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -4996,10 +5072,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -5008,26 +5080,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -6094,6 +6146,24 @@ namespace TDW.TRAServer
                     
                 }
                 
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
                 str_builder.Append('}');
             }
             
@@ -6110,10 +6180,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -6122,26 +6188,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -6364,6 +6410,74 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAEncryptedClaims value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.ciphertext16 != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"ciphertext16\":");
+                        
+                        ToString_impl(value.ciphertext16, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.alg != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"alg\":");
+                        
+                        ToString_impl(value.alg, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.key != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"key\":");
+                        
+                        ToString_impl(value.key, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static void ToString_impl(TRAGeoLocationClaims value, StringBuilder str_builder, bool in_json)
         {
             
@@ -6448,6 +6562,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -6456,6 +6574,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -6485,24 +6623,6 @@ namespace TDW.TRAServer
                         str_builder.Append("\"content\":");
                         
                         ToString_impl(value.content, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
                         
                     }
                     
@@ -6744,6 +6864,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -6752,6 +6876,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -6781,24 +6925,6 @@ namespace TDW.TRAServer
                         str_builder.Append("\"content\":");
                         
                         ToString_impl(value.content, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
                         
                     }
                     
@@ -6924,6 +7050,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -6932,6 +7062,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -6950,10 +7100,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -6962,26 +7108,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -7368,6 +7494,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.claims != null)
+                    
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -7376,6 +7506,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.encryptedclaims != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -7402,24 +7552,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                }
-                
-                {
-                    
-                    if (value.encryptedcontent != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedcontent\":");
-                        
-                        ToString_impl(value.encryptedcontent, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -7544,7 +7676,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Address_Content? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_Address_Claims? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -7557,7 +7689,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.udid != null)
+                    if (value.Value.cbc_ID != null)
                         
                     {
                         
@@ -7565,9 +7697,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
+                        str_builder.Append("\"cbc_ID\":");
                         
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_ID, str_builder, in_json: true);
                         
                     }
                     
@@ -7575,7 +7707,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.context != null)
+                    if (value.Value.cbc_PostBox != null)
                         
                     {
                         
@@ -7583,9 +7715,117 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"context\":");
+                        str_builder.Append("\"cbc_PostBox\":");
                         
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_PostBox, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_StreetName != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_StreetName\":");
+                        
+                        ToString_impl(value.Value.cbc_StreetName, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_AdditionalStreetName != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_AdditionalStreetName\":");
+                        
+                        ToString_impl(value.Value.cbc_AdditionalStreetName, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_BuildingNumber != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_BuildingNumber\":");
+                        
+                        ToString_impl(value.Value.cbc_BuildingNumber, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_Department != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_Department\":");
+                        
+                        ToString_impl(value.Value.cbc_Department, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_CityName != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_CityName\":");
+                        
+                        ToString_impl(value.Value.cbc_CityName, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_CountrySubentityCode != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_CountrySubentityCode\":");
+                        
+                        ToString_impl(value.Value.cbc_CountrySubentityCode, str_builder, in_json: true);
                         
                     }
                     
@@ -7597,9 +7837,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
+                        str_builder.Append("\"cbc_Country\":");
                         
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_Country, str_builder, in_json: true);
                         
                 }
                 
@@ -7644,7 +7884,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Contact_Content? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_Contact_Claims? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -7657,7 +7897,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.udid != null)
+                    if (value.Value.cbc_Telephone != null)
                         
                     {
                         
@@ -7665,9 +7905,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
+                        str_builder.Append("\"cbc_Telephone\":");
                         
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_Telephone, str_builder, in_json: true);
                         
                     }
                     
@@ -7675,7 +7915,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.context != null)
+                    if (value.Value.cbc_Telefax != null)
                         
                     {
                         
@@ -7683,9 +7923,115 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"context\":");
+                        str_builder.Append("\"cbc_Telefax\":");
                         
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_Telefax, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_ElectronicMail != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_ElectronicMail\":");
+                        
+                        ToString_impl(value.Value.cbc_ElectronicMail, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_ExternalReference_Claims? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.cbc_URI != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_URI\":");
+                        
+                        ToString_impl(value.Value.cbc_URI, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_EmbeddedDocumentBinaryObject != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_EmbeddedDocumentBinaryObject\":");
+                        
+                        ToString_impl(value.Value.cbc_EmbeddedDocumentBinaryObject, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_Item_Claims? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.cbc_Name != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_Name\":");
+                        
+                        ToString_impl(value.Value.cbc_Name, str_builder, in_json: true);
                         
                     }
                     
@@ -7697,9 +8043,51 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
+                        str_builder.Append("\"cac_SellersItemIdentification\":");
                         
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        ToString_impl(value.Value.cac_SellersItemIdentification, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_StandardItemIdentification\":");
+                        
+                        ToString_impl(value.Value.cac_StandardItemIdentification, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.Value.cac_CommodityClassification != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_CommodityClassification\":");
+                        
+                        ToString_impl(value.Value.cac_CommodityClassification, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_ClassifiedTaxCategory\":");
+                        
+                        ToString_impl(value.Value.cac_ClassifiedTaxCategory, str_builder, in_json: true);
                         
                 }
                 
@@ -7709,7 +8097,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_ExternalReference_Content? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_PartyLegalEntity_Claims? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -7722,7 +8110,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.udid != null)
+                    if (value.Value.cbc_RegistrationName != null)
                         
                     {
                         
@@ -7730,27 +8118,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
+                        str_builder.Append("\"cbc_RegistrationName\":");
                         
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.Value.context != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"context\":");
-                        
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_RegistrationName, str_builder, in_json: true);
                         
                     }
                     
@@ -7762,9 +8132,211 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
+                        str_builder.Append("\"cbc_CompanyID\":");
                         
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_CompanyID, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_RegistrationAddressUdid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_RegistrationAddressUdid\":");
+                        
+                        ToString_impl(value.Value.cbc_RegistrationAddressUdid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_Party_Claims? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_EndpointID\":");
+                        
+                        ToString_impl(value.Value.cbc_EndpointID, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_PartyIdentification\":");
+                        
+                        ToString_impl(value.Value.cbc_PartyIdentification, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_PartyName\":");
+                        
+                        ToString_impl(value.Value.cbc_PartyName, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.Value.cac_PostalAddressUdid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_PostalAddressUdid\":");
+                        
+                        ToString_impl(value.Value.cac_PostalAddressUdid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_PartyTaxScheme\":");
+                        
+                        ToString_impl(value.Value.cbc_PartyTaxScheme, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.Value.cac_PartyLegalEntityUdid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_PartyLegalEntityUdid\":");
+                        
+                        ToString_impl(value.Value.cac_PartyLegalEntityUdid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cac_ContactUdid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_ContactUdid\":");
+                        
+                        ToString_impl(value.Value.cac_ContactUdid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cac_PersonUdid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_PersonUdid\":");
+                        
+                        ToString_impl(value.Value.cac_PersonUdid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_PayeeFinancialAccount_Claims? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.cbc_ID != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_ID\":");
+                        
+                        ToString_impl(value.Value.cbc_ID, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_FinancialInstitutionBranch\":");
+                        
+                        ToString_impl(value.Value.cac_FinancialInstitutionBranch, str_builder, in_json: true);
                         
                 }
                 
@@ -7774,7 +8346,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Item_Content? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_PaymentMeans_Claims? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -7787,38 +8359,14 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.udid != null)
-                        
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
+                        str_builder.Append("\"cbc_PaymentMeansCode\":");
                         
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_PaymentMeansCode, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.Value.context != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"context\":");
-                        
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -7827,10 +8375,64 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
+                        str_builder.Append("\"cbc_PaymentDueDate\":");
                         
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_PaymentDueDate, str_builder, in_json: true);
                         
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_PaymentChannel != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_PaymentChannel\":");
+                        
+                        ToString_impl(value.Value.cbc_PaymentChannel, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_PaymentID != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_PaymentID\":");
+                        
+                        ToString_impl(value.Value.cbc_PaymentID, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cac_PayeeFinancialAccountUdid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_PayeeFinancialAccountUdid\":");
+                        
+                        ToString_impl(value.Value.cac_PayeeFinancialAccountUdid, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -7839,7 +8441,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_PartyLegalEntity_Content? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_Person_Claims? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -7852,7 +8454,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.udid != null)
+                    if (value.Value.cbc_FirstName != null)
                         
                     {
                         
@@ -7860,9 +8462,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
+                        str_builder.Append("\"cbc_FirstName\":");
                         
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_FirstName, str_builder, in_json: true);
                         
                     }
                     
@@ -7870,7 +8472,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.context != null)
+                    if (value.Value.cbc_MiddleName != null)
                         
                     {
                         
@@ -7878,9 +8480,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"context\":");
+                        str_builder.Append("\"cbc_MiddleName\":");
                         
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_MiddleName, str_builder, in_json: true);
                         
                     }
                     
@@ -7888,36 +8490,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
-                        
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
-                        
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Party_Content? value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                if (value == null)
-                    return;
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                    if (value.Value.udid != null)
+                    if (value.Value.cbc_FamilyName != null)
                         
                     {
                         
@@ -7925,9 +8498,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
+                        str_builder.Append("\"cbc_FamilyName\":");
                         
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_FamilyName, str_builder, in_json: true);
                         
                     }
                     
@@ -7935,7 +8508,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.context != null)
+                    if (value.Value.cbc_JobTitle != null)
                         
                     {
                         
@@ -7943,219 +8516,12 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"context\":");
+                        str_builder.Append("\"cbc_JobTitle\":");
                         
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
-                        
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
-                        
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_PayeeFinancialAccount_Content? value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                if (value == null)
-                    return;
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                    if (value.Value.udid != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
-                        
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_JobTitle, str_builder, in_json: true);
                         
                     }
                     
-                }
-                
-                {
-                    
-                    if (value.Value.context != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"context\":");
-                        
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
-                        
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
-                        
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_PaymentMeans_Content? value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                if (value == null)
-                    return;
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                    if (value.Value.udid != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
-                        
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.Value.context != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"context\":");
-                        
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
-                        
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
-                        
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Person_Content? value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                if (value == null)
-                    return;
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                    if (value.Value.udid != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
-                        
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.Value.context != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"context\":");
-                        
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
-                        
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -8217,7 +8583,119 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredential_Content? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRAEncryptedClaims? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.ciphertext16 != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"ciphertext16\":");
+                        
+                        ToString_impl(value.Value.ciphertext16, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.alg != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"alg\":");
+                        
+                        ToString_impl(value.Value.alg, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.key != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"key\":");
+                        
+                        ToString_impl(value.Value.key, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAGeoLocationClaims? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"latitude\":");
+                        
+                        ToString_impl(value.Value.latitude, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"longitude\":");
+                        
+                        ToString_impl(value.Value.longitude, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAGeoLocationContent? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -8282,13 +8760,31 @@ namespace TDW.TRAServer
                     
                 }
                 
+                {
+                    
+                    if (value.Value.encryptedclaims != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.Value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
                 str_builder.Append('}');
             }
             
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAGeoLocationContent? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRAPostalAddressClaims? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -8301,7 +8797,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.udid != null)
+                    if (value.Value.streetAddress != null)
                         
                     {
                         
@@ -8309,9 +8805,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
+                        str_builder.Append("\"streetAddress\":");
                         
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        ToString_impl(value.Value.streetAddress, str_builder, in_json: true);
                         
                     }
                     
@@ -8319,7 +8815,7 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.context != null)
+                    if (value.Value.postOfficeBoxNumber != null)
                         
                     {
                         
@@ -8327,9 +8823,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"context\":");
+                        str_builder.Append("\"postOfficeBoxNumber\":");
                         
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
+                        ToString_impl(value.Value.postOfficeBoxNumber, str_builder, in_json: true);
                         
                     }
                     
@@ -8337,14 +8833,74 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.Value.addressLocality != null)
+                        
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
+                        str_builder.Append("\"addressLocality\":");
                         
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        ToString_impl(value.Value.addressLocality, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.addressRegion != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"addressRegion\":");
+                        
+                        ToString_impl(value.Value.addressRegion, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.addressCountry != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"addressCountry\":");
+                        
+                        ToString_impl(value.Value.addressCountry, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.postalCode != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"postalCode\":");
+                        
+                        ToString_impl(value.Value.postalCode, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -8402,6 +8958,10 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.Value.claims != null)
+                        
+                    {
+                        
                         if(first_field)
                             first_field = false;
                         else
@@ -8410,6 +8970,26 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.Value.claims, str_builder, in_json: true);
                         
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.encryptedclaims != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"encryptedclaims\":");
+                        
+                        ToString_impl(value.Value.encryptedclaims, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');
@@ -8418,7 +8998,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRATimestampContent? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRATimestampClaims? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -8431,38 +9011,14 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.Value.udid != null)
-                        
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
+                        str_builder.Append("\"ticks\":");
                         
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
+                        ToString_impl(value.Value.ticks, str_builder, in_json: true);
                         
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.Value.context != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"context\":");
-                        
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
-                        
-                    }
-                    
                 }
                 
                 {
@@ -8471,10 +9027,351 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
+                        str_builder.Append("\"datetime\":");
                         
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
+                        ToString_impl(value.Value.datetime, str_builder, in_json: true);
                         
+                }
+                
+                {
+                    
+                    if (value.Value.timestamp != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"timestamp\":");
+                        
+                        ToString_impl(value.Value.timestamp, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(UBL21_Invoice2_Claims? value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                if (value == null)
+                    return;
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.Value.cbc_UBLVersionID != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_UBLVersionID\":");
+                        
+                        ToString_impl(value.Value.cbc_UBLVersionID, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_ID != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_ID\":");
+                        
+                        ToString_impl(value.Value.cbc_ID, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_IssueDate\":");
+                        
+                        ToString_impl(value.Value.cbc_IssueDate, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_InvoiceTypeCode\":");
+                        
+                        ToString_impl(value.Value.cbc_InvoiceTypeCode, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"Cbc_Note\":");
+                        
+                        ToString_impl(value.Value.Cbc_Note, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_TaxPointDate\":");
+                        
+                        ToString_impl(value.Value.cbc_TaxPointDate, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_DocumentCurrencyCode\":");
+                        
+                        ToString_impl(value.Value.cbc_DocumentCurrencyCode, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.Value.cbc_AccountingCost != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_AccountingCost\":");
+                        
+                        ToString_impl(value.Value.cbc_AccountingCost, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_InvoicePeriod\":");
+                        
+                        ToString_impl(value.Value.cbc_InvoicePeriod, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cbc_OrderReference\":");
+                        
+                        ToString_impl(value.Value.cbc_OrderReference, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_ContractDocumentReference\":");
+                        
+                        ToString_impl(value.Value.cac_ContractDocumentReference, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.Value.cac_AdditionalDocumentReferences != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_AdditionalDocumentReferences\":");
+                        
+                        ToString_impl(value.Value.cac_AdditionalDocumentReferences, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_AccountingSupplierParty\":");
+                        
+                        ToString_impl(value.Value.cac_AccountingSupplierParty, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_AccountingCustomerParty\":");
+                        
+                        ToString_impl(value.Value.cac_AccountingCustomerParty, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_PayeeParty\":");
+                        
+                        ToString_impl(value.Value.cac_PayeeParty, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_Delivery\":");
+                        
+                        ToString_impl(value.Value.cac_Delivery, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.Value.cac_PaymentMeansUdid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_PaymentMeansUdid\":");
+                        
+                        ToString_impl(value.Value.cac_PaymentMeansUdid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_PaymentTerms\":");
+                        
+                        ToString_impl(value.Value.cac_PaymentTerms, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.Value.cac_AllowanceCharges != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_AllowanceCharges\":");
+                        
+                        ToString_impl(value.Value.cac_AllowanceCharges, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_TaxTotal\":");
+                        
+                        ToString_impl(value.Value.cac_TaxTotal, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_LegalMonetaryTotal\":");
+                        
+                        ToString_impl(value.Value.cac_LegalMonetaryTotal, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                    if (value.Value.cac_InvoiceLine != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"cac_InvoiceLine\":");
+                        
+                        ToString_impl(value.Value.cac_InvoiceLine, str_builder, in_json: true);
+                        
+                    }
+                    
                 }
                 
                 str_builder.Append('}');

@@ -169,7 +169,19 @@ namespace TDW.VDAServer
         public byte[] ToByteArray()
         {
             byte* targetPtr = m_ptr;
-            {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}}
+            {{            byte* optheader_2 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_2 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}}
             int size = (int)(targetPtr - m_ptr);
             byte[] ret = new byte[size];
             Memory.Copy(m_ptr, 0, ret, 0, size);
@@ -183,7 +195,19 @@ namespace TDW.VDAServer
         public unsafe int GetBufferLength()
         {
             byte* targetPtr = m_ptr;
-            {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}}
+            {{            byte* optheader_2 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_2 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}}
             int size = (int)(targetPtr - m_ptr);
             return size;
         }
@@ -259,6 +283,7 @@ namespace TDW.VDAServer
             {
 
             {
+            targetPtr += 1;
 
         if(field.entry.udid!= null)
         {
@@ -290,21 +315,23 @@ namespace TDW.VDAServer
     }
 
 }
+            if( field.entry.claims!= null)
+            {
 
             {
 
-        if(field.entry.claims.smartcontractledgeraddress!= null)
+        if(field.entry.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_4 = field.entry.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_4 = field.entry.claims.Value.smartcontractledgeraddress.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
             targetPtr += sizeof(int);
         }
 
-        if(field.entry.claims.vdaserviceendpointudid!= null)
+        if(field.entry.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_4 = field.entry.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_4 = field.entry.claims.Value.vdaserviceendpointudid.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -312,6 +339,42 @@ namespace TDW.VDAServer
         }
 
             }
+            }
+            if( field.entry.encryptedclaims!= null)
+            {
+
+            {
+
+        if(field.entry.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_4 = field.entry.encryptedclaims.Value.ciphertext16.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.entry.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_4 = field.entry.encryptedclaims.Value.alg.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+        if(field.entry.encryptedclaims.Value.key!= null)
+        {
+            int strlen_4 = field.entry.encryptedclaims.Value.key.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
+            }
+
             }
             }
             byte* tmpcellptr = BufferAllocator.AllocBuffer((int)targetPtr);
@@ -321,6 +384,8 @@ namespace TDW.VDAServer
             {
 
             {
+            byte* optheader_2 = targetPtr;
+            *(optheader_2 + 0) = 0x00;            targetPtr += 1;
 
         if(field.entry.udid!= null)
         {
@@ -368,15 +433,17 @@ byte *storedPtr_3 = targetPtr;
 *(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
 
 }
+            if( field.entry.claims!= null)
+            {
 
             {
 
-        if(field.entry.claims.smartcontractledgeraddress!= null)
+        if(field.entry.claims.Value.smartcontractledgeraddress!= null)
         {
-            int strlen_4 = field.entry.claims.smartcontractledgeraddress.Length * 2;
+            int strlen_4 = field.entry.claims.Value.smartcontractledgeraddress.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.entry.claims.smartcontractledgeraddress)
+            fixed(char* pstr_4 = field.entry.claims.Value.smartcontractledgeraddress)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -387,12 +454,12 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-        if(field.entry.claims.vdaserviceendpointudid!= null)
+        if(field.entry.claims.Value.vdaserviceendpointudid!= null)
         {
-            int strlen_4 = field.entry.claims.vdaserviceendpointudid.Length * 2;
+            int strlen_4 = field.entry.claims.Value.vdaserviceendpointudid.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.entry.claims.vdaserviceendpointudid)
+            fixed(char* pstr_4 = field.entry.claims.Value.vdaserviceendpointudid)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;
@@ -403,7 +470,64 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
+            }*(optheader_2 + 0) |= 0x01;
             }
+            if( field.entry.encryptedclaims!= null)
+            {
+
+            {
+
+        if(field.entry.encryptedclaims.Value.ciphertext16!= null)
+        {
+            int strlen_4 = field.entry.encryptedclaims.Value.ciphertext16.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = field.entry.encryptedclaims.Value.ciphertext16)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.entry.encryptedclaims.Value.alg!= null)
+        {
+            int strlen_4 = field.entry.encryptedclaims.Value.alg.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = field.entry.encryptedclaims.Value.alg)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+        if(field.entry.encryptedclaims.Value.key!= null)
+        {
+            int strlen_4 = field.entry.encryptedclaims.Value.key.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = field.entry.encryptedclaims.Value.key)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+
+            }*(optheader_2 + 0) |= 0x02;
+            }
+
             }
             }TDWGetSmartContractRegistryEntryResponse_Accessor ret;
             
@@ -420,10 +544,34 @@ byte *storedPtr_3 = targetPtr;
                 return false;
             if (a.m_ptr == b.m_ptr) return true;
             byte* targetPtr = a.m_ptr;
-            {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}}
+            {{            byte* optheader_3 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_3 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}}
             int lengthA = (int)(targetPtr - a.m_ptr);
             targetPtr = b.m_ptr;
-            {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}}
+            {{            byte* optheader_3 = targetPtr;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_3 + 0) & 0x01)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+}}
             int lengthB = (int)(targetPtr - b.m_ptr);
             if(lengthA != lengthB) return false;
             return Memory.Compare(a.m_ptr,b.m_ptr,lengthA);
