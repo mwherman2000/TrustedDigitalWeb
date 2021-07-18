@@ -865,9 +865,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(envelope.content.claims.Value.Cbc_Note.note!= null)
+        if(envelope.content.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_6 = envelope.content.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_6 = envelope.content.claims.Value.cbc_Note.note.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -2036,15 +2036,15 @@ byte *storedPtr_4 = targetPtr;
 
             }
             {
-            *(ISO639_1_LanguageCodes*)targetPtr = envelope.content.claims.Value.Cbc_Note._languageID;
+            *(ISO639_1_LanguageCodes*)targetPtr = envelope.content.claims.Value.cbc_Note._languageID;
             targetPtr += 1;
 
-        if(envelope.content.claims.Value.Cbc_Note.note!= null)
+        if(envelope.content.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_6 = envelope.content.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_6 = envelope.content.claims.Value.cbc_Note.note.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = envelope.content.claims.Value.Cbc_Note.note)
+            fixed(char* pstr_6 = envelope.content.claims.Value.cbc_Note.note)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -3969,9 +3969,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.envelope.content.claims.Value.Cbc_Note.note!= null)
+        if(field.envelope.content.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_6 = field.envelope.content.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_6 = field.envelope.content.claims.Value.cbc_Note.note.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -5139,15 +5139,15 @@ byte *storedPtr_4 = targetPtr;
 
             }
             {
-            *(ISO639_1_LanguageCodes*)targetPtr = field.envelope.content.claims.Value.Cbc_Note._languageID;
+            *(ISO639_1_LanguageCodes*)targetPtr = field.envelope.content.claims.Value.cbc_Note._languageID;
             targetPtr += 1;
 
-        if(field.envelope.content.claims.Value.Cbc_Note.note!= null)
+        if(field.envelope.content.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_6 = field.envelope.content.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_6 = field.envelope.content.claims.Value.cbc_Note.note.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = field.envelope.content.claims.Value.Cbc_Note.note)
+            fixed(char* pstr_6 = field.envelope.content.claims.Value.cbc_Note.note)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -7690,9 +7690,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(envelope.content.claims.Value.Cbc_Note.note!= null)
+        if(envelope.content.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_6 = envelope.content.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_6 = envelope.content.claims.Value.cbc_Note.note.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -8861,15 +8861,15 @@ byte *storedPtr_4 = targetPtr;
 
             }
             {
-            *(ISO639_1_LanguageCodes*)targetPtr = envelope.content.claims.Value.Cbc_Note._languageID;
+            *(ISO639_1_LanguageCodes*)targetPtr = envelope.content.claims.Value.cbc_Note._languageID;
             targetPtr += 1;
 
-        if(envelope.content.claims.Value.Cbc_Note.note!= null)
+        if(envelope.content.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_6 = envelope.content.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_6 = envelope.content.claims.Value.cbc_Note.note.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = envelope.content.claims.Value.Cbc_Note.note)
+            fixed(char* pstr_6 = envelope.content.claims.Value.cbc_Note.note)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -10650,9 +10650,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(envelope.content.claims.Value.Cbc_Note.note!= null)
+        if(envelope.content.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_6 = envelope.content.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_6 = envelope.content.claims.Value.cbc_Note.note.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -11821,15 +11821,15 @@ byte *storedPtr_4 = targetPtr;
 
             }
             {
-            *(ISO639_1_LanguageCodes*)targetPtr = envelope.content.claims.Value.Cbc_Note._languageID;
+            *(ISO639_1_LanguageCodes*)targetPtr = envelope.content.claims.Value.cbc_Note._languageID;
             targetPtr += 1;
 
-        if(envelope.content.claims.Value.Cbc_Note.note!= null)
+        if(envelope.content.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_6 = envelope.content.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_6 = envelope.content.claims.Value.cbc_Note.note.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = envelope.content.claims.Value.Cbc_Note.note)
+            fixed(char* pstr_6 = envelope.content.claims.Value.cbc_Note.note)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;
@@ -13604,9 +13604,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(envelope.content.claims.Value.Cbc_Note.note!= null)
+        if(envelope.content.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_6 = envelope.content.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_6 = envelope.content.claims.Value.cbc_Note.note.Length * 2;
             targetPtr += strlen_6+sizeof(int);
         }else
         {
@@ -14775,15 +14775,15 @@ byte *storedPtr_4 = targetPtr;
 
             }
             {
-            *(ISO639_1_LanguageCodes*)targetPtr = envelope.content.claims.Value.Cbc_Note._languageID;
+            *(ISO639_1_LanguageCodes*)targetPtr = envelope.content.claims.Value.cbc_Note._languageID;
             targetPtr += 1;
 
-        if(envelope.content.claims.Value.Cbc_Note.note!= null)
+        if(envelope.content.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_6 = envelope.content.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_6 = envelope.content.claims.Value.cbc_Note.note.Length * 2;
             *(int*)targetPtr = strlen_6;
             targetPtr += sizeof(int);
-            fixed(char* pstr_6 = envelope.content.claims.Value.Cbc_Note.note)
+            fixed(char* pstr_6 = envelope.content.claims.Value.cbc_Note.note)
             {
                 Memory.Copy(pstr_6, targetPtr, strlen_6);
                 targetPtr += strlen_6;

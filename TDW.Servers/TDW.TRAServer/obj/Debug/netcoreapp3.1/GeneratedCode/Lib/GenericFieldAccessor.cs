@@ -854,7 +854,7 @@ namespace TDW.TRAServer
             ,
             {"cbc_InvoiceTypeCode" , 3}
             ,
-            {"Cbc_Note" , 4}
+            {"cbc_Note" , 4}
             ,
             {"cbc_TaxPointDate" , 5}
             ,
@@ -9256,7 +9256,7 @@ namespace TDW.TRAServer
                         break;
                     
                     case 4:
-                        GenericFieldAccessor.SetField(accessor.Cbc_Note, fieldName, field_divider_idx + 1, value);
+                        GenericFieldAccessor.SetField(accessor.cbc_Note, fieldName, field_divider_idx + 1, value);
                         break;
                     
                     case 6:
@@ -9364,7 +9364,7 @@ namespace TDW.TRAServer
                         Cbc_Note conversion_result = TypeConverter<T>.ConvertTo_Cbc_Note(value);
                         
             {
-                accessor.Cbc_Note = conversion_result;
+                accessor.cbc_Note = conversion_result;
             }
             
                         break;
@@ -9575,7 +9575,7 @@ namespace TDW.TRAServer
                         return GenericFieldAccessor.GetField<T>(accessor.cbc_InvoiceTypeCode, fieldName, field_divider_idx + 1);
                     
                     case 4:
-                        return GenericFieldAccessor.GetField<T>(accessor.Cbc_Note, fieldName, field_divider_idx + 1);
+                        return GenericFieldAccessor.GetField<T>(accessor.cbc_Note, fieldName, field_divider_idx + 1);
                     
                     case 6:
                         return GenericFieldAccessor.GetField<T>(accessor.cbc_DocumentCurrencyCode, fieldName, field_divider_idx + 1);
@@ -9638,7 +9638,7 @@ namespace TDW.TRAServer
                     break;
                 
                 case 4:
-                    return TypeConverter<T>.ConvertFrom_Cbc_Note(accessor.Cbc_Note);
+                    return TypeConverter<T>.ConvertFrom_Cbc_Note(accessor.cbc_Note);
                     break;
                 
                 case 5:

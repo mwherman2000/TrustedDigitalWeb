@@ -34,7 +34,7 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of UBL21_Invoice2_Claims with the specified parameters.
         ///</summary>
-        public UBL21_Invoice2_Claims(string cbc_UBLVersionID = default(string),string cbc_ID = default(string),DateTime cbc_IssueDate = default(DateTime),Cbc_ListCode cbc_InvoiceTypeCode = default(Cbc_ListCode),Cbc_Note Cbc_Note = default(Cbc_Note),DateTime cbc_TaxPointDate = default(DateTime),Cbc_ListCode cbc_DocumentCurrencyCode = default(Cbc_ListCode),string cbc_AccountingCost = default(string),Cbc_TimePeriod cbc_InvoicePeriod = default(Cbc_TimePeriod),Cbc_OrderReference cbc_OrderReference = default(Cbc_OrderReference),Cac_DocumentReference cac_ContractDocumentReference = default(Cac_DocumentReference),List<Cac_DocumentReference> cac_AdditionalDocumentReferences = default(List<Cac_DocumentReference>),Cac_AccountingSupplierParty cac_AccountingSupplierParty = default(Cac_AccountingSupplierParty),Cac_AccountingCustomerParty cac_AccountingCustomerParty = default(Cac_AccountingCustomerParty),Cac_PayeeParty cac_PayeeParty = default(Cac_PayeeParty),Cac_Delivery cac_Delivery = default(Cac_Delivery),string cac_PaymentMeansUdid = default(string),Cac_PaymentTerms cac_PaymentTerms = default(Cac_PaymentTerms),List<Cac_AllowanceCharge> cac_AllowanceCharges = default(List<Cac_AllowanceCharge>),Cac_TaxTotal cac_TaxTotal = default(Cac_TaxTotal),Cac_LegalMonetaryTotal cac_LegalMonetaryTotal = default(Cac_LegalMonetaryTotal),List<Cac_InvoiceLine> cac_InvoiceLine = default(List<Cac_InvoiceLine>))
+        public UBL21_Invoice2_Claims(string cbc_UBLVersionID = default(string),string cbc_ID = default(string),DateTime cbc_IssueDate = default(DateTime),Cbc_ListCode cbc_InvoiceTypeCode = default(Cbc_ListCode),Cbc_Note cbc_Note = default(Cbc_Note),DateTime cbc_TaxPointDate = default(DateTime),Cbc_ListCode cbc_DocumentCurrencyCode = default(Cbc_ListCode),string cbc_AccountingCost = default(string),Cbc_TimePeriod cbc_InvoicePeriod = default(Cbc_TimePeriod),Cbc_OrderReference cbc_OrderReference = default(Cbc_OrderReference),Cac_DocumentReference cac_ContractDocumentReference = default(Cac_DocumentReference),List<Cac_DocumentReference> cac_AdditionalDocumentReferences = default(List<Cac_DocumentReference>),Cac_AccountingSupplierParty cac_AccountingSupplierParty = default(Cac_AccountingSupplierParty),Cac_AccountingCustomerParty cac_AccountingCustomerParty = default(Cac_AccountingCustomerParty),Cac_PayeeParty cac_PayeeParty = default(Cac_PayeeParty),Cac_Delivery cac_Delivery = default(Cac_Delivery),string cac_PaymentMeansUdid = default(string),Cac_PaymentTerms cac_PaymentTerms = default(Cac_PaymentTerms),List<Cac_AllowanceCharge> cac_AllowanceCharges = default(List<Cac_AllowanceCharge>),Cac_TaxTotal cac_TaxTotal = default(Cac_TaxTotal),Cac_LegalMonetaryTotal cac_LegalMonetaryTotal = default(Cac_LegalMonetaryTotal),List<Cac_InvoiceLine> cac_InvoiceLine = default(List<Cac_InvoiceLine>))
         {
             
             this.cbc_UBLVersionID = cbc_UBLVersionID;
@@ -45,7 +45,7 @@ namespace TDW.TRAServer
             
             this.cbc_InvoiceTypeCode = cbc_InvoiceTypeCode;
             
-            this.Cbc_Note = Cbc_Note;
+            this.cbc_Note = cbc_Note;
             
             this.cbc_TaxPointDate = cbc_TaxPointDate;
             
@@ -104,7 +104,7 @@ namespace TDW.TRAServer
                 &&
                 (a.cbc_InvoiceTypeCode == b.cbc_InvoiceTypeCode)
                 &&
-                (a.Cbc_Note == b.Cbc_Note)
+                (a.cbc_Note == b.cbc_Note)
                 &&
                 (a.cbc_TaxPointDate == b.cbc_TaxPointDate)
                 &&
@@ -156,7 +156,7 @@ namespace TDW.TRAServer
         
         public Cbc_ListCode cbc_InvoiceTypeCode;
         
-        public Cbc_Note Cbc_Note;
+        public Cbc_Note cbc_Note;
         
         public DateTime cbc_TaxPointDate;
         
@@ -263,7 +263,7 @@ namespace TDW.TRAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        Cbc_Note_Accessor_Field = new Cbc_Note_Accessor(null,
+                });        cbc_Note_Accessor_Field = new Cbc_Note_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -652,28 +652,28 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
                 }
             }
         }
-        Cbc_Note_Accessor Cbc_Note_Accessor_Field;
+        Cbc_Note_Accessor cbc_Note_Accessor_Field;
         
         ///<summary>
-        ///Provides in-place access to the object field Cbc_Note.
+        ///Provides in-place access to the object field cbc_Note.
         ///</summary>
-        public unsafe Cbc_Note_Accessor Cbc_Note
+        public unsafe Cbc_Note_Accessor cbc_Note
         {
             get
             {
                 
                 byte* targetPtr = m_ptr;
                 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}Cbc_Note_Accessor_Field.m_ptr = targetPtr;
-                Cbc_Note_Accessor_Field.m_cellId = this.m_cellId;
-                return Cbc_Note_Accessor_Field;
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}}cbc_Note_Accessor_Field.m_ptr = targetPtr;
+                cbc_Note_Accessor_Field.m_cellId = this.m_cellId;
+                return cbc_Note_Accessor_Field;
                 
             }
             set
             {
                 
                 if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
-                Cbc_Note_Accessor_Field.m_cellId = this.m_cellId;
+                cbc_Note_Accessor_Field.m_cellId = this.m_cellId;
                 
                 byte* targetPtr = m_ptr;
                 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
@@ -1928,7 +1928,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
                         accessor.cbc_ID,
                         accessor.cbc_IssueDate,
                         accessor.cbc_InvoiceTypeCode,
-                        accessor.Cbc_Note,
+                        accessor.cbc_Note,
                         accessor.cbc_TaxPointDate,
                         accessor.cbc_DocumentCurrencyCode,
                         accessor.cbc_AccountingCost,
@@ -2006,9 +2006,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.Cbc_Note.note!= null)
+        if(field.cbc_Note.note!= null)
         {
-            int strlen_3 = field.Cbc_Note.note.Length * 2;
+            int strlen_3 = field.cbc_Note.note.Length * 2;
             targetPtr += strlen_3+sizeof(int);
         }else
         {
@@ -2968,15 +2968,15 @@ targetPtr += 8;
 
             }
             {
-            *(ISO639_1_LanguageCodes*)targetPtr = field.Cbc_Note._languageID;
+            *(ISO639_1_LanguageCodes*)targetPtr = field.cbc_Note._languageID;
             targetPtr += 1;
 
-        if(field.Cbc_Note.note!= null)
+        if(field.cbc_Note.note!= null)
         {
-            int strlen_3 = field.Cbc_Note.note.Length * 2;
+            int strlen_3 = field.cbc_Note.note.Length * 2;
             *(int*)targetPtr = strlen_3;
             targetPtr += sizeof(int);
-            fixed(char* pstr_3 = field.Cbc_Note.note)
+            fixed(char* pstr_3 = field.cbc_Note.note)
             {
                 Memory.Copy(pstr_3, targetPtr, strlen_3);
                 targetPtr += strlen_3;

@@ -13,7 +13,7 @@ enum TRATrustLevel
 	Unsigned,
 	HashedThumbprint,
 	SignedHashSignature,
-	Verifiable,
+	Notarized,
 	CorruptSignatures
 }
 
@@ -28,6 +28,7 @@ enum TRACredentialType
 	GenericCredential,
 	UDIDDocument,
 	VerifiableCredential,
+	NotarizedCredential,	
 	VerifiableCapabilityAuthorization,
 	MasterVerifiableCapabilityAuthorization,
 	ServerCertificate,

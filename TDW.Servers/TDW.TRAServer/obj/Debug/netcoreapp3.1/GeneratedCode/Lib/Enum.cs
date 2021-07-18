@@ -14,7 +14,7 @@ namespace TDW.TRAServer
     /// </summary>
     public enum TRATrustLevel : byte
     {
-        Undefined = 0,UnResolvable = 1,Unsigned = 2,HashedThumbprint = 3,SignedHashSignature = 4,Verifiable = 5,CorruptSignatures = 6
+        Undefined = 0,UnResolvable = 1,Unsigned = 2,HashedThumbprint = 3,SignedHashSignature = 4,Notarized = 5,CorruptSignatures = 6
     }
     
     /// <summary>
@@ -30,7 +30,7 @@ namespace TDW.TRAServer
     /// </summary>
     public enum TRACredentialType : byte
     {
-        GenericCredential = 0,UDIDDocument = 1,VerifiableCredential = 2,VerifiableCapabilityAuthorization = 3,MasterVerifiableCapabilityAuthorization = 4,ServerCertificate = 5,RevocationCertificate = 6
+        GenericCredential = 0,UDIDDocument = 1,VerifiableCredential = 2,NotarizedCredential = 3,VerifiableCapabilityAuthorization = 4,MasterVerifiableCapabilityAuthorization = 5,ServerCertificate = 6,RevocationCertificate = 7
     }
     
     /// <summary>

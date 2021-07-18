@@ -954,9 +954,9 @@ targetPtr += 8;
             {
             targetPtr += 1;
 
-        if(field.claims.Value.Cbc_Note.note!= null)
+        if(field.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_4 = field.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_Note.note.Length * 2;
             targetPtr += strlen_4+sizeof(int);
         }else
         {
@@ -2006,15 +2006,15 @@ byte *storedPtr_2 = targetPtr;
 
             }
             {
-            *(ISO639_1_LanguageCodes*)targetPtr = field.claims.Value.Cbc_Note._languageID;
+            *(ISO639_1_LanguageCodes*)targetPtr = field.claims.Value.cbc_Note._languageID;
             targetPtr += 1;
 
-        if(field.claims.Value.Cbc_Note.note!= null)
+        if(field.claims.Value.cbc_Note.note!= null)
         {
-            int strlen_4 = field.claims.Value.Cbc_Note.note.Length * 2;
+            int strlen_4 = field.claims.Value.cbc_Note.note.Length * 2;
             *(int*)targetPtr = strlen_4;
             targetPtr += sizeof(int);
-            fixed(char* pstr_4 = field.claims.Value.Cbc_Note.note)
+            fixed(char* pstr_4 = field.claims.Value.cbc_Note.note)
             {
                 Memory.Copy(pstr_4, targetPtr, strlen_4);
                 targetPtr += strlen_4;

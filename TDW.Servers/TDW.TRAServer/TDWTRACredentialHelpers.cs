@@ -49,7 +49,7 @@ namespace TDW.TRAServer
 
                 if (trustLevel == TRATrustLevel.HashedThumbprint ||
                     trustLevel == TRATrustLevel.SignedHashSignature ||
-                    trustLevel == TRATrustLevel.Verifiable)
+                    trustLevel == TRATrustLevel.Notarized)
                 {
                     Console.WriteLine(">>> http://localhost:8081/ComputePayloadHash/");
                     using (var requestMessage = new HttpRequestMessage(new HttpMethod("POST"), "http://localhost:8081/ComputePayloadHash/"))
@@ -74,7 +74,7 @@ namespace TDW.TRAServer
                 }
 
                 if (trustLevel == TRATrustLevel.SignedHashSignature ||
-                    trustLevel == TRATrustLevel.Verifiable)
+                    trustLevel == TRATrustLevel.Notarized)
                 {
                     Console.WriteLine(">>> http://localhost:8081/ComputeHashKeyPairSignature/");
                     using (var requestMessage = new HttpRequestMessage(new HttpMethod("POST"), "http://localhost:8081/ComputeHashKeyPairSignature/"))
@@ -98,7 +98,7 @@ namespace TDW.TRAServer
                 }
 
                 if (trustLevel == TRATrustLevel.SignedHashSignature ||
-                    trustLevel == TRATrustLevel.Verifiable)
+                    trustLevel == TRATrustLevel.Notarized)
                 {
                     // TODO
                 }

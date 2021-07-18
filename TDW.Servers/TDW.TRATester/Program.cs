@@ -33,7 +33,7 @@ namespace TDW.TRATester
                 TRATimestampCell tsCell = new TRATimestampCell(id, new TRATimestampEnvelope(), new TRACredential_EnvelopeSeal());
                 TRATimestampClaims tsclaims = new TRATimestampClaims(now.Ticks, now, now.ToString("u"));
                 tsCell.envelope.content = new TRATimestampContent(udid, TRAContexts.DefaultContext, tsclaims);
-                tsCell.envelope.label = new TRACredential_Label(TRACredentialType.VerifiableCredential, 1, TRATrustLevel.SignedHashSignature,
+                tsCell.envelope.label = new TRACredential_Label(TRACredentialType.NotarizedCredential, 1, TRATrustLevel.SignedHashSignature,
                                                                      TRAEncryptionFlag.NotEncrypted, notaryudid, "Timestamp1", "My timestamp");
                 Global.LocalStorage.SaveTRATimestampCell(tsCell);
                 // TODO Process Trust Level
@@ -203,7 +203,7 @@ namespace TDW.TRATester
                 UBL21_Invoice2_Cell invoiceCell = new UBL21_Invoice2_Cell(invoiceId, new UBL21_Invoice2_Envelope(), new TRACredential_EnvelopeSeal());
                 invoiceCell.envelope.content = new UBL21_Invoice2_Content(invoiceUdid, UBL21Helpers.UBLDefaultContext, invoiceClaims);
                 invoiceCell.envelope.label = new TRACredential_Label(
-                        TRACredentialType.VerifiableCredential, 1, 
+                        TRACredentialType.NotarizedCredential, 1, 
                         TRATrustLevel.SignedHashSignature,
                         TRAEncryptionFlag.NotEncrypted, notaryudid, "Timestamp1", "My timestamp");
                 invoiceCell.envelopeseal = new TRACredential_EnvelopeSeal("<hash64>", "<signature>", "<notarystamp>");

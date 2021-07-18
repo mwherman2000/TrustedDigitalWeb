@@ -7202,9 +7202,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"Cbc_Note\":");
+                        str_builder.Append("\"cbc_Note\":");
                         
-                        ToString_impl(value.Cbc_Note, str_builder, in_json: true);
+                        ToString_impl(value.cbc_Note, str_builder, in_json: true);
                         
                 }
                 
@@ -9134,9 +9134,9 @@ namespace TDW.TRAServer
                             first_field = false;
                         else
                             str_builder.Append(',');
-                        str_builder.Append("\"Cbc_Note\":");
+                        str_builder.Append("\"cbc_Note\":");
                         
-                        ToString_impl(value.Value.Cbc_Note, str_builder, in_json: true);
+                        ToString_impl(value.Value.cbc_Note, str_builder, in_json: true);
                         
                 }
                 
