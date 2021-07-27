@@ -295,7 +295,7 @@ namespace TDW.VDAServer
                 
                 break;
                 
-                case 19:
+                case 18:
                 
                 if (StorageSchema.TRACredential_Cell_descriptor.check_attribute(StorageSchema.TRACredential_Cell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
@@ -391,7 +391,7 @@ namespace TDW.VDAServer
                     }
                     break;
                 
-                case 19:
+                case 18:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
@@ -3123,7 +3123,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 break;
                 
-                case 19:
+                case 18:
                 
                 if (StorageSchema.TRACredential_Cell_descriptor.check_attribute(StorageSchema.TRACredential_Cell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
@@ -3219,7 +3219,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 19:
+                case 18:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);

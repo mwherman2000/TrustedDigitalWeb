@@ -63,7 +63,7 @@ namespace TDW.VDAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRACredential_EnvelopeLabel = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRACredential_PackingLabel = new Dictionary<string, uint>()
         {
             
             {"credtype" , 0}
@@ -887,14 +887,14 @@ namespace TDW.VDAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRACredential_EnvelopeLabel_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRACredential_PackingLabel_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredential_EnvelopeLabel.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_PackingLabel.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -906,7 +906,7 @@ namespace TDW.VDAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredential_EnvelopeLabel.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_PackingLabel.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -996,14 +996,14 @@ namespace TDW.VDAServer
                 
             }
         }
-        internal static T GetField<T>(TRACredential_EnvelopeLabel_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRACredential_PackingLabel_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredential_EnvelopeLabel.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_PackingLabel.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1014,7 +1014,7 @@ namespace TDW.VDAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredential_EnvelopeLabel.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_PackingLabel.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1097,7 +1097,7 @@ namespace TDW.VDAServer
                 
                 case 1:
                     {
-                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
+                        TRACredential_PackingLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_PackingLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -1142,7 +1142,7 @@ namespace TDW.VDAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_PackingLabel(accessor.label);
                     break;
                 
             }
@@ -1590,7 +1590,7 @@ namespace TDW.VDAServer
                 
                 case 1:
                     {
-                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
+                        TRACredential_PackingLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_PackingLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -1635,7 +1635,7 @@ namespace TDW.VDAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_PackingLabel(accessor.label);
                     break;
                 
             }
@@ -1927,7 +1927,7 @@ namespace TDW.VDAServer
                 
                 case 1:
                     {
-                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
+                        TRACredential_PackingLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_PackingLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -1972,7 +1972,7 @@ namespace TDW.VDAServer
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_PackingLabel(accessor.label);
                     break;
                 
             }

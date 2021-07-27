@@ -577,11 +577,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredential_EnvelopeLabel object to Json string.
+        /// Serializes a TRACredential_EnvelopeSeal object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredential_EnvelopeLabel value)
+        public static string ToString(TRACredential_EnvelopeSeal value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -590,11 +590,11 @@ namespace TDW.VDAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredential_EnvelopeSeal object to Json string.
+        /// Serializes a TRACredential_PackingLabel object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredential_EnvelopeSeal value)
+        public static string ToString(TRACredential_PackingLabel value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -2919,7 +2919,93 @@ namespace TDW.VDAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredential_EnvelopeLabel value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredential_EnvelopeSeal value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.hashedThumbprint64 != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"hashedThumbprint64\":");
+                        
+                        ToString_impl(value.hashedThumbprint64, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.signedHashSignature64 != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"signedHashSignature64\":");
+                        
+                        ToString_impl(value.signedHashSignature64, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.notaryStamp != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"notaryStamp\":");
+                        
+                        ToString_impl(value.notaryStamp, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.comments != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"comments\":");
+                        
+                        ToString_impl(value.comments, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRACredential_PackingLabel value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -3024,92 +3110,6 @@ namespace TDW.VDAServer
                         str_builder.Append("\"comment\":");
                         
                         ToString_impl(value.comment, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredential_EnvelopeSeal value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                    if (value.hashedThumbprint64 != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"hashedThumbprint64\":");
-                        
-                        ToString_impl(value.hashedThumbprint64, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.signedHashSignature64 != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"signedHashSignature64\":");
-                        
-                        ToString_impl(value.signedHashSignature64, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.notaryStamp != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"notaryStamp\":");
-                        
-                        ToString_impl(value.notaryStamp, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.comments != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"comments\":");
-                        
-                        ToString_impl(value.comments, str_builder, in_json: true);
                         
                     }
                     

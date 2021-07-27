@@ -66,7 +66,7 @@ namespace TDW.TRAServer
                 TRACredential_Cell Alice = new TRACredential_Cell(id, default, default);
 
                 Alice.envelope.content = new TRACredential_EnvelopeContent(udid, context, claims: claims);
-                Alice.envelope.label = new TRACredential_EnvelopeLabel(TRACredentialType.UDIDDocument, 1, TRATrustLevel.SignedHashSignature, TRAEncryptionFlag.Encrypted, default);
+                Alice.envelope.label = new TRACredential_PackingLabel(TRACredentialType.UDIDDocument, 1, TRATrustLevel.SignedHashSignature, TRAEncryptionFlag.Encrypted, default);
                 Alice.envelopeseal = new TRACredential_EnvelopeSeal( "<hash64>", "<signature>", "<notarystamp>" );
                 Alice.envelopeseal.comments = new List<string> { "Alice's UDID Document", 
                     "It works!", 

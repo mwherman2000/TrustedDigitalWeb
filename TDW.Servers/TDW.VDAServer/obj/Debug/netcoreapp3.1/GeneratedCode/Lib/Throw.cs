@@ -177,15 +177,6 @@ namespace TDW.VDAServer
             throw new DataTypeIncompatibleException("Data type 'TRACredential_EnvelopeContent' not compatible with the target field.");
         }
         
-        internal static void parse_TRACredential_EnvelopeLabel(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredential_EnvelopeLabel.");
-        }
-        internal static void incompatible_with_TRACredential_EnvelopeLabel()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRACredential_EnvelopeLabel' not compatible with the target field.");
-        }
-        
         internal static void parse_TRACredential_EnvelopeSeal(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into TRACredential_EnvelopeSeal.");
@@ -193,6 +184,15 @@ namespace TDW.VDAServer
         internal static void incompatible_with_TRACredential_EnvelopeSeal()
         {
             throw new DataTypeIncompatibleException("Data type 'TRACredential_EnvelopeSeal' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredential_PackingLabel(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredential_PackingLabel.");
+        }
+        internal static void incompatible_with_TRACredential_PackingLabel()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredential_PackingLabel' not compatible with the target field.");
         }
         
         internal static void parse_TRAEncryptedClaims(string value)

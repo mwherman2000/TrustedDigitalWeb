@@ -33,7 +33,7 @@ namespace TDW.TRATester
                 TRATimestamp_Cell tsCell = new TRATimestamp_Cell(id, new TRATimestamp_Envelope(), new TRACredential_EnvelopeSeal());
                 TRATimestamp_Claims tsclaims = new TRATimestamp_Claims(now.Ticks, now, now.ToString("u"));
                 tsCell.envelope.content = new TRATimestamp_EnvelopeContent(udid, TRAContexts.DefaultContext, claims: tsclaims);
-                tsCell.envelope.label = new TRACredential_EnvelopeLabel(TRACredentialType.NotarizedCredential, 1, TRATrustLevel.SignedHashSignature,
+                tsCell.envelope.label = new TRACredential_PackingLabel(TRACredentialType.NotarizedCredential, 1, TRATrustLevel.SignedHashSignature,
                                                                      TRAEncryptionFlag.NotEncrypted, notaryudid, "Timestamp1", "My timestamp");
                 Global.LocalStorage.SaveTRATimestamp_Cell(tsCell);
 
@@ -203,7 +203,7 @@ namespace TDW.TRATester
                 string invoiceUdid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, invoiceId);
                 UBL21_Invoice2_Cell invoiceCell = new UBL21_Invoice2_Cell(invoiceId, new UBL21_Invoice2_Envelope(), new TRACredential_EnvelopeSeal());
                 invoiceCell.envelope.content = new UBL21_Invoice2_EnvelopeContent(invoiceUdid, UBL21Helpers.UBLDefaultContext, claims: invoiceClaims);
-                invoiceCell.envelope.label = new TRACredential_EnvelopeLabel(
+                invoiceCell.envelope.label = new TRACredential_PackingLabel(
                         TRACredentialType.NotarizedCredential, 1, 
                         TRATrustLevel.SignedHashSignature,
                         TRAEncryptionFlag.NotEncrypted, notaryudid, "Timestamp1", "My timestamp");

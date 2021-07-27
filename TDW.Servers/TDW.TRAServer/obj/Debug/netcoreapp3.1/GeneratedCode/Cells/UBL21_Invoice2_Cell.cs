@@ -287,7 +287,7 @@ namespace TDW.TRAServer
                 
                 break;
                 
-                case 77:
+                case 76:
                 
                 if (StorageSchema.UBL21_Invoice2_Cell_descriptor.check_attribute(StorageSchema.UBL21_Invoice2_Cell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
@@ -391,7 +391,7 @@ namespace TDW.TRAServer
                     }
                     break;
                 
-                case 77:
+                case 76:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
@@ -7443,7 +7443,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 break;
                 
-                case 77:
+                case 76:
                 
                 if (StorageSchema.UBL21_Invoice2_Cell_descriptor.check_attribute(StorageSchema.UBL21_Invoice2_Cell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
@@ -7547,7 +7547,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 77:
+                case 76:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);

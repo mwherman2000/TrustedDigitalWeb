@@ -364,7 +364,6 @@ C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\Gener
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TRACredential_Envelope.cs
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TRACredential_EnvelopeSeal.cs
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TRAEncryptedClaims.cs
-C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TRACredential_EnvelopeLabel.cs
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TRACredential_EnvelopeContent.cs
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Cells\TDWVDAAccountEntry_Cell.cs
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Cells\TDWVDASmartContractEntry_Cell.cs
@@ -374,3 +373,4 @@ C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\Gener
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TDWVDASmartContractEntry_Claims.cs
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TDWVDASmartContractEntry_Envelope.cs
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TDWVDASmartContractEntry_EnvelopeContent.cs
+C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAServer\obj\Debug\netcoreapp3.1\GeneratedCode\Structs\TRACredential_PackingLabel.cs

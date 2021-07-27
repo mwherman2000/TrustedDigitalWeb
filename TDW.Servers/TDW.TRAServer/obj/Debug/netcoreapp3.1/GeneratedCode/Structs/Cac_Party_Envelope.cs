@@ -34,7 +34,7 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of Cac_Party_Envelope with the specified parameters.
         ///</summary>
-        public Cac_Party_Envelope(Cac_Party_EnvelopeContent content = default(Cac_Party_EnvelopeContent),TRACredential_EnvelopeLabel label = default(TRACredential_EnvelopeLabel))
+        public Cac_Party_Envelope(Cac_Party_EnvelopeContent content = default(Cac_Party_EnvelopeContent),TRACredential_PackingLabel label = default(TRACredential_PackingLabel))
         {
             
             this.content = content;
@@ -70,7 +70,7 @@ namespace TDW.TRAServer
         
         public Cac_Party_EnvelopeContent content;
         
-        public TRACredential_EnvelopeLabel label;
+        public TRACredential_PackingLabel label;
         
         /// <summary>
         /// Converts the string representation of a Cac_Party_Envelope to its
@@ -131,7 +131,7 @@ namespace TDW.TRAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        label_Accessor_Field = new TRACredential_EnvelopeLabel_Accessor(null,
+                });        label_Accessor_Field = new TRACredential_PackingLabel_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -370,12 +370,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 }
             }
         }
-        TRACredential_EnvelopeLabel_Accessor label_Accessor_Field;
+        TRACredential_PackingLabel_Accessor label_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field label.
         ///</summary>
-        public unsafe TRACredential_EnvelopeLabel_Accessor label
+        public unsafe TRACredential_PackingLabel_Accessor label
         {
             get
             {

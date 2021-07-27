@@ -78,7 +78,7 @@ struct TRACredential_EnvelopeContent
 	optional TRAEncryptedClaims encryptedclaims;
 }
 
-struct TRACredential_EnvelopeLabel
+struct TRACredential_PackingLabel
 {
 	TRACredentialType credtype;	
 	long version;
@@ -92,7 +92,7 @@ struct TRACredential_EnvelopeLabel
 struct TRACredential_Envelope
 {
 	TRACredential_EnvelopeContent content;
-	TRACredential_EnvelopeLabel label;
+	TRACredential_PackingLabel label;
 }
 
 struct TRACredential_EnvelopeSeal 

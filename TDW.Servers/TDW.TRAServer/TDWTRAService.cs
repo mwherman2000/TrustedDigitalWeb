@@ -77,7 +77,7 @@ namespace TDW.TRAServer
 
             var credential = new TRACredential_Cell(id, default, default);
             credential.envelope.content = content;
-            credential.envelope.label = new TRACredential_EnvelopeLabel(default, 1, default, default, default);
+            credential.envelope.label = new TRACredential_PackingLabel(default, 1, default, default, default);
             credential.envelopeseal = new TRACredential_EnvelopeSeal(null, null, null, comments);
 
             Console.WriteLine(JsonConvert.SerializeObject(credential));
