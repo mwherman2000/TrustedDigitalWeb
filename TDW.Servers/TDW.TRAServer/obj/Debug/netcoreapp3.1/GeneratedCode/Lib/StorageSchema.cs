@@ -19,11 +19,11 @@ namespace TDW.TRAServer
             
             {"TRACredential_Cell", global::TDW.TRAServer.CellType.TRACredential_Cell}
             ,
-            {"TRATimestampCell", global::TDW.TRAServer.CellType.TRATimestampCell}
+            {"TRATimestamp_Cell", global::TDW.TRAServer.CellType.TRATimestamp_Cell}
             ,
-            {"TDWGeoLocationCell", global::TDW.TRAServer.CellType.TDWGeoLocationCell}
+            {"TDWGeoLocation_Cell", global::TDW.TRAServer.CellType.TDWGeoLocation_Cell}
             ,
-            {"TRAPostalAddressCell", global::TDW.TRAServer.CellType.TRAPostalAddressCell}
+            {"TRAPostalAddress_Cell", global::TDW.TRAServer.CellType.TRAPostalAddress_Cell}
             ,
             {"Cac_Item_Cell", global::TDW.TRAServer.CellType.Cac_Item_Cell}
             ,
@@ -249,9 +249,9 @@ namespace TDW.TRAServer
         /// </summary>
         public static ICellDescriptor TRACredential_Cell { get { return s_cellDescriptor_TRACredential_Cell; } }
         
-        internal static readonly Type   s_cellType_TRATimestampCell       = typeof(global::TDW.TRAServer.TRATimestampCell);
-        internal static readonly string s_cellTypeName_TRATimestampCell   = "TRATimestampCell";
-        internal class TRATimestampCell_descriptor : ICellDescriptor
+        internal static readonly Type   s_cellType_TRATimestamp_Cell       = typeof(global::TDW.TRAServer.TRATimestamp_Cell);
+        internal static readonly string s_cellTypeName_TRATimestamp_Cell   = "TRATimestamp_Cell";
+        internal class TRATimestamp_Cell_descriptor : ICellDescriptor
         {
             private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
             {
@@ -273,8 +273,8 @@ namespace TDW.TRAServer
                 {
                     
                 };
-                private static string s_typename = "TRATimestampEnvelope";
-                private static Type   s_type     = typeof(TRATimestampEnvelope);
+                private static string s_typename = "TRATimestamp_Envelope";
+                private static Type   s_type     = typeof(TRATimestamp_Envelope);
                 public string Name
                 {
                     get { return "envelope"; }
@@ -382,7 +382,7 @@ namespace TDW.TRAServer
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
             {
-                int field_id = global::TDW.TRAServer.TRATimestampCell.FieldLookupTable.Lookup(fieldName);
+                int field_id = global::TDW.TRAServer.TRATimestamp_Cell.FieldLookupTable.Lookup(fieldName);
                 if (field_id == -1)
                     Throw.undefined_field();
                 switch (field_id)
@@ -408,21 +408,21 @@ namespace TDW.TRAServer
             }
             ushort ICellDescriptor.CellType
             {
-                get { return (ushort)CellType.TRATimestampCell; }
+                get { return (ushort)CellType.TRATimestamp_Cell; }
             }
             #endregion
             #region ITypeDescriptor
             public string TypeName
             {
-                get { return s_cellTypeName_TRATimestampCell; }
+                get { return s_cellTypeName_TRATimestamp_Cell; }
             }
             public Type Type
             {
-                get { return s_cellType_TRATimestampCell; }
+                get { return s_cellType_TRATimestamp_Cell; }
             }
             public bool IsOfType<T>()
             {
-                return typeof(T) == s_cellType_TRATimestampCell;
+                return typeof(T) == s_cellType_TRATimestamp_Cell;
             }
             public bool IsList()
             {
@@ -442,15 +442,15 @@ namespace TDW.TRAServer
             }
             #endregion
         }
-        internal static readonly TRATimestampCell_descriptor s_cellDescriptor_TRATimestampCell = new TRATimestampCell_descriptor();
+        internal static readonly TRATimestamp_Cell_descriptor s_cellDescriptor_TRATimestamp_Cell = new TRATimestamp_Cell_descriptor();
         /// <summary>
-        /// Get the cell descriptor for TRATimestampCell.
+        /// Get the cell descriptor for TRATimestamp_Cell.
         /// </summary>
-        public static ICellDescriptor TRATimestampCell { get { return s_cellDescriptor_TRATimestampCell; } }
+        public static ICellDescriptor TRATimestamp_Cell { get { return s_cellDescriptor_TRATimestamp_Cell; } }
         
-        internal static readonly Type   s_cellType_TDWGeoLocationCell       = typeof(global::TDW.TRAServer.TDWGeoLocationCell);
-        internal static readonly string s_cellTypeName_TDWGeoLocationCell   = "TDWGeoLocationCell";
-        internal class TDWGeoLocationCell_descriptor : ICellDescriptor
+        internal static readonly Type   s_cellType_TDWGeoLocation_Cell       = typeof(global::TDW.TRAServer.TDWGeoLocation_Cell);
+        internal static readonly string s_cellTypeName_TDWGeoLocation_Cell   = "TDWGeoLocation_Cell";
+        internal class TDWGeoLocation_Cell_descriptor : ICellDescriptor
         {
             private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
             {
@@ -472,8 +472,8 @@ namespace TDW.TRAServer
                 {
                     
                 };
-                private static string s_typename = "TRAGeoLocationEnvelope";
-                private static Type   s_type     = typeof(TRAGeoLocationEnvelope);
+                private static string s_typename = "TRAGeoLocation_Envelope";
+                private static Type   s_type     = typeof(TRAGeoLocation_Envelope);
                 public string Name
                 {
                     get { return "envelope"; }
@@ -581,7 +581,7 @@ namespace TDW.TRAServer
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
             {
-                int field_id = global::TDW.TRAServer.TDWGeoLocationCell.FieldLookupTable.Lookup(fieldName);
+                int field_id = global::TDW.TRAServer.TDWGeoLocation_Cell.FieldLookupTable.Lookup(fieldName);
                 if (field_id == -1)
                     Throw.undefined_field();
                 switch (field_id)
@@ -607,21 +607,21 @@ namespace TDW.TRAServer
             }
             ushort ICellDescriptor.CellType
             {
-                get { return (ushort)CellType.TDWGeoLocationCell; }
+                get { return (ushort)CellType.TDWGeoLocation_Cell; }
             }
             #endregion
             #region ITypeDescriptor
             public string TypeName
             {
-                get { return s_cellTypeName_TDWGeoLocationCell; }
+                get { return s_cellTypeName_TDWGeoLocation_Cell; }
             }
             public Type Type
             {
-                get { return s_cellType_TDWGeoLocationCell; }
+                get { return s_cellType_TDWGeoLocation_Cell; }
             }
             public bool IsOfType<T>()
             {
-                return typeof(T) == s_cellType_TDWGeoLocationCell;
+                return typeof(T) == s_cellType_TDWGeoLocation_Cell;
             }
             public bool IsList()
             {
@@ -641,15 +641,15 @@ namespace TDW.TRAServer
             }
             #endregion
         }
-        internal static readonly TDWGeoLocationCell_descriptor s_cellDescriptor_TDWGeoLocationCell = new TDWGeoLocationCell_descriptor();
+        internal static readonly TDWGeoLocation_Cell_descriptor s_cellDescriptor_TDWGeoLocation_Cell = new TDWGeoLocation_Cell_descriptor();
         /// <summary>
-        /// Get the cell descriptor for TDWGeoLocationCell.
+        /// Get the cell descriptor for TDWGeoLocation_Cell.
         /// </summary>
-        public static ICellDescriptor TDWGeoLocationCell { get { return s_cellDescriptor_TDWGeoLocationCell; } }
+        public static ICellDescriptor TDWGeoLocation_Cell { get { return s_cellDescriptor_TDWGeoLocation_Cell; } }
         
-        internal static readonly Type   s_cellType_TRAPostalAddressCell       = typeof(global::TDW.TRAServer.TRAPostalAddressCell);
-        internal static readonly string s_cellTypeName_TRAPostalAddressCell   = "TRAPostalAddressCell";
-        internal class TRAPostalAddressCell_descriptor : ICellDescriptor
+        internal static readonly Type   s_cellType_TRAPostalAddress_Cell       = typeof(global::TDW.TRAServer.TRAPostalAddress_Cell);
+        internal static readonly string s_cellTypeName_TRAPostalAddress_Cell   = "TRAPostalAddress_Cell";
+        internal class TRAPostalAddress_Cell_descriptor : ICellDescriptor
         {
             private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
             {
@@ -671,8 +671,8 @@ namespace TDW.TRAServer
                 {
                     
                 };
-                private static string s_typename = "TRAPostalAddressEnvelope";
-                private static Type   s_type     = typeof(TRAPostalAddressEnvelope);
+                private static string s_typename = "TRAPostalAddress_Envelope";
+                private static Type   s_type     = typeof(TRAPostalAddress_Envelope);
                 public string Name
                 {
                     get { return "envelope"; }
@@ -780,7 +780,7 @@ namespace TDW.TRAServer
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
             {
-                int field_id = global::TDW.TRAServer.TRAPostalAddressCell.FieldLookupTable.Lookup(fieldName);
+                int field_id = global::TDW.TRAServer.TRAPostalAddress_Cell.FieldLookupTable.Lookup(fieldName);
                 if (field_id == -1)
                     Throw.undefined_field();
                 switch (field_id)
@@ -806,21 +806,21 @@ namespace TDW.TRAServer
             }
             ushort ICellDescriptor.CellType
             {
-                get { return (ushort)CellType.TRAPostalAddressCell; }
+                get { return (ushort)CellType.TRAPostalAddress_Cell; }
             }
             #endregion
             #region ITypeDescriptor
             public string TypeName
             {
-                get { return s_cellTypeName_TRAPostalAddressCell; }
+                get { return s_cellTypeName_TRAPostalAddress_Cell; }
             }
             public Type Type
             {
-                get { return s_cellType_TRAPostalAddressCell; }
+                get { return s_cellType_TRAPostalAddress_Cell; }
             }
             public bool IsOfType<T>()
             {
-                return typeof(T) == s_cellType_TRAPostalAddressCell;
+                return typeof(T) == s_cellType_TRAPostalAddress_Cell;
             }
             public bool IsList()
             {
@@ -840,11 +840,11 @@ namespace TDW.TRAServer
             }
             #endregion
         }
-        internal static readonly TRAPostalAddressCell_descriptor s_cellDescriptor_TRAPostalAddressCell = new TRAPostalAddressCell_descriptor();
+        internal static readonly TRAPostalAddress_Cell_descriptor s_cellDescriptor_TRAPostalAddress_Cell = new TRAPostalAddress_Cell_descriptor();
         /// <summary>
-        /// Get the cell descriptor for TRAPostalAddressCell.
+        /// Get the cell descriptor for TRAPostalAddress_Cell.
         /// </summary>
-        public static ICellDescriptor TRAPostalAddressCell { get { return s_cellDescriptor_TRAPostalAddressCell; } }
+        public static ICellDescriptor TRAPostalAddress_Cell { get { return s_cellDescriptor_TRAPostalAddress_Cell; } }
         
         internal static readonly Type   s_cellType_Cac_Item_Cell       = typeof(global::TDW.TRAServer.Cac_Item_Cell);
         internal static readonly string s_cellTypeName_Cac_Item_Cell   = "Cac_Item_Cell";
@@ -3045,11 +3045,11 @@ namespace TDW.TRAServer
                 
                 yield return TRACredential_Cell;
                 
-                yield return TRATimestampCell;
+                yield return TRATimestamp_Cell;
                 
-                yield return TDWGeoLocationCell;
+                yield return TDWGeoLocation_Cell;
                 
-                yield return TRAPostalAddressCell;
+                yield return TRAPostalAddress_Cell;
                 
                 yield return Cac_Item_Cell;
                 
@@ -3102,35 +3102,35 @@ namespace TDW.TRAServer
             get
             {
                 
-                yield return "{{{string|List<string>|optional List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {long|DateTime|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {long|DateTime|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{optional {string|List<string>|optional {double|double}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{optional {string|List<string>|optional string|optional {double|double}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{optional {string|List<string>|optional {string|string|string|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{optional {string|List<string>|optional string|optional {string|string|string|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {string|{string}|{string|optional string|string}|List<{string|string|string}>|{{string|optional string|string}|double|{{string|optional string|string}}}}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {string|{string}|{string|optional string|string}|List<{string|string|string}>|{{string|optional string|string}|double|{{string|optional string|string}}}}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {optional string|optional {string|string}}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {optional string|optional {string|string}}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {string|string|string|string|string|string|string|string|{{string|string|string}}}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {string|string|string|string|string|string|string|string|{{string|string|string}}}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {string|string|string|string|string|string|string|string|{{string|string|string}}}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {string|string|string|string|string|string|string|string|{{string|string|string}}}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {string|{string|optional string|string}|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {string|{string|optional string|string}|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {string|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {string|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {{string|string|string}|DateTime|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {{string|string|string}|DateTime|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {string|{{string}}}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {string|{{string}}}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {{string|optional string|string}|{{string|optional string|string}}|{string}|string|{{string|optional string|string}|{{string|optional string|string}}}|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {{string|optional string|string}|{{string|optional string|string}}|{string}|string|{{string|optional string|string}|{{string|optional string|string}}}|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{{string|List<string>|optional {string|string|DateTime|{string|string|string}|{ISO639_1_LanguageCodes|string}|DateTime|{string|string|string}|string|{DateTime|DateTime}|{string}|{string|string|optional {string}}|List<{string|string|optional {string}}>|{string}|{string}|{string}|{DateTime|{{string|optional string|string}|string}}|string|{{ISO639_1_LanguageCodes|string}}|List<{bool|string|{string|double}}>|{{string|double}|List<{{string|double}|{string|double}|{{string|optional string|string}|double|{{string|optional string|string}}}}>}|{{string|double}|{string|double}|{string|double}|{string|double}|{string|double}|{string|double}|{string|double}|{string|double}}|List<{string|{ISO639_1_LanguageCodes|string}|{string|long}|{string|double}|string|{string}|List<{bool|string|{string|double}}>|{{string|double}|List<{{string|double}|{string|double}|{{string|optional string|string}|double|{{string|optional string|string}}}}>}|string|{{string|double}|{string|long}|{bool|string|{string|double}}}}>}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional {string|string|DateTime|{string|string|string}|{ISO639_1_LanguageCodes|string}|DateTime|{string|string|string}|string|{DateTime|DateTime}|{string}|{string|string|optional {string}}|List<{string|string|optional {string}}>|{string}|{string}|{string}|{DateTime|{{string|optional string|string}|string}}|string|{{ISO639_1_LanguageCodes|string}}|List<{bool|string|{string|double}}>|{{string|double}|List<{{string|double}|{string|double}|{{string|optional string|string}|double|{{string|optional string|string}}}}>}|{{string|double}|{string|double}|{string|double}|{string|double}|{string|double}|{string|double}|{string|double}|{string|double}}|List<{string|{ISO639_1_LanguageCodes|string}|{string|long}|{string|double}|string|{string}|List<{bool|string|{string|double}}>|{{string|double}|List<{{string|double}|{string|double}|{{string|optional string|string}|double|{{string|optional string|string}}}}>}|string|{{string|double}|{string|long}|{bool|string|{string|double}}}}>}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
                 yield break;
             }

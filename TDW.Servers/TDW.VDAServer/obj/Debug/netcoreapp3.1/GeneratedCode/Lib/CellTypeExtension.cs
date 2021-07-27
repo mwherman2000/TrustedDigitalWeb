@@ -23,33 +23,33 @@ namespace TDW.VDAServer
         }
         
         /// <summary>
-        /// Tells whether the cell with the given id is a TDWVDAAccountEntryCell.
+        /// Tells whether the cell with the given id is a TDWVDAAccountEntry_Cell.
         /// </summary>
         /// <param name="storage"/>A <see cref="Trinity.Storage.LocalMemoryStorage"/> instance.</param>
         /// <param name="cellId">The id of the cell.</param>
         /// <returns>True if the cell is found and is of the correct type. Otherwise false.</returns>
-        public unsafe static bool IsTDWVDAAccountEntryCell(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
+        public unsafe static bool IsTDWVDAAccountEntry_Cell(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
         {
             ushort cellType;
             if (storage.GetCellType(cellId, out cellType) == TrinityErrorCode.E_SUCCESS)
             {
-                return cellType == (ushort)CellType.TDWVDAAccountEntryCell;
+                return cellType == (ushort)CellType.TDWVDAAccountEntry_Cell;
             }
             return false;
         }
         
         /// <summary>
-        /// Tells whether the cell with the given id is a TDWVDASmartContractEntryCell.
+        /// Tells whether the cell with the given id is a TDWVDASmartContractEntry_Cell.
         /// </summary>
         /// <param name="storage"/>A <see cref="Trinity.Storage.LocalMemoryStorage"/> instance.</param>
         /// <param name="cellId">The id of the cell.</param>
         /// <returns>True if the cell is found and is of the correct type. Otherwise false.</returns>
-        public unsafe static bool IsTDWVDASmartContractEntryCell(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
+        public unsafe static bool IsTDWVDASmartContractEntry_Cell(this Trinity.Storage.LocalMemoryStorage storage, long cellId)
         {
             ushort cellType;
             if (storage.GetCellType(cellId, out cellType) == TrinityErrorCode.E_SUCCESS)
             {
-                return cellType == (ushort)CellType.TDWVDASmartContractEntryCell;
+                return cellType == (ushort)CellType.TDWVDASmartContractEntry_Cell;
             }
             return false;
         }

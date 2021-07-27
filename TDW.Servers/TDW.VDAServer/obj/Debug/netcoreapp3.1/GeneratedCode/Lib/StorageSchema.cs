@@ -19,9 +19,9 @@ namespace TDW.VDAServer
             
             {"TRACredential_Cell", global::TDW.VDAServer.CellType.TRACredential_Cell}
             ,
-            {"TDWVDAAccountEntryCell", global::TDW.VDAServer.CellType.TDWVDAAccountEntryCell}
+            {"TDWVDAAccountEntry_Cell", global::TDW.VDAServer.CellType.TDWVDAAccountEntry_Cell}
             ,
-            {"TDWVDASmartContractEntryCell", global::TDW.VDAServer.CellType.TDWVDASmartContractEntryCell}
+            {"TDWVDASmartContractEntry_Cell", global::TDW.VDAServer.CellType.TDWVDASmartContractEntry_Cell}
             
         };
         #endregion
@@ -225,9 +225,9 @@ namespace TDW.VDAServer
         /// </summary>
         public static ICellDescriptor TRACredential_Cell { get { return s_cellDescriptor_TRACredential_Cell; } }
         
-        internal static readonly Type   s_cellType_TDWVDAAccountEntryCell       = typeof(global::TDW.VDAServer.TDWVDAAccountEntryCell);
-        internal static readonly string s_cellTypeName_TDWVDAAccountEntryCell   = "TDWVDAAccountEntryCell";
-        internal class TDWVDAAccountEntryCell_descriptor : ICellDescriptor
+        internal static readonly Type   s_cellType_TDWVDAAccountEntry_Cell       = typeof(global::TDW.VDAServer.TDWVDAAccountEntry_Cell);
+        internal static readonly string s_cellTypeName_TDWVDAAccountEntry_Cell   = "TDWVDAAccountEntry_Cell";
+        internal class TDWVDAAccountEntry_Cell_descriptor : ICellDescriptor
         {
             private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
             {
@@ -249,8 +249,8 @@ namespace TDW.VDAServer
                 {
                     
                 };
-                private static string s_typename = "TDWVDAAccountEntryEnvelope";
-                private static Type   s_type     = typeof(TDWVDAAccountEntryEnvelope);
+                private static string s_typename = "TDWVDAAccountEntry_Envelope";
+                private static Type   s_type     = typeof(TDWVDAAccountEntry_Envelope);
                 public string Name
                 {
                     get { return "envelope"; }
@@ -358,7 +358,7 @@ namespace TDW.VDAServer
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
             {
-                int field_id = global::TDW.VDAServer.TDWVDAAccountEntryCell.FieldLookupTable.Lookup(fieldName);
+                int field_id = global::TDW.VDAServer.TDWVDAAccountEntry_Cell.FieldLookupTable.Lookup(fieldName);
                 if (field_id == -1)
                     Throw.undefined_field();
                 switch (field_id)
@@ -384,21 +384,21 @@ namespace TDW.VDAServer
             }
             ushort ICellDescriptor.CellType
             {
-                get { return (ushort)CellType.TDWVDAAccountEntryCell; }
+                get { return (ushort)CellType.TDWVDAAccountEntry_Cell; }
             }
             #endregion
             #region ITypeDescriptor
             public string TypeName
             {
-                get { return s_cellTypeName_TDWVDAAccountEntryCell; }
+                get { return s_cellTypeName_TDWVDAAccountEntry_Cell; }
             }
             public Type Type
             {
-                get { return s_cellType_TDWVDAAccountEntryCell; }
+                get { return s_cellType_TDWVDAAccountEntry_Cell; }
             }
             public bool IsOfType<T>()
             {
-                return typeof(T) == s_cellType_TDWVDAAccountEntryCell;
+                return typeof(T) == s_cellType_TDWVDAAccountEntry_Cell;
             }
             public bool IsList()
             {
@@ -418,15 +418,15 @@ namespace TDW.VDAServer
             }
             #endregion
         }
-        internal static readonly TDWVDAAccountEntryCell_descriptor s_cellDescriptor_TDWVDAAccountEntryCell = new TDWVDAAccountEntryCell_descriptor();
+        internal static readonly TDWVDAAccountEntry_Cell_descriptor s_cellDescriptor_TDWVDAAccountEntry_Cell = new TDWVDAAccountEntry_Cell_descriptor();
         /// <summary>
-        /// Get the cell descriptor for TDWVDAAccountEntryCell.
+        /// Get the cell descriptor for TDWVDAAccountEntry_Cell.
         /// </summary>
-        public static ICellDescriptor TDWVDAAccountEntryCell { get { return s_cellDescriptor_TDWVDAAccountEntryCell; } }
+        public static ICellDescriptor TDWVDAAccountEntry_Cell { get { return s_cellDescriptor_TDWVDAAccountEntry_Cell; } }
         
-        internal static readonly Type   s_cellType_TDWVDASmartContractEntryCell       = typeof(global::TDW.VDAServer.TDWVDASmartContractEntryCell);
-        internal static readonly string s_cellTypeName_TDWVDASmartContractEntryCell   = "TDWVDASmartContractEntryCell";
-        internal class TDWVDASmartContractEntryCell_descriptor : ICellDescriptor
+        internal static readonly Type   s_cellType_TDWVDASmartContractEntry_Cell       = typeof(global::TDW.VDAServer.TDWVDASmartContractEntry_Cell);
+        internal static readonly string s_cellTypeName_TDWVDASmartContractEntry_Cell   = "TDWVDASmartContractEntry_Cell";
+        internal class TDWVDASmartContractEntry_Cell_descriptor : ICellDescriptor
         {
             private static IReadOnlyDictionary<string, string> s_attributes = new Dictionary<string, string>
             {
@@ -448,8 +448,8 @@ namespace TDW.VDAServer
                 {
                     
                 };
-                private static string s_typename = "TDWVDASmartContractEntryEnvelope";
-                private static Type   s_type     = typeof(TDWVDASmartContractEntryEnvelope);
+                private static string s_typename = "TDWVDASmartContractEntry_Envelope";
+                private static Type   s_type     = typeof(TDWVDASmartContractEntry_Envelope);
                 public string Name
                 {
                     get { return "SmartContractEntryEnvelope"; }
@@ -557,7 +557,7 @@ namespace TDW.VDAServer
             }
             public IAttributeCollection GetFieldAttributes(string fieldName)
             {
-                int field_id = global::TDW.VDAServer.TDWVDASmartContractEntryCell.FieldLookupTable.Lookup(fieldName);
+                int field_id = global::TDW.VDAServer.TDWVDASmartContractEntry_Cell.FieldLookupTable.Lookup(fieldName);
                 if (field_id == -1)
                     Throw.undefined_field();
                 switch (field_id)
@@ -583,21 +583,21 @@ namespace TDW.VDAServer
             }
             ushort ICellDescriptor.CellType
             {
-                get { return (ushort)CellType.TDWVDASmartContractEntryCell; }
+                get { return (ushort)CellType.TDWVDASmartContractEntry_Cell; }
             }
             #endregion
             #region ITypeDescriptor
             public string TypeName
             {
-                get { return s_cellTypeName_TDWVDASmartContractEntryCell; }
+                get { return s_cellTypeName_TDWVDASmartContractEntry_Cell; }
             }
             public Type Type
             {
-                get { return s_cellType_TDWVDASmartContractEntryCell; }
+                get { return s_cellType_TDWVDASmartContractEntry_Cell; }
             }
             public bool IsOfType<T>()
             {
-                return typeof(T) == s_cellType_TDWVDASmartContractEntryCell;
+                return typeof(T) == s_cellType_TDWVDASmartContractEntry_Cell;
             }
             public bool IsList()
             {
@@ -617,11 +617,11 @@ namespace TDW.VDAServer
             }
             #endregion
         }
-        internal static readonly TDWVDASmartContractEntryCell_descriptor s_cellDescriptor_TDWVDASmartContractEntryCell = new TDWVDASmartContractEntryCell_descriptor();
+        internal static readonly TDWVDASmartContractEntry_Cell_descriptor s_cellDescriptor_TDWVDASmartContractEntry_Cell = new TDWVDASmartContractEntry_Cell_descriptor();
         /// <summary>
-        /// Get the cell descriptor for TDWVDASmartContractEntryCell.
+        /// Get the cell descriptor for TDWVDASmartContractEntry_Cell.
         /// </summary>
-        public static ICellDescriptor TDWVDASmartContractEntryCell { get { return s_cellDescriptor_TDWVDASmartContractEntryCell; } }
+        public static ICellDescriptor TDWVDASmartContractEntry_Cell { get { return s_cellDescriptor_TDWVDASmartContractEntry_Cell; } }
         
         /// <summary>
         /// Enumerates descriptors for all cells defined in the TSL.
@@ -633,9 +633,9 @@ namespace TDW.VDAServer
                 
                 yield return TRACredential_Cell;
                 
-                yield return TDWVDAAccountEntryCell;
+                yield return TDWVDAAccountEntry_Cell;
                 
-                yield return TDWVDASmartContractEntryCell;
+                yield return TDWVDASmartContractEntry_Cell;
                 
                 yield break;
             }
@@ -666,11 +666,11 @@ namespace TDW.VDAServer
             get
             {
                 
-                yield return "{{{string|List<string>|optional List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{{string|List<string>|optional string|optional List<{string|optional string|optional List<{string|string}>|optional List<List<{string|string}>>}>|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{optional {string|List<string>|optional {string|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{optional {string|List<string>|optional string|optional {string|string|string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
-                yield return "{{optional {string|List<string>|optional {string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
+                yield return "{{optional {string|List<string>|optional string|optional {string|string}|optional {string|string|string}}|{TRACredentialType|long|TRATrustLevel|TRAEncryptionFlag|string|optional string|optional string}}|{optional string|optional string|optional string|optional List<string>}}";
                 
                 yield break;
             }

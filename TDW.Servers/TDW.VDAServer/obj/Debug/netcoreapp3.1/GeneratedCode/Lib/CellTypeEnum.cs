@@ -6,8 +6,8 @@ namespace TDW.VDAServer
     {
         Undefined = 0,
         TRACredential_Cell = 1,
-        TDWVDAAccountEntryCell = 2,
-        TDWVDASmartContractEntryCell = 3,
+        TDWVDAAccountEntry_Cell = 2,
+        TDWVDASmartContractEntry_Cell = 3,
         
     }
 }

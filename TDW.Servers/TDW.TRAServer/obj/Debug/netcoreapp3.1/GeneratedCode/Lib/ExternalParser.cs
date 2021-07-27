@@ -608,116 +608,116 @@ namespace TDW.TRAServer
             
         }
         
-        internal static unsafe bool TryParse_TRAGeoLocationClaims_nullable(string s, out TRAGeoLocationClaims? value)
+        internal static unsafe bool TryParse_TRAGeoLocation_Claims_nullable(string s, out TRAGeoLocation_Claims? value)
         {
-            TRAGeoLocationClaims value_type_value;
+            TRAGeoLocation_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TRAGeoLocationClaims?);
+                value = default(TRAGeoLocation_Claims?);
                 return true;
             }
-            else if (TRAGeoLocationClaims.TryParse(s, out value_type_value))
+            else if (TRAGeoLocation_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TRAGeoLocationClaims?);
+                value = default(TRAGeoLocation_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_TRAGeoLocationContent_nullable(string s, out TRAGeoLocationContent? value)
+        internal static unsafe bool TryParse_TRAGeoLocation_EnvelopeContent_nullable(string s, out TRAGeoLocation_EnvelopeContent? value)
         {
-            TRAGeoLocationContent value_type_value;
+            TRAGeoLocation_EnvelopeContent value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TRAGeoLocationContent?);
+                value = default(TRAGeoLocation_EnvelopeContent?);
                 return true;
             }
-            else if (TRAGeoLocationContent.TryParse(s, out value_type_value))
+            else if (TRAGeoLocation_EnvelopeContent.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TRAGeoLocationContent?);
+                value = default(TRAGeoLocation_EnvelopeContent?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_TRAPostalAddressClaims_nullable(string s, out TRAPostalAddressClaims? value)
+        internal static unsafe bool TryParse_TRAPostalAddress_Claims_nullable(string s, out TRAPostalAddress_Claims? value)
         {
-            TRAPostalAddressClaims value_type_value;
+            TRAPostalAddress_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TRAPostalAddressClaims?);
+                value = default(TRAPostalAddress_Claims?);
                 return true;
             }
-            else if (TRAPostalAddressClaims.TryParse(s, out value_type_value))
+            else if (TRAPostalAddress_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TRAPostalAddressClaims?);
+                value = default(TRAPostalAddress_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_TRAPostalAddressContent_nullable(string s, out TRAPostalAddressContent? value)
+        internal static unsafe bool TryParse_TRAPostalAddress_EnvelopeContent_nullable(string s, out TRAPostalAddress_EnvelopeContent? value)
         {
-            TRAPostalAddressContent value_type_value;
+            TRAPostalAddress_EnvelopeContent value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TRAPostalAddressContent?);
+                value = default(TRAPostalAddress_EnvelopeContent?);
                 return true;
             }
-            else if (TRAPostalAddressContent.TryParse(s, out value_type_value))
+            else if (TRAPostalAddress_EnvelopeContent.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TRAPostalAddressContent?);
+                value = default(TRAPostalAddress_EnvelopeContent?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_TRATimestampClaims_nullable(string s, out TRATimestampClaims? value)
+        internal static unsafe bool TryParse_TRATimestamp_Claims_nullable(string s, out TRATimestamp_Claims? value)
         {
-            TRATimestampClaims value_type_value;
+            TRATimestamp_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TRATimestampClaims?);
+                value = default(TRATimestamp_Claims?);
                 return true;
             }
-            else if (TRATimestampClaims.TryParse(s, out value_type_value))
+            else if (TRATimestamp_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TRATimestampClaims?);
+                value = default(TRATimestamp_Claims?);
                 return false;
             }
             

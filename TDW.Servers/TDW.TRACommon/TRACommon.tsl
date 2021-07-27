@@ -69,15 +69,16 @@ struct TRAEncryptedClaims
 	string key; // TODO
 }
 
-struct TRACredential_Content
+struct TRACredential_EnvelopeContent
 {
 	string udid;	
 	List<string> context;
+	optional string credentialsubjectudid; // bound credential
 	optional List<TRAClaim> claims;
 	optional TRAEncryptedClaims encryptedclaims;
 }
 
-struct TRACredential_Label
+struct TRACredential_EnvelopeLabel
 {
 	TRACredentialType credtype;	
 	long version;
@@ -90,8 +91,8 @@ struct TRACredential_Label
 
 struct TRACredential_Envelope
 {
-	TRACredential_Content content;
-	TRACredential_Label label;
+	TRACredential_EnvelopeContent content;
+	TRACredential_EnvelopeLabel label;
 }
 
 struct TRACredential_EnvelopeSeal 

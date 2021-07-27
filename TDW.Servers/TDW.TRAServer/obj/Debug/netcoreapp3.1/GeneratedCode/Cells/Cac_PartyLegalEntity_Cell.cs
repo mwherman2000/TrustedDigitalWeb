@@ -287,7 +287,7 @@ namespace TDW.TRAServer
                 
                 break;
                 
-                case 42:
+                case 41:
                 
                 if (StorageSchema.Cac_PartyLegalEntity_Cell_descriptor.check_attribute(StorageSchema.Cac_PartyLegalEntity_Cell_descriptor.envelope, attributeKey, attributeValue))
                     
@@ -295,7 +295,7 @@ namespace TDW.TRAServer
                 
                 break;
                 
-                case 76:
+                case 77:
                 
                 if (StorageSchema.Cac_PartyLegalEntity_Cell_descriptor.check_attribute(StorageSchema.Cac_PartyLegalEntity_Cell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
@@ -345,7 +345,7 @@ namespace TDW.TRAServer
                     }
                     break;
                 
-                case 42:
+                case 41:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_Cac_PartyLegalEntity_Envelope(this.envelope);
@@ -391,7 +391,7 @@ namespace TDW.TRAServer
                     }
                     break;
                 
-                case 76:
+                case 77:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
@@ -597,6 +597,11 @@ namespace TDW.TRAServer
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_4 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_4 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);{            byte* optheader_8 = targetPtr;
             targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);
@@ -607,7 +612,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_4 + 0) & 0x02)))
+                if ((0 != (*(optheader_4 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -664,6 +669,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_4 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_4 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);{            byte* optheader_8 = targetPtr;
             targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);
@@ -674,7 +684,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_4 + 0) & 0x02)))
+                if ((0 != (*(optheader_4 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -765,6 +775,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
     }
 
 }
+            if( envelope.content.credentialsubjectudid!= null)
+            {
+
+        if(envelope.content.credentialsubjectudid!= null)
+        {
+            int strlen_4 = envelope.content.credentialsubjectudid.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
             if( envelope.content.claims!= null)
             {
 
@@ -1034,6 +1057,26 @@ byte *storedPtr_4 = targetPtr;
 *(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
+            if( envelope.content.credentialsubjectudid!= null)
+            {
+
+        if(envelope.content.credentialsubjectudid!= null)
+        {
+            int strlen_4 = envelope.content.credentialsubjectudid.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = envelope.content.credentialsubjectudid)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_3 + 0) |= 0x01;
+            }
             if( envelope.content.claims!= null)
             {
 
@@ -1128,7 +1171,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_3 + 0) |= 0x01;
+            }*(optheader_3 + 0) |= 0x02;
             }
             if( envelope.content.encryptedclaims!= null)
             {
@@ -1183,7 +1226,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_3 + 0) |= 0x02;
+            }*(optheader_3 + 0) |= 0x04;
             }
 
             }
@@ -1432,6 +1475,11 @@ byte *storedPtr_3 = targetPtr;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_5 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_5 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);{            byte* optheader_9 = targetPtr;
             targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);
@@ -1442,7 +1490,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_5 + 0) & 0x02)))
+                if ((0 != (*(optheader_5 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -1476,6 +1524,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_5 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_5 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);{            byte* optheader_9 = targetPtr;
             targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);
@@ -1486,7 +1539,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_5 + 0) & 0x02)))
+                if ((0 != (*(optheader_5 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -1589,6 +1642,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
     }
 
 }
+            if( field.envelope.content.credentialsubjectudid!= null)
+            {
+
+        if(field.envelope.content.credentialsubjectudid!= null)
+        {
+            int strlen_4 = field.envelope.content.credentialsubjectudid.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
             if( field.envelope.content.claims!= null)
             {
 
@@ -1857,6 +1923,26 @@ byte *storedPtr_4 = targetPtr;
 *(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
+            if( field.envelope.content.credentialsubjectudid!= null)
+            {
+
+        if(field.envelope.content.credentialsubjectudid!= null)
+        {
+            int strlen_4 = field.envelope.content.credentialsubjectudid.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = field.envelope.content.credentialsubjectudid)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_3 + 0) |= 0x01;
+            }
             if( field.envelope.content.claims!= null)
             {
 
@@ -1951,7 +2037,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_3 + 0) |= 0x01;
+            }*(optheader_3 + 0) |= 0x02;
             }
             if( field.envelope.content.encryptedclaims!= null)
             {
@@ -2006,7 +2092,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_3 + 0) |= 0x02;
+            }*(optheader_3 + 0) |= 0x04;
             }
 
             }
@@ -2201,6 +2287,11 @@ byte *storedPtr_3 = targetPtr;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_5 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_5 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);{            byte* optheader_9 = targetPtr;
             targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);
@@ -2211,7 +2302,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_5 + 0) & 0x02)))
+                if ((0 != (*(optheader_5 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -2258,6 +2349,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_5 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_5 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);{            byte* optheader_9 = targetPtr;
             targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);
@@ -2268,7 +2364,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_5 + 0) & 0x02)))
+                if ((0 != (*(optheader_5 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -2743,7 +2839,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 break;
                 
-                case 42:
+                case 41:
                 
                 if (StorageSchema.Cac_PartyLegalEntity_Cell_descriptor.check_attribute(StorageSchema.Cac_PartyLegalEntity_Cell_descriptor.envelope, attributeKey, attributeValue))
                     
@@ -2751,7 +2847,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 
                 break;
                 
-                case 76:
+                case 77:
                 
                 if (StorageSchema.Cac_PartyLegalEntity_Cell_descriptor.check_attribute(StorageSchema.Cac_PartyLegalEntity_Cell_descriptor.envelopeseal, attributeKey, attributeValue))
                     
@@ -2801,7 +2897,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 42:
+                case 41:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_Cac_PartyLegalEntity_Envelope(this.envelope);
@@ -2847,7 +2943,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                     }
                     break;
                 
-                case 76:
+                case 77:
                     {
                         
                         yield return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeSeal(this.envelopeseal);
@@ -3030,6 +3126,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);
     }
 
 }
+            if( envelope.content.credentialsubjectudid!= null)
+            {
+
+        if(envelope.content.credentialsubjectudid!= null)
+        {
+            int strlen_4 = envelope.content.credentialsubjectudid.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
             if( envelope.content.claims!= null)
             {
 
@@ -3299,6 +3408,26 @@ byte *storedPtr_4 = targetPtr;
 *(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
+            if( envelope.content.credentialsubjectudid!= null)
+            {
+
+        if(envelope.content.credentialsubjectudid!= null)
+        {
+            int strlen_4 = envelope.content.credentialsubjectudid.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = envelope.content.credentialsubjectudid)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_3 + 0) |= 0x01;
+            }
             if( envelope.content.claims!= null)
             {
 
@@ -3393,7 +3522,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_3 + 0) |= 0x01;
+            }*(optheader_3 + 0) |= 0x02;
             }
             if( envelope.content.encryptedclaims!= null)
             {
@@ -3448,7 +3577,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_3 + 0) |= 0x02;
+            }*(optheader_3 + 0) |= 0x04;
             }
 
             }
@@ -3754,6 +3883,19 @@ byte *storedPtr_3 = targetPtr;
     }
 
 }
+            if( envelope.content.credentialsubjectudid!= null)
+            {
+
+        if(envelope.content.credentialsubjectudid!= null)
+        {
+            int strlen_4 = envelope.content.credentialsubjectudid.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
             if( envelope.content.claims!= null)
             {
 
@@ -4023,6 +4165,26 @@ byte *storedPtr_4 = targetPtr;
 *(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
+            if( envelope.content.credentialsubjectudid!= null)
+            {
+
+        if(envelope.content.credentialsubjectudid!= null)
+        {
+            int strlen_4 = envelope.content.credentialsubjectudid.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = envelope.content.credentialsubjectudid)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_3 + 0) |= 0x01;
+            }
             if( envelope.content.claims!= null)
             {
 
@@ -4117,7 +4279,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_3 + 0) |= 0x01;
+            }*(optheader_3 + 0) |= 0x02;
             }
             if( envelope.content.encryptedclaims!= null)
             {
@@ -4172,7 +4334,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_3 + 0) |= 0x02;
+            }*(optheader_3 + 0) |= 0x04;
             }
 
             }
@@ -4472,6 +4634,19 @@ byte *storedPtr_3 = targetPtr;
     }
 
 }
+            if( envelope.content.credentialsubjectudid!= null)
+            {
+
+        if(envelope.content.credentialsubjectudid!= null)
+        {
+            int strlen_4 = envelope.content.credentialsubjectudid.Length * 2;
+            targetPtr += strlen_4+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
             if( envelope.content.claims!= null)
             {
 
@@ -4741,6 +4916,26 @@ byte *storedPtr_4 = targetPtr;
 *(int*)storedPtr_4 = (int)(targetPtr - storedPtr_4 - 4);
 
 }
+            if( envelope.content.credentialsubjectudid!= null)
+            {
+
+        if(envelope.content.credentialsubjectudid!= null)
+        {
+            int strlen_4 = envelope.content.credentialsubjectudid.Length * 2;
+            *(int*)targetPtr = strlen_4;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_4 = envelope.content.credentialsubjectudid)
+            {
+                Memory.Copy(pstr_4, targetPtr, strlen_4);
+                targetPtr += strlen_4;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_3 + 0) |= 0x01;
+            }
             if( envelope.content.claims!= null)
             {
 
@@ -4835,7 +5030,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_3 + 0) |= 0x01;
+            }*(optheader_3 + 0) |= 0x02;
             }
             if( envelope.content.encryptedclaims!= null)
             {
@@ -4890,7 +5085,7 @@ byte *storedPtr_4 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_3 + 0) |= 0x02;
+            }*(optheader_3 + 0) |= 0x04;
             }
 
             }

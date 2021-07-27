@@ -520,14 +520,14 @@ namespace TDW.TRAServer
     #region Internal
     /**
      * <summary>
-     * Accepts transformation from TRATimestampCell_Accessor to T.
+     * Accepts transformation from TRATimestamp_Cell_Accessor to T.
      * </summary>
      */
-    internal class TRATimestampCell_Accessor_local_projector<T> : IQueryable<T>
+    internal class TRATimestamp_Cell_Accessor_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TRATimestampCell_Accessor_local_query_provider    query_provider;
-        internal TRATimestampCell_Accessor_local_projector(TRATimestampCell_Accessor_local_query_provider provider, Expression expression)
+        private         TRATimestamp_Cell_Accessor_local_query_provider    query_provider;
+        internal TRATimestamp_Cell_Accessor_local_projector(TRATimestamp_Cell_Accessor_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -554,13 +554,13 @@ namespace TDW.TRAServer
         }
     }
     /**
-     * Accepts transformation from TRATimestampCell to T.
+     * Accepts transformation from TRATimestamp_Cell to T.
      */
-    internal class TRATimestampCell_local_projector<T> : IQueryable<T>
+    internal class TRATimestamp_Cell_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TRATimestampCell_local_query_provider             query_provider;
-        internal TRATimestampCell_local_projector(TRATimestampCell_local_query_provider provider, Expression expression)
+        private         TRATimestamp_Cell_local_query_provider             query_provider;
+        internal TRATimestamp_Cell_local_projector(TRATimestamp_Cell_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -586,14 +586,14 @@ namespace TDW.TRAServer
             get { return query_provider; }
         }
     }
-    internal class TRATimestampCell_AccessorEnumerable : IEnumerable<TRATimestampCell_Accessor>
+    internal class TRATimestamp_Cell_AccessorEnumerable : IEnumerable<TRATimestamp_Cell_Accessor>
     {
         private     LocalMemoryStorage              m_storage;
         private     LocalTransactionContext         m_tx;
         private     HashSet<long>                   m_filter_set;
         private     bool                            m_is_positive_filtering;
-        private     Func<TRATimestampCell_Accessor,bool> m_filter_predicate;
-        internal TRATimestampCell_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private     Func<TRATimestamp_Cell_Accessor,bool> m_filter_predicate;
+        internal TRATimestamp_Cell_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.m_storage     = storage;
             m_filter_set       = null;
@@ -610,16 +610,16 @@ namespace TDW.TRAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TRATimestampCell_Accessor> GetEnumerator()
+        public IEnumerator<TRATimestamp_Cell_Accessor> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TRATimestampCell)
+                        if (cellInfo.CellType == (ushort)CellType.TRATimestamp_Cell)
                         {
-                            var accessor = TRATimestampCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRATimestamp_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -627,9 +627,9 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TRATimestampCell)
+                        if (cellInfo.CellType == (ushort)CellType.TRATimestamp_Cell)
                         {
-                            var accessor = TRATimestampCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRATimestamp_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -641,7 +641,7 @@ namespace TDW.TRAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTRATimestampCell(cellID))
+                        using (var accessor = m_storage.UseTRATimestamp_Cell(cellID))
                         {
                             yield return accessor;
                         }
@@ -649,7 +649,7 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTRATimestampCell(cellID))
+                        using (var accessor = m_storage.UseTRATimestamp_Cell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -667,21 +667,21 @@ namespace TDW.TRAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TRATimestampCell_Accessor, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TRATimestamp_Cell_Accessor, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TRATimestampCell_Enumerable : IEnumerable<TRATimestampCell>
+    internal class TRATimestamp_Cell_Enumerable : IEnumerable<TRATimestamp_Cell>
     {
         private LocalMemoryStorage      m_storage;
         private HashSet<long>           m_filter_set;
         private bool                    m_is_positive_filtering;
-        private Func<TRATimestampCell,bool>  m_filter_predicate;
-        private static Type             m_cell_type = typeof(TRATimestampCell);
+        private Func<TRATimestamp_Cell,bool>  m_filter_predicate;
+        private static Type             m_cell_type = typeof(TRATimestamp_Cell);
         private LocalTransactionContext m_tx;
-        internal TRATimestampCell_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        internal TRATimestamp_Cell_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             m_storage          = storage;
             m_filter_set       = null;
@@ -698,16 +698,16 @@ namespace TDW.TRAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TRATimestampCell> GetEnumerator()
+        public IEnumerator<TRATimestamp_Cell> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TRATimestampCell)
+                        if (cellInfo.CellType == (ushort)CellType.TRATimestamp_Cell)
                         {
-                            var accessor = TRATimestampCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRATimestamp_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -715,9 +715,9 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TRATimestampCell)
+                        if (cellInfo.CellType == (ushort)CellType.TRATimestamp_Cell)
                         {
-                            var accessor = TRATimestampCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRATimestamp_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -729,7 +729,7 @@ namespace TDW.TRAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTRATimestampCell(cellID))
+                        using (var accessor = m_storage.UseTRATimestamp_Cell(cellID))
                         {
                             yield return accessor;
                         }
@@ -737,7 +737,7 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTRATimestampCell(cellID))
+                        using (var accessor = m_storage.UseTRATimestamp_Cell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -755,49 +755,49 @@ namespace TDW.TRAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TRATimestampCell, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TRATimestamp_Cell, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TRATimestampCell_Accessor_local_query_provider : IQueryProvider
+    internal class TRATimestamp_Cell_Accessor_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_accessor_type    = typeof(TRATimestampCell_Accessor);
-        private static  Type                             s_cell_type        = typeof(TRATimestampCell);
+        private static  Type                             s_accessor_type    = typeof(TRATimestamp_Cell_Accessor);
+        private static  Type                             s_cell_type        = typeof(TRATimestamp_Cell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TRATimestampCell_AccessorEnumerable   m_accessor_enumerable;
-        internal TRATimestampCell_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRATimestamp_Cell_AccessorEnumerable   m_accessor_enumerable;
+        internal TRATimestamp_Cell_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            m_accessor_enumerable = new TRATimestampCell_AccessorEnumerable(storage, tx);
+            m_accessor_enumerable = new TRATimestamp_Cell_AccessorEnumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_accessor_type)
             {
-                return (IQueryable<TElement>)new TRATimestampCell_Accessor_local_selector(this, expression);
+                return (IQueryable<TElement>)new TRATimestamp_Cell_Accessor_local_selector(this, expression);
             }
             else
             {
-                return new TRATimestampCell_Accessor_local_projector<TElement>(this, expression);
+                return new TRATimestamp_Cell_Accessor_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TRATimestampCell_Accessor>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TRATimestamp_Cell_Accessor>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = m_accessor_enumerable.AsQueryable<TRATimestampCell_Accessor>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TRATimestampCell_Accessor_local_selector));
+            var  queryable            = m_accessor_enumerable.AsQueryable<TRATimestamp_Cell_Accessor>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TRATimestamp_Cell_Accessor_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TRATimestampCell_Accessor>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TRATimestamp_Cell_Accessor>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TRATimestampCell_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TRATimestampCell_Accessor>("TRATimestampCell", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
+                IndexQueryTreeGenerator<TRATimestamp_Cell_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TRATimestamp_Cell_Accessor>("TRATimestamp_Cell", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
                 aggregated_predicate                                               = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                                     = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -843,42 +843,42 @@ namespace TDW.TRAServer
         }
         #endregion
     }
-    internal class TRATimestampCell_local_query_provider : IQueryProvider
+    internal class TRATimestamp_Cell_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_cell_type        = typeof(TRATimestampCell);
+        private static  Type                             s_cell_type        = typeof(TRATimestamp_Cell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TRATimestampCell_Enumerable           s_cell_enumerable;
-        internal TRATimestampCell_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRATimestamp_Cell_Enumerable           s_cell_enumerable;
+        internal TRATimestamp_Cell_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            s_cell_enumerable = new TRATimestampCell_Enumerable(storage, tx);
+            s_cell_enumerable = new TRATimestamp_Cell_Enumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_cell_type)
             {
-                return (IQueryable<TElement>)new TRATimestampCell_local_selector(this, expression);
+                return (IQueryable<TElement>)new TRATimestamp_Cell_local_selector(this, expression);
             }
             else
             {
-                return new TRATimestampCell_local_projector<TElement>(this, expression);
+                return new TRATimestamp_Cell_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TRATimestampCell>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TRATimestamp_Cell>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = s_cell_enumerable.AsQueryable<TRATimestampCell>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TRATimestampCell_local_selector));
+            var  queryable            = s_cell_enumerable.AsQueryable<TRATimestamp_Cell>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TRATimestamp_Cell_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TRATimestampCell>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TRATimestamp_Cell>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TRATimestampCell> query_tree_gen       = new IndexQueryTreeGenerator<TRATimestampCell>("TRATimestampCell", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
+                IndexQueryTreeGenerator<TRATimestamp_Cell> query_tree_gen       = new IndexQueryTreeGenerator<TRATimestamp_Cell>("TRATimestamp_Cell", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
                 aggregated_predicate                                      = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                            = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -927,28 +927,28 @@ namespace TDW.TRAServer
     #endregion
     #region Public
     /// <summary>
-    /// Implements System.Linq.IQueryable{TRATimestampCell_Accessor} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TRATimestamp_Cell_Accessor} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TRATimestampCell_Accessor_local_selector : IQueryable<TRATimestampCell_Accessor>
+    public class TRATimestamp_Cell_Accessor_local_selector : IQueryable<TRATimestamp_Cell_Accessor>
     {
         private         Expression                                   query_expression;
-        private         TRATimestampCell_Accessor_local_query_provider    query_provider;
-        private TRATimestampCell_Accessor_local_selector() { /* nobody should reach this method */ }
-        internal TRATimestampCell_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRATimestamp_Cell_Accessor_local_query_provider    query_provider;
+        private TRATimestamp_Cell_Accessor_local_selector() { /* nobody should reach this method */ }
+        internal TRATimestamp_Cell_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TRATimestampCell_Accessor_local_query_provider(storage, tx);
+            this.query_provider                = new TRATimestamp_Cell_Accessor_local_query_provider(storage, tx);
         }
-        internal unsafe TRATimestampCell_Accessor_local_selector(TRATimestampCell_Accessor_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TRATimestamp_Cell_Accessor_local_selector(TRATimestamp_Cell_Accessor_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<CellAccessor> interfaces
-        public IEnumerator<TRATimestampCell_Accessor> GetEnumerator()
+        public IEnumerator<TRATimestamp_Cell_Accessor> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TRATimestampCell_Accessor>>(query_expression);
+            return Provider.Execute<IEnumerator<TRATimestamp_Cell_Accessor>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -956,7 +956,7 @@ namespace TDW.TRAServer
         }
         public Type ElementType
         {
-            get { return typeof(TRATimestampCell_Accessor); }
+            get { return typeof(TRATimestamp_Cell_Accessor); }
         }
         public Expression Expression
         {
@@ -968,43 +968,43 @@ namespace TDW.TRAServer
         }
         #endregion
         #region PLINQ Wrapper
-        public PLINQWrapper<TRATimestampCell_Accessor> AsParallel()
+        public PLINQWrapper<TRATimestamp_Cell_Accessor> AsParallel()
         {
-            return new PLINQWrapper<TRATimestampCell_Accessor>(this);
+            return new PLINQWrapper<TRATimestamp_Cell_Accessor>(this);
         }
         #endregion
     }
     /// <summary>
-    /// Implements System.Linq.IQueryable{TRATimestampCell} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TRATimestamp_Cell} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TRATimestampCell_local_selector : IQueryable<TRATimestampCell>, IOrderedQueryable<TRATimestampCell>
+    public class TRATimestamp_Cell_local_selector : IQueryable<TRATimestamp_Cell>, IOrderedQueryable<TRATimestamp_Cell>
     {
         private         Expression                                   query_expression;
-        private         TRATimestampCell_local_query_provider             query_provider;
-        private TRATimestampCell_local_selector() { /* nobody should reach this method */ }
-        internal TRATimestampCell_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRATimestamp_Cell_local_query_provider             query_provider;
+        private TRATimestamp_Cell_local_selector() { /* nobody should reach this method */ }
+        internal TRATimestamp_Cell_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TRATimestampCell_local_query_provider(storage, tx);
+            this.query_provider                = new TRATimestamp_Cell_local_query_provider(storage, tx);
         }
-        internal unsafe TRATimestampCell_local_selector(TRATimestampCell_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TRATimestamp_Cell_local_selector(TRATimestamp_Cell_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<Cell> interfaces
-        public IEnumerator<TRATimestampCell> GetEnumerator()
+        public IEnumerator<TRATimestamp_Cell> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TRATimestampCell>>(query_expression);
+            return Provider.Execute<IEnumerator<TRATimestamp_Cell>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator<TRATimestampCell>)this.GetEnumerator();
+            return (IEnumerator<TRATimestamp_Cell>)this.GetEnumerator();
         }
         public Type ElementType
         {
-            get { return typeof(TRATimestampCell); }
+            get { return typeof(TRATimestamp_Cell); }
         }
         public Expression Expression
         {
@@ -1021,14 +1021,14 @@ namespace TDW.TRAServer
     #region Internal
     /**
      * <summary>
-     * Accepts transformation from TDWGeoLocationCell_Accessor to T.
+     * Accepts transformation from TDWGeoLocation_Cell_Accessor to T.
      * </summary>
      */
-    internal class TDWGeoLocationCell_Accessor_local_projector<T> : IQueryable<T>
+    internal class TDWGeoLocation_Cell_Accessor_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TDWGeoLocationCell_Accessor_local_query_provider    query_provider;
-        internal TDWGeoLocationCell_Accessor_local_projector(TDWGeoLocationCell_Accessor_local_query_provider provider, Expression expression)
+        private         TDWGeoLocation_Cell_Accessor_local_query_provider    query_provider;
+        internal TDWGeoLocation_Cell_Accessor_local_projector(TDWGeoLocation_Cell_Accessor_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -1055,13 +1055,13 @@ namespace TDW.TRAServer
         }
     }
     /**
-     * Accepts transformation from TDWGeoLocationCell to T.
+     * Accepts transformation from TDWGeoLocation_Cell to T.
      */
-    internal class TDWGeoLocationCell_local_projector<T> : IQueryable<T>
+    internal class TDWGeoLocation_Cell_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TDWGeoLocationCell_local_query_provider             query_provider;
-        internal TDWGeoLocationCell_local_projector(TDWGeoLocationCell_local_query_provider provider, Expression expression)
+        private         TDWGeoLocation_Cell_local_query_provider             query_provider;
+        internal TDWGeoLocation_Cell_local_projector(TDWGeoLocation_Cell_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -1087,14 +1087,14 @@ namespace TDW.TRAServer
             get { return query_provider; }
         }
     }
-    internal class TDWGeoLocationCell_AccessorEnumerable : IEnumerable<TDWGeoLocationCell_Accessor>
+    internal class TDWGeoLocation_Cell_AccessorEnumerable : IEnumerable<TDWGeoLocation_Cell_Accessor>
     {
         private     LocalMemoryStorage              m_storage;
         private     LocalTransactionContext         m_tx;
         private     HashSet<long>                   m_filter_set;
         private     bool                            m_is_positive_filtering;
-        private     Func<TDWGeoLocationCell_Accessor,bool> m_filter_predicate;
-        internal TDWGeoLocationCell_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private     Func<TDWGeoLocation_Cell_Accessor,bool> m_filter_predicate;
+        internal TDWGeoLocation_Cell_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.m_storage     = storage;
             m_filter_set       = null;
@@ -1111,16 +1111,16 @@ namespace TDW.TRAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TDWGeoLocationCell_Accessor> GetEnumerator()
+        public IEnumerator<TDWGeoLocation_Cell_Accessor> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWGeoLocationCell)
+                        if (cellInfo.CellType == (ushort)CellType.TDWGeoLocation_Cell)
                         {
-                            var accessor = TDWGeoLocationCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWGeoLocation_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -1128,9 +1128,9 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWGeoLocationCell)
+                        if (cellInfo.CellType == (ushort)CellType.TDWGeoLocation_Cell)
                         {
-                            var accessor = TDWGeoLocationCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWGeoLocation_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -1142,7 +1142,7 @@ namespace TDW.TRAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWGeoLocationCell(cellID))
+                        using (var accessor = m_storage.UseTDWGeoLocation_Cell(cellID))
                         {
                             yield return accessor;
                         }
@@ -1150,7 +1150,7 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWGeoLocationCell(cellID))
+                        using (var accessor = m_storage.UseTDWGeoLocation_Cell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -1168,21 +1168,21 @@ namespace TDW.TRAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TDWGeoLocationCell_Accessor, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TDWGeoLocation_Cell_Accessor, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TDWGeoLocationCell_Enumerable : IEnumerable<TDWGeoLocationCell>
+    internal class TDWGeoLocation_Cell_Enumerable : IEnumerable<TDWGeoLocation_Cell>
     {
         private LocalMemoryStorage      m_storage;
         private HashSet<long>           m_filter_set;
         private bool                    m_is_positive_filtering;
-        private Func<TDWGeoLocationCell,bool>  m_filter_predicate;
-        private static Type             m_cell_type = typeof(TDWGeoLocationCell);
+        private Func<TDWGeoLocation_Cell,bool>  m_filter_predicate;
+        private static Type             m_cell_type = typeof(TDWGeoLocation_Cell);
         private LocalTransactionContext m_tx;
-        internal TDWGeoLocationCell_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        internal TDWGeoLocation_Cell_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             m_storage          = storage;
             m_filter_set       = null;
@@ -1199,16 +1199,16 @@ namespace TDW.TRAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TDWGeoLocationCell> GetEnumerator()
+        public IEnumerator<TDWGeoLocation_Cell> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWGeoLocationCell)
+                        if (cellInfo.CellType == (ushort)CellType.TDWGeoLocation_Cell)
                         {
-                            var accessor = TDWGeoLocationCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWGeoLocation_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -1216,9 +1216,9 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TDWGeoLocationCell)
+                        if (cellInfo.CellType == (ushort)CellType.TDWGeoLocation_Cell)
                         {
-                            var accessor = TDWGeoLocationCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TDWGeoLocation_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -1230,7 +1230,7 @@ namespace TDW.TRAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWGeoLocationCell(cellID))
+                        using (var accessor = m_storage.UseTDWGeoLocation_Cell(cellID))
                         {
                             yield return accessor;
                         }
@@ -1238,7 +1238,7 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTDWGeoLocationCell(cellID))
+                        using (var accessor = m_storage.UseTDWGeoLocation_Cell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -1256,49 +1256,49 @@ namespace TDW.TRAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TDWGeoLocationCell, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TDWGeoLocation_Cell, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TDWGeoLocationCell_Accessor_local_query_provider : IQueryProvider
+    internal class TDWGeoLocation_Cell_Accessor_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_accessor_type    = typeof(TDWGeoLocationCell_Accessor);
-        private static  Type                             s_cell_type        = typeof(TDWGeoLocationCell);
+        private static  Type                             s_accessor_type    = typeof(TDWGeoLocation_Cell_Accessor);
+        private static  Type                             s_cell_type        = typeof(TDWGeoLocation_Cell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TDWGeoLocationCell_AccessorEnumerable   m_accessor_enumerable;
-        internal TDWGeoLocationCell_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWGeoLocation_Cell_AccessorEnumerable   m_accessor_enumerable;
+        internal TDWGeoLocation_Cell_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            m_accessor_enumerable = new TDWGeoLocationCell_AccessorEnumerable(storage, tx);
+            m_accessor_enumerable = new TDWGeoLocation_Cell_AccessorEnumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_accessor_type)
             {
-                return (IQueryable<TElement>)new TDWGeoLocationCell_Accessor_local_selector(this, expression);
+                return (IQueryable<TElement>)new TDWGeoLocation_Cell_Accessor_local_selector(this, expression);
             }
             else
             {
-                return new TDWGeoLocationCell_Accessor_local_projector<TElement>(this, expression);
+                return new TDWGeoLocation_Cell_Accessor_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TDWGeoLocationCell_Accessor>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TDWGeoLocation_Cell_Accessor>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = m_accessor_enumerable.AsQueryable<TDWGeoLocationCell_Accessor>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWGeoLocationCell_Accessor_local_selector));
+            var  queryable            = m_accessor_enumerable.AsQueryable<TDWGeoLocation_Cell_Accessor>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWGeoLocation_Cell_Accessor_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TDWGeoLocationCell_Accessor>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TDWGeoLocation_Cell_Accessor>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TDWGeoLocationCell_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TDWGeoLocationCell_Accessor>("TDWGeoLocationCell", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
+                IndexQueryTreeGenerator<TDWGeoLocation_Cell_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TDWGeoLocation_Cell_Accessor>("TDWGeoLocation_Cell", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
                 aggregated_predicate                                               = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                                     = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -1344,42 +1344,42 @@ namespace TDW.TRAServer
         }
         #endregion
     }
-    internal class TDWGeoLocationCell_local_query_provider : IQueryProvider
+    internal class TDWGeoLocation_Cell_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_cell_type        = typeof(TDWGeoLocationCell);
+        private static  Type                             s_cell_type        = typeof(TDWGeoLocation_Cell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TDWGeoLocationCell_Enumerable           s_cell_enumerable;
-        internal TDWGeoLocationCell_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWGeoLocation_Cell_Enumerable           s_cell_enumerable;
+        internal TDWGeoLocation_Cell_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            s_cell_enumerable = new TDWGeoLocationCell_Enumerable(storage, tx);
+            s_cell_enumerable = new TDWGeoLocation_Cell_Enumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_cell_type)
             {
-                return (IQueryable<TElement>)new TDWGeoLocationCell_local_selector(this, expression);
+                return (IQueryable<TElement>)new TDWGeoLocation_Cell_local_selector(this, expression);
             }
             else
             {
-                return new TDWGeoLocationCell_local_projector<TElement>(this, expression);
+                return new TDWGeoLocation_Cell_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TDWGeoLocationCell>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TDWGeoLocation_Cell>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = s_cell_enumerable.AsQueryable<TDWGeoLocationCell>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWGeoLocationCell_local_selector));
+            var  queryable            = s_cell_enumerable.AsQueryable<TDWGeoLocation_Cell>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TDWGeoLocation_Cell_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TDWGeoLocationCell>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TDWGeoLocation_Cell>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TDWGeoLocationCell> query_tree_gen       = new IndexQueryTreeGenerator<TDWGeoLocationCell>("TDWGeoLocationCell", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
+                IndexQueryTreeGenerator<TDWGeoLocation_Cell> query_tree_gen       = new IndexQueryTreeGenerator<TDWGeoLocation_Cell>("TDWGeoLocation_Cell", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
                 aggregated_predicate                                      = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                            = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -1428,28 +1428,28 @@ namespace TDW.TRAServer
     #endregion
     #region Public
     /// <summary>
-    /// Implements System.Linq.IQueryable{TDWGeoLocationCell_Accessor} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TDWGeoLocation_Cell_Accessor} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TDWGeoLocationCell_Accessor_local_selector : IQueryable<TDWGeoLocationCell_Accessor>
+    public class TDWGeoLocation_Cell_Accessor_local_selector : IQueryable<TDWGeoLocation_Cell_Accessor>
     {
         private         Expression                                   query_expression;
-        private         TDWGeoLocationCell_Accessor_local_query_provider    query_provider;
-        private TDWGeoLocationCell_Accessor_local_selector() { /* nobody should reach this method */ }
-        internal TDWGeoLocationCell_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWGeoLocation_Cell_Accessor_local_query_provider    query_provider;
+        private TDWGeoLocation_Cell_Accessor_local_selector() { /* nobody should reach this method */ }
+        internal TDWGeoLocation_Cell_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TDWGeoLocationCell_Accessor_local_query_provider(storage, tx);
+            this.query_provider                = new TDWGeoLocation_Cell_Accessor_local_query_provider(storage, tx);
         }
-        internal unsafe TDWGeoLocationCell_Accessor_local_selector(TDWGeoLocationCell_Accessor_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TDWGeoLocation_Cell_Accessor_local_selector(TDWGeoLocation_Cell_Accessor_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<CellAccessor> interfaces
-        public IEnumerator<TDWGeoLocationCell_Accessor> GetEnumerator()
+        public IEnumerator<TDWGeoLocation_Cell_Accessor> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TDWGeoLocationCell_Accessor>>(query_expression);
+            return Provider.Execute<IEnumerator<TDWGeoLocation_Cell_Accessor>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -1457,7 +1457,7 @@ namespace TDW.TRAServer
         }
         public Type ElementType
         {
-            get { return typeof(TDWGeoLocationCell_Accessor); }
+            get { return typeof(TDWGeoLocation_Cell_Accessor); }
         }
         public Expression Expression
         {
@@ -1469,43 +1469,43 @@ namespace TDW.TRAServer
         }
         #endregion
         #region PLINQ Wrapper
-        public PLINQWrapper<TDWGeoLocationCell_Accessor> AsParallel()
+        public PLINQWrapper<TDWGeoLocation_Cell_Accessor> AsParallel()
         {
-            return new PLINQWrapper<TDWGeoLocationCell_Accessor>(this);
+            return new PLINQWrapper<TDWGeoLocation_Cell_Accessor>(this);
         }
         #endregion
     }
     /// <summary>
-    /// Implements System.Linq.IQueryable{TDWGeoLocationCell} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TDWGeoLocation_Cell} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TDWGeoLocationCell_local_selector : IQueryable<TDWGeoLocationCell>, IOrderedQueryable<TDWGeoLocationCell>
+    public class TDWGeoLocation_Cell_local_selector : IQueryable<TDWGeoLocation_Cell>, IOrderedQueryable<TDWGeoLocation_Cell>
     {
         private         Expression                                   query_expression;
-        private         TDWGeoLocationCell_local_query_provider             query_provider;
-        private TDWGeoLocationCell_local_selector() { /* nobody should reach this method */ }
-        internal TDWGeoLocationCell_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TDWGeoLocation_Cell_local_query_provider             query_provider;
+        private TDWGeoLocation_Cell_local_selector() { /* nobody should reach this method */ }
+        internal TDWGeoLocation_Cell_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TDWGeoLocationCell_local_query_provider(storage, tx);
+            this.query_provider                = new TDWGeoLocation_Cell_local_query_provider(storage, tx);
         }
-        internal unsafe TDWGeoLocationCell_local_selector(TDWGeoLocationCell_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TDWGeoLocation_Cell_local_selector(TDWGeoLocation_Cell_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<Cell> interfaces
-        public IEnumerator<TDWGeoLocationCell> GetEnumerator()
+        public IEnumerator<TDWGeoLocation_Cell> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TDWGeoLocationCell>>(query_expression);
+            return Provider.Execute<IEnumerator<TDWGeoLocation_Cell>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator<TDWGeoLocationCell>)this.GetEnumerator();
+            return (IEnumerator<TDWGeoLocation_Cell>)this.GetEnumerator();
         }
         public Type ElementType
         {
-            get { return typeof(TDWGeoLocationCell); }
+            get { return typeof(TDWGeoLocation_Cell); }
         }
         public Expression Expression
         {
@@ -1522,14 +1522,14 @@ namespace TDW.TRAServer
     #region Internal
     /**
      * <summary>
-     * Accepts transformation from TRAPostalAddressCell_Accessor to T.
+     * Accepts transformation from TRAPostalAddress_Cell_Accessor to T.
      * </summary>
      */
-    internal class TRAPostalAddressCell_Accessor_local_projector<T> : IQueryable<T>
+    internal class TRAPostalAddress_Cell_Accessor_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TRAPostalAddressCell_Accessor_local_query_provider    query_provider;
-        internal TRAPostalAddressCell_Accessor_local_projector(TRAPostalAddressCell_Accessor_local_query_provider provider, Expression expression)
+        private         TRAPostalAddress_Cell_Accessor_local_query_provider    query_provider;
+        internal TRAPostalAddress_Cell_Accessor_local_projector(TRAPostalAddress_Cell_Accessor_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -1556,13 +1556,13 @@ namespace TDW.TRAServer
         }
     }
     /**
-     * Accepts transformation from TRAPostalAddressCell to T.
+     * Accepts transformation from TRAPostalAddress_Cell to T.
      */
-    internal class TRAPostalAddressCell_local_projector<T> : IQueryable<T>
+    internal class TRAPostalAddress_Cell_local_projector<T> : IQueryable<T>
     {
         private         Expression                                   query_expression;
-        private         TRAPostalAddressCell_local_query_provider             query_provider;
-        internal TRAPostalAddressCell_local_projector(TRAPostalAddressCell_local_query_provider provider, Expression expression)
+        private         TRAPostalAddress_Cell_local_query_provider             query_provider;
+        internal TRAPostalAddress_Cell_local_projector(TRAPostalAddress_Cell_local_query_provider provider, Expression expression)
         {
             this.query_expression              = expression;
             this.query_provider                = provider;
@@ -1588,14 +1588,14 @@ namespace TDW.TRAServer
             get { return query_provider; }
         }
     }
-    internal class TRAPostalAddressCell_AccessorEnumerable : IEnumerable<TRAPostalAddressCell_Accessor>
+    internal class TRAPostalAddress_Cell_AccessorEnumerable : IEnumerable<TRAPostalAddress_Cell_Accessor>
     {
         private     LocalMemoryStorage              m_storage;
         private     LocalTransactionContext         m_tx;
         private     HashSet<long>                   m_filter_set;
         private     bool                            m_is_positive_filtering;
-        private     Func<TRAPostalAddressCell_Accessor,bool> m_filter_predicate;
-        internal TRAPostalAddressCell_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private     Func<TRAPostalAddress_Cell_Accessor,bool> m_filter_predicate;
+        internal TRAPostalAddress_Cell_AccessorEnumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.m_storage     = storage;
             m_filter_set       = null;
@@ -1612,16 +1612,16 @@ namespace TDW.TRAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TRAPostalAddressCell_Accessor> GetEnumerator()
+        public IEnumerator<TRAPostalAddress_Cell_Accessor> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TRAPostalAddressCell)
+                        if (cellInfo.CellType == (ushort)CellType.TRAPostalAddress_Cell)
                         {
-                            var accessor = TRAPostalAddressCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRAPostalAddress_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -1629,9 +1629,9 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TRAPostalAddressCell)
+                        if (cellInfo.CellType == (ushort)CellType.TRAPostalAddress_Cell)
                         {
-                            var accessor = TRAPostalAddressCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRAPostalAddress_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -1643,7 +1643,7 @@ namespace TDW.TRAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTRAPostalAddressCell(cellID))
+                        using (var accessor = m_storage.UseTRAPostalAddress_Cell(cellID))
                         {
                             yield return accessor;
                         }
@@ -1651,7 +1651,7 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTRAPostalAddressCell(cellID))
+                        using (var accessor = m_storage.UseTRAPostalAddress_Cell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -1669,21 +1669,21 @@ namespace TDW.TRAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TRAPostalAddressCell_Accessor, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TRAPostalAddress_Cell_Accessor, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TRAPostalAddressCell_Enumerable : IEnumerable<TRAPostalAddressCell>
+    internal class TRAPostalAddress_Cell_Enumerable : IEnumerable<TRAPostalAddress_Cell>
     {
         private LocalMemoryStorage      m_storage;
         private HashSet<long>           m_filter_set;
         private bool                    m_is_positive_filtering;
-        private Func<TRAPostalAddressCell,bool>  m_filter_predicate;
-        private static Type             m_cell_type = typeof(TRAPostalAddressCell);
+        private Func<TRAPostalAddress_Cell,bool>  m_filter_predicate;
+        private static Type             m_cell_type = typeof(TRAPostalAddress_Cell);
         private LocalTransactionContext m_tx;
-        internal TRAPostalAddressCell_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
+        internal TRAPostalAddress_Cell_Enumerable(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             m_storage          = storage;
             m_filter_set       = null;
@@ -1700,16 +1700,16 @@ namespace TDW.TRAServer
             this.m_filter_set       = set;
             m_is_positive_filtering = false;
         }
-        public IEnumerator<TRAPostalAddressCell> GetEnumerator()
+        public IEnumerator<TRAPostalAddress_Cell> GetEnumerator()
         {
             if (m_filter_set == null)
             {
                 if (m_filter_predicate == null)
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TRAPostalAddressCell)
+                        if (cellInfo.CellType == (ushort)CellType.TRAPostalAddress_Cell)
                         {
-                            var accessor = TRAPostalAddressCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRAPostalAddress_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             yield return accessor;
                             accessor.Dispose();
                         }
@@ -1717,9 +1717,9 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellInfo in m_storage)
                     {
-                        if (cellInfo.CellType == (ushort)CellType.TRAPostalAddressCell)
+                        if (cellInfo.CellType == (ushort)CellType.TRAPostalAddress_Cell)
                         {
-                            var accessor = TRAPostalAddressCell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
+                            var accessor = TRAPostalAddress_Cell_Accessor.AllocIterativeAccessor(cellInfo, m_tx);
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
                             accessor.Dispose();
@@ -1731,7 +1731,7 @@ namespace TDW.TRAServer
                 if (m_filter_predicate == null)
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTRAPostalAddressCell(cellID))
+                        using (var accessor = m_storage.UseTRAPostalAddress_Cell(cellID))
                         {
                             yield return accessor;
                         }
@@ -1739,7 +1739,7 @@ namespace TDW.TRAServer
                 else
                     foreach (var cellID in m_filter_set)
                     {
-                        using (var accessor = m_storage.UseTRAPostalAddressCell(cellID))
+                        using (var accessor = m_storage.UseTRAPostalAddress_Cell(cellID))
                         {
                             if (m_filter_predicate(accessor))
                                 yield return accessor;
@@ -1757,49 +1757,49 @@ namespace TDW.TRAServer
         }
         internal void SetPredicate(Expression aggregated_where_clause, ParameterExpression parameter)
         {
-            m_filter_predicate = Expression.Lambda<Func<TRAPostalAddressCell, bool>>(
+            m_filter_predicate = Expression.Lambda<Func<TRAPostalAddress_Cell, bool>>(
                 aggregated_where_clause,
                 parameter
                 ).Compile();
         }
     }
-    internal class TRAPostalAddressCell_Accessor_local_query_provider : IQueryProvider
+    internal class TRAPostalAddress_Cell_Accessor_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_accessor_type    = typeof(TRAPostalAddressCell_Accessor);
-        private static  Type                             s_cell_type        = typeof(TRAPostalAddressCell);
+        private static  Type                             s_accessor_type    = typeof(TRAPostalAddress_Cell_Accessor);
+        private static  Type                             s_cell_type        = typeof(TRAPostalAddress_Cell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TRAPostalAddressCell_AccessorEnumerable   m_accessor_enumerable;
-        internal TRAPostalAddressCell_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRAPostalAddress_Cell_AccessorEnumerable   m_accessor_enumerable;
+        internal TRAPostalAddress_Cell_Accessor_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            m_accessor_enumerable = new TRAPostalAddressCell_AccessorEnumerable(storage, tx);
+            m_accessor_enumerable = new TRAPostalAddress_Cell_AccessorEnumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_accessor_type)
             {
-                return (IQueryable<TElement>)new TRAPostalAddressCell_Accessor_local_selector(this, expression);
+                return (IQueryable<TElement>)new TRAPostalAddress_Cell_Accessor_local_selector(this, expression);
             }
             else
             {
-                return new TRAPostalAddressCell_Accessor_local_projector<TElement>(this, expression);
+                return new TRAPostalAddress_Cell_Accessor_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TRAPostalAddressCell_Accessor>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TRAPostalAddress_Cell_Accessor>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = m_accessor_enumerable.AsQueryable<TRAPostalAddressCell_Accessor>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TRAPostalAddressCell_Accessor_local_selector));
+            var  queryable            = m_accessor_enumerable.AsQueryable<TRAPostalAddress_Cell_Accessor>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TRAPostalAddress_Cell_Accessor_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TRAPostalAddressCell_Accessor>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TRAPostalAddress_Cell_Accessor>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TRAPostalAddressCell_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TRAPostalAddressCell_Accessor>("TRAPostalAddressCell", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
+                IndexQueryTreeGenerator<TRAPostalAddress_Cell_Accessor> query_tree_gen       = new IndexQueryTreeGenerator<TRAPostalAddress_Cell_Accessor>("TRAPostalAddress_Cell", Index.s_AccessorSubstringIndexAccessMethod, is_cell: false);
                 aggregated_predicate                                               = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                                     = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -1845,42 +1845,42 @@ namespace TDW.TRAServer
         }
         #endregion
     }
-    internal class TRAPostalAddressCell_local_query_provider : IQueryProvider
+    internal class TRAPostalAddress_Cell_local_query_provider : IQueryProvider
     {
-        private static  Type                             s_cell_type        = typeof(TRAPostalAddressCell);
+        private static  Type                             s_cell_type        = typeof(TRAPostalAddress_Cell);
         private static  Type                             s_ienumerable_type = typeof(IEnumerable<>);
-        private         TRAPostalAddressCell_Enumerable           s_cell_enumerable;
-        internal TRAPostalAddressCell_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRAPostalAddress_Cell_Enumerable           s_cell_enumerable;
+        internal TRAPostalAddress_Cell_local_query_provider(LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            s_cell_enumerable = new TRAPostalAddressCell_Enumerable(storage, tx);
+            s_cell_enumerable = new TRAPostalAddress_Cell_Enumerable(storage, tx);
         }
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
             if (typeof(TElement) == s_cell_type)
             {
-                return (IQueryable<TElement>)new TRAPostalAddressCell_local_selector(this, expression);
+                return (IQueryable<TElement>)new TRAPostalAddress_Cell_local_selector(this, expression);
             }
             else
             {
-                return new TRAPostalAddressCell_local_projector<TElement>(this, expression);
+                return new TRAPostalAddress_Cell_local_projector<TElement>(this, expression);
             }
         }
         public TResult Execute<TResult>(Expression expression)
         {
-            var  visitor              = new RewritableWhereCaluseVisitor<TRAPostalAddressCell>(expression);
+            var  visitor              = new RewritableWhereCaluseVisitor<TRAPostalAddress_Cell>(expression);
             var  where_clauses        = visitor.RewritableWhereClauses;
-            var  queryable            = s_cell_enumerable.AsQueryable<TRAPostalAddressCell>();
-            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TRAPostalAddressCell_local_selector));
+            var  queryable            = s_cell_enumerable.AsQueryable<TRAPostalAddress_Cell>();
+            var  trimmed_expression   = visitor.InjectEnumerator(expression, queryable, typeof(TRAPostalAddress_Cell_local_selector));
             if (where_clauses.Count != 0)
             {
-                var subject_rewriter           = new PredicateSubjectRewriter<TRAPostalAddressCell>();
+                var subject_rewriter           = new PredicateSubjectRewriter<TRAPostalAddress_Cell>();
                 Expression aggregated_predicate = subject_rewriter.Visit(where_clauses.First().Body);
                 foreach (var where_clause in where_clauses.Skip(1))
                 {
                     Expression predicate = where_clause.Body;
                     aggregated_predicate = Expression.AndAlso(aggregated_predicate, subject_rewriter.Visit(predicate));
                 }
-                IndexQueryTreeGenerator<TRAPostalAddressCell> query_tree_gen       = new IndexQueryTreeGenerator<TRAPostalAddressCell>("TRAPostalAddressCell", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
+                IndexQueryTreeGenerator<TRAPostalAddress_Cell> query_tree_gen       = new IndexQueryTreeGenerator<TRAPostalAddress_Cell>("TRAPostalAddress_Cell", Index.s_CellSubstringIndexAccessMethod, is_cell: true);
                 aggregated_predicate                                      = query_tree_gen.Visit(aggregated_predicate);
                 var query_tree                                            = query_tree_gen.QueryTree;
                 if (query_tree != null)
@@ -1929,28 +1929,28 @@ namespace TDW.TRAServer
     #endregion
     #region Public
     /// <summary>
-    /// Implements System.Linq.IQueryable{TRAPostalAddressCell_Accessor} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TRAPostalAddress_Cell_Accessor} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TRAPostalAddressCell_Accessor_local_selector : IQueryable<TRAPostalAddressCell_Accessor>
+    public class TRAPostalAddress_Cell_Accessor_local_selector : IQueryable<TRAPostalAddress_Cell_Accessor>
     {
         private         Expression                                   query_expression;
-        private         TRAPostalAddressCell_Accessor_local_query_provider    query_provider;
-        private TRAPostalAddressCell_Accessor_local_selector() { /* nobody should reach this method */ }
-        internal TRAPostalAddressCell_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRAPostalAddress_Cell_Accessor_local_query_provider    query_provider;
+        private TRAPostalAddress_Cell_Accessor_local_selector() { /* nobody should reach this method */ }
+        internal TRAPostalAddress_Cell_Accessor_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TRAPostalAddressCell_Accessor_local_query_provider(storage, tx);
+            this.query_provider                = new TRAPostalAddress_Cell_Accessor_local_query_provider(storage, tx);
         }
-        internal unsafe TRAPostalAddressCell_Accessor_local_selector(TRAPostalAddressCell_Accessor_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TRAPostalAddress_Cell_Accessor_local_selector(TRAPostalAddress_Cell_Accessor_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<CellAccessor> interfaces
-        public IEnumerator<TRAPostalAddressCell_Accessor> GetEnumerator()
+        public IEnumerator<TRAPostalAddress_Cell_Accessor> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TRAPostalAddressCell_Accessor>>(query_expression);
+            return Provider.Execute<IEnumerator<TRAPostalAddress_Cell_Accessor>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -1958,7 +1958,7 @@ namespace TDW.TRAServer
         }
         public Type ElementType
         {
-            get { return typeof(TRAPostalAddressCell_Accessor); }
+            get { return typeof(TRAPostalAddress_Cell_Accessor); }
         }
         public Expression Expression
         {
@@ -1970,43 +1970,43 @@ namespace TDW.TRAServer
         }
         #endregion
         #region PLINQ Wrapper
-        public PLINQWrapper<TRAPostalAddressCell_Accessor> AsParallel()
+        public PLINQWrapper<TRAPostalAddress_Cell_Accessor> AsParallel()
         {
-            return new PLINQWrapper<TRAPostalAddressCell_Accessor>(this);
+            return new PLINQWrapper<TRAPostalAddress_Cell_Accessor>(this);
         }
         #endregion
     }
     /// <summary>
-    /// Implements System.Linq.IQueryable{TRAPostalAddressCell} and accepts LINQ
+    /// Implements System.Linq.IQueryable{TRAPostalAddress_Cell} and accepts LINQ
     /// queries on <see cref="Trinity.Global.LocalStorage"/>.
     /// </summary>
-    public class TRAPostalAddressCell_local_selector : IQueryable<TRAPostalAddressCell>, IOrderedQueryable<TRAPostalAddressCell>
+    public class TRAPostalAddress_Cell_local_selector : IQueryable<TRAPostalAddress_Cell>, IOrderedQueryable<TRAPostalAddress_Cell>
     {
         private         Expression                                   query_expression;
-        private         TRAPostalAddressCell_local_query_provider             query_provider;
-        private TRAPostalAddressCell_local_selector() { /* nobody should reach this method */ }
-        internal TRAPostalAddressCell_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
+        private         TRAPostalAddress_Cell_local_query_provider             query_provider;
+        private TRAPostalAddress_Cell_local_selector() { /* nobody should reach this method */ }
+        internal TRAPostalAddress_Cell_local_selector(Trinity.Storage.LocalMemoryStorage storage, LocalTransactionContext tx)
         {
             this.query_expression              = Expression.Constant(this);
-            this.query_provider                = new TRAPostalAddressCell_local_query_provider(storage, tx);
+            this.query_provider                = new TRAPostalAddress_Cell_local_query_provider(storage, tx);
         }
-        internal unsafe TRAPostalAddressCell_local_selector(TRAPostalAddressCell_local_query_provider query_provider, Expression query_expression)
+        internal unsafe TRAPostalAddress_Cell_local_selector(TRAPostalAddress_Cell_local_query_provider query_provider, Expression query_expression)
         {
             this.query_expression              = query_expression;
             this.query_provider                = query_provider;
         }
         #region IQueryable<Cell> interfaces
-        public IEnumerator<TRAPostalAddressCell> GetEnumerator()
+        public IEnumerator<TRAPostalAddress_Cell> GetEnumerator()
         {
-            return Provider.Execute<IEnumerator<TRAPostalAddressCell>>(query_expression);
+            return Provider.Execute<IEnumerator<TRAPostalAddress_Cell>>(query_expression);
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return (IEnumerator<TRAPostalAddressCell>)this.GetEnumerator();
+            return (IEnumerator<TRAPostalAddress_Cell>)this.GetEnumerator();
         }
         public Type ElementType
         {
-            get { return typeof(TRAPostalAddressCell); }
+            get { return typeof(TRAPostalAddress_Cell); }
         }
         public Expression Expression
         {
@@ -7572,114 +7572,114 @@ namespace TDW.TRAServer
         }
         
         /// <summary>
-        /// Enumerates all the TRATimestampCell within the local memory storage.
+        /// Enumerates all the TRATimestamp_Cell within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TRATimestampCell within the local memory storage.</returns>
-        public static TRATimestampCell_local_selector TRATimestampCell_Selector(this LocalMemoryStorage storage)
+        /// <returns>All the TRATimestamp_Cell within the local memory storage.</returns>
+        public static TRATimestamp_Cell_local_selector TRATimestamp_Cell_Selector(this LocalMemoryStorage storage)
         {
-            return new TRATimestampCell_local_selector(storage, null);
+            return new TRATimestamp_Cell_local_selector(storage, null);
         }
         /// <summary>
-        /// Enumerates all the TRATimestampCell_Accessor within the local memory storage.
+        /// Enumerates all the TRATimestamp_Cell_Accessor within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TRATimestampCell_Accessor within the local memory storage.</returns>
-        public static TRATimestampCell_Accessor_local_selector TRATimestampCell_Accessor_Selector(this LocalMemoryStorage storage)
+        /// <returns>All the TRATimestamp_Cell_Accessor within the local memory storage.</returns>
+        public static TRATimestamp_Cell_Accessor_local_selector TRATimestamp_Cell_Accessor_Selector(this LocalMemoryStorage storage)
         {
-            return new TRATimestampCell_Accessor_local_selector(storage, null);
+            return new TRATimestamp_Cell_Accessor_local_selector(storage, null);
         }
         /// <summary>
-        /// Enumerates all the TRATimestampCell within the local memory storage.
+        /// Enumerates all the TRATimestamp_Cell within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TRATimestampCell within the local memory storage.</returns>
-        public static TRATimestampCell_local_selector TRATimestampCell_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        /// <returns>All the TRATimestamp_Cell within the local memory storage.</returns>
+        public static TRATimestamp_Cell_local_selector TRATimestamp_Cell_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            return new TRATimestampCell_local_selector(storage, tx);
+            return new TRATimestamp_Cell_local_selector(storage, tx);
         }
         /// <summary>
-        /// Enumerates all the TRATimestampCell_Accessor within the local memory storage.
+        /// Enumerates all the TRATimestamp_Cell_Accessor within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TRATimestampCell_Accessor within the local memory storage.</returns>
-        public static TRATimestampCell_Accessor_local_selector TRATimestampCell_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        /// <returns>All the TRATimestamp_Cell_Accessor within the local memory storage.</returns>
+        public static TRATimestamp_Cell_Accessor_local_selector TRATimestamp_Cell_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            return new TRATimestampCell_Accessor_local_selector(storage, tx);
-        }
-        
-        /// <summary>
-        /// Enumerates all the TDWGeoLocationCell within the local memory storage.
-        /// </summary>
-        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWGeoLocationCell within the local memory storage.</returns>
-        public static TDWGeoLocationCell_local_selector TDWGeoLocationCell_Selector(this LocalMemoryStorage storage)
-        {
-            return new TDWGeoLocationCell_local_selector(storage, null);
-        }
-        /// <summary>
-        /// Enumerates all the TDWGeoLocationCell_Accessor within the local memory storage.
-        /// </summary>
-        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWGeoLocationCell_Accessor within the local memory storage.</returns>
-        public static TDWGeoLocationCell_Accessor_local_selector TDWGeoLocationCell_Accessor_Selector(this LocalMemoryStorage storage)
-        {
-            return new TDWGeoLocationCell_Accessor_local_selector(storage, null);
-        }
-        /// <summary>
-        /// Enumerates all the TDWGeoLocationCell within the local memory storage.
-        /// </summary>
-        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWGeoLocationCell within the local memory storage.</returns>
-        public static TDWGeoLocationCell_local_selector TDWGeoLocationCell_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
-        {
-            return new TDWGeoLocationCell_local_selector(storage, tx);
-        }
-        /// <summary>
-        /// Enumerates all the TDWGeoLocationCell_Accessor within the local memory storage.
-        /// </summary>
-        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TDWGeoLocationCell_Accessor within the local memory storage.</returns>
-        public static TDWGeoLocationCell_Accessor_local_selector TDWGeoLocationCell_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
-        {
-            return new TDWGeoLocationCell_Accessor_local_selector(storage, tx);
+            return new TRATimestamp_Cell_Accessor_local_selector(storage, tx);
         }
         
         /// <summary>
-        /// Enumerates all the TRAPostalAddressCell within the local memory storage.
+        /// Enumerates all the TDWGeoLocation_Cell within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TRAPostalAddressCell within the local memory storage.</returns>
-        public static TRAPostalAddressCell_local_selector TRAPostalAddressCell_Selector(this LocalMemoryStorage storage)
+        /// <returns>All the TDWGeoLocation_Cell within the local memory storage.</returns>
+        public static TDWGeoLocation_Cell_local_selector TDWGeoLocation_Cell_Selector(this LocalMemoryStorage storage)
         {
-            return new TRAPostalAddressCell_local_selector(storage, null);
+            return new TDWGeoLocation_Cell_local_selector(storage, null);
         }
         /// <summary>
-        /// Enumerates all the TRAPostalAddressCell_Accessor within the local memory storage.
+        /// Enumerates all the TDWGeoLocation_Cell_Accessor within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TRAPostalAddressCell_Accessor within the local memory storage.</returns>
-        public static TRAPostalAddressCell_Accessor_local_selector TRAPostalAddressCell_Accessor_Selector(this LocalMemoryStorage storage)
+        /// <returns>All the TDWGeoLocation_Cell_Accessor within the local memory storage.</returns>
+        public static TDWGeoLocation_Cell_Accessor_local_selector TDWGeoLocation_Cell_Accessor_Selector(this LocalMemoryStorage storage)
         {
-            return new TRAPostalAddressCell_Accessor_local_selector(storage, null);
+            return new TDWGeoLocation_Cell_Accessor_local_selector(storage, null);
         }
         /// <summary>
-        /// Enumerates all the TRAPostalAddressCell within the local memory storage.
+        /// Enumerates all the TDWGeoLocation_Cell within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TRAPostalAddressCell within the local memory storage.</returns>
-        public static TRAPostalAddressCell_local_selector TRAPostalAddressCell_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        /// <returns>All the TDWGeoLocation_Cell within the local memory storage.</returns>
+        public static TDWGeoLocation_Cell_local_selector TDWGeoLocation_Cell_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            return new TRAPostalAddressCell_local_selector(storage, tx);
+            return new TDWGeoLocation_Cell_local_selector(storage, tx);
         }
         /// <summary>
-        /// Enumerates all the TRAPostalAddressCell_Accessor within the local memory storage.
+        /// Enumerates all the TDWGeoLocation_Cell_Accessor within the local memory storage.
         /// </summary>
         /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
-        /// <returns>All the TRAPostalAddressCell_Accessor within the local memory storage.</returns>
-        public static TRAPostalAddressCell_Accessor_local_selector TRAPostalAddressCell_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        /// <returns>All the TDWGeoLocation_Cell_Accessor within the local memory storage.</returns>
+        public static TDWGeoLocation_Cell_Accessor_local_selector TDWGeoLocation_Cell_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
         {
-            return new TRAPostalAddressCell_Accessor_local_selector(storage, tx);
+            return new TDWGeoLocation_Cell_Accessor_local_selector(storage, tx);
+        }
+        
+        /// <summary>
+        /// Enumerates all the TRAPostalAddress_Cell within the local memory storage.
+        /// </summary>
+        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
+        /// <returns>All the TRAPostalAddress_Cell within the local memory storage.</returns>
+        public static TRAPostalAddress_Cell_local_selector TRAPostalAddress_Cell_Selector(this LocalMemoryStorage storage)
+        {
+            return new TRAPostalAddress_Cell_local_selector(storage, null);
+        }
+        /// <summary>
+        /// Enumerates all the TRAPostalAddress_Cell_Accessor within the local memory storage.
+        /// </summary>
+        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
+        /// <returns>All the TRAPostalAddress_Cell_Accessor within the local memory storage.</returns>
+        public static TRAPostalAddress_Cell_Accessor_local_selector TRAPostalAddress_Cell_Accessor_Selector(this LocalMemoryStorage storage)
+        {
+            return new TRAPostalAddress_Cell_Accessor_local_selector(storage, null);
+        }
+        /// <summary>
+        /// Enumerates all the TRAPostalAddress_Cell within the local memory storage.
+        /// </summary>
+        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
+        /// <returns>All the TRAPostalAddress_Cell within the local memory storage.</returns>
+        public static TRAPostalAddress_Cell_local_selector TRAPostalAddress_Cell_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        {
+            return new TRAPostalAddress_Cell_local_selector(storage, tx);
+        }
+        /// <summary>
+        /// Enumerates all the TRAPostalAddress_Cell_Accessor within the local memory storage.
+        /// </summary>
+        /// <param name="storage">A <see cref="Trinity.Storage.LocalMemoryStorage"/> object.</param>
+        /// <returns>All the TRAPostalAddress_Cell_Accessor within the local memory storage.</returns>
+        public static TRAPostalAddress_Cell_Accessor_local_selector TRAPostalAddress_Cell_Accessor_Selector(this LocalMemoryStorage storage, LocalTransactionContext tx)
+        {
+            return new TRAPostalAddress_Cell_Accessor_local_selector(storage, tx);
         }
         
         /// <summary>

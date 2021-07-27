@@ -34,7 +34,7 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWGetSmartContractRegistryEntryResponse with the specified parameters.
         ///</summary>
-        public TDWGetSmartContractRegistryEntryResponse(TDWVDASmartContractEntryContent entry = default(TDWVDASmartContractEntryContent))
+        public TDWGetSmartContractRegistryEntryResponse(TDWVDASmartContractEntry_EnvelopeContent entry = default(TDWVDASmartContractEntry_EnvelopeContent))
         {
             
             this.entry = entry;
@@ -64,7 +64,7 @@ namespace TDW.VDAServer
             return !(a == b);
         }
         
-        public TDWVDASmartContractEntryContent entry;
+        public TDWVDASmartContractEntry_EnvelopeContent entry;
         
         /// <summary>
         /// Converts the string representation of a TDWGetSmartContractRegistryEntryResponse to its
@@ -119,7 +119,7 @@ namespace TDW.VDAServer
             m_ptr = _CellPtr;
             
             ResizeFunction = func;
-                    entry_Accessor_Field = new TDWVDASmartContractEntryContent_Accessor(null,
+                    entry_Accessor_Field = new TDWVDASmartContractEntry_EnvelopeContent_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -174,10 +174,15 @@ namespace TDW.VDAServer
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);
                 }
 
                 if ((0 != (*(optheader_2 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_2 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -200,10 +205,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);
                 }
 
                 if ((0 != (*(optheader_2 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_2 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -213,12 +223,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
         }
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
-        TDWVDASmartContractEntryContent_Accessor entry_Accessor_Field;
+        TDWVDASmartContractEntry_EnvelopeContent_Accessor entry_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field entry.
         ///</summary>
-        public unsafe TDWVDASmartContractEntryContent_Accessor entry
+        public unsafe TDWVDASmartContractEntry_EnvelopeContent_Accessor entry
         {
             get
             {
@@ -315,6 +325,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
     }
 
 }
+            if( field.entry.credentialsubjectudid!= null)
+            {
+
+        if(field.entry.credentialsubjectudid!= null)
+        {
+            int strlen_3 = field.entry.credentialsubjectudid.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
             if( field.entry.claims!= null)
             {
 
@@ -433,6 +456,26 @@ byte *storedPtr_3 = targetPtr;
 *(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
 
 }
+            if( field.entry.credentialsubjectudid!= null)
+            {
+
+        if(field.entry.credentialsubjectudid!= null)
+        {
+            int strlen_3 = field.entry.credentialsubjectudid.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.entry.credentialsubjectudid)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_2 + 0) |= 0x01;
+            }
             if( field.entry.claims!= null)
             {
 
@@ -470,7 +513,7 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_2 + 0) |= 0x01;
+            }*(optheader_2 + 0) |= 0x02;
             }
             if( field.entry.encryptedclaims!= null)
             {
@@ -525,7 +568,7 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_2 + 0) |= 0x02;
+            }*(optheader_2 + 0) |= 0x04;
             }
 
             }
@@ -549,10 +592,15 @@ byte *storedPtr_3 = targetPtr;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);
                 }
 
                 if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -564,10 +612,15 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
-{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);
                 }
 
                 if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
+{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }

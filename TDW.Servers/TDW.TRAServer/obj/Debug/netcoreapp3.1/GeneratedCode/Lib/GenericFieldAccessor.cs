@@ -48,20 +48,22 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRACredential_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRACredential_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRACredential_Label = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRACredential_EnvelopeLabel = new Dictionary<string, uint>()
         {
             
             {"credtype" , 0}
@@ -102,7 +104,7 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRATimestampClaims = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRATimestamp_Claims = new Dictionary<string, uint>()
         {
             
             {"ticks" , 0}
@@ -113,20 +115,22 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRATimestampContent = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRATimestamp_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRATimestampEnvelope = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRATimestamp_Envelope = new Dictionary<string, uint>()
         {
             
             {"content" , 0}
@@ -135,7 +139,7 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRAGeoLocationClaims = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRAGeoLocation_Claims = new Dictionary<string, uint>()
         {
             
             {"latitude" , 0}
@@ -144,20 +148,22 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRAGeoLocationContent = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRAGeoLocation_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRAGeoLocationEnvelope = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRAGeoLocation_Envelope = new Dictionary<string, uint>()
         {
             
             {"content" , 0}
@@ -166,7 +172,7 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRAPostalAddressClaims = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRAPostalAddress_Claims = new Dictionary<string, uint>()
         {
             
             {"streetAddress" , 0}
@@ -183,20 +189,22 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRAPostalAddressContent = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRAPostalAddress_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_TRAPostalAddressEnvelope = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_TRAPostalAddress_Envelope = new Dictionary<string, uint>()
         {
             
             {"content" , 0}
@@ -533,16 +541,18 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_Cac_Item_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_Cac_Item_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
@@ -564,16 +574,18 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_Cac_ExternalReference_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_Cac_ExternalReference_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
@@ -609,16 +621,18 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_Cac_Address_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_Cac_Address_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
@@ -642,16 +656,18 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_Cac_PartyLegalEntity_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_Cac_PartyLegalEntity_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
@@ -675,16 +691,18 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_Cac_Contact_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_Cac_Contact_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
@@ -710,16 +728,18 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_Cac_Person_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_Cac_Person_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
@@ -747,16 +767,18 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_Cac_PaymentMeans_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_Cac_PaymentMeans_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
@@ -778,16 +800,18 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_Cac_PayeeFinancialAccount_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_Cac_PayeeFinancialAccount_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
@@ -821,16 +845,18 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_Cac_Party_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_Cac_Party_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
@@ -892,16 +918,18 @@ namespace TDW.TRAServer
             
         };
         
-        static Dictionary<string, uint> FieldLookupTable_UBL21_Invoice2_Content = new Dictionary<string, uint>()
+        static Dictionary<string, uint> FieldLookupTable_UBL21_Invoice2_EnvelopeContent = new Dictionary<string, uint>()
         {
             
             {"udid" , 0}
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"encryptedclaims" , 3}
+            {"claims" , 3}
+            ,
+            {"encryptedclaims" , 4}
             
         };
         
@@ -921,17 +949,19 @@ namespace TDW.TRAServer
             ,
             {"context" , 1}
             ,
-            {"claims" , 2}
+            {"credentialsubjectudid" , 2}
             ,
-            {"trustlevel" , 3}
+            {"claims" , 3}
             ,
-            {"encryptionFlag" , 4}
+            {"trustlevel" , 4}
             ,
-            {"comments" , 5}
+            {"encryptionFlag" , 5}
             ,
-            {"keypairsalt" , 6}
+            {"comments" , 6}
             ,
-            {"mvcaudid" , 7}
+            {"keypairsalt" , 7}
+            ,
+            {"mvcaudid" , 8}
             
         };
         
@@ -1265,19 +1295,19 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRACredential_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRACredential_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredential_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -1288,7 +1318,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredential_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1317,6 +1347,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         List<TRAClaim> conversion_result = TypeConverter<T>.ConvertTo_List_TRAClaim(value);
                         
             {
@@ -1329,7 +1373,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -1345,19 +1389,19 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRACredential_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRACredential_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredential_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -1366,7 +1410,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredential_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1380,10 +1424,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_List_TRAClaim(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_List_TRAClaim(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -1392,14 +1440,14 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRACredential_Label_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRACredential_EnvelopeLabel_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredential_Label.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_EnvelopeLabel.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1411,7 +1459,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredential_Label.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_EnvelopeLabel.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1501,14 +1549,14 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRACredential_Label_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRACredential_EnvelopeLabel_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRACredential_Label.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRACredential_EnvelopeLabel.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1519,7 +1567,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRACredential_Label.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRACredential_EnvelopeLabel.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1591,7 +1639,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        TRACredential_Content conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Content(value);
+                        TRACredential_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -1602,7 +1650,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -1643,11 +1691,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -1781,14 +1829,14 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRATimestampClaims_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRATimestamp_Claims_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRATimestampClaims.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRATimestamp_Claims.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1800,7 +1848,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRATimestampClaims.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRATimestamp_Claims.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1840,14 +1888,14 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRATimestampClaims_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRATimestamp_Claims_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRATimestampClaims.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRATimestamp_Claims.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -1858,7 +1906,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRATimestampClaims.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRATimestamp_Claims.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1880,23 +1928,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRATimestampContent_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRATimestamp_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRATimestampContent.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRATimestamp_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -1907,7 +1955,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRATimestampContent.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRATimestamp_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -1936,7 +1984,21 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        TRATimestampClaims? conversion_result = TypeConverter<T>.ConvertTo_TRATimestampClaims_nullable(value);
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRATimestamp_Claims? conversion_result = TypeConverter<T>.ConvertTo_TRATimestamp_Claims_nullable(value);
                         
             {
                 if (conversion_result.HasValue)
@@ -1948,7 +2010,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -1964,22 +2026,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRATimestampContent_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRATimestamp_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRATimestampContent.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRATimestamp_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -1988,7 +2050,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRATimestampContent.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRATimestamp_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -2002,10 +2064,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TRATimestampClaims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_TRATimestamp_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -2014,14 +2080,14 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRATimestampEnvelope_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRATimestamp_Envelope_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRATimestampEnvelope.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRATimestamp_Envelope.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -2041,14 +2107,14 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRATimestampEnvelope.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRATimestamp_Envelope.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
                 
                 case 0:
                     {
-                        TRATimestampContent conversion_result = TypeConverter<T>.ConvertTo_TRATimestampContent(value);
+                        TRATimestamp_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_TRATimestamp_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -2059,7 +2125,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -2070,14 +2136,14 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRATimestampEnvelope_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRATimestamp_Envelope_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRATimestampEnvelope.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRATimestamp_Envelope.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -2094,17 +2160,17 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRATimestampEnvelope.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRATimestamp_Envelope.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TRATimestampContent(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_TRATimestamp_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -2112,14 +2178,14 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRAGeoLocationClaims_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRAGeoLocation_Claims_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAGeoLocationClaims.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAGeoLocation_Claims.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -2131,7 +2197,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAGeoLocationClaims.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAGeoLocation_Claims.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -2160,14 +2226,14 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRAGeoLocationClaims_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRAGeoLocation_Claims_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAGeoLocationClaims.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAGeoLocation_Claims.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -2178,7 +2244,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAGeoLocationClaims.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAGeoLocation_Claims.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -2196,23 +2262,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRAGeoLocationContent_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRAGeoLocation_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAGeoLocationContent.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAGeoLocation_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -2223,7 +2289,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAGeoLocationContent.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAGeoLocation_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -2252,7 +2318,21 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        TRAGeoLocationClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAGeoLocationClaims_nullable(value);
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAGeoLocation_Claims? conversion_result = TypeConverter<T>.ConvertTo_TRAGeoLocation_Claims_nullable(value);
                         
             {
                 if (conversion_result.HasValue)
@@ -2264,7 +2344,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -2280,22 +2360,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRAGeoLocationContent_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRAGeoLocation_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAGeoLocationContent.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAGeoLocation_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -2304,7 +2384,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAGeoLocationContent.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAGeoLocation_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -2318,10 +2398,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TRAGeoLocationClaims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAGeoLocation_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -2330,14 +2414,14 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRAGeoLocationEnvelope_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRAGeoLocation_Envelope_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAGeoLocationEnvelope.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAGeoLocation_Envelope.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -2357,14 +2441,14 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAGeoLocationEnvelope.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAGeoLocation_Envelope.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
                 
                 case 0:
                     {
-                        TRAGeoLocationContent? conversion_result = TypeConverter<T>.ConvertTo_TRAGeoLocationContent_nullable(value);
+                        TRAGeoLocation_EnvelopeContent? conversion_result = TypeConverter<T>.ConvertTo_TRAGeoLocation_EnvelopeContent_nullable(value);
                         
             {
                 if (conversion_result.HasValue)
@@ -2378,7 +2462,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -2389,14 +2473,14 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRAGeoLocationEnvelope_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRAGeoLocation_Envelope_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAGeoLocationEnvelope.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAGeoLocation_Envelope.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -2413,17 +2497,17 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAGeoLocationEnvelope.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAGeoLocation_Envelope.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TRAGeoLocationContent_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_TRAGeoLocation_EnvelopeContent_nullable(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -2431,14 +2515,14 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRAPostalAddressClaims_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRAPostalAddress_Claims_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAPostalAddressClaims.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAPostalAddress_Claims.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -2450,7 +2534,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAPostalAddressClaims.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAPostalAddress_Claims.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -2523,14 +2607,14 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRAPostalAddressClaims_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRAPostalAddress_Claims_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAPostalAddressClaims.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAPostalAddress_Claims.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -2541,7 +2625,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAPostalAddressClaims.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAPostalAddress_Claims.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -2575,23 +2659,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRAPostalAddressContent_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRAPostalAddress_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAPostalAddressContent.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAPostalAddress_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -2602,7 +2686,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAPostalAddressContent.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAPostalAddress_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -2631,7 +2715,21 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
-                        TRAPostalAddressClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAPostalAddressClaims_nullable(value);
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
+                        TRAPostalAddress_Claims? conversion_result = TypeConverter<T>.ConvertTo_TRAPostalAddress_Claims_nullable(value);
                         
             {
                 if (conversion_result.HasValue)
@@ -2643,7 +2741,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -2659,22 +2757,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRAPostalAddressContent_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRAPostalAddress_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAPostalAddressContent.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAPostalAddress_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -2683,7 +2781,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAPostalAddressContent.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAPostalAddress_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -2697,10 +2795,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_TRAPostalAddressClaims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_TRAPostalAddress_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -2709,14 +2811,14 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(TRAPostalAddressEnvelope_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(TRAPostalAddress_Envelope_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAPostalAddressEnvelope.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAPostalAddress_Envelope.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -2736,14 +2838,14 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAPostalAddressEnvelope.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAPostalAddress_Envelope.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
                 
                 case 0:
                     {
-                        TRAPostalAddressContent? conversion_result = TypeConverter<T>.ConvertTo_TRAPostalAddressContent_nullable(value);
+                        TRAPostalAddress_EnvelopeContent? conversion_result = TypeConverter<T>.ConvertTo_TRAPostalAddress_EnvelopeContent_nullable(value);
                         
             {
                 if (conversion_result.HasValue)
@@ -2757,7 +2859,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -2768,14 +2870,14 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(TRAPostalAddressEnvelope_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(TRAPostalAddress_Envelope_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_TRAPostalAddressEnvelope.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_TRAPostalAddress_Envelope.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
@@ -2792,17 +2894,17 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_TRAPostalAddressEnvelope.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_TRAPostalAddress_Envelope.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_TRAPostalAddressContent_nullable(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_TRAPostalAddress_EnvelopeContent_nullable(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -6110,23 +6212,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(Cac_Item_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(Cac_Item_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_Item_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_Item_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -6137,7 +6239,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_Item_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_Item_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -6166,6 +6268,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         Cac_Item_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_Item_Claims_nullable(value);
                         
             {
@@ -6178,7 +6294,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -6194,22 +6310,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(Cac_Item_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(Cac_Item_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_Item_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_Item_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -6218,7 +6334,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_Item_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_Item_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -6232,10 +6348,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_Item_Claims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_Cac_Item_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -6278,7 +6398,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_Item_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_Item_Content(value);
+                        Cac_Item_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_Cac_Item_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -6289,7 +6409,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -6330,11 +6450,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_Item_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_Item_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -6439,23 +6559,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(Cac_ExternalReference_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(Cac_ExternalReference_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_ExternalReference_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_ExternalReference_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -6466,7 +6586,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_ExternalReference_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_ExternalReference_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -6495,6 +6615,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         Cac_ExternalReference_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_ExternalReference_Claims_nullable(value);
                         
             {
@@ -6507,7 +6641,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -6523,22 +6657,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(Cac_ExternalReference_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(Cac_ExternalReference_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_ExternalReference_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_ExternalReference_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -6547,7 +6681,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_ExternalReference_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_ExternalReference_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -6561,10 +6695,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_ExternalReference_Claims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_Cac_ExternalReference_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -6607,7 +6745,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_ExternalReference_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_ExternalReference_Content(value);
+                        Cac_ExternalReference_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_Cac_ExternalReference_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -6618,7 +6756,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -6659,11 +6797,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_ExternalReference_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_ExternalReference_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -6867,23 +7005,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(Cac_Address_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(Cac_Address_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_Address_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_Address_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -6894,7 +7032,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_Address_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_Address_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -6923,6 +7061,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         Cac_Address_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_Address_Claims_nullable(value);
                         
             {
@@ -6935,7 +7087,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -6951,22 +7103,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(Cac_Address_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(Cac_Address_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_Address_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_Address_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -6975,7 +7127,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_Address_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_Address_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -6989,10 +7141,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_Address_Claims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_Cac_Address_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -7035,7 +7191,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_Address_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_Address_Content(value);
+                        Cac_Address_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_Cac_Address_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -7046,7 +7202,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -7087,11 +7243,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_Address_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_Address_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -7205,23 +7361,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(Cac_PartyLegalEntity_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(Cac_PartyLegalEntity_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_PartyLegalEntity_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_PartyLegalEntity_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -7232,7 +7388,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_PartyLegalEntity_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_PartyLegalEntity_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -7261,6 +7417,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         Cac_PartyLegalEntity_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_PartyLegalEntity_Claims_nullable(value);
                         
             {
@@ -7273,7 +7443,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -7289,22 +7459,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(Cac_PartyLegalEntity_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(Cac_PartyLegalEntity_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_PartyLegalEntity_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_PartyLegalEntity_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -7313,7 +7483,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_PartyLegalEntity_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_PartyLegalEntity_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -7327,10 +7497,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_PartyLegalEntity_Claims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_Cac_PartyLegalEntity_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -7373,7 +7547,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_PartyLegalEntity_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_PartyLegalEntity_Content(value);
+                        Cac_PartyLegalEntity_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_Cac_PartyLegalEntity_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -7384,7 +7558,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -7425,11 +7599,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_PartyLegalEntity_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_PartyLegalEntity_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -7536,23 +7710,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(Cac_Contact_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(Cac_Contact_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_Contact_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_Contact_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -7563,7 +7737,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_Contact_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_Contact_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -7592,6 +7766,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         Cac_Contact_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_Contact_Claims_nullable(value);
                         
             {
@@ -7604,7 +7792,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -7620,22 +7808,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(Cac_Contact_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(Cac_Contact_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_Contact_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_Contact_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -7644,7 +7832,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_Contact_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_Contact_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -7658,10 +7846,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_Contact_Claims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_Cac_Contact_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -7704,7 +7896,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_Contact_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_Contact_Content(value);
+                        Cac_Contact_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_Cac_Contact_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -7715,7 +7907,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -7756,11 +7948,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_Contact_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_Contact_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -7882,23 +8074,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(Cac_Person_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(Cac_Person_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_Person_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_Person_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -7909,7 +8101,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_Person_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_Person_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -7938,6 +8130,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         Cac_Person_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_Person_Claims_nullable(value);
                         
             {
@@ -7950,7 +8156,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -7966,22 +8172,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(Cac_Person_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(Cac_Person_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_Person_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_Person_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -7990,7 +8196,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_Person_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_Person_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -8004,10 +8210,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_Person_Claims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_Cac_Person_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -8050,7 +8260,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_Person_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_Person_Content(value);
+                        Cac_Person_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_Cac_Person_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -8061,7 +8271,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -8102,11 +8312,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_Person_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_Person_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -8250,23 +8460,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(Cac_PaymentMeans_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(Cac_PaymentMeans_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_PaymentMeans_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_PaymentMeans_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -8277,7 +8487,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_PaymentMeans_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_PaymentMeans_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -8306,6 +8516,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         Cac_PaymentMeans_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_PaymentMeans_Claims_nullable(value);
                         
             {
@@ -8318,7 +8542,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -8334,22 +8558,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(Cac_PaymentMeans_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(Cac_PaymentMeans_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_PaymentMeans_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_PaymentMeans_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -8358,7 +8582,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_PaymentMeans_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_PaymentMeans_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -8372,10 +8596,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_PaymentMeans_Claims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_Cac_PaymentMeans_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -8418,7 +8646,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_PaymentMeans_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_PaymentMeans_Content(value);
+                        Cac_PaymentMeans_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_Cac_PaymentMeans_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -8429,7 +8657,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -8470,11 +8698,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_PaymentMeans_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_PaymentMeans_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -8573,23 +8801,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(Cac_PayeeFinancialAccount_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(Cac_PayeeFinancialAccount_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_PayeeFinancialAccount_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_PayeeFinancialAccount_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -8600,7 +8828,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_PayeeFinancialAccount_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_PayeeFinancialAccount_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -8629,6 +8857,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         Cac_PayeeFinancialAccount_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_PayeeFinancialAccount_Claims_nullable(value);
                         
             {
@@ -8641,7 +8883,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -8657,22 +8899,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(Cac_PayeeFinancialAccount_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(Cac_PayeeFinancialAccount_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_PayeeFinancialAccount_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_PayeeFinancialAccount_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -8681,7 +8923,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_PayeeFinancialAccount_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_PayeeFinancialAccount_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -8695,10 +8937,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_PayeeFinancialAccount_Claims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_Cac_PayeeFinancialAccount_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -8741,7 +8987,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_PayeeFinancialAccount_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_PayeeFinancialAccount_Content(value);
+                        Cac_PayeeFinancialAccount_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_Cac_PayeeFinancialAccount_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -8752,7 +8998,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -8793,11 +9039,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_PayeeFinancialAccount_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_PayeeFinancialAccount_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -9007,23 +9253,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(Cac_Party_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(Cac_Party_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_Party_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_Party_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -9034,7 +9280,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_Party_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_Party_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -9063,6 +9309,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         Cac_Party_Claims? conversion_result = TypeConverter<T>.ConvertTo_Cac_Party_Claims_nullable(value);
                         
             {
@@ -9075,7 +9335,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -9091,22 +9351,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(Cac_Party_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(Cac_Party_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_Cac_Party_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_Cac_Party_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -9115,7 +9375,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_Cac_Party_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_Cac_Party_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -9129,10 +9389,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_Cac_Party_Claims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_Cac_Party_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -9175,7 +9439,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        Cac_Party_Content conversion_result = TypeConverter<T>.ConvertTo_Cac_Party_Content(value);
+                        Cac_Party_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_Cac_Party_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -9186,7 +9450,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -9227,11 +9491,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_Cac_Party_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_Cac_Party_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -9714,23 +9978,23 @@ namespace TDW.TRAServer
             throw new Exception("Internal error T5008");
         }
         
-        internal static void SetField<T>(UBL21_Invoice2_Content_Accessor accessor, string fieldName, int field_name_idx, T value)
+        internal static void SetField<T>(UBL21_Invoice2_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx, T value)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_UBL21_Invoice2_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_UBL21_Invoice2_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         GenericFieldAccessor.SetField(accessor.claims, fieldName, field_divider_idx + 1, value);
                         break;
                     
-                    case 3:
+                    case 4:
                         GenericFieldAccessor.SetField(accessor.encryptedclaims, fieldName, field_divider_idx + 1, value);
                         break;
                     
@@ -9741,7 +10005,7 @@ namespace TDW.TRAServer
                 return;
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_UBL21_Invoice2_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_UBL21_Invoice2_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -9770,6 +10034,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         UBL21_Invoice2_Claims? conversion_result = TypeConverter<T>.ConvertTo_UBL21_Invoice2_Claims_nullable(value);
                         
             {
@@ -9782,7 +10060,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRAEncryptedClaims? conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptedClaims_nullable(value);
                         
@@ -9798,22 +10076,22 @@ namespace TDW.TRAServer
                 
             }
         }
-        internal static T GetField<T>(UBL21_Invoice2_Content_Accessor accessor, string fieldName, int field_name_idx)
+        internal static T GetField<T>(UBL21_Invoice2_EnvelopeContent_Accessor accessor, string fieldName, int field_name_idx)
         {
             uint member_id;
             int field_divider_idx = fieldName.IndexOf('.', field_name_idx);
             if (-1 != field_divider_idx)
             {
                 string member_name_string = fieldName.Substring(field_name_idx, field_divider_idx - field_name_idx);
-                if (!FieldLookupTable_UBL21_Invoice2_Content.TryGetValue(member_name_string, out member_id))
+                if (!FieldLookupTable_UBL21_Invoice2_EnvelopeContent.TryGetValue(member_name_string, out member_id))
                     Throw.undefined_field();
                 switch (member_id)
                 {
                     
-                    case 2:
+                    case 3:
                         return GenericFieldAccessor.GetField<T>(accessor.claims, fieldName, field_divider_idx + 1);
                     
-                    case 3:
+                    case 4:
                         return GenericFieldAccessor.GetField<T>(accessor.encryptedclaims, fieldName, field_divider_idx + 1);
                     
                     default:
@@ -9822,7 +10100,7 @@ namespace TDW.TRAServer
                 }
             }
             fieldName = fieldName.Substring(field_name_idx);
-            if (!FieldLookupTable_UBL21_Invoice2_Content.TryGetValue(fieldName, out member_id))
+            if (!FieldLookupTable_UBL21_Invoice2_EnvelopeContent.TryGetValue(fieldName, out member_id))
                 Throw.undefined_field();
             switch (member_id)
             {
@@ -9836,10 +10114,14 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_UBL21_Invoice2_Claims_nullable(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
+                    return TypeConverter<T>.ConvertFrom_UBL21_Invoice2_Claims_nullable(accessor.claims);
+                    break;
+                
+                case 4:
                     return TypeConverter<T>.ConvertFrom_TRAEncryptedClaims_nullable(accessor.encryptedclaims);
                     break;
                 
@@ -9882,7 +10164,7 @@ namespace TDW.TRAServer
                 
                 case 0:
                     {
-                        UBL21_Invoice2_Content conversion_result = TypeConverter<T>.ConvertTo_UBL21_Invoice2_Content(value);
+                        UBL21_Invoice2_EnvelopeContent conversion_result = TypeConverter<T>.ConvertTo_UBL21_Invoice2_EnvelopeContent(value);
                         
             {
                 accessor.content = conversion_result;
@@ -9893,7 +10175,7 @@ namespace TDW.TRAServer
                 
                 case 1:
                     {
-                        TRACredential_Label conversion_result = TypeConverter<T>.ConvertTo_TRACredential_Label(value);
+                        TRACredential_EnvelopeLabel conversion_result = TypeConverter<T>.ConvertTo_TRACredential_EnvelopeLabel(value);
                         
             {
                 accessor.label = conversion_result;
@@ -9934,11 +10216,11 @@ namespace TDW.TRAServer
             {
                 
                 case 0:
-                    return TypeConverter<T>.ConvertFrom_UBL21_Invoice2_Content(accessor.content);
+                    return TypeConverter<T>.ConvertFrom_UBL21_Invoice2_EnvelopeContent(accessor.content);
                     break;
                 
                 case 1:
-                    return TypeConverter<T>.ConvertFrom_TRACredential_Label(accessor.label);
+                    return TypeConverter<T>.ConvertFrom_TRACredential_EnvelopeLabel(accessor.label);
                     break;
                 
             }
@@ -9994,6 +10276,20 @@ namespace TDW.TRAServer
                 
                 case 2:
                     {
+                        string conversion_result = TypeConverter<T>.ConvertTo_string(value);
+                        
+            {
+                if (conversion_result != default(string))
+                    accessor.credentialsubjectudid = conversion_result;
+                else
+                    accessor.Remove_credentialsubjectudid();
+            }
+            
+                        break;
+                    }
+                
+                case 3:
+                    {
                         List<TRAClaim> conversion_result = TypeConverter<T>.ConvertTo_List_TRAClaim(value);
                         
             {
@@ -10003,7 +10299,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 3:
+                case 4:
                     {
                         TRATrustLevel conversion_result = TypeConverter<T>.ConvertTo_TRATrustLevel(value);
                         
@@ -10014,7 +10310,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 4:
+                case 5:
                     {
                         TRAEncryptionFlag conversion_result = TypeConverter<T>.ConvertTo_TRAEncryptionFlag(value);
                         
@@ -10025,7 +10321,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 5:
+                case 6:
                     {
                         List<string> conversion_result = TypeConverter<T>.ConvertTo_List_string(value);
                         
@@ -10039,7 +10335,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 6:
+                case 7:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -10050,7 +10346,7 @@ namespace TDW.TRAServer
                         break;
                     }
                 
-                case 7:
+                case 8:
                     {
                         string conversion_result = TypeConverter<T>.ConvertTo_string(value);
                         
@@ -10095,26 +10391,30 @@ namespace TDW.TRAServer
                     break;
                 
                 case 2:
-                    return TypeConverter<T>.ConvertFrom_List_TRAClaim(accessor.claims);
+                    return TypeConverter<T>.ConvertFrom_string(accessor.credentialsubjectudid);
                     break;
                 
                 case 3:
-                    return TypeConverter<T>.ConvertFrom_TRATrustLevel(accessor.trustlevel);
+                    return TypeConverter<T>.ConvertFrom_List_TRAClaim(accessor.claims);
                     break;
                 
                 case 4:
-                    return TypeConverter<T>.ConvertFrom_TRAEncryptionFlag(accessor.encryptionFlag);
+                    return TypeConverter<T>.ConvertFrom_TRATrustLevel(accessor.trustlevel);
                     break;
                 
                 case 5:
-                    return TypeConverter<T>.ConvertFrom_List_string(accessor.comments);
+                    return TypeConverter<T>.ConvertFrom_TRAEncryptionFlag(accessor.encryptionFlag);
                     break;
                 
                 case 6:
-                    return TypeConverter<T>.ConvertFrom_string(accessor.keypairsalt);
+                    return TypeConverter<T>.ConvertFrom_List_string(accessor.comments);
                     break;
                 
                 case 7:
+                    return TypeConverter<T>.ConvertFrom_string(accessor.keypairsalt);
+                    break;
+                
+                case 8:
                     return TypeConverter<T>.ConvertFrom_string(accessor.mvcaudid);
                     break;
                 

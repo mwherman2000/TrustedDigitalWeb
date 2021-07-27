@@ -159,15 +159,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'Cac_Address_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_Cac_Address_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Address_Content.");
-        }
-        internal static void incompatible_with_Cac_Address_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'Cac_Address_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_Cac_Address_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Address_Envelope.");
@@ -175,6 +166,15 @@ namespace TDW.TRAServer
         internal static void incompatible_with_Cac_Address_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'Cac_Address_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_Cac_Address_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Address_EnvelopeContent.");
+        }
+        internal static void incompatible_with_Cac_Address_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'Cac_Address_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_Cac_AllowanceCharge(string value)
@@ -213,15 +213,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'Cac_Contact_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_Cac_Contact_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Contact_Content.");
-        }
-        internal static void incompatible_with_Cac_Contact_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'Cac_Contact_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_Cac_Contact_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Contact_Envelope.");
@@ -229,6 +220,15 @@ namespace TDW.TRAServer
         internal static void incompatible_with_Cac_Contact_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'Cac_Contact_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_Cac_Contact_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Contact_EnvelopeContent.");
+        }
+        internal static void incompatible_with_Cac_Contact_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'Cac_Contact_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_Cac_Country(string value)
@@ -276,15 +276,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'Cac_ExternalReference_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_Cac_ExternalReference_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_ExternalReference_Content.");
-        }
-        internal static void incompatible_with_Cac_ExternalReference_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'Cac_ExternalReference_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_Cac_ExternalReference_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into Cac_ExternalReference_Envelope.");
@@ -292,6 +283,15 @@ namespace TDW.TRAServer
         internal static void incompatible_with_Cac_ExternalReference_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'Cac_ExternalReference_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_Cac_ExternalReference_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_ExternalReference_EnvelopeContent.");
+        }
+        internal static void incompatible_with_Cac_ExternalReference_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'Cac_ExternalReference_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_Cac_FinancialInstitution(string value)
@@ -330,15 +330,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'Cac_Item_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_Cac_Item_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Item_Content.");
-        }
-        internal static void incompatible_with_Cac_Item_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'Cac_Item_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_Cac_Item_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Item_Envelope.");
@@ -346,6 +337,15 @@ namespace TDW.TRAServer
         internal static void incompatible_with_Cac_Item_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'Cac_Item_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_Cac_Item_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Item_EnvelopeContent.");
+        }
+        internal static void incompatible_with_Cac_Item_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'Cac_Item_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_Cac_LegalMonetaryTotal(string value)
@@ -384,15 +384,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'Cac_PartyLegalEntity_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_Cac_PartyLegalEntity_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_PartyLegalEntity_Content.");
-        }
-        internal static void incompatible_with_Cac_PartyLegalEntity_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'Cac_PartyLegalEntity_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_Cac_PartyLegalEntity_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into Cac_PartyLegalEntity_Envelope.");
@@ -400,6 +391,15 @@ namespace TDW.TRAServer
         internal static void incompatible_with_Cac_PartyLegalEntity_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'Cac_PartyLegalEntity_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_Cac_PartyLegalEntity_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_PartyLegalEntity_EnvelopeContent.");
+        }
+        internal static void incompatible_with_Cac_PartyLegalEntity_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'Cac_PartyLegalEntity_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_Cac_PartyName(string value)
@@ -429,15 +429,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'Cac_Party_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_Cac_Party_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Party_Content.");
-        }
-        internal static void incompatible_with_Cac_Party_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'Cac_Party_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_Cac_Party_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Party_Envelope.");
@@ -445,6 +436,15 @@ namespace TDW.TRAServer
         internal static void incompatible_with_Cac_Party_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'Cac_Party_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_Cac_Party_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Party_EnvelopeContent.");
+        }
+        internal static void incompatible_with_Cac_Party_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'Cac_Party_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_Cac_PayeeFinancialAccount_Claims(string value)
@@ -456,15 +456,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'Cac_PayeeFinancialAccount_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_Cac_PayeeFinancialAccount_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_PayeeFinancialAccount_Content.");
-        }
-        internal static void incompatible_with_Cac_PayeeFinancialAccount_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'Cac_PayeeFinancialAccount_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_Cac_PayeeFinancialAccount_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into Cac_PayeeFinancialAccount_Envelope.");
@@ -472,6 +463,15 @@ namespace TDW.TRAServer
         internal static void incompatible_with_Cac_PayeeFinancialAccount_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'Cac_PayeeFinancialAccount_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_Cac_PayeeFinancialAccount_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_PayeeFinancialAccount_EnvelopeContent.");
+        }
+        internal static void incompatible_with_Cac_PayeeFinancialAccount_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'Cac_PayeeFinancialAccount_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_Cac_PayeeParty(string value)
@@ -492,15 +492,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'Cac_PaymentMeans_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_Cac_PaymentMeans_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_PaymentMeans_Content.");
-        }
-        internal static void incompatible_with_Cac_PaymentMeans_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'Cac_PaymentMeans_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_Cac_PaymentMeans_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into Cac_PaymentMeans_Envelope.");
@@ -508,6 +499,15 @@ namespace TDW.TRAServer
         internal static void incompatible_with_Cac_PaymentMeans_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'Cac_PaymentMeans_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_Cac_PaymentMeans_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_PaymentMeans_EnvelopeContent.");
+        }
+        internal static void incompatible_with_Cac_PaymentMeans_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'Cac_PaymentMeans_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_Cac_PaymentTerms(string value)
@@ -528,15 +528,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'Cac_Person_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_Cac_Person_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Person_Content.");
-        }
-        internal static void incompatible_with_Cac_Person_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'Cac_Person_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_Cac_Person_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Person_Envelope.");
@@ -544,6 +535,15 @@ namespace TDW.TRAServer
         internal static void incompatible_with_Cac_Person_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'Cac_Person_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_Cac_Person_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into Cac_Person_EnvelopeContent.");
+        }
+        internal static void incompatible_with_Cac_Person_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'Cac_Person_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_Cac_Price(string value)
@@ -681,15 +681,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'TRAClaim' not compatible with the target field.");
         }
         
-        internal static void parse_TRACredential_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredential_Content.");
-        }
-        internal static void incompatible_with_TRACredential_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRACredential_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_TRACredential_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into TRACredential_Envelope.");
@@ -697,6 +688,24 @@ namespace TDW.TRAServer
         internal static void incompatible_with_TRACredential_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'TRACredential_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredential_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredential_EnvelopeContent.");
+        }
+        internal static void incompatible_with_TRACredential_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredential_EnvelopeContent' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRACredential_EnvelopeLabel(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredential_EnvelopeLabel.");
+        }
+        internal static void incompatible_with_TRACredential_EnvelopeLabel()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRACredential_EnvelopeLabel' not compatible with the target field.");
         }
         
         internal static void parse_TRACredential_EnvelopeSeal(string value)
@@ -708,15 +717,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'TRACredential_EnvelopeSeal' not compatible with the target field.");
         }
         
-        internal static void parse_TRACredential_Label(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRACredential_Label.");
-        }
-        internal static void incompatible_with_TRACredential_Label()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRACredential_Label' not compatible with the target field.");
-        }
-        
         internal static void parse_TRAEncryptedClaims(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into TRAEncryptedClaims.");
@@ -726,31 +726,31 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'TRAEncryptedClaims' not compatible with the target field.");
         }
         
-        internal static void parse_TRAGeoLocationClaims(string value)
+        internal static void parse_TRAGeoLocation_Claims(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocationClaims.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocation_Claims.");
         }
-        internal static void incompatible_with_TRAGeoLocationClaims()
+        internal static void incompatible_with_TRAGeoLocation_Claims()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocationClaims' not compatible with the target field.");
-        }
-        
-        internal static void parse_TRAGeoLocationContent(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocationContent.");
-        }
-        internal static void incompatible_with_TRAGeoLocationContent()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocationContent' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocation_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_TRAGeoLocationEnvelope(string value)
+        internal static void parse_TRAGeoLocation_Envelope(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocationEnvelope.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocation_Envelope.");
         }
-        internal static void incompatible_with_TRAGeoLocationEnvelope()
+        internal static void incompatible_with_TRAGeoLocation_Envelope()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocationEnvelope' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocation_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAGeoLocation_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocation_EnvelopeContent.");
+        }
+        internal static void incompatible_with_TRAGeoLocation_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocation_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_TRAKeyValuePair(string value)
@@ -762,58 +762,58 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'TRAKeyValuePair' not compatible with the target field.");
         }
         
-        internal static void parse_TRAPostalAddressClaims(string value)
+        internal static void parse_TRAPostalAddress_Claims(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddressClaims.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddress_Claims.");
         }
-        internal static void incompatible_with_TRAPostalAddressClaims()
+        internal static void incompatible_with_TRAPostalAddress_Claims()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddressClaims' not compatible with the target field.");
-        }
-        
-        internal static void parse_TRAPostalAddressContent(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddressContent.");
-        }
-        internal static void incompatible_with_TRAPostalAddressContent()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddressContent' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddress_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_TRAPostalAddressEnvelope(string value)
+        internal static void parse_TRAPostalAddress_Envelope(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddressEnvelope.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddress_Envelope.");
         }
-        internal static void incompatible_with_TRAPostalAddressEnvelope()
+        internal static void incompatible_with_TRAPostalAddress_Envelope()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddressEnvelope' not compatible with the target field.");
-        }
-        
-        internal static void parse_TRATimestampClaims(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestampClaims.");
-        }
-        internal static void incompatible_with_TRATimestampClaims()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRATimestampClaims' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddress_Envelope' not compatible with the target field.");
         }
         
-        internal static void parse_TRATimestampContent(string value)
+        internal static void parse_TRAPostalAddress_EnvelopeContent(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestampContent.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddress_EnvelopeContent.");
         }
-        internal static void incompatible_with_TRATimestampContent()
+        internal static void incompatible_with_TRAPostalAddress_EnvelopeContent()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRATimestampContent' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddress_EnvelopeContent' not compatible with the target field.");
         }
         
-        internal static void parse_TRATimestampEnvelope(string value)
+        internal static void parse_TRATimestamp_Claims(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestampEnvelope.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestamp_Claims.");
         }
-        internal static void incompatible_with_TRATimestampEnvelope()
+        internal static void incompatible_with_TRATimestamp_Claims()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRATimestampEnvelope' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRATimestamp_Claims' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRATimestamp_Envelope(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestamp_Envelope.");
+        }
+        internal static void incompatible_with_TRATimestamp_Envelope()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRATimestamp_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRATimestamp_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestamp_EnvelopeContent.");
+        }
+        internal static void incompatible_with_TRATimestamp_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRATimestamp_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_UBL21_Invoice2_Claims(string value)
@@ -825,15 +825,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'UBL21_Invoice2_Claims' not compatible with the target field.");
         }
         
-        internal static void parse_UBL21_Invoice2_Content(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into UBL21_Invoice2_Content.");
-        }
-        internal static void incompatible_with_UBL21_Invoice2_Content()
-        {
-            throw new DataTypeIncompatibleException("Data type 'UBL21_Invoice2_Content' not compatible with the target field.");
-        }
-        
         internal static void parse_UBL21_Invoice2_Envelope(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into UBL21_Invoice2_Envelope.");
@@ -841,6 +832,15 @@ namespace TDW.TRAServer
         internal static void incompatible_with_UBL21_Invoice2_Envelope()
         {
             throw new DataTypeIncompatibleException("Data type 'UBL21_Invoice2_Envelope' not compatible with the target field.");
+        }
+        
+        internal static void parse_UBL21_Invoice2_EnvelopeContent(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into UBL21_Invoice2_EnvelopeContent.");
+        }
+        internal static void incompatible_with_UBL21_Invoice2_EnvelopeContent()
+        {
+            throw new DataTypeIncompatibleException("Data type 'UBL21_Invoice2_EnvelopeContent' not compatible with the target field.");
         }
         
         internal static void parse_ISO639_1_LanguageCodes(string value)
@@ -996,49 +996,49 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'TRAEncryptedClaims?' not compatible with the target field.");
         }
         
-        internal static void parse_TRAGeoLocationClaims_nullable(string value)
+        internal static void parse_TRAGeoLocation_Claims_nullable(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocationClaims?.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocation_Claims?.");
         }
-        internal static void incompatible_with_TRAGeoLocationClaims_nullable()
+        internal static void incompatible_with_TRAGeoLocation_Claims_nullable()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocationClaims?' not compatible with the target field.");
-        }
-        
-        internal static void parse_TRAGeoLocationContent_nullable(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocationContent?.");
-        }
-        internal static void incompatible_with_TRAGeoLocationContent_nullable()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocationContent?' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocation_Claims?' not compatible with the target field.");
         }
         
-        internal static void parse_TRAPostalAddressClaims_nullable(string value)
+        internal static void parse_TRAGeoLocation_EnvelopeContent_nullable(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddressClaims?.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAGeoLocation_EnvelopeContent?.");
         }
-        internal static void incompatible_with_TRAPostalAddressClaims_nullable()
+        internal static void incompatible_with_TRAGeoLocation_EnvelopeContent_nullable()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddressClaims?' not compatible with the target field.");
-        }
-        
-        internal static void parse_TRAPostalAddressContent_nullable(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddressContent?.");
-        }
-        internal static void incompatible_with_TRAPostalAddressContent_nullable()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddressContent?' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRAGeoLocation_EnvelopeContent?' not compatible with the target field.");
         }
         
-        internal static void parse_TRATimestampClaims_nullable(string value)
+        internal static void parse_TRAPostalAddress_Claims_nullable(string value)
         {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestampClaims?.");
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddress_Claims?.");
         }
-        internal static void incompatible_with_TRATimestampClaims_nullable()
+        internal static void incompatible_with_TRAPostalAddress_Claims_nullable()
         {
-            throw new DataTypeIncompatibleException("Data type 'TRATimestampClaims?' not compatible with the target field.");
+            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddress_Claims?' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRAPostalAddress_EnvelopeContent_nullable(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddress_EnvelopeContent?.");
+        }
+        internal static void incompatible_with_TRAPostalAddress_EnvelopeContent_nullable()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddress_EnvelopeContent?' not compatible with the target field.");
+        }
+        
+        internal static void parse_TRATimestamp_Claims_nullable(string value)
+        {
+            throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestamp_Claims?.");
+        }
+        internal static void incompatible_with_TRATimestamp_Claims_nullable()
+        {
+            throw new DataTypeIncompatibleException("Data type 'TRATimestamp_Claims?' not compatible with the target field.");
         }
         
         internal static void parse_UBL21_Invoice2_Claims_nullable(string value)

@@ -16,6 +16,7 @@ struct TDWCreateTDWCredentialRequest
 {
 	TRACredentialType credtype;		
 	List<string> context;
+	optional string credentialsubjectudid; // bound credential
 	List<TRAClaim> claims;
 	
 	TRATrustLevel trustlevel;

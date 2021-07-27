@@ -159,93 +159,93 @@ namespace TDW.VDAServer
             
         }
         
-        internal static unsafe bool TryParse_TDWVDAAccountEntryClaims_nullable(string s, out TDWVDAAccountEntryClaims? value)
+        internal static unsafe bool TryParse_TDWVDAAccountEntry_Claims_nullable(string s, out TDWVDAAccountEntry_Claims? value)
         {
-            TDWVDAAccountEntryClaims value_type_value;
+            TDWVDAAccountEntry_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TDWVDAAccountEntryClaims?);
+                value = default(TDWVDAAccountEntry_Claims?);
                 return true;
             }
-            else if (TDWVDAAccountEntryClaims.TryParse(s, out value_type_value))
+            else if (TDWVDAAccountEntry_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TDWVDAAccountEntryClaims?);
+                value = default(TDWVDAAccountEntry_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_TDWVDAAccountEntryContent_nullable(string s, out TDWVDAAccountEntryContent? value)
+        internal static unsafe bool TryParse_TDWVDAAccountEntry_EnvelopeContent_nullable(string s, out TDWVDAAccountEntry_EnvelopeContent? value)
         {
-            TDWVDAAccountEntryContent value_type_value;
+            TDWVDAAccountEntry_EnvelopeContent value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TDWVDAAccountEntryContent?);
+                value = default(TDWVDAAccountEntry_EnvelopeContent?);
                 return true;
             }
-            else if (TDWVDAAccountEntryContent.TryParse(s, out value_type_value))
+            else if (TDWVDAAccountEntry_EnvelopeContent.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TDWVDAAccountEntryContent?);
+                value = default(TDWVDAAccountEntry_EnvelopeContent?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_TDWVDASmartContractEntryClaims_nullable(string s, out TDWVDASmartContractEntryClaims? value)
+        internal static unsafe bool TryParse_TDWVDASmartContractEntry_Claims_nullable(string s, out TDWVDASmartContractEntry_Claims? value)
         {
-            TDWVDASmartContractEntryClaims value_type_value;
+            TDWVDASmartContractEntry_Claims value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TDWVDASmartContractEntryClaims?);
+                value = default(TDWVDASmartContractEntry_Claims?);
                 return true;
             }
-            else if (TDWVDASmartContractEntryClaims.TryParse(s, out value_type_value))
+            else if (TDWVDASmartContractEntry_Claims.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TDWVDASmartContractEntryClaims?);
+                value = default(TDWVDASmartContractEntry_Claims?);
                 return false;
             }
             
         }
         
-        internal static unsafe bool TryParse_TDWVDASmartContractEntryContent_nullable(string s, out TDWVDASmartContractEntryContent? value)
+        internal static unsafe bool TryParse_TDWVDASmartContractEntry_EnvelopeContent_nullable(string s, out TDWVDASmartContractEntry_EnvelopeContent? value)
         {
-            TDWVDASmartContractEntryContent value_type_value;
+            TDWVDASmartContractEntry_EnvelopeContent value_type_value;
             JArray jarray;
             
             if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
             {
-                value = default(TDWVDASmartContractEntryContent?);
+                value = default(TDWVDASmartContractEntry_EnvelopeContent?);
                 return true;
             }
-            else if (TDWVDASmartContractEntryContent.TryParse(s, out value_type_value))
+            else if (TDWVDASmartContractEntry_EnvelopeContent.TryParse(s, out value_type_value))
             {
                 value = value_type_value;
                 return true;
             }
             else
             {
-                value = default(TDWVDASmartContractEntryContent?);
+                value = default(TDWVDASmartContractEntry_EnvelopeContent?);
                 return false;
             }
             

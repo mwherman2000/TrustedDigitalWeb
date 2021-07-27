@@ -7,12 +7,13 @@ namespace TDW.TRACommon
     public static class TRAMethodNames
     {
         public const string TRACredentialMethodName = "svrn:credential";
+        public const string TRAPersonMethodName = "svrn:person";
 
         public const string TRAKeyPairMethodName = "svrn:keypair";
         public const string TRAKeyRingMethodName = "svrn:keyring";
 
         public const string TRAVDAAccountMethodName = "svrn:vdaaccount";
-        public const string TRAUniversalIdentityRegistryEntryMethodName = "svrn:uir";
+        public const string TRAUniversalIdentityRegistryEntryMethodName = "svrn:uir"; // Use TRAPersonMethodName (most of the time)
         public const string TRAServerEndpointRegistryEntryMethodName = "svrn:sepr";
         public const string TRARevocationListEntryMethodName = "svrn:rl";
         public const string TRAVDASmartContractEntryMethodName = "svrn:vdasmartcontract";

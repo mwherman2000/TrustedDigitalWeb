@@ -6,9 +6,9 @@ namespace TDW.TRAServer
     {
         Undefined = 0,
         TRACredential_Cell = 1,
-        TRATimestampCell = 2,
-        TDWGeoLocationCell = 3,
-        TRAPostalAddressCell = 4,
+        TRATimestamp_Cell = 2,
+        TDWGeoLocation_Cell = 3,
+        TRAPostalAddress_Cell = 4,
         Cac_Item_Cell = 5,
         Cac_ExternalReference_Cell = 6,
         Cac_Address_Cell = 7,

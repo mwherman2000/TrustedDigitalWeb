@@ -239,11 +239,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Address_Content object to Json string.
+        /// Serializes a Cac_Address_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Address_Content value)
+        public static string ToString(Cac_Address_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -252,11 +252,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Address_Envelope object to Json string.
+        /// Serializes a Cac_Address_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Address_Envelope value)
+        public static string ToString(Cac_Address_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -317,11 +317,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Contact_Content object to Json string.
+        /// Serializes a Cac_Contact_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Contact_Content value)
+        public static string ToString(Cac_Contact_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -330,11 +330,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Contact_Envelope object to Json string.
+        /// Serializes a Cac_Contact_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Contact_Envelope value)
+        public static string ToString(Cac_Contact_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -408,11 +408,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_ExternalReference_Content object to Json string.
+        /// Serializes a Cac_ExternalReference_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_ExternalReference_Content value)
+        public static string ToString(Cac_ExternalReference_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -421,11 +421,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_ExternalReference_Envelope object to Json string.
+        /// Serializes a Cac_ExternalReference_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_ExternalReference_Envelope value)
+        public static string ToString(Cac_ExternalReference_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -486,11 +486,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Item_Content object to Json string.
+        /// Serializes a Cac_Item_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Item_Content value)
+        public static string ToString(Cac_Item_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -499,11 +499,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Item_Envelope object to Json string.
+        /// Serializes a Cac_Item_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Item_Envelope value)
+        public static string ToString(Cac_Item_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -564,11 +564,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_PartyLegalEntity_Content object to Json string.
+        /// Serializes a Cac_PartyLegalEntity_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_PartyLegalEntity_Content value)
+        public static string ToString(Cac_PartyLegalEntity_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -577,11 +577,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_PartyLegalEntity_Envelope object to Json string.
+        /// Serializes a Cac_PartyLegalEntity_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_PartyLegalEntity_Envelope value)
+        public static string ToString(Cac_PartyLegalEntity_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -629,11 +629,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Party_Content object to Json string.
+        /// Serializes a Cac_Party_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Party_Content value)
+        public static string ToString(Cac_Party_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -642,11 +642,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Party_Envelope object to Json string.
+        /// Serializes a Cac_Party_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Party_Envelope value)
+        public static string ToString(Cac_Party_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -668,11 +668,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_PayeeFinancialAccount_Content object to Json string.
+        /// Serializes a Cac_PayeeFinancialAccount_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_PayeeFinancialAccount_Content value)
+        public static string ToString(Cac_PayeeFinancialAccount_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -681,11 +681,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_PayeeFinancialAccount_Envelope object to Json string.
+        /// Serializes a Cac_PayeeFinancialAccount_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_PayeeFinancialAccount_Envelope value)
+        public static string ToString(Cac_PayeeFinancialAccount_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -720,11 +720,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_PaymentMeans_Content object to Json string.
+        /// Serializes a Cac_PaymentMeans_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_PaymentMeans_Content value)
+        public static string ToString(Cac_PaymentMeans_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -733,11 +733,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_PaymentMeans_Envelope object to Json string.
+        /// Serializes a Cac_PaymentMeans_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_PaymentMeans_Envelope value)
+        public static string ToString(Cac_PaymentMeans_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -772,11 +772,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Person_Content object to Json string.
+        /// Serializes a Cac_Person_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Person_Content value)
+        public static string ToString(Cac_Person_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -785,11 +785,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a Cac_Person_Envelope object to Json string.
+        /// Serializes a Cac_Person_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(Cac_Person_Envelope value)
+        public static string ToString(Cac_Person_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1032,11 +1032,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredential_Content object to Json string.
+        /// Serializes a TRACredential_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredential_Content value)
+        public static string ToString(TRACredential_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1045,11 +1045,24 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredential_Envelope object to Json string.
+        /// Serializes a TRACredential_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredential_Envelope value)
+        public static string ToString(TRACredential_EnvelopeContent value)
+        {
+            s_ensure_string_builder();
+            ToString_impl(value, s_stringBuilder, in_json: false);
+            return s_stringBuilder.ToString();
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        /// <summary>
+        /// Serializes a TRACredential_EnvelopeLabel object to Json string.
+        /// </summary>
+        /// <param name="value">The target object to be serialized.</param>
+        /// <returns>The serialized Json string.</returns>
+        public static string ToString(TRACredential_EnvelopeLabel value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1071,19 +1084,6 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRACredential_Label object to Json string.
-        /// </summary>
-        /// <param name="value">The target object to be serialized.</param>
-        /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRACredential_Label value)
-        {
-            s_ensure_string_builder();
-            ToString_impl(value, s_stringBuilder, in_json: false);
-            return s_stringBuilder.ToString();
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        /// <summary>
         /// Serializes a TRAEncryptedClaims object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
@@ -1097,11 +1097,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAGeoLocationClaims object to Json string.
+        /// Serializes a TRAGeoLocation_Claims object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAGeoLocationClaims value)
+        public static string ToString(TRAGeoLocation_Claims value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1110,11 +1110,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAGeoLocationContent object to Json string.
+        /// Serializes a TRAGeoLocation_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAGeoLocationContent value)
+        public static string ToString(TRAGeoLocation_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1123,11 +1123,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAGeoLocationEnvelope object to Json string.
+        /// Serializes a TRAGeoLocation_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAGeoLocationEnvelope value)
+        public static string ToString(TRAGeoLocation_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1149,11 +1149,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAPostalAddressClaims object to Json string.
+        /// Serializes a TRAPostalAddress_Claims object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAPostalAddressClaims value)
+        public static string ToString(TRAPostalAddress_Claims value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1162,11 +1162,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAPostalAddressContent object to Json string.
+        /// Serializes a TRAPostalAddress_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAPostalAddressContent value)
+        public static string ToString(TRAPostalAddress_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1175,11 +1175,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAPostalAddressEnvelope object to Json string.
+        /// Serializes a TRAPostalAddress_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAPostalAddressEnvelope value)
+        public static string ToString(TRAPostalAddress_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1188,11 +1188,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRATimestampClaims object to Json string.
+        /// Serializes a TRATimestamp_Claims object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRATimestampClaims value)
+        public static string ToString(TRATimestamp_Claims value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1201,11 +1201,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRATimestampContent object to Json string.
+        /// Serializes a TRATimestamp_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRATimestampContent value)
+        public static string ToString(TRATimestamp_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1214,11 +1214,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRATimestampEnvelope object to Json string.
+        /// Serializes a TRATimestamp_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRATimestampEnvelope value)
+        public static string ToString(TRATimestamp_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1240,11 +1240,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a UBL21_Invoice2_Content object to Json string.
+        /// Serializes a UBL21_Invoice2_Envelope object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(UBL21_Invoice2_Content value)
+        public static string ToString(UBL21_Invoice2_Envelope value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1253,11 +1253,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a UBL21_Invoice2_Envelope object to Json string.
+        /// Serializes a UBL21_Invoice2_EnvelopeContent object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(UBL21_Invoice2_Envelope value)
+        public static string ToString(UBL21_Invoice2_EnvelopeContent value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1487,11 +1487,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAGeoLocationClaims? object to Json string.
+        /// Serializes a TRAGeoLocation_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAGeoLocationClaims? value)
+        public static string ToString(TRAGeoLocation_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1500,11 +1500,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAGeoLocationContent? object to Json string.
+        /// Serializes a TRAGeoLocation_EnvelopeContent? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAGeoLocationContent? value)
+        public static string ToString(TRAGeoLocation_EnvelopeContent? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1513,11 +1513,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAPostalAddressClaims? object to Json string.
+        /// Serializes a TRAPostalAddress_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAPostalAddressClaims? value)
+        public static string ToString(TRAPostalAddress_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1526,11 +1526,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAPostalAddressContent? object to Json string.
+        /// Serializes a TRAPostalAddress_EnvelopeContent? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAPostalAddressContent? value)
+        public static string ToString(TRAPostalAddress_EnvelopeContent? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1539,11 +1539,11 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRATimestampClaims? object to Json string.
+        /// Serializes a TRATimestamp_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRATimestampClaims? value)
+        public static string ToString(TRATimestamp_Claims? value)
         {
             s_ensure_string_builder();
             ToString_impl(value, s_stringBuilder, in_json: false);
@@ -1595,11 +1595,11 @@ namespace TDW.TRAServer
         }
         
         /// <summary>
-        /// Serializes a TRATimestampCell object to Json string.
+        /// Serializes a TRATimestamp_Cell object to Json string.
         /// </summary>
         /// <param name="value">The target cell object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRATimestampCell cell)
+        public static string ToString(TRATimestamp_Cell cell)
         {
             s_ensure_string_builder();
             s_stringBuilder.Append('{');
@@ -1626,11 +1626,11 @@ namespace TDW.TRAServer
         }
         
         /// <summary>
-        /// Serializes a TDWGeoLocationCell object to Json string.
+        /// Serializes a TDWGeoLocation_Cell object to Json string.
         /// </summary>
         /// <param name="value">The target cell object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TDWGeoLocationCell cell)
+        public static string ToString(TDWGeoLocation_Cell cell)
         {
             s_ensure_string_builder();
             s_stringBuilder.Append('{');
@@ -1657,11 +1657,11 @@ namespace TDW.TRAServer
         }
         
         /// <summary>
-        /// Serializes a TRAPostalAddressCell object to Json string.
+        /// Serializes a TRAPostalAddress_Cell object to Json string.
         /// </summary>
         /// <param name="value">The target cell object to be serialized.</param>
         /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAPostalAddressCell cell)
+        public static string ToString(TRAPostalAddress_Cell cell)
         {
             s_ensure_string_builder();
             s_stringBuilder.Append('{');
@@ -2536,7 +2536,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Address_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_Address_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_Address_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2582,6 +2620,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -2614,44 +2670,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Address_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -2866,7 +2884,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Contact_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_Contact_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_Contact_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -2912,6 +2968,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -2944,44 +3018,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Contact_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -3216,7 +3252,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_ExternalReference_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_ExternalReference_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_ExternalReference_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -3262,6 +3336,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -3294,44 +3386,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_ExternalReference_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -3642,7 +3696,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Item_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_Item_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_Item_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -3688,6 +3780,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -3720,44 +3830,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Item_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -3996,7 +4068,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_PartyLegalEntity_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_PartyLegalEntity_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_PartyLegalEntity_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -4042,6 +4152,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -4074,44 +4202,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_PartyLegalEntity_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -4324,7 +4414,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Party_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_Party_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_Party_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -4370,6 +4498,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -4402,44 +4548,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Party_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -4492,7 +4600,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_PayeeFinancialAccount_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_PayeeFinancialAccount_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_PayeeFinancialAccount_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -4538,6 +4684,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -4570,44 +4734,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_PayeeFinancialAccount_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -4740,7 +4866,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_PaymentMeans_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_PaymentMeans_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_PaymentMeans_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -4786,6 +4950,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -4818,44 +5000,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_PaymentMeans_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -4976,7 +5120,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Person_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(Cac_Person_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(Cac_Person_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -5022,6 +5204,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -5054,44 +5254,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(Cac_Person_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -5780,6 +5942,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -6084,7 +6264,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredential_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredential_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRACredential_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -6123,6 +6341,24 @@ namespace TDW.TRAServer
                         str_builder.Append("\"context\":");
                         
                         ToString_impl(value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
                         
                     }
                     
@@ -6170,131 +6406,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredential_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredential_EnvelopeSeal value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                    if (value.hashedThumbprint64 != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"hashedThumbprint64\":");
-                        
-                        ToString_impl(value.hashedThumbprint64, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.signedHashSignature64 != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"signedHashSignature64\":");
-                        
-                        ToString_impl(value.signedHashSignature64, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.notaryStamp != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"notaryStamp\":");
-                        
-                        ToString_impl(value.notaryStamp, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.comments != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"comments\":");
-                        
-                        ToString_impl(value.comments, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRACredential_Label value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRACredential_EnvelopeLabel value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -6410,6 +6522,92 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRACredential_EnvelopeSeal value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.hashedThumbprint64 != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"hashedThumbprint64\":");
+                        
+                        ToString_impl(value.hashedThumbprint64, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.signedHashSignature64 != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"signedHashSignature64\":");
+                        
+                        ToString_impl(value.signedHashSignature64, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.notaryStamp != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"notaryStamp\":");
+                        
+                        ToString_impl(value.notaryStamp, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.comments != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"comments\":");
+                        
+                        ToString_impl(value.comments, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static void ToString_impl(TRAEncryptedClaims value, StringBuilder str_builder, bool in_json)
         {
             
@@ -6478,7 +6676,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAGeoLocationClaims value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRAGeoLocation_Claims value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -6516,7 +6714,51 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAGeoLocationContent value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRAGeoLocation_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.content != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAGeoLocation_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -6562,6 +6804,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -6594,50 +6854,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAGeoLocationEnvelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                    if (value.content != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -6696,7 +6912,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAPostalAddressClaims value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRAPostalAddress_Claims value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -6818,7 +7034,51 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAPostalAddressContent value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRAPostalAddress_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                    if (value.content != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRAPostalAddress_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -6857,6 +7117,24 @@ namespace TDW.TRAServer
                         str_builder.Append("\"context\":");
                         
                         ToString_impl(value.context, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
                         
                     }
                     
@@ -6904,51 +7182,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAPostalAddressEnvelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                    if (value.content != null)
-                    
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRATimestampClaims value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRATimestamp_Claims value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -7004,7 +7238,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRATimestampContent value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRATimestamp_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(TRATimestamp_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -7050,6 +7322,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -7082,44 +7372,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRATimestampEnvelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -7448,7 +7700,45 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(UBL21_Invoice2_Content value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(UBL21_Invoice2_Envelope value, StringBuilder str_builder, bool in_json)
+        {
+            
+            {
+                
+                str_builder.Append('{');
+                bool first_field = true;
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"content\":");
+                        
+                        ToString_impl(value.content, str_builder, in_json: true);
+                        
+                }
+                
+                {
+                    
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"label\":");
+                        
+                        ToString_impl(value.label, str_builder, in_json: true);
+                        
+                }
+                
+                str_builder.Append('}');
+            }
+            
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static void ToString_impl(UBL21_Invoice2_EnvelopeContent value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -7494,6 +7784,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.credentialsubjectudid != null)
+                    
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.claims != null)
                     
                     {
@@ -7526,44 +7834,6 @@ namespace TDW.TRAServer
                         
                     }
                     
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(UBL21_Invoice2_Envelope value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"content\":");
-                        
-                        ToString_impl(value.content, str_builder, in_json: true);
-                        
-                }
-                
-                {
-                    
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"label\":");
-                        
-                        ToString_impl(value.label, str_builder, in_json: true);
-                        
                 }
                 
                 str_builder.Append('}');
@@ -8654,7 +8924,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAGeoLocationClaims? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRAGeoLocation_Claims? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -8695,7 +8965,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAGeoLocationContent? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRAGeoLocation_EnvelopeContent? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -8744,6 +9014,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.Value.credentialsubjectudid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.Value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.Value.claims != null)
                         
                     {
@@ -8784,7 +9072,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAPostalAddressClaims? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRAPostalAddress_Claims? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -8909,7 +9197,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAPostalAddressContent? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRAPostalAddress_EnvelopeContent? value, StringBuilder str_builder, bool in_json)
         {
             
             {
@@ -8958,6 +9246,24 @@ namespace TDW.TRAServer
                 
                 {
                     
+                    if (value.Value.credentialsubjectudid != null)
+                        
+                    {
+                        
+                        if(first_field)
+                            first_field = false;
+                        else
+                            str_builder.Append(',');
+                        str_builder.Append("\"credentialsubjectudid\":");
+                        
+                        ToString_impl(value.Value.credentialsubjectudid, str_builder, in_json: true);
+                        
+                    }
+                    
+                }
+                
+                {
+                    
                     if (value.Value.claims != null)
                         
                     {
@@ -8998,7 +9304,7 @@ namespace TDW.TRAServer
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRATimestampClaims? value, StringBuilder str_builder, bool in_json)
+        private static void ToString_impl(TRATimestamp_Claims? value, StringBuilder str_builder, bool in_json)
         {
             
             {

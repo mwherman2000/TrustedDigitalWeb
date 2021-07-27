@@ -147,8 +147,8 @@ public class TDWVDASmartContract : SmartContract
     public struct UIREntry // Universal Identifier Registry (UIR) Entry
     {
         public string identifierudid;
-        public string credserviceendpointudid;
-        public string credsignaturehash16;
+        public string agentserviceendpointudid;
+        public string diddocsignaturehash16;
         public Address requesteraddress;
         public string requesterudid;
         public long registeredticks;
@@ -169,7 +169,7 @@ public class TDWVDASmartContract : SmartContract
     public struct RevocationListEntry // Revocation List Entry
     {
         public string credudid;
-        public string credserviceendpointudid;
+        public string agentserviceendpointudid;
         public Address revokeraddress;
         public string revokerudid;
         public long revokedticks;
@@ -185,8 +185,8 @@ public class TDWVDASmartContract : SmartContract
 
     public UIREntry NewUIREntryInitialized(
        string identifierudid,
-       string credserviceendpointudid,
-       string credsignaturehash16,
+       string agentserviceendpointudid,
+       string diddocsignaturehash16,
        Address requesteraddress,
        string requesterudid,
        long registeredticks,
@@ -195,8 +195,8 @@ public class TDWVDASmartContract : SmartContract
     {
         UIREntry entry = new UIREntry();
         entry.identifierudid = identifierudid;
-        entry.credserviceendpointudid = credserviceendpointudid;
-        entry.credsignaturehash16 = credsignaturehash16;
+        entry.agentserviceendpointudid = agentserviceendpointudid;
+        entry.diddocsignaturehash16 = diddocsignaturehash16;
         entry.requesteraddress = requesteraddress;
         entry.requesterudid = requesterudid;
         entry.registeredticks = registeredticks;
@@ -209,8 +209,8 @@ public class TDWVDASmartContract : SmartContract
         string json;
         json = "{" +
             " identifierudid: \"" + entry.identifierudid + "\"," +
-            " credserviceendpointudid: \"" + entry.credserviceendpointudid + "\"," +
-            " credsignaturehash16: \"" + entry.credsignaturehash16 + "\"" +
+            " agentserviceendpointudid: \"" + entry.agentserviceendpointudid + "\"," +
+            " diddocsignaturehash16: \"" + entry.diddocsignaturehash16 + "\"" +
             " requesteraddress: \"" + entry.requesteraddress + "\"," +
             " requesterudid: \"" + entry.requesterudid + "\"," +
             " registeredticks: " + entry.registeredticks.ToString() + "," +
@@ -221,15 +221,15 @@ public class TDWVDASmartContract : SmartContract
 
     public ResultType SaveUIREntry(
        string identifierudid,
-       string credserviceendpointudid,
-       string credsignaturehash16,
+       string agentserviceendpointudid,
+       string diddocsignaturehash16,
        Address requesteraddress,
        string requesterudid,
        long registeredticks,
        string message
     )
     {
-        UIREntry entry = NewUIREntryInitialized(identifierudid, credserviceendpointudid, credsignaturehash16, requesteraddress, requesterudid, registeredticks, message);
+        UIREntry entry = NewUIREntryInitialized(identifierudid, agentserviceendpointudid, diddocsignaturehash16, requesteraddress, requesterudid, registeredticks, message);
         return Save(entry);
     }
 
@@ -279,14 +279,14 @@ public class TDWVDASmartContract : SmartContract
         return entry;
     }
 
-    public bool IsVerified(string identifierudid, string credsignaturehash16)
+    public bool IsVerified(string identifierudid, string diddocsignaturehash16)
     {
         bool isVerified = false;
 
         UIREntry entry = LoadUIREntry(identifierudid);
         if (entry.message != "not found")
         {
-            if (entry.credsignaturehash16 == credsignaturehash16)
+            if (entry.diddocsignaturehash16 == diddocsignaturehash16)
             {
                 isVerified = true;
             }
@@ -422,7 +422,7 @@ public class TDWVDASmartContract : SmartContract
 
     public RevocationListEntry NewRecovationListEntryInitialized(
        string credudid,
-       string credserviceendpointudid,
+       string agentserviceendpointudid,
        Address revokeraddress,
        string revokerudid,
        long revokedticks,
@@ -431,7 +431,7 @@ public class TDWVDASmartContract : SmartContract
     {
         RevocationListEntry entry = new RevocationListEntry();
         entry.credudid = credudid;
-        entry.credserviceendpointudid = credserviceendpointudid;
+        entry.agentserviceendpointudid = agentserviceendpointudid;
         entry.revokeraddress = revokeraddress;
         entry.revokerudid = revokerudid;
         entry.revokedticks = revokedticks;
@@ -444,7 +444,7 @@ public class TDWVDASmartContract : SmartContract
         string json;
         json = "{" +
             " credudid: \"" + entry.credudid + "\"," +
-            " credserviceEndpointudid: \"" + entry.credserviceendpointudid + "\"," +
+            " credserviceEndpointudid: \"" + entry.agentserviceendpointudid + "\"," +
             " revokeraddress: \"" + entry.revokeraddress + "\"," +
             " revokerudid: \"" + entry.revokerudid + "\"," +
             " revokedticks: " + entry.revokedticks.ToString() + "," +
@@ -455,14 +455,14 @@ public class TDWVDASmartContract : SmartContract
 
     public ResultType SaveRevocationListEntry(
        string credudid,
-       string credserviceendpointudid,
+       string agentserviceendpointudid,
        Address revokeraddress,
        string revokerudid,
        long revokedticks,
        string message
     )
     {
-        RevocationListEntry entry = NewRecovationListEntryInitialized(credudid, credserviceendpointudid, revokeraddress, revokerudid, revokedticks, message);
+        RevocationListEntry entry = NewRecovationListEntryInitialized(credudid, agentserviceendpointudid, revokeraddress, revokerudid, revokedticks, message);
         return Save(entry);
     }
 

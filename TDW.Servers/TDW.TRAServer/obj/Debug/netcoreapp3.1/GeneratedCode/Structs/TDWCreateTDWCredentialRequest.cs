@@ -34,12 +34,14 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of TDWCreateTDWCredentialRequest with the specified parameters.
         ///</summary>
-        public TDWCreateTDWCredentialRequest(TRACredentialType credtype = default(TRACredentialType),List<string> context = default(List<string>),List<TRAClaim> claims = default(List<TRAClaim>),TRATrustLevel trustlevel = default(TRATrustLevel),TRAEncryptionFlag encryptionFlag = default(TRAEncryptionFlag),List<string> comments = default(List<string>),string keypairsalt = default(string),string mvcaudid = default(string))
+        public TDWCreateTDWCredentialRequest(TRACredentialType credtype = default(TRACredentialType),List<string> context = default(List<string>),string credentialsubjectudid = default(string),List<TRAClaim> claims = default(List<TRAClaim>),TRATrustLevel trustlevel = default(TRATrustLevel),TRAEncryptionFlag encryptionFlag = default(TRAEncryptionFlag),List<string> comments = default(List<string>),string keypairsalt = default(string),string mvcaudid = default(string))
         {
             
             this.credtype = credtype;
             
             this.context = context;
+            
+            this.credentialsubjectudid = credentialsubjectudid;
             
             this.claims = claims;
             
@@ -72,6 +74,8 @@ namespace TDW.TRAServer
                 &&
                 (a.context == b.context)
                 &&
+                (a.credentialsubjectudid == b.credentialsubjectudid)
+                &&
                 (a.claims == b.claims)
                 &&
                 (a.trustlevel == b.trustlevel)
@@ -95,6 +99,8 @@ namespace TDW.TRAServer
         public TRACredentialType credtype;
         
         public List<string> context;
+        
+        public string credentialsubjectudid;
         
         public List<TRAClaim> claims;
         
@@ -167,6 +173,12 @@ namespace TDW.TRAServer
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
+                });        credentialsubjectudid_Accessor_Field = new StringAccessor(null,
+                (ptr,ptr_offset,delta)=>
+                {
+                    int substructure_offset = (int)(ptr - this.m_ptr);
+                    this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
+                    return this.m_ptr + substructure_offset;
                 });        claims_Accessor_Field = new TRAClaim_AccessorListAccessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
@@ -204,6 +216,8 @@ namespace TDW.TRAServer
                 optional_field_names = new string[]
                 {
                     
+                    "credentialsubjectudid"
+                    ,
                     "comments"
                     ,
                 };
@@ -242,9 +256,14 @@ namespace TDW.TRAServer
             {            byte* optheader_0 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
-
+targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_0 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+
+                if ((0 != (*(optheader_0 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
@@ -265,9 +284,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {            byte* optheader_0 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
-
+targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_0 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+
+                if ((0 != (*(optheader_0 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
@@ -353,6 +377,138 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
 
             }
         }
+        StringAccessor credentialsubjectudid_Accessor_Field;
+        
+        ///<summary>
+        ///Represents the presence of the optional field credentialsubjectudid.
+        ///</summary>
+        public bool Contains_credentialsubjectudid
+        {
+            get
+            {
+                unchecked
+                {
+                    return (0 != (*(this.m_ptr + 0) & 0x01)) ;
+                }
+            }
+            internal set
+            {
+                unchecked
+                {
+                    if (value)
+                    {
+                        *(this.m_ptr + 0) |= 0x01;
+                    }
+                    else
+                    {
+                        *(this.m_ptr + 0) &= 0xFE;
+                    }
+                }
+            }
+        }
+        ///<summary>
+        ///Removes the optional field credentialsubjectudid from the object being operated.
+        ///</summary>
+        public unsafe void Remove_credentialsubjectudid()
+        {
+            if (!this.Contains_credentialsubjectudid)
+            {
+                throw new Exception("Optional field credentialsubjectudid doesn't exist for current cell.");
+            }
+            this.Contains_credentialsubjectudid = false;
+            byte* targetPtr = m_ptr;
+            {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}
+            byte* startPtr = targetPtr;
+            targetPtr += *(int*)targetPtr + sizeof(int);
+            this.ResizeFunction(startPtr, 0, (int)(startPtr - targetPtr));
+        }
+        
+        ///<summary>
+        ///Provides in-place access to the object field credentialsubjectudid.
+        ///</summary>
+        public unsafe StringAccessor credentialsubjectudid
+        {
+            get
+            {
+                
+                if (!this.Contains_credentialsubjectudid)
+                {
+                    throw new Exception("Optional field credentialsubjectudid doesn't exist for current cell.");
+                }
+                
+                byte* targetPtr = m_ptr;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}credentialsubjectudid_Accessor_Field.m_ptr = targetPtr + 4;
+                credentialsubjectudid_Accessor_Field.m_cellId = this.m_cellId;
+                return credentialsubjectudid_Accessor_Field;
+                
+            }
+            set
+            {
+                
+                if ((object)value == null) throw new ArgumentNullException("The assigned variable is null.");
+                credentialsubjectudid_Accessor_Field.m_cellId = this.m_cellId;
+                
+                byte* targetPtr = m_ptr;
+                {            byte* optheader_1 = targetPtr;
+            targetPtr += 1;
+            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);}
+                bool creatingOptionalField = (!this.Contains_credentialsubjectudid);
+                if (creatingOptionalField)
+                {
+                    this.Contains_credentialsubjectudid = true;
+                    
+                int length = *(int*)(value.m_ptr - 4);
+                if (value.m_cellId != credentialsubjectudid_Accessor_Field.m_cellId)
+                {
+                    //if not in the same Cell
+                    credentialsubjectudid_Accessor_Field.m_ptr = credentialsubjectudid_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
+                    Memory.Copy(value.m_ptr - 4, credentialsubjectudid_Accessor_Field.m_ptr, length + 4);
+                }
+                else
+                {
+                    byte[] tmpcell = new byte[length + 4];
+                    fixed (byte* tmpcellptr = tmpcell)
+                    {                        
+                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
+                        credentialsubjectudid_Accessor_Field.m_ptr = credentialsubjectudid_Accessor_Field.ResizeFunction(targetPtr, 0, length + sizeof(int));
+                        Memory.Copy(tmpcellptr, credentialsubjectudid_Accessor_Field.m_ptr, length + 4);
+                    }
+                }
+
+                }
+                else
+                {
+                    
+                int length = *(int*)(value.m_ptr - 4);
+                int oldlength = *(int*)targetPtr;
+                if (value.m_cellId != credentialsubjectudid_Accessor_Field.m_cellId)
+                {
+                    //if not in the same Cell
+                    credentialsubjectudid_Accessor_Field.m_ptr = credentialsubjectudid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                    Memory.Copy(value.m_ptr - 4, credentialsubjectudid_Accessor_Field.m_ptr, length + 4);
+                }
+                else
+                {
+                    byte[] tmpcell = new byte[length + 4];
+                    fixed (byte* tmpcellptr = tmpcell)
+                    {                        
+                        Memory.Copy(value.m_ptr - 4, tmpcellptr, length + 4);
+                        credentialsubjectudid_Accessor_Field.m_ptr = credentialsubjectudid_Accessor_Field.ResizeFunction(targetPtr, 0, length - oldlength);
+                        Memory.Copy(tmpcellptr, credentialsubjectudid_Accessor_Field.m_ptr, length + 4);
+                    }
+                }
+
+                }
+                
+            }
+        }
         TRAClaim_AccessorListAccessor claims_Accessor_Field;
         
         ///<summary>
@@ -367,7 +523,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);}claims_Accessor_Field.m_ptr = targetPtr + 4;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+}claims_Accessor_Field.m_ptr = targetPtr + 4;
                 claims_Accessor_Field.m_cellId = this.m_cellId;
                 return claims_Accessor_Field;
                 
@@ -382,7 +543,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);}claims_Accessor_Field.m_ptr = targe
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+}
                 int length = *(int*)(value.m_ptr - 4);
                 int oldlength = *(int*)targetPtr;
                 if (value.m_cellId != claims_Accessor_Field.m_cellId)
@@ -417,7 +583,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);}
                 return *(TRATrustLevel*)(targetPtr);
                 
             }
@@ -428,7 +599,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}                *(TRATrustLevel*)targetPtr = value;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);}                *(TRATrustLevel*)targetPtr = value;
             }
         }
         
@@ -444,7 +620,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1;
 }
                 return *(TRAEncryptionFlag*)(targetPtr);
                 
@@ -456,7 +637,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 1;
 }                *(TRAEncryptionFlag*)targetPtr = value;
             }
         }
@@ -471,7 +657,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {
                 unchecked
                 {
-                    return (0 != (*(this.m_ptr + 0) & 0x01)) ;
+                    return (0 != (*(this.m_ptr + 0) & 0x02)) ;
                 }
             }
             internal set
@@ -480,11 +666,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 {
                     if (value)
                     {
-                        *(this.m_ptr + 0) |= 0x01;
+                        *(this.m_ptr + 0) |= 0x02;
                     }
                     else
                     {
-                        *(this.m_ptr + 0) &= 0xFE;
+                        *(this.m_ptr + 0) &= 0xFD;
                     }
                 }
             }
@@ -503,7 +689,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
 }
             byte* startPtr = targetPtr;
             targetPtr += *(int*)targetPtr + sizeof(int);
@@ -527,7 +718,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
 }comments_Accessor_Field.m_ptr = targetPtr + 4;
                 comments_Accessor_Field.m_cellId = this.m_cellId;
                 return comments_Accessor_Field;
@@ -543,7 +739,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+targetPtr += *(int*)targetPtr + sizeof(int);
+                if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
 }
                 bool creatingOptionalField = (!this.Contains_comments);
                 if (creatingOptionalField)
@@ -609,9 +810,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
-
+targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
@@ -630,9 +836,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
-
+targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
@@ -672,9 +883,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
-
+targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
@@ -693,9 +909,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);}mvcaudid_Accessor_Field.m_ptr = tar
                 {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
-
+targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
@@ -724,6 +945,13 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
         
         public static unsafe implicit operator TDWCreateTDWCredentialRequest(TDWCreateTDWCredentialRequest_Accessor accessor)
         {
+            string _credentialsubjectudid = default(string);
+            if (accessor.Contains_credentialsubjectudid)
+            {
+                
+                _credentialsubjectudid = accessor.credentialsubjectudid;
+                
+            }
             List<string> _comments = default(List<string>);
             if (accessor.Contains_comments)
             {
@@ -736,6 +964,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
                 
                         accessor.credtype,
                         accessor.context,
+                        _credentialsubjectudid ,
                         accessor.claims,
                         accessor.trustlevel,
                         accessor.encryptionFlag,
@@ -774,6 +1003,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);}
     }
 
 }
+            if( field.credentialsubjectudid!= null)
+            {
+
+        if(field.credentialsubjectudid!= null)
+        {
+            int strlen_2 = field.credentialsubjectudid.Length * 2;
+            targetPtr += strlen_2+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
 
 {
 
@@ -990,6 +1232,26 @@ byte *storedPtr_2 = targetPtr;
 *(int*)storedPtr_2 = (int)(targetPtr - storedPtr_2 - 4);
 
 }
+            if( field.credentialsubjectudid!= null)
+            {
+
+        if(field.credentialsubjectudid!= null)
+        {
+            int strlen_2 = field.credentialsubjectudid.Length * 2;
+            *(int*)targetPtr = strlen_2;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_2 = field.credentialsubjectudid)
+            {
+                Memory.Copy(pstr_2, targetPtr, strlen_2);
+                targetPtr += strlen_2;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_1 + 0) |= 0x01;
+            }
 
 {
 byte *storedPtr_2 = targetPtr;
@@ -1206,7 +1468,7 @@ byte *storedPtr_2 = targetPtr;
 *(int*)storedPtr_2 = (int)(targetPtr - storedPtr_2 - 4);
 
 }
-*(optheader_1 + 0) |= 0x01;
+*(optheader_1 + 0) |= 0x02;
             }
 
         if(field.keypairsalt!= null)
@@ -1259,9 +1521,14 @@ byte *storedPtr_2 = targetPtr;
             {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
-
+targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }
@@ -1271,9 +1538,14 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
             {            byte* optheader_1 = targetPtr;
             targetPtr += 1;
             targetPtr += 1;
-targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
-
+targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_1 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 2;
+
+                if ((0 != (*(optheader_1 + 0) & 0x02)))
                 {
 targetPtr += *(int*)targetPtr + sizeof(int);
                 }

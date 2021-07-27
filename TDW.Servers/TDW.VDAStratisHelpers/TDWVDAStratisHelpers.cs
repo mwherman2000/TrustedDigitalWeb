@@ -16,8 +16,8 @@ namespace TDW.VDAStratisHelpers
         public struct UIREntry // Universal Identifier Registry (UIR) Entry
         {
             public string identifierudid;
-            public string credserviceendpointudid;
-            public string credsignaturehash16;
+            public string agentserviceendpointudid;
+            public string diddocsignaturehash16;
             public Address requesteraddress;
             public string requesterudid;
             public long registeredticks;

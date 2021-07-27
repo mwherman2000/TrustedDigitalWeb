@@ -34,7 +34,7 @@ namespace TDW.VDAServer
         ///<summary>
         ///Initializes a new instance of TDWGetAccountRegistryEntryResponse with the specified parameters.
         ///</summary>
-        public TDWGetAccountRegistryEntryResponse(TDWVDAAccountEntryClaims entry = default(TDWVDAAccountEntryClaims))
+        public TDWGetAccountRegistryEntryResponse(TDWVDAAccountEntry_Claims entry = default(TDWVDAAccountEntry_Claims))
         {
             
             this.entry = entry;
@@ -64,7 +64,7 @@ namespace TDW.VDAServer
             return !(a == b);
         }
         
-        public TDWVDAAccountEntryClaims entry;
+        public TDWVDAAccountEntry_Claims entry;
         
         /// <summary>
         /// Converts the string representation of a TDWGetAccountRegistryEntryResponse to its
@@ -119,7 +119,7 @@ namespace TDW.VDAServer
             m_ptr = _CellPtr;
             
             ResizeFunction = func;
-                    entry_Accessor_Field = new TDWVDAAccountEntryClaims_Accessor(null,
+                    entry_Accessor_Field = new TDWVDAAccountEntry_Claims_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -189,12 +189,12 @@ namespace TDW.VDAServer
         }
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
-        TDWVDAAccountEntryClaims_Accessor entry_Accessor_Field;
+        TDWVDAAccountEntry_Claims_Accessor entry_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field entry.
         ///</summary>
-        public unsafe TDWVDAAccountEntryClaims_Accessor entry
+        public unsafe TDWVDAAccountEntry_Claims_Accessor entry
         {
             get
             {

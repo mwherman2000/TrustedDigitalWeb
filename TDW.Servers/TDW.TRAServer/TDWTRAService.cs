@@ -73,11 +73,11 @@ namespace TDW.TRAServer
             long id = CellIdFactory.NewCellId();
             string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, id);
 
-            TRACredential_Content content = new TRACredential_Content(udid, context, claims);
+            TRACredential_EnvelopeContent content = new TRACredential_EnvelopeContent(udid, context, claims: claims);
 
             var credential = new TRACredential_Cell(id, default, default);
             credential.envelope.content = content;
-            credential.envelope.label = new TRACredential_Label(default, 1, default, default, default);
+            credential.envelope.label = new TRACredential_EnvelopeLabel(default, 1, default, default, default);
             credential.envelopeseal = new TRACredential_EnvelopeSeal(null, null, null, comments);
 
             Console.WriteLine(JsonConvert.SerializeObject(credential));

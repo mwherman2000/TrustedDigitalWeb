@@ -34,7 +34,7 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of UBL21_Invoice2_Envelope with the specified parameters.
         ///</summary>
-        public UBL21_Invoice2_Envelope(UBL21_Invoice2_Content content = default(UBL21_Invoice2_Content),TRACredential_Label label = default(TRACredential_Label))
+        public UBL21_Invoice2_Envelope(UBL21_Invoice2_EnvelopeContent content = default(UBL21_Invoice2_EnvelopeContent),TRACredential_EnvelopeLabel label = default(TRACredential_EnvelopeLabel))
         {
             
             this.content = content;
@@ -68,9 +68,9 @@ namespace TDW.TRAServer
             return !(a == b);
         }
         
-        public UBL21_Invoice2_Content content;
+        public UBL21_Invoice2_EnvelopeContent content;
         
-        public TRACredential_Label label;
+        public TRACredential_EnvelopeLabel label;
         
         /// <summary>
         /// Converts the string representation of a UBL21_Invoice2_Envelope to its
@@ -125,13 +125,13 @@ namespace TDW.TRAServer
             m_ptr = _CellPtr;
             
             ResizeFunction = func;
-                    content_Accessor_Field = new UBL21_Invoice2_Content_Accessor(null,
+                    content_Accessor_Field = new UBL21_Invoice2_EnvelopeContent_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        label_Accessor_Field = new TRACredential_Label_Accessor(null,
+                });        label_Accessor_Field = new TRACredential_EnvelopeLabel_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -186,6 +186,11 @@ namespace TDW.TRAServer
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
@@ -218,7 +223,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 }}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                if ((0 != (*(optheader_2 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -254,6 +259,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
@@ -286,7 +296,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 }}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                if ((0 != (*(optheader_2 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -309,12 +319,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
-        UBL21_Invoice2_Content_Accessor content_Accessor_Field;
+        UBL21_Invoice2_EnvelopeContent_Accessor content_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field content.
         ///</summary>
-        public unsafe UBL21_Invoice2_Content_Accessor content
+        public unsafe UBL21_Invoice2_EnvelopeContent_Accessor content
         {
             get
             {
@@ -362,12 +372,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 }
             }
         }
-        TRACredential_Label_Accessor label_Accessor_Field;
+        TRACredential_EnvelopeLabel_Accessor label_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field label.
         ///</summary>
-        public unsafe TRACredential_Label_Accessor label
+        public unsafe TRACredential_EnvelopeLabel_Accessor label
         {
             get
             {
@@ -377,6 +387,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
             targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
+                {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
@@ -410,7 +425,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 }}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -431,6 +446,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
@@ -463,7 +483,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 }}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -547,6 +567,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
     }
 
 }
+            if( field.content.credentialsubjectudid!= null)
+            {
+
+        if(field.content.credentialsubjectudid!= null)
+        {
+            int strlen_3 = field.content.credentialsubjectudid.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
             if( field.content.claims!= null)
             {
 
@@ -1607,6 +1640,26 @@ byte *storedPtr_3 = targetPtr;
 *(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
 
 }
+            if( field.content.credentialsubjectudid!= null)
+            {
+
+        if(field.content.credentialsubjectudid!= null)
+        {
+            int strlen_3 = field.content.credentialsubjectudid.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.content.credentialsubjectudid)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_2 + 0) |= 0x01;
+            }
             if( field.content.claims!= null)
             {
 
@@ -3073,7 +3126,7 @@ byte *storedPtr_7 = targetPtr;
 
 }
 
-            }*(optheader_2 + 0) |= 0x01;
+            }*(optheader_2 + 0) |= 0x02;
             }
             if( field.content.encryptedclaims!= null)
             {
@@ -3128,7 +3181,7 @@ byte *storedPtr_7 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_2 + 0) |= 0x02;
+            }*(optheader_2 + 0) |= 0x04;
             }
 
             }
@@ -3221,6 +3274,11 @@ byte *storedPtr_7 = targetPtr;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
@@ -3253,7 +3311,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 }}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -3278,6 +3336,11 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);            targetPtr += 8;
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}{            targetPtr += 1;
 targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
@@ -3310,7 +3373,7 @@ targetPtr += *(int*)targetPtr + sizeof(int);}}targetPtr += *(int*)targetPtr + si
 }}targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }

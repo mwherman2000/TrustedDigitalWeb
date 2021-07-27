@@ -34,7 +34,7 @@ namespace TDW.TRAServer
         ///<summary>
         ///Initializes a new instance of Cac_PaymentMeans_Envelope with the specified parameters.
         ///</summary>
-        public Cac_PaymentMeans_Envelope(Cac_PaymentMeans_Content content = default(Cac_PaymentMeans_Content),TRACredential_Label label = default(TRACredential_Label))
+        public Cac_PaymentMeans_Envelope(Cac_PaymentMeans_EnvelopeContent content = default(Cac_PaymentMeans_EnvelopeContent),TRACredential_EnvelopeLabel label = default(TRACredential_EnvelopeLabel))
         {
             
             this.content = content;
@@ -68,9 +68,9 @@ namespace TDW.TRAServer
             return !(a == b);
         }
         
-        public Cac_PaymentMeans_Content content;
+        public Cac_PaymentMeans_EnvelopeContent content;
         
-        public TRACredential_Label label;
+        public TRACredential_EnvelopeLabel label;
         
         /// <summary>
         /// Converts the string representation of a Cac_PaymentMeans_Envelope to its
@@ -125,13 +125,13 @@ namespace TDW.TRAServer
             m_ptr = _CellPtr;
             
             ResizeFunction = func;
-                    content_Accessor_Field = new Cac_PaymentMeans_Content_Accessor(null,
+                    content_Accessor_Field = new Cac_PaymentMeans_EnvelopeContent_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
                     this.m_ptr = this.ResizeFunction(this.m_ptr, ptr_offset + substructure_offset, delta);
                     return this.m_ptr + substructure_offset;
-                });        label_Accessor_Field = new TRACredential_Label_Accessor(null,
+                });        label_Accessor_Field = new TRACredential_EnvelopeLabel_Accessor(null,
                 (ptr,ptr_offset,delta)=>
                 {
                     int substructure_offset = (int)(ptr - this.m_ptr);
@@ -186,11 +186,16 @@ namespace TDW.TRAServer
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                {
 {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                if ((0 != (*(optheader_2 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -226,11 +231,16 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_2 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                {
 {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_2 + 0) & 0x02)))
+                if ((0 != (*(optheader_2 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -253,12 +263,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
         }
         public ResizeFunctionDelegate ResizeFunction { get; set; }
         #endregion
-        Cac_PaymentMeans_Content_Accessor content_Accessor_Field;
+        Cac_PaymentMeans_EnvelopeContent_Accessor content_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field content.
         ///</summary>
-        public unsafe Cac_PaymentMeans_Content_Accessor content
+        public unsafe Cac_PaymentMeans_EnvelopeContent_Accessor content
         {
             get
             {
@@ -306,12 +316,12 @@ targetPtr += *(int*)targetPtr + sizeof(int);
                 }
             }
         }
-        TRACredential_Label_Accessor label_Accessor_Field;
+        TRACredential_EnvelopeLabel_Accessor label_Accessor_Field;
         
         ///<summary>
         ///Provides in-place access to the object field label.
         ///</summary>
-        public unsafe TRACredential_Label_Accessor label
+        public unsafe TRACredential_EnvelopeLabel_Accessor label
         {
             get
             {
@@ -322,11 +332,16 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
 {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -347,11 +362,16 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
 {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -435,6 +455,19 @@ targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + size
     }
 
 }
+            if( field.content.credentialsubjectudid!= null)
+            {
+
+        if(field.content.credentialsubjectudid!= null)
+        {
+            int strlen_3 = field.content.credentialsubjectudid.Length * 2;
+            targetPtr += strlen_3+sizeof(int);
+        }else
+        {
+            targetPtr += sizeof(int);
+        }
+
+            }
             if( field.content.claims!= null)
             {
 
@@ -635,6 +668,26 @@ byte *storedPtr_3 = targetPtr;
 *(int*)storedPtr_3 = (int)(targetPtr - storedPtr_3 - 4);
 
 }
+            if( field.content.credentialsubjectudid!= null)
+            {
+
+        if(field.content.credentialsubjectudid!= null)
+        {
+            int strlen_3 = field.content.credentialsubjectudid.Length * 2;
+            *(int*)targetPtr = strlen_3;
+            targetPtr += sizeof(int);
+            fixed(char* pstr_3 = field.content.credentialsubjectudid)
+            {
+                Memory.Copy(pstr_3, targetPtr, strlen_3);
+                targetPtr += strlen_3;
+            }
+        }else
+        {
+            *(int*)targetPtr = 0;
+            targetPtr += sizeof(int);
+        }
+*(optheader_2 + 0) |= 0x01;
+            }
             if( field.content.claims!= null)
             {
 
@@ -744,7 +797,7 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_2 + 0) |= 0x01;
+            }*(optheader_2 + 0) |= 0x02;
             }
             if( field.content.encryptedclaims!= null)
             {
@@ -799,7 +852,7 @@ byte *storedPtr_3 = targetPtr;
             targetPtr += sizeof(int);
         }
 
-            }*(optheader_2 + 0) |= 0x02;
+            }*(optheader_2 + 0) |= 0x04;
             }
 
             }
@@ -892,11 +945,16 @@ byte *storedPtr_3 = targetPtr;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
 {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
@@ -921,11 +979,16 @@ targetPtr += *(int*)targetPtr + sizeof(int);
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);
                 if ((0 != (*(optheader_3 + 0) & 0x01)))
                 {
+targetPtr += *(int*)targetPtr + sizeof(int);
+                }
+
+                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                {
 {{targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}            targetPtr += 8;
 targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }
 
-                if ((0 != (*(optheader_3 + 0) & 0x02)))
+                if ((0 != (*(optheader_3 + 0) & 0x04)))
                 {
 {targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);targetPtr += *(int*)targetPtr + sizeof(int);}
                 }

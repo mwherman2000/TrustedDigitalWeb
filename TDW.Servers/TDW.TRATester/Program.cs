@@ -30,12 +30,13 @@ namespace TDW.TRATester
                 long id = CellIdFactory.NewCellId();
                 string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, id);
 
-                TRATimestampCell tsCell = new TRATimestampCell(id, new TRATimestampEnvelope(), new TRACredential_EnvelopeSeal());
-                TRATimestampClaims tsclaims = new TRATimestampClaims(now.Ticks, now, now.ToString("u"));
-                tsCell.envelope.content = new TRATimestampContent(udid, TRAContexts.DefaultContext, tsclaims);
-                tsCell.envelope.label = new TRACredential_Label(TRACredentialType.NotarizedCredential, 1, TRATrustLevel.SignedHashSignature,
+                TRATimestamp_Cell tsCell = new TRATimestamp_Cell(id, new TRATimestamp_Envelope(), new TRACredential_EnvelopeSeal());
+                TRATimestamp_Claims tsclaims = new TRATimestamp_Claims(now.Ticks, now, now.ToString("u"));
+                tsCell.envelope.content = new TRATimestamp_EnvelopeContent(udid, TRAContexts.DefaultContext, claims: tsclaims);
+                tsCell.envelope.label = new TRACredential_EnvelopeLabel(TRACredentialType.NotarizedCredential, 1, TRATrustLevel.SignedHashSignature,
                                                                      TRAEncryptionFlag.NotEncrypted, notaryudid, "Timestamp1", "My timestamp");
-                Global.LocalStorage.SaveTRATimestampCell(tsCell);
+                Global.LocalStorage.SaveTRATimestamp_Cell(tsCell);
+
                 // TODO Process Trust Level
             }
 
@@ -201,8 +202,8 @@ namespace TDW.TRATester
                 long invoiceId = CellIdFactory.NewCellId();
                 string invoiceUdid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, invoiceId);
                 UBL21_Invoice2_Cell invoiceCell = new UBL21_Invoice2_Cell(invoiceId, new UBL21_Invoice2_Envelope(), new TRACredential_EnvelopeSeal());
-                invoiceCell.envelope.content = new UBL21_Invoice2_Content(invoiceUdid, UBL21Helpers.UBLDefaultContext, invoiceClaims);
-                invoiceCell.envelope.label = new TRACredential_Label(
+                invoiceCell.envelope.content = new UBL21_Invoice2_EnvelopeContent(invoiceUdid, UBL21Helpers.UBLDefaultContext, claims: invoiceClaims);
+                invoiceCell.envelope.label = new TRACredential_EnvelopeLabel(
                         TRACredentialType.NotarizedCredential, 1, 
                         TRATrustLevel.SignedHashSignature,
                         TRAEncryptionFlag.NotEncrypted, notaryudid, "Timestamp1", "My timestamp");
@@ -381,8 +382,10 @@ namespace TDW.TRATester
                     var comments = new List<string> { "Bob's UDID Document", "It works!", "Created by TDW.TRAServer at " + DateTime.Now.ToString("u") };
 
                     requestMessage.Headers.TryAddWithoutValidation("Accept", "application/json");
-                    TDWCreateTDWCredentialRequest request = new TDWCreateTDWCredentialRequest(TRACredentialType.UDIDDocument, context, claims,
-                                                                TRATrustLevel.SignedHashSignature, TRAEncryptionFlag.NotEncrypted, comments, keypairsalt);
+                    TDWCreateTDWCredentialRequest request = new TDWCreateTDWCredentialRequest(
+                                                                TRACredentialType.UDIDDocument, context, null, 
+                                                                claims: claims,
+                                                                TRATrustLevel.SignedHashSignature, TRAEncryptionFlag.NotEncrypted, comments,                                    keypairsalt);
                     string jsonRequest = JsonConvert.SerializeObject(request);
                     requestMessage.Content = new StringContent(jsonRequest);
                     var task = httpClient.SendAsync(requestMessage);
