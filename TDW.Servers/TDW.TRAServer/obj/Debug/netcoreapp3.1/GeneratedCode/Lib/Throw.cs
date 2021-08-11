@@ -1023,15 +1023,6 @@ namespace TDW.TRAServer
             throw new DataTypeIncompatibleException("Data type 'TRAPostalAddress_Claims?' not compatible with the target field.");
         }
         
-        internal static void parse_TRAPostalAddress_EnvelopeContent_nullable(string value)
-        {
-            throw new ArgumentException("Cannot parse \""+value+"\" into TRAPostalAddress_EnvelopeContent?.");
-        }
-        internal static void incompatible_with_TRAPostalAddress_EnvelopeContent_nullable()
-        {
-            throw new DataTypeIncompatibleException("Data type 'TRAPostalAddress_EnvelopeContent?' not compatible with the target field.");
-        }
-        
         internal static void parse_TRATimestamp_Claims_nullable(string value)
         {
             throw new ArgumentException("Cannot parse \""+value+"\" into TRATimestamp_Claims?.");

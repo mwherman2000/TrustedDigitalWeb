@@ -677,29 +677,6 @@ namespace TDW.TRAServer
             
         }
         
-        internal static unsafe bool TryParse_TRAPostalAddress_EnvelopeContent_nullable(string s, out TRAPostalAddress_EnvelopeContent? value)
-        {
-            TRAPostalAddress_EnvelopeContent value_type_value;
-            JArray jarray;
-            
-            if (string.IsNullOrEmpty(s) || string.Compare(s, "null", ignoreCase: true) == 0)
-            {
-                value = default(TRAPostalAddress_EnvelopeContent?);
-                return true;
-            }
-            else if (TRAPostalAddress_EnvelopeContent.TryParse(s, out value_type_value))
-            {
-                value = value_type_value;
-                return true;
-            }
-            else
-            {
-                value = default(TRAPostalAddress_EnvelopeContent?);
-                return false;
-            }
-            
-        }
-        
         internal static unsafe bool TryParse_TRATimestamp_Claims_nullable(string s, out TRATimestamp_Claims? value)
         {
             TRATimestamp_Claims value_type_value;

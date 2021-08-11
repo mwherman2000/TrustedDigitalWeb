@@ -30,6 +30,23 @@ namespace TDW.TRATester
                 long id = CellIdFactory.NewCellId();
                 string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, id);
 
+                TRAPostalAddress_Cell   paCell = new TRAPostalAddress_Cell(id, new TRAPostalAddress_Envelope(), new TRACredential_EnvelopeSeal());
+                TRAPostalAddress_Claims paclaims = new TRAPostalAddress_Claims(
+                    "101 Main Street", "P.O. Box 102", "Sovrin City", "Sovronia", "Canada", "H0H 0H0"
+                    );
+                paCell.envelope.content = new TRAPostalAddress_EnvelopeContent(udid, TRAContexts.DefaultContext, claims: paclaims);
+                paCell.envelope.label   = new TRACredential_PackingLabel(TRACredentialType.NotarizedCredential, 1, TRATrustLevel.SignedHashSignature,
+                                                                         TRAEncryptionFlag.NotEncrypted, notaryudid, 
+                                                                         "Postal Address 1", "An example of a Postal Address from schema.org");
+                paCell.envelopeseal     = new TRACredential_EnvelopeSeal("<hashedthumbprint16>", "<signedhashsignature16>", "<notarystamptbd>",
+                                                                         new List<string> { "TODO", "Add trustlevel code" });
+                Global.LocalStorage.SaveTRAPostalAddress_Cell(paCell);
+            }
+
+            {
+                long id = CellIdFactory.NewCellId();
+                string udid = TRAUDIDHelpers.TRAUDIDFormat(TRAMethodNames.TRACredentialMethodName, id);
+
                 TRATimestamp_Cell tsCell = new TRATimestamp_Cell(id, new TRATimestamp_Envelope(), new TRACredential_EnvelopeSeal());
                 TRATimestamp_Claims tsclaims = new TRATimestamp_Claims(now.Ticks, now, now.ToString("u"));
                 tsCell.envelope.content = new TRATimestamp_EnvelopeContent(udid, TRAContexts.DefaultContext, claims: tsclaims);

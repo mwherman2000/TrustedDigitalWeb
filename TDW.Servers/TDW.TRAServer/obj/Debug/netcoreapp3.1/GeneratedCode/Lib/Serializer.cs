@@ -1526,19 +1526,6 @@ namespace TDW.TRAServer
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         /// <summary>
-        /// Serializes a TRAPostalAddress_EnvelopeContent? object to Json string.
-        /// </summary>
-        /// <param name="value">The target object to be serialized.</param>
-        /// <returns>The serialized Json string.</returns>
-        public static string ToString(TRAPostalAddress_EnvelopeContent? value)
-        {
-            s_ensure_string_builder();
-            ToString_impl(value, s_stringBuilder, in_json: false);
-            return s_stringBuilder.ToString();
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        /// <summary>
         /// Serializes a TRATimestamp_Claims? object to Json string.
         /// </summary>
         /// <param name="value">The target object to be serialized.</param>
@@ -7044,10 +7031,6 @@ namespace TDW.TRAServer
                 
                 {
                     
-                    if (value.content != null)
-                    
-                    {
-                        
                         if(first_field)
                             first_field = false;
                         else
@@ -7056,8 +7039,6 @@ namespace TDW.TRAServer
                         
                         ToString_impl(value.content, str_builder, in_json: true);
                         
-                    }
-                    
                 }
                 
                 {
@@ -9186,113 +9167,6 @@ namespace TDW.TRAServer
                         str_builder.Append("\"postalCode\":");
                         
                         ToString_impl(value.Value.postalCode, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                str_builder.Append('}');
-            }
-            
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private static void ToString_impl(TRAPostalAddress_EnvelopeContent? value, StringBuilder str_builder, bool in_json)
-        {
-            
-            {
-                
-                if (value == null)
-                    return;
-                
-                str_builder.Append('{');
-                bool first_field = true;
-                
-                {
-                    
-                    if (value.Value.udid != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"udid\":");
-                        
-                        ToString_impl(value.Value.udid, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.Value.context != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"context\":");
-                        
-                        ToString_impl(value.Value.context, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.Value.credentialsubjectudid != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"credentialsubjectudid\":");
-                        
-                        ToString_impl(value.Value.credentialsubjectudid, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.Value.claims != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"claims\":");
-                        
-                        ToString_impl(value.Value.claims, str_builder, in_json: true);
-                        
-                    }
-                    
-                }
-                
-                {
-                    
-                    if (value.Value.encryptedclaims != null)
-                        
-                    {
-                        
-                        if(first_field)
-                            first_field = false;
-                        else
-                            str_builder.Append(',');
-                        str_builder.Append("\"encryptedclaims\":");
-                        
-                        ToString_impl(value.Value.encryptedclaims, str_builder, in_json: true);
                         
                     }
                     

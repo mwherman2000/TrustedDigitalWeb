@@ -89,18 +89,18 @@ struct TRACredential_PackingLabel
 	optional string comment;
 }
 
-struct TRACredential_Envelope
-{
-	TRACredential_EnvelopeContent content;
-	TRACredential_PackingLabel label;
-}
-
 struct TRACredential_EnvelopeSeal 
 {
 	optional string hashedThumbprint64;		// digital hash
 	optional string signedHashSignature64;	// digital signature of digital hash
 	optional string notaryStamp;			// verifiable data registry key
 	optional List<string> comments;
+}
+
+struct TRACredential_Envelope
+{
+	TRACredential_EnvelopeContent content;
+	TRACredential_PackingLabel label;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
