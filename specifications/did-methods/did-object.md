@@ -135,8 +135,8 @@ There are no privacy considerations that are specific to this DID Method specifi
 The syntax and construction of a "DID Object" Identifier and its associated DID Document ensure that no Personally Identifiable Information (PII) is exposed by these constructs.
 
 ## 6. Reference Implementations
-The code for the "DID Object" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
-This project is the definitive reference implementation of Trusted Digital Web "DID Object" Identifier Method.
+The current version of the code for the "DID Object" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
+This project is the definitive reference implementation of Trusted Digital Web "DID Object" Identifier Method and any compliant implementations of an agent on the Trusted Digital Web.
 
 ## Appendix A. Public Key Algorithm 
 There are three public key algorithms supported in this document. 
