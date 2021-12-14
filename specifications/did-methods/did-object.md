@@ -1,5 +1,5 @@
 # Trusted Digital Web "DID Object" Identifier Method Specification
-This specification defines the end-to-end lifecycle of DID Indentifiers and DID Documents for "DID Objects", a key feature of the
+This specification defines the end-to-end lifecycle of DID Identifiers and DID Documents for "DID Objects", a key feature of the
 Fully Decentralized Objects (FDOs) Framework, implemented by the Trusted Digitial Web[1]. 
 
 This specification defines the following:
