@@ -12,15 +12,16 @@ This specification conforms to
 the requirements specified in the DID Decentralized Identifier specification[2] currently published by the W3C Credentials Community Group (CCG). 
 
 The fabric that knits the world together is the Internet global communications network and the World Wide Web (WWW) 
-software application that enables individuals, governments, corporations, and other organizations to share, 
+software application that runs on top of the Internet.
+The WWW enables individuals, governments, corporations, and other organizations to share, 
 consume and interact with a universal sea of data and information representing every aspect of our lives and livelihoods.
 
 The Trusted Digital Web (TDW) is a universal, trusted, frictionless, fully-integrated, standards-based, 
-general-purpose, decentralized, end-to-end software and governance platform for global commerce, communication, and collaboration.
-
+general-purpose, decentralized, end-to-end software and governance platform for global commerce, communication, and collaboration. 
 The Trusted Digital Web is envisioned to be the next generation, decentralized, trusted replacement for the World Wide Web.
 
-Each software component in the Trusted Digital Web technology architecture (including every smart contract) is implemented using 
+Every software component in the Trusted Digital Web technology architecture (including every smart contract) is implemented using a single
+programming language and a single common set of tools and technologies:
 the C# programming language, Microsoft Visual Studio, and
 the cross-platform implementations of the .NET Core Framework and the Microsoft Common Languiage Runtime (CLR) runtime environment.
 
