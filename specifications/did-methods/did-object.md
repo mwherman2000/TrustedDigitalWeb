@@ -26,7 +26,7 @@ the C# programming language, Microsoft Visual Studio, and
 the cross-platform implementations of the .NET Core Framework and the Microsoft Common Languiage Runtime (CLR) runtime environment.
 
 Verifiable Data Registry (VDR) support is provided by the Stratis Platform - a general-purpose, smart contact-enabled blockchain platform implemented 
-using the same progamming language, tools and technologies used to implement the Trusted Digital Web Runtime Library and Services.
+using the same progamming language, tools and technologies used to implement the Trusted Digital Web.
 
 ## 1. Trusted Digital Web "DID Object" Identifier Method Name
 The namestring that shall identify the "DID Object" Identifier Method is: `object`.
