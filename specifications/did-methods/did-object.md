@@ -32,7 +32,7 @@ using the same progamming language, tools and technologies used to implement the
 The namestring that shall identify the "DID Object" Identifier Method is: `object`.
 
 A DID Identifier that uses this method **MUST** begin with the following prefix: `did:object`. 
-Per this DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
+Per the DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
 
 ## 2. Trusted Digital Web "DID Object" Identifier Format
 "DID Object" Identifiers on the Trusted Digital Web **MUST** use the following format:
