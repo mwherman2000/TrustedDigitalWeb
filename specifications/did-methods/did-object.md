@@ -158,3 +158,6 @@ There is only one curve that can be used, namely, `ed25519`.
 [2]. W3C Decentralized Identifiers (DIDs) v0.11, https://w3c-ccg.github.io/did-spec/.
 
 [3]. IETF Internet draft, SM2 Digital Signature Algorithm, https://tools.ietf.org/html/draft-shen-sm2-ecdsa-02.
+
+## Credits
+The text of this specification was adapted from the `did:ont` specification, https://github.com/ontio/ontology-DID/blob/master/docs/en/DID-ONT-method.md.
