@@ -1,12 +1,13 @@
 # Trusted Digital Web "DID Object" Decentralized Identifier Method Specification
+
 This specification defines the end-to-end lifecycle of DID Identifiers and DID Documents for "DID Objects", a key feature of the
-Fully Decentralized Objects (FDOs) Framework [5][6][V1.2][V1.1], implemented by the Trusted Digitial Web[1][7][V1.3][V1.4][V1.5]. 
+Fully Decentralized Objects (FDOs) Framework [5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
 This specification defines the following:
 - "DID Object" Identifier Syntax and Construction
 - "DID Object" DID Document CRUD Operations
 
-NOTE: In this specificiation, the term "DID Object" Identifier is synonomous with the term "DID Object" Decentralized Identifier.
+NOTE: In this specification, the term "DID Object" Identifier is synonymous with the term "DID Object" Decentralized Identifier.
 
 This specification conforms to 
 the requirements specified in the DID Decentralized Identifier specification[2] currently published by the W3C Credentials Community Group (CCG). 
@@ -24,20 +25,22 @@ The Trusted Digital Web is envisioned to be the next generation, decentralized, 
 Every software component in the Trusted Digital Web technology architecture (including every smart contract) is implemented using a single
 programming language and a single common set of tools and technologies:
 the C# programming language, Microsoft Visual Studio, and
-the cross-platform implementations of the .NET Core Framework and the Microsoft Common Languiage Runtime (CLR) runtime environment.
+the cross-platform implementations of the .NET Core Framework and the Microsoft Common Language Runtime (CLR) runtime environment.
 
 Verifiable Data Registry (VDR) support is provided by the Stratis Platform[35] - a general-purpose, smart contact-enabled blockchain platform implemented 
-using the same progamming language, tools and technologies used to implement the Trusted Digital Web.
+using the same programming language, tools and technologies used to implement the Trusted Digital Web.
 
 The publication of this DID Method specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
 ## 1. Trusted Digital Web "DID Object" Identifier Method Name
-The namestring that shall identify the "DID Object" Identifier Method is: `object`.
+
+The name string that shall identify the "DID Object" Identifier Method is: `object`.
 
 A DID Identifier that uses this method **MUST** begin with the following prefix: `did:object`. 
 Per the DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
 
 ## 2. Trusted Digital Web "DID Object" Identifier Format
+
 "DID Object" Identifiers on the Trusted Digital Web **MUST** use the following format:
 ```
 did-object-did = "did:object:" id-string 
@@ -56,6 +59,7 @@ Trusted Digital Web "DID Object" Identifier `id-string` values are encoded using
 did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt
 ```
 ## 3. CRUD Operations
+
 "DID Object" Identifiers and associated DID Documents on the Trusted Digital Web are managed by the Trusted Digital Web Runtime Library. 
 The Library provides CRUD interfaces for controlling the lifecycle of a "DID Object" Identifier and its associated DID Document.
  
@@ -85,7 +89,8 @@ Every public key in the array of `publicKey` can be used to authenticate the "DI
 
 Note: The list of supported public key signature schemes is listed in [Appendix A](#appendix-a-public-key-algorithm).
 
-### Example 2. "DID Object" DID Document
+### Example 2. Trusted Digital Web "DID Object" DID Document
+
 ```json
 {
     "id": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt",
@@ -128,24 +133,29 @@ DID Document. In this case, there is no public key that can be used to authentic
 More importantly, deletion of a Trusted Digital Web "DID Object" DID Document means that the associated "DID Object" Identifier cannot be reactivated again. 
 
 ## 4. Security Considerations
+
 There are no security considerations that are specific to this DID Method specificiation. Security considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
 
 ## 5. Privacy Consideration
+
 There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
 
 The syntax and construction of a "DID Object" Identifier and its associated DID Document ensure that no Personally Identifiable Information (PII) is exposed by these constructs.
 
 ## 6. Reference Implementations
+
 The current version of the code for the "DID Object" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
 This project is the definitive reference implementation of Trusted Digital Web "DID Object" Identifier Method and any compliant implementations of an agent on the Trusted Digital Web.
 
-## Appendix A. Public Key Algorithm 
+## Appendix A. Public Key Algorithm
+
 There are three public key algorithms supported in this document. 
 1. ECDSA
 2. SM2
 3. EdDSA
 
-### ECDSA 
+### ECDSA
+
 The curves that can be used are: 
 
 - secp224r1 -- same as nistp224
@@ -155,14 +165,16 @@ The curves that can be used are:
 
 More curves may be supported in future versions of this Method. 
 
-### SM2 
+### SM2
 
 There is only one curve that can be used, namely, `sm2p256v1` as defined in [SM2 Digital Signature Algorithm](https://tools.ietf.org/html/draft-shen-sm2-ecdsa-02#appendix-D). 
 
 ### EdDSA
+
 There is only one curve that can be used, namely, `ed25519`. 
 
 ## References
+
 References and historical record of related publications.
 
 [1]. Trusted Digital Web: Whitepaper, https://hyperonomy.com/2019/11/06/trusted-digital-web-whitepaper/.
@@ -246,4 +258,5 @@ References and historical record of related publications.
    5. Trusted Digital Web / Hyperonomy Business Blockchain / NEO-NATION: Annual Report 2019, https://www.youtube.com/watch?v=IAozsIsrlbU&list=PLU-rWqHm5p45dzXF2LJZjuNVJrOUR6DaD&index=5
 
 ## Credits
+
 The text of this specification was adapted from the `did:ont` specification, https://github.com/ontio/ontology-DID/blob/master/docs/en/DID-ONT-method.md.
