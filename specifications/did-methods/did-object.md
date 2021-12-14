@@ -6,13 +6,14 @@ This specification defines the following:
 - "DID Object" Identifier Syntax and Construction
 - "DID Object" DID Document CRUD Operations
 
-NOTE: The term "DID Object" Identifier is synonomous with the term "DID Object" Decentralized Identifier.
+NOTE: In this specificiation, the term "DID Object" Identifier is synonomous with the term "DID Object" Decentralized Identifier.
 
 This specification conforms to 
 the requirements specified in the DID Decentralized Identifier specification[2] currently published by the W3C Credentials Community Group (CCG). 
 
 The fabric that knits the world together is the Internet global communications network and the World Wide Web (WWW) 
 software application that runs on top of the Internet.
+
 The WWW enables individuals, governments, corporations, and other organizations to share, 
 consume and interact with a universal sea of data and information representing every aspect of our lives and livelihoods.
 
@@ -25,7 +26,7 @@ programming language and a single common set of tools and technologies:
 the C# programming language, Microsoft Visual Studio, and
 the cross-platform implementations of the .NET Core Framework and the Microsoft Common Languiage Runtime (CLR) runtime environment.
 
-Verifiable Data Registry (VDR) support is provided by the Stratis Platform - a general-purpose, smart contact-enabled blockchain platform implemented 
+Verifiable Data Registry (VDR) support is provided by the Stratis Platform[35] - a general-purpose, smart contact-enabled blockchain platform implemented 
 using the same progamming language, tools and technologies used to implement the Trusted Digital Web.
 
 The publication of this DID Method specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
@@ -231,6 +232,8 @@ References and historical record of related publications.
 [33]. Ethereum .NET Development Examples using the Nethereum Integration Libraries, https://hyperonomy.com/2017/12/19/ethereum-net-examples-using-the-nethereum-libraries/.
 
 [34]. #Graphitization of the Amazon Leadership Principles (introducing Personal Leadership Principle Maps) – Iteration 1, https://hyperonomy.com/2017/05/08/amazons-principles/.
+
+[35]. Stratis Academy. https://academy.stratisplatform.com/Architecture%20Reference/architecture-reference-introduction.html
 
 ## Video Streams
 
