@@ -7,10 +7,12 @@ This specification defines the following:
 - "DID Object" Identifier Syntax and Construction
 - "DID Object" DID Document CRUD Operations
 
-NOTE: In this specification, the term "DID Object" Identifier is synonymous with the term "DID Object" Decentralized Identifier.
+NOTE: In this specification, the term "DID Object" Identifier is synonymous with the term "DID Object" Decentralized Identifier and, similarly, 
+the term "DID Object" DID Document is synonymous with the term "DID Object" Decentralized Identifier Document.
 
-This specification conforms to 
-the requirements specified in the DID Decentralized Identifier specification[2] currently published by the W3C Credentials Community Group (CCG). 
+This specification conforms to the requirements specified in the 
+DID Decentralized Identifier specification[2] currently published by the 
+W3C Credentials Community Group (CCG). 
 
 The fabric that knits the world together is the Internet global communications network and the World Wide Web (WWW) 
 software application that runs on top of the Internet.
@@ -22,8 +24,8 @@ The Trusted Digital Web (TDW) is a universal, trusted, frictionless, fully-integ
 general-purpose, decentralized, end-to-end software and governance platform for global commerce, communication, and collaboration. 
 The Trusted Digital Web is envisioned to be the next generation, decentralized, trusted replacement for the World Wide Web.
 
-Every software component in the Trusted Digital Web technology architecture (including every smart contract) is implemented using a single
-programming language and a single common set of tools and technologies:
+Every software component in the Trusted Digital Web technology architecture (including every smart contract) is implemented using 
+a single programming language and a single common set of tools and technologies:
 the C# programming language, Microsoft Visual Studio, and
 the cross-platform implementations of the .NET Core Framework and the Microsoft Common Language Runtime (CLR) runtime environment.
 
@@ -48,8 +50,7 @@ id-string      = 1* idchar
 idchar         = 1-9 / A-H / J-N / P-Z / a-k / m-z 
 ```
 `id-string` is an encoded public key value computed using KERI key management techniques.
-The KERI seed value can be any globally unique value including, for example, a composite database record key, object key, or
-GUID value. 
+The KERI seed value can be any globally unique value including, for example, a composite database record key, object key, or GUID value. 
 Trusted Digital Web "DID Object" Identifier `id-string` values are encoded using the `Base58` encoding method.
 
 `idchar` consists of all the characters in the `Base58` char set which is first defined by Bitcoin. 
@@ -70,8 +71,8 @@ The interface to register a "DID Object" Identifier and its associated public ke
 ```csharp
 public bool RegIdWIthPublicKey(string didobjectid, byte[] publicKey); 
 ```
-The calling program must include two parameters: the string value of the new "DID Object" Identifier to be registered and a cryptographic 
-public key to act as the first management key. 
+The calling program must include two parameters: the string value of the new "DID Object" Identifier to be registered and 
+a cryptographic public key to act as the first management key. 
 This function will return `True` if the "DID Object" Identifier had not been registered previously.
 
 ### 3.2 Read (Resolve)
