@@ -34,6 +34,8 @@ using the same programming language, tools and technologies used to implement th
 
 The publication of this DID Method specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
+The authoriative source text for this specifcation can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-object.md.
+
 ## 1. Trusted Digital Web "DID Object" Identifier Method Name
 
 The name string that shall identify the "DID Object" Identifier Method is: `object`.
