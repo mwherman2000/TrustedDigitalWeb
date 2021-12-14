@@ -42,8 +42,8 @@ id-string      = 1* idchar
 idchar         = 1-9 / A-H / J-N / P-Z / a-k / m-z 
 ```
 `id-string` is an encoded public key value computed using KERI key management techniques.
-The KERI seed value can be any globally unique value including, for example, a composite database record key, object key, 
-GUID value, or the value of a DID Identifier string. 
+The KERI seed value can be any globally unique value including, for example, a composite database record key, object key, or
+GUID value. 
 Trusted Digital Web "DID Object" Identifier `id-string` values are encoded using the Base58 encoding method.
 
 `idchar` consists of all the characters in the Base58 char set which is first defined by Bitcoin. 
