@@ -28,7 +28,7 @@ the cross-platform implementations of the .NET Core Framework and the Microsoft 
 Verifiable Data Registry (VDR) support is provided by the Stratis Platform - a general-purpose, smart contact-enabled blockchain platform implemented 
 using the same progamming language, tools and technologies used to implement the Trusted Digital Web.
 
-The publication of this DID Method specification reqalizes the 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
+The publication of this DID Method specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
 ## 1. Trusted Digital Web "DID Object" Identifier Method Name
 The namestring that shall identify the "DID Object" Identifier Method is: `object`.
