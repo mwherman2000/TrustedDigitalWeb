@@ -42,7 +42,8 @@ id-string      = 1* idchar
 idchar         = 1-9 / A-H / J-N / P-Z / a-k / m-z 
 ```
 `id-string` is an encoded public key value computed using KERI key management techniques.
-The KERI seed value can be any globally unique value including, for example, a database record key, object key, GUID value, or the value of a DID Identifier string. 
+The KERI seed value can be any globally unique value including, for example, a composite database record key, object key, 
+GUID value, or the value of a DID Identifier string. 
 Trusted Digital Web "DID Object" Identifier `id-string` values are encoded using the Base58 encoding method.
 
 `idchar` consists of all the characters in the Base58 char set which is first defined by Bitcoin. 
@@ -67,6 +68,7 @@ public key to act as the first management key.
 This function will return `True` if the "DID Object" Identifier had not been registered previously.
 
 ### 3.2 Read (Resolve)
+
 Trusted Digital Web "DID Object" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function of the Trusted Digital Web Runtime Library. 
 To make sure the result returned by invoking the `GetDIDDocument` function is trustworthy, the client could ask a sufficient number of nodes 
 and compare each node's return value.
@@ -105,14 +107,14 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
 
 ### 3.3 Update (Replace)
 
-To update the DID Document assicuated with a "DID Object" Identifier, two functions need to be invoked, 
+To update the DID Document associated with a "DID Object" Identifier, two functions need to be invoked, 
 ```csharp
 public bool AddKey(string didobjectid, byte[] newPublicKey, byte[] sender);
 ```
 ```csharp
 public bool RemoveKey(string didobjectid, byte[] oldPublicKey, byte[] sender);
 ```
-Note that `sender` param must be a currently-in-use public key of this DID.
+Note that `sender` param must be a currently-in-use public key of this "DID Object" Identifier.
 If a public key is removed, then it **cannot** be added again.
 
 ### 3.4 Delete (Revoke)
@@ -120,7 +122,7 @@ If a public key is removed, then it **cannot** be added again.
 To delete or deactivate a "DID Object", it suffices to remove all public keys from its associated 
 DID Document. In this case, there is no public key that can be used to authenticate the "DID Object" Controller.
 
-More importantly, deletion of a Trusted Digital Web "DID Object" DID Document means that this "DID Object" Identifier cannot be reactivated again. 
+More importantly, deletion of a Trusted Digital Web "DID Object" DID Document means that the associated "DID Object" Identifier cannot be reactivated again. 
 
 ## 4. Security Considerations
 TODO
@@ -129,7 +131,7 @@ TODO
 TODO
 
 ## 6. Reference Implementations
-The code for the "DID Object" reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
+The code for the "DID Object" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
 This project is the definitive reference implementation of Trusted Digital Web "DID Object" Identifier Method.
 
 ## Appendix A. Public Key Algorithm 
