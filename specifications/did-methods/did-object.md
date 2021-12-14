@@ -127,10 +127,12 @@ DID Document. In this case, there is no public key that can be used to authentic
 More importantly, deletion of a Trusted Digital Web "DID Object" DID Document means that the associated "DID Object" Identifier cannot be reactivated again. 
 
 ## 4. Security Considerations
-TODO
+There are no security considerations that are specific to this DID Method specificiation. Security considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
 
 ## 5. Privacy Consideration
-TODO
+There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
+
+The syntax and construction of a "DID Object" Identifier and its associated DID Document ensure that no Personally Identifiable Information (PII) is exposed by these constructs.
 
 ## 6. Reference Implementations
 The code for the "DID Object" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
