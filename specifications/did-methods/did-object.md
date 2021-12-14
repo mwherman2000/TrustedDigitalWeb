@@ -6,6 +6,8 @@ This specification defines the following:
 - "DID Object" Identifier Syntax and Construction
 - "DID Object" DID Document CRUD Operations
 
+NOTE: The term "DID Object" Identifier is synonomous with the term "DID Object" Decentralized Identifier.
+
 This specification conforms to 
 the requirements specified in the DID Decentralized Identifier specification[2] currently published by the W3C Credentials Community Group (CCG). 
 
@@ -29,10 +31,10 @@ using the same progamming language, tools and technologies used to implement the
 The namestring that shall identify the "DID Object" Identifier Method is: `object`.
 
 A DID Identifier that uses this method **MUST** begin with the following prefix: `did:object`. 
-Per this DID Decentralized Identifier specification[2], this string MUST be in lowercase.
+Per this DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
 
 ## 2. Trusted Digital Web "DID Object" Identifier Format
-"DID Object" Decentralized Identifiers on the Trusted Digital Web **MUST** use the following format:
+"DID Object" Identifiers on the Trusted Digital Web **MUST** use the following format:
 ```
 did-object-did = "did:object:" id-string 
 id-string      = 1* idchar
