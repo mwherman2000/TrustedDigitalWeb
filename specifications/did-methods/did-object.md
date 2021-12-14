@@ -162,7 +162,7 @@ There is only one curve that can be used, namely, `sm2p256v1` as defined in [SM2
 There is only one curve that can be used, namely, `ed25519`. 
 
 ## References
-Refewrences and historical record of related publications.
+References and historical record of related publications.
 
 [1]. Trusted Digital Web: Whitepaper, https://hyperonomy.com/2019/11/06/trusted-digital-web-whitepaper/.
 
