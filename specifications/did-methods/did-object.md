@@ -99,11 +99,11 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
     "id": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt",
     "publicKey": [{
         "id": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt#keys-1",
-        "type": ["ECDSA", "secp256r1"],
+        "type": ["Ed25519VerificationKey2018"],
         "publicKeyHex": "02ba8ba8e8ef1f313ecc095ba0bf0d1a921a138346d6817812714f4a9e4cca8ccf"
     }, {
         "id": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt#keys-2",
-        "type": ["ECDSA", "secp256r1"],
+        "type": ["Ed25519VerificationKey2018"],
         "publicKeyHex": "02b9bd513110b2a7822326280f3fdff9fa667649d3302428a0ab6fb796c6f3201b"
     }],
     "authentication": [{
@@ -139,11 +139,28 @@ More importantly, deletion of a Trusted Digital Web "DID Object" DID Document me
 
 There are no security considerations that are specific to this DID Method specificiation. Security considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
 
+Implementers (architects, developers, testers, and operators) need to be aware of the securtity and performance implications of the underlying tools and technologies 
+used to develop agents, services, and libraries for the Trusted Digital Web
+that, in turn, leverage the "DID Object" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW.
+
+More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
+For exammple, the security implications of processing an NFT for a kiss are significantly different from an international SWIFT-like monetary transfer.
+
+Further, Implementers are strongly encouraged to review the Security Considerations section of the DID Implementation Guide: https://w3c.github.io/did-imp-guide/#security-considerations.
+
 ## 5. Privacy Consideration
 
 There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
 
 The syntax and construction of a "DID Object" Identifier and its associated DID Document ensure that no Personally Identifiable Information (PII) is exposed by these constructs.
+
+Implementers (architects, developers, testers, and operators) need to be aware of the privacy implications of the underlying tools and technologies 
+used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "DID Object" Method specification. 
+
+More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
+For exammple, the privacy implications of processing an NFT for a kiss are significantly different from an international SWIFT-like monetary transfer.
+
+Further, Implementers are strongly encouraged to review the Privacy Considerations section of the DID Implementation Guide: https://w3c.github.io/did-imp-guide/#privacy-considerations.
 
 ## 6. Reference Implementations
 
