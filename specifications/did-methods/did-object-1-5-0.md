@@ -6,7 +6,7 @@
 
 The purpose of a DID Method specification is to define the following:
 - DID Identifier Syntax and Construction
-- DID Identifier Query Operators (optional)
+- DID Identifier Query Operators
 - DID Document CRUD Abstract Interface(s)
 - DID Method Platform Implementation Guidance
 
@@ -18,7 +18,7 @@ This specification defines the following:
 - "DID Object" Identifier Syntax and Construction
 - "DID Object" DID Document CRUD Abstract Interface
 
-This specification also provides Implementation Guidance to assist Implementors in creating safe and secure apps, agents, services and platforms
+This specification also provides Platform Implementation Guidance to assist Implementors in creating safe and secure apps, agents, services and platforms
 that are compliant with the "DID Object" DID Method specification.
 
 ### Out-of-Scope
@@ -78,6 +78,10 @@ Trusted Digital Web "DID Object" Identifier `id-string` values are encoded using
 ```
 did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt
 ```
+### 3.1 DID Identifier Query Operators
+
+This DID Method does not define or support any query operators.
+
 ## 4. CRUD Abstract Interface
 
 "DID Object" Identifiers and associated DID Documents on the Trusted Digital Web are managed by a compliant Trusted Digital Web Runtime Library. 
