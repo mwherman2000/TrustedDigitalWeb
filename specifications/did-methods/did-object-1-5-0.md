@@ -223,7 +223,7 @@ The Trusted Digital Web project would like to thank the DID Specification Regist
 assessing, and apprproving this specification for acceptance into the W3C DID Method Registry.
 
 In addition, the project is very gratefully to all the members of the 
-DID-CORE, Verifiable Credentials, and Confidential Storage working groups (hosted by W3C and DIF) for, literally, their years of support.
+DID-CORE, Verifiable Credentials, and Confidential Storage working groups (hosted by W3C and DIF) for their, literally, years of support.
 
 ## Appendix A. Public Key Algorithm
 
