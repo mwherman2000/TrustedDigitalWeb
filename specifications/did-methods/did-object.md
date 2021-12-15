@@ -141,7 +141,7 @@ There are no security considerations that are specific to this DID Method specif
 
 Implementers (architects, developers, testers, and operators) need to be aware of the securtity and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
-that, in turn, leverage the "DID Object" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW.
+that, in turn, leverage the "DID Object" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW (Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
 For exammple, the security implications of processing an NFT for a kiss are significantly different from an international SWIFT-like monetary transfer.
