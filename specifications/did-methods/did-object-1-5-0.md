@@ -219,12 +219,8 @@ This project is the definitive reference implementation of Trusted Digital Web "
 
 ## 7. Acknowledgments
 
-The Trusted Digital Web project would like to thank the following individuals for reviewing,
-providing feedback on, 
-and significantly improving the quality of this specification (in alphabetical order):
-
-- Michael Prorock (mesur.io), https://www.linkedin.com/in/mprorock/.
-- Manu Sporny (Digital Bizaar), https://www.linkedin.com/in/manusporny/.
+The Trusted Digital Web project would like to thank the DID Specification Registries editors for reviewing,
+assessing, and apprproving this specification for acceptance into the W3C DID Method Registry.
 
 In addition, the project is very gratefully to all the members of the 
 DID-CORE, Verifiable Credentials, and Confidential Storage working groups (hosted by W3C and DIF) for, literally, their years of support.
