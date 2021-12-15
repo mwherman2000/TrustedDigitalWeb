@@ -197,7 +197,7 @@ and significantly improving the quality of this specification (in alphabetical o
 - Michael Prorock (mesur.io), https://www.linkedin.com/in/mprorock/.
 - Manu Sporny (Digital Bizaar), https://www.linkedin.com/in/manusporny/.
 
-In addition, the project is very gratefully to all of the members of the 
+In addition, the project is very gratefully to all the members of the 
 DID-CORE, Verifiable Credentials, and Confidential Storage working groups (hosted by W3C and DIF) for, literally, their years of support.
 
 ## Appendix A. Public Key Algorithm
