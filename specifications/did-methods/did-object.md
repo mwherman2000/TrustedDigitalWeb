@@ -141,12 +141,23 @@ There are no security considerations that are specific to this DID Method specif
 
 Implementers (architects, developers, testers, and operators) need to be aware of the securtity and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
-that, in turn, leverage the "DID Object" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW (Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
+that, in turn, leverage the "DID Object" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
+(Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
 For exammple, the security implications of processing an NFT for a kiss are significantly different from an international SWIFT-like monetary transfer.
 
 Further, Implementers are strongly encouraged to review the Security Considerations section of the DID Implementation Guide: https://w3c.github.io/did-imp-guide/#security-considerations.
+
+In addition, the following list of best-in-class DID Method specifications for their Security Considerations sections should also be consulted 
+(caveat: individual guidance needs to be weighed on a case-by-case basis):
+
+- `did:keri`: https://identity.foundation/keri/did_methods/#security-considerations
+- `did:key`: https://w3c-ccg.github.io/did-method-key/#security-and-privacy-considerations
+- `did:peer`: https://identity.foundation/peer-did-method-spec/index.html#security-considerations
+- `did:tezos`: https://did-tezos.spruceid.com/#security-considerations
+- `did:trustblock`: https://github.com/trustbloc/trustbloc-did-method/blob/main/docs/spec/trustbloc-did-method.md#security-considerations
+- `did:web`: https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations
 
 ## 5. Privacy Consideration
 
@@ -162,10 +173,29 @@ For exammple, the privacy implications of processing an NFT for a kiss are signi
 
 Further, Implementers are strongly encouraged to review the Privacy Considerations section of the DID Implementation Guide: https://w3c.github.io/did-imp-guide/#privacy-considerations.
 
+In addition, the following list of best-in-class DID Method specifications for their Privacy Considerations sections should also be consulted 
+(caveat: individual guidance needs to be weighed on a case-by-case basis):
+
+- `did:keri`: https://identity.foundation/keri/did_methods/#privacy-considerations
+- `did:key`: https://w3c-ccg.github.io/did-method-key/#security-and-privacy-considerations
+- `did:peer`: https://identity.foundation/peer-did-method-spec/index.html#privacy-considerations
+- `did:tezos`: https://did-tezos.spruceid.com/#privacy-considerations
+- `did:trustblock`: https://github.com/trustbloc/trustbloc-did-method/blob/main/docs/spec/trustbloc-did-method.md#privacy-considerations
+- `did:web`: https://w3c-ccg.github.io/did-method-web/#security-and-privacy-considerations
+
 ## 6. Reference Implementations
 
 The current version of the code for the "DID Object" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
 This project is the definitive reference implementation of Trusted Digital Web "DID Object" Identifier Method and any compliant implementations of an agent on the Trusted Digital Web.
+
+## 7. Acknowledgments
+
+The Trusted Digital Web project would like to thank the following individuals for reviewing,
+providing feedback on, 
+and significantly improving the quality of this specification (in alphabetical order):
+
+- Michael Prorock (mesur.io), https://www.linkedin.com/in/mprorock/.
+- Manu Sporny (Digital Bizaar), https://www.linkedin.com/in/manusporny/.
 
 ## Appendix A. Public Key Algorithm
 
