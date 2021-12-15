@@ -166,13 +166,13 @@ Caveat: The applicablility of the individual guidance referenced below to a part
 
 There are no security considerations that are specific to this DID Method specificiation. Security considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
 
-Implementers need to be aware of the securtity and performance implications of the underlying tools and technologies 
+Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
 that, in turn, leverage the "DID Object" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
 (Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
-For exammple, the security implications of processing an NFT for a kiss are significantly different from an international SWIFT-like monetary transfer.
+For example, the security implications of processing an NFT for a kiss are significantly different compared to an international SWIFT-like monetary transfer.
 
 Further, Implementers are strongly encouraged to review the Security Considerations section of the DID Implementation Guide: https://w3c.github.io/did-imp-guide/#security-considerations.
 
@@ -197,7 +197,7 @@ Implementers need to be aware of the privacy implications of the underlying tool
 used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "DID Object" Method specification. 
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
-For exammple, the privacy implications of processing an NFT for a kiss are significantly different from an international SWIFT-like monetary transfer.
+For example, the privacy implications of processing an NFT for a kiss are significantly different compared to an international SWIFT-like monetary transfer.
 
 Further, Implementers are strongly encouraged to review the Privacy Considerations section of the DID Implementation Guide: https://w3c.github.io/did-imp-guide/#privacy-considerations.
 
@@ -273,7 +273,7 @@ the cross-platform implementations of the .NET Core Framework and the Microsoft 
 Verifiable Data Registry (VDR) support for the Trusted Digital Web is provided by the Stratis Platform[35] - a general-purpose, smart contact-enabled blockchain platform implemented 
 using the same programming language, tools and technologies used to implement the Trusted Digital Web.
 
-The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the "DID Object" DID Method specification.
+The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the "DID Object" DID Method specification. "DID Object" Identifiers and the "DID Object" Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
 
 The publication of this DID Method specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
