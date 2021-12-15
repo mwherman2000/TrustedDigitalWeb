@@ -10,7 +10,7 @@ The purpose of a DID Method specification is to define the following:
 - DID Document CRUD Abstract Interface(s)
 - DID Method Platform Implementation Guidance
 
-This "DID Object" Decentralized Identifier Method specification ("DID Object" DID Method specification) 
+This "DID Object" Decentralized Identifier Method specification ("DID Object") DID Method specification) 
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for "DID Objects", a key feature of the
 Fully Decentralized Objects (FDOs) Framework [5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
