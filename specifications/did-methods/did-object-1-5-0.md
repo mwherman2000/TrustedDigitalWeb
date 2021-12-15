@@ -220,7 +220,7 @@ This project is the definitive reference implementation of the Trusted Digital W
 ## 7. Acknowledgments
 
 The Trusted Digital Web project would like to thank the DID Specification Registries editors for reviewing,
-assessing, and apprproving this specification for acceptance into the W3C DID Method Registry.
+assessing, and apprproving this specification for acceptance into the W3C DID Method Registry, https://w3c.github.io/did-spec-registries/.
 
 In addition, the project is very gratefully to all the members of the 
 DID-CORE, Verifiable Credentials, and Confidential Storage working groups (hosted by W3C and DIF) for their, literally, years of support.
