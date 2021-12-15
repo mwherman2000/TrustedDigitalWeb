@@ -215,7 +215,7 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 ## 6. Reference Implementations
 
 The current version of the code for the "DID Object" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
-This project is the definitive reference implementation of Trusted Digital Web "DID Object" Identifier Method and any compliant implementations of an agent on the Trusted Digital Web.
+This project is the definitive reference implementation of the Trusted Digital Web "DID Object" Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
 
 ## 7. Acknowledgments
 
