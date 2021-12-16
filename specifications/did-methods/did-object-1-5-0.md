@@ -85,7 +85,7 @@ This DID Method does not define or support any query operators.
 ## 4. CRUD Abstract Interface
 
 "DID Object" Identifiers and associated DID Documents on the Trusted Digital Web are managed by a compliant Trusted Digital Web Runtime Library. 
-The Library implments CRUD interfaces for controlling the lifecycle of a "DID Object" Identifier and its associated DID Document that are compliant with this specification.
+The Library implements CRUD interfaces for controlling the lifecycle of a "DID Object" Identifier and its associated DID Document that are compliant with this specification.
  
 ### 4.1 Create (Register)
 
