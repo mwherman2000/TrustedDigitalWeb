@@ -75,7 +75,7 @@ There are two types of "Business Process" Identifiers on the Trusted Digital Web
 "Business Process" Identifiers on the Trusted Digital Web **MUST** use the following format:
 ```
 did-bizproc-did              = did-bizproc-templates-did / did-bizproc-instances-did
-did-bizproc-templates-did    = "did:bizproc:" library-id-string [":" template-id-string [":" version-string]]
+did-bizproc-templates-did    = "did:bizproc:" "library:" library-id-string [":" template-id-string [":" version-string]]
 did-bizproc-instances-did    = "did:bizproc:" "instances" [":" instance-id-string]
 library-id-string            = id-string
 template-id-string           = 1* idchar
@@ -93,7 +93,7 @@ Trusted Digital Web "Business Process" Identifier `id-string` values are encoded
 
 ### Example 1. Trusted Digital Web "Business Process" Template Identifier
 ```
-did:bizproc:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:PurchaseOrderProcessing:1.2.3
+did:bizproc:library:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:PurchaseOrderProcessing:1.2.3
 ```
 ### Example 2. Trusted Digital Web "Business Process" Instance Identifier
 ```
