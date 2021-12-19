@@ -68,6 +68,10 @@ Per the DID Decentralized Identifier specification[2], the value of this string 
 
 ## 3. Trusted Digital Web "Business Process" Identifier Format
 
+There are two types of "Business Process" Identifiers on the Trusted Digital Web:
+- "Business Process" workflow templates
+- "Business Process" workflow instances
+
 "Business Process" Identifiers on the Trusted Digital Web **MUST** use the following format:
 ```
 did-bizproc-did              = did-bizproc-templates-did / did-bizproc-instances-did

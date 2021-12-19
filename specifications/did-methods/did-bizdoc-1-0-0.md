@@ -64,6 +64,10 @@ Per the DID Decentralized Identifier specification[2], the value of this string 
 
 ## 3. Trusted Digital Web "Business Document" Identifier Format
 
+There are two different types of "Business Document" Identifiers on the Trusted Digital Web:
+- "Business Document" schema
+- "Busioness Document" documents
+
 "Business Document" Identifiers on the Trusted Digital Web **MUST** use the following format:
 ```
 did-bizdoc-did         = did-bizdoc-schema-did / did-bizdoc-doc-did
