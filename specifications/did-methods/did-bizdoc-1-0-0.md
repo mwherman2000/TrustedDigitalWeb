@@ -67,9 +67,9 @@ Per the DID Decentralized Identifier specification[2], the value of this string 
 "Business Document" Identifiers on the Trusted Digital Web **MUST** use the following format:
 ```
 did-bizdoc-did         = did-bizdoc-schema-did / did-bizdoc-doc-did
-did-bizdoc-schema-did  = "did:bizdoc:" type-string ":" schema-id-string [":" version-string]
-did-bizdoc-doc-did     = "did:bizdoc:" type-string ":" party-id-string ":" party-doc-id-string
-type-string            = id-string
+did-bizdoc-schema-did  = "did:bizdoc:schema:" type-string ":" schema-id-string [":" version-string]
+did-bizdoc-doc-did     = "did:bizdoc:doc:" type-string ":" party-id-string ":" party-doc-id-string
+type-string            = 1* idchar
 schema-id-string       = id-string
 version-string         = 1* idchar
 party-id-string        = id-string
@@ -84,9 +84,14 @@ Trusted Digital Web "Business Document" Identifier `id-string` values are encode
 
 `idchar` consists of all the characters in the `Base64` char set which is first defined by Bitcoin. 
 
-### Example 1. Trusted Digital Web "Business Document" Identifier
+### Example 1. Trusted Digital Web "Business Document" Schema Identifier
 ```
-did:bizdoc:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
+did:bizdoc:schema:invoice-2:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
+did:bizdoc:schema:invoice-2:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:1.2.3
+```
+### Example 2. Trusted Digital Web "Business Document" Document Identifier
+```
+did:bizdoc:doc:invoice-2:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:255319
 ```
 ### 3.1 DID Identifier Query Operators
 
