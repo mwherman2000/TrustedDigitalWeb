@@ -95,6 +95,7 @@ did:bizproc:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:PurchaseOrderProcessing
 ```
 did:bizproc:instances:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 ```
+
 ### 3.1 DID Identifier Query Operators
 
 This DID Method does not define or support any query operators.
