@@ -74,7 +74,7 @@ did-bizproc-did              = did-bizproc-templates-did / did-bizproc-instances
 did-bizproc-templates-did    = "did:bizproc:" library-id-string [":" template-id-string [":" version-string]]
 did-bizproc-instances-did    = "did:bizproc:" "instances" [":" instance-id-string]
 library-id-string            = id-string
-template-id-string           = id-string
+template-id-string           = 1* idchar
 version-string               = 1* idchar
 instance-id-string           = id-string
 id-string                    = 1* idchar
@@ -87,9 +87,13 @@ Trusted Digital Web "Business Process" Identifier `id-string` values are encoded
 
 `idchar` consists of all the characters in the `Base64` char set which is first defined by Bitcoin. 
 
-### Example 1. Trusted Digital Web "Business Process" Identifier
+### Example 1. Trusted Digital Web "Business Process" Template Identifier
 ```
-did:bizproc:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
+did:bizproc:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:PurchaseOrderProcessing:1.2.3
+```
+### Example 2. Trusted Digital Web "Business Process" Instance Identifier
+```
+did:bizproc:instances:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 ```
 ### 3.1 DID Identifier Query Operators
 
