@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KWG0YzNDyhqNdLSbSJq5FeuTZD35SrY+LGj21PuYLe5ToNRLsOjELNChTWSzt1o/yyuMKJExV58CrGy10T3tbA==",
+  "dgSpecHash": "2Zq5vjdjBqlBbqMs62LQtOTmtDdgWaGYPLAvWXlraleX0FUbHL3r0eCBb4OfyvggjRgFxUl8XeTwW72AiJf9Tg==",
   "success": true,
-  "projectFilePath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj",
+  "projectFilePath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.7\\microsoft.aspnetcore.cryptography.internal.5.0.7.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\5.0.7\\microsoft.aspnetcore.dataprotection.5.0.7.nupkg.sha512",
@@ -26,7 +26,11 @@
     "C:\\Users\\mwher\\.nuget\\packages\\system.security.cryptography.xml\\5.0.0\\system.security.cryptography.xml.5.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\system.security.permissions\\5.0.0\\system.security.permissions.5.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
+    "C:\\Users\\mwher\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
+    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512",
+    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }

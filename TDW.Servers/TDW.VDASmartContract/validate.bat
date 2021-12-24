@@ -1,2 +1,2 @@
-cd "C:\GE\Stratis.SmartContracts.Tools.Sct\Stratis.SmartContracts.Tools.Sct"
-dotnet run -- validate "C:\GE\TDW.Servers\TDW.VDASmartContract\TDWVDASmartContract.cs" -sb
+cd "C:\TDW\repos\TrustedDigitalWeb\Stratis.SmartContracts.Tools.Sct\Stratis.SmartContracts.Tools.Sct"
+dotnet run -- validate "C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\TDWVDASmartContract.cs" -sb

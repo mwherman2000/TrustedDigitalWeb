@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "8D4Edbn6nBrFpVFOlvWb7Rx9AQTQvxpGZ39HSEnNIAV6HhFhaghhQDa/3IIiCjEf2cha42umO9RayGPljLy/uw==",
+  "dgSpecHash": "14rJ2Ubq7xDQ6kktVWIMxcmDVZLjdVYsqkzrzdhfBrZNx0a6yhfSiN17WyBUV13ZJydoPPOkBJrIeitTcBNsNg==",
   "success": true,
-  "projectFilePath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj",
+  "projectFilePath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.VDAStratisHelpers\\TDW.VDAStratisHelpers.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mwher\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\stratis.smartcontracts\\2.0.0\\stratis.smartcontracts.2.0.0.nupkg.sha512"
+    "C:\\Users\\mwher\\.nuget\\packages\\stratis.smartcontracts\\2.0.0\\stratis.smartcontracts.2.0.0.nupkg.sha512",
+    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -111,8 +111,8 @@ The interface for resolving a "DID Object" Identifier and return its associated 
 ```csharp
 public DIDDocument GetDIDDocument(string didobjectid);
 ```
-A DIDDocument is a JSON-object which contains the `publicKey`, `authentication` elements of the associated DID Document.
-Every public key in the array of `publicKey` can be used to authenticate the "DID Object" Controller.
+A DIDDocument is a JSON-object which contains the `verificationMethod`, `authentication` elements of the associated DID Document.
+Every public key in the array of `verificationMethod` can be used to authenticate the "DID Object" Controller.
 
 Note: The list of supported public key signature schemes is listed in [Appendix A](#appendix-a-public-key-algorithm).
 
@@ -121,21 +121,21 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
 ```json
 {
     "id": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp",
-    "publicKey": [{
+    "verificationMethod": [{
         "id": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1",
         "type": ["Ed25519VerificationKey2018"],
-        "publicKeyHex": "02ba8ba8e8ef1f313ecc095ba0bf0d1a921a138346d6817812714f4a9e4cca8ccf"
+        "publicKeyMultibase": "02ba8ba8e8ef1f313ecc095ba0bf0d1a921a138346d6817812714f4a9e4cca8ccf"
     }, {
         "id": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2",
         "type": ["Ed25519VerificationKey2018"],
-        "publicKeyHex": "02b9bd513110b2a7822326280f3fdff9fa667649d3302428a0ab6fb796c6f3201b"
+        "publicKeyMultibase": "02b9bd513110b2a7822326280f3fdff9fa667649d3302428a0ab6fb796c6f3201b"
     }],
     "authentication": [{
         "type": "Secp256r1SignatureAuthentication2018",
-        "publicKey": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1"
+        "verificationMethod": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1"
     }, {
         "type": "Secp256r1SignatureAuthentication2018",
-        "publicKey": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2"
+        "verificationMethod": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2"
     }],
 }
 ```
@@ -152,7 +152,7 @@ public bool RemoveKey(string didobjectid, byte[] oldPublicKey, byte[] sender);
 Note that `sender` param must be a currently-in-use public key of this "DID Object" Identifier.
 If a public key is removed, then it **cannot** be added again.
 
-### 4.4 Delete (Revoke)
+### 4.4 Deactivate (Revoke)
 
 To delete or deactivate a "DID Object", it suffices to remove all public keys from its associated 
 DID Document. In this case, there is no public key that can be used to authenticate the "DID Object" Controller.
@@ -379,6 +379,6 @@ References and historical record of related publications.
 [V2] SSIMeetup Webcasts, https://ssimeetup.org/
    1. Key Event Receipt Infrastructure (KERI): A secure identifier overlay for the internet – Sam Smith – Webinar 58, https://ssimeetup.org/key-event-receipt-infrastructure-keri-secure-identifier-overlay-internet-sam-smith-webinar-58/.
 
-## Credits
+## Epilogue
 
-The text of this specification was adapted from the `did:ont` specification, https://github.com/ontio/ontology-DID/blob/master/docs/en/DID-ONT-method.md.
+>An Internet specification is like steam (or a horse) - if you don't capture it and put it to work, it isn't worth very much.

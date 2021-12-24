@@ -89,8 +89,8 @@ The interface for resolving a "DID Object" Identifier and return its associated 
 ```csharp
 public DIDDocument GetDIDDocument(string didobjectid);
 ```
-A DIDDocument is a JSON-object which contains the `publicKey`, `authentication` elements of the associated DID Document.
-Every public key in the array of `publicKey` can be used to authenticate the "DID Object" Controller.
+A DIDDocument is a JSON object which contains the `verificationMethod`, `authentication` elements of the associated DID Document.
+Every public key in the array of `verificationMethod` can be used to authenticate the "DID Object" Controller.
 
 Note: The list of supported public key signature schemes is listed in [Appendix A](#appendix-a-public-key-algorithm).
 
@@ -99,21 +99,21 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
 ```json
 {
     "id": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt",
-    "publicKey": [{
+    "verificationMethod": [{
         "id": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt#keys-1",
         "type": ["Ed25519VerificationKey2018"],
-        "publicKeyHex": "02ba8ba8e8ef1f313ecc095ba0bf0d1a921a138346d6817812714f4a9e4cca8ccf"
+        "publicKeyMultibase": "02ba8ba8e8ef1f313ecc095ba0bf0d1a921a138346d6817812714f4a9e4cca8ccf"
     }, {
         "id": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt#keys-2",
         "type": ["Ed25519VerificationKey2018"],
-        "publicKeyHex": "02b9bd513110b2a7822326280f3fdff9fa667649d3302428a0ab6fb796c6f3201b"
+        "publicKeyMultibase": "02b9bd513110b2a7822326280f3fdff9fa667649d3302428a0ab6fb796c6f3201b"
     }],
     "authentication": [{
         "type": "Secp256r1SignatureAuthentication2018",
-        "publicKey": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt#keys-1"
+        "verificationMethod": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt#keys-1"
     }, {
         "type": "Secp256r1SignatureAuthentication2018",
-        "publicKey": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt#keys-2"
+        "verificationMethod": "did:object:AGsL32ZMvAwxYRN9Sv4mrgu3DgBSvTm5vt#keys-2"
     }],
 }
 ```
@@ -312,6 +312,6 @@ References and historical record of related publications.
    4. TÜBİTAK BİLGEM 2. Ulusal Blokzincir Çalıştayı, Davetli Konuşmacı Michael Herman, Trsuted Digital Web: The Future of the Internet and the World Wide Web, https://www.youtube.com/watch?v=J6n9TvxA93I&list=PLU-rWqHm5p45dzXF2LJZjuNVJrOUR6DaD&index=4
    5. Trusted Digital Web / Hyperonomy Business Blockchain / NEO-NATION: Annual Report 2019, https://www.youtube.com/watch?v=IAozsIsrlbU&list=PLU-rWqHm5p45dzXF2LJZjuNVJrOUR6DaD&index=5
 
-## Credits
+## Epilogue
 
-The text of this specification was adapted from the `did:ont` specification, https://github.com/ontio/ontology-DID/blob/master/docs/en/DID-ONT-method.md.
+>An Internet specification is like steam (or a horse) - if you don't capture it and put it to work, it isn't worth very much.

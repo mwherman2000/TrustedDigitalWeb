@@ -25,3 +25,13 @@ C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.1\TDW.VDASmartContract.csproj.CoreCompileInputs.cache
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.1\TDW.VDASmartContract.dll
 C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.1\TDW.VDASmartContract.pdb
+C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\bin\Debug\netcoreapp2.1\TDW.VDASmartContract.deps.json
+C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\bin\Debug\netcoreapp2.1\TDW.VDASmartContract.dll
+C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\bin\Debug\netcoreapp2.1\TDW.VDASmartContract.pdb
+C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.1\TDW.VDASmartContract.GeneratedMSBuildEditorConfig.editorconfig
+C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.1\TDW.VDASmartContract.AssemblyInfoInputs.cache
+C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.1\TDW.VDASmartContract.AssemblyInfo.cs
+C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.1\TDW.VDASmartContract.csproj.CoreCompileInputs.cache
+C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.1\TDW.VDASmartContract.dll
+C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.1\TDW.VDASmartContract.pdb
+C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDASmartContract\obj\Debug\netcoreapp2.1\TDW.VDASmartContract.csproj.AssemblyReference.cache

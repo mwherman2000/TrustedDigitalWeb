@@ -1,32 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\TDW.TRAServer.csproj": {}
+    "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\TDW.TRAServer.csproj": {}
   },
   "projects": {
-    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj": {
+    "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj",
+        "projectUniqueName": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj",
         "projectName": "TDW.KMAServer",
-        "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj",
+        "projectPath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj",
         "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-        "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\obj\\",
+        "outputPath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\mwher\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\GE\\GraphEngine\\build": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -34,8 +32,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
-                "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj"
+              "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
+                "projectPath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj"
               }
             }
           }
@@ -65,38 +63,54 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.22, 3.1.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
+    "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
+        "projectUniqueName": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
         "projectName": "TDW.TRACommon",
-        "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
+        "projectPath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj",
         "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-        "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\obj\\",
+        "outputPath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\mwher\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\GE\\GraphEngine\\build": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -135,38 +149,50 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\TDW.TRAServer.csproj": {
+    "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\TDW.TRAServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\TDW.TRAServer.csproj",
+        "projectUniqueName": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\TDW.TRAServer.csproj",
         "projectName": "TDW.TRAServer",
-        "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\TDW.TRAServer.csproj",
+        "projectPath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\TDW.TRAServer.csproj",
         "packagesPath": "C:\\Users\\mwher\\.nuget\\packages\\",
-        "outputPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\obj\\",
+        "outputPath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRAServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\mwher\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\GE\\GraphEngine\\build": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -174,11 +200,11 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj": {
-                "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj"
+              "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj": {
+                "projectPath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.KMAServer\\TDW.KMAServer.csproj"
               },
-              "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
-                "projectPath": "C:\\TDW\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj"
+              "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj": {
+                "projectPath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommon\\TDW.TRACommon.csproj"
               }
             }
           }
@@ -208,12 +234,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.22, 3.1.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
