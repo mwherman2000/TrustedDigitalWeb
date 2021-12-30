@@ -14,11 +14,12 @@ The purpose of a DID Method specification is to define the following:
 - DID Document CRUD Abstract Interface(s)
 - DID Method Platform Implementation Guidance
 
-The Trusted Digital Web "Blue Toque Business Document" DID Method space is based, in large part, on the OASIS Universal Business Language 2.2 (UBL) specification[41] that documents the 80+ most popular business document schemas (e.g. purchase orders, invoices, waybills, delivery confirmations, etc.).
-
-This "Blue Toque Business Document" Decentralized Identifier Method specification ("Blue Toque Business Document" DID Method specification) 
+The "Blue Toque Business Document" Decentralized Identifier Method specification 
+("Blue Toque Business Document" DID Method specification) 
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for Business Documents, a key feature of the
-Fully Decentralized Objects (FDOs) Framework [5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
+Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
+
+The "Blue Toque Business Document" DID Method space is based, in large part, on the OASIS Universal Business Language 2.2 (UBL) specification[41] that documents the 80+ most popular business document schemas (e.g. purchase orders, invoices, waybills, delivery confirmations, etc.).
 
 This specification defines the following:
 - "Blue Toque Business Document" Identifier Syntax and Construction
@@ -57,7 +58,7 @@ W3C Credentials Community Group (CCG).
 
 The authoriative source text for this specifcation can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoquedoc-1-0-0.md.
 
-The list of the most recent versions of this specification can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoquedoc.md.
+The list of the most recent versions of this specification can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bizdoc.md.
 
 ## 2. Trusted Digital Web "Blue Toque Business Document" Identifier Method Name
 
@@ -98,7 +99,7 @@ a placeholder `id-string` value.
 ### Example 1. Trusted Digital Web "Blue Toque Business Document" Schema Identifier
 ```
 did:bluetoquedoc:schema:invoice-2:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
-did:bluetoquedoc:schema:invoice-2:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:1.2.3
+did:bluetoquedoc:schema:invoice-2:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:1.2.3.4
 ```
 ### Example 2. Trusted Digital Web "Blue Toque Business Document" Document Identifier
 ```
