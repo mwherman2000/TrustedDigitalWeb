@@ -22,8 +22,8 @@ Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by t
 The "Blue Toque Decentralized Agent" DID Method space is based, in part, 
 on the Trinity Specificiation Language (TSL), a component of the Trinity Graph Engine open source project[42][43].
 
-The "Blue Toque Decentralized Agent" DID Method builds upon the long history of experiences with similar object specification and data access models; such as: Object Linking and Embedding (OLE)[44], Common Object Model (COM)[45], 
-Open Database Connections (ODBC)[46], OLE-DB (OLE for Databases)[47], and ActiveX Data Objects for .NET (ADO.NET)[48], 
+The "Blue Toque Decentralized Agent" DID Method builds upon the long history of experiences with similar object specification and data access models; such as: Object Linking and Embedding (OLE)[44], Component Object Model (COM)[45], 
+Open Database Connectivity (ODBC)[46], OLE-DB (OLE for Databases)[47], and ActiveX Data Objects for .NET (ADO.NET)[48], 
 to name a few.
 
 This specification defines the following:
@@ -395,19 +395,21 @@ References and historical record of related publications.
 
 [41] OASIS, Universal Business Language Version 2.2 (UBL), http://docs.oasis-open.org/ubl/UBL-2.2.html.
 
-[42] Trinity Graph Engine open source project, TODO.
+[42] Trinity Graph Engine open source project, https://www.graphengine.io/.
 
-[43] Trinity Graph Engine GitHub repository, TODO.
+[43] Trinity Graph Engine GitHub repository, https://github.com/Microsoft/GraphEngine.
 
-[44] Object Linking and Embedding (OLE), TODO.
+[44] Object Linking and Embedding (OLE), https://en.wikipedia.org/wiki/Object_Linking_and_Embedding.
 
-[45] Common Object Model (COM) TODO.
+[45] Component Object Model (COM) https://en.wikipedia.org/wiki/Component_Object_Model.
 
-[46] Open Database Connections (ODBC), TODO.
+[46] Open Database Connectivity (ODBC), https://en.wikipedia.org/wiki/Open_Database_Connectivity.
 
-[47] OLE-DB (OLE for Databases), TODO.
+[47] OLE-DB (OLE for Databases), https://en.wikipedia.org/wiki/OLE_DB.
 
-[48] ActiveX Data Objects for .NET (ADO.NET), TODO.
+[48] ActiveX Data Objects for .NET (ADO.NET), https://en.wikipedia.org/wiki/ADO.NET.
+
+[49] MSR, Trinity, https://www.microsoft.com/en-us/research/project/trinity/.
 
 ## Video Streams
 
