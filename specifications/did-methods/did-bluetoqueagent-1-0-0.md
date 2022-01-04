@@ -22,8 +22,10 @@ Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by t
 The "Blue Toque Decentralized Agent" DID Method space is based, in part, 
 on the Trinity Specificiation Language (TSL), a component of the Trinity Graph Engine open source project[42][43].
 
-The "Blue Toque Decentralized Agent" DID Method builds upon the long history of experiences with similar object specification and data access models; such as: Object Linking and Embedding (OLE)[44], Component Object Model (COM)[45], 
-Open Database Connectivity (ODBC)[46], OLE-DB (OLE for Databases)[47], and ActiveX Data Objects for .NET (ADO.NET)[48], 
+The "Blue Toque Decentralized Agent" DID Method builds upon the long history of experiences with similar 
+object specification and data access models; including: 
+Object Linking and Embedding (OLE)[44][51], Component Object Model (COM)[45], Distributed Compoment Object Model[50],
+Open Database Connectivity (ODBC)[46], OLE-DB (OLE for Databases)[47], and Active Data Objects for .NET (ADO.NET)[48],
 to name a few.
 
 This specification defines the following:
@@ -407,9 +409,13 @@ References and historical record of related publications.
 
 [47] OLE-DB (OLE for Databases), https://en.wikipedia.org/wiki/OLE_DB.
 
-[48] ActiveX Data Objects for .NET (ADO.NET), https://en.wikipedia.org/wiki/ADO.NET.
+[48] Active Data Objects for .NET (ADO.NET), https://en.wikipedia.org/wiki/ADO.NET.
 
 [49] MSR, Trinity, https://www.microsoft.com/en-us/research/project/trinity/.
+
+[50] Distributed Component Object Model, https://en.wikipedia.org/wiki/Distributed_Component_Object_Model.
+
+[51] MSDN, OLE Background, https://docs.microsoft.com/en-us/cpp/mfc/ole-background?view=msvc-170.
 
 ## Video Streams
 
