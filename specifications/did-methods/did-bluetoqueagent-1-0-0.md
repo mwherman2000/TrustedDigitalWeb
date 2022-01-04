@@ -198,7 +198,7 @@ Caveat: The applicablility of the individual guidance referenced below to a part
 
 ### Security Considerations
 
-There are no security considerations that are specific to this DID Method specificiation. Security considersations and requirements are the responsiblity of a particular platform implementation and the classes of "Business Documents" supported by that platform.
+There are no security considerations that are specific to this DID Method specificiation. Security considersations and requirements are the responsiblity of a particular platform implementation and the classes of Business Processes and Business Documents supported by that platform.
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
@@ -223,7 +223,7 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 
 ### Privacy Considerations
 
-There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of "Business Documents" supported by that platform.
+There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of Business Processes and Business Documents supported by that platform.
 
 The syntax and construction of a "Blue Toque Decentralized Agent" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
