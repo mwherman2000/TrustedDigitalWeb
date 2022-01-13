@@ -123,12 +123,12 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
     "id": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp",
     "verificationMethod": [{
         "id": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1",
-        "type": ["Ed25519VerificationKey2018"],
-        "publicKeyMultibase": "02ba8ba8e8ef1f313ecc095ba0bf0d1a921a138346d6817812714f4a9e4cca8ccf"
+        "type": [ "Ed25519VerificationKey2020" ],
+        "publicKeyMultibase": "zAKJP3f7BD6W4iWEQ9jwndVTCBq8ua2Utt8EEjJ6Vxsf"
     }, {
         "id": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2",
-        "type": ["Ed25519VerificationKey2018"],
-        "publicKeyMultibase": "02b9bd513110b2a7822326280f3fdff9fa667649d3302428a0ab6fb796c6f3201b"
+        "type": ["Ed25519VerificationKey2020"],
+        "publicKeyMultibase": "z4BWwfeqdp1obQptLLMvPNgBw48p7og1ie6Hf9p5nTpNN"
     }],
     "authentication": [{
         "type": "Secp256r1SignatureAuthentication2018",
@@ -137,6 +137,11 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
         "type": "Secp256r1SignatureAuthentication2018",
         "verificationMethod": "did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2"
     }],
+    "service": [{
+        "id":"#agent1",
+        "type": "BlueToque.Agent", 
+        "serviceEndpoint": "https://agents.example.com/agent1"
+    }]
 }
 ```
 

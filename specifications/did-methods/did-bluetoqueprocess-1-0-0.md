@@ -1,4 +1,4 @@
-# Trusted Digital Web "Blue Toque Business Document" Decentralized Identifier Method Specification version 1.0.0
+# Trusted Digital Web "Blue Toque Business Process" Decentralized Identifier Method Specification version 1.0.0
 
 This DID Method specification is a member of the Blue Toque family of Fully Decentralized Object (FDO) Framework specifications.
 
@@ -14,24 +14,27 @@ The purpose of a DID Method specification is to define the following:
 - DID Document CRUD Abstract Interface(s)
 - DID Method Platform Implementation Guidance
 
-The "Blue Toque Business Document" Decentralized Identifier Method specification 
-("Blue Toque Business Document" DID Method specification) 
-defines the end-to-end lifecycle of DID Identifiers and DID Documents for Business Documents, a key feature of the
-Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
+The "Blue Toque Business Process" Decentralized Identifier Method specification 
+("Blue Toque Business Process" DID Method specification) 
+defines the end-to-end lifecycle of DID Identifiers and DID Documents for Business Processes, a key feature of the
+Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], 
+implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
-The "Blue Toque Business Document" DID Method space is based, in large part, on the OASIS Universal Business Language 2.2 (UBL) specification[41] that documents the 80+ most popular business document schemas (e.g. purchase orders, invoices, waybills, delivery confirmations, etc.).
+The "Blue Toque Business Process" DID Method space is based, in large part, on the Object Management Group (OMG) Business Process Management Notation (BPMN) specification[40] for defining executable business process workflow templates. In addition to being able to visually define business process workflow templates, the BPMN specification[40] defines a standard XML serialization format for the persistance and exchange of business process workflow templates across multiple workflow platforms. 
+
+Further, the Trusted Digital Web project defines a BPMN-compatible, compact executable byte code and serialization format for the efficient storage and execution of business process workflow templates for use with Verifiable Data Registry (VDR) technologies (blockchain or any other verifiable storage architecture/technology).
 
 This specification defines the following:
-- "Blue Toque Business Document" Identifier Syntax and Construction
-- "Blue Toque Business Document" DID Document CRUD Abstract Interface
+- "Blue Toque Business Process" Identifier Syntax and Construction
+- "Blue Toque Business Process" DID Document CRUD Abstract Interface
 
 This specification also provides Platform Implementation Guidance to assist Implementors in creating safe and secure apps, agents, services and platforms
-that are compliant with the "Blue Toque Business Document" DID Method specification.
+that are compliant with the "Blue Toque Business Process" DID Method specification.
 
 ### Out-of-Scope
 
 The following topics are out-of-scope:
-- Descriptions of any specific design, implementation, or deployment details for any particular software platform that might support the "Blue Toque Business Document" DID Method.
+- Descriptions of any specific design, implementation, or deployment details for any particular software platform that might support the "Blue Toque Business Process" DID Method.
 
 ### Intended Audience
 
@@ -43,10 +46,10 @@ verifiable credentials, and secure storage may also be interested in reading thi
 
 ### Terminology
 
-- The term "Blue Toque Business Document" Identifier is synonymous with the term "Blue Toque Business Document" Decentralized Identifier. 
-- The term "Blue Toque Business Document" DID Document is synonymous with the term "Blue Toque Business Document" Decentralized Identifier Document.
-- The term "Blue Toque Business Document" DID Method specification is synonymous with the terms "Blue Toque Business Document" Decentralized Identifier Method specification and Trusted Digital Web "Blue Toque Business Document" DID Method specification.
-- A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the "Blue Toque Business Document" DID Document CRUD Abstract Interface in a way that complies with the "Blue Toque Business Document" DID Method specification.
+- The term "Blue Toque Business Process" Identifier is synonymous with the term "Blue Toque Business Process" Decentralized Identifier. 
+- The term "Blue Toque Business Process" DID Document is synonymous with the term "Blue Toque Business Process" Decentralized Identifier Document.
+- The term "Blue Toque Business Process" DID Method specification is synonymous with the terms "Blue Toque Business Process" Decentralized Identifier Method specification and Trusted Digital Web "Blue Toque Business Process" DID Method specification.
+- A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the "Blue Toque Business Process" DID Document CRUD Abstract Interface in a way that complies with the "Blue Toque Business Process" DID Method specification.
 
 ### Conformance
 
@@ -56,132 +59,136 @@ W3C Credentials Community Group (CCG).
 
 ### Authoritative Source Text
 
-The authoriative source text for this specifcation can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoquedoc-1-0-0.md.
+The authoriative source text for this specifcation can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoqueagentprocess-1-0-0.md.
 
-The list of the most recent versions of this specification can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bizdoc.md.
+The list of the most recent versions of this specification can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bizprocess.md.
 
-## 2. Trusted Digital Web "Blue Toque Business Document" Identifier Method Name
+## 2. Trusted Digital Web "Blue Toque Business Process" Identifier Method Name
 
-The name string that shall identify the "Blue Toque Business Document" Identifier Method is: `bluetoquedoc`.
+The name string that shall identify the "Blue Toque Business Process" Identifier Method is: `bluetoqueagentprocess`.
 
-A DID Identifier that uses this method **MUST** begin with the following prefix: `did:bluetoquedoc`. 
+A DID Identifier that uses this method **MUST** begin with the following prefix: `did:bluetoqueagentprocess`. 
 Per the DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
 
-## 3. Trusted Digital Web "Blue Toque Business Document" Identifier Format
+## 3. Trusted Digital Web "Blue Toque Business Process" Identifier Format
 
-There are two different types of "Blue Toque Business Document" Identifiers on the Trusted Digital Web:
-- "Blue Toque Business Document" schema
-- "Blue Toque Business Document" documents
+There are two types of "Blue Toque Business Process" Identifiers on the Trusted Digital Web:
+- "Blue Toque Business Process" workflow templates
+- "Blue Toque Business Process" workflow instances
 
-"Blue Toque Business Document" Identifiers on the Trusted Digital Web **MUST** use the following format:
+"Blue Toque Business Process" Identifiers on the Trusted Digital Web **MUST** use the following format:
 ```
-did-bluetoquedoc-did         = did-bluetoquedoc-schema-did / did-bluetoquedoc-doc-did
-did-bluetoquedoc-schema-did  = "did:bluetoquedoc:schema:" type-string ":" schema-id-string [":" version-string]
-did-bluetoquedoc-doc-did     = "did:bluetoquedoc:doc:" type-string ":" party-id-string ":" party-doc-id-string
-type-string                  = 1* idchar
-schema-id-string             = id-string
-version-string               = 1* idchar
-party-id-string              = id-string
-party-doc-id-string          = id-string
-id-string                    = 1* idchar
-idchar                       = 1-9 / A-H / J-N / P-Z / a-k / m-z 
+did-bluetoqueagentprocess-did              = did-bluetoqueagentprocess-templates-did / did-bluetoqueagentprocess-instances-did
+did-bluetoqueagentprocess-templates-did    = "did:bluetoqueagentprocess:" "library:" library-id-string [":" template-id-string [":" version-string]]
+did-bluetoqueagentprocess-instances-did    = "did:bluetoqueagentprocess:" "instances" [":" instance-id-string]
+library-id-string                  = id-string
+template-id-string                 = 1* idchar
+version-string                     = 1* idchar
+instance-id-string                 = id-string
+id-string                          = 1* idchar
+idchar                             = 1-9 / A-H / J-N / P-Z / a-k / m-z z 
 ```
 `id-string` is an encoded public key value computed using KERI key management techniques[V2.1][36][37][38].
 The KERI seed value can be any globally unique value including, for example, 
-a composite database record key, bluetoquedoc key, or GUID value. 
-Trusted Digital Web "Blue Toque Business Document" Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
+a composite database record key, bluetoqueagentprocess key, or GUID value. 
+Trusted Digital Web "Blue Toque Business Process" Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
 
 `idchar` consists of all the characters in the KERI `Base64` character set. 
 
 NOTE: In the following examples, `BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp` is an example KERI-based `Base64` id-string`; 
 a placeholder `id-string` value.
 
-### Example 1. Trusted Digital Web "Blue Toque Business Document" Schema Identifier
+### Example 1. Trusted Digital Web "Blue Toque Business Process" Template Identifier
 ```
-did:bluetoquedoc:schema:invoice-2:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
-did:bluetoquedoc:schema:invoice-2:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:1.2.3.4
+did:bluetoqueagentprocess:library:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:PurchaseOrderProcessing:1.2.3.4
 ```
-### Example 2. Trusted Digital Web "Blue Toque Business Document" Document Identifier
+### Example 2. Trusted Digital Web "Blue Toque Business Process" Instance Identifier
 ```
-did:bluetoquedoc:doc:invoice-2:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:255319
+did:bluetoqueagentprocess:instances:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 ```
+
 ### 3.1 DID Identifier Query Operators
 
 This DID Method does not define or support any query operators.
 
 ## 4. CRUD Abstract Interface
 
-"Blue Toque Business Document" Identifiers and associated DID Documents on the Trusted Digital Web are managed by a compliant Trusted Digital Web Runtime Library. 
-The Library implements CRUD interfaces for controlling the lifecycle of a "Blue Toque Business Document" Identifier and its associated DID Document that are compliant with this specification.
+"Blue Toque Business Process" Identifiers and associated DID Documents on the Trusted Digital Web are managed by a compliant Trusted Digital Web Runtime Library. 
+The Library implements CRUD interfaces for controlling the lifecycle of a "Blue Toque Business Process" Identifier and its associated DID Document that are compliant with this specification.
  
 ### 4.1 Create (Register)
 
-To create a "Blue Toque Business Document" Identifier, a program invokes the `RegIdWithPublicKey` function from a compliant Trusted Digital Web Runtime Library. 
-The interface to register a "Blue Toque Business Document" Identifier and its associated public key is defined as follows:
+To create a "Blue Toque Business Process" Identifier, a program invokes the `RegIdWithPublicKey` function from a compliant Trusted Digital Web Runtime Library. 
+The interface to register a "Blue Toque Business Process" Identifier and its associated public key is defined as follows:
 ```csharp
 public bool RegIdWIthPublicKey(string didobjectid, byte[] publicKey); 
 ```
-The calling program must include two parameters: the string value of the new "Blue Toque Business Document" Identifier to be registered and 
+The calling program must include two parameters: the string value of the new "Blue Toque Business Process" Identifier to be registered and 
 a cryptographic public key to act as the first management key. 
-This function will return `True` if the "Blue Toque Business Document" Identifier had not been registered previously.
+This function will return `True` if the "Blue Toque Business Process" Identifier had not been registered previously.
 
 ### 4.2 Read (Resolve)
 
-Trusted Digital Web "Blue Toque Business Document" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant Trusted Digital Web Runtime Library. 
+Trusted Digital Web "Blue Toque Business Process" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant Trusted Digital Web Runtime Library. 
 To make sure the result returned by invoking the `GetDIDDocument` function is trustworthy, the client could ask a sufficient number of nodes 
 and compare each node's return value.
 
-The interface for resolving a "Blue Toque Business Document" Identifier and return its associated DID Document is defined as follows:
+The interface for resolving a "Blue Toque Business Process" Identifier and return its associated DID Document is defined as follows:
 ```csharp
 public DIDDocument GetDIDDocument(string didobjectid);
 ```
 A DIDDocument is a JSON object which contains the `verificationMethod`, `authentication` elements of the associated DID Document.
-Every public key in the array of `verificationMethod` can be used to authenticate the "Blue Toque Business Document" Controller.
+Every public key in the array of `verificationMethod` can be used to authenticate the "Blue Toque Business Process" Controller.
 
 Note: The list of supported public key signature schemes is listed in [Appendix A](#appendix-a-public-key-algorithm).
 
-### Example 2. Trusted Digital Web "Blue Toque Business Document" DID Document
+### Example 2. Trusted Digital Web "Blue Toque Business Process" DID Document
 
 ```json
 {
-    "id": "did:bluetoquedoc:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp",
+    "id": "did:bluetoqueagentprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp",
     "verificationMethod": [{
-        "id": "did:bluetoquedoc:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1",
-        "type": ["Ed25519VerificationKey2018"],
-        "publicKeyMultibase": "02ba8ba8e8ef1f313ecc095ba0bf0d1a921a138346d6817812714f4a9e4cca8ccf"
+        "id": "did:bluetoqueagentprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1",
+        "type": [ "Ed25519VerificationKey2020" ],
+        "publicKeyMultibase": "zAKJP3f7BD6W4iWEQ9jwndVTCBq8ua2Utt8EEjJ6Vxsf"
     }, {
-        "id": "did:bluetoquedoc:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2",
-        "type": ["Ed25519VerificationKey2018"],
-        "publicKeyMultibase": "02b9bd513110b2a7822326280f3fdff9fa667649d3302428a0ab6fb796c6f3201b"
+        "id": "did:bluetoqueagentprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2",
+        "type": ["Ed25519VerificationKey2020"],
+        "publicKeyMultibase": "z4BWwfeqdp1obQptLLMvPNgBw48p7og1ie6Hf9p5nTpNN"
     }],
     "authentication": [{
         "type": "Secp256r1SignatureAuthentication2018",
-        "verificationMethod": "did:bluetoquedoc:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1"
+        "verificationMethod": "did:bluetoqueagentprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1"
     }, {
         "type": "Secp256r1SignatureAuthentication2018",
-        "verificationMethod": "did:bluetoquedoc:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2"
+        "verificationMethod": "did:bluetoqueagentprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2"
     }],
+    "service": [{
+        "id":"#agent1",
+        "type": "BlueToque.Agent", 
+        "serviceEndpoint": "https://agents.example.com/agent1"
+    }]
 }
 ```
 
 ### 4.3 Update (Replace)
 
-To update the DID Document associated with a "Blue Toque Business Document" Identifier, two functions need to be invoked, 
+To update the DID Document associated with a "Blue Toque Business Process" Identifier, two functions need to be invoked, 
 ```csharp
 public bool AddKey(string didobjectid, byte[] newPublicKey, byte[] sender);
 ```
 ```csharp
 public bool RemoveKey(string didobjectid, byte[] oldPublicKey, byte[] sender);
 ```
-Note that `sender` param must be a currently-in-use public key of this "Blue Toque Business Document" Identifier.
+Note that `sender` param must be a currently-in-use public key of this "Blue Toque Business Process" Identifier.
 If a public key is removed, then it **cannot** be added again.
 
 ### 4.4 Deactivate (Revoke)
 
-To delete or deactivate a "Blue Toque Business Document", it suffices to remove all public keys from its associated 
-DID Document. In this case, there is no public key that can be used to authenticate the "Blue Toque Business Document" Controller.
+To delete or deactivate a "Blue Toque Business Process", it suffices to remove all public keys from its associated 
+DID Document. In this case, there is no public key that can be used to authenticate the "Blue Toque Business Process" Controller.
 
-More importantly, deletion of a Trusted Digital Web "Blue Toque Business Document" DID Document means that the associated "Blue Toque Business Document" Identifier cannot be reactivated again. 
+More importantly, deletion of a Trusted Digital Web "Blue Toque Business Process" DID Document means that the associated "Blue Toque Business Process" Identifier cannot be reactivated again. 
 
 ## 5. Implementation Guidance
 
@@ -195,7 +202,7 @@ There are no security considerations that are specific to this DID Method specif
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
-that, in turn, leverage the "Blue Toque Business Document" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
+that, in turn, leverage the "Blue Toque Business Process" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
 (Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
@@ -218,10 +225,10 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 
 There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of Business Processes and Business Documents supported by that platform.
 
-The syntax and construction of a "Blue Toque Business Document" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
+The syntax and construction of a "Blue Toque Business Process" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
 Implementers need to be aware of the privacy implications of the underlying tools and technologies 
-used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "Blue Toque Business Document" Method specification. 
+used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "Blue Toque Business Process" Method specification. 
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
 For example, the privacy implications of processing an NFT for a kiss are significantly different compared to an international SWIFT-like monetary transfer.
@@ -241,8 +248,8 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 
 ## 6. Reference Implementations
 
-The current version of the code for the "Blue Toque Business Document" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
-This project is the definitive reference implementation of the Trusted Digital Web "Blue Toque Business Document" Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
+The current version of the code for the "Blue Toque Business Process" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
+This project is the definitive reference implementation of the Trusted Digital Web "Blue Toque Business Process" Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
 
 ## 7. Acknowledgments
 
@@ -300,7 +307,7 @@ the cross-platform implementations of the .NET Core Framework and the Microsoft 
 Verifiable Data Registry (VDR) support for the Trusted Digital Web is provided by the Stratis Platform[35] - a general-purpose, smart contact-enabled blockchain platform implemented 
 using the same programming language, tools and technologies used to implement the Trusted Digital Web.
 
-The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the "Blue Toque Business Document" DID Method specification. "Blue Toque Business Document" Identifiers and the "Blue Toque Business Document" Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
+The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the "Blue Toque Business Process" DID Method specification. "Blue Toque Business Process" Identifiers and the "Blue Toque Business Process" Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
 
 The publication of this DID Method specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 

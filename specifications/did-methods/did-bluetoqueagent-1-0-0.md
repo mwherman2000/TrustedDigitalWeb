@@ -20,13 +20,16 @@ defines the end-to-end lifecycle of DID Identifiers and DID Documents for DID Ag
 Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
 The "Blue Toque Decentralized Agent" DID Method space is based, in part, 
-on the Trinity Specificiation Language (TSL), a component of the Trinity Graph Engine open source project[42][43].
+on the Trinity Specification Language (TSL), a component of the Trinity Graph Engine open source project[42][43].
 
 The "Blue Toque Decentralized Agent" DID Method builds upon the long history of experiences with similar 
-object specification and data access models; including: 
-Object Linking and Embedding (OLE)[44][51], Component Object Model (COM)[45], Distributed Compoment Object Model[50],
-Open Database Connectivity (ODBC)[46], OLE-DB (OLE for Databases)[47], and Active Data Objects for .NET (ADO.NET)[48],
-to name a few.
+object specification and data access models; including but not limited to: 
+- Object Linking and Embedding (OLE)[44][51], 
+- Component Object Model (COM)[45], 
+- Distributed Compoment Object Model[50],
+- Open Database Connectivity (ODBC)[46], 
+- OLE-DB (OLE for Databases)[47], and 
+- Active Data Objects for .NET (ADO.NET)[48].
 
 This specification defines the following:
 - "Blue Toque Decentralized Agent" Identifier Syntax and Construction
@@ -154,12 +157,12 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
     "id": "did:bluetoqueagent:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp",
     "verificationMethod": [{
         "id": "did:bluetoqueagent:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1",
-        "type": ["Ed25519VerificationKey2018"],
-        "publicKeyMultibase": "02ba8ba8e8ef1f313ecc095ba0bf0d1a921a138346d6817812714f4a9e4cca8ccf"
+        "type": [ "Ed25519VerificationKey2020" ],
+        "publicKeyMultibase": "zAKJP3f7BD6W4iWEQ9jwndVTCBq8ua2Utt8EEjJ6Vxsf"
     }, {
         "id": "did:bluetoqueagent:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2",
-        "type": ["Ed25519VerificationKey2018"],
-        "publicKeyMultibase": "02b9bd513110b2a7822326280f3fdff9fa667649d3302428a0ab6fb796c6f3201b"
+        "type": ["Ed25519VerificationKey2020"],
+        "publicKeyMultibase": "z4BWwfeqdp1obQptLLMvPNgBw48p7og1ie6Hf9p5nTpNN"
     }],
     "authentication": [{
         "type": "Secp256r1SignatureAuthentication2018",
@@ -168,6 +171,11 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
         "type": "Secp256r1SignatureAuthentication2018",
         "verificationMethod": "did:bluetoqueagent:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2"
     }],
+    "service": [{
+        "id":"#agent1",
+        "type": "BlueToque.Agent", 
+        "serviceEndpoint": "https://agents.example.com/agent1"
+    }]
 }
 ```
 

@@ -10,9 +10,9 @@ NOTE: `did:bizproc` was renamed to `bluetoqueproc`.
 
 ## Current Version
 
-- Version 1.0.0, https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoqueproc-1-0-0.md
+- Version 1.0.0, https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoqueprocess-1-0-0.md
 
 ## Previous Versions
 
-- Version 1.0.0, https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoqueproc-1-0-0.md
+- Version 1.0.0, https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoqueprocess-1-0-0.md
 
