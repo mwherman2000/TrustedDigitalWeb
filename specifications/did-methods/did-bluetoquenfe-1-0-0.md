@@ -429,9 +429,9 @@ References and historical record of related publications.
 
 [54] EIP-1155: Multi Token Standard, https://eips.ethereum.org/EIPS/eip-1155.
 
-[55a] Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Decentralized Identifier Method Specification version 1.0.0, TODO.
+[55a] Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Decentralized Identifier Method Specification version 1.0.0, https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoquenfe-1-0-0.md.
 
-[55b] Trusted Digital Web "BlueToque Deed" Decentralized Identifier Method Specification version 1.0.0, TODO.
+[55b] Trusted Digital Web "BlueToque Deed" Decentralized Identifier Method Specification version 1.0.0, https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoquedeed-1-0-0.md.
 
 [56] EIP-20: Token Standard, https://eips.ethereum.org/EIPS/eip-20.
 
