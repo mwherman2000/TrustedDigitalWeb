@@ -437,13 +437,13 @@ References and historical record of related publications.
 
 [57] NEP-5: Token Standard, https://github.com/neo-project/proposals/blob/master/obsolete/nep-5.mediawiki.
 
-[58] NEP-10: Composite Smart Contracts: https://github.com/neo-project/proposals/blob/master/obsolete/nep-10.mediawiki.
+[58] NEP-10: Composite Smart Contracts, https://github.com/neo-project/proposals/blob/master/obsolete/nep-10.mediawiki.
 
-[59] NEP-11: Non-Fungible Token Standard: https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki
+[59] NEP-11: Non-Fungible Token Standard, https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki
 
-[60] StratisPlatform Standard Token; https://github.com/stratisproject/StratisSmartContractsSamples/blob/master/src/Stratis.SmartContracts.Samples/Stratis.SmartContracts.Samples/StandardToken.cs.
+[60] StratisPlatform Standard Token, https://github.com/stratisproject/StratisSmartContractsSamples/blob/master/src/Stratis.SmartContracts.Samples/Stratis.SmartContracts.Samples/StandardToken.cs.
 
-[61] Smart Contracts in C#: Developers Guide: https://www.stratisplatform.com/wp-content/uploads/2019/07/Stratis-Smart-Contracts-in-C-Smart-Contract-Developer.pdf.
+[61] Smart Contracts in C#: Developers Guide, https://www.stratisplatform.com/wp-content/uploads/2019/07/Stratis-Smart-Contracts-in-C-Smart-Contract-Developer.pdf.
 
 [62] What is a Non-Fungible Token (NFT)? A Deed vs. A Title, https://twitter.com/mwherman2000/status/1465698254981459974
 
