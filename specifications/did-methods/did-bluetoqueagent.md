@@ -1,10 +1,10 @@
-# Trusted Digital Web "Blue Toque Decentralized Agent" Decentralized Identifier Method Specification
+# Trusted Digital Web "BlueToque Decentralized Agent" Decentralized Identifier Method Specification
 
-These DID Method specifications are members of the Blue Toque family of Fully Decentralized Object (FDO) Framework specifications.
+These DID Method specifications are members of the BlueToque family of Fully Decentralized Object (FDO) Framework specifications.
 
 ![Blue Toque](images/bluetoquelogo2.jpg)
 
-This document records the version history of the Trusted Digital Web "Blue Toque Decentralized Agent" Decentralized Identifier Method Specification.
+This document records the version history of the Trusted Digital Web "BlueToque Decentralized Agent" Decentralized Identifier Method Specification.
 
 ## Current Version
 

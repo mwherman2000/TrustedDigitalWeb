@@ -314,6 +314,6 @@ References and historical record of related publications.
 
 ## Epilogue
 
->An Internet specification is like steam (or a horse) - if you don't channel it and put it to work, its value is marginalized.
+>An Internet specification is like steam (or a horse) - if you don't harness it and put it to work, its value is marginalized.
 
 - Why is Knowledge like Steam?, https://www.linkedin.com/pulse/why-knowledge-like-steam-michael-herman-toronto-/.

@@ -1,6 +1,6 @@
-# Trusted Digital Web "Blue Toque Decentralized Agent" Decentralized Identifier Method Specification version 1.0.0
+# Trusted Digital Web "BlueToque Decentralized Agent" Decentralized Identifier Method Specification version 1.0.0
 
-This DID Method specification is a member of the Blue Toque family of Fully Decentralized Object (FDO) Framework specifications.
+This DID Method specification is a member of the BlueToque family of Fully Decentralized Object (FDO) Framework specifications.
 
 ![Blue Toque](images/bluetoquelogo2.jpg)
 
@@ -14,15 +14,15 @@ The purpose of a DID Method specification is to define the following:
 - DID Document CRUD Abstract Interface(s)
 - DID Method Platform Implementation Guidance
 
-The "Blue Toque Decentralized Agent" Decentralized Identifier Method specification 
-("Blue Toque Decentralized Agent" DID Method specification) 
+The "BlueToque Decentralized Agent" Decentralized Identifier Method specification 
+("BlueToque Decentralized Agent" DID Method specification) 
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for DID Agents (Decentralized Agents), a key feature of the
 Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
-The "Blue Toque Decentralized Agent" DID Method space is based, in part, 
+The "BlueToque Decentralized Agent" DID Method space is based, in part, 
 on the Trinity Specification Language (TSL), a component of the Trinity Graph Engine open source project[42][43].
 
-The "Blue Toque Decentralized Agent" DID Method builds upon the long history of experiences with similar 
+The "BlueToque Decentralized Agent" DID Method builds upon the long history of experiences with similar 
 object specification and data access models; including but not limited to: 
 - Object Linking and Embedding (OLE)[44][51], 
 - Component Object Model (COM)[45], 
@@ -32,16 +32,16 @@ object specification and data access models; including but not limited to:
 - Active Data Objects for .NET (ADO.NET)[48].
 
 This specification defines the following:
-- "Blue Toque Decentralized Agent" Identifier Syntax and Construction
-- "Blue Toque Decentralized Agent" DID Document CRUD Abstract Interface
+- "BlueToque Decentralized Agent" Identifier Syntax and Construction
+- "BlueToque Decentralized Agent" DID Document CRUD Abstract Interface
 
 This specification also provides Platform Implementation Guidance to assist Implementors in creating safe and secure apps, agents, services and platforms
-that are compliant with the "Blue Toque Decentralized Agent" DID Method specification.
+that are compliant with the "BlueToque Decentralized Agent" DID Method specification.
 
 ### Out-of-Scope
 
 The following topics are out-of-scope:
-- Descriptions of any specific design, implementation, or deployment details for any particular software platform that might support the "Blue Toque Decentralized Agent" DID Method.
+- Descriptions of any specific design, implementation, or deployment details for any particular software platform that might support the "BlueToque Decentralized Agent" DID Method.
 
 ### Intended Audience
 
@@ -53,10 +53,10 @@ verifiable credentials, and secure storage may also be interested in reading thi
 
 ### Terminology
 
-- The term "Blue Toque Decentralized Agent" Identifier is synonymous with the term "Blue Toque Decentralized Agent" Decentralized Identifier. 
-- The term "Blue Toque Decentralized Agent" DID Document is synonymous with the term "Blue Toque Decentralized Agent" Decentralized Identifier Document.
-- The term "Blue Toque Decentralized Agent" DID Method specification is synonymous with the terms "Blue Toque Decentralized Agent" Decentralized Identifier Method specification and Trusted Digital Web "Blue Toque Decentralized Agent" DID Method specification.
-- A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the "Blue Toque Decentralized Agent" DID Document CRUD Abstract Interface in a way that complies with the "Blue Toque Decentralized Agent" DID Method specification.
+- The term "BlueToque Decentralized Agent" Identifier is synonymous with the term "BlueToque Decentralized Agent" Decentralized Identifier. 
+- The term "BlueToque Decentralized Agent" DID Document is synonymous with the term "BlueToque Decentralized Agent" Decentralized Identifier Document.
+- The term "BlueToque Decentralized Agent" DID Method specification is synonymous with the terms "BlueToque Decentralized Agent" Decentralized Identifier Method specification and Trusted Digital Web "BlueToque Decentralized Agent" DID Method specification.
+- A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the "BlueToque Decentralized Agent" DID Document CRUD Abstract Interface in a way that complies with the "BlueToque Decentralized Agent" DID Method specification.
 
 ### Conformance
 
@@ -70,20 +70,20 @@ The authoriative source text for this specifcation can be found here: https://gi
 
 The list of the most recent versions of this specification can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoqueagent.md.
 
-## 2. Trusted Digital Web "Blue Toque Decentralized Agent" Identifier Method Name
+## 2. Trusted Digital Web "BlueToque Decentralized Agent" Identifier Method Name
 
-The name string that shall identify the "Blue Toque Decentralized Agent" Identifier Method is: `bluetoqueagent`.
+The name string that shall identify the "BlueToque Decentralized Agent" Identifier Method is: `bluetoqueagent`.
 
 A DID Identifier that uses this method **MUST** begin with the following prefix: `did:bluetoqueagent`. 
 Per the DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
 
-## 3. Trusted Digital Web "Blue Toque Decentralized Agent" Identifier Format
+## 3. Trusted Digital Web "BlueToque Decentralized Agent" Identifier Format
 
-There are two different types of "Blue Toque Decentralized Agent" Identifiers on the Trusted Digital Web:
-- "Blue Toque Decentralized Agent" schema
-- "Blue Toque Decentralized Agent" documents
+There are two different types of "BlueToque Decentralized Agent" Identifiers on the Trusted Digital Web:
+- "BlueToque Decentralized Agent" schema
+- "BlueToque Decentralized Agent" documents
 
-"Blue Toque Decentralized Agent" Identifiers on the Trusted Digital Web **MUST** use the following format:
+"BlueToque Decentralized Agent" Identifiers on the Trusted Digital Web **MUST** use the following format:
 ```
 did-bluetoqueagent-did                = did-bluetoqueagent-interfaces-did / did-bluetoqueagent-implementation-did
 did-bluetoqueagent-interfaces-did     = "did:bluetoqueagent:interfaces:" type-string ":" intfdef-id-string [":" version-string]
@@ -98,19 +98,19 @@ idchar                                = 1-9 / A-H / J-N / P-Z / a-k / m-z
 `id-string` is an encoded public key value computed using KERI key management techniques[V2.1][36][37][38].
 The KERI seed value can be any globally unique value including, for example, 
 a composite database record key, bluetoqueagent key, or GUID value. 
-Trusted Digital Web "Blue Toque Decentralized Agent" Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
+Trusted Digital Web "BlueToque Decentralized Agent" Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
 
 `idchar` consists of all the characters in the KERI `Base64` character set. 
 
 NOTE: In the following examples, `BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp` is an example KERI-based `Base64` id-string`; 
 a placeholder `id-string` value.
 
-### Example 1. Trusted Digital Web "Blue Toque Decentralized Agent" Interfaces Definition Identifier
+### Example 1. Trusted Digital Web "BlueToque Decentralized Agent" Interfaces Definition Identifier
 ```
 did:bluetoqueagent:interfaces:color:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 did:bluetoqueagent:interfaces:color:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:1.2.3.4
 ```
-### Example 2. Trusted Digital Web "Blue Toque Decentralized Agent" Implementation Definition Identifier
+### Example 2. Trusted Digital Web "BlueToque Decentralized Agent" Implementation Definition Identifier
 ```
 did:bluetoqueagent:implementation:color:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 did:bluetoqueagent:implementation:color:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:1.2.3.4
@@ -121,36 +121,36 @@ This DID Method does not define or support any query operators.
 
 ## 4. CRUD Abstract Interface
 
-"Blue Toque Decentralized Agent" Identifiers and associated DID Documents on the Trusted Digital Web are managed by a compliant Trusted Digital Web Runtime Library. 
-The Library implements CRUD interfaces for controlling the lifecycle of a "Blue Toque Decentralized Agent" Identifier and its associated DID Document that are compliant with this specification.
+"BlueToque Decentralized Agent" Identifiers and associated DID Documents on the Trusted Digital Web are managed by a compliant Trusted Digital Web Runtime Library. 
+The Library implements CRUD interfaces for controlling the lifecycle of a "BlueToque Decentralized Agent" Identifier and its associated DID Document that are compliant with this specification.
  
 ### 4.1 Create (Register)
 
-To create a "Blue Toque Decentralized Agent" Identifier, a program invokes the `RegIdWithPublicKey` function from a compliant Trusted Digital Web Runtime Library. 
-The interface to register a "Blue Toque Decentralized Agent" Identifier and its associated public key is defined as follows:
+To create a "BlueToque Decentralized Agent" Identifier, a program invokes the `RegIdWithPublicKey` function from a compliant Trusted Digital Web Runtime Library. 
+The interface to register a "BlueToque Decentralized Agent" Identifier and its associated public key is defined as follows:
 ```csharp
 public bool RegIdWIthPublicKey(string didobjectid, byte[] publicKey); 
 ```
-The calling program must include two parameters: the string value of the new "Blue Toque Decentralized Agent" Identifier to be registered and 
+The calling program must include two parameters: the string value of the new "BlueToque Decentralized Agent" Identifier to be registered and 
 a cryptographic public key to act as the first management key. 
-This function will return `True` if the "Blue Toque Decentralized Agent" Identifier had not been registered previously.
+This function will return `True` if the "BlueToque Decentralized Agent" Identifier had not been registered previously.
 
 ### 4.2 Read (Resolve)
 
-Trusted Digital Web "Blue Toque Decentralized Agent" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant Trusted Digital Web Runtime Library. 
+Trusted Digital Web "BlueToque Decentralized Agent" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant Trusted Digital Web Runtime Library. 
 To make sure the result returned by invoking the `GetDIDDocument` function is trustworthy, the client could ask a sufficient number of nodes 
 and compare each node's return value.
 
-The interface for resolving a "Blue Toque Decentralized Agent" Identifier and return its associated DID Document is defined as follows:
+The interface for resolving a "BlueToque Decentralized Agent" Identifier and return its associated DID Document is defined as follows:
 ```csharp
 public DIDDocument GetDIDDocument(string didobjectid);
 ```
 A DIDDocument is a JSON object which contains the `verificationMethod`, `authentication` elements of the associated DID Document.
-Every public key in the array of `verificationMethod` can be used to authenticate the "Blue Toque Decentralized Agent" Controller.
+Every public key in the array of `verificationMethod` can be used to authenticate the "BlueToque Decentralized Agent" Controller.
 
 Note: The list of supported public key signature schemes is listed in [Appendix A](#appendix-a-public-key-algorithm).
 
-### Example 2. Trusted Digital Web "Blue Toque Decentralized Agent" DID Document
+### Example 2. Trusted Digital Web "BlueToque Decentralized Agent" DID Document
 
 ```json
 {
@@ -181,22 +181,22 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
 
 ### 4.3 Update (Replace)
 
-To update the DID Document associated with a "Blue Toque Decentralized Agent" Identifier, two functions need to be invoked, 
+To update the DID Document associated with a "BlueToque Decentralized Agent" Identifier, two functions need to be invoked, 
 ```csharp
 public bool AddKey(string didobjectid, byte[] newPublicKey, byte[] sender);
 ```
 ```csharp
 public bool RemoveKey(string didobjectid, byte[] oldPublicKey, byte[] sender);
 ```
-Note that `sender` param must be a currently-in-use public key of this "Blue Toque Decentralized Agent" Identifier.
+Note that `sender` param must be a currently-in-use public key of this "BlueToque Decentralized Agent" Identifier.
 If a public key is removed, then it **cannot** be added again.
 
 ### 4.4 Deactivate (Revoke)
 
-To delete or deactivate a "Blue Toque Decentralized Agent", it suffices to remove all public keys from its associated 
-DID Document. In this case, there is no public key that can be used to authenticate the "Blue Toque Decentralized Agent" Controller.
+To delete or deactivate a "BlueToque Decentralized Agent", it suffices to remove all public keys from its associated 
+DID Document. In this case, there is no public key that can be used to authenticate the "BlueToque Decentralized Agent" Controller.
 
-More importantly, deletion of a Trusted Digital Web "Blue Toque Decentralized Agent" DID Document means that the associated "Blue Toque Decentralized Agent" Identifier cannot be reactivated again. 
+More importantly, deletion of a Trusted Digital Web "BlueToque Decentralized Agent" DID Document means that the associated "BlueToque Decentralized Agent" Identifier cannot be reactivated again. 
 
 ## 5. Implementation Guidance
 
@@ -210,7 +210,7 @@ There are no security considerations that are specific to this DID Method specif
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
-that, in turn, leverage the "Blue Toque Decentralized Agent" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
+that, in turn, leverage the "BlueToque Decentralized Agent" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
 (Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
@@ -233,10 +233,10 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 
 There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of Business Processes and Business Documents supported by that platform.
 
-The syntax and construction of a "Blue Toque Decentralized Agent" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
+The syntax and construction of a "BlueToque Decentralized Agent" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
 Implementers need to be aware of the privacy implications of the underlying tools and technologies 
-used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "Blue Toque Decentralized Agent" Method specification. 
+used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "BlueToque Decentralized Agent" Method specification. 
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
 For example, the privacy implications of processing an NFT for a kiss are significantly different compared to an international SWIFT-like monetary transfer.
@@ -256,8 +256,8 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 
 ## 6. Reference Implementations
 
-The current version of the code for the "Blue Toque Decentralized Agent" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
-This project is the definitive reference implementation of the Trusted Digital Web "Blue Toque Decentralized Agent" Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
+The current version of the code for the "BlueToque Decentralized Agent" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
+This project is the definitive reference implementation of the Trusted Digital Web "BlueToque Decentralized Agent" Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
 
 ## 7. Acknowledgments
 
@@ -315,7 +315,7 @@ the cross-platform implementations of the .NET Core Framework and the Microsoft 
 Verifiable Data Registry (VDR) support for the Trusted Digital Web is provided by the Stratis Platform[35] - a general-purpose, smart contact-enabled blockchain platform implemented 
 using the same programming language, tools and technologies used to implement the Trusted Digital Web.
 
-The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the "Blue Toque Decentralized Agent" DID Method specification. "Blue Toque Decentralized Agent" Identifiers and the "Blue Toque Decentralized Agent" Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
+The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the "BlueToque Decentralized Agent" DID Method specification. "BlueToque Decentralized Agent" Identifiers and the "BlueToque Decentralized Agent" Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
 
 The publication of this DID Method specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
@@ -440,6 +440,6 @@ References and historical record of related publications.
 
 ## Epilogue
 
->An Internet specification is like steam (or a horse) - if you don't channel it and put it to work, its value is marginalized.
+>An Internet specification is like steam (or a horse) - if you don't harness it and put it to work, its value is marginalized.
 
 - Why is Knowledge like Steam?, https://www.linkedin.com/pulse/why-knowledge-like-steam-michael-herman-toronto-/.
