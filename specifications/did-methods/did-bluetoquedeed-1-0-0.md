@@ -21,7 +21,7 @@ Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by t
 
 The "BlueToque Deed" DID Method space is based, in part, on the distinction between 
 pocesssing a _deed_ to an asset vs. a _title_ (the set of claims or rights) conveyed to a subject by the _deed_. 
-This DID Method helps to normalize the concepts of an Asset (e.g. an NFE), a Deed[55], and a _title_. 
+This DID Method helps to normalize the concepts of an Asset (e.g. an NFE)[55a], a Deed[55b], and a _title_.  
 That is, a Deed is something that conveys _title_ (_a specific set of specific claims or rights_) to a _subject_ with respect to a specific _asset_ (or group of assets)[62].
 
 The "BlueToque Deed" DID Method builds upon on a history of experiences buying and selling a variety of 

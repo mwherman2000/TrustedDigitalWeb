@@ -21,7 +21,7 @@ Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by t
 
 The "BlueToque Non-Fungible Entity (NFE)" DID Method space is based, in part, on the distinction between 
 pocesssing a _deed_ to an asset vs. a _title_ (the set of claims or rights) conveyed to a subject by the _deed_. 
-This DID Method helps to normalize the concepts of an Asset (e.g. an NFE), a Deed[55], and a _title_. 
+This DID Method helps to normalize the concepts of an Asset (e.g. an NFE)[55a], a Deed[55b], and a _title_. 
 That is, a Deed is something that conveys _title_ (a set of claims or rights) to a subject with respect to a specific Asset (or group of Assets)[62].
 
 In addition, the "BlueToque Non-Fungible Entity (NFE)" DID Method space is based, in part, 
@@ -429,7 +429,9 @@ References and historical record of related publications.
 
 [54] EIP-1155: Multi Token Standard, https://eips.ethereum.org/EIPS/eip-1155.
 
-[55] Trusted Digital Web "BlueToque Deed" Decentralized Identifier Method Specification version 1.0.0, TODO.
+[55a] Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Decentralized Identifier Method Specification version 1.0.0, TODO.
+
+[55b] Trusted Digital Web "BlueToque Deed" Decentralized Identifier Method Specification version 1.0.0, TODO.
 
 [56] EIP-20: Token Standard, https://eips.ethereum.org/EIPS/eip-20.
 
