@@ -139,7 +139,7 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
     }],
     "service": [{
         "id":"#agent1",
-        "type": "BlueToque.Agent", 
+        "type": "BlueToqueTools.Agent", 
         "serviceEndpoint": "https://agents.example.com/agent1"
     }]
 }

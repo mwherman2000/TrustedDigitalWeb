@@ -1,6 +1,6 @@
-# Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Decentralized Identifier Method Specification version 1.0.0
+# Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" Decentralized Identifier Method Specification version 1.0.0
 
-This DID Method specification is a member of the BlueToque family of Fully Decentralized Object (FDO) Framework specifications.
+This DID Method specification is a member of the BlueToqueTools family of Fully Decentralized Object (FDO) Framework specifications.
 
 ![Blue Toque](images/bluetoquelogo2.jpg)
 
@@ -14,20 +14,20 @@ The purpose of a DID Method specification is to define the following:
 - DID Document CRUD Abstract Interface(s)
 - DID Method Platform Implementation Guidance
 
-The "BlueToque Non-Fungible Entity (NFE)" Decentralized Identifier Method specification 
-("BlueToque Non-Fungible Entity (NFE)" DID Method specification) 
+The "BlueToqueTools Non-Fungible Entity (NFE)" Decentralized Identifier Method specification 
+("BlueToqueTools Non-Fungible Entity (NFE)" DID Method specification) 
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for Non-Fungible Entities, a key feature of the
 Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
-The "BlueToque Non-Fungible Entity (NFE)" DID Method space is based, in part, on the distinction between 
+The "BlueToqueTools Non-Fungible Entity (NFE)" DID Method space is based, in part, on the distinction between 
 pocesssing a _deed_ to an asset vs. a _title_ (the set of claims or rights) conveyed to a subject by the _deed_. 
 This DID Method helps to normalize the concepts of an Asset (e.g. an NFE)[55a], a Deed[55b], and a _title_. 
 That is, a Deed is something that conveys _title_ (a set of claims or rights) to a subject with respect to a specific Asset (or group of Assets)[62].
 
-In addition, the "BlueToque Non-Fungible Entity (NFE)" DID Method space is based, in part, 
+In addition, the "BlueToqueTools Non-Fungible Entity (NFE)" DID Method space is based, in part, 
 on ERC-721 and ERC-1155 NFT specificiations[52][53][54]. 
 
-The "BlueToque Non-Fungible Entity (NFE)" DID Method builds upon on a history of experiences with similar 
+The "BlueToqueTools Non-Fungible Entity (NFE)" DID Method builds upon on a history of experiences with similar 
 object specification and data management models; including but not limited to:
 - EIP-20: EIP-20: Token Standard[56]
 - EIP-721: Non-Fungible Token Standard[53]
@@ -39,16 +39,16 @@ object specification and data management models; including but not limited to:
 - Smart Contracts in C#: Developers Guide[61]
 
 This specification defines the following:
-- "BlueToque Non-Fungible Entity (NFE)" Identifier Syntax and Construction
-- "BlueToque Non-Fungible Entity (NFE)" DID Document CRUD Abstract Interface
+- "BlueToqueTools Non-Fungible Entity (NFE)" Identifier Syntax and Construction
+- "BlueToqueTools Non-Fungible Entity (NFE)" DID Document CRUD Abstract Interface
 
 This specification also provides Platform Implementation Guidance to assist Implementors in creating safe and secure apps, agents, services and platforms
-that are compliant with the "BlueToque Non-Fungible Entity (NFE)" DID Method specification.
+that are compliant with the "BlueToqueTools Non-Fungible Entity (NFE)" DID Method specification.
 
 ### Out-of-Scope
 
 The following topics are out-of-scope:
-- Descriptions of any specific design, implementation, or deployment details for any particular software platform that might support the "BlueToque Non-Fungible Entity (NFE)" DID Method.
+- Descriptions of any specific design, implementation, or deployment details for any particular software platform that might support the "BlueToqueTools Non-Fungible Entity (NFE)" DID Method.
 
 ### Intended Audience
 
@@ -60,10 +60,10 @@ verifiable credentials, and secure storage may also be interested in reading thi
 
 ### Terminology
 
-- The term "BlueToque Non-Fungible Entity (NFE)" Identifier is synonymous with the term "BlueToque Non-Fungible Entity (NFE)" Decentralized Identifier. 
-- The term "BlueToque Non-Fungible Entity (NFE)" DID Document is synonymous with the term "BlueToque Non-Fungible Entity (NFE)" Decentralized Identifier Document.
-- The term "BlueToque Non-Fungible Entity (NFE)" DID Method specification is synonymous with the terms "BlueToque Non-Fungible Entity (NFE)" Decentralized Identifier Method specification and Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" DID Method specification.
-- A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the "BlueToque Non-Fungible Entity (NFE)" DID Document CRUD Abstract Interface in a way that complies with the "BlueToque Non-Fungible Entity (NFE)" DID Method specification.
+- The term "BlueToqueTools Non-Fungible Entity (NFE)" Identifier is synonymous with the term "BlueToqueTools Non-Fungible Entity (NFE)" Decentralized Identifier. 
+- The term "BlueToqueTools Non-Fungible Entity (NFE)" DID Document is synonymous with the term "BlueToqueTools Non-Fungible Entity (NFE)" Decentralized Identifier Document.
+- The term "BlueToqueTools Non-Fungible Entity (NFE)" DID Method specification is synonymous with the terms "BlueToqueTools Non-Fungible Entity (NFE)" Decentralized Identifier Method specification and Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" DID Method specification.
+- A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the "BlueToqueTools Non-Fungible Entity (NFE)" DID Document CRUD Abstract Interface in a way that complies with the "BlueToqueTools Non-Fungible Entity (NFE)" DID Method specification.
 
 ### Conformance
 
@@ -77,20 +77,20 @@ The authoriative source text for this specifcation can be found here: https://gi
 
 The list of the most recent versions of this specification can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoquenfe.md.
 
-## 2. Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Identifier Method Name
+## 2. Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" Identifier Method Name
 
-The name string that shall identify the "BlueToque Non-Fungible Entity (NFE)" Identifier Method is: `bluetoquenfe`.
+The name string that shall identify the "BlueToqueTools Non-Fungible Entity (NFE)" Identifier Method is: `bluetoquenfe`.
 
 A DID Identifier that uses this method **MUST** begin with the following prefix: `did:bluetoquenfe`. 
 Per the DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
 
-## 3. Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Identifier Format
+## 3. Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" Identifier Format
 
-There are two different types of "BlueToque Non-Fungible Entity (NFE)" Identifiers on the Trusted Digital Web:
-- "BlueToque Non-Fungible Entity (NFE)" schema
-- "BlueToque Non-Fungible Entity (NFE)" documents
+There are two different types of "BlueToqueTools Non-Fungible Entity (NFE)" Identifiers on the Trusted Digital Web:
+- "BlueToqueTools Non-Fungible Entity (NFE)" schema
+- "BlueToqueTools Non-Fungible Entity (NFE)" documents
 
-"BlueToque Non-Fungible Entity (NFE)" Identifiers on the Trusted Digital Web **MUST** use the following format:
+"BlueToqueTools Non-Fungible Entity (NFE)" Identifiers on the Trusted Digital Web **MUST** use the following format:
 ```
 did-bluetoquenfe-did = "did:bluetoquenfe:" type-string ":" id-string
 type-string          = 1* idchar
@@ -100,14 +100,14 @@ idchar               = 1-9 / A-H / J-N / P-Z / a-k / m-z
 `id-string` is an encoded public key value computed using KERI key management techniques[V2.1][36][37][38].
 The KERI seed value can be any globally unique value including, for example, 
 a composite database record key, bluetoquenfe key, or GUID value. 
-Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
+Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
 
 `idchar` consists of all the characters in the KERI `Base64` character set. 
 
 NOTE: In the following examples, `BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp` is an example KERI-based `Base64` id-string`; 
 a placeholder `id-string` value.
 
-### Example 1. Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Identifier
+### Example 1. Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" Identifier
 
 ```
 did:bluetoquenfe:kiss:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
@@ -119,36 +119,36 @@ This DID Method does not define or support any query operators.
 
 ## 4. CRUD Abstract Interface
 
-"BlueToque Non-Fungible Entity (NFE)" Identifiers and associated DID Documents on the Trusted Digital Web are managed by a compliant Trusted Digital Web Runtime Library. 
-The Library implements CRUD interfaces for controlling the lifecycle of a "BlueToque Non-Fungible Entity (NFE)" Identifier and its associated DID Document that are compliant with this specification.
+"BlueToqueTools Non-Fungible Entity (NFE)" Identifiers and associated DID Documents on the Trusted Digital Web are managed by a compliant Trusted Digital Web Runtime Library. 
+The Library implements CRUD interfaces for controlling the lifecycle of a "BlueToqueTools Non-Fungible Entity (NFE)" Identifier and its associated DID Document that are compliant with this specification.
  
 ### 4.1 Create (Register)
 
-To create a "BlueToque Non-Fungible Entity (NFE)" Identifier, a program invokes the `RegIdWithPublicKey` function from a compliant Trusted Digital Web Runtime Library. 
-The interface to register a "BlueToque Non-Fungible Entity (NFE)" Identifier and its associated public key is defined as follows:
+To create a "BlueToqueTools Non-Fungible Entity (NFE)" Identifier, a program invokes the `RegIdWithPublicKey` function from a compliant Trusted Digital Web Runtime Library. 
+The interface to register a "BlueToqueTools Non-Fungible Entity (NFE)" Identifier and its associated public key is defined as follows:
 ```csharp
 public bool RegIdWIthPublicKey(string didobjectid, byte[] publicKey); 
 ```
-The calling program must include two parameters: the string value of the new "BlueToque Non-Fungible Entity (NFE)" Identifier to be registered and 
+The calling program must include two parameters: the string value of the new "BlueToqueTools Non-Fungible Entity (NFE)" Identifier to be registered and 
 a cryptographic public key to act as the first management key. 
-This function will return `True` if the "BlueToque Non-Fungible Entity (NFE)" Identifier had not been registered previously.
+This function will return `True` if the "BlueToqueTools Non-Fungible Entity (NFE)" Identifier had not been registered previously.
 
 ### 4.2 Read (Resolve)
 
-Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant Trusted Digital Web Runtime Library. 
+Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant Trusted Digital Web Runtime Library. 
 To make sure the result returned by invoking the `GetDIDDocument` function is trustworthy, the client could ask a sufficient number of nodes 
 and compare each node's return value.
 
-The interface for resolving a "BlueToque Non-Fungible Entity (NFE)" Identifier and return its associated DID Document is defined as follows:
+The interface for resolving a "BlueToqueTools Non-Fungible Entity (NFE)" Identifier and return its associated DID Document is defined as follows:
 ```csharp
 public DIDDocument GetDIDDocument(string didobjectid);
 ```
 A DIDDocument is a JSON object which contains the `verificationMethod`, `authentication` elements of the associated DID Document.
-Every public key in the array of `verificationMethod` can be used to authenticate the "BlueToque Non-Fungible Entity (NFE)" Controller.
+Every public key in the array of `verificationMethod` can be used to authenticate the "BlueToqueTools Non-Fungible Entity (NFE)" Controller.
 
 Note: The list of supported public key signature schemes is listed in [Appendix A](#appendix-a-public-key-algorithm).
 
-### Example 2. Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" DID Document
+### Example 2. Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" DID Document
 
 ```json
 {
@@ -171,7 +171,7 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
     }],
     "service": [{
         "id":"#agent1",
-        "type": "BlueToque.Agent", 
+        "type": "BlueToqueTools.Agent", 
         "serviceEndpoint": "https://agents.example.com/agent1"
     }]
 }
@@ -179,22 +179,22 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
 
 ### 4.3 Update (Replace)
 
-To update the DID Document associated with a "BlueToque Non-Fungible Entity (NFE)" Identifier, two functions need to be invoked, 
+To update the DID Document associated with a "BlueToqueTools Non-Fungible Entity (NFE)" Identifier, two functions need to be invoked, 
 ```csharp
 public bool AddKey(string didobjectid, byte[] newPublicKey, byte[] sender);
 ```
 ```csharp
 public bool RemoveKey(string didobjectid, byte[] oldPublicKey, byte[] sender);
 ```
-Note that `sender` param must be a currently-in-use public key of this "BlueToque Non-Fungible Entity (NFE)" Identifier.
+Note that `sender` param must be a currently-in-use public key of this "BlueToqueTools Non-Fungible Entity (NFE)" Identifier.
 If a public key is removed, then it **cannot** be added again.
 
 ### 4.4 Deactivate (Revoke)
 
-To delete or deactivate a "BlueToque Non-Fungible Entity (NFE)", it suffices to remove all public keys from its associated 
-DID Document. In this case, there is no public key that can be used to authenticate the "BlueToque Non-Fungible Entity (NFE)" Controller.
+To delete or deactivate a "BlueToqueTools Non-Fungible Entity (NFE)", it suffices to remove all public keys from its associated 
+DID Document. In this case, there is no public key that can be used to authenticate the "BlueToqueTools Non-Fungible Entity (NFE)" Controller.
 
-More importantly, deletion of a Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" DID Document means that the associated "BlueToque Non-Fungible Entity (NFE)" Identifier cannot be reactivated again. 
+More importantly, deletion of a Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" DID Document means that the associated "BlueToqueTools Non-Fungible Entity (NFE)" Identifier cannot be reactivated again. 
 
 ## 5. Implementation Guidance
 
@@ -208,7 +208,7 @@ There are no security considerations that are specific to this DID Method specif
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
-that, in turn, leverage the "BlueToque Non-Fungible Entity (NFE)" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
+that, in turn, leverage the "BlueToqueTools Non-Fungible Entity (NFE)" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
 (Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
@@ -231,10 +231,10 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 
 There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of Business Processes and Business Documents supported by that platform.
 
-The syntax and construction of a "BlueToque Non-Fungible Entity (NFE)" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
+The syntax and construction of a "BlueToqueTools Non-Fungible Entity (NFE)" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
 Implementers need to be aware of the privacy implications of the underlying tools and technologies 
-used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "BlueToque Non-Fungible Entity (NFE)" Method specification. 
+used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "BlueToqueTools Non-Fungible Entity (NFE)" Method specification. 
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
 For example, the privacy implications of processing an NFT for a kiss are significantly different compared to an international SWIFT-like monetary transfer.
@@ -254,8 +254,8 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 
 ## 6. Reference Implementations
 
-The current version of the code for the "BlueToque Non-Fungible Entity (NFE)" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
-This project is the definitive reference implementation of the Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
+The current version of the code for the "BlueToqueTools Non-Fungible Entity (NFE)" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
+This project is the definitive reference implementation of the Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
 
 ## 7. Acknowledgments
 
@@ -313,7 +313,7 @@ the cross-platform implementations of the .NET Core Framework and the Microsoft 
 Verifiable Data Registry (VDR) support for the Trusted Digital Web is provided by the Stratis Platform[35] - a general-purpose, smart contact-enabled blockchain platform implemented 
 using the same programming language, tools and technologies used to implement the Trusted Digital Web.
 
-The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the "BlueToque Non-Fungible Entity (NFE)" DID Method specification. "BlueToque Non-Fungible Entity (NFE)" Identifiers and the "BlueToque Non-Fungible Entity (NFE)" Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
+The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the "BlueToqueTools Non-Fungible Entity (NFE)" DID Method specification. "BlueToqueTools Non-Fungible Entity (NFE)" Identifiers and the "BlueToqueTools Non-Fungible Entity (NFE)" Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
 
 The publication of this DID Method specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
@@ -429,9 +429,9 @@ References and historical record of related publications.
 
 [54] EIP-1155: Multi Token Standard, https://eips.ethereum.org/EIPS/eip-1155.
 
-[55a] Trusted Digital Web "BlueToque Non-Fungible Entity (NFE)" Decentralized Identifier Method Specification version 1.0.0, https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoquenfe-1-0-0.md.
+[55a] Trusted Digital Web "BlueToqueTools Non-Fungible Entity (NFE)" Decentralized Identifier Method Specification version 1.0.0, https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoquenfe-1-0-0.md.
 
-[55b] Trusted Digital Web "BlueToque Deed" Decentralized Identifier Method Specification version 1.0.0, https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoquedeed-1-0-0.md.
+[55b] Trusted Digital Web "BlueToqueTools Deed" Decentralized Identifier Method Specification version 1.0.0, https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-bluetoquedeed-1-0-0.md.
 
 [56] EIP-20: Token Standard, https://eips.ethereum.org/EIPS/eip-20.
 
