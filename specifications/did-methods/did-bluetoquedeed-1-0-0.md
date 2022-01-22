@@ -20,7 +20,7 @@ defines the end-to-end lifecycle of DID Identifiers and DID Documents for Deeds,
 Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
 The "BlueToqueTools Deed" DID Method space is based, in part, on the distinction between 
-pocesssing a _deed_ to an asset vs. a _title_ (the set of claims or rights) conveyed to a subject by the _deed_. 
+processsing a _deed_ to an asset vs. a _title_ (the set of claims or rights) conveyed to a subject by the _deed_. 
 This DID Method helps to normalize the concepts of:
 - an Asset[55a] (e.g. an NFE), 
 - a Deed[55b], and 
