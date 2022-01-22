@@ -21,11 +21,15 @@ Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by t
 
 The "BlueToqueTools Non-Fungible Entity (NFE)" DID Method space is based, in part, on the distinction between 
 pocesssing a _deed_ to an asset vs. a _title_ (the set of claims or rights) conveyed to a subject by the _deed_. 
-This DID Method helps to normalize the concepts of an Asset (e.g. an NFE)[55a], a Deed[55b], and a _title_. 
-That is, a Deed is something that conveys _title_ (a set of claims or rights) to a subject with respect to a specific Asset (or group of Assets)[62].
+This DID Method helps to normalize the concepts of:
+- an Asset[55a] (e.g. an NFE), 
+- a Deed[55b], and 
+- a Title. 
+
+That is, a Deed is something that conveys Title (a set of claims or rights) to a subject with respect to a specific Asset (or group of Assets)[62].
 
 In addition, the "BlueToqueTools Non-Fungible Entity (NFE)" DID Method space is based, in part, 
-on ERC-721 and ERC-1155 NFT specificiations[52][53][54]. 
+on ERC-721 and ERC-1155 NFT specifications[52][53][54]. 
 
 The "BlueToqueTools Non-Fungible Entity (NFE)" DID Method builds upon on a history of experiences with similar 
 object specification and data management models; including but not limited to:
