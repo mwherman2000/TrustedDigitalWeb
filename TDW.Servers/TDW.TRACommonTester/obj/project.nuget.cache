@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2Zq5vjdjBqlBbqMs62LQtOTmtDdgWaGYPLAvWXlraleX0FUbHL3r0eCBb4OfyvggjRgFxUl8XeTwW72AiJf9Tg==",
+  "dgSpecHash": "tF3N494F83FTb1jblmk81D51bNYtbhPgoin//RLWnEnVsEs6C+RTvobScAtmqBCbJOwev+Ac4B0G4CmGc6KByA==",
   "success": true,
   "projectFilePath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRACommonTester\\TDW.TRACommonTester.csproj",
   "expectedPackageFiles": [
@@ -26,11 +26,7 @@
     "C:\\Users\\mwher\\.nuget\\packages\\system.security.cryptography.xml\\5.0.0\\system.security.cryptography.xml.5.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\system.security.permissions\\5.0.0\\system.security.permissions.5.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\mwher\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

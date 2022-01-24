@@ -31,7 +31,7 @@ that are compliant with the "BlueToqueTools Business Document" DID Method specif
 ### Out-of-Scope
 
 The following topics are out-of-scope:
-- Descriptions of any specific design, implementation, or deployment details for any particular software platform that might support the "BlueToqueTools Business Document" DID Method.
+- Descriptions of any implementation-specific design, implementation, or deployment details for any particular software platform that might support the "BlueToqueTools Business Document" DID Method.
 
 ### Intended Audience
 
@@ -51,8 +51,8 @@ verifiable credentials, and secure storage may also be interested in reading thi
 ### Conformance
 
 This specification conforms to the requirements specified in the 
-DID Decentralized Identifier specification[2] currently published by the 
-W3C Credentials Community Group (CCG). 
+Decentralized Identifiers (DIDs) v1.0 W3C Proposed Recommendation[2] 
+published by the W3C Decentralized Identifier Working Group. 
 
 ### Authoritative Source Text
 
@@ -315,7 +315,7 @@ References and historical record of related publications.
 
 [1] Trusted Digital Web: Whitepaper, https://hyperonomy.com/2019/11/06/trusted-digital-web-whitepaper/.
 
-[2] W3C Decentralized Identifiers (DIDs) v0.11, https://w3c-ccg.github.io/did-spec/.
+[2] Decentralized Identifiers (DIDs) v1.0 W3C Proposed Recommendation, https://w3c-ccg.github.io/did-spec/.
 
 [3] IETF Internet draft, SM2 Digital Signature Algorithm, https://tools.ietf.org/html/draft-shen-sm2-ecdsa-02.
 
