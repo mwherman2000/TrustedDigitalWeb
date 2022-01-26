@@ -309,6 +309,12 @@ The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is c
 
 The publication of this DID Method Namespace Specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
+![Trusted Digital Web and the Decentralized (DID) OSI Model](images/TDW-DID%20Method%20Spaces%200.8.png)
+Figure 1. Trusted Digital Web and the Decentralized (DID) OSI Model
+
+![Trusted Digital Web (TDW2022) Software Digital Ecosystem](images/TDW2022%20Software%20Digital%20Ecosystem%200.3.png)
+Figure 2. Trusted Digital Web (TDW2022) Software Digital Ecosystem
+
 ## References
 
 References and historical record of related publications.
