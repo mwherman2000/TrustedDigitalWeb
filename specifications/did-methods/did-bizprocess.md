@@ -1,10 +1,10 @@
-# Trusted Digital Web "BlueToqueTools Business Process" Decentralized Identifier Method Specification
+# Trusted Digital Web "BlueToqueTools Business Process" Decentralized Identifier Method Namespace Specification
 
 These DID Method specifications are members of the BlueToqueTools family of Fully Decentralized Object (FDO) Framework specifications.
 
 ![Blue Toque](images/bluetoquelogo2.jpg)
 
-This document records the version history of the Trusted Digital Web "BlueToqueTools Business Process" Decentralized Identifier Method Specification.
+This document records the version history of the Trusted Digital Web "BlueToqueTools Business Process" Decentralized Identifier Method Namespace Specification.
 
 NOTE: `did:bizproc` was renamed to `bluetoqueproc`.
 

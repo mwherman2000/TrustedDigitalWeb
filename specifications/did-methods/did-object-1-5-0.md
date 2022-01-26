@@ -1,16 +1,16 @@
-# Trusted Digital Web "DID Object" Decentralized Identifier Method Specification version 1.5.0
+# Trusted Digital Web "DID Object" Decentralized Identifier Method Namespace Specification version 1.5.0
 
 ## 1. Context
 
 ### Purpose
 
-The purpose of a DID Method specification is to define the following:
+The purpose of a DID Method Namespace Specification is to define the following:
 - DID Identifier Syntax and Construction
 - DID Identifier Query Operators
 - DID Document CRUD Abstract Interface(s)
 - DID Method Platform Implementation Guidance
 
-This "DID Object" Decentralized Identifier Method specification ("DID Object" DID Method specification) 
+This "DID Object" Decentralized Identifier Method Namespace Specification ("DID Object" DID Method Namespace Specification) 
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for "DID Objects", a key feature of the
 Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
@@ -19,7 +19,7 @@ This specification defines the following:
 - "DID Object" DID Document CRUD Abstract Interface
 
 This specification also provides Platform Implementation Guidance to assist Implementors in creating safe and secure apps, agents, services and platforms
-that are compliant with the "DID Object" DID Method specification.
+that are compliant with the "DID Object" DID Method Namespace Specification.
 
 ### Out-of-Scope
 
@@ -28,7 +28,7 @@ The following topics are out-of-scope:
 
 ### Intended Audience
 
-The primary audience for this DID Method specification is Implementors of apps, agents, and services on 
+The primary audience for this DID Method Namespace Specification is Implementors of apps, agents, and services on 
 the Trusted Digital Web; including but not limited to: 
 software architects, data modelers, application developers, services developers, testers, operators, and user experience (UX) specialists. 
 In addition, other people involved in a broad range of standards efforts related to decentralized identity,
@@ -38,8 +38,8 @@ verifiable credentials, and secure storage may also be interested in reading thi
 
 - The term "DID Object" Identifier is synonymous with the term "DID Object" Decentralized Identifier. 
 - The term "DID Object" DID Document is synonymous with the term "DID Object" Decentralized Identifier Document.
-- The term "DID Object" DID Method specification is synonymous with the terms "DID Object" Decentralized Identifier Method specification and Trusted Digital Web "DID Object" DID Method specification.
-- A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the "DID Object" DID Document CRUD Abstract Interface in a way that complies with the "DID Object" DID Method specification.
+- The term "DID Object" DID Method Namespace Specification is synonymous with the terms "DID Object" Decentralized Identifier Method Namespace Specification and Trusted Digital Web "DID Object" DID Method Namespace Specification.
+- A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the "DID Object" DID Document CRUD Abstract Interface in a way that complies with the "DID Object" DID Method Namespace Specification.
 
 ### Conformance
 
@@ -176,7 +176,7 @@ There are no security considerations that are specific to this DID Method specif
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
-that, in turn, leverage the "DID Object" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
+that, in turn, leverage the "DID Object" Method Namespace Specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
 (Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
@@ -202,7 +202,7 @@ There are no privacy considerations that are specific to this DID Method specifi
 The syntax and construction of a "DID Object" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
 Implementers need to be aware of the privacy implications of the underlying tools and technologies 
-used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "DID Object" Method specification. 
+used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "DID Object" Method Namespace Specification. 
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
 For example, the privacy implications of processing an NFT for a kiss are significantly different compared to an international SWIFT-like monetary transfer.
@@ -281,9 +281,9 @@ the cross-platform implementations of the .NET Core Framework and the Microsoft 
 Verifiable Data Registry (VDR) support for the Trusted Digital Web is provided by the Stratis Platform[35] - a general-purpose, smart contact-enabled blockchain platform implemented 
 using the same programming language, tools and technologies used to implement the Trusted Digital Web.
 
-The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the "DID Object" DID Method specification. "DID Object" Identifiers and the "DID Object" Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
+The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the "DID Object" DID Method Namespace Specification. "DID Object" Identifiers and the "DID Object" Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
 
-The publication of this DID Method specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
+The publication of this DID Method Namespace Specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
 ## References
 

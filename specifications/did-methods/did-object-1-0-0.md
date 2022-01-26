@@ -1,4 +1,4 @@
-# Trusted Digital Web "DID Object" Decentralized Identifier Method Specification version 1.0.0
+# Trusted Digital Web "DID Object" Decentralized Identifier Method Namespace Specification version 1.0.0
 
 This specification defines the end-to-end lifecycle of DID Identifiers and DID Documents for "DID Objects", a key feature of the
 Fully Decentralized Objects (FDOs) Framework [5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
@@ -32,7 +32,7 @@ the cross-platform implementations of the .NET Core Framework and the Microsoft 
 Verifiable Data Registry (VDR) support is provided by the Stratis Platform[35] - a general-purpose, smart contact-enabled blockchain platform implemented 
 using the same programming language, tools and technologies used to implement the Trusted Digital Web.
 
-The publication of this DID Method specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
+The publication of this DID Method Namespace Specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
 The authoriative source text for this specifcation can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-object-1-0-0.md. 
 
@@ -143,7 +143,7 @@ There are no security considerations that are specific to this DID Method specif
 
 Implementers (architects, developers, testers, and operators) need to be aware of the securtity and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
-that, in turn, leverage the "DID Object" Method specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
+that, in turn, leverage the "DID Object" Method Namespace Specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
 (Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
@@ -168,7 +168,7 @@ There are no privacy considerations that are specific to this DID Method specifi
 The syntax and construction of a "DID Object" Identifier and its associated DID Document ensure that no Personally Identifiable Information (PII) is exposed by these constructs.
 
 Implementers (architects, developers, testers, and operators) need to be aware of the privacy implications of the underlying tools and technologies 
-used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "DID Object" Method specification. 
+used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the "DID Object" Method Namespace Specification. 
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
 For exammple, the privacy implications of processing an NFT for a kiss are significantly different from an international SWIFT-like monetary transfer.

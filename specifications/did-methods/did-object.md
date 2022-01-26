@@ -1,6 +1,6 @@
-# Trusted Digital Web "DID Object" Decentralized Identifier Method Specification
+# Trusted Digital Web "DID Object" Decentralized Identifier Method Namespace Specification
 
-This document records the version history of the Trusted Digital Web "DID Object" Decentralized Identifier Method Specification.
+This document records the version history of the Trusted Digital Web "DID Object" Decentralized Identifier Method Namespace Specification.
 
 ## Current Version
 
