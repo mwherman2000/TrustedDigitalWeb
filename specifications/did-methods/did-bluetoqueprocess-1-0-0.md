@@ -1,6 +1,6 @@
 # Trusted Digital Web "BlueToqueTools Business Process" Decentralized Identifier Method Namespace Specification version 1.0.0
 
-This DID Method Namespace Specification is a member of the BlueToqueTools family of Fully Decentralized Object (FDO) Framework specifications.
+This DID Method Namespace Specification is a member of the BlueToqueTools Fully Decentralized Object (FDO) Framework specifications.
 
 ![Blue Toque](images/bluetoquelogo2.jpg)
 
@@ -20,7 +20,7 @@ defines the end-to-end lifecycle of DID Identifiers and DID Documents for Busine
 Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], 
 implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
-The "BlueToqueTools Business Process" DID Method space is based, in large part, on the Object Management Group (OMG) Business Process Management Notation (BPMN) specification[40] for defining executable business process workflow templates. In addition to being able to visually define business process workflow templates, the BPMN specification[40] defines a standard XML serialization format for the persistance and exchange of business process workflow templates across multiple workflow platforms. 
+The "BlueToqueTools Business Process" DID Method Namespace is based, in large part, on the Object Management Group (OMG) Business Process Management Notation (BPMN) specification[40] for defining executable business process workflow templates. In addition to being able to visually define business process workflow templates, the BPMN specification[40] defines a standard XML serialization format for the persistance and exchange of business process workflow templates across multiple workflow platforms. 
 
 Further, the Trusted Digital Web project defines a BPMN-compatible, compact executable byte code and serialization format for the efficient storage and execution of business process workflow templates for use with Verifiable Data Registry (VDR) technologies (blockchain or any other verifiable storage architecture/technology).
 
@@ -34,7 +34,7 @@ that are compliant with the "BlueToqueTools Business Process" DID Method Namespa
 ### Out-of-Scope
 
 The following topics are out-of-scope:
-- Descriptions of any implementation-specific design, implementation, or deployment details for any particular software platform that might support the "BlueToqueTools Business Process" DID Method.
+- Descriptions of any implementation-specific design, implementation, or deployment details for any particular software platform that might support the "BlueToqueTools Business Process" DID Method Namespace.
 
 ### Intended Audience
 
@@ -198,7 +198,7 @@ Caveat: The applicablility of the individual guidance referenced below to a part
 
 ### Security Considerations
 
-There are no security considerations that are specific to this DID Method specificiation. Security considersations and requirements are the responsiblity of a particular platform implementation and the classes of Business Processes and Business Documents supported by that platform.
+There are no security considerations that are specific to this DID Method Namespace Specification. Security considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the types of Business Documents, Business Processes, Agents, and Application Objects processed by that platform.
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
@@ -212,7 +212,7 @@ Further, Implementers are strongly encouraged to review the Security Considerati
 
 In addition, consult the Security Considerations section of the Decentralized Identifiers (DIDs) (DID-CORE) specification: https://www.w3.org/TR/did-core/#security-considerations.
 
-Lastly, the following list of best-in-class DID Method specifications for their Security Considerations sections should also be consulted:
+Lastly, the following list of best-in-class DID Method specifications should also be consulted:
 
 - `did:keri`: https://identity.foundation/keri/did_methods/#security-considerations
 - `did:key`: https://w3c-ccg.github.io/did-method-key/#security-and-privacy-considerations
@@ -223,7 +223,7 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 
 ### Privacy Considerations
 
-There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of Business Processes and Business Documents supported by that platform.
+There are no privacy considerations that are specific to this DID Method Namespace Specification. Privacy considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the types of Business Documents, Business Processes, Agents, and Application Objects processed by that platform.
 
 The syntax and construction of a "BlueToqueTools Business Process" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
@@ -237,7 +237,7 @@ Further, Implementers are strongly encouraged to review the Privacy Consideratio
 
 In addition, consult the Privacy Considerations section of the Decentralized Identifiers (DIDs) (DID-CORE) specification: https://www.w3.org/TR/did-core/#privacy-considerations.
 
-Lastly, the following list of best-in-class DID Method specifications for their Privacy Considerations sections should also be consulted:
+Lastly, the following list of best-in-class DID Method specifications should also be consulted:
 
 - `did:keri`: https://identity.foundation/keri/did_methods/#privacy-considerations
 - `did:key`: https://w3c-ccg.github.io/did-method-key/#security-and-privacy-considerations
@@ -287,7 +287,7 @@ There is only one curve that can be used, namely, `ed25519`.
 
 ## Appendix B. Background
 
-NOTE: This Appendix describes the background or context behind the creation of this DID Method.
+NOTE: This Appendix describes the background or context behind the creation of this DID Method Namespace.
 
 The fabric that knits the world together is the Internet global communications network and the World Wide Web (WWW) 
 software application that runs on top of the Internet.

@@ -1,6 +1,6 @@
 # Trusted Digital Web "BlueToqueTools Business Document" Decentralized Identifier Method Namespace Specification
 
-These DID Method specifications are members of the BlueToqueTools family of Fully Decentralized Object (FDO) Framework specifications.
+These DID Method Namespace Specifications are members of the BlueToqueTools Fully Decentralized Object (FDO) Framework specifications.
 
 ![Blue Toque](images/bluetoquelogo2.jpg)
 

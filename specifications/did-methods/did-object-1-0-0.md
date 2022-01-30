@@ -139,7 +139,7 @@ More importantly, deletion of a Trusted Digital Web "DID Object" DID Document me
 
 ## 4. Security Considerations
 
-There are no security considerations that are specific to this DID Method specificiation. Security considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
+There are no security considerations that are specific to this DID Method Namespace Specification. Security considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the classes of "DID Objects" processed by that platform.
 
 Implementers (architects, developers, testers, and operators) need to be aware of the securtity and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
@@ -151,7 +151,7 @@ For exammple, the security implications of processing an NFT for a kiss are sign
 
 Further, Implementers are strongly encouraged to review the Security Considerations section of the DID Implementation Guide: https://w3c.github.io/did-imp-guide/#security-considerations.
 
-In addition, the following list of best-in-class DID Method specifications for their Security Considerations sections should also be consulted 
+In addition, the following list of best-in-class DID Method specifications should also be consulted 
 (caveat: individual guidance needs to be weighed on a case-by-case basis):
 
 - `did:keri`: https://identity.foundation/keri/did_methods/#security-considerations
@@ -163,7 +163,7 @@ In addition, the following list of best-in-class DID Method specifications for t
 
 ## 5. Privacy Consideration
 
-There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
+There are no privacy considerations that are specific to this DID Method Namespace Specification. Privacy considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the classes of "DID Objects" processed by that platform.
 
 The syntax and construction of a "DID Object" Identifier and its associated DID Document ensure that no Personally Identifiable Information (PII) is exposed by these constructs.
 
@@ -175,7 +175,7 @@ For exammple, the privacy implications of processing an NFT for a kiss are signi
 
 Further, Implementers are strongly encouraged to review the Privacy Considerations section of the DID Implementation Guide: https://w3c.github.io/did-imp-guide/#privacy-considerations.
 
-In addition, the following list of best-in-class DID Method specifications for their Privacy Considerations sections should also be consulted 
+In addition, the following list of best-in-class DID Method specifications should also be consulted 
 (caveat: individual guidance needs to be weighed on a case-by-case basis):
 
 - `did:keri`: https://identity.foundation/keri/did_methods/#privacy-considerations

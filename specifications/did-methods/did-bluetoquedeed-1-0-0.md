@@ -1,6 +1,6 @@
 # Trusted Digital Web "BlueToqueTools Deed" Decentralized Identifier Method Namespace Specification version 1.0.0
 
-This DID Method Namespace Specification is a member of the BlueToqueTools family of Fully Decentralized Object (FDO) Framework specifications.
+This DID Method Namespace Specification is a member of the BlueToqueTools Fully Decentralized Object (FDO) Framework specifications.
 
 ![Blue Toque](images/bluetoquelogo2.jpg)
 
@@ -19,12 +19,15 @@ The "BlueToqueTools Deed" Decentralized Identifier Method Namespace Specificatio
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for Deeds, a key feature of the
 Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
-The "BlueToqueTools Deed" DID Method space is based, in part, on the distinction between 
+The "BlueToqueTools Deed" DID Method Namespace is based, in part, on the distinction between 
 processsing a _deed_ to an asset vs. a _title_ (the set of claims or rights) conveyed to a subject by the _deed_. 
 This DID Method helps to normalize the concepts of:
 - an Asset[55a] (e.g. an NFE), 
 - a Deed[55b], and 
 - a Title. 
+
+![N4K Kiss Non-Fungible Activity (Non-Fungible Entity) Example](images/BlueToqueTools-N4K-SynthPressureCurve.png)
+Figure 1. N4K Kiss Non-Fungible Activity (Non-Fungible Entity) Example
 
 That is, a Deed is something that conveys Title (a set of claims or rights) to a subject with respect to a specific Asset (or group of Assets)[62].
 
@@ -50,7 +53,7 @@ that are compliant with the "BlueToqueTools Deed" DID Method Namespace Specifica
 ### Out-of-Scope
 
 The following topics are out-of-scope:
-- Descriptions of any implementation-specific design, implementation, or deployment details for any particular software platform that might support the "BlueToqueTools Deed" DID Method.
+- Descriptions of any implementation-specific design, implementation, or deployment details for any particular software platform that might support the "BlueToqueTools Deed" DID Method Namespace.
 
 ### Intended Audience
 
@@ -206,7 +209,7 @@ Caveat: The applicablility of the individual guidance referenced below to a part
 
 ### Security Considerations
 
-There are no security considerations that are specific to this DID Method specificiation. Security considersations and requirements are the responsiblity of a particular platform implementation and the classes of Business Processes and Business Documents supported by that platform.
+There are no security considerations that are specific to this DID Method Namespace Specification. Security considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the types of Business Documents, Business Processes, Agents, and Application Objects processed by that platform.
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
@@ -220,7 +223,7 @@ Further, Implementers are strongly encouraged to review the Security Considerati
 
 In addition, consult the Security Considerations section of the Decentralized Identifiers (DIDs) (DID-CORE) specification: https://www.w3.org/TR/did-core/#security-considerations.
 
-Lastly, the following list of best-in-class DID Method specifications for their Security Considerations sections should also be consulted:
+Lastly, the following list of best-in-class DID Method specifications should also be consulted:
 
 - `did:keri`: https://identity.foundation/keri/did_methods/#security-considerations
 - `did:key`: https://w3c-ccg.github.io/did-method-key/#security-and-privacy-considerations
@@ -231,7 +234,7 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 
 ### Privacy Considerations
 
-There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of Business Processes and Business Documents supported by that platform.
+There are no privacy considerations that are specific to this DID Method Namespace Specification. Privacy considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the types of Business Documents, Business Processes, Agents, and Application Objects processed by that platform.
 
 The syntax and construction of a "BlueToqueTools Deed" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
@@ -245,7 +248,7 @@ Further, Implementers are strongly encouraged to review the Privacy Consideratio
 
 In addition, consult the Privacy Considerations section of the Decentralized Identifiers (DIDs) (DID-CORE) specification: https://www.w3.org/TR/did-core/#privacy-considerations.
 
-Lastly, the following list of best-in-class DID Method specifications for their Privacy Considerations sections should also be consulted:
+Lastly, the following list of best-in-class DID Method specifications should also be consulted:
 
 - `did:keri`: https://identity.foundation/keri/did_methods/#privacy-considerations
 - `did:key`: https://w3c-ccg.github.io/did-method-key/#security-and-privacy-considerations
@@ -295,7 +298,7 @@ There is only one curve that can be used, namely, `ed25519`.
 
 ## Appendix B. Background
 
-NOTE: This Appendix describes the background or context behind the creation of this DID Method.
+NOTE: This Appendix describes the background or context behind the creation of this DID Method Namespace.
 
 The fabric that knits the world together is the Internet global communications network and the World Wide Web (WWW) 
 software application that runs on top of the Internet.
@@ -320,10 +323,10 @@ The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is c
 The publication of this DID Method Namespace Specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
 ![Trusted Digital Web and the Decentralized (DID) OSI Model](images/TDW-DID%20Method%20Spaces%200.8.png)
-Figure 1. Trusted Digital Web and the Decentralized (DID) OSI Model
+Figure 2. Trusted Digital Web and the Decentralized (DID) OSI Model
 
 ![Trusted Digital Web (TDW2022) Software Digital Ecosystem](images/TDW2022%20Software%20Digital%20Ecosystem%200.3.png)
-Figure 2. Trusted Digital Web (TDW2022) Software Digital Ecosystem
+Figure 3. Trusted Digital Web (TDW2022) Software Digital Ecosystem
 
 ## References
 

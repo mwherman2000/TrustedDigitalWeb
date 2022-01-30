@@ -172,7 +172,7 @@ Caveat: The applicablility of the individual guidance referenced below to a part
 
 ### Security Considerations
 
-There are no security considerations that are specific to this DID Method specificiation. Security considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
+There are no security considerations that are specific to this DID Method Namespace Specification. Security considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the classes of "DID Objects" processed by that platform.
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
@@ -186,7 +186,7 @@ Further, Implementers are strongly encouraged to review the Security Considerati
 
 In addition, consult the Security Considerations section of the Decentralized Identifiers (DIDs) (DID-CORE) specification: https://www.w3.org/TR/did-core/#security-considerations.
 
-Lastly, the following list of best-in-class DID Method specifications for their Security Considerations sections should also be consulted:
+Lastly, the following list of best-in-class DID Method specifications should also be consulted:
 
 - `did:keri`: https://identity.foundation/keri/did_methods/#security-considerations
 - `did:key`: https://w3c-ccg.github.io/did-method-key/#security-and-privacy-considerations
@@ -197,7 +197,7 @@ Lastly, the following list of best-in-class DID Method specifications for their 
 
 ### Privacy Considerations
 
-There are no privacy considerations that are specific to this DID Method specificiation. Privacy considersations and requirements are the responsiblity of a particular platform implementation and the classes of "DID Objects" supported by that platform.
+There are no privacy considerations that are specific to this DID Method Namespace Specification. Privacy considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the classes of "DID Objects" processed by that platform.
 
 The syntax and construction of a "DID Object" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
@@ -211,7 +211,7 @@ Further, Implementers are strongly encouraged to review the Privacy Consideratio
 
 In addition, consult the Privacy Considerations section of the Decentralized Identifiers (DIDs) (DID-CORE) specification: https://www.w3.org/TR/did-core/#privacy-considerations.
 
-Lastly, the following list of best-in-class DID Method specifications for their Privacy Considerations sections should also be consulted:
+Lastly, the following list of best-in-class DID Method specifications should also be consulted:
 
 - `did:keri`: https://identity.foundation/keri/did_methods/#privacy-considerations
 - `did:key`: https://w3c-ccg.github.io/did-method-key/#security-and-privacy-considerations
@@ -261,7 +261,7 @@ There is only one curve that can be used, namely, `ed25519`.
 
 ## Appendix B. Background
 
-NOTE: This Appendix describes the background or context behind the creation of this DID Method.
+NOTE: This Appendix describes the background or context behind the creation of this DID Method Namespace.
 
 The fabric that knits the world together is the Internet global communications network and the World Wide Web (WWW) 
 software application that runs on top of the Internet.
