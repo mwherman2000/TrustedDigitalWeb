@@ -18,9 +18,9 @@ namespace TDW.TRACommon
         {
             byte[] hashedValue;
 
-            SHA256Managed hashProvider = new SHA256Managed();
+            // SHA256Managed hashProvider = new SHA256Managed();
 
-            hashedValue = hashProvider.ComputeHash(bytes);
+            hashedValue = HashProvider.ComputeHash(bytes);
 
             return hashedValue;
         }
