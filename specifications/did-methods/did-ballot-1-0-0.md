@@ -16,6 +16,8 @@ Fully Decentralized Ballots (FDOs) Framework[5][6][V1.2][V1.1], implemented by t
 
 The "DID Ballot" DID Method Namespace is intended to supporting balloting (voting) across a broad range of _electoral systems_[42].
 
+>An electoral system or voting system is a set of rules that determine how elections and referendums are conducted and how their results are determined.[42]
+
 This specification defines the following:
 - "DID Ballot" Identifier Syntax and Construction
 - "DID Ballot" DID Document CRUD Abstract Interface
