@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GraphEngine.Core" Version="2.0.0" />
+    <PackageReference Include="GraphEngine.Core" Version="2.0.11318" />
     <PackageReference Include="Stratis.SmartContracts" Version="2.0.0" />
   </ItemGroup>
 

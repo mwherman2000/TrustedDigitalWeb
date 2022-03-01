@@ -11,6 +11,33 @@
           "lib/Net40/Base58Check.dll": {}
         }
       },
+      "GraphEngine.Core/2.0.11318": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.ObjectPool": "2.0.0",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Trinity.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Trinity.Core.dll": {}
+        },
+        "build": {
+          "build/GraphEngine.Core.props": {},
+          "build/GraphEngine.Core.targets": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libTrinity.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          },
+          "runtimes/win-x64/native/Trinity.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/5.0.7": {
         "type": "package",
         "compile": {
@@ -115,6 +142,15 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.ObjectPool/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.dll": {}
         }
       },
       "Microsoft.Extensions.Options/5.0.0": {
@@ -494,7 +530,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "GraphEngine.Core": "2.0.0",
+          "GraphEngine.Core": "2.0.11318",
           "TDW.TRACommon": "1.0.0"
         },
         "compile": {
@@ -522,7 +558,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "GraphEngine.Core": "2.0.0",
+          "GraphEngine.Core": "2.0.11318",
           "Stratis.SmartContracts": "2.0.0",
           "TDW.KMAServer": "1.0.0",
           "TDW.TRACommon": "1.0.0"
@@ -561,6 +597,27 @@
         "base58check.0.2.0.nupkg.sha512",
         "base58check.nuspec",
         "lib/Net40/Base58Check.dll"
+      ]
+    },
+    "GraphEngine.Core/2.0.11318": {
+      "sha512": "g9DVZxtACvViUnktuMS0cVUyf/Lf8YgegXRI9410kj6JXVPa4l1DTa/fe5JyrA6VWqcgHvd1J3UKmpLLDzFHZA==",
+      "type": "package",
+      "path": "graphengine.core/2.0.11318",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        "build/GraphEngine.Core.props",
+        "build/GraphEngine.Core.targets",
+        "content/TrinityConfig.Schema.xsd",
+        "graphengine.core.2.0.11318.nupkg.sha512",
+        "graphengine.core.nuspec",
+        "lib/net451/Trinity.Core.dll",
+        "lib/net461/Trinity.Core.dll",
+        "lib/netstandard2.0/Trinity.Core.dll",
+        "runtimes/linux-x64/native/libTrinity.so",
+        "runtimes/win-x64/native/Trinity.dll",
+        "tools/Trinity.TSL.CodeGen",
+        "tools/Trinity.TSL.CodeGen.exe"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/5.0.7": {
@@ -744,6 +801,19 @@
         "microsoft.extensions.logging.abstractions.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Microsoft.Extensions.ObjectPool/2.0.0": {
+      "sha512": "drOmgNZCJiNEqFM/TvyqwtogS8wqoWGQCW5KB/CVGKL6VXHw8OOMdaHyspp8HPstP9UDnrnuq+8eaCaAcQg6tA==",
+      "type": "package",
+      "path": "microsoft.extensions.objectpool/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.ObjectPool.xml",
+        "microsoft.extensions.objectpool.2.0.0.nupkg.sha512",
+        "microsoft.extensions.objectpool.nuspec"
       ]
     },
     "Microsoft.Extensions.Options/5.0.0": {
@@ -2051,6 +2121,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Base58Check >= 0.2.0",
+      "GraphEngine.Core >= 2.0.11318",
       "Multiformats.Base >= 2.0.2",
       "Newtonsoft.Json >= 13.0.1",
       "System.Runtime.Numerics >= 4.3.0",
@@ -2085,6 +2156,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\TDW\\repos\\GraphEngine\\build": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2117,6 +2189,10 @@
             "target": "Package",
             "version": "[0.2.0, )"
           },
+          "GraphEngine.Core": {
+            "target": "Package",
+            "version": "[2.0.11318, )"
+          },
           "Multiformats.Base": {
             "target": "Package",
             "version": "[2.0.2, )"
@@ -2140,24 +2216,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.22, 3.1.22]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -2168,15 +2226,6 @@
     }
   },
   "logs": [
-    {
-      "code": "NU1102",
-      "level": "Error",
-      "message": "Unable to find package GraphEngine.Core with version (>= 2.0.0)\r\n  - Found 3 version(s) in nuget.org [ Nearest version: 1.0.8482 ]\r\n  - Found 0 version(s) in Microsoft Visual Studio Offline Packages",
-      "libraryId": "GraphEngine.Core",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
     {
       "code": "NU1701",
       "level": "Warning",

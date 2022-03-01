@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Base58Check" Version="0.2.0" />
+    <PackageReference Include="GraphEngine.Core" Version="2.0.11318" />
     <PackageReference Include="Multiformats.Base" Version="2.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Runtime.Numerics" Version="4.3.0" />

@@ -34,10 +34,19 @@ namespace TDW.KMAServer
             Console.WriteLine("CellCount:\t" + Global.LocalStorage.CellCount);
             Console.WriteLine("ServerCount:\t" + Global.ServerCount);
 
+            if (Global.LocalStorage.CellCount == 0)
+            {
+                for (int i = 0; i < Global.ServerCount; i++)
+                {
+                    Global.CloudStorage.InitializeMasterKeyVaultToTDWKMAService(i, new KMAInitializeMasterKeyVaultRequestWriter(null));
+                }
+            }
+            Console.WriteLine("CellCount:\t" + Global.LocalStorage.CellCount);
+
             var cells = from cell in Global.LocalStorage.GenericCell_Selector()
                         where (cell.TypeName == "KMAKeyPair")
                         select new { id = cell.CellId, celltype = cell.CellType, type = cell.Type, typeName = cell.TypeName };
-            Console.WriteLine("Count: " + cells.Count());
+            Console.WriteLine("cells.Count: " + cells.Count());
             foreach (var cell in cells)
             {
                 Console.WriteLine(cell.id.ToString() + "\t" + cell.GetType().ToString() + "\t" + cell.celltype.ToString()
@@ -49,16 +58,15 @@ namespace TDW.KMAServer
             var selected = (from cell in Global.LocalStorage.KMAKeyPair_Selector()
                             where (cell.keyringudid == keyringudid && cell.keypairtype == KMAKeyPairType.Hybrid)
                             select new { id = cell.CellId, keypairtype = cell.keypairtype }).Take(1); 
-            Console.WriteLine("Count: " + selected.Count());
-            var selectedKeypair = selected.FirstOrDefault();
-            Console.WriteLine(selectedKeypair.id.ToString() + "\t" + selectedKeypair.keypairtype.ToString()); 
-
-            if (Global.LocalStorage.CellCount == 0)
+            Console.WriteLine("selected.Count: " + selected.Count());
+            if (selected.Count() > 0)
             {
-                for (int i = 0; i < Global.ServerCount; i++)
-                {
-                    Global.CloudStorage.InitializeMasterKeyVaultToTDWKMAService(i, new KMAInitializeMasterKeyVaultRequestWriter(null));
-                }
+                var selectedKeypair = selected.FirstOrDefault();
+                Console.WriteLine(selectedKeypair.id.ToString() + "\t" + selectedKeypair.keypairtype.ToString());
+            }
+            else
+            {
+                Console.WriteLine("KMAKeyPairType.Hybrid found");
             }
 
             Console.WriteLine("Press any key to exit TDWKMAServer...");

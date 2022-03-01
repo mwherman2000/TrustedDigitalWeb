@@ -27,7 +27,6 @@ C:\TDW\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\obj\Debug\netcoreapp3
 C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\bin\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.deps.json
 C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\bin\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.dll
 C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\bin\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.pdb
-C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.csproj.AssemblyReference.cache
 C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.GeneratedMSBuildEditorConfig.editorconfig
 C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.AssemblyInfoInputs.cache
 C:\TDW\repos\TrustedDigitalWeb\TDW.Servers\TDW.VDAStratisHelpers\obj\Debug\netcoreapp3.1\TDW.VDAStratisHelpers.AssemblyInfo.cs

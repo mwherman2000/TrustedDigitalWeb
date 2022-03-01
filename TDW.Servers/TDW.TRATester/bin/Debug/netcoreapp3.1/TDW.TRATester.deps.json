@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "TDW.TRATester/1.0.0": {
         "dependencies": {
+          "GraphEngine.Core": "2.0.11318",
           "Newtonsoft.Json": "13.0.1",
           "TDW.KMAServer": "1.0.0",
           "TDW.TRACommon": "1.0.0",
@@ -17,15 +18,15 @@
           "TDW.TRATester.dll": {}
         }
       },
-      "GraphEngine.Core/2.0.10947": {
+      "GraphEngine.Core/2.0.11318": {
         "dependencies": {
           "Microsoft.Extensions.ObjectPool": "2.0.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Trinity.Core.dll": {
-            "assemblyVersion": "2.0.10947.0",
-            "fileVersion": "2.0.10947.0"
+            "assemblyVersion": "2.0.11318.0",
+            "fileVersion": "2.0.11318.0"
           }
         },
         "runtimeTargets": {
@@ -373,7 +374,7 @@
       },
       "TDW.KMAServer/1.0.0": {
         "dependencies": {
-          "GraphEngine.Core": "2.0.10947",
+          "GraphEngine.Core": "2.0.11318",
           "TDW.TRACommon": "1.0.0"
         },
         "runtime": {
@@ -391,7 +392,7 @@
       },
       "TDW.TRAServer/1.0.0": {
         "dependencies": {
-          "GraphEngine.Core": "2.0.10947",
+          "GraphEngine.Core": "2.0.11318",
           "TDW.KMAServer": "1.0.0",
           "TDW.TRACommon": "1.0.0"
         },
@@ -407,12 +408,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "GraphEngine.Core/2.0.10947": {
+    "GraphEngine.Core/2.0.11318": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5J7SrgCuJQ9JLf2A0vAQWvoVDBALz8dNUVrMEIokPP1T64ozXvwIOWzB8L32Jhj7tMA2i5nah7orZ5/BsdVQTw==",
-      "path": "graphengine.core/2.0.10947",
-      "hashPath": "graphengine.core.2.0.10947.nupkg.sha512"
+      "sha512": "sha512-g9DVZxtACvViUnktuMS0cVUyf/Lf8YgegXRI9410kj6JXVPa4l1DTa/fe5JyrA6VWqcgHvd1J3UKmpLLDzFHZA==",
+      "path": "graphengine.core/2.0.11318",
+      "hashPath": "graphengine.core.2.0.11318.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/5.0.7": {
       "type": "package",

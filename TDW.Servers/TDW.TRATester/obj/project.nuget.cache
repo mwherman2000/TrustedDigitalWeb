@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "uRn16x2+v3AIq6VZ96solnUv4cq3pTN8LrYTKk5uuqsNZ6kNTIu4RuS8jb0CWRYunSzkdjPAgJ4Fn2vi2w1DQQ==",
-  "success": false,
+  "dgSpecHash": "tVeJrYxHDfLWDF4GFCUcIFOeCuZLTbb5CsMnZSHu9/JoUX3ZuTX5FnumwRfiqY5QUrvkeRAs88J32VgfOFM5mw==",
+  "success": true,
   "projectFilePath": "C:\\TDW\\repos\\TrustedDigitalWeb\\TDW.Servers\\TDW.TRATester\\TDW.TRATester.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\mwher\\.nuget\\packages\\graphengine.core\\2.0.11318\\graphengine.core.2.0.11318.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.7\\microsoft.aspnetcore.cryptography.internal.5.0.7.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\5.0.7\\microsoft.aspnetcore.dataprotection.5.0.7.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.dataprotection.abstractions\\5.0.7\\microsoft.aspnetcore.dataprotection.abstractions.5.0.7.nupkg.sha512",
@@ -13,6 +14,7 @@
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\5.0.0\\microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\5.0.0\\microsoft.extensions.hosting.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.extensions.objectpool\\2.0.0\\microsoft.extensions.objectpool.2.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
@@ -27,21 +29,7 @@
     "C:\\Users\\mwher\\.nuget\\packages\\system.security.cryptography.xml\\5.0.0\\system.security.cryptography.xml.5.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\system.security.permissions\\5.0.0\\system.security.permissions.5.0.0.nupkg.sha512",
     "C:\\Users\\mwher\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.22\\microsoft.netcore.app.host.win-x64.3.1.22.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\mwher\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\mwher\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1102",
-      "level": "Error",
-      "message": "Unable to find package GraphEngine.Core with version (>= 2.0.0)\r\n  - Found 3 version(s) in nuget.org [ Nearest version: 1.0.8482 ]\r\n  - Found 0 version(s) in Microsoft Visual Studio Offline Packages",
-      "libraryId": "GraphEngine.Core",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }
