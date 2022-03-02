@@ -14,7 +14,7 @@ This "DID Ballot" Decentralized Identifier Method Namespace Specification ("DID 
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for "DID Ballots", a key feature of the
 Fully Decentralized Ballots (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
 
-The "DID Ballot" DID Method Namespace is intended to supporting balloting (voting) across a broad range of _electoral systems_[42].
+The "DID Ballot" DID Method Namespace is intended to supporting balloting (voting) across a broad range of _electoral systems_[42] using decentralized approaches.
 
 >An electoral system or voting system is a set of rules that determine how elections and referendums are conducted and how their results are determined.[42]
 
@@ -68,7 +68,8 @@ Per the DID Decentralized Identifier specification[2], the value of this string 
 
 "DID Ballot" Identifiers on the Trusted Digital Web **MUST** use the following format:
 ```
-did-ballot-did      = "did:ballot:" id-electoral-system ":" id-election ":" id-string 
+did-ballot-did      = "did:ballot:" id-jurisdiction ":" id-electoral-system ":" id-election ":" id-string 
+id-jurisdiction     = 1* idchar
 id-electoral-system = 1* idchar
 id-election         = 1* idchar
 id-string           = 1* idchar
@@ -127,22 +128,16 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
 ```json
 {
     "id": "did:ballot:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp",
-    "verificationMethod": [{
-        "id": "did:ballot:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1",
-        "type": [ "Ed25519VerificationKey2020" ],
-        "publicKeyMultibase": "zAKJP3f7BD6W4iWEQ9jwndVTCBq8ua2Utt8EEjJ6Vxsf"
-    }, {
-        "id": "did:ballot:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2",
-        "type": ["Ed25519VerificationKey2020"],
-        "publicKeyMultibase": "z4BWwfeqdp1obQptLLMvPNgBw48p7og1ie6Hf9p5nTpNN"
-    }],
-    "authentication": [{
-        "type": "Secp256r1SignatureAuthentication2018",
-        "verificationMethod": "did:ballot:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1"
-    }, {
-        "type": "Secp256r1SignatureAuthentication2018",
-        "verificationMethod": "did:ballot:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2"
-    }],
+    "verificationMethod": [
+        {
+            "id": "did:ballot:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1",
+            "type": "Ed25519VerificationKey2020",
+            "controller": "did:object:1234",
+            "publicKeyMultibase": "zEY59y7px76e2yv5FMj9fYcjDsqk8yus6isWtkF69ZrHY"
+        }
+    ],
+    "authentication": ["did:ballot:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1"],
+    "assertionMethod": ["did:ballot:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1"],
     "service": [{
         "id":"#agent1",
         "type": "BlueToqueTools.Agent", 

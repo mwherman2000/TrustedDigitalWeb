@@ -146,23 +146,17 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
 
 ```json
 {
-    "id": "did:bluetoqueagentprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp",
-    "verificationMethod": [{
-        "id": "did:bluetoqueagentprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1",
-        "type": [ "Ed25519VerificationKey2020" ],
-        "publicKeyMultibase": "zAKJP3f7BD6W4iWEQ9jwndVTCBq8ua2Utt8EEjJ6Vxsf"
-    }, {
-        "id": "did:bluetoqueagentprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2",
-        "type": ["Ed25519VerificationKey2020"],
-        "publicKeyMultibase": "z4BWwfeqdp1obQptLLMvPNgBw48p7og1ie6Hf9p5nTpNN"
-    }],
-    "authentication": [{
-        "type": "Secp256r1SignatureAuthentication2018",
-        "verificationMethod": "did:bluetoqueagentprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-1"
-    }, {
-        "type": "Secp256r1SignatureAuthentication2018",
-        "verificationMethod": "did:bluetoqueagentprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#keys-2"
-    }],
+    "id": "did:bluetoqueprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp",
+    "verificationMethod": [
+        {
+            "id": "did:bluetoqueprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1",
+            "type": "Ed25519VerificationKey2020",
+            "controller": "did:object:1234",
+            "publicKeyMultibase": "zEY59y7px76e2yv5FMj9fYcjDsqk8yus6isWtkF69ZrHY"
+        }
+    ],
+    "authentication": ["did:bluetoqueprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1"],
+    "assertionMethod": ["did:bluetoqueprocess:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1"],
     "service": [{
         "id":"#agent1",
         "type": "BlueToqueTools.Agent", 
