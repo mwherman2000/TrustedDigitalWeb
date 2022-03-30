@@ -762,6 +762,10 @@ Verifiable Data Registry (VDR) Agents are for managing entries stored in a varie
         <content>- Verification Keys (DID Documents)&#xD;
 - Verification Keys (Structured Credentials)</content>
       </child>
+      <child xsi:type="archimate:Note" id="id-6cc76e33dee348c48c5e607f7c1484de" textAlignment="1" borderType="1">
+        <bounds x="1056" y="-96" width="277" height="97"/>
+        <content>did:colors:red requests that the DID Identifier is to be verified by a Verification Agent identified by a Verification Agent Service Endpoint in the DID Document associated with the DID Identifier (did:colors:red) according to the Verification Method.</content>
+      </child>
     </element>
   </folder>
 </archimate:model>

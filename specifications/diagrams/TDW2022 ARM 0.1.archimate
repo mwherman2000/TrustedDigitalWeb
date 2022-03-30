@@ -709,43 +709,43 @@ Verifiable Data Registry (VDR) Agents are for managing entries stored in a varie
           <sourceConnection xsi:type="archimate:Connection" id="id-ca1c1ae57ef9482c84755a2a5007bc88" source="id-5aebd4d6e3a34460a2c0bb38a1dc91b9" target="id-a4055ab2a49d4ac7b463bc1ab11dec15" archimateRelationship="id-bedc567aed6f45e28387fd4e47a4ca97"/>
         </child>
       </child>
-      <child xsi:type="archimate:Note" id="id-13ba00f8eb484cb1965f7ce71973b31d" textAlignment="1" borderType="1">
+      <child xsi:type="archimate:Note" id="id-13ba00f8eb484cb1965f7ce71973b31d" textAlignment="1" fillColor="#ffffff" borderType="1">
         <bounds x="-12" y="-96" width="120" height="97"/>
         <content>*did:colors returns DID Method Registration</content>
       </child>
-      <child xsi:type="archimate:Note" id="id-f794a02dddf845b8a0334f6d59709dc4" textAlignment="1" borderType="1">
+      <child xsi:type="archimate:Note" id="id-f794a02dddf845b8a0334f6d59709dc4" textAlignment="1" fillColor="#ffffff" borderType="1">
         <bounds x="156" y="-96" width="253" height="97"/>
         <content>*did:colors:red returns the DID Document associated with the DID Identifier (did:colors:red)</content>
       </child>
-      <child xsi:type="archimate:Note" id="id-43398012b6544f57be7146fc5b6db06e" textAlignment="1" borderType="1">
+      <child xsi:type="archimate:Note" id="id-43398012b6544f57be7146fc5b6db06e" textAlignment="1" fillColor="#ffffff" borderType="1">
         <bounds x="456" y="-96" width="277" height="97"/>
         <content>**did:colors:red causes the DID Agent to return the Swagger definition (or equivalent) for the DID Agent associated with the default (or overriden) URI of the Service EndPoint Entry for the specified DID Identifier (did:colors:red)</content>
       </child>
-      <child xsi:type="archimate:Note" id="id-36a66d1614e64a1fa3113b3f5ca4ff46" textAlignment="1" borderType="1">
+      <child xsi:type="archimate:Note" id="id-36a66d1614e64a1fa3113b3f5ca4ff46" textAlignment="1" fillColor="#ffffff" borderType="1">
         <bounds x="756" y="-96" width="277" height="97"/>
         <content>***did:colors:red causes the DID Agent to return the properties (claims) for the DID Object associated with the specificed DID Identifier (did:colors:red) as a Structured Credential from Decentralized Storage</content>
       </child>
-      <child xsi:type="archimate:Note" id="id-06e969a7e0a8406789634a5b123b8cc7" textAlignment="1">
+      <child xsi:type="archimate:Note" id="id-06e969a7e0a8406789634a5b123b8cc7" textAlignment="1" fillColor="#ffffff">
         <bounds x="-36" y="456" width="1393" height="241"/>
         <content>Creatable/Deletable Entities</content>
       </child>
-      <child xsi:type="archimate:Note" id="id-a55220e1074f436284593c201831cc90" textAlignment="1">
+      <child xsi:type="archimate:Note" id="id-a55220e1074f436284593c201831cc90" textAlignment="1" fillColor="#ffffff">
         <bounds x="-24" y="483" width="169" height="56"/>
         <content>- DID Method Registry Entries&#xD;
 - DID Method Registrations</content>
       </child>
-      <child xsi:type="archimate:Note" id="id-382abe2da4084472a7b21aa7295ee4c0" textAlignment="1">
+      <child xsi:type="archimate:Note" id="id-382abe2da4084472a7b21aa7295ee4c0" textAlignment="1" fillColor="#ffffff">
         <bounds x="156" y="483" width="253" height="56"/>
         <content>- DID Documents</content>
       </child>
-      <child xsi:type="archimate:Note" id="id-f682d8dc83d24c488374b058072de8e9" textAlignment="1">
+      <child xsi:type="archimate:Note" id="id-f682d8dc83d24c488374b058072de8e9" textAlignment="1" fillColor="#ffffff">
         <bounds x="456" y="480" width="877" height="82"/>
         <content>- DID Service Endpoint Entries (in DID Document)&#xD;
 - DID Compute Agent deployment onto Agent Hosts (identified by a DID Service Endpoint Entry)&#xD;
 - DID Credential Storage Agent deployment onto Agent Hosts (identified by a DID Service Endpoint Entry)&#xD;
 - DID Verification Agent deployment onto Agent Hosts (identified by a DID Service Endpoint Entry)</content>
       </child>
-      <child xsi:type="archimate:Note" id="id-de60fda85f3240c1996705ef4b608f35" textAlignment="1">
+      <child xsi:type="archimate:Note" id="id-de60fda85f3240c1996705ef4b608f35" textAlignment="1" fillColor="#ffffff">
         <bounds x="780" y="576" width="253" height="37"/>
         <content>- CredentialSubject Claims (Updateable)</content>
       </child>
@@ -757,12 +757,12 @@ Verifiable Data Registry (VDR) Agents are for managing entries stored in a varie
           <sourceConnection xsi:type="archimate:Connection" id="id-b623987d0e2a4e1789789a61095cb02b" source="id-4dae8ad483fe4152b80298daeeb0ce9c" target="id-49d942fd04e4488ca490e8142f1c6877" archimateRelationship="id-82fdf8bcd9574e8f9dcaf9b7789138ad"/>
         </child>
       </child>
-      <child xsi:type="archimate:Note" id="id-e6e5a765eb8743dea413210e8f720ca3" textAlignment="1">
+      <child xsi:type="archimate:Note" id="id-e6e5a765eb8743dea413210e8f720ca3" textAlignment="1" fillColor="#ffffff">
         <bounds x="1056" y="624" width="277" height="49"/>
         <content>- Verification Keys (DID Documents)&#xD;
 - Verification Keys (Structured Credentials)</content>
       </child>
-      <child xsi:type="archimate:Note" id="id-6cc76e33dee348c48c5e607f7c1484de" textAlignment="1" borderType="1">
+      <child xsi:type="archimate:Note" id="id-6cc76e33dee348c48c5e607f7c1484de" textAlignment="1" fillColor="#ffffff" borderType="1">
         <bounds x="1056" y="-96" width="277" height="97"/>
         <content>did:colors:red requests that the DID Identifier is to be verified by a Verification Agent identified by a Verification Agent Service Endpoint in the DID Document associated with the DID Identifier (did:colors:red) according to the Verification Method.</content>
       </child>
