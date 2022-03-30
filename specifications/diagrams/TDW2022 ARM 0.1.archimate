@@ -45,9 +45,9 @@
     <element xsi:type="archimate:TechnologyService" name="Decentralized VDR Agent" id="id-a61c0d7d80684a7e97c2015ff63ede55"/>
     <element xsi:type="archimate:TechnologyService" name="Decentralized VDR Agent" id="id-69fe5bd4da4745e7b84cb81d43960cc8"/>
     <element xsi:type="archimate:TechnologyService" name="Decentralized VDR Agent" id="id-5ecbba1592d64e4784768ebabf77e43d"/>
-    <element xsi:type="archimate:TechnologyService" name="Decentralized Processing Agent" id="id-a2e4494b27e74640a88e5a99bad505eb"/>
-    <element xsi:type="archimate:TechnologyService" name="Decentralized Processing Agent" id="id-f0d65928d7f4452fb3130e5e0d82c32e"/>
-    <element xsi:type="archimate:TechnologyService" name="Decentralized Processing Agent" id="id-d768a87d9a9e4e3b82c30748d1524b99"/>
+    <element xsi:type="archimate:TechnologyService" name="Decentralized Compute Agent" id="id-a2e4494b27e74640a88e5a99bad505eb"/>
+    <element xsi:type="archimate:TechnologyService" name="Decentralized Compute Agent" id="id-f0d65928d7f4452fb3130e5e0d82c32e"/>
+    <element xsi:type="archimate:TechnologyService" name="Decentralized Compute Agent" id="id-d768a87d9a9e4e3b82c30748d1524b99"/>
     <element xsi:type="archimate:TechnologyInterface" name="TDW Agent Service Endpoint" id="id-6fb87e84156046f497cf4f515f4c1c22"/>
     <element xsi:type="archimate:Node" name="TDW Agent Server" id="id-bc9d3e9481d54e089c0b99db2312959e"/>
     <element xsi:type="archimate:TechnologyFunction" name="Decentralized SEP  Registry" id="id-be30713583ca49259788ed699b9eab6a"/>
@@ -68,11 +68,26 @@
     <element xsi:type="archimate:Artifact" name="Property Storage" id="id-f98563cd06c441ea96808ac8407f1027"/>
     <element xsi:type="archimate:TechnologyService" name="Local Storage Agent" id="id-191a5d9bf82f41f594b66d09b90e0ca4"/>
     <element xsi:type="archimate:Artifact" name="Property Storage" id="id-254f904d27cc403e87a32834b87d87c3"/>
+    <element xsi:type="archimate:Artifact" name="did:colors:red DID Document" id="id-1720613547f040c38f75131b7b7fbd4e"/>
+    <element xsi:type="archimate:TechnologyService" name="DID Document Verifiable Data Registry (VDR)" id="id-3c6365e741014c91b78a0543f6b96da8"/>
+    <element xsi:type="archimate:Artifact" name="did:colors DID Method Registration" id="id-c7ce75c0d1a2477e939f9745d3f246bd"/>
+    <element xsi:type="archimate:TechnologyService" name="DID Method Registry" id="id-480ed9466bcc4595b0a0d4762bdd6537"/>
+    <element xsi:type="archimate:Artifact" name="Verification Method" id="id-db7abdba1ac044c3b2167db1e0afc117"/>
+    <element xsi:type="archimate:Artifact" name="Service Endpoint Entry" id="id-9e004de9bd814ae5800bfaa766f11993"/>
+    <element xsi:type="archimate:Artifact" name="Service Endpoint Entry " id="id-245300bcae724851a6a00b03439a3415"/>
+    <element xsi:type="archimate:Node" name="Decentralized Ledger" id="id-142ec3ccb6244808955b8964f7feda56"/>
+    <element xsi:type="archimate:Node" name="Compute Agent Host" id="id-fbc950f34c00423ca511121e10224f8f"/>
+    <element xsi:type="archimate:TechnologyService" name="Compute Agent (Service)" id="id-84187d4695e74cd39e4236e5b922242d"/>
+    <element xsi:type="archimate:Node" name="Credential Storage Agent Host" id="id-578ab6d3c53641ff96ef0f7f8b680112"/>
+    <element xsi:type="archimate:TechnologyService" name="Credential Storage Agent (Service)" id="id-4af75dd8c08d4e359f4855ac9f2ff3a3"/>
+    <element xsi:type="archimate:Node" name="Verification Agent Host" id="id-f526bf5702fb4e23973e2ef9f5b9dd2c"/>
+    <element xsi:type="archimate:TechnologyService" name="Verification Agent (Service)" id="id-3792ee86b92a469fb532aa0380c65584"/>
+    <element xsi:type="archimate:Artifact" name="Service Endpoint Entry" id="id-6a917ad247494ec0a0ba712053825af1"/>
   </folder>
   <folder name="Motivation" id="id-9bf7d7f759f04aa8847493cc8a509af0" type="motivation"/>
   <folder name="Implementation &amp; Migration" id="id-298c84eeb45b462eb81824f2f429731e" type="implementation_migration"/>
   <folder name="Other" id="id-de0a888bace34db19c04936e5f2bcc34" type="other">
-    <element xsi:type="archimate:Grouping" name="Decentralized Processing Agents (Object DID IDs)" id="id-9bc58b65fb204495b28e6643805f3abd"/>
+    <element xsi:type="archimate:Grouping" name="Decentralized Compute Agents (Object DID IDs)" id="id-9bc58b65fb204495b28e6643805f3abd"/>
     <element xsi:type="archimate:Grouping" name="Decentralized VDR Agents (Trusted Global Registry Entry DID IDs)" id="id-9771c2b65960466fa1d2395de017e9c7"/>
     <element xsi:type="archimate:Grouping" name="Decentralized Storage Agents (Object DID IDs)" id="id-db7ce22fdda94f62a7eb0589c95d53c1"/>
     <element xsi:type="archimate:Grouping" name="DID Document: DID > SEPs" id="id-2d3ff50073cd4b2b83a47fb4bea48510"/>
@@ -190,6 +205,20 @@
     <element xsi:type="archimate:ServingRelationship" name="DIDCOMM/HTTP" id="id-e75689ff2c624b1a9ba8f3a974f80219" source="id-9ee1e4fe119c4a6395a19d7b93b293cc" target="id-d2871498716549169b92fe68e6047539"/>
     <element xsi:type="archimate:ServingRelationship" name="DIDCOMM/HTTP" id="id-615edbe1c7ca440f80a757c0e4b496c0" source="id-d2871498716549169b92fe68e6047539" target="id-9ee1e4fe119c4a6395a19d7b93b293cc"/>
     <element xsi:type="archimate:ServingRelationship" name="DIDCOMM/HTTP" id="id-107a3378f798447b96439150b2b5e5b7" source="id-9ee1e4fe119c4a6395a19d7b93b293cc" target="id-5b468c6551ec477494c3fc3c6f4e1b06"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-7ce355417e0241fa81602c8728a32b6e" source="id-1720613547f040c38f75131b7b7fbd4e" target="id-3c6365e741014c91b78a0543f6b96da8"/>
+    <element xsi:type="archimate:RealizationRelationship" id="id-e2d7f79044a8442795128b8c8ecf1949" source="id-c7ce75c0d1a2477e939f9745d3f246bd" target="id-480ed9466bcc4595b0a0d4762bdd6537"/>
+    <element xsi:type="archimate:CompositionRelationship" id="id-dd8ae9817275488e9652aff3fa365aa8" source="id-1720613547f040c38f75131b7b7fbd4e" target="id-db7abdba1ac044c3b2167db1e0afc117"/>
+    <element xsi:type="archimate:CompositionRelationship" id="id-f0ae403141de428582a5d5852330c3fc" source="id-1720613547f040c38f75131b7b7fbd4e" target="id-9e004de9bd814ae5800bfaa766f11993"/>
+    <element xsi:type="archimate:CompositionRelationship" id="id-ddea9f2ef0944b12b5a16228f44e5860" source="id-1720613547f040c38f75131b7b7fbd4e" target="id-245300bcae724851a6a00b03439a3415"/>
+    <element xsi:type="archimate:AssociationRelationship" id="id-0e681bf0ee754b71afc48c0dc046cbd9" source="id-c7ce75c0d1a2477e939f9745d3f246bd" target="id-1720613547f040c38f75131b7b7fbd4e"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="id-0eaedddc6db7420b8d4576dd2f2abb57" source="id-142ec3ccb6244808955b8964f7feda56" target="id-3c6365e741014c91b78a0543f6b96da8"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="id-5276f1f5f9aa445182f38fa336903a3d" source="id-fbc950f34c00423ca511121e10224f8f" target="id-84187d4695e74cd39e4236e5b922242d"/>
+    <element xsi:type="archimate:AssociationRelationship" id="id-af509680445e4551bcb01543bf006fac" source="id-9e004de9bd814ae5800bfaa766f11993" target="id-84187d4695e74cd39e4236e5b922242d"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="id-4c770baed39445ab8bce5ac18eb6553c" source="id-578ab6d3c53641ff96ef0f7f8b680112" target="id-4af75dd8c08d4e359f4855ac9f2ff3a3"/>
+    <element xsi:type="archimate:AssociationRelationship" id="id-bedc567aed6f45e28387fd4e47a4ca97" source="id-4af75dd8c08d4e359f4855ac9f2ff3a3" target="id-245300bcae724851a6a00b03439a3415"/>
+    <element xsi:type="archimate:AssignmentRelationship" id="id-a92bf770e2a2443e9abffdce5c88a9d5" source="id-f526bf5702fb4e23973e2ef9f5b9dd2c" target="id-3792ee86b92a469fb532aa0380c65584"/>
+    <element xsi:type="archimate:CompositionRelationship" id="id-d200e14f178b4f94ab83d0f20bf3bc9c" source="id-1720613547f040c38f75131b7b7fbd4e" target="id-6a917ad247494ec0a0ba712053825af1"/>
+    <element xsi:type="archimate:AssociationRelationship" id="id-82fdf8bcd9574e8f9dcaf9b7789138ad" source="id-3792ee86b92a469fb532aa0380c65584" target="id-6a917ad247494ec0a0ba712053825af1"/>
   </folder>
   <folder name="Views" id="id-d505e0a9bf5c4ed59641bb41a093f4a5" type="diagrams">
     <element xsi:type="archimate:ArchimateDiagramModel" name="TDW2022 Partner Ecosystem" id="id-69a4e36a42964455a309df4a41183c92">
@@ -626,6 +655,116 @@ Verifiable Data Registry (VDR) Agents are for managing entries stored in a varie
             <bendpoint startX="36" startY="-108" endX="36" endY="108"/>
           </sourceConnection>
         </child>
+      </child>
+    </element>
+    <element xsi:type="archimate:ArchimateDiagramModel" name="didlang Conceptual Model" id="id-005a91fd3eb64754bd91c3a0fe7756bc">
+      <child xsi:type="archimate:DiagramObject" id="id-91340422700d43c3b4c65925a3b4919b" targetConnections="id-6ec045e0bb064b198cb68d0ae21de7b3" archimateElement="id-1720613547f040c38f75131b7b7fbd4e">
+        <bounds x="156" y="24" width="253" height="253"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-376a8d1752c34dab8051d1817f179db6" source="id-91340422700d43c3b4c65925a3b4919b" target="id-20d7d883a8a446bd95660517441f83fd" archimateRelationship="id-7ce355417e0241fa81602c8728a32b6e"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-9f102e490f8d4a50b292de5f4ee63c71" source="id-91340422700d43c3b4c65925a3b4919b" target="id-885ec8aca5e941c8a2355413945c9903" archimateRelationship="id-dd8ae9817275488e9652aff3fa365aa8"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-e6793e5e880541a49a2d8d03c554b7b1" source="id-91340422700d43c3b4c65925a3b4919b" target="id-0819620459894081afff3f589eb389f1" archimateRelationship="id-f0ae403141de428582a5d5852330c3fc"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-84b32499eb68469ab3caec9a73fe26f1" source="id-91340422700d43c3b4c65925a3b4919b" target="id-a4055ab2a49d4ac7b463bc1ab11dec15" archimateRelationship="id-ddea9f2ef0944b12b5a16228f44e5860"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-fa9ebe03c36d4e5cacf84173adcb6ffd" source="id-91340422700d43c3b4c65925a3b4919b" target="id-49d942fd04e4488ca490e8142f1c6877" archimateRelationship="id-d200e14f178b4f94ab83d0f20bf3bc9c"/>
+        <child xsi:type="archimate:DiagramObject" id="id-885ec8aca5e941c8a2355413945c9903" targetConnections="id-9f102e490f8d4a50b292de5f4ee63c71" archimateElement="id-db7abdba1ac044c3b2167db1e0afc117">
+          <bounds x="24" y="36" width="205" height="37"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-0819620459894081afff3f589eb389f1" targetConnections="id-e6793e5e880541a49a2d8d03c554b7b1" archimateElement="id-9e004de9bd814ae5800bfaa766f11993">
+          <bounds x="24" y="96" width="205" height="37"/>
+          <sourceConnection xsi:type="archimate:Connection" id="id-f2840880e8464ff7b850bd4043e8cb01" source="id-0819620459894081afff3f589eb389f1" target="id-2099d942891244beae57e86af5916d4d" archimateRelationship="id-af509680445e4551bcb01543bf006fac"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-a4055ab2a49d4ac7b463bc1ab11dec15" targetConnections="id-84b32499eb68469ab3caec9a73fe26f1 id-ca1c1ae57ef9482c84755a2a5007bc88" archimateElement="id-245300bcae724851a6a00b03439a3415">
+          <bounds x="24" y="144" width="205" height="37"/>
+        </child>
+        <child xsi:type="archimate:DiagramObject" id="id-49d942fd04e4488ca490e8142f1c6877" targetConnections="id-fa9ebe03c36d4e5cacf84173adcb6ffd id-b623987d0e2a4e1789789a61095cb02b" archimateElement="id-6a917ad247494ec0a0ba712053825af1">
+          <bounds x="24" y="192" width="205" height="37"/>
+        </child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-e7b13accb9fe4383a4ce319e9d302937" archimateElement="id-c7ce75c0d1a2477e939f9745d3f246bd">
+        <bounds x="-12" y="24" width="120" height="205"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-b8653ef7f22641319371a0ce670de304" source="id-e7b13accb9fe4383a4ce319e9d302937" target="id-8c5b0151c6c24930b7896ef93903e377" archimateRelationship="id-e2d7f79044a8442795128b8c8ecf1949"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-6ec045e0bb064b198cb68d0ae21de7b3" source="id-e7b13accb9fe4383a4ce319e9d302937" target="id-91340422700d43c3b4c65925a3b4919b" archimateRelationship="id-0e681bf0ee754b71afc48c0dc046cbd9"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-8c5b0151c6c24930b7896ef93903e377" targetConnections="id-b8653ef7f22641319371a0ce670de304" archimateElement="id-480ed9466bcc4595b0a0d4762bdd6537">
+        <bounds x="-12" y="300" width="120" height="133"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-4a1732682e614c16978ab453e85d85a1" archimateElement="id-142ec3ccb6244808955b8964f7feda56" type="1">
+        <bounds x="144" y="300" width="277" height="133"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-89958d5479804cccbcf6aaa57d985441" source="id-4a1732682e614c16978ab453e85d85a1" target="id-20d7d883a8a446bd95660517441f83fd" archimateRelationship="id-0eaedddc6db7420b8d4576dd2f2abb57"/>
+        <child xsi:type="archimate:DiagramObject" id="id-20d7d883a8a446bd95660517441f83fd" targetConnections="id-376a8d1752c34dab8051d1817f179db6 id-89958d5479804cccbcf6aaa57d985441" archimateElement="id-3c6365e741014c91b78a0543f6b96da8">
+          <bounds x="12" y="36" width="253" height="73"/>
+        </child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-c5e3b61b4e604700a3b0ae0b3daaff5e" archimateElement="id-fbc950f34c00423ca511121e10224f8f" type="1">
+        <bounds x="456" y="24" width="277" height="409"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-d99cbc4a51ac4702bb20250a7e5101e8" source="id-c5e3b61b4e604700a3b0ae0b3daaff5e" target="id-2099d942891244beae57e86af5916d4d" archimateRelationship="id-5276f1f5f9aa445182f38fa336903a3d"/>
+        <child xsi:type="archimate:DiagramObject" id="id-2099d942891244beae57e86af5916d4d" targetConnections="id-d99cbc4a51ac4702bb20250a7e5101e8 id-f2840880e8464ff7b850bd4043e8cb01" archimateElement="id-84187d4695e74cd39e4236e5b922242d">
+          <bounds x="24" y="96" width="229" height="37"/>
+        </child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-58fc9b4694c94a668224636a68b6299e" archimateElement="id-578ab6d3c53641ff96ef0f7f8b680112" type="1">
+        <bounds x="756" y="24" width="277" height="409"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-ec8e04e7750c4f7cbfbc924f04a64b93" source="id-58fc9b4694c94a668224636a68b6299e" target="id-5aebd4d6e3a34460a2c0bb38a1dc91b9" archimateRelationship="id-4c770baed39445ab8bce5ac18eb6553c"/>
+        <child xsi:type="archimate:DiagramObject" id="id-5aebd4d6e3a34460a2c0bb38a1dc91b9" targetConnections="id-ec8e04e7750c4f7cbfbc924f04a64b93" archimateElement="id-4af75dd8c08d4e359f4855ac9f2ff3a3">
+          <bounds x="24" y="144" width="229" height="37"/>
+          <sourceConnection xsi:type="archimate:Connection" id="id-ca1c1ae57ef9482c84755a2a5007bc88" source="id-5aebd4d6e3a34460a2c0bb38a1dc91b9" target="id-a4055ab2a49d4ac7b463bc1ab11dec15" archimateRelationship="id-bedc567aed6f45e28387fd4e47a4ca97"/>
+        </child>
+      </child>
+      <child xsi:type="archimate:Note" id="id-13ba00f8eb484cb1965f7ce71973b31d" textAlignment="1" borderType="1">
+        <bounds x="-12" y="-96" width="120" height="97"/>
+        <content>*did:colors returns DID Method Registration</content>
+      </child>
+      <child xsi:type="archimate:Note" id="id-f794a02dddf845b8a0334f6d59709dc4" textAlignment="1" borderType="1">
+        <bounds x="156" y="-96" width="253" height="97"/>
+        <content>*did:colors:red returns the DID Document associated with the DID Identifier (did:colors:red)</content>
+      </child>
+      <child xsi:type="archimate:Note" id="id-43398012b6544f57be7146fc5b6db06e" textAlignment="1" borderType="1">
+        <bounds x="456" y="-96" width="277" height="97"/>
+        <content>**did:colors:red causes the DID Agent to return the Swagger definition (or equivalent) for the DID Agent associated with the default (or overriden) URI of the Service EndPoint Entry for the specified DID Identifier (did:colors:red)</content>
+      </child>
+      <child xsi:type="archimate:Note" id="id-36a66d1614e64a1fa3113b3f5ca4ff46" textAlignment="1" borderType="1">
+        <bounds x="756" y="-96" width="277" height="97"/>
+        <content>***did:colors:red causes the DID Agent to return the properties (claims) for the DID Object associated with the specificed DID Identifier (did:colors:red) as a Structured Credential from Decentralized Storage</content>
+      </child>
+      <child xsi:type="archimate:Note" id="id-06e969a7e0a8406789634a5b123b8cc7" textAlignment="1">
+        <bounds x="-36" y="456" width="1393" height="241"/>
+        <content>Creatable/Deletable Entities</content>
+      </child>
+      <child xsi:type="archimate:Note" id="id-a55220e1074f436284593c201831cc90" textAlignment="1">
+        <bounds x="-24" y="483" width="169" height="56"/>
+        <content>- DID Method Registry Entries&#xD;
+- DID Method Registrations</content>
+      </child>
+      <child xsi:type="archimate:Note" id="id-382abe2da4084472a7b21aa7295ee4c0" textAlignment="1">
+        <bounds x="156" y="483" width="253" height="56"/>
+        <content>- DID Documents</content>
+      </child>
+      <child xsi:type="archimate:Note" id="id-f682d8dc83d24c488374b058072de8e9" textAlignment="1">
+        <bounds x="456" y="480" width="877" height="82"/>
+        <content>- DID Service Endpoint Entries (in DID Document)&#xD;
+- DID Compute Agent deployment onto Agent Hosts (identified by a DID Service Endpoint Entry)&#xD;
+- DID Credential Storage Agent deployment onto Agent Hosts (identified by a DID Service Endpoint Entry)&#xD;
+- DID Verification Agent deployment onto Agent Hosts (identified by a DID Service Endpoint Entry)</content>
+      </child>
+      <child xsi:type="archimate:Note" id="id-de60fda85f3240c1996705ef4b608f35" textAlignment="1">
+        <bounds x="780" y="576" width="253" height="37"/>
+        <content>- CredentialSubject Claims (Updateable)</content>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="id-5f173c9a24ce4aecb406f35a10d32a1d" archimateElement="id-f526bf5702fb4e23973e2ef9f5b9dd2c" type="1">
+        <bounds x="1056" y="24" width="277" height="409"/>
+        <sourceConnection xsi:type="archimate:Connection" id="id-eaff1abe6d55439a92801852c165b642" source="id-5f173c9a24ce4aecb406f35a10d32a1d" target="id-4dae8ad483fe4152b80298daeeb0ce9c" archimateRelationship="id-a92bf770e2a2443e9abffdce5c88a9d5"/>
+        <child xsi:type="archimate:DiagramObject" id="id-4dae8ad483fe4152b80298daeeb0ce9c" targetConnections="id-eaff1abe6d55439a92801852c165b642" archimateElement="id-3792ee86b92a469fb532aa0380c65584">
+          <bounds x="24" y="192" width="229" height="37"/>
+          <sourceConnection xsi:type="archimate:Connection" id="id-b623987d0e2a4e1789789a61095cb02b" source="id-4dae8ad483fe4152b80298daeeb0ce9c" target="id-49d942fd04e4488ca490e8142f1c6877" archimateRelationship="id-82fdf8bcd9574e8f9dcaf9b7789138ad"/>
+        </child>
+      </child>
+      <child xsi:type="archimate:Note" id="id-e6e5a765eb8743dea413210e8f720ca3" textAlignment="1">
+        <bounds x="1056" y="624" width="277" height="49"/>
+        <content>- Verification Keys (DID Documents)&#xD;
+- Verification Keys (Structured Credentials)</content>
+      </child>
+      <child xsi:type="archimate:Note" id="id-6cc76e33dee348c48c5e607f7c1484de" textAlignment="1" borderType="1">
+        <bounds x="1056" y="-96" width="277" height="97"/>
+        <content>did:colors:red requests that the DID Identifier is to be verified by a Verification Agent identified by a Verification Agent Service Endpoint in the DID Document associated with the DID Identifier (did:colors:red) according to the Verification Method.</content>
       </child>
     </element>
   </folder>
