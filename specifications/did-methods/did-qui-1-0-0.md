@@ -147,7 +147,7 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
     "assertionMethod": ["did:qui:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1"],
     "service": [{
         "id":"#agent1",
-        "type": "BlueToqueTools.Agent", 
+        "type": "QuiAgent", 
         "serviceEndpoint": "https://agents.example.com/agent1"
     }]
 }
