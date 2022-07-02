@@ -1,4 +1,4 @@
-# "Qui" (q-u-i) Decentralized Identifier Method Namespace Specification version 1.0.0
+# "QUI" (Qui Unique Identifier) Decentralized Identifier Method Namespace Specification version 1.0.0
 
 ## 1. Context
 
