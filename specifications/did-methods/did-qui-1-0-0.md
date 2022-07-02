@@ -10,21 +10,21 @@ The purpose of a DID Method Namespace Specification is to define the following:
 - DID Document CRUD Abstract Interface(s)
 - DID Method Platform Implementation Guidance
 
-The "Qui" (q-u-i) Decentralized Identifier Method Namespace Specification 
-("Qui" DID Method Namespace Specification) 
+The "QUI" (q-u-i) Decentralized Identifier Method Namespace Specification 
+("QUI" DID Method Namespace Specification) 
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for Qui agents.
 
 This specification defines the following:
-- "Qui" Identifier Syntax and Construction
-- "Qui" DID Document CRUD Abstract Interface
+- "QUI" Identifier Syntax and Construction
+- "QUI" DID Document CRUD Abstract Interface
 
 This specification also provides Platform Implementation Guidance to assist Implementors in creating safe and secure apps, agents, services and platforms
-that are compliant with the "Qui" DID Method Namespace Specification.
+that are compliant with the "QUI" DID Method Namespace Specification.
 
 ### Out-of-Scope
 
 The following topics are out-of-scope:
-- Descriptions of any implementation-specific design, implementation, or deployment details for any particular software platform that might support the "Qui" DID Method Namespace.
+- Descriptions of any implementation-specific design, implementation, or deployment details for any particular software platform that might support the "QUI" DID Method Namespace.
 
 ### Intended Audience
 
@@ -35,10 +35,10 @@ verifiable credentials, and secure storage may also be interested in reading thi
 
 ### Terminology
 
-- The term "Qui" Identifier is synonymous with the term "Qui" Decentralized Identifier. 
-- The term "Qui" DID Document is synonymous with the term "Qui" Decentralized Identifier Document.
-- The term "Qui" DID Method Namespace Specification is synonymous with the terms "Qui" Decentralized Identifier Method Namespace Specification and "Qui" DID Method Namespace Specification.
-- A compliant Qui runtime library is a software library that, in part, implements the "Qui" DID Document CRUD Abstract Interface in a way that complies with the "Qui" DID Method Namespace Specification.
+- The term "QUI" Identifier is synonymous with the term "QUI" Decentralized Identifier. 
+- The term "QUI" DID Document is synonymous with the term "QUI" Decentralized Identifier Document.
+- The term "QUI" DID Method Namespace Specification is synonymous with the terms "QUI" Decentralized Identifier Method Namespace Specification and "QUI" DID Method Namespace Specification.
+- A compliant Qui runtime library is a software library that, in part, implements the "QUI" DID Document CRUD Abstract Interface in a way that complies with the "QUI" DID Method Namespace Specification.
 
 ### Conformance
 
@@ -51,20 +51,20 @@ published by the W3C Decentralized Identifier Working Group.
 The authoriative source text for this specifcation can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-qui-1-0-0.md.
 
 
-## 2. "Qui" Identifier Method Name
+## 2. "QUI" Identifier Method Name
 
-The name string that shall identify the "Qui" Identifier Method is: `qui`.
+The name string that shall identify the "QUI" Identifier Method is: `qui`.
 
 A DID Identifier that uses this method **MUST** begin with the following prefix: `did:qui`. 
 Per the DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
 
-## 3. "Qui" Identifier Format
+## 3. "QUI" Identifier Format
 
-There are two different types of "Qui" Identifiers:
-- "Qui" schema
-- "Qui" documents
+There are two different types of "QUI" Identifiers:
+- "QUI" schema
+- "QUI" documents
 
-"Qui" Identifiers **MUST** use the following format:
+"QUI" Identifiers **MUST** use the following format:
 ```
 did-qui-did                = did-qui-interfaces-did / did-qui-implementation-did
 did-qui-interfaces-did     = "did:qui:interfaces:" type-string ":" intfdef-id-string [":" version-string]
