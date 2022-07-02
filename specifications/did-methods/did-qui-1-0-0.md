@@ -79,7 +79,7 @@ idchar                     = 1-9 / A-H / J-N / P-Z / a-k / m-z
 `id-string` is an encoded public key value computed using KERI key management techniques[V2.1][36][37][38].
 The KERI seed value can be any globally unique value including, for example, 
 a composite database record key, qui key, or GUID value. 
-"Qui" Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
+"QUI" Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
 
 `idchar` consists of all the characters in the KERI `Base64` character set. 
 
@@ -155,22 +155,22 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
 
 ### 4.3 Update (Replace)
 
-To update the DID Document associated with a "Qui" Identifier, two functions need to be invoked, 
+To update the DID Document associated with a "QUI" Identifier, two functions need to be invoked, 
 ```csharp
 public bool AddKey(string didobjectid, byte[] newPublicKey, byte[] sender);
 ```
 ```csharp
 public bool RemoveKey(string didobjectid, byte[] oldPublicKey, byte[] sender);
 ```
-Note that `sender` param must be a currently-in-use public key of this "Qui" Identifier.
+Note that `sender` param must be a currently-in-use public key of this "QUI" Identifier.
 If a public key is removed, then it **cannot** be added again.
 
 ### 4.4 Deactivate (Revoke)
 
-To delete or deactivate a "Qui" (q-u-i), it suffices to remove all public keys from its associated 
-DID Document. In this case, there is no public key that can be used to authenticate the "Qui" Controller.
+To delete or deactivate a "QUI" (q-u-i), it suffices to remove all public keys from its associated 
+DID Document. In this case, there is no public key that can be used to authenticate the "QUI" Controller.
 
-More importantly, deletion of a "Qui" DID Document means that the associated "Qui" Identifier cannot be reactivated again. 
+More importantly, deletion of a "QUI" DID Document means that the associated "QUI" Identifier cannot be reactivated again. 
 
 ## 5. Implementation Guidance
 
@@ -183,7 +183,7 @@ Caveat: The applicablility of the individual guidance referenced below to a part
 There are no security considerations that are specific to this DID Method Namespace Specification. Security considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the types of Business Documents, Business Processes, Agents, and Application Objects processed by that platform.
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
-used to develop agents, services, and libraries that, in turn, leverage the "Qui" Method Namespace Specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW.
+used to develop agents, services, and libraries that, in turn, leverage the "QUI" Method Namespace Specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW.
 
 Further, Implementers are strongly encouraged to review the Security Considerations section of the DID Implementation Guide: https://w3c.github.io/did-imp-guide/#security-considerations.
 
@@ -202,10 +202,10 @@ Lastly, the following list of best-in-class DID Method Namespace Specifications 
 
 There are no privacy considerations that are specific to this DID Method Namespace Specification. Privacy considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the types of Business Documents, Business Processes, Agents, and Application Objects processed by that platform.
 
-The syntax and construction of a "Qui" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
+The syntax and construction of a "QUI" Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
 Implementers need to be aware of the privacy implications of the underlying tools and technologies 
-used to develop agents, services, and libraries that in turn, leverage the "Qui" Method Namespace Specification. 
+used to develop agents, services, and libraries that in turn, leverage the "QUI" Method Namespace Specification. 
 
 Further, Implementers are strongly encouraged to review the Privacy Considerations section of the DID Implementation Guide: https://w3c.github.io/did-imp-guide/#privacy-considerations.
 
@@ -222,8 +222,8 @@ Lastly, the following list of best-in-class DID Method Namespace Specifications 
 
 ## 6. Reference Implementations
 
-A version of the code for the "Qui" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
-This project is the definitive reference implementation of the "Qui" Identifier Method and contains compliant reference implementations of apps, agents, and services.
+A version of the code for the "QUI" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
+This project is the definitive reference implementation of the "QUI" Identifier Method and contains compliant reference implementations of apps, agents, and services.
 
 ## 7. Acknowledgments
 
