@@ -86,12 +86,12 @@ a composite database record key, qui key, or GUID value.
 NOTE: In the following examples, `BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp` is an example KERI-based `Base64` id-string`; 
 a placeholder `id-string` value.
 
-### Example 1. "Qui" Interfaces Definition Identifier
+### Example 1. "QUI" Interfaces Definition Identifier
 ```
 did:qui:interfaces:color:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 did:qui:interfaces:color:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:1.2.3.4
 ```
-### Example 2. "Qui" Implementation Definition Identifier
+### Example 2. "QUI" Implementation Definition Identifier
 ```
 did:qui:implementation:color:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 did:qui:implementation:color:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp:1.2.3.4
@@ -102,35 +102,35 @@ This DID Method does not define or support any query operators.
 
 ## 4. CRUD Abstract Interface
  
-The "Qui" library implements CRUD interfaces for controlling the lifecycle of a "Qui" Identifier and its associated DID Document that are compliant with this specification.
+The "QUI" library implements CRUD interfaces for controlling the lifecycle of a "QUI" Identifier and its associated DID Document that are compliant with this specification.
  
 ### 4.1 Create (Register)
 
-To create a "Qui" Identifier, a program invokes the `RegIdWithPublicKey` function from a compliant "Qui" runtime library. 
-The interface to register a "Qui" Identifier and its associated public key is defined as follows:
+To create a "QUI" Identifier, a program invokes the `RegIdWithPublicKey` function from a compliant "QUI" runtime library. 
+The interface to register a "QUI" Identifier and its associated public key is defined as follows:
 ```csharp
 public bool RegIdWIthPublicKey(string didobjectid, byte[] publicKey); 
 ```
-The calling program must include two parameters: the string value of the new "Qui" Identifier to be registered and 
+The calling program must include two parameters: the string value of the new "QUI" Identifier to be registered and 
 a cryptographic public key to act as the first management key. 
-This function will return `True` if the "Qui" Identifier had not been registered previously.
+This function will return `True` if the "QUI" Identifier had not been registered previously.
 
 ### 4.2 Read (Resolve)
 
-"Qui" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant "Qui" runtime library. 
+"QUI" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant "QUI" runtime library. 
 To make sure the result returned by invoking the `GetDIDDocument` function is trustworthy, the client could ask a sufficient number of nodes 
 and compare each node's return value.
 
-The interface for resolving a "Qui" Identifier and return its associated DID Document is defined as follows:
+The interface for resolving a "QUI" Identifier and return its associated DID Document is defined as follows:
 ```csharp
 public DIDDocument GetDIDDocument(string didobjectid);
 ```
 A DIDDocument is a JSON object which contains the `verificationMethod`, `authentication` elements of the associated DID Document.
-Every public key in the array of `verificationMethod` can be used to authenticate the "Qui" Controller.
+Every public key in the array of `verificationMethod` can be used to authenticate the "QUI" Controller.
 
 Note: The list of supported public key signature schemes is listed in [Appendix A](#appendix-a-public-key-algorithm).
 
-### Example 2. "Qui" DID Document
+### Example 2. "QUI" DID Document
 
 ```json
 {
