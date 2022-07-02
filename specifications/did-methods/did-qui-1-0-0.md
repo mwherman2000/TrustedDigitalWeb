@@ -12,7 +12,7 @@ The purpose of a DID Method Namespace Specification is to define the following:
 
 The "QUI" (q-u-i) Decentralized Identifier Method Namespace Specification 
 ("QUI" DID Method Namespace Specification) 
-defines the end-to-end lifecycle of DID Identifiers and DID Documents for Qui agents.
+defines the end-to-end lifecycle of DID Identifiers and DID Documents for "QUI"-based agents.
 
 This specification defines the following:
 - "QUI" Identifier Syntax and Construction
@@ -38,7 +38,7 @@ verifiable credentials, and secure storage may also be interested in reading thi
 - The term "QUI" Identifier is synonymous with the term "QUI" Decentralized Identifier. 
 - The term "QUI" DID Document is synonymous with the term "QUI" Decentralized Identifier Document.
 - The term "QUI" DID Method Namespace Specification is synonymous with the terms "QUI" Decentralized Identifier Method Namespace Specification and "QUI" DID Method Namespace Specification.
-- A compliant Qui runtime library is a software library that, in part, implements the "QUI" DID Document CRUD Abstract Interface in a way that complies with the "QUI" DID Method Namespace Specification.
+- A compliant "QUI" runtime library is a software library that, in part, implements the "QUI" DID Document CRUD Abstract Interface in a way that complies with the "QUI" DID Method Namespace Specification.
 
 ### Conformance
 
