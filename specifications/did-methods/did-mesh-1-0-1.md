@@ -1,4 +1,4 @@
-# DIDComm Agent Mesh Networks Decentralized Identifier Method Namespace Specification version 1.0.0
+# DIDComm Agent Mesh Networks Decentralized Identifier Method Namespace Specification version 1.0.1
 
 ## 1. Context
 
