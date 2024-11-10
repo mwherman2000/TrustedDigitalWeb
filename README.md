@@ -9,7 +9,7 @@ Trusted Digital Web (TDW) Project, Hyperonomy Digital Identity Lab, Parallelspac
 
 ## Trusted Digital Web: Decentralized (DID) OSI Model (DID-OSI)
 
-![TDW and Decentralized OSI Model]([specifications/diagrams/TDW2022-DID%20Method%20Namespaces%200.9.png))
+![TDW and Decentralized OSI Model](specifications/diagrams/TDW2022-DID%20Method%20Namespaces%200.9.png)
 
 ## TDW Clients
 - Trusted Digital Assistant (TDA)
