@@ -1,4 +1,4 @@
-# Trusted Digital Web
+# Trusted Digital Web (TDW)
 Trusted Digital Web (TDW) Project, Hyperonomy Digital Identity Lab, Parallelspace Corporation
 
 ![Blue Toque](specifications/did-methods/images/bluetoquelogo2.jpg)
