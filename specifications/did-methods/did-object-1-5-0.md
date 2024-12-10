@@ -1,4 +1,4 @@
-# Trusted Digital Web "DID Object" Decentralized Identifier Method Namespace Specification version 1.5.0
+# Trusted Digital Web "DID Object" Decentralized Identifier Method Namespace Specification version 1.5.0 (Web 7.0 Sharded Registry)
 
 ## 1. Context
 
@@ -24,7 +24,7 @@ that are compliant with the "DID Object" DID Method Namespace Specification.
 ### Out-of-Scope
 
 The following topics are out-of-scope:
-- Descriptions of any specific design, implementation, or deployment details for any particular software platform that might support the "DID Object" DID Method.
+- Descriptions of any specific design, implementation, deployment or other internal details for any particular software platform that might support the "DID Object" DID Method.
 
 ### Intended Audience
 
@@ -55,10 +55,13 @@ The list of the most recent versions of this specification can be found here: ht
 
 ## 2. Trusted Digital Web "DID Object" Identifier Method Name
 
-The name string that shall identify the "DID Object" Identifier Method is: `object`.
+The name string that shall identify the primary "DID Object" Identifier Method is: `object`.
+The Sharded Registry internal name strings use three (3) additional DID Method identifiers: `keys`, `svc`, and `proof`.
 
 A DID Identifier that uses this method **MUST** begin with the following prefix: `did:object`. 
 Per the DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
+
+The Sharded Registry Internal DID Identifiers use the same construction: `did:keys`, `did:svc`, and `did:proof`.
 
 ## 3. Trusted Digital Web "DID Object" Identifier Format
 
@@ -73,6 +76,8 @@ The KERI seed value can be any globally unique value including, for example, a c
 Trusted Digital Web "DID Object" Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
 
 `idchar` consists of all the characters in the KERI `Base64` character set. 
+
+The Sharded Registry Internal DID Identifiers follow the same syntax.
 
 NOTE: In the following examples, `BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp` is an example KERI-based `Base64` id-string`; 
 a placeholder `id-string`.
