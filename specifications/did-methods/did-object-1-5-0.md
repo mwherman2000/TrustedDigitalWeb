@@ -1,4 +1,4 @@
-# Trusted Digital Web "DID Object" Decentralized Identifier Method Namespace Specification version 1.5.0 (Web 7.0 Sharded Registry)
+# Trusted Digital Web (TDW) "DID Object" Decentralized Identifier Method Namespace Specification version 1.5.0 (Web 7.0 Sharded Registry)
 
 ## 1. Context
 
@@ -12,7 +12,7 @@ The purpose of a DID Method Namespace Specification is to define the following:
 
 This "DID Object" Decentralized Identifier Method Namespace Specification ("DID Object" DID Method Namespace Specification) 
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for "DID Objects", a key feature of the
-Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web[1][7][V1.3][V1.4][V1.5]. 
+Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web (TDW)[1][7][V1.3][V1.4][V1.5]. 
 
 This specification defines the following:
 - "DID Object" Identifier Syntax and Construction
@@ -29,7 +29,7 @@ The following topics are out-of-scope:
 ### Intended Audience
 
 The primary audience for this DID Method Namespace Specification is Implementors of apps, agents, and services on 
-the Trusted Digital Web; including but not limited to: 
+the Trusted Digital Web (TDW); including but not limited to: 
 software architects, data modelers, application developers, services developers, testers, operators, and user experience (UX) specialists. 
 In addition, other people involved in a broad range of standards efforts related to decentralized identity,
 verifiable credentials, and secure storage may also be interested in reading this specification.
@@ -53,7 +53,7 @@ The authoriative source text for this specifcation can be found here: https://gi
 
 The list of the most recent versions of this specification can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-object.md.
 
-## 2. Trusted Digital Web "DID Object" Identifier Method Name
+## 2. Trusted Digital Web (TDW) "DID Object" Identifier Method Name
 
 The name string that shall identify the primary "DID Object" Identifier Method is: `object`.
 The Sharded Registry internal name strings use three (3) additional DID Method identifiers: `keys`, `svc`, and `proof`.
@@ -63,9 +63,9 @@ Per the DID Decentralized Identifier specification[2], the value of this string 
 
 The Sharded Registry Internal DID Identifiers use the same construction: `did:keys`, `did:svc`, and `did:proof`.
 
-## 3. Trusted Digital Web "DID Object" Identifier Format
+## 3. Trusted Digital Web (TDW) "DID Object" Identifier Format
 
-"DID Object" Identifiers on the Trusted Digital Web **MUST** use the following format:
+"DID Object" Identifiers on the Trusted Digital Web (TDW) **MUST** use the following format:
 ```
 did-object-did = "did:object:" id-string 
 id-string      = 1* idchar
@@ -82,7 +82,7 @@ The Sharded Registry Internal DID Identifiers follow the same syntax.
 NOTE: In the following examples, `BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp` is an example KERI-based `Base64` id-string`; 
 a placeholder `id-string`.
 
-### Example 1. Trusted Digital Web "DID Object" Identifier
+### Example 1. Trusted Digital Web (TDW) "DID Object" Identifier
 ```
 did:object:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 ```
@@ -108,7 +108,7 @@ This function will return `True` if the "DID Object" Identifier had not been reg
 
 ### 4.2 Read (Resolve)
 
-Trusted Digital Web "DID Object" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant Trusted Digital Web Runtime Library. 
+Trusted Digital Web (TDW) "DID Object" Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant Trusted Digital Web Runtime Library. 
 To make sure the result returned by invoking the `GetDIDDocument` function is trustworthy, the client could ask a sufficient number of nodes 
 and compare each node's return value.
 
@@ -121,7 +121,7 @@ Every public key in the array of `verificationMethod` can be used to authenticat
 
 Note: The list of supported public key signature schemes is listed in [Appendix A](#appendix-a-public-key-algorithm).
 
-### Example 2. Trusted Digital Web "DID Object" DID Document
+### Example 2. Trusted Digital Web (TDW) "DID Object" DID Document
 
 ```json
 {
@@ -222,11 +222,11 @@ Lastly, the following list of best-in-class DID Method specifications should als
 ## 6. Reference Implementations
 
 The current version of the code for the "DID Object" Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
-This project is the definitive reference implementation of the Trusted Digital Web "DID Object" Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
+This project is the definitive reference implementation of the Trusted Digital Web (TDW) "DID Object" Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
 
 ## 7. Acknowledgments
 
-The Trusted Digital Web project would like to thank the DID Specification Registries editors for reviewing,
+The Trusted Digital Web (TDW) project would like to thank the DID Specification Registries editors for reviewing,
 assessing, and approving this specification for acceptance into the W3C DID Method Registry, https://w3c.github.io/did-spec-registries/.
 
 In addition, the project is very gratefully to all the members of the 
