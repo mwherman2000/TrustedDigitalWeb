@@ -1,4 +1,4 @@
-# Trusted Digital Web (TDW) DID Categorization Method Namespace Specification version 1.0.1 (Web 7.0 Sharded Registry)
+# Trusted Digital Web (TDW) DID Category Method Namespace Specification version 1.0.1 (Web 7.0 Sharded Registry)
 
 ## 1. Context
 
@@ -10,21 +10,21 @@ The purpose of a DID Method Namespace Specification is to define the following:
 - DID Document CRUD Abstract Interface(s)
 - DID Method Platform Implementation Guidance
 
-This DID Categorization Method Namespace Specification (DID Categorization DID Method Namespace Specification) 
+This DID Category Method Namespace Specification (DID Category DID Method Namespace Specification) 
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for DID Categories, a key feature of the
 Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web (TDW)[1][7][V1.3][V1.4][V1.5]. 
 
 This specification defines the following:
-- DID Categorization Identifier Syntax and Construction
-- DID Categorization DID Document CRUD Abstract Interface
+- DID Category Identifier Syntax and Construction
+- DID Category DID Document CRUD Abstract Interface
 
 This specification also provides Platform Implementation Guidance to assist Implementors in creating safe and secure apps, agents, services and platforms
-that are compliant with the DID Categorization DID Method Namespace Specification.
+that are compliant with the DID Category DID Method Namespace Specification.
 
 ### Out-of-Scope
 
 The following topics are out-of-scope:
-- Descriptions of any specific design, implementation, deployment or other internal details for any particular software platform that might support the DID Categorization DID Method.
+- Descriptions of any specific design, implementation, deployment or other internal details for any particular software platform that might support the DID Category DID Method.
 
 ### Intended Audience
 
@@ -36,10 +36,10 @@ verifiable credentials, and secure storage may also be interested in reading thi
 
 ### Terminology
 
-- The term DID Categorization Identifier is synonymous with the term DID Categorization. 
-- The term DID Categorization DID Document is synonymous with the term DID Categorization Document.
-- The term DID Categorization DID Method Namespace Specification is synonymous with the terms DID Categorization Method Namespace Specification and Trusted Digital Web DID Categorization DID Method Namespace Specification.
-- A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the DID Categorization DID Document CRUD Abstract Interface in a way that complies with the DID Categorization DID Method Namespace Specification.
+- The term DID Category Identifier is synonymous with the term DID Category. 
+- The term DID Category DID Document is synonymous with the term DID Category Document.
+- The term DID Category DID Method Namespace Specification is synonymous with the terms DID Category Method Namespace Specification and Trusted Digital Web DID Category DID Method Namespace Specification.
+- A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the DID Category DID Document CRUD Abstract Interface in a way that complies with the DID Category DID Method Namespace Specification.
 
 ### Conformance
 
@@ -49,23 +49,23 @@ W3C Credentials Community Group (CCG).
 
 ### Authoritative Source Text
 
-The authoriative source text for this specifcation can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-obspecifications-1-0-1.md.
+The authoriative source text for this specifcation can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-category-1-0-1.md.
 
-## 2. Trusted Digital Web (TDW) DID Categorization Identifier Method Name
+## 2. Trusted Digital Web (TDW) DID Category Identifier Method Name
 
-The name strings that shall identify the primary DID Categorization Identifier Method are:
+The name strings that shall identify the primary DID Category Identifier Method are:
 
-`events` `reference` `culture` `geography` `wellbeing` `history` `mathematics` `nature` `people` `philosophy` `religion` `society` `technology`
+`category` `events` `reference` `culture` `geography` `wellbeing` `history` `mathematics` `nature` `people` `philosophy` `religion` `society` `technology`
 
 A DID Identifier that uses this method **MUST** begin with one of the following prefixes: 
 
-`did:events` `did:reference` `did:culture` `did:geography` `did:wellbeing` `did:history` `did:mathematics` `did:nature` `did:people` `did:philosophy` `did:religion` `did:society` `did:technology`
+`did:category` `did:events` `did:reference` `did:culture` `did:geography` `did:wellbeing` `did:history` `did:mathematics` `did:nature` `did:people` `did:philosophy` `did:religion` `did:society` `did:technology`
 
 Per the DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
 
-## 3. Trusted Digital Web (TDW) DID Categorization Identifier Format
+## 3. Trusted Digital Web (TDW) DID Category Identifier Format
 
-DID Categorization Identifiers on the Trusted Digital Web (TDW) **MUST** use the following format:
+DID Category Identifiers on the Trusted Digital Web (TDW) **MUST** use the following format:
 ```
 did-object-did = "did:" category ":" id-string 
 category       = "events" / "reference" / "culture" / "geography" / "wellbeing" / "history" / "mathematics" / "nature" / "people" / "philosophy" / "religion" / "society" / "technology"
@@ -74,17 +74,16 @@ idchar         = 1-9 / A-H / J-N / P-Z / a-k / m-z
 ```
 `id-string` is an encoded public key value computed using KERI key management techniques[V2.1][36][37][38].
 The KERI seed value can be any globally unique value including, for example, a composite database record key, object key, or GUID value. 
-Trusted Digital Web DID Categorization Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
+Trusted Digital Web DID Category Identifier `id-string` values are encoded using the KERI `Base64` encoding method.
 
 `idchar` consists of all the characters in the KERI `Base64` character set. 
-
-The Sharded Registry Internal DID Identifiers follow the same syntax.
 
 NOTE: In the following examples, `BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp` is an example KERI-based `Base64` id-string`; 
 a placeholder `id-string`.
 
-### Example 1. Trusted Digital Web (TDW) DID Categorization Identifier
+### Example 1. Trusted Digital Web (TDW) DID Category Identifier
 ```
+did:category:events:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 did:events:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 ```
 ### 3.1 DID Identifier Query Operators
@@ -93,36 +92,36 @@ This DID Method does not define or support any query operators.
 
 ## 4. CRUD Abstract Interface
 
-DID Categorization Identifiers and associated DID Documents on the Trusted Digital Web are managed by a compliant Trusted Digital Web Runtime Library. 
-The Library implements CRUD interfaces for controlling the lifecycle of a DID Categorization Identifier and its associated DID Document that are compliant with this specification.
+DID Category Identifiers and associated DID Documents on the Trusted Digital Web are managed by a compliant Trusted Digital Web Runtime Library. 
+The Library implements CRUD interfaces for controlling the lifecycle of a DID Category Identifier and its associated DID Document that are compliant with this specification.
  
 ### 4.1 Create (Register)
 
-To create a DID Categorization Identifier, a program invokes the `RegIdWithPublicKey` function from a compliant Trusted Digital Web Runtime Library. 
-The interface to register a DID Categorization Identifier and its associated public key is defined as follows:
+To create a DID Category Identifier, a program invokes the `RegIdWithPublicKey` function from a compliant Trusted Digital Web Runtime Library. 
+The interface to register a DID Category Identifier and its associated public key is defined as follows:
 ```csharp
 public bool RegIdWIthPublicKey(string didobjectid, byte[] publicKey); 
 ```
-The calling program must include two parameters: the string value of the new DID Categorization Identifier to be registered and 
+The calling program must include two parameters: the string value of the new DID Category Identifier to be registered and 
 a cryptographic public key to act as the first management key. 
-This function will return `True` if the DID Categorization Identifier had not been registered previously.
+This function will return `True` if the DID Category Identifier had not been registered previously.
 
 ### 4.2 Read (Resolve)
 
-Trusted Digital Web (TDW) DID Categorization Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant Trusted Digital Web Runtime Library. 
+Trusted Digital Web (TDW) DID Category Identifier's associated DID Document can be looked up by invoking the `GetDIDDocument` function from a compliant Trusted Digital Web Runtime Library. 
 To make sure the result returned by invoking the `GetDIDDocument` function is trustworthy, the client could ask a sufficient number of nodes 
 and compare each node's return value.
 
-The interface for resolving a DID Categorization Identifier and return its associated DID Document is defined as follows:
+The interface for resolving a DID Category Identifier and return its associated DID Document is defined as follows:
 ```csharp
 public DIDDocument GetDIDDocument(string didobjectid);
 ```
 A DIDDocument is a JSON-object which contains the `verificationMethod`, `authentication` elements of the associated DID Document.
-Every public key in the array of `verificationMethod` can be used to authenticate the DID Categorization Controller.
+Every public key in the array of `verificationMethod` can be used to authenticate the DID Category Controller.
 
 Note: The list of supported public key signature schemes is listed in [Appendix A](#appendix-a-public-key-algorithm).
 
-### Example 2. Trusted Digital Web (TDW) DID Categorization DID Document
+### Example 2. Trusted Digital Web (TDW) DID Category DID Document
 
 ```json
 {
@@ -147,22 +146,22 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
 
 ### 4.3 Update (Replace)
 
-To update the DID Document associated with a DID Categorization Identifier, two functions need to be invoked, 
+To update the DID Document associated with a DID Category Identifier, two functions need to be invoked, 
 ```csharp
 public bool AddKey(string didobjectid, byte[] newPublicKey, byte[] sender);
 ```
 ```csharp
 public bool RemoveKey(string didobjectid, byte[] oldPublicKey, byte[] sender);
 ```
-Note that `sender` param must be a currently-in-use public key of this DID Categorization Identifier.
+Note that `sender` param must be a currently-in-use public key of this DID Category Identifier.
 If a public key is removed, then it **cannot** be added again.
 
 ### 4.4 Deactivate (Revoke)
 
-To delete or deactivate a DID Categorization, it suffices to remove all public keys from its associated 
-DID Document. In this case, there is no public key that can be used to authenticate the DID Categorization Controller.
+To delete or deactivate a DID Category, it suffices to remove all public keys from its associated 
+DID Document. In this case, there is no public key that can be used to authenticate the DID Category Controller.
 
-More importantly, deletion of a Trusted Digital Web DID Categorization DID Document means that the associated DID Categorization Identifier cannot be reactivated again. 
+More importantly, deletion of a Trusted Digital Web DID Category DID Document means that the associated DID Category Identifier cannot be reactivated again. 
 
 ## 5. Implementation Guidance
 
@@ -176,7 +175,7 @@ There are no security considerations that are specific to this DID Method Namesp
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
-that, in turn, leverage the DID Categorization Method Namespace Specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
+that, in turn, leverage the DID Category Method Namespace Specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
 (Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
@@ -199,10 +198,10 @@ Lastly, the following list of best-in-class DID Method specifications should als
 
 There are no privacy considerations that are specific to this DID Method Namespace Specification. Privacy considersations and requirements are the responsiblity of the particular platform Implementor - taking into consideration the classes of DID Categories processed by that platform.
 
-The syntax and construction of a DID Categorization Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
+The syntax and construction of a DID Category Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
 Implementers need to be aware of the privacy implications of the underlying tools and technologies 
-used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the DID Categorization Method Namespace Specification. 
+used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the DID Category Method Namespace Specification. 
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
 For example, the privacy implications of processing an NFT for a kiss are significantly different compared to an international SWIFT-like monetary transfer.
@@ -222,8 +221,8 @@ Lastly, the following list of best-in-class DID Method specifications should als
 
 ## 6. Reference Implementations
 
-The current version of the code for the DID Categorization Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
-This project is the definitive reference implementation of the Trusted Digital Web (TDW) DID Categorization Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
+The current version of the code for the DID Category Identifier Method reference implementation can be found in the following GitHub project: https://github.com/mwherman2000/TrustedDigitalWeb. 
+This project is the definitive reference implementation of the Trusted Digital Web (TDW) DID Category Identifier Method and contains compliant reference implementations of apps, agents, and services deployable on the Trusted Digital Web.
 
 ## 7. Acknowledgments
 
@@ -281,7 +280,7 @@ the cross-platform implementations of the .NET Core Framework and the Microsoft 
 Verifiable Data Registry (VDR) support for the Trusted Digital Web is provided by the Stratis Platform[35] - a general-purpose, smart contact-enabled blockchain platform implemented 
 using the same programming language, tools and technologies used to implement the Trusted Digital Web.
 
-The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the DID Categorization DID Method Namespace Specification. DID Categorization Identifiers and the DID Categorization Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
+The Trusted Digital Web includes a Trusted Digital Web Runtime Library that is compliant with the DID Category DID Method Namespace Specification. DID Category Identifiers and the DID Category Identifer Method are two of the components and specifications that are foundational in the architecture and design of the Trusted Digital Web.
 
 The publication of this DID Method Namespace Specification realizes, in large part, a 4-year quest to create a platform to Tokenize Every Little Thing (ELT)[4].
 
