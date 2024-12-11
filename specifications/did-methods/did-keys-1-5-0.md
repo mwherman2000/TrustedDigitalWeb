@@ -36,7 +36,7 @@ verifiable credentials, and secure storage may also be interested in reading thi
 
 ## 2. DID Method Details
 
-The common details shared by the `did:svc`, `did:keys`, and `did:proof` DID Methods can be found here: C:\TDW\repos\TrustedDigitalWeb\specifications\did-methods\did-object-1-5-0.md
+The common details shared by the `did:svc`, `did:keys`, and `did:proof` DID Methods can be found here: https://github.com/mwherman2000/TrustedDigitalWeb/blob/master/specifications/did-methods/did-object-1-5-0.md
 
 ## 3. Epilogue
 
