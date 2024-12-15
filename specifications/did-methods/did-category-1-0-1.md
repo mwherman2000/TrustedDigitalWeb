@@ -1,4 +1,4 @@
-# Trusted Digital Web (TDW) DID Category Method Namespace Specification version 1.0.1 (Web 7.0 Sharded Registry)
+# Trusted Digital Web (TDW) DID Category DID Method Namespace Specification version 1.0.1 (Web 7.0 Sharded Registry)
 
 ## 1. Context
 
@@ -10,7 +10,7 @@ The purpose of a DID Method Namespace Specification is to define the following:
 - DID Document CRUD Abstract Interface(s)
 - DID Method Platform Implementation Guidance
 
-This DID Category Method Namespace Specification (DID Category DID Method Namespace Specification) 
+This DID Category DID Method Namespace Specification (DID Category DID Method Namespace Specification) 
 defines the end-to-end lifecycle of DID Identifiers and DID Documents for DID Categories, a key feature of the
 Fully Decentralized Objects (FDOs) Framework[5][6][V1.2][V1.1], implemented by the Trusted Digital Web (TDW)[1][7][V1.3][V1.4][V1.5]. 
 
@@ -38,7 +38,7 @@ verifiable credentials, and secure storage may also be interested in reading thi
 
 - The term DID Category Identifier is synonymous with the term DID Category. 
 - The term DID Category DID Document is synonymous with the term DID Category Document.
-- The term DID Category DID Method Namespace Specification is synonymous with the terms DID Category Method Namespace Specification and Trusted Digital Web DID Category DID Method Namespace Specification.
+- The term DID Category DID Method Namespace Specification is synonymous with the terms DID Category DID Method Namespace Specification and Trusted Digital Web DID Category DID Method Namespace Specification.
 - A compliant Trusted Digital Web Runtime Library is a software library that, in part, implements the DID Category DID Document CRUD Abstract Interface in a way that complies with the DID Category DID Method Namespace Specification.
 
 ### Conformance
@@ -80,6 +80,10 @@ Trusted Digital Web DID Category Identifier `id-string` values are encoded using
 
 NOTE: In the following examples, `BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp` is an example KERI-based `Base64` id-string`; 
 a placeholder `id-string`.
+
+### TDW DID Category DID Method Taxonomy
+
+The TDW DID Category DID Method Taxonomy is based on the Wikipedia Content Cateogies taxonomy: [Wikipedia:Contents/Categories](https://en.wikipedia.org/wiki/Wikipedia:Contents/Categories).
 
 ### Example 1. Trusted Digital Web (TDW) DID Category Identifier
 ```
@@ -175,7 +179,7 @@ There are no security considerations that are specific to this DID Method Namesp
 
 Implementers need to be aware of the security and performance implications of the underlying tools and technologies 
 used to develop agents, services, and libraries for the Trusted Digital Web
-that, in turn, leverage the DID Category Method Namespace Specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
+that, in turn, leverage the DID Category DID Method Namespace Specification; as one example, whether the underlying VDR is configured to support concensus by PoA, PoS, or PoW 
 (Reference: https://academy.stratisplatform.com/Architecture%20Reference/FullNode/Consensus/consensus-introduction.html).
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
@@ -201,7 +205,7 @@ There are no privacy considerations that are specific to this DID Method Namespa
 The syntax and construction of a DID Category Identifier and its associated DID Document helps to ensure that no Personally Identifiable Information (PII) or other personal data is exposed by these constructs.
 
 Implementers need to be aware of the privacy implications of the underlying tools and technologies 
-used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the DID Category Method Namespace Specification. 
+used to develop agents, services, and libraries for the Trusted Digital Web that, that in turn, leverage the DID Category DID Method Namespace Specification. 
 
 More importantly, Implementers need to be highly aware of the types of Fully Decentralized Objects they are managing and processing on the Trusted Digital Web. 
 For example, the privacy implications of processing an NFT for a kiss are significantly different compared to an international SWIFT-like monetary transfer.
