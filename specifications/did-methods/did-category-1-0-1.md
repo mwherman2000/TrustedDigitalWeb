@@ -55,11 +55,11 @@ The authoriative source text for this specifcation can be found here: https://gi
 
 The name strings that shall identify the primary DID Category Identifier Method are:
 
-`category` `activity` `events` `reference` `culture` `geography` `wellbeing` `history` `mathematics` `nature` `people` `philosophy` `religion` `society` `technology`
+`category` `didly` `activity` `events` `reference` `culture` `geography` `wellbeing` `history` `mathematics` `nature` `people` `philosophy` `religion` `society` `technology`
 
 A DID Identifier that uses this method **MUST** begin with one of the following prefixes: 
 
-`did:category` `did:activity` `did:events` `did:reference` `did:culture` `did:geography` `did:wellbeing` `did:history` `did:mathematics` `did:nature` `did:people` `did:philosophy` `did:religion` `did:society` `did:technology`
+`did:category` `did:didly` `did:activity` `did:events` `did:reference` `did:culture` `did:geography` `did:wellbeing` `did:history` `did:mathematics` `did:nature` `did:people` `did:philosophy` `did:religion` `did:society` `did:technology`
 
 Per the DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
 
@@ -68,7 +68,7 @@ Per the DID Decentralized Identifier specification[2], the value of this string 
 DID Category Identifiers on the Trusted Digital Web (TDW) **MUST** use the following format:
 ```
 did-object-did = "did:" category ":" id-string 
-category       = "category" / "activity" / "events" / "reference" / "culture" / "geography" / "wellbeing" / "history" / "mathematics" / "nature" / "people" / "philosophy" / "religion" / "society" / "technology"
+category       = "category" / "didly" / "activity" / "events" / "reference" / "culture" / "geography" / "wellbeing" / "history" / "mathematics" / "nature" / "people" / "philosophy" / "religion" / "society" / "technology"
 id-string      = 1* idchar
 idchar         = 1-9 / A-H / J-N / P-Z / a-k / m-z 
 ```
@@ -83,7 +83,7 @@ a placeholder `id-string`.
 
 ### TDW DID Category DID Method Taxonomy
 
-The TDW DID Category DID Method Taxonomy is based on the Wikipedia Content Cateogies taxonomy: [Wikipedia:Contents/Categories](https://en.wikipedia.org/wiki/Wikipedia:Contents/Categories).
+The TDW DID Category DID Method Taxonomy is based on the Wikipedia Content Cateogies taxonomy: [Wikipedia:Contents/Categories](https://en.wikipedia.org/wiki/Wikipedia:Contents/Categories). `did:didly` is reserved for creating redirections (shortcuts) - similar to http://bitly.com.
 
 ### Example 1. Trusted Digital Web (TDW) DID Category Identifier
 ```
