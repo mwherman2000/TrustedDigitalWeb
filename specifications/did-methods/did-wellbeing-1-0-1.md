@@ -55,11 +55,11 @@ The authoriative source text for this specifcation can be found here: https://gi
 
 The name strings that shall identify the primary DID Category Identifier Method are:
 
-`category` `activity` `events` `reference` `culture` `geography` `wellbeing` `history` `mathematics` `nature` `people` `philosophy` `religion` `society` `technology`
+`category` `didly` `activity` `events` `reference` `culture` `geography` `wellbeing` `history` `mathematics` `nature` `people` `philosophy` `religion` `society` `technology`
 
 A DID Identifier that uses this method **MUST** begin with one of the following prefixes: 
 
-`did:category` `did:activity` `did:events` `did:reference` `did:culture` `did:geography` `did:wellbeing` `did:history` `did:mathematics` `did:nature` `did:people` `did:philosophy` `did:religion` `did:society` `did:technology`
+`did:category` `did:didly` `did:activity` `did:events` `did:reference` `did:culture` `did:geography` `did:wellbeing` `did:history` `did:mathematics` `did:nature` `did:people` `did:philosophy` `did:religion` `did:society` `did:technology`
 
 Per the DID Decentralized Identifier specification[2], the value of this string **MUST** be in lowercase.
 
@@ -68,7 +68,7 @@ Per the DID Decentralized Identifier specification[2], the value of this string 
 DID Category Identifiers on the Trusted Digital Web (TDW) **MUST** use the following format:
 ```
 did-object-did = "did:" category ":" id-string 
-category       = "category" / "activity" / "events" / "reference" / "culture" / "geography" / "wellbeing" / "history" / "mathematics" / "nature" / "people" / "philosophy" / "religion" / "society" / "technology"
+category       = "category" / "didly" / "activity" / "events" / "reference" / "culture" / "geography" / "wellbeing" / "history" / "mathematics" / "nature" / "people" / "philosophy" / "religion" / "society" / "technology"
 id-string      = 1* idchar
 idchar         = 1-9 / A-H / J-N / P-Z / a-k / m-z 
 ```
@@ -83,12 +83,12 @@ a placeholder `id-string`.
 
 ### TDW DID Category DID Method Taxonomy
 
-The TDW DID Category DID Method Taxonomy is based on the Wikipedia Content Cateogies taxonomy: [Wikipedia:Contents/Categories](https://en.wikipedia.org/wiki/Wikipedia:Contents/Categories).
+The TDW DID Category DID Method Taxonomy is based on the Wikipedia Content Cateogies taxonomy: [Wikipedia:Contents/Categories](https://en.wikipedia.org/wiki/Wikipedia:Contents/Categories). `did:didly` is reserved for creating redirections (shortcuts) - similar to http://bitly.com.
 
 ### Example 1. Trusted Digital Web (TDW) DID Category Identifier
 ```
 did:category:events:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
-did:category:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
+did:events:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp
 ```
 ### 3.1 DID Identifier Query Operators
 
@@ -129,17 +129,17 @@ Note: The list of supported public key signature schemes is listed in [Appendix 
 
 ```json
 {
-    "id": "did:category:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp",
+    "id": "did:events:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp",
     "verificationMethod": [
         {
-            "id": "did:category:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1",
+            "id": "did:events:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1",
             "type": "Ed25519VerificationKey2020",
-            "controller": "did:category:1234",
+            "controller": "did:events:1234",
             "publicKeyMultibase": "zEY59y7px76e2yv5FMj9fYcjDsqk8yus6isWtkF69ZrHY"
         }
     ],
-    "authentication": ["did:category:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1"],
-    "assertionMethod": ["did:category:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1"],
+    "authentication": ["did:events:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1"],
+    "assertionMethod": ["did:events:BF5pxRJP6THrUtlDdhh07hJEDKrJxkcR9m5u1xs33bhp#key-1"],
     "service": [{
         "id":"#agent1",
         "type": "BlueToqueTools.Agent", 
