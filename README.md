@@ -1,7 +1,7 @@
 # Trusted Digital Web (TDW)
 Trusted Digital Web (TDW) Project, Hyperonomy Digital Identity Lab, Parallelspace Corporation
 
-![Blue Toque](specifications/did-methods/images/bluetoquelogo2.jpg)
+![image](https://github.com/user-attachments/assets/902c2bb9-3094-4aed-b0ad-de936443bb46)
 
 ## Trusted Digital Web: 8-Layer Architecture Reference Model (TDW-ARM)
 
